@@ -1,0 +1,148 @@
+[
+  {
+    "id": "whale-shark-tagging-expedition",
+    "slug": "whale-shark-tagging-expedition",
+    "title": "Guardafui Whale Shark Tagging Expedition",
+    "location": "Cap Guardafui, Puntland",
+    "region": "Puntland",
+    "dates": "To Be Announced",
+    "duration": "7 Days",
+    "purpose": "Join the Elasmobranch Research Unit for satellite tagging and photo-ID fieldwork during the seasonal whale shark aggregation.",
+    "area": "sharks-rays",
+    "speciesSlugs": [
+      "whale-shark"
+    ],
+    "researchTeamSlug": "elasmobranch-research-unit",
+    "requirements": [
+      "Advanced open-water diving certification",
+      "Comfortable in open-ocean conditions"
+    ],
+    "status": "coming-soon",
+    "areaName": "Sharks & Rays",
+    "researchTeamName": "Elasmobranch Research Unit",
+    "species": [
+      {
+        "id": "whale-shark",
+        "slug": "whale-shark",
+        "commonName": "Whale Shark",
+        "scientificName": "Rhincodon typus",
+        "heroImage": "/marine_sharks.jpg",
+        "category": "Sharks & Rays"
+      }
+    ]
+  },
+  {
+    "id": "coral-reef-survey-expedition",
+    "slug": "coral-reef-survey-expedition",
+    "title": "Bajuni Coral Reef Survey Expedition",
+    "location": "Bajuni Archipelago, Jubaland",
+    "region": "Jubaland",
+    "dates": "To Be Announced",
+    "duration": "6 Days",
+    "purpose": "Assist the Coral Reef & Coastal Ecosystems Unit with genotype sampling and thermal resilience field surveys.",
+    "area": "coral-reefs",
+    "speciesSlugs": [
+      "acropora-coral"
+    ],
+    "researchTeamSlug": "coral-coastal-ecosystems-unit",
+    "requirements": [
+      "Open-water diving certification",
+      "Underwater survey training provided on arrival"
+    ],
+    "status": "coming-soon",
+    "areaName": "Coral Reef Health",
+    "researchTeamName": "Coral Reef & Coastal Ecosystems Unit",
+    "species": [
+      {
+        "id": "acropora-coral",
+        "slug": "acropora-coral",
+        "commonName": "Staghorn & Table Coral",
+        "scientificName": "Acropora muricata",
+        "heroImage": "/marine_coral.jpg",
+        "category": "Coral Reefs"
+      }
+    ]
+  },
+  {
+    "id": "turtle-nesting-fieldwork",
+    "slug": "turtle-nesting-fieldwork",
+    "title": "Hafun Sea Turtle Nesting Season Fieldwork",
+    "location": "Hafun Peninsula, Puntland",
+    "region": "Puntland",
+    "dates": "To Be Announced",
+    "duration": "10 Days",
+    "purpose": "Support nest monitoring, hatchling release, and community beach guardian training during the peak nesting season.",
+    "area": "sea-turtles",
+    "speciesSlugs": [
+      "green-sea-turtle",
+      "hawksbill-turtle"
+    ],
+    "researchTeamSlug": "sea-turtle-research-unit",
+    "requirements": [
+      "No diving certification required",
+      "Comfortable with early-morning and overnight beach fieldwork"
+    ],
+    "status": "coming-soon",
+    "areaName": "Sea Turtle Research",
+    "researchTeamName": "Sea Turtle Research Unit",
+    "species": [
+      {
+        "id": "green-sea-turtle",
+        "slug": "green-sea-turtle",
+        "commonName": "Green Sea Turtle",
+        "scientificName": "Chelonia mydas",
+        "heroImage": "/marine_turtles.jpg",
+        "category": "Sea Turtles"
+      },
+      {
+        "id": "hawksbill-turtle",
+        "slug": "hawksbill-turtle",
+        "commonName": "Hawksbill Sea Turtle",
+        "scientificName": "Eretmochelys imbricata",
+        "heroImage": "/marine_turtles.jpg",
+        "category": "Sea Turtles"
+      }
+    ]
+  },
+  {
+    "id": "cetacean-acoustic-voyage",
+    "slug": "cetacean-acoustic-voyage",
+    "title": "Gulf of Aden Cetacean Acoustic Monitoring Voyage",
+    "location": "Bosaso to Qandala, Puntland",
+    "region": "Puntland",
+    "dates": "To Be Announced",
+    "duration": "5 Days",
+    "purpose": "Join a boat-based survey deploying hydrophones and conducting dolphin photo-ID along the Gulf of Aden corridor.",
+    "area": "dolphins-whales",
+    "speciesSlugs": [
+      "bottlenose-dolphin",
+      "humpback-whale"
+    ],
+    "researchTeamSlug": "cetacean-marine-mammal-unit",
+    "requirements": [
+      "No diving certification required",
+      "Comfortable with multi-day boat travel"
+    ],
+    "status": "coming-soon",
+    "areaName": "Dolphins & Whales",
+    "researchTeamName": "Cetacean & Marine Mammal Research Unit",
+    "species": [
+      {
+        "id": "bottlenose-dolphin",
+        "slug": "bottlenose-dolphin",
+        "commonName": "Bottlenose Dolphin",
+        "scientificName": "Tursiops truncatus",
+        "heroImage": "/marine_dolphins.jpg",
+        "category": "Dolphins & Whales"
+      },
+      {
+        "id": "humpback-whale",
+        "slug": "humpback-whale",
+        "commonName": "Humpback Whale",
+        "scientificName": "Megaptera novaeangliae",
+        "heroImage": "/exp_coastal_cliff.jpg",
+        "category": "Dolphins & Whales"
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+.what-we-do__item {
+  text-decoration: none;
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.what-we-do__item:hover {
+  border-color: rgba(2, 204, 254, 0.4);
+  transform: translateY(-2px);
+}
+
+.what-we-do__title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 4px;
+}
+
+.what-we-do__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: #02CCFE;
+}

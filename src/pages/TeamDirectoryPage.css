@@ -1,0 +1,69 @@
+.team-directory {
+  padding-top: calc(var(--header-height) + var(--space-16));
+  padding-bottom: var(--space-24);
+}
+
+.team-directory__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: 420px;
+  margin: var(--space-12) auto;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.team-directory__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-6);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.team-directory-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.team-directory-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-bright);
+}
+
+.team-directory-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.team-directory-card__body {
+  padding: var(--space-5);
+}
+
+.team-directory-card__body h2 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-text);
+}
+
+.team-directory-card__body p {
+  color: var(--color-turquoise);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: var(--space-1);
+}
+
+.team-directory-card__location {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-text-dim);
+  font-size: 0.78rem;
+  margin-top: var(--space-2);
+}

@@ -1,0 +1,306 @@
+/* LuxuryDestinationCard.css */
+.lux-card {
+  position: relative;
+  height: 520px;
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  user-select: none;
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+[data-theme="light"] .lux-card {
+  box-shadow: 0 4px 16px rgba(7, 25, 35, 0.06);
+  border: 1.5px solid #D7E5EA;
+}
+
+
+.lux-card:hover {
+  border-color: #02CCFE;
+}
+
+.lux-card__link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+/* Background & Overlays */
+.lux-card__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.lux-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lux-card:hover .lux-card__img {
+  transform: scale(1.08);
+}
+
+.lux-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 20, 28, 0.3) 0%,
+    rgba(6, 20, 28, 0.35) 40%,
+    rgba(6, 20, 28, 0.95) 100%
+  );
+}
+
+/* Top Bar: Specs Pill on Left, Actions on Right */
+.lux-card__top {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 3;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.lux-card__specs-pill {
+  width: 86px;
+  padding: 8px 6px;
+  background: rgba(6, 20, 28, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.lux-card__spec-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  width: 100%;
+  text-align: center;
+}
+
+.lux-card__spec-icon {
+  color: #02CCFE;
+}
+
+.lux-card__spec-val {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 74px;
+}
+
+.lux-card__spec-divider {
+  width: 70%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.lux-card__top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lux-card__region-tag {
+  padding: 0.3rem 0.75rem;
+  background: rgba(6, 20, 28, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  color: #02CCFE;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lux-card__action-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(6, 20, 28, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.lux-card__action-btn:hover {
+  background: #02CCFE;
+  border-color: #02CCFE;
+  transform: scale(1.1);
+}
+
+.lux-card__action-btn:hover svg {
+  color: #030D1A !important;
+}
+
+.lux-card__action-btn--liked {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #EF4444;
+}
+
+.lux-card__toast {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #02CCFE;
+  color: #030D1A;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+/* Bottom Area with Prominent Horizontal Title */
+.lux-card__bottom {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lux-card__badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lux-card__badge-sub {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #02CCFE;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.lux-card__score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lux-card__score-badge svg {
+  color: #02CCFE;
+}
+
+/* Prominent Horizontal Title */
+.lux-card__title {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.lux-card__desc {
+  font-size: 0.76rem;
+  color: rgba(240, 246, 255, 0.88);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lux-card__metrics {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: rgba(6, 20, 28, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+}
+
+.lux-card__metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.lux-card__metric-num {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.lux-card__metric-lbl {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: rgba(240, 246, 255, 0.7);
+  text-transform: capitalize;
+}
+
+.lux-card__cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #02CCFE;
+  border: 1px solid #02CCFE;
+  border-radius: var(--radius-full);
+  color: #030D1A;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 16px rgba(2, 204, 254, 0.35);
+  margin-top: 2px;
+}
+
+.lux-card:hover .lux-card__cta-btn {
+  background: #00BBEA;
+  border-color: #00BBEA;
+  box-shadow: 0 6px 24px rgba(2, 204, 254, 0.55);
+  gap: 12px;
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "field-surveys",
+    "label": "Field Surveys",
+    "icon": "ClipboardList"
+  },
+  {
+    "id": "underwater-surveys",
+    "label": "Underwater Surveys",
+    "icon": "Waves"
+  },
+  {
+    "id": "species-identification",
+    "label": "Species Identification",
+    "icon": "Fingerprint"
+  },
+  {
+    "id": "water-sampling",
+    "label": "Water Sampling",
+    "icon": "TestTube"
+  },
+  {
+    "id": "fisheries-data",
+    "label": "Fisheries Data Collection",
+    "icon": "Fish"
+  },
+  {
+    "id": "acoustic-monitoring",
+    "label": "Acoustic Monitoring",
+    "icon": "AudioLines"
+  },
+  {
+    "id": "photography",
+    "label": "Photography & Photo-ID",
+    "icon": "Camera"
+  },
+  {
+    "id": "geographic-mapping",
+    "label": "Geographic Mapping",
+    "icon": "Map"
+  },
+  {
+    "id": "community-knowledge",
+    "label": "Community Knowledge",
+    "icon": "Users"
+  }
+]

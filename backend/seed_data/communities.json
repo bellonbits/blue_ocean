@@ -1,0 +1,170 @@
+[
+  {
+    "id": "bosaso-fishing-cooperative",
+    "slug": "bosaso-fishing-cooperative",
+    "name": "Bosaso Fishing Cooperative",
+    "category": "fishermen",
+    "location": "Bosaso, Bari Region",
+    "region": "Puntland",
+    "heroImage": "/bosaso1.jpg",
+    "description": "A cooperative of artisanal handline fishing crews operating out of Bosaso harbor, working Gulf of Aden waters for yellowfin tuna and kingfish.",
+    "livelihoods": [
+      "Artisanal handline fishing",
+      "Fish market trading",
+      "Vessel maintenance and dhow building"
+    ],
+    "marineConnection": "The cooperative's fleet fishes the same Gulf of Aden corridor Blue Ocean surveys for dolphin and whale movement, making it a direct partner in both fisheries and cetacean conservation work.",
+    "conservationActivities": [
+      "Fair Trade Handline Certification pilot fleet",
+      "Reporting cetacean sightings during fishing trips"
+    ],
+    "gallery": [
+      {
+        "url": "/bosaso1.jpg",
+        "caption": "Handline vessels docked in Bosaso harbor."
+      },
+      {
+        "url": "/bosaso2.jpg",
+        "caption": "Bosaso's coastal fish market."
+      },
+      {
+        "url": "/exp_dhow_sailing.jpg",
+        "caption": "A traditional dhow under sail off the Bari coast."
+      }
+    ]
+  },
+  {
+    "id": "eyl-traditional-knowledge-keepers",
+    "slug": "eyl-traditional-knowledge-keepers",
+    "name": "Eyl Traditional Knowledge Keepers",
+    "category": "traditional-knowledge",
+    "location": "Eyl, Bari Region",
+    "region": "Puntland",
+    "heroImage": "/eyl1.jpg",
+    "description": "Multi-generational fishing families along the Eyl escarpments whose knowledge of lobster behavior, breeding cycles, and seasonal patterns predates any formal survey.",
+    "livelihoods": [
+      "Spiny lobster harvesting",
+      "Reef-edge net fishing"
+    ],
+    "marineConnection": "Their observations of egg-bearing (\"berried\") female lobster behavior directly shaped the size-limit and release protocol adopted across the Bari escarpment fishery.",
+    "conservationActivities": [
+      "Co-designed the Berried Female Release & Size-Limit Accord",
+      "Seasonal closure monitoring"
+    ],
+    "gallery": [
+      {
+        "url": "/eyl1.jpg",
+        "caption": "Eyl's escarpment coastline, the primary lobster fishing ground."
+      },
+      {
+        "url": "/eyl2.jpg",
+        "caption": "Traditional fishing boats at rest in Eyl."
+      },
+      {
+        "url": "/eyl3.jpg",
+        "caption": "The rocky Bari escarpments where lobster surveys were conducted."
+      }
+    ]
+  },
+  {
+    "id": "kismayo-womens-fish-processing",
+    "slug": "kismayo-womens-fish-processing",
+    "name": "Kismayo Women's Fish Processing Collective",
+    "category": "women",
+    "location": "Kismayo, Lower Juba",
+    "region": "Jubaland",
+    "heroImage": "/jubaland.jpg",
+    "description": "A women-led collective processing and selling fish catch from Kismayo's landing sites, turning what was once discarded by-catch into a stable source of household income.",
+    "livelihoods": [
+      "Fish processing and drying",
+      "Local market trading",
+      "Small-scale fish trading routes to inland markets"
+    ],
+    "marineConnection": "The collective works the same Kismayo landings connected to Blue Ocean's seagrass and sirenian protection work in the surrounding Bajuni Archipelago waters.",
+    "conservationActivities": [
+      "Reduced-waste processing practices",
+      "Local awareness sessions on sustainable catch handling"
+    ],
+    "gallery": [
+      {
+        "url": "/jubaland.jpg",
+        "caption": "Kismayo's coastal waters and landing sites."
+      },
+      {
+        "url": "/marine_fish.jpg",
+        "caption": "Fresh catch ready for processing."
+      },
+      {
+        "url": "/marine_seagrass.jpg",
+        "caption": "Seagrass channels near the collective's working waters."
+      }
+    ]
+  },
+  {
+    "id": "hafun-youth-beach-guardians",
+    "slug": "hafun-youth-beach-guardians",
+    "name": "Hafun Youth Beach Guardians",
+    "category": "youth",
+    "location": "Hafun, Bari Region",
+    "region": "Puntland",
+    "heroImage": "/hafun1.jpg",
+    "description": "A trained network of young residents monitoring sea turtle nesting beaches around the Hafun Peninsula through the full nesting season.",
+    "livelihoods": [
+      "Seasonal beach guardian stipends",
+      "Ecotourism guiding during nesting season"
+    ],
+    "marineConnection": "The Hafun tombolo beaches are one of Somalia's two most significant green and hawksbill turtle nesting rookeries, and guardians are present through the entire incubation window.",
+    "conservationActivities": [
+      "Community Beach Guardian Nest Protection Program",
+      "Hatchling release supervision",
+      "Ocean literacy peer education"
+    ],
+    "gallery": [
+      {
+        "url": "/hafun1.jpg",
+        "caption": "The Hafun Peninsula coastline."
+      },
+      {
+        "url": "/hafun2.jpg",
+        "caption": "Hafun tombolo beach, one of the monitored nesting rookeries."
+      },
+      {
+        "url": "/marine_turtles.jpg",
+        "caption": "A green sea turtle in the waters off Hafun."
+      }
+    ]
+  },
+  {
+    "id": "mogadishu-coastal-business-alliance",
+    "slug": "mogadishu-coastal-business-alliance",
+    "name": "Mogadishu Coastal Business Alliance",
+    "category": "coastal-business",
+    "location": "Mogadishu, Banaadir",
+    "region": "Somalia",
+    "heroImage": "/mogadishu_beach.jpg",
+    "description": "Beachfront restaurants, cafes, and tour operators along Liido Beach who jointly fund and staff the quarterly cleanup calendar for Mogadishu's most visited shoreline.",
+    "livelihoods": [
+      "Beachfront hospitality and tourism",
+      "Small watercraft rental and tours"
+    ],
+    "marineConnection": "Liido Beach is both the Alliance's commercial center and one of the two sites in Blue Ocean's ongoing debris-density mapping and water-quality monitoring work.",
+    "conservationActivities": [
+      "Southern Coast Community Beach Cleanup Network funding partner",
+      "Hosting public water-quality guidance postings"
+    ],
+    "gallery": [
+      {
+        "url": "/mogadishu_beach.jpg",
+        "caption": "Liido Beach, Mogadishu's most visited shoreline."
+      },
+      {
+        "url": "/con_beach_cleanup.jpg",
+        "caption": "A quarterly community cleanup event."
+      },
+      {
+        "url": "/somalia_coast.jpg",
+        "caption": "Banaadir's coastal waters."
+      }
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "habitat-degradation",
+    "label": "Habitat Degradation",
+    "icon": "TreePine"
+  },
+  {
+    "id": "plastic-pollution",
+    "label": "Plastic & Marine Debris",
+    "icon": "Trash2"
+  },
+  {
+    "id": "unsustainable-fishing",
+    "label": "Unsustainable Fishing",
+    "icon": "Fish"
+  },
+  {
+    "id": "bycatch",
+    "label": "Bycatch & Entanglement",
+    "icon": "AlertTriangle"
+  },
+  {
+    "id": "wildlife-trade",
+    "label": "Illegal Wildlife Trade",
+    "icon": "ShieldOff"
+  },
+  {
+    "id": "vessel-strikes",
+    "label": "Vessel Strikes",
+    "icon": "Ship"
+  },
+  {
+    "id": "water-quality",
+    "label": "Declining Water Quality",
+    "icon": "Droplets"
+  },
+  {
+    "id": "climate-warming",
+    "label": "Warming & Bleaching",
+    "icon": "Thermometer"
+  },
+  {
+    "id": "low-awareness",
+    "label": "Limited Ocean Literacy",
+    "icon": "BookOpen"
+  }
+]

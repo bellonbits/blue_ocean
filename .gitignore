@@ -1,0 +1,37 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment secrets
+.env
+
+# Oversized video-GIFs (exceed GitHub's 100MB file limit) — kept locally,
+# not tracked. See public/ for the full asset set at deploy time.
+public/Blue Simple Beauty Of The Ocean Video.gif
+public/Blue Simple Beauty Of The Ocean Video copy.gif
+public/Green and Blue Scenic Travel Landscape Video.gif
+public/Blue and White Modern Save Our Ocean Video.gif
+public/ocean_hero.gif
+public/Blue Minimalist Explore the Ocean Video.gif
+public/jk.gif
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

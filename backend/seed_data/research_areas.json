@@ -1,0 +1,101 @@
+[
+  {
+    "id": "marine-biodiversity",
+    "slug": "marine-biodiversity",
+    "title": "Marine Biodiversity",
+    "description": "Cataloguing the full spectrum of marine life and uncharted species across Somali waters.",
+    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
+    "tag": "Biodiversity",
+    "color": "rgba(0,201,177,0.15)",
+    "borderColor": "rgba(0,201,177,0.3)",
+    "textColor": "#4DDFD0"
+  },
+  {
+    "id": "fisheries",
+    "slug": "fisheries",
+    "title": "Fisheries Science",
+    "description": "Population dynamics, stock assessments, catch data, and sustainable marine harvest yields.",
+    "image": "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=600&q=80",
+    "tag": "Fisheries",
+    "color": "rgba(99,102,241,0.15)",
+    "borderColor": "rgba(99,102,241,0.3)",
+    "textColor": "#A5B4FC"
+  },
+  {
+    "id": "coral-reefs",
+    "slug": "coral-reefs",
+    "title": "Coral Reef Health",
+    "description": "Monitoring reef bleaching, thermal resilience, and coral regeneration under climate shifts.",
+    "image": "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=600&q=80",
+    "tag": "Coral Reefs",
+    "color": "rgba(249,115,22,0.15)",
+    "borderColor": "rgba(249,115,22,0.3)",
+    "textColor": "#FDBA74"
+  },
+  {
+    "id": "sharks-rays",
+    "slug": "sharks-rays",
+    "title": "Sharks & Rays",
+    "description": "Population monitoring, migratory corridor mapping, and protection of apex predators.",
+    "image": "https://images.unsplash.com/photo-1560275619-4662e36fa65c?auto=format&fit=crop&w=600&q=80",
+    "tag": "Elasmobranchs",
+    "color": "rgba(59,130,246,0.15)",
+    "borderColor": "rgba(59,130,246,0.3)",
+    "textColor": "#93C5FD"
+  },
+  {
+    "id": "dolphins-whales",
+    "slug": "dolphins-whales",
+    "title": "Dolphins & Whales",
+    "description": "Acoustic monitoring, migration tracking, and population surveys of resident and migratory cetaceans.",
+    "image": "/marine_dolphins.jpg",
+    "tag": "Cetaceans",
+    "color": "rgba(2,204,254,0.15)",
+    "borderColor": "rgba(2,204,254,0.3)",
+    "textColor": "#7DD3FC"
+  },
+  {
+    "id": "sea-turtles",
+    "slug": "sea-turtles",
+    "title": "Sea Turtle Research",
+    "description": "Nesting site telemetry, satellite tagging, and beach incubation recovery programs.",
+    "image": "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=600&q=80",
+    "tag": "Sea Turtles",
+    "color": "rgba(34,197,94,0.15)",
+    "borderColor": "rgba(34,197,94,0.3)",
+    "textColor": "#86EFAC"
+  },
+  {
+    "id": "ocean-pollution",
+    "slug": "ocean-pollution",
+    "title": "Ocean Pollution",
+    "description": "Mapping microplastics, marine debris accumulation, and coastal pollutant hotspots.",
+    "image": "https://images.unsplash.com/photo-1621451537084-482c73073a0f?auto=format&fit=crop&w=600&q=80",
+    "tag": "Pollution",
+    "color": "rgba(239,68,68,0.15)",
+    "borderColor": "rgba(239,68,68,0.3)",
+    "textColor": "#FCA5A5"
+  },
+  {
+    "id": "water-quality",
+    "slug": "water-quality",
+    "title": "Water Quality",
+    "description": "Salinity, dissolved oxygen, pH metrics, and ocean temperature sensing across the coast.",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+    "tag": "Oceanography",
+    "color": "rgba(14,165,233,0.15)",
+    "borderColor": "rgba(14,165,233,0.3)",
+    "textColor": "#7DD3FC"
+  },
+  {
+    "id": "coastal-ecosystems",
+    "slug": "coastal-ecosystems",
+    "title": "Coastal Ecosystems",
+    "description": "Mangrove preservation, seagrass carbon sequestration, and estuarine wetland protection.",
+    "image": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=600&q=80",
+    "tag": "Ecosystems",
+    "color": "rgba(132,204,22,0.15)",
+    "borderColor": "rgba(132,204,22,0.3)",
+    "textColor": "#BEF264"
+  }
+]

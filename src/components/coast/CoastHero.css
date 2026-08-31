@@ -1,0 +1,117 @@
+/* CoastHero.css */
+.coast-hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: calc(var(--header-height) + var(--space-8));
+  padding-bottom: var(--space-20);
+}
+
+.coast-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-below);
+}
+
+.coast-hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.02);
+  filter: brightness(0.85);
+}
+
+.coast-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 20, 28, 0.45) 0%,
+    rgba(6, 20, 28, 0.72) 55%,
+    rgba(6, 20, 28, 0.98) 100%
+  );
+}
+
+.coast-hero__container {
+  position: relative;
+  z-index: var(--z-raised);
+  width: 100%;
+}
+
+.coast-hero__content {
+  max-width: 840px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.coast-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.35rem 0.9rem;
+  background: rgba(6, 20, 28, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 207, 232, 0.35);
+  border-radius: var(--radius-full);
+  color: #4DE2F2;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  width: fit-content;
+}
+
+.coast-hero__badge-icon {
+  color: #00CFE8;
+}
+
+.coast-hero__title {
+  font-size: clamp(var(--text-4xl), 7vw, var(--text-7xl));
+  /* gradient applied via .display-heading class */
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.coast-hero__title-accent {
+  background: linear-gradient(135deg, #00CFE8 0%, #4DE2F2 50%, #009BB0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.coast-hero__subtext {
+  font-size: clamp(var(--text-base), 2.2vw, var(--text-xl));
+  /* hero has dark overlay so subtext stays light in both themes */
+  color: rgba(240, 246, 255, 0.9);
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+.coast-hero__ctas {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .coast-hero {
+    min-height: 80vh;
+    padding-top: calc(var(--header-height) + var(--space-6));
+    padding-bottom: var(--space-16);
+  }
+
+  .coast-hero__ctas {
+    flex-direction: column;
+  }
+
+  .coast-hero__ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

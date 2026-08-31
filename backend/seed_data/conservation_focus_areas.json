@@ -1,0 +1,51 @@
+[
+  {
+    "id": "marine-wildlife",
+    "slug": "marine-wildlife",
+    "title": "Marine Wildlife",
+    "description": "Protecting endangered and vulnerable marine species — from sea turtles to sharks and cetaceans — across Somali waters.",
+    "image": "/marine_turtles.jpg"
+  },
+  {
+    "id": "coral-habitat",
+    "slug": "coral-habitat",
+    "title": "Coral & Habitat Protection",
+    "description": "Safeguarding coral reefs, seagrass meadows, and mangrove nurseries against degradation and unregulated development.",
+    "image": "/marine_coral.jpg"
+  },
+  {
+    "id": "sustainable-fishing",
+    "slug": "sustainable-fishing",
+    "title": "Sustainable Fishing",
+    "description": "Working with artisanal fleets to protect fish stocks, nursery grounds, and livelihoods for the long term.",
+    "image": "/exp_dhow_sailing.jpg"
+  },
+  {
+    "id": "ocean-pollution",
+    "slug": "ocean-pollution",
+    "title": "Ocean Pollution",
+    "description": "Mapping marine debris, microplastics, and coastal pollution sources to guide cleanup and prevention.",
+    "image": "/mogadishu_beach.jpg"
+  },
+  {
+    "id": "beach-cleanup",
+    "slug": "beach-cleanup",
+    "title": "Beach Cleanup",
+    "description": "Organizing community-led shoreline cleanups along Somalia's most heavily used coastlines.",
+    "image": "/con_beach_cleanup.jpg"
+  },
+  {
+    "id": "marine-education",
+    "slug": "marine-education",
+    "title": "Marine Education",
+    "description": "Building ocean literacy in coastal schools and communities to grow the next generation of stewards.",
+    "image": "/con_youth_education.jpg"
+  },
+  {
+    "id": "community-conservation",
+    "slug": "community-conservation",
+    "title": "Community Conservation",
+    "description": "Partnering with coastal communities so conservation is led by the people who depend on the ocean most.",
+    "image": "/puntland.jpg"
+  }
+]

@@ -1,0 +1,137 @@
+/* =========================================================
+   Experience Detail Hero Styles
+   ========================================================= */
+
+.exp-detail-hero {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: flex-end;
+  padding-top: calc(var(--header-height) + var(--space-12));
+  padding-bottom: var(--space-16);
+  overflow: hidden;
+}
+
+.exp-detail-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.exp-detail-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transform: scale(1.03);
+  filter: brightness(0.68) saturate(1.2);
+}
+
+.exp-detail-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(6, 20, 28, 0.4) 0%, rgba(6, 20, 28, 0.7) 60%, rgba(6, 20, 28, 0.98) 100%);
+}
+
+.exp-detail-hero__gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top, rgba(6, 20, 28, 0.6) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.exp-detail-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.exp-detail-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: rgba(240, 246, 255, 0.7);
+  margin-bottom: var(--space-2);
+}
+
+.exp-detail-hero__crumb-link {
+  color: rgba(240, 246, 255, 0.8);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.exp-detail-hero__crumb-link:hover {
+  color: #02CCFE;
+}
+
+.exp-detail-hero__crumb-sep {
+  color: rgba(240, 246, 255, 0.4);
+}
+
+.exp-detail-hero__crumb-current {
+  color: #02CCFE;
+  font-weight: 600;
+}
+
+.exp-detail-hero__badges {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.exp-detail-hero__group-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
+.exp-detail-hero__status-badge {
+  font-size: 0.75rem;
+  padding: 6px 14px;
+}
+
+.exp-detail-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #FFFFFF;
+  margin: 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.exp-detail-hero__tagline {
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: #02CCFE;
+  font-weight: 500;
+  margin: 0;
+  max-width: 720px;
+}
+
+@media (max-width: 768px) {
+  .exp-detail-hero {
+    min-height: 65vh;
+    padding-bottom: var(--space-10);
+  }
+}

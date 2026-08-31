@@ -1,0 +1,17 @@
+{
+  "name": "blue-ocean-chat-server",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Secure backend proxy for the Blue Ocean site chat assistant. Keeps GROQ_API_KEY server-side.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2"
+  }
+}

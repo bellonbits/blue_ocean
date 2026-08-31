@@ -1,0 +1,63 @@
+/* =========================================================
+   Article References — compact related-content link groups
+   ========================================================= */
+
+.article-refs {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.article-refs__col {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.article-refs__groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.article-refs__group-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-turquoise);
+  margin-bottom: var(--space-3);
+}
+
+.article-refs__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.article-refs__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-full);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color var(--transition-base), color var(--transition-base), transform var(--transition-base);
+}
+
+.article-refs__link:hover {
+  border-color: var(--color-turquoise);
+  color: var(--color-turquoise);
+  transform: translateY(-1px);
+}
+
+.article-refs__link svg {
+  opacity: 0.6;
+}

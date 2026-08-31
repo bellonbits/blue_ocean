@@ -1,0 +1,93 @@
+/* =========================================================
+   Marine Statistics Styles (Cinematic Dark Rhythm)
+   ========================================================= */
+
+.marine-stats {
+  padding: var(--space-12) 0;
+  background: var(--color-background);
+}
+
+.marine-stats__card {
+  background: var(--color-surface);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--color-border);
+  padding: var(--space-12) var(--space-8);
+}
+
+[data-theme="light"] .marine-stats__card {
+  background: #030D1A;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 48px rgba(3, 13, 26, 0.15);
+}
+
+.marine-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+}
+
+.marine-stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+}
+
+.marine-stats__icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(2, 204, 254, 0.12);
+  border: 1px solid rgba(2, 204, 254, 0.3);
+  color: #02CCFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-2);
+}
+
+.marine-stats__number {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: #02CCFE;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.marine-stats__label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+[data-theme="light"] .marine-stats__label {
+  color: #FFFFFF;
+}
+
+.marine-stats__desc {
+  font-size: 0.85rem;
+  color: rgba(240, 246, 255, 0.7);
+  max-width: 220px;
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .marine-stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 540px) {
+  .marine-stats__grid {
+    grid-template-columns: 1fr;
+  }
+  .marine-stats__card {
+    padding: var(--space-8) var(--space-4);
+  }
+}

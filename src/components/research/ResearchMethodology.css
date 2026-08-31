@@ -1,0 +1,52 @@
+/* =========================================================
+   Research Methodology Styles
+   ========================================================= */
+
+.research-method {
+  background: var(--color-background);
+}
+
+.research-method__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.research-method__tag {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+[data-theme="light"] .research-method__tag {
+  background: #FFFFFF;
+  border-color: rgba(7, 25, 35, 0.08);
+  box-shadow: 0 4px 16px rgba(7, 25, 35, 0.03);
+}
+
+.research-method__tag-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(2, 204, 254, 0.1);
+  border: 1px solid rgba(2, 204, 254, 0.25);
+  color: #02CCFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.research-method__tag-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+[data-theme="light"] .research-method__tag-label {
+  color: #091E33;
+}

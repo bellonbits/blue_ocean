@@ -1,0 +1,38 @@
+[
+  {
+    "id": "marine-life",
+    "slug": "marine-life",
+    "label": "Marine Life",
+    "badgeClass": "badge-turquoise"
+  },
+  {
+    "id": "research",
+    "slug": "research",
+    "label": "Research",
+    "badgeClass": "badge-research"
+  },
+  {
+    "id": "tourism",
+    "slug": "tourism",
+    "label": "Tourism",
+    "badgeClass": "badge-turquoise"
+  },
+  {
+    "id": "conservation",
+    "slug": "conservation",
+    "label": "Conservation",
+    "badgeClass": "badge-conservation"
+  },
+  {
+    "id": "coastal-communities",
+    "slug": "coastal-communities",
+    "label": "Coastal Communities",
+    "badgeClass": "badge-turquoise"
+  },
+  {
+    "id": "ocean-news",
+    "slug": "ocean-news",
+    "label": "Ocean News",
+    "badgeClass": "badge-coming-soon"
+  }
+]

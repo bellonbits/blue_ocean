@@ -1,0 +1,76 @@
+/* =========================================================
+   Related Species Styles (Cinematic Dark Rhythm)
+   ========================================================= */
+
+.related-species {
+  background: var(--color-background);
+  padding: var(--space-20) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.related-species__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.related-species__header-left {
+  max-width: 640px;
+}
+
+.related-species__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  background: #02CCFE;
+  color: #030D1A;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid #02CCFE;
+  box-shadow: 0 4px 16px rgba(2, 204, 254, 0.3);
+  transition: all var(--transition-base);
+}
+
+.related-species__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(2, 204, 254, 0.45);
+  color: #030D1A;
+}
+
+.related-species__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.related-species__item {
+  height: 100%;
+}
+
+@media (max-width: 992px) {
+  .related-species__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .related-species__grid {
+    grid-template-columns: 1fr;
+  }
+  .related-species__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+  .related-species__btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

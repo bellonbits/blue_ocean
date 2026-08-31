@@ -1,0 +1,65 @@
+/* =========================================================
+   Research Data Stats Styles
+   ========================================================= */
+
+.research-data {
+  background: var(--color-surface);
+}
+
+[data-theme="light"] .research-data {
+  background: #030D1A;
+}
+
+.research-data .section-heading {
+  color: #FFFFFF;
+}
+
+[data-theme="light"] .research-data .section-heading {
+  color: #FFFFFF;
+}
+
+.research-data .section-subheading {
+  color: rgba(240, 246, 255, 0.75);
+}
+
+.research-data__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+.research-data__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-2);
+  padding: var(--space-8) var(--space-4);
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.research-data__value {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #02CCFE;
+  line-height: 1;
+  text-shadow: 0 0 24px rgba(2, 204, 254, 0.35);
+}
+
+.research-data__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(240, 246, 255, 0.75);
+}
+
+@media (max-width: 768px) {
+  .research-data__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

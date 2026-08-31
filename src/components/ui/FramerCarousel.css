@@ -1,0 +1,109 @@
+/* FramerCarousel.css */
+.framer-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-block: var(--space-2);
+}
+
+.framer-carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+  padding-inline: var(--space-1);
+}
+
+.framer-carousel__indicators {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.framer-carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.framer-carousel__dot--active {
+  width: 28px;
+  background: #02CCFE;
+  box-shadow: 0 0 10px rgba(2, 204, 254, 0.4);
+}
+
+[data-theme="light"] .framer-carousel__dot {
+  background: #D7E5EA;
+}
+
+[data-theme="light"] .framer-carousel__dot--active {
+  background: #02CCFE;
+  box-shadow: 0 0 10px rgba(2, 204, 254, 0.3);
+}
+
+.framer-carousel__arrows {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.framer-carousel__btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(6, 20, 28, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+[data-theme="light"] .framer-carousel__btn {
+  background: #FFFFFF;
+  border: 1.5px solid #D7E5EA;
+  color: #071923;
+  box-shadow: 0 2px 8px rgba(7, 25, 35, 0.04);
+}
+
+.framer-carousel__btn:hover {
+  background: #02CCFE;
+  border-color: #02CCFE;
+  color: #030D1A;
+  transform: scale(1.05);
+}
+
+[data-theme="light"] .framer-carousel__btn:hover {
+  background: #02CCFE;
+  border-color: #02CCFE;
+  color: #030D1A;
+}
+
+.framer-carousel__viewport {
+  width: 100%;
+  overflow: hidden;
+  padding-block: 4px;
+}
+
+.framer-carousel__track {
+  display: flex;
+  width: max-content;
+  cursor: grab;
+}
+
+.framer-carousel__track:active {
+  cursor: grabbing;
+}
+
+.framer-carousel__item {
+  flex-shrink: 0;
+}

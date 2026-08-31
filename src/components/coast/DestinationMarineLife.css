@@ -1,0 +1,112 @@
+/* DestinationMarineLife.css */
+.dest-marine-section {
+  background: var(--color-background);
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  z-index: 1;
+}
+
+.dest-marine-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-10);
+}
+
+.dest-species-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-slow);
+}
+
+.dest-species-card:hover {
+  border-color: var(--color-border-bright);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl), var(--shadow-glow-sm);
+}
+
+.dest-species-card__image-wrap {
+  position: relative;
+  height: 220px;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-surface-2);
+}
+
+.dest-species-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dest-species-card:hover .dest-species-card__img {
+  transform: scale(1.08);
+}
+
+.dest-species-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(3, 13, 26, 0.1) 0%,
+    rgba(13, 31, 53, 0.85) 100%
+  );
+}
+
+.dest-species-card__content {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1;
+}
+
+.dest-species-card__names {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dest-species-card__common-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.dest-species-card__scientific-name {
+  font-size: var(--text-xs);
+  font-style: italic;
+  color: var(--color-turquoise-light);
+  letter-spacing: 0.02em;
+}
+
+.dest-species-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.dest-marine-cta {
+  text-align: center;
+  margin-top: var(--space-12);
+}
+
+@media (max-width: 900px) {
+  .dest-marine-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .dest-marine-grid {
+    grid-template-columns: 1fr;
+  }
+}

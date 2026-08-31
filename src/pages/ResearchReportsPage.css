@@ -1,0 +1,11 @@
+.research-reports-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .research-reports-grid {
+    grid-template-columns: 1fr;
+  }
+}

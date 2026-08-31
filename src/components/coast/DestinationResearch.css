@@ -1,0 +1,104 @@
+/* DestinationResearch.css */
+.dest-research-section {
+  background: var(--color-surface);
+}
+
+.dest-research-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-10);
+}
+
+.dest-research-card {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: all var(--transition-slow);
+}
+
+.dest-research-card:hover {
+  border-color: var(--color-border-bright);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-sm);
+}
+
+.dest-research-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.badge-research {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.25rem 0.7rem;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: var(--radius-full);
+  color: #A5B4FC;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.dest-research-card__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--color-turquoise-light);
+  font-weight: 500;
+}
+
+.dest-research-card__title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.4;
+  flex: 1;
+}
+
+.dest-research-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: auto;
+}
+
+.dest-research-card__region {
+  font-size: var(--text-xs);
+  color: var(--color-text-dim);
+}
+
+.dest-research-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-turquoise);
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.dest-research-card:hover .dest-research-card__link,
+.dest-research-card__link:hover {
+  color: var(--color-turquoise-light);
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .dest-research-grid {
+    grid-template-columns: 1fr;
+  }
+}

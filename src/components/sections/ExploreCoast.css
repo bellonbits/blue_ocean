@@ -1,0 +1,10 @@
+/* ExploreCoast Section */
+.explore {
+  background: var(--color-background);
+  position: relative;
+  overflow: hidden;
+}
+
+.explore__carousel-wrap {
+  margin-top: var(--space-10);
+}

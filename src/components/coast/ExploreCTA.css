@@ -1,0 +1,105 @@
+/* ExploreCTA.css */
+.explore-cta-section {
+  background: var(--color-background);
+  position: relative;
+  overflow: hidden;
+}
+
+.explore-cta-card {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  padding: var(--space-16) var(--space-10);
+  background: linear-gradient(135deg, #0B202B 0%, #06141C 100%);
+  border: 1px solid var(--color-border-bright);
+  text-align: center;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl), var(--shadow-glow);
+  transition: all var(--transition-slow);
+}
+
+[data-theme="light"] .explore-cta-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5FAFC 100%);
+  border: 1.5px solid #D7E5EA;
+  box-shadow: 0 20px 48px rgba(7, 25, 35, 0.08);
+}
+
+.explore-cta-glow {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 207, 232, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+[data-theme="light"] .explore-cta-glow {
+  background: radial-gradient(circle, rgba(0, 127, 153, 0.1) 0%, transparent 70%);
+}
+
+.explore-cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.explore-cta-heading {
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #FFFFFF 0%, #D6F0EE 45%, #9DDDD6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="light"] .explore-cta-heading {
+  background: linear-gradient(135deg, #071923 0%, #0A3044 50%, #007F99 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.explore-cta-subtext {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+[data-theme="light"] .explore-cta-subtext {
+  color: #526A75;
+}
+
+.explore-cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .explore-cta-card {
+    padding: var(--space-10) var(--space-6);
+  }
+
+  .explore-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .explore-cta-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

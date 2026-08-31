@@ -1,0 +1,63 @@
+"""
+Individual coastal destinations (Bosaso, Eyl, Kismayo, ...).
+
+Cross-links to species, research projects, and experiences (present in
+the frontend's static data) aren't modeled here yet — those tables
+don't exist until Sprints B4 (Marine Life), B5 (Research), and B6
+(Experiences). Wiring real foreign keys happens then rather than
+guessing the shape now.
+"""
+
+import enum
+import uuid
+from datetime import datetime
+
+from sqlalchemy import Boolean, DateTime, Enum, Float, ForeignKey, String, Text, func
+from sqlalchemy.dialects.postgresql import ARRAY, UUID
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+from app.db.base import Base
+
+
+class DestinationStatus(str, enum.Enum):
+    DRAFT = "draft"
+    PUBLISHED = "published"
+    ARCHIVED = "archived"
+
+
+class Destination(Base):
+    __tablename__ = "destinations"
+
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    slug: Mapped[str] = mapped_column(String(100), unique=True, index=True, nullable=False)
+    name: Mapped[str] = mapped_column(String(150), nullable=False)
+
+    region_id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), ForeignKey("regions.id"), nullable=False)
+    region: Mapped["Region"] = relationship(back_populates="destinations")
+
+    location: Mapped[str | None] = mapped_column(String(255))
+    coastline_area: Mapped[str | None] = mapped_column(String(255))
+    destination_type: Mapped[str | None] = mapped_column(String(255))
+    tagline: Mapped[str | None] = mapped_column(Text)
+    short_description: Mapped[str | None] = mapped_column(Text)
+    full_description: Mapped[str | None] = mapped_column(Text)
+
+    hero_image: Mapped[str | None] = mapped_column(String(500))
+    gallery: Mapped[list[str]] = mapped_column(ARRAY(String), default=list)
+
+    latitude: Mapped[float | None] = mapped_column(Float)
+    longitude: Mapped[float | None] = mapped_column(Float)
+
+    best_season: Mapped[str | None] = mapped_column(String(255))
+    access: Mapped[str | None] = mapped_column(String(255))
+    featured: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    highlights: Mapped[list[str]] = mapped_column(ARRAY(String), default=list)
+
+    status: Mapped[DestinationStatus] = mapped_column(
+        Enum(DestinationStatus, name="destination_status"), nullable=False, default=DestinationStatus.DRAFT
+    )
+
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )

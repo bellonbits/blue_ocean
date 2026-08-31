@@ -1,0 +1,163 @@
+/* =========================================================
+   Experience Grid Styles
+   ========================================================= */
+
+.exp-grid {
+  scroll-margin-top: calc(var(--header-height) + var(--space-6));
+}
+
+.exp-grid__notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-8);
+}
+
+.exp-grid__notice svg {
+  flex-shrink: 0;
+  color: #F59E0B;
+  margin-top: 2px;
+}
+
+.exp-grid__toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.exp-grid__search {
+  position: relative;
+  max-width: 420px;
+}
+
+.exp-grid__search-icon {
+  position: absolute;
+  top: 50%;
+  left: var(--space-4);
+  transform: translateY(-50%);
+  color: var(--color-text-dim);
+  pointer-events: none;
+}
+
+.exp-grid__search-input {
+  width: 100%;
+  padding: 12px 16px 12px 42px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+.exp-grid__search-input:focus {
+  outline: none;
+  border-color: var(--color-turquoise);
+}
+
+.exp-grid__search-input::placeholder {
+  color: var(--color-text-dim);
+}
+
+.exp-grid__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.exp-grid__pill {
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.exp-grid__pill:hover {
+  border-color: var(--color-border-bright);
+  color: var(--color-text);
+}
+
+.exp-grid__pill.is-active {
+  background: var(--color-turquoise);
+  border-color: var(--color-turquoise);
+  color: #030D1A;
+}
+
+.exp-grid__results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+.exp-grid__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-20) var(--space-6);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.exp-grid__empty-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  color: var(--color-text-dim);
+}
+
+.exp-grid__empty-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.exp-grid__empty-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  max-width: 420px;
+  margin: 0;
+}
+
+.exp-grid__empty-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  background: var(--color-turquoise);
+  color: #030D1A;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .exp-grid__results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .exp-grid__results {
+    grid-template-columns: 1fr;
+  }
+}

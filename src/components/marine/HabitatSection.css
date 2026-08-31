@@ -1,0 +1,239 @@
+/* =========================================================
+   Habitat Section Styles (Where It Lives)
+   ========================================================= */
+
+.habitat-sec {
+  background: var(--color-background);
+  padding: var(--space-20) 0;
+}
+
+[data-theme="light"] .habitat-sec {
+  background: #F4F8FA;
+}
+
+.habitat-sec__layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+/* Left Details */
+.habitat-sec__details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.habitat-sec__card {
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+[data-theme="light"] .habitat-sec__card {
+  background: #FFFFFF;
+  border-color: rgba(7, 25, 35, 0.08);
+  box-shadow: 0 4px 20px rgba(7, 25, 35, 0.03);
+}
+
+.habitat-sec__card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background: rgba(2, 204, 254, 0.1);
+  border: 1px solid rgba(2, 204, 254, 0.25);
+  color: #02CCFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.habitat-sec__card-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+[data-theme="light"] .habitat-sec__card-title {
+  color: #091E33;
+}
+
+.habitat-sec__card-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+[data-theme="light"] .habitat-sec__card-desc {
+  color: #3D5A73;
+}
+
+.habitat-sec__card-desc strong {
+  color: var(--color-text);
+}
+
+[data-theme="light"] .habitat-sec__card-desc strong {
+  color: #071923;
+}
+
+/* Right Destinations */
+.habitat-sec__destinations {
+  background: var(--color-surface);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--color-border);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+[data-theme="light"] .habitat-sec__destinations {
+  background: #FFFFFF;
+  border-color: rgba(7, 25, 35, 0.08);
+  box-shadow: 0 8px 32px rgba(7, 25, 35, 0.04);
+}
+
+.habitat-sec__dest-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.habitat-sec__dest-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.habitat-sec__dest-pin {
+  color: #02CCFE;
+}
+
+.habitat-sec__dest-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+[data-theme="light"] .habitat-sec__dest-title {
+  color: #091E33;
+}
+
+.habitat-sec__dest-count {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #02CCFE;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.habitat-sec__dest-intro {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+[data-theme="light"] .habitat-sec__dest-intro {
+  color: #526A75;
+}
+
+.habitat-sec__dest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.habitat-sec__dest-card {
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-fast);
+}
+
+[data-theme="light"] .habitat-sec__dest-card {
+  background: #F4F8FA;
+  border-color: rgba(7, 25, 35, 0.08);
+}
+
+.habitat-sec__dest-card:hover {
+  border-color: #02CCFE;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(2, 204, 254, 0.15);
+}
+
+.habitat-sec__dest-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.habitat-sec__dest-region {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #02CCFE;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.habitat-sec__dest-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+[data-theme="light"] .habitat-sec__dest-name {
+  color: #091E33;
+}
+
+.habitat-sec__dest-link-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+  transition: color var(--transition-fast);
+}
+
+.habitat-sec__dest-card:hover .habitat-sec__dest-link-text {
+  color: #02CCFE;
+}
+
+.habitat-sec__dest-empty {
+  padding: var(--space-6);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  grid-column: span 2;
+}
+
+@media (max-width: 992px) {
+  .habitat-sec__layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .habitat-sec__dest-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "cetacean-marine-mammal-unit",
+    "slug": "cetacean-marine-mammal-unit",
+    "name": "Cetacean & Marine Mammal Research Unit",
+    "focusAreas": [
+      "dolphins-whales",
+      "marine-biodiversity"
+    ],
+    "description": "Coordinates acoustic monitoring, photo-identification, and population survey work for dolphins, whales, and dugongs across the Somali coast.",
+    "icon": "Anchor"
+  },
+  {
+    "id": "elasmobranch-research-unit",
+    "slug": "elasmobranch-research-unit",
+    "name": "Elasmobranch Research Unit",
+    "focusAreas": [
+      "sharks-rays"
+    ],
+    "description": "Leads satellite tagging, photo-ID, and cleaning-station research for sharks and rays across Somalia’s pelagic waters.",
+    "icon": "Waves"
+  },
+  {
+    "id": "sea-turtle-research-unit",
+    "slug": "sea-turtle-research-unit",
+    "name": "Sea Turtle Research Unit",
+    "focusAreas": [
+      "sea-turtles"
+    ],
+    "description": "Runs satellite telemetry and nest-monitoring programs across Somalia’s two primary turtle nesting rookeries.",
+    "icon": "Compass"
+  },
+  {
+    "id": "fisheries-science-team",
+    "slug": "fisheries-science-team",
+    "name": "Fisheries Science Team",
+    "focusAreas": [
+      "fisheries"
+    ],
+    "description": "Conducts stock assessments, catch-effort studies, and genetic sampling in partnership with artisanal fishing cooperatives.",
+    "icon": "Fish"
+  },
+  {
+    "id": "coral-coastal-ecosystems-unit",
+    "slug": "coral-coastal-ecosystems-unit",
+    "name": "Coral Reef & Coastal Ecosystems Unit",
+    "focusAreas": [
+      "coral-reefs",
+      "coastal-ecosystems"
+    ],
+    "description": "Studies coral thermal resilience, seagrass blue carbon storage, and mangrove ecosystem health.",
+    "icon": "Sprout"
+  },
+  {
+    "id": "pollution-water-quality-team",
+    "slug": "pollution-water-quality-team",
+    "name": "Ocean Pollution & Water Quality Monitoring Team",
+    "focusAreas": [
+      "ocean-pollution",
+      "water-quality"
+    ],
+    "description": "Tracks marine debris, microplastics, and coastal water quality across Somalia’s most heavily used shorelines.",
+    "icon": "Droplets"
+  }
+]

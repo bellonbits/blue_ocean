@@ -1,0 +1,110 @@
+/* CoastStats.css */
+.coast-stats-section {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.coast-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+.coast-stat-card {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  transition: all var(--transition-slow);
+}
+
+.coast-stat-card:hover {
+  border-color: var(--color-border-bright);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md), var(--shadow-glow-sm);
+}
+
+.coast-stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: rgba(0, 201, 177, 0.1);
+  border: 1px solid rgba(0, 201, 177, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-turquoise);
+  margin-bottom: var(--space-2);
+}
+
+.coast-stat-number-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.coast-stat-value {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  color: var(--color-turquoise-light);
+  line-height: 1;
+}
+
+.coast-stat-unit {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-turquoise);
+}
+
+.coast-stat-label {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-top: var(--space-1);
+}
+
+.coast-stat-detail {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .coast-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .coast-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Light Theme Brightness Enhancement */
+[data-theme="light"] .coast-stat-card {
+  background: #FFFFFF;
+  border: 1.5px solid #D7E5EA;
+  box-shadow: 0 4px 16px rgba(7, 25, 35, 0.06);
+}
+
+[data-theme="light"] .coast-stat-card:hover {
+  border-color: #02CCFE;
+  box-shadow: 0 8px 24px rgba(2, 204, 254, 0.15);
+}
+
+[data-theme="light"] .coast-stat-icon {
+  background: rgba(2, 204, 254, 0.1);
+  border-color: rgba(2, 204, 254, 0.3);
+  color: #00849E;
+}
+
+[data-theme="light"] .coast-stat-value {
+  color: #00849E;
+}

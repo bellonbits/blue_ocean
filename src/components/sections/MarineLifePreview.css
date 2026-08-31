@@ -1,0 +1,16 @@
+/* MarineLifePreview.css */
+.marine {
+  background: var(--color-background);
+  position: relative;
+  overflow: hidden;
+}
+
+.marine__carousel-wrap {
+  margin-top: var(--space-10);
+}
+
+.marine__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-12);
+}

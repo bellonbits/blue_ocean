@@ -1,0 +1,173 @@
+/* =========================================================
+   Experience Categories Styles
+   ========================================================= */
+
+.exp-cats {
+  position: relative;
+  background: var(--color-surface);
+  padding: var(--space-20) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+[data-theme="light"] .exp-cats {
+  background: #F4F8FA;
+  border-color: rgba(7, 25, 35, 0.06);
+}
+
+.exp-cats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+.exp-cat-card {
+  position: relative;
+  background: var(--color-background);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+[data-theme="light"] .exp-cat-card {
+  background: #FFFFFF;
+  border-color: rgba(7, 25, 35, 0.08);
+  box-shadow: 0 4px 16px rgba(7, 25, 35, 0.03);
+}
+
+.exp-cat-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-border-bright);
+  box-shadow: 0 16px 36px rgba(3, 13, 26, 0.3);
+}
+
+[data-theme="light"] .exp-cat-card:hover {
+  border-color: rgba(2, 204, 254, 0.5);
+  box-shadow: 0 16px 32px rgba(7, 25, 35, 0.08);
+}
+
+.exp-cat-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #030D1A;
+}
+
+.exp-cat-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.exp-cat-card:hover .exp-cat-card__img {
+  transform: scale(1.08);
+}
+
+.exp-cat-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 13, 26, 0.8) 0%, rgba(3, 13, 26, 0.1) 55%, rgba(3, 13, 26, 0.35) 100%);
+}
+
+.exp-cat-card__icon {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 204, 254, 0.18);
+  border: 1px solid rgba(2, 204, 254, 0.4);
+  color: #02CCFE;
+  backdrop-filter: blur(8px);
+}
+
+.exp-cat-card__count {
+  position: absolute;
+  bottom: var(--space-3);
+  left: var(--space-3);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(3, 13, 26, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(8px);
+}
+
+.exp-cat-card__body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--space-2);
+}
+
+.exp-cat-card__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin: 0;
+}
+
+[data-theme="light"] .exp-cat-card__title {
+  color: #091E33;
+}
+
+.exp-cat-card__tagline {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-2);
+  flex-grow: 1;
+}
+
+[data-theme="light"] .exp-cat-card__tagline {
+  color: #526A75;
+}
+
+.exp-cat-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #02CCFE;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  transition: transform var(--transition-fast);
+}
+
+.exp-cat-card:hover .exp-cat-card__arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 1200px) {
+  .exp-cats__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .exp-cats {
+    padding: var(--space-12) 0;
+  }
+  .exp-cats__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}

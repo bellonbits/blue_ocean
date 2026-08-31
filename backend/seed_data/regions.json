@@ -1,0 +1,86 @@
+[
+  {
+    "id": "puntland",
+    "name": "Puntland",
+    "subtitle": "Northern Blue Frontier",
+    "tagline": "Where the desert mountains meet the deep waters of the Gulf of Aden and Indian Ocean.",
+    "description": "Home to the northernmost tip of Africa at Cape Guardafui, Puntland features rugged coastal cliffs, ancient frankincense trading ports, rich upwelling zones, and some of the highest pelagic biodiversity in the Western Indian Ocean.",
+    "image": "/bargaal_main.jpg",
+    "coastlineKm": "Approx. 2,000 km",
+    "seas": [
+      "Gulf of Aden",
+      "Arabian Sea",
+      "Indian Ocean"
+    ],
+    "destinationsCount": 5,
+    "destinations": [
+      "Bosaso",
+      "Eyl",
+      "Hafun",
+      "Bargaal",
+      "Qandala"
+    ],
+    "slug": "puntland",
+    "highlights": [
+      "Cape Guardafui convergence zone",
+      "Historic Eyl canyon & dhow anchorage",
+      "Ancient Ras Hafun peninsula & salt flats",
+      "Bosaso deepwater coral habitats"
+    ]
+  },
+  {
+    "id": "jubaland",
+    "name": "Jubaland",
+    "subtitle": "Southern Coral Archipelago",
+    "tagline": "Lush tropical coastlines, mangrove estuaries, and remote untouched island atolls.",
+    "description": "Extending to the southern frontier of Somalia, Jubaland boasts pristine white sandy beaches, extensive mangrove estuaries around the Jubba river mouth, and the legendary Bajuni Archipelago with turquoise coral lagoons.",
+    "image": "/jubaland.jpg",
+    "coastlineKm": "Approx. 550 km",
+    "seas": [
+      "Indian Ocean",
+      "Bajuni Channel"
+    ],
+    "destinationsCount": 3,
+    "destinations": [
+      "Kismayo",
+      "Ras Kamboni",
+      "Bajuni Islands"
+    ],
+    "slug": "jubaland",
+    "highlights": [
+      "Bajuni Archipelago coral reefs",
+      "Kismayo natural deep-water bay",
+      "Ras Kamboni remote sea turtle nesting sands",
+      "Jubba river estuary mangrove systems"
+    ]
+  },
+  {
+    "id": "somalia",
+    "name": "Central & Southern Coast",
+    "subtitle": "Historical Maritime Seaboard",
+    "tagline": "Africa's longest continuous coastline, steeped in centuries of Indian Ocean trade.",
+    "description": "From the historical Sultanate ports of Mogadishu, Marka, and Barawe to the windswept headlands of Hobyo, this central coastline is characterized by vast dunes, endless ocean horizons, and historic coral-stone architecture.",
+    "image": "/mogadishu_beach.jpg",
+    "coastlineKm": "3,025 km total national coast",
+    "seas": [
+      "Indian Ocean",
+      "Somali Basin"
+    ],
+    "destinationsCount": 6,
+    "destinations": [
+      "Mogadishu",
+      "Liido Beach",
+      "Jazeera",
+      "Marka",
+      "Barawe",
+      "Hobyo"
+    ],
+    "slug": "somalia",
+    "highlights": [
+      "Historic coral-stone ports of Marka & Barawe",
+      "Liido Beach & Mogadishu coastal promenade",
+      "Jazeera reef barrier & mangrove lagoon",
+      "Hobyo seasonal upwelling & migratory fisheries"
+    ]
+  }
+]

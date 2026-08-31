@@ -1,0 +1,74 @@
+[
+  {
+    "id": "boat-tours",
+    "slug": "boat-tours",
+    "title": "Boat Tours",
+    "tagline": "See the coast from the water.",
+    "description": "Traditional dhow voyages and coastal cruises along Somalia’s harbors, headlands, and hidden coves.",
+    "icon": "Ship",
+    "image": "/exp_dhow_sailing.jpg"
+  },
+  {
+    "id": "snorkeling",
+    "slug": "snorkeling",
+    "title": "Snorkeling",
+    "tagline": "Discover life beneath the surface.",
+    "description": "Shallow reef-top exploration above vibrant coral gardens and sheltered lagoons.",
+    "icon": "Wind",
+    "image": "/exp_coral_snorkeling.jpg"
+  },
+  {
+    "id": "diving",
+    "slug": "diving",
+    "title": "Diving",
+    "tagline": "Go deeper.",
+    "description": "Scuba expeditions into largely unexplored reef drop-offs and deep pelagic corridors.",
+    "icon": "Waves",
+    "image": "/exp_scuba_diving.jpg"
+  },
+  {
+    "id": "fishing",
+    "slug": "fishing",
+    "title": "Fishing",
+    "tagline": "Experience the traditions of the coast.",
+    "description": "Traditional handline and reef fishing alongside veteran Somali fishing cooperatives.",
+    "icon": "Fish",
+    "image": "/marine_fish.jpg"
+  },
+  {
+    "id": "island-exploration",
+    "slug": "island-exploration",
+    "title": "Island Exploration",
+    "tagline": "Find the islands beyond the shore.",
+    "description": "Multi-day expeditions into remote archipelagos, atolls, and untouched sandbars.",
+    "icon": "Globe",
+    "image": "/jubaland.jpg"
+  },
+  {
+    "id": "dolphin-watching",
+    "slug": "dolphin-watching",
+    "title": "Dolphin & Whale Watching",
+    "tagline": "Witness giants of the deep.",
+    "description": "Guided sightings of spinner dolphin pods and migrating humpback whales.",
+    "icon": "Anchor",
+    "image": "/marine_dolphins.jpg"
+  },
+  {
+    "id": "marine-photography",
+    "slug": "marine-photography",
+    "title": "Marine Photography",
+    "tagline": "Capture the unseen coast.",
+    "description": "Guided underwater and aerial expeditions documenting Somalia’s marine frontier.",
+    "icon": "Camera",
+    "image": "/marine_coral.jpg"
+  },
+  {
+    "id": "coastal-trekking",
+    "slug": "coastal-trekking",
+    "title": "Coastal Trekking",
+    "tagline": "Walk the edge of the continent.",
+    "description": "Cliffside and canyon treks along Somalia’s dramatic limestone and sandstone coastline.",
+    "icon": "Mountain",
+    "image": "/exp_coastal_cliff.jpg"
+  }
+]

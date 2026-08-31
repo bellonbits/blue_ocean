@@ -1,0 +1,200 @@
+/* =========================================================
+   Species Gallery Styles (Cinematic Dark Rhythm)
+   ========================================================= */
+
+.species-gal {
+  background: var(--color-surface);
+  padding: var(--space-20) 0;
+}
+
+[data-theme="light"] .species-gal {
+  background: #030D1A;
+}
+
+[data-theme="light"] .species-gal .section-heading {
+  color: #FFFFFF;
+}
+
+[data-theme="light"] .species-gal .section-subheading {
+  color: rgba(240, 246, 255, 0.8);
+}
+
+.species-gal__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 240px 240px;
+  gap: var(--space-4);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+
+.species-gal__item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: #030D1A;
+}
+
+.species-gal__item.is-primary {
+  grid-row: span 2;
+  height: 100%;
+}
+
+.species-gal__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.species-gal__item:hover .species-gal__img {
+  transform: scale(1.04);
+}
+
+.species-gal__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 13, 26, 0.85) 0%, transparent 55%);
+  opacity: 0.85;
+  transition: opacity var(--transition-base);
+}
+
+.species-gal__item:hover .species-gal__overlay {
+  opacity: 0.95;
+}
+
+.species-gal__caption-bar {
+  position: absolute;
+  bottom: var(--space-4);
+  left: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 2;
+}
+
+.species-gal__caption {
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: #FFFFFF;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.species-gal__credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  color: #02CCFE;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.species-gal__zoom-badge {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(3, 13, 26, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all var(--transition-fast);
+}
+
+.species-gal__item:hover .species-gal__zoom-badge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Lightbox Modal */
+.species-gal__modal {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-modal) + 20);
+  background: rgba(3, 13, 26, 0.94);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+
+.species-gal__modal-close {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.species-gal__modal-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.species-gal__modal-content {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.species-gal__modal-img {
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+}
+
+.species-gal__modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.species-gal__modal-caption {
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.species-gal__modal-credit {
+  font-size: 0.8rem;
+  color: #02CCFE;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .species-gal__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .species-gal__item.is-primary {
+    grid-row: auto;
+    aspect-ratio: 16 / 10;
+  }
+  .species-gal__item.is-secondary {
+    aspect-ratio: 16 / 10;
+  }
+}

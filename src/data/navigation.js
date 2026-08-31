@@ -1,0 +1,48 @@
+export const navLinks = [
+  { label: 'Home', path: '/' },
+  { label: 'Explore the Coast', path: '/explore-the-coast' },
+  { label: 'Ocean Experiences', path: '/experiences' },
+  { label: 'Marine Life', path: '/marine-life' },
+  { label: 'Research', path: '/research' },
+  { label: 'Conservation', path: '/conservation' },
+  { label: 'Communities', path: '/communities' },
+  { label: 'News', path: '/news' },
+  { label: 'About', path: '/about' },
+];
+
+// Pages whose top banner has no dark hero photo behind the header — the
+// header must render its solid/legible styling on these from the start
+// instead of the transparent-over-hero-image treatment.
+export const noHeroPaths = [
+  '/marine-life/species',
+  '/research/projects',
+  '/research/reports',
+  '/research/team',
+  '/research/expeditions',
+  '/research/statistics',
+  '/research/coastal-geography',
+  '/conservation/projects',
+  '/news/articles',
+  '/get-involved/volunteer',
+  '/get-involved/partner',
+  '/get-involved/support',
+  '/research/publications',
+  '/about/team',
+  '/press',
+  '/privacy',
+  '/profile',
+  '/dashboard',
+  '/dashboard/inbox',
+  '/dashboard/settings',
+  '/dashboard/content/coast',
+  '/dashboard/content/experiences',
+  '/dashboard/content/marine-life',
+  '/dashboard/content/research',
+  '/dashboard/content/conservation',
+  '/dashboard/content/communities',
+  '/dashboard/content/news',
+  '/dashboard/team',
+  '/dashboard/media',
+  // Preview route intentionally excluded — it renders the real public
+  // destination hero and should get the transparent-over-photo treatment.
+];

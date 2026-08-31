@@ -1,0 +1,212 @@
+/* =========================================================
+   Experience Wildlife & Research Connection Styles
+   ========================================================= */
+
+.exp-wildlife-sec {
+  background: var(--color-surface);
+}
+
+[data-theme="light"] .exp-wildlife-sec {
+  background: #F4F8FA;
+}
+
+.exp-wildlife-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+.exp-wildlife-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-background);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-base);
+}
+
+[data-theme="light"] .exp-wildlife-card {
+  background: #FFFFFF;
+  border-color: rgba(7, 25, 35, 0.08);
+}
+
+.exp-wildlife-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-bright);
+  box-shadow: 0 12px 28px rgba(3, 13, 26, 0.2);
+}
+
+.exp-wildlife-card__media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.exp-wildlife-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.exp-wildlife-card:hover .exp-wildlife-card__img {
+  transform: scale(1.08);
+}
+
+.exp-wildlife-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 13, 26, 0.55) 0%, transparent 55%);
+}
+
+.exp-wildlife-card__body {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.exp-wildlife-card__cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--color-turquoise);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.exp-wildlife-card__name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+[data-theme="light"] .exp-wildlife-card__name {
+  color: #091E33;
+}
+
+.exp-wildlife-card__scientific {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin: 0 0 6px;
+}
+
+.exp-wildlife-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-turquoise);
+}
+
+.exp-wildlife-research {
+  margin-top: var(--space-16);
+  padding-top: var(--space-16);
+  border-top: 1px solid var(--color-border);
+}
+
+.exp-wildlife-research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.exp-wildlife-research-card {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+[data-theme="light"] .exp-wildlife-research-card {
+  background: #FFFFFF;
+  border-color: rgba(7, 25, 35, 0.08);
+}
+
+.exp-wildlife-research-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.exp-wildlife-research-card__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: rgba(2, 204, 254, 0.1);
+  border: 1px solid rgba(2, 204, 254, 0.25);
+  color: #02CCFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exp-wildlife-research-card__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--color-success);
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.exp-wildlife-research-card__loc {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+}
+
+.exp-wildlife-research-card__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.35;
+}
+
+[data-theme="light"] .exp-wildlife-research-card__title {
+  color: #091E33;
+}
+
+.exp-wildlife-research-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-turquoise);
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 1024px) {
+  .exp-wildlife-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .exp-wildlife-research-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .exp-wildlife-grid {
+    grid-template-columns: 1fr;
+  }
+}
