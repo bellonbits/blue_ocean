@@ -81,6 +81,10 @@ class NewsArticle(Base):
 
     featured_image: Mapped[str | None] = mapped_column(String(500))
     gallery: Mapped[list[dict]] = mapped_column(JSONB, default=list)
+    video_url: Mapped[str | None] = mapped_column(String(500))
+    video_title: Mapped[str | None] = mapped_column(String(255))
+    video_description: Mapped[str | None] = mapped_column(Text)
+    video_source: Mapped[str | None] = mapped_column(String(255))
     excerpt: Mapped[str | None] = mapped_column(Text)
     content: Mapped[list[dict]] = mapped_column(JSONB, default=list)
 

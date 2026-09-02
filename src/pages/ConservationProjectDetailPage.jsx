@@ -13,6 +13,7 @@ import ConservationCoastConnection from '../components/conservation/Conservation
 import ConservationCommunityConnection from '../components/conservation/ConservationCommunityConnection';
 import RelatedConservation from '../components/conservation/RelatedConservation';
 import GetInvolvedCTA from '../components/shared/GetInvolvedCTA';
+import VideoEmbed from '../components/shared/VideoEmbed';
 
 export default function ConservationProjectDetailPage() {
   const { slug } = useParams();
@@ -48,6 +49,17 @@ export default function ConservationProjectDetailPage() {
   return (
     <main id="main-content" className="conservation-project-detail-page" aria-label={`Conservation Project: ${project.title}`}>
       <ConservationProjectHero project={project} />
+      {project.videoUrl && (
+        <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
+          <VideoEmbed
+            url={project.videoUrl}
+            title={project.title}
+            videoTitle={project.videoTitle}
+            videoDescription={project.videoDescription}
+            videoSource={project.videoSource}
+          />
+        </section>
+      )}
       <ConservationStory project={project} />
       <ConservationProblem project={project} />
       <ConservationApproach />

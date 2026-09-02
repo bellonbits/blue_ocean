@@ -120,6 +120,11 @@
   color: #F87171;
 }
 
+.enquiry-form__banner--error a {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 /* --- Success state --- */
 .enquiry-form__success {
   display: flex;

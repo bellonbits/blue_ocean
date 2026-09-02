@@ -13,6 +13,7 @@ import ResearchFindings from '../components/research/ResearchFindings';
 import ResearchConservationConnection from '../components/research/ResearchConservationConnection';
 import RelatedResearch from '../components/research/RelatedResearch';
 import ResearchCTA from '../components/research/ResearchCTA';
+import VideoEmbed from '../components/shared/VideoEmbed';
 
 export default function ResearchProjectDetailPage() {
   const { slug } = useParams();
@@ -59,6 +60,17 @@ export default function ResearchProjectDetailPage() {
     <main id="main-content" className="research-project-detail-page" aria-label={`Research Project: ${project.title}`}>
       <ResearchProjectHero project={project} />
       <ResearchOverview project={project} />
+      {project.videoUrl && (
+        <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
+          <VideoEmbed
+            url={project.videoUrl}
+            title={project.title}
+            videoTitle={project.videoTitle}
+            videoDescription={project.videoDescription}
+            videoSource={project.videoSource}
+          />
+        </section>
+      )}
       <ResearchObjectives project={project} />
       <ResearchMethodology project={project} />
       <ResearchLocation project={project} />

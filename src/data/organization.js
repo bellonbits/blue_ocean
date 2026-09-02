@@ -12,12 +12,12 @@
 export const organization = {
   name: 'Blue Ocean Somalia',
   mission: {
-    statement: 'Explore. Study. Protect. Share.',
+    statement: "To explore, study, protect, and share Somalia's marine environment with the world.",
     description:
       'Blue Ocean exists to explore Somalia\'s marine environment, study it with scientific rigor, protect it in partnership with the communities who depend on it, and share what we learn openly — because a coastline this significant deserves to be known, not just guarded.',
   },
   vision: {
-    statement: "A future where Somalia's ocean is understood, protected and sustainably used.",
+    statement: "A future where Somalia's ocean is understood, protected, and sustainably used for education, tourism, research, and economic opportunity.",
     description:
       'We work toward a Somali coast where marine research is routine rather than rare, where conservation decisions are backed by evidence, and where coastal communities share directly in the benefits of a healthy ocean — not displaced by its protection.',
   },

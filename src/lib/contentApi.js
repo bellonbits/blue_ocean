@@ -100,6 +100,10 @@ export function adaptDestination(d) {
     fullDescription: d.full_description,
     heroImage: d.hero_image,
     gallery: d.gallery || [],
+    videoUrl: d.video_url || null,
+    videoTitle: d.video_title || null,
+    videoDescription: d.video_description || null,
+    videoSource: d.video_source || null,
     coordinates: { lat: d.latitude, lng: d.longitude },
     bestSeason: d.best_season,
     access: d.access,
@@ -113,6 +117,44 @@ export async function listDestinations(params = {}) {
   const query = new URLSearchParams(params).toString();
   const destinations = await request(`/destinations${query ? `?${query}` : ''}`);
   return destinations.map(adaptDestination);
+}
+
+// Real photos of a destination sourced from Google Places (New) on the
+// backend — returns [] when Google Places isn't configured or has no
+// coverage for this place, so callers should always have a local-image
+// fallback ready (see PlaceImage.jsx).
+export async function getDestinationPhotos(slug) {
+  const photos = await request(`/destinations/${slug}/photos`);
+  return photos.map((p) => ({ ...p, url: `${API_BASE_URL}${p.url}` }));
+}
+
+// ---- Related content (news articles linked to a destination/species/etc.) ----
+//
+// News articles already carry real many-to-many links to destinations,
+// species, research projects, and conservation projects at the database
+// level (see backend/app/models/news_article.py) — this just adapts the
+// API's snake_case article shape to what ArticleCard.jsx expects.
+function adaptArticleSummary(a) {
+  return {
+    slug: a.slug,
+    title: a.title,
+    excerpt: a.excerpt,
+    featuredImage: a.featured_image,
+    categoryLabel: a.category?.label,
+    categoryBadgeClass: a.category?.badge_class,
+    displayDate: a.display_date || a.date,
+    readTime: a.read_time,
+  };
+}
+
+export async function getRelatedNews({ destination, species, researchProject, conservationProject } = {}) {
+  const params = new URLSearchParams();
+  if (destination) params.set('destination', destination);
+  if (species) params.set('species', species);
+  if (researchProject) params.set('research_project', researchProject);
+  if (conservationProject) params.set('conservation_project', conservationProject);
+  const articles = await request(`/news-articles?${params.toString()}`);
+  return articles.map(adaptArticleSummary);
 }
 
 export async function getDestination(slug) {

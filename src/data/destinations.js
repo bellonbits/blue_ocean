@@ -20,7 +20,7 @@ Along the shoreline, traditional wooden dhow builders continue heritage crafts t
     gallery: [
       '/bosaso2.jpg',
       '/bosaso1.jpg',
-      '/marine_dolphins.jpg',
+      '/bosaso3.jpg',
     ],
     coordinates: { lat: 11.2842, lng: 49.1813 },
     bestSeason: 'October to April (Calm seas & mild climate)',
@@ -271,6 +271,7 @@ The underwater topography features dramatic drop-offs with black coral formation
       '/qandala_main.jpg',
       '/qandala_1.jpg',
       '/qandala_2.jpg',
+      '/qandala2.jpeg',
     ],
     coordinates: { lat: 11.4719, lng: 49.8728 },
     bestSeason: 'October to April',
@@ -379,11 +380,11 @@ Unlike the more sheltered anchorages further south, Hurdiya's coastline is rocky
 Behind the town, the arid Golis mountain range rises sharply from the coastal plain, giving way to a shoreline of pale sand beaches and warm, shallow reef flats that stay calm for much of the year. Traditional fishing communities still work these waters daily for reef fish, shark, and seasonal pelagics.
 
 Blue Ocean is beginning baseline surveys of Berbera’s nearshore reef flats and lagoon systems, an area of the Gulf of Aden that remains comparatively under-documented despite its long human history.`,
-    heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+    heroImage: '/berbera1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80',
-      '/marine_fish.jpg',
+      '/berbera1.png',
+      '/berbera2.png',
+      '/berbera3.png',
     ],
     coordinates: { lat: 10.4396, lng: 45.0143 },
     bestSeason: 'October to April (Calm seas, avoid summer Khareef winds)',
@@ -440,11 +441,11 @@ Blue Ocean is beginning baseline surveys of Berbera’s nearshore reef flats and
 The waters offshore are shallow and calm for much of the year, sheltered by a scatter of low sandy islets, and support seasonal artisanal fishing much as they have for generations.
 
 Blue Ocean views Zeila as a priority site for documenting how a historic Gulf of Aden port town's marine life and fishing practices have shifted over time, alongside the town's largely unrestored maritime heritage.`,
-    heroImage: 'https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80',
+    heroImage: '/zeila1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-      '/marine_coral.jpg',
+      '/zeila1.png',
+      '/zeila2.png',
+      '/zeila3.png',
     ],
     coordinates: { lat: 11.3572, lng: 43.4808 },
     bestSeason: 'November to March',
@@ -494,11 +495,12 @@ Blue Ocean views Zeila as a priority site for documenting how a historic Gulf of
 Located just south of where the fertile Jubba River empties into the Indian Ocean, Kismayo’s coastal waters are fed by nutrient-dense estuarine outflows that nourish immense mangrove forests, productive crustacean habitats, and vital nursery grounds for reef fish.
 
 The beaches of Kismayo—stretching unbroken for tens of kilometers with powdery white sand—represent some of the finest natural coastlines in Eastern Africa. Blue Ocean conducts regular community beach cleanups, youth ocean education classes, and mangrove reforestation projects here.`,
-    heroImage: '/jubaland.jpg',
+    heroImage: '/kismayo1.png',
     gallery: [
-      '/jubaland.jpg',
-      'https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=800&q=80',
-      '/marine_turtles.jpg',
+      '/kismayo1.png',
+      '/kismayo2.png',
+      '/kismayo3.png',
+      '/kismayo4.png',
     ],
     coordinates: { lat: -0.3582, lng: 42.5454 },
     bestSeason: 'July to March (Year-round tropical climate)',
@@ -644,11 +646,11 @@ The indigenous Bajuni seafaring community has lived on these islands for centuri
 Because human activity is minimal here, Ras Kamboni’s beaches serve as vital, undisturbed nesting grounds for green and olive ridley sea turtles. The surrounding ocean waters support dense coral reefs that link seamlessly into the Lamu marine conservation corridors across the border.
 
 Blue Ocean is actively working with regional rangers and community representatives to designate key stretches of Ras Kamboni as protected marine sanctuaries.`,
-    heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+    heroImage: '/kamboni1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-      '/marine_turtles.jpg',
-      '/marine_fish.jpg',
+      '/kamboni1.png',
+      '/kamboni2.png',
+      '/kamboni3.png',
     ],
     coordinates: { lat: -1.6406, lng: 41.5647 },
     bestSeason: 'December to March',
@@ -698,11 +700,11 @@ Blue Ocean is actively working with regional rangers and community representativ
 From the medieval minarets and coral-rag stone buildings of the ancient Hamar Weyne and Shangani districts to the bustling morning landings at the central fish market, ocean culture permeates every corner of the city.
 
 The coastal shelf off Mogadishu supports rich pelagic fisheries including king mackerel, sailfish, and skipjack tuna. Today, Mogadishu’s shoreline is undergoing a vibrant revival, with coastal cafes, watersports enthusiasts, and ocean research institutes taking root.`,
-    heroImage: '/mogadishu_beach.jpg',
+    heroImage: '/mogadishu1.png',
     gallery: [
-      '/mogadishu_beach.jpg',
-      '/somalia_coast.jpg',
-      '/marine_coral.jpg',
+      '/mogadishu1.png',
+      '/mogadishu2.png',
+      '/mogadishu3.png',
     ],
     coordinates: { lat: 2.0469, lng: 45.3182 },
     bestSeason: 'Year-round (Best: October to April)',
@@ -765,11 +767,12 @@ The coastal shelf off Mogadishu supports rich pelagic fisheries including king m
 Every weekend, thousands of families, students, entrepreneurs, and athletes gather on Liido’s expansive shoreline to swim in the warm Indian Ocean surf, play beach football, enjoy fresh seafood at oceanfront cafes, and watch the sun dip below the horizon.
 
 The beach is protected by a series of nearshore sandbanks and submerged coral outcrops that create safe swimming conditions inside the surf zone. Blue Ocean conducts regular youth ocean literacy campaigns and community beach stewardship events right here.`,
-    heroImage: '/mogadishu_beach.jpg',
+    heroImage: '/liido1.png',
     gallery: [
-      '/mogadishu_beach.jpg',
-      '/somalia_coast.jpg',
-      '/marine_fish.jpg',
+      '/liido1.png',
+      '/liido2.png',
+      '/liido3.png',
+      '/liido4.png',
     ],
     coordinates: { lat: 2.0538, lng: 45.3689 },
     bestSeason: 'Year-round (Warm ocean temperatures constantly)',
@@ -819,11 +822,11 @@ The beach is protected by a series of nearshore sandbanks and submerged coral ou
 At low tide, calm shallow lagoons form behind the reef crest, providing an exceptional natural nursery for juvenile fish, octopus, and sea anemones. Traditional dhow boats ferry visitors across the tranquil channel to explore the rocky island and its sea caves.
 
 Inland from the beach, extensive traditional solar salt evaporation pans have operated sustainably for decades, producing sea salt through the natural evaporation of Indian Ocean brine.`,
-    heroImage: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80',
+    heroImage: '/jazeera1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=800&q=80',
-      '/marine_coral.jpg',
+      '/jazeera1.png',
+      '/jazeera2.png',
+      '/jazeera3.png',
     ],
     coordinates: { lat: 1.9547, lng: 45.2289 },
     bestSeason: 'October to May',
@@ -873,11 +876,11 @@ Inland from the beach, extensive traditional solar salt evaporation pans have op
 The town’s architecture is renowned for its whitewashed coral-stone buildings with ornate carved wooden doors, arched alleys, and tranquil interior courtyards. Directly behind the city, massive orange-gold sand dunes rise dramatically, creating a striking contrast against the turquoise Indian Ocean.
 
 Marka’s fishermen operate from open sandy beaches, braving the powerful ocean breakers in agile fiberglass boats to harvest kingfish, tuna, and snappers from the fertile Shabelle coastal banks.`,
-    heroImage: '/somalia_coast.jpg',
+    heroImage: '/marka1.png',
     gallery: [
-      '/somalia_coast.jpg',
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-      '/marine_fish.jpg',
+      '/marka1.png',
+      '/marka2.png',
+      '/marka3.png',
     ],
     coordinates: { lat: 1.7159, lng: 44.7719 },
     bestSeason: 'December to April',
@@ -927,11 +930,11 @@ Marka’s fishermen operate from open sandy beaches, braving the powerful ocean 
 The town is home to the Bravanese people, who speak Chimwiini (a distinct Swahili dialect) and maintain famous crafts including hand-woven cotton textiles and the iconic 'Kofia Barawa' embroidered caps.
 
 Barawe is protected by offshore coral reefs and barrier islands that provide calm anchorage for fishing boats. The surrounding marine ecosystems support rich coral gardens, sea turtle foraging areas, and abundant reef fish.`,
-    heroImage: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80',
+    heroImage: '/barawe1.png',
     gallery: [
-      'https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80',
-      '/somalia_coast.jpg',
-      '/marine_coral.jpg',
+      '/barawe1.png',
+      '/barawe2.png',
+      '/barawe3.png',
     ],
     coordinates: { lat: 1.1133, lng: 44.0306 },
     bestSeason: 'December to March',
@@ -979,11 +982,11 @@ Barawe is protected by offshore coral reefs and barrier islands that provide cal
 Founded as an essential freshwater replenishment port for Indian Ocean trading dhows traveling between the Persian Gulf and East Africa, Hobyo later became the capital of the historic Sultanate of Hobyo in the late 19th century.
 
 Oceanographically, Hobyo sits at the epicenter of the Great Whirl and the powerful Somali Current upwelling system. In the summer months, cold, nutrient-rich deep water surges toward the coast, creating one of the highest concentrations of ocean biomass and pelagic fish in the Indian Ocean.`,
-    heroImage: '/somalia_coast.jpg',
+    heroImage: '/hobyo1.png',
     gallery: [
-      '/somalia_coast.jpg',
-      'https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+      '/hobyo1.png',
+      '/hobyo2.png',
+      '/hobyo3.png',
     ],
     coordinates: { lat: 5.3503, lng: 48.5269 },
     bestSeason: 'October to April (Milder coastal winds)',

@@ -82,6 +82,10 @@ class NewsArticleBase(BaseModel):
     read_time: str | None = None
     featured_image: str | None = None
     gallery: list[GalleryImage] = []
+    video_url: str | None = None
+    video_title: str | None = None
+    video_description: str | None = None
+    video_source: str | None = None
     excerpt: str | None = None
     content: list[ContentBlock] = []
     featured: bool = False
@@ -108,6 +112,10 @@ class NewsArticleUpdate(BaseModel):
     read_time: str | None = None
     featured_image: str | None = None
     gallery: list[GalleryImage] | None = None
+    video_url: str | None = None
+    video_title: str | None = None
+    video_description: str | None = None
+    video_source: str | None = None
     excerpt: str | None = None
     content: list[ContentBlock] | None = None
     featured: bool | None = None

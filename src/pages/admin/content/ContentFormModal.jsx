@@ -3,6 +3,7 @@ import { X, Eye } from 'lucide-react';
 import LocationPicker from './LocationPicker';
 import GalleryManager from './GalleryManager';
 import ImagePicker from './ImagePicker';
+import VideoPicker from './VideoPicker';
 
 // Generic create/edit modal driven by a `fields` config array, the same
 // field-config idiom src/components/shared/EnquiryForm.jsx already uses on
@@ -28,7 +29,9 @@ import ImagePicker from './ImagePicker';
 // imagelist also renders the same upload-and-manage widget as 'gallery'
 // (upload files or paste URLs), just adapted to the [{url, caption}]
 // storage shape most gallery fields use instead of gallery's plain
-// string[] — captions aren't editable through this widget.
+// string[] — captions aren't editable through this widget. video (the
+// single-video counterpart to 'image' — upload a file or paste a
+// YouTube/Vimeo URL, stored as a plain string).
 //
 // Fields with a `section` key are grouped under a heading in field order —
 // "don't show everything at once" (Basic Info / Description / Media / …).
@@ -181,6 +184,11 @@ export default function ContentFormModal({
                     />
                   ) : f.type === 'image' ? (
                     <ImagePicker
+                      value={values[f.name] || ''}
+                      onChange={(next) => handleChange(f.name, next)}
+                    />
+                  ) : f.type === 'video' ? (
+                    <VideoPicker
                       value={values[f.name] || ''}
                       onChange={(next) => handleChange(f.name, next)}
                     />

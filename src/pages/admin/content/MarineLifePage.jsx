@@ -47,7 +47,13 @@ function useSpeciesFields() {
 
     { name: 'hero_image', label: 'Main image', type: 'image', fullWidth: true, section: 'Media' },
     { name: 'gallery', label: 'Gallery', type: 'imagelist', fullWidth: true, section: 'Media' },
+    { name: 'video_url', label: 'Video', type: 'video', fullWidth: true, section: 'Media' },
+    { name: 'video_title', label: 'Video title', section: 'Media' },
+    { name: 'video_source', label: 'Video source / credit', section: 'Media' },
+    { name: 'video_description', label: 'Video description', type: 'textarea', fullWidth: true, rows: 2, section: 'Media' },
     { name: 'featured', label: 'Feature on homepage', type: 'checkbox', section: 'Media' },
+
+    { name: 'research_observations', label: 'Research observations', type: 'textarea', fullWidth: true, rows: 5, section: 'Research' },
   ];
 }
 

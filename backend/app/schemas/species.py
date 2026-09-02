@@ -40,6 +40,10 @@ class SpeciesBase(BaseModel):
     description: str | None = None
     hero_image: str | None = None
     gallery: list[GalleryImage] = []
+    video_url: str | None = None
+    video_title: str | None = None
+    video_description: str | None = None
+    video_source: str | None = None
     habitat: str | None = None
     depth: str | None = None
     distribution: str | None = None
@@ -50,6 +54,7 @@ class SpeciesBase(BaseModel):
     conservation_status: ConservationStatus = ConservationStatus.LEAST_CONCERN
     status_explanation: str | None = None
     interesting_facts: list[str] = []
+    research_observations: str | None = None
     featured: bool = False
     published: bool = True
 
@@ -71,6 +76,10 @@ class SpeciesUpdate(BaseModel):
     description: str | None = None
     hero_image: str | None = None
     gallery: list[GalleryImage] | None = None
+    video_url: str | None = None
+    video_title: str | None = None
+    video_description: str | None = None
+    video_source: str | None = None
     habitat: str | None = None
     depth: str | None = None
     distribution: str | None = None
@@ -81,6 +90,7 @@ class SpeciesUpdate(BaseModel):
     conservation_status: ConservationStatus | None = None
     status_explanation: str | None = None
     interesting_facts: list[str] | None = None
+    research_observations: str | None = None
     featured: bool | None = None
     published: bool | None = None
     destination_ids: list[UUID] | None = None

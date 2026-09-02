@@ -10,6 +10,7 @@ import CommunityOceanConnection from '../components/communities/CommunityOceanCo
 import CommunityGallery from '../components/communities/CommunityGallery';
 import RelatedStories from '../components/communities/RelatedStories';
 import GetInvolvedCTA from '../components/shared/GetInvolvedCTA';
+import VideoEmbed from '../components/shared/VideoEmbed';
 
 export default function CommunityStoryDetailPage() {
   const { slug } = useParams();
@@ -50,6 +51,17 @@ export default function CommunityStoryDetailPage() {
       <CommunityLivelihoods community={community} />
       <CommunityOceanConnection story={story} />
       <CommunityGallery community={community} story={story} />
+      {story.videoUrl && (
+        <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
+          <VideoEmbed
+            url={story.videoUrl}
+            title={story.title}
+            videoTitle={story.videoTitle}
+            videoDescription={story.videoDescription}
+            videoSource={story.videoSource}
+          />
+        </section>
+      )}
       <RelatedStories currentSlug={story.slug} />
       <GetInvolvedCTA />
     </main>

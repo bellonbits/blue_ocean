@@ -1,6 +1,8 @@
+import logging
+from datetime import datetime, timezone
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
 from sqlalchemy.orm import Session, joinedload
 
 from app.api.deps import require_role
@@ -11,8 +13,10 @@ from app.models.destination import Destination, DestinationStatus
 from app.models.region import Region
 from app.models.user import User, UserRole
 from app.schemas.destination import DestinationCreate, DestinationRead, DestinationUpdate
+from app.services import google_places
 
 router = APIRouter(prefix="/destinations", tags=["destinations"])
+logger = logging.getLogger(__name__)
 
 # Deleting a destination is more destructive than creating/editing one,
 # so it's restricted to a narrower set of roles than create/update.
@@ -51,6 +55,82 @@ def get_destination(slug: str, db: Session = Depends(get_db)) -> Destination:
     if destination is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Destination not found.")
     return destination
+
+
+async def _ensure_google_photos(destination: Destination, db: Session) -> list[dict]:
+    """Resolve the destination's place_id (once) and refresh its cached
+    Google photo metadata if stale. Never raises — any Google failure
+    just means the frontend falls back to local images, not a broken
+    page. See app/services/google_places.py for the caching rationale.
+    """
+    if not google_places.is_configured():
+        return destination.google_photos_cache or []
+
+    try:
+        if destination.google_place_id is None:
+            place_id = await google_places.resolve_place_id(
+                destination.name, destination.region.name if destination.region else None,
+                destination.latitude, destination.longitude,
+            )
+            if place_id is None:
+                return destination.google_photos_cache or []
+            destination.google_place_id = place_id
+            db.commit()
+
+        if google_places.is_cache_stale(destination.google_photos_fetched_at):
+            photos = await google_places.fetch_place_photos(destination.google_place_id)
+            destination.google_photos_cache = photos
+            destination.google_photos_fetched_at = datetime.now(timezone.utc)
+            db.commit()
+    except google_places.GooglePlacesError:
+        logger.warning("Google Places lookup failed for destination %s", destination.slug, exc_info=True)
+
+    return destination.google_photos_cache or []
+
+
+@router.get("/{slug}/photos")
+async def get_destination_photos(slug: str, db: Session = Depends(get_db)) -> list[dict]:
+    """Real photos of this destination, sourced from Google Places (New)
+    when configured — never the raw Google photo name/URL, always a
+    Blue Ocean-hosted proxy path so the frontend stays independent of
+    where the image actually comes from.
+    """
+    destination = db.query(Destination).filter(
+        Destination.slug == slug, Destination.status == DestinationStatus.PUBLISHED
+    ).first()
+    if destination is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Destination not found.")
+
+    photos = await _ensure_google_photos(destination, db)
+    return [
+        {
+            "url": f"/api/v1/destinations/{slug}/photos/{i}/media",
+            "width": p.get("width"),
+            "height": p.get("height"),
+            "attributions": p.get("attributions") or [],
+        }
+        for i, p in enumerate(photos)
+    ]
+
+
+@router.get("/{slug}/photos/{index}/media")
+async def get_destination_photo_media(slug: str, index: int, db: Session = Depends(get_db)) -> Response:
+    destination = db.query(Destination).filter(
+        Destination.slug == slug, Destination.status == DestinationStatus.PUBLISHED
+    ).first()
+    if destination is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Destination not found.")
+
+    photos = await _ensure_google_photos(destination, db)
+    if index < 0 or index >= len(photos):
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Photo not found.")
+
+    try:
+        content, content_type = await google_places.fetch_photo_bytes(photos[index]["name"])
+    except google_places.GooglePlacesError:
+        raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail="Could not fetch photo from Google.")
+
+    return Response(content=content, media_type=content_type, headers={"Cache-Control": "public, max-age=86400"})
 
 
 @router.get("/admin/all", response_model=list[DestinationRead])

@@ -41,7 +41,19 @@ class Settings(BaseSettings):
     # relative to the backend/ working directory unless given as absolute.
     media_root: str = "media_storage"
     media_url_prefix: str = "/media"
-    media_max_upload_bytes: int = 10 * 1024 * 1024  # 10 MB
+    media_max_upload_bytes: int = 10 * 1024 * 1024  # 10 MB — images
+    media_max_video_upload_bytes: int = 200 * 1024 * 1024  # 200 MB — video
+
+    # --- Google Places (New) ---
+    # Server-side only — never exposed to the frontend. Used to fetch real
+    # photos of destinations (beaches, ports, dive sites, ...). Empty by
+    # default so the feature no-ops (falls back to local images) until a
+    # real key is configured.
+    google_places_api_key: str = ""
+    # How long a resolved place_id / fetched photo list stays cached
+    # before Blue Ocean re-queries Google — keeps costs down without
+    # storing Google's photo tokens indefinitely.
+    google_places_cache_hours: int = 24
 
 
 @lru_cache

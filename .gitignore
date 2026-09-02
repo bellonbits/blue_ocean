@@ -38,3 +38,22 @@ public/jk.gif
 
 # Build artifacts
 dist.zip
+
+# Raw destination-photo screenshot batches — spares kept locally for
+# reference; the ones actually used are copied out to public/*.png|jpg
+# and tracked normally.
+public/bosaso/
+public/eyl/
+public/Bargaal/
+public/hafun/
+public/Qandala/
+public/Berbera/
+public/zeila/
+public/kismayo/
+public/Kamboni/
+public/Baraawe/
+public/marka/
+public/hobyo/
+public/Jazeera/
+public/Liido beach/
+public/mogadishu/

@@ -14,7 +14,9 @@ import DestinationResearch from '../components/coast/DestinationResearch';
 import DestinationConservation from '../components/coast/DestinationConservation';
 import DestinationExperiences from '../components/coast/DestinationExperiences';
 import RelatedDestinations from '../components/coast/RelatedDestinations';
+import DestinationRelatedNews from '../components/coast/DestinationRelatedNews';
 import ExploreCTA from '../components/coast/ExploreCTA';
+import VideoEmbed from '../components/shared/VideoEmbed';
 import { ArrowLeft, Compass } from 'lucide-react';
 
 export default function DestinationDetailPage() {
@@ -100,6 +102,18 @@ export default function DestinationDetailPage() {
       {/* 4. Asymmetrical 3-Photo Editorial Gallery */}
       <DestinationGallery destination={destination} />
 
+      {destination.videoUrl && (
+        <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
+          <VideoEmbed
+            url={destination.videoUrl}
+            title={destination.name}
+            videoTitle={destination.videoTitle}
+            videoDescription={destination.videoDescription}
+            videoSource={destination.videoSource}
+          />
+        </section>
+      )}
+
       {/* 5. Marine Life Connected to this Destination */}
       <DestinationMarineLife destination={destination} />
 
@@ -111,6 +125,9 @@ export default function DestinationDetailPage() {
 
       {/* 7. Ocean Experiences & Field Activities */}
       <DestinationExperiences destination={destination} />
+
+      {/* 7b. Real relationship-driven news coverage of this destination */}
+      <DestinationRelatedNews slug={destination.slug} />
 
       {/* 8. Related Destinations along this Coast */}
       <RelatedDestinations currentDestination={destination} destinations={allDestinations} />

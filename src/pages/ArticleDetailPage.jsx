@@ -9,6 +9,7 @@ import ArticleGallery from '../components/news/ArticleGallery';
 import ArticleReferences from '../components/news/ArticleReferences';
 import RelatedArticles from '../components/news/RelatedArticles';
 import GetInvolvedCTA from '../components/shared/GetInvolvedCTA';
+import VideoEmbed from '../components/shared/VideoEmbed';
 
 export default function ArticleDetailPage() {
   const { slug } = useParams();
@@ -45,6 +46,17 @@ export default function ArticleDetailPage() {
       <ArticleHero article={article} />
       <ArticleContent article={article} />
       <ArticleGallery article={article} />
+      {article.videoUrl && (
+        <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
+          <VideoEmbed
+            url={article.videoUrl}
+            title={article.title}
+            videoTitle={article.videoTitle}
+            videoDescription={article.videoDescription}
+            videoSource={article.videoSource}
+          />
+        </section>
+      )}
       <ArticleReferences article={article} />
       <RelatedArticles currentSlug={article.slug} />
       <GetInvolvedCTA />

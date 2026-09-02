@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, Sun, Compass, Heart, Share2, ArrowRight, Sparkles } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import PlaceImage from '../shared/PlaceImage';
 import './LuxuryDestinationCard.css';
 
 export default function LuxuryDestinationCard({ destination }) {
@@ -43,8 +44,9 @@ export default function LuxuryDestinationCard({ destination }) {
       <Link to={`/explore-the-coast/${destination.slug}`} className="lux-card__link">
         {/* Full Bleed Background Image */}
         <div className="lux-card__bg">
-          <img
-            src={destination.heroImage}
+          <PlaceImage
+            slug={destination.slug}
+            fallbackSrc={destination.heroImage}
             alt={destination.name}
             className="lux-card__img"
             loading="lazy"

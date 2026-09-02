@@ -1,0 +1,357 @@
+================================================================================
+BLUE OCEAN — WEBSITE DEVELOPMENT BRIEF — TASK TRACKER
+Audited against the live codebase on 2026-09-02
+================================================================================
+
+STATUS KEYS
+  DONE     = Implemented and verified in the codebase
+  PARTIAL  = Implemented but incomplete, or a close-but-not-exact match to spec
+  MISSING  = Not found anywhere in the codebase
+
+OVERALL SUMMARY
+  - Core structure, navigation, homepage, regional coverage, research areas,
+    conservation, coastal communities, and news are essentially complete and
+    closely match the brief's wording.
+  - The two recurring, cross-cutting gaps are:
+      1) VIDEO support — every section of the brief asks for "photos AND
+         video". The media pipeline (admin uploader + backend) only accepts
+         images (jpeg/png/webp/gif) everywhere. No video upload/embed exists.
+      2) Cross-linking "related news/articles" onto destinations, species,
+         and research projects — not built.
+  - Expeditions and the Marine Life "research observations" field are the
+    least complete individual items (see sections 7 and 9).
+
+================================================================================
+SECTION 1 — PURPOSE OF THE WEBSITE
+================================================================================
+| Requirement                                          | Status | Notes
+|-------------------------------------------------------|--------|---------------------------------------------
+| Modern, mobile-friendly, professional Somalia-wide     | DONE   | Site built, mobile responsiveness actively
+| marine tourism/research org site                       |        | worked on this session (header, carousel,
+|                                                         |        | inputs, iOS Safari fixes)
+
+================================================================================
+SECTION 2 — CORE WEBSITE NAVIGATION
+================================================================================
+| Requirement            | Status  | Notes
+|-------------------------|---------|---------------------------------------------
+| Home                    | DONE    | src/data/navigation.js
+| Explore the Coast       | DONE    |
+| Ocean Experiences       | DONE    |
+| Marine Life             | DONE    |
+| Research                | DONE    |
+| Conservation            | DONE    |
+| Coastal Communities     | DONE    | Labeled "Communities" in the nav (minor wording diff)
+| News & Discoveries      | DONE    | Labeled "News" in the nav (minor wording diff)
+| About Us                | DONE    | Labeled "About" in the nav (minor wording diff)
+| Contact                 | PARTIAL | Page exists (/contact) but is NOT in the main nav bar —
+|                          |         | only reachable via footer/direct link
+| (not in brief) Tourism  | EXTRA   | An additional top-level nav item beyond the brief's scope
+
+================================================================================
+SECTION 3 — HOMEPAGE
+================================================================================
+| Requirement                                    | Status | Notes
+|--------------------------------------------------|--------|-----------------------------------
+| Hero headline "Discover Somalia's Blue Ocean"     | DONE   | Exact match — HeroSection.jsx
+| Hero subtext                                      | DONE   | Exact match
+| Button: Explore the Coast                         | DONE   |
+| Button: Discover Marine Life                      | DONE   |
+| Button: Join a Research Expedition                | DONE   |
+| Button: Learn About Our Research                  | DONE   |
+
+================================================================================
+SECTION 4 — REGIONAL COVERAGE
+================================================================================
+| Requirement                                    | Status | Notes
+|--------------------------------------------------|--------|-----------------------------------
+| Puntland: Bosaso, Eyl, Hafun, Bargaal, Qandala    | DONE   | src/data/destinations.js — plus a bonus
+|                                                    |        | 6th destination (Hurdiya) added
+| Jubaland: Kismayo, Ras Kamboni, Bajuni Islands     | DONE   |
+| Somalia general: Mogadishu, Liido, Jazeera, Marka, | DONE   |
+| Barawe, Hobyo                                      |        |
+| (not in brief) Somaliland region                   | EXTRA  | Berbera + Zeila added beyond the brief's
+|                                                    |        | 3-region scope (Puntland/Jubaland/Somalia)
+
+================================================================================
+SECTION 5 — EXPLORE THE COAST PAGE
+================================================================================
+| Requirement                              | Status  | Notes
+|--------------------------------------------|---------|-----------------------------------
+| 3 entry points: Puntland/Jubaland/Somalia   | DONE    | Region cards + map filter pills
+|                                              |         | (RegionCards.jsx, CoastMap.jsx) — plus a
+|                                              |         | bonus 4th (Somaliland)
+| Coastal destinations & beaches              | DONE    |
+| Islands and ports                           | DONE    | via destinationType field
+| Fishing communities                         | PARTIAL | Mentioned in prose descriptions only —
+|                                              |         | not a structured, filterable field
+| Marine life in the area                     | DONE    | marineSpecies[] per destination
+| Tourism opportunities                       | DONE    | experiences[] per destination
+| Research locations                          | DONE    | researchProjects[] per destination
+| Photos                                      | DONE    | heroImage + gallery[]
+| Videos                                      | MISSING | No video field/upload anywhere in the app
+| Maps                                        | DONE    | Embedded Google Map + Street View
+|                                              |         | (DestinationInfo.jsx, StreetViewPanel.jsx)
+| Related news and articles                   | MISSING | No cross-linking from a destination to news
+
+================================================================================
+SECTION 6 — OCEAN EXPERIENCES
+================================================================================
+| Requirement                       | Status | Notes
+|--------------------------------------|--------|-----------------------------------
+| "Coming Soon" (not fake availability) | DONE   | status: 'coming-soon' on every experience,
+|                                        |        | explicit "not yet operating" copy
+| Boat tours                            | DONE   |
+| Coastal sightseeing                   | PARTIAL| Not a distinctly named category (closest:
+|                                        |        | "Boat Tours" / "Coastal Trekking")
+| Snorkeling                            | DONE   |
+| Diving                                | DONE   |
+| Fishing experiences                   | DONE   |
+| Island exploration                    | DONE   |
+| Dolphin and whale watching            | DONE   |
+| Marine photography trips              | DONE   |
+| (not in brief) Coastal Trekking       | EXTRA  |
+
+================================================================================
+SECTION 7 — MARINE LIFE LIBRARY
+================================================================================
+| Requirement                     | Status  | Notes
+|------------------------------------|---------|-----------------------------------
+| Searchable library                  | DONE    | "Search Somali Marine Species" —
+|                                      |         | searches common/Somali/scientific names
+| Category coverage (dolphins/whales, | DONE    | Category system in place; content depth
+| sharks/rays, turtles, fish, coral,  |         | to be filled in by admins over time
+| seagrass, crustaceans, other)       |         |
+| Field: Common name                  | DONE    |
+| Field: Somali name                  | DONE    |
+| Field: Scientific name              | DONE    |
+| Field: Photos                       | DONE    | hero_image + gallery (images only)
+| Field: Description                  | DONE    |
+| Field: Habitat                      | DONE    |
+| Field: Diet                         | DONE    |
+| Field: Where it is found            | DONE    | "Distribution" field
+| Field: Conservation status          | DONE    | + status_explanation
+| Field: Interesting facts            | DONE    |
+| Field: Research observations        | MISSING | No such field on the species model/admin form
+| No unverified scientific claims     | DONE    | Structure-first approach followed in seed data
+
+================================================================================
+SECTION 8 — MARINE RESEARCH (AREAS)
+================================================================================
+| Requirement           | Status | Notes
+|-------------------------|--------|-----------------------------------
+| Marine biodiversity     | DONE   | src/data/research.js — all 9 areas present,
+| Fisheries               | DONE   | matching the brief's list exactly
+| Coral reefs             | DONE   |
+| Sharks and rays         | DONE   |
+| Dolphins and whales     | DONE   |
+| Sea turtles             | DONE   |
+| Ocean pollution         | DONE   |
+| Water quality           | DONE   |
+| Coastal ecosystems      | DONE   |
+
+================================================================================
+SECTION 9 — RESEARCH PROJECTS & EXPEDITIONS
+================================================================================
+--- Research Projects ---
+| Requirement           | Status  | Notes
+|-------------------------|---------|-----------------------------------
+| Project name            | DONE    |
+| Region and location     | DONE    |
+| Research objective      | DONE    | "research_question" / "purpose" fields
+| Research team           | DONE    |
+| Start date               | DONE   | (+ end date)
+| Status                  | DONE    |
+| Photos                  | DONE    | hero_image + gallery
+| Video                   | MISSING | No video field
+| Findings                | DONE    | findings JSONB (title/description/source) —
+|                          |         | populated with real entries in seed data
+| Reports                 | PARTIAL | A "/research/reports" route exists in the
+|                          |         | nav structure; not confirmed wired to real
+|                          |         | per-project report documents/files
+
+--- Research Expeditions ---
+| Requirement              | Status  | Notes
+|----------------------------|---------|-----------------------------------
+| Expedition title            | DONE    |
+| Location                    | DONE    |
+| Dates and duration          | DONE    |
+| Purpose                     | DONE    |
+| Marine species being studied| PARTIAL | Many-to-many relation exists on the backend
+|                              |         | model, but not exposed as a field in the
+|                              |         | admin expedition form
+| Available spaces             | MISSING | No such field
+| Research team                | DONE    |
+| Requirements                  | DONE   |
+| Price, if applicable          | MISSING | No such field
+| Apply / Join button           | MISSING | Public expeditions page explicitly states
+|                                |         | "dates, pricing... TBD" — no apply/join CTA yet
+
+================================================================================
+SECTION 10 — CONSERVATION
+================================================================================
+| Requirement                    | Status | Notes
+|-----------------------------------|--------|-----------------------------------
+| Marine wildlife protection         | DONE   | src/data/conservation.js
+| Beach cleanup                      | DONE   |
+| Plastic pollution reduction        | DONE   | Covered under "Ocean Pollution"
+| Coral and habitat protection       | DONE   |
+| Sustainable fishing awareness      | DONE   |
+| Community education                | DONE   | "Marine Education" + "Community Conservation"
+| Youth ocean education              | DONE   | Covered under "Marine Education"
+| Get Involved: Volunteer            | DONE   | VolunteerPage.jsx
+| Get Involved: Partner With Us      | DONE   | PartnerPage.jsx
+| Get Involved: Support a Project    | DONE   | SupportPage.jsx
+| (not in brief) Illegal Fishing     | EXTRA  | Dedicated conservation issue page added
+
+================================================================================
+SECTION 11 — COASTAL COMMUNITIES
+================================================================================
+| Requirement                    | Status | Notes
+|-----------------------------------|--------|-----------------------------------
+| Fishermen and fishing communities  | DONE   | src/data/communities.js — matches
+| Traditional marine knowledge       | DONE   | brief's 6 themes exactly
+| Coastal businesses                 | DONE   |
+| Youth employment                   | DONE   |
+| Women in coastal communities       | DONE   |
+| Sustainable livelihoods            | DONE   |
+
+================================================================================
+SECTION 12 — NEWS & DISCOVERIES
+================================================================================
+| Requirement                          | Status  | Notes
+|------------------------------------------|---------|-----------------------------------
+| Category: Marine Life                     | DONE    | src/data/news.js — matches brief
+| Category: Research                        | DONE    | exactly, 1:1
+| Category: Tourism                         | DONE    |
+| Category: Conservation                    | DONE    |
+| Category: Coastal Communities             | DONE    |
+| Category: Ocean News                      | DONE    |
+| Article: title                            | DONE    |
+| Article: featured image                   | DONE    |
+| Article: author                           | DONE    |
+| Article: date                             | DONE    |
+| Article: category                         | DONE    |
+| Article: article text                     | DONE    |
+| Article: photos                           | DONE    | gallery field
+| Article: video                            | MISSING | No video field
+| Article: related stories                  | PARTIAL | Not confirmed wired on the article detail
+|                                            |         | page (ArticleHero.jsx) — needs verification
+
+================================================================================
+SECTION 13 — ABOUT BLUE OCEAN
+================================================================================
+| Requirement                          | Status  | Notes
+|------------------------------------------|---------|-----------------------------------
+| Company description                       | DONE    | src/data/organization.js
+| Mission statement                         | PARTIAL | Site: "Explore. Study. Protect. Share."
+|                                            |         | Brief: "To explore, study, protect, and
+|                                            |         | share Somalia's marine environment with
+|                                            |         | the world." — condensed, same core idea
+| Vision statement                          | PARTIAL | Site version omits the brief's trailing
+|                                            |         | clause ("...for education, tourism,
+|                                            |         | research, and economic opportunity")
+
+================================================================================
+SECTION 14 — CONTACT PAGE
+================================================================================
+| Requirement            | Status  | Notes
+|--------------------------|---------|-----------------------------------
+| Field: Name               | DONE    | ContactForm.jsx
+| Field: Email              | DONE    |
+| Field: Phone              | DONE    |
+| Field: Organization       | DONE    |
+| Field: Subject            | DONE    |
+| Field: Message            | DONE    |
+| Subject: Tourism          | PARTIAL | Site has "Ocean Experiences" instead of
+|                            |         | "Tourism" as a subject option
+| Subject: Research         | DONE    |
+| Subject: Partnership      | DONE    |
+| Subject: Conservation     | DONE    |
+| Subject: Media            | DONE    |
+| Subject: General Inquiry  | DONE    |
+| (not in brief) Volunteer, | EXTRA   | Two extra subject options added
+| Other                     |         |
+
+================================================================================
+SECTION 15 — DESIGN DIRECTION
+================================================================================
+| Requirement                              | Status | Notes
+|----------------------------------------------|--------|-----------------------------------
+| Deep ocean blue, turquoise, white palette      | DONE   | Consistent throughout globals.css
+| Large high-quality coastal/underwater photos   | DONE   | Real photos now used for all hero
+|                                                 |        | banners (this session's work)
+| Clean modern typography                        | DONE   |
+| Smooth, lightweight animations                 | DONE   | Framer Motion used throughout
+| Marine-life icons                              | DONE   | lucide-react icon set
+| Regional and coastal maps                      | DONE   | Google Maps integration
+| Professional international look + Somali       | DONE   | Subjective — reasonably satisfied
+| identity                                       |        |
+
+================================================================================
+SECTION 16 — MOBILE & ADMIN REQUIREMENTS
+================================================================================
+| Requirement                          | Status  | Notes
+|------------------------------------------|---------|-----------------------------------
+| Works well on mobile devices              | PARTIAL | Actively hardened this session (frosted
+|                                            |         | header, carousel touch-swipe, iOS
+|                                            |         | auto-zoom fix, older-Safari fixed-position
+|                                            |         | fix) — real-device confirmation pending
+| Admin: add/edit Destinations               | DONE    | Full CRUD, upload-capable media fields
+| Admin: add/edit Marine species             | DONE    | Full CRUD
+| Admin: add/edit Research projects          | DONE    | Full CRUD
+| Admin: add/edit Expeditions                | PARTIAL | CRUD exists but missing species/spaces/
+|                                            |         | price fields (see Section 9)
+| Admin: add/edit News articles              | DONE    | Full CRUD
+| Admin: add/edit Photos                     | DONE    | Media Library (images only)
+| Admin: add/edit Videos                     | MISSING | Media Library only accepts
+|                                            |         | jpeg/png/webp/gif — no video support
+|                                            |         | anywhere in the upload pipeline
+| Admin: add/edit Team members               | DONE    | TeamPage.jsx
+
+================================================================================
+SECTION 17 — SOCIAL MEDIA INTEGRATION
+================================================================================
+| Requirement                        | Status  | Notes
+|----------------------------------------|---------|-----------------------------------
+| TikTok                                  | DONE    | Footer.jsx / organization.js —
+| Instagram                               | DONE    | all 6 platforms present with icons
+| Facebook                                | DONE    |
+| YouTube                                 | DONE    |
+| LinkedIn                                | DONE    |
+| X / Twitter                             | DONE    |
+| (caveat)                                | NOTE    | URLs are placeholders (instagram.com,
+|                                          |         | facebook.com, etc.) — need real handles
+| "Latest from Blue Ocean" section        | MISSING | No such section found anywhere in the app
+
+================================================================================
+SECTION 18 — FIRST DEVELOPMENT VERSION
+================================================================================
+| Requirement          | Status  | Notes
+|-------------------------|---------|-----------------------------------
+| 1. Homepage              | DONE    |
+| 2. About page            | DONE    |
+| 3. Explore the Coast page| DONE    |
+| 4. Marine Life page      | DONE    |
+| 5. Research page         | DONE    |
+| 6. Conservation page     | DONE    |
+| 7. News section          | DONE    |
+| 8. Contact page          | PARTIAL | Page built, but not linked in main nav
+| 9. Mobile version        | PARTIAL | Substantial work done; needs real-device
+|                          |         | verification across more device/OS combos
+| 10. Admin system         | DONE    | Covers nearly every content type; expedition
+|                          |         | fields and video uploads are the gaps
+
+================================================================================
+TOP PRIORITY GAPS TO CLOSE NEXT
+================================================================================
+  1. Video upload/embed support — affects Sections 5, 9, 12, 16 simultaneously.
+  2. Add "Contact" to the main navigation bar.
+  3. Expedition fields: species studied (expose existing relation), available
+     spaces, price, and an Apply/Join flow.
+  4. Marine species "research observations" field.
+  5. "Latest from Blue Ocean" social feed section.
+  6. Related news/articles cross-linking on destinations, species, and
+     research projects.
+  7. Replace placeholder social media URLs with real Blue Ocean accounts.
+================================================================================

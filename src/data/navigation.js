@@ -9,6 +9,7 @@ export const navLinks = [
   { label: 'Communities', path: '/communities' },
   { label: 'News', path: '/news' },
   { label: 'About', path: '/about' },
+  { label: 'Contact', path: '/contact' },
 ];
 
 // Pages whose top banner has no dark hero photo behind the header — the

@@ -55,6 +55,10 @@ class Species(Base):
     # [{url, caption, photographer}, ...] — structured, so JSONB rather
     # than a plain string array.
     gallery: Mapped[list[dict]] = mapped_column(JSONB, default=list)
+    video_url: Mapped[str | None] = mapped_column(String(500))
+    video_title: Mapped[str | None] = mapped_column(String(255))
+    video_description: Mapped[str | None] = mapped_column(Text)
+    video_source: Mapped[str | None] = mapped_column(String(255))
 
     habitat: Mapped[str | None] = mapped_column(String(255))
     depth: Mapped[str | None] = mapped_column(String(100))
@@ -69,6 +73,7 @@ class Species(Base):
     )
     status_explanation: Mapped[str | None] = mapped_column(Text)
     interesting_facts: Mapped[list[str]] = mapped_column(ARRAY(String), default=list)
+    research_observations: Mapped[str | None] = mapped_column(Text)
 
     featured: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     published: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)

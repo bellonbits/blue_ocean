@@ -65,6 +65,10 @@ def _apply_links(db: Session, article: NewsArticle, payload) -> None:
 def list_news_articles(
     category: str | None = Query(default=None, description="Filter by category slug"),
     featured: bool | None = Query(default=None),
+    destination: str | None = Query(default=None, description="Filter to articles related to this destination slug"),
+    species: str | None = Query(default=None, description="Filter to articles related to this species slug"),
+    research_project: str | None = Query(default=None, description="Filter to articles related to this research project slug"),
+    conservation_project: str | None = Query(default=None, description="Filter to articles related to this conservation project slug"),
     db: Session = Depends(get_db),
 ) -> list[NewsArticle]:
     query = db.query(NewsArticle).options(*_EAGER).filter(NewsArticle.published.is_(True))
@@ -73,6 +77,14 @@ def list_news_articles(
         query = query.join(NewsCategory).filter(NewsCategory.slug == category)
     if featured is not None:
         query = query.filter(NewsArticle.featured.is_(featured))
+    if destination:
+        query = query.join(NewsArticle.destinations).filter(Destination.slug == destination)
+    if species:
+        query = query.join(NewsArticle.species).filter(Species.slug == species)
+    if research_project:
+        query = query.join(NewsArticle.research_projects).filter(ResearchProject.slug == research_project)
+    if conservation_project:
+        query = query.join(NewsArticle.conservation_projects).filter(ConservationProject.slug == conservation_project)
 
     return query.order_by(NewsArticle.date.desc()).all()
 

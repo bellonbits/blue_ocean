@@ -23,12 +23,20 @@ router = APIRouter(prefix="/media", tags=["media"])
 _manage_media = require_role(UserRole.SUPER_ADMIN, UserRole.ADMIN, UserRole.EDITOR, UserRole.CONTENT_MANAGER)
 _delete_media = require_role(UserRole.SUPER_ADMIN, UserRole.ADMIN)
 
-_ALLOWED_MIME_TYPES = {
+_IMAGE_MIME_TYPES = {
     "image/jpeg": ".jpg",
     "image/png": ".png",
     "image/webp": ".webp",
     "image/gif": ".gif",
 }
+_VIDEO_MIME_TYPES = {
+    "video/mp4": ".mp4",
+    "video/webm": ".webm",
+    "video/quicktime": ".mov",
+}
+_ALLOWED_MIME_TYPES = {**_IMAGE_MIME_TYPES, **_VIDEO_MIME_TYPES}
+
+_UPLOAD_CHUNK_BYTES = 1024 * 1024  # 1 MB — streamed to disk, never fully buffered in memory
 
 
 @router.get("", response_model=list[MediaRead])
@@ -59,27 +67,41 @@ async def upload_media(
         )
 
     settings = get_settings()
-    contents = await file.read()
-    if len(contents) > settings.media_max_upload_bytes:
-        raise HTTPException(
-            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
-            detail=f"File exceeds the {settings.media_max_upload_bytes // (1024 * 1024)} MB upload limit.",
-        )
-    if len(contents) == 0:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Uploaded file is empty.")
+    is_video = file.content_type in _VIDEO_MIME_TYPES
+    max_bytes = settings.media_max_video_upload_bytes if is_video else settings.media_max_upload_bytes
 
     media_root = Path(settings.media_root)
     media_root.mkdir(parents=True, exist_ok=True)
 
     stored_name = f"{uuid.uuid4().hex}{extension}"
-    (media_root / stored_name).write_bytes(contents)
+    dest_path = media_root / stored_name
+
+    # Stream to disk in chunks rather than buffering the whole upload in
+    # memory — images are small enough not to matter, but a 200 MB video
+    # read in one shot risks exhausting memory on a modest server.
+    size = 0
+    with dest_path.open("wb") as out:
+        while chunk := await file.read(_UPLOAD_CHUNK_BYTES):
+            size += len(chunk)
+            if size > max_bytes:
+                out.close()
+                dest_path.unlink(missing_ok=True)
+                raise HTTPException(
+                    status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+                    detail=f"File exceeds the {max_bytes // (1024 * 1024)} MB upload limit.",
+                )
+            out.write(chunk)
+
+    if size == 0:
+        dest_path.unlink(missing_ok=True)
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Uploaded file is empty.")
 
     media = Media(
         filename=file.filename or stored_name,
         stored_name=stored_name,
         url=f"{settings.media_url_prefix}/{stored_name}",
         mime_type=file.content_type,
-        size_bytes=len(contents),
+        size_bytes=size,
         alt_text=alt_text,
         uploaded_by_id=current_user.id,
     )

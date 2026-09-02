@@ -92,6 +92,10 @@ class ConservationProject(Base):
 
     hero_image: Mapped[str | None] = mapped_column(String(500))
     gallery: Mapped[list[dict]] = mapped_column(JSONB, default=list)
+    video_url: Mapped[str | None] = mapped_column(String(500))
+    video_title: Mapped[str | None] = mapped_column(String(255))
+    video_description: Mapped[str | None] = mapped_column(Text)
+    video_source: Mapped[str | None] = mapped_column(String(255))
 
     featured: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     published: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)

@@ -11,6 +11,7 @@ import ExperienceWildlife from '../components/experiences/ExperienceWildlife';
 import ExperienceConservation from '../components/experiences/ExperienceConservation';
 import RelatedExperiences from '../components/experiences/RelatedExperiences';
 import ExploreCTA from '../components/coast/ExploreCTA';
+import VideoEmbed from '../components/shared/VideoEmbed';
 
 export default function ExperienceDetailPage() {
   const { slug } = useParams();
@@ -58,6 +59,17 @@ export default function ExperienceDetailPage() {
       <ExperienceHero experience={experience} />
       <ExperienceStory experience={experience} />
       <ExperienceGallery experience={experience} />
+      {experience.videoUrl && (
+        <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
+          <VideoEmbed
+            url={experience.videoUrl}
+            title={experience.title}
+            videoTitle={experience.videoTitle}
+            videoDescription={experience.videoDescription}
+            videoSource={experience.videoSource}
+          />
+        </section>
+      )}
       <ExperienceLocations experience={experience} />
       <ExperienceWildlife experience={experience} />
       <ExperienceConservation experience={experience} />

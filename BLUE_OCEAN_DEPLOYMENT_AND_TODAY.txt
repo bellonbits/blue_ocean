@@ -1,0 +1,229 @@
+================================================================================
+BLUE OCEAN — DEPLOYMENT STATUS & WHAT WAS DONE TODAY
+2026-09-02
+================================================================================
+
+PART 1 — DEPLOYMENT: WHAT'S NEEDED FROM YOUR SIDE
+================================================================================
+
+THE HEADLINE ISSUE
+-------------------
+The live site (blueoceansomalia.vercel.app) only has its FRONTEND deployed.
+The backend (the API that serves destinations, handles the contact form,
+logins, and the admin panel) currently only runs on a local development
+machine — it is NOT reachable from the internet.
+
+Confirmed directly: the live Explore the Coast page currently shows ZERO
+destination cards, because the frontend has nowhere to fetch them from.
+The same applies to the contact form (can't deliver messages), login/
+signup, and the admin CMS — none of it works on the live site right now.
+
+This is not a bug introduced today — it's a pre-existing gap (the backend
+was simply never hosted anywhere). It's surfacing now because today's
+work (real destination photos, Somaliland, video support) all lives in
+that backend/database.
+
+WHAT NEEDS TO HAPPEN
+---------------------
+1. Pick a host for the backend (a Python/FastAPI app + PostgreSQL
+   database). Reasonable options, roughly cheapest/simplest to most
+   involved:
+     - Railway or Render (one-click Postgres + app deploy, good for this
+       size of project)
+     - Fly.io
+     - DigitalOcean App Platform (already referenced in this repo's
+       server/README.md for the chat proxy — could host everything
+       together)
+
+2. Provision a production PostgreSQL database on that host.
+
+3. Deploy the FastAPI app from backend/ to that host, with these
+   environment variables set (see backend/.env.example for the full
+   list):
+     - DATABASE_URL         → the production Postgres connection string
+     - SECRET_KEY           → a fresh, random value (never reuse the dev
+                               one). Generate with:
+                               python3 -c "import secrets; print(secrets.token_urlsafe(48))"
+     - CORS_ORIGINS         → the live frontend's URL
+                               (https://blueoceansomalia.vercel.app, plus
+                               any custom domain)
+     - GOOGLE_PLACES_API_KEY → optional, only needed if you want the
+                               "real photo from Google Places" feature
+                               built today to actually fetch photos live
+     - MEDIA_ROOT / MEDIA_URL_PREFIX → see note below on media storage
+
+4. Run the database migrations against the production database:
+     uv run alembic upgrade head
+   (This creates every table — destinations, species, research, media,
+   users, etc. — matching what's already built locally.)
+
+5. Run the seed scripts once against production to load the real content
+   (destinations, regions, research, conservation, etc.) that currently
+   only exists in the local dev database:
+     uv run python scripts/seed_coast.py
+     uv run python scripts/seed_organization.py
+     uv run python scripts/seed_marine_life.py
+     uv run python scripts/seed_research.py
+     uv run python scripts/seed_conservation_communities.py
+     uv run python scripts/seed_experiences.py
+     uv run python scripts/seed_news.py
+
+6. In Vercel's project settings, set the environment variable:
+     VITE_API_URL = https://<your-backend-host>/api/v1
+   then trigger a redeploy (env vars only take effect on a fresh build).
+
+7. One thing to plan for, not urgent on day one: the media upload system
+   (image/video uploads from the admin panel) currently saves files to
+   local disk on the backend server. Most hosting platforms wipe local
+   disk on every redeploy and don't share it across instances — so
+   uploaded photos/videos would silently disappear over time. Before
+   relying on the admin upload feature in production, this should move
+   to real object storage (e.g. AWS S3, Cloudflare R2, or DigitalOcean
+   Spaces). Not a blocker for launch, but should happen before the team
+   leans on it heavily.
+
+WHO NEEDS TO DECIDE WHAT
+--------------------------
+- Which hosting provider to use, and who holds that account/billing.
+- Whether to enable the Google Places photo feature (needs a Google
+  Cloud project with Places API (New) enabled and billing set up — a
+  separate decision from the site hosting).
+- Timeline for moving media storage off local disk.
+
+Once a backend URL exists and is reachable, tell Claude and the rest
+(env var in Vercel, verifying the live site) can be wired up in minutes.
+
+================================================================================
+PART 2 — WHAT WAS DONE TODAY ON BLUE OCEAN
+================================================================================
+
+CHAT ASSISTANT
+---------------
+- Chat now shows real destination images inline (markdown image support
+  added to the message renderer) and replies in a warmer, human "guide"
+  voice instead of a formal system tone.
+
+REGIONAL COVERAGE
+-------------------
+- Added Somaliland as a fourth region, with two new destinations:
+  Berbera and Zeila. Wired end-to-end: frontend data, backend database,
+  region cards, map filters, and destination grid filters.
+
+ADMIN / CONTENT MANAGEMENT SYSTEM
+------------------------------------
+- Every "Media" field across the admin (Destinations, Marine Life,
+  Research, Conservation, Communities, News, Experiences, Team, Regions)
+  now supports uploading a file directly OR pasting a URL — previously
+  several of these were plain text boxes requiring a hand-typed URL.
+- Added full VIDEO support across the same 7 content types: admins can
+  attach a video (YouTube/Vimeo link or an uploaded file, up to 200MB)
+  plus a title, description, and source/credit line. Shows up on the
+  public page only when set — never an empty video slot.
+- Added a "Research Observations" field to marine species records.
+
+DESIGN / HERO IMAGES
+----------------------
+- Removed duplicate hero images across pages (Home and About were using
+  the same photo; Tourism and Research shared another; News and Contact
+  shared a third) — every major page now has a distinct, on-theme photo.
+- Reworked the mobile header: fixed a washed-out/near-invisible frosted
+  header on scroll, and hardened it against older iOS Safari's known
+  rendering glitches with fixed headers.
+- Fixed the homepage/section carousels: they had no real touch-swipe
+  support at all (only tiny arrow buttons worked) — added proper swipe
+  gestures and made cards resize sensibly on phone screens.
+- Fixed an iOS auto-zoom bug: several form inputs (chat box, login,
+  search, contact/volunteer/partner forms) had font sizes just under the
+  16px threshold that makes iPhones auto-zoom the whole page on focus.
+
+REAL PHOTOGRAPHY
+-------------------
+- Replaced generic stock/Unsplash photography with real, location-
+  specific photos for 10 destinations: Berbera, Zeila, Kismayo, Ras
+  Kamboni, Mogadishu, Liido Beach, Jazeera, Marka, Barawe, and Hobyo —
+  plus added extra real photos to Bosaso and Qandala's galleries.
+- Removed remaining stock photos from the Somaliland region card and 8
+  of the 9 Research Area cards, replacing them with real destination or
+  marine-life photography already in the project.
+- Only Bajuni Islands still uses a stock photo — no real photo supplied
+  for it yet.
+- Built (structure only, needs a Google API key to actually activate) a
+  system to pull real photos of destinations from Google Places as an
+  additional source, with local photos as the reliable fallback.
+
+CONTACT FORM
+--------------
+- Fixed the failure experience: previously a failed submission gave a
+  generic "something went wrong" message that was easy to miss. Now it
+  clearly states the message was NOT delivered, automatically scrolls
+  into view so it can't be missed, and gives a direct email fallback.
+- (See Part 1 — the underlying reason submissions currently fail on the
+  live site is the missing backend, not the form itself.)
+
+DOCUMENTATION
+---------------
+- BLUE_OCEAN_TASK_TRACKER.txt — a full audit of the current site against
+  the original development brief, section by section, marking what's
+  done, partial, or missing.
+- BLUE_OCEAN_BACKLOG.md — the prioritized list of remaining work, with
+  Contact navigation, Mission/Vision text, video support, and research
+  observations already checked off during today's session.
+
+================================================================================
+PART 3 — WHAT IS STILL NOT DONE
+================================================================================
+
+BLOCKING (nothing else works live until this is resolved)
+------------------------------------------------------------
+- No backend deployed. See Part 1 in full. This is the one item that
+  makes everything else on this list moot for the live site until it's
+  resolved.
+
+NOT DONE — FEATURES
+----------------------
+- Related Content System: news/articles/species/research aren't cross-
+  linked to each other or to destinations. No "Related Stories" block
+  driven by real relationships anywhere yet.
+- Expeditions are incomplete: no "species being studied" field exposed
+  in the admin (the database relation exists, just isn't in the form),
+  no available-spaces field, no price field, and no Apply/Join flow or
+  application-review admin screen at all.
+- "Latest from Blue Ocean" homepage section — doesn't exist yet.
+- Social media links (Instagram, TikTok, Facebook, YouTube, LinkedIn, X)
+  point to placeholder URLs (instagram.com, facebook.com, etc.), not
+  Blue Ocean's real accounts. No admin settings panel to manage them —
+  currently hardcoded in the frontend.
+- Bajuni Islands destination still uses a stock photo — no real photos
+  were supplied for it in today's batch.
+- A few smaller brief items are partial rather than done: "Coastal
+  sightseeing" isn't a distinct Ocean Experience category, "fishing
+  communities" isn't a structured/filterable field on destinations, and
+  article "related stories" / research project "reports" aren't
+  confirmed wired to real content.
+
+NOT DONE — INFRASTRUCTURE / OPS
+------------------------------------
+- Media storage is local disk on the backend server — fine for
+  development, but will lose uploaded files on redeploy once hosted for
+  real. Needs to move to S3/R2/Spaces before the team relies on the
+  admin upload feature in production (see Part 1, item 7).
+- Google Places photo feature is built but inactive — needs a Google
+  Cloud project with Places API (New) + billing, then the key added to
+  the backend's environment.
+- Real-device mobile QA hasn't happened — everything mobile-related
+  today was verified with browser engines (Chromium/WebKit) simulating
+  device sizes, not actual phones. Recommended as the final step before
+  launch, once the backend is live.
+
+CLEANUP — LOW PRIORITY, NOT BLOCKING ANYTHING
+--------------------------------------------------
+- Several duplicate/redundant image files from earlier photo batches
+  are still sitting in public/ (e.g. bargaal1.jpeg, ely1-3, qandala1/3
+  .jpeg) alongside the versions actually in use — safe to delete
+  whenever convenient.
+- The raw screenshot folders each new destination's photos were sourced
+  from (bosaso/, eyl/, Bargaal/, hafun/, Qandala/, and the 10 newer
+  ones) still contain unused extra shots as spares — fine to keep for
+  now, or clean up once you're sure nothing more will be pulled from
+  them.
+================================================================================

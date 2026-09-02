@@ -13,7 +13,7 @@ import uuid
 from datetime import datetime
 
 from sqlalchemy import Boolean, DateTime, Enum, Float, ForeignKey, String, Text, func
-from sqlalchemy.dialects.postgresql import ARRAY, UUID
+from sqlalchemy.dialects.postgresql import ARRAY, JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
@@ -44,6 +44,10 @@ class Destination(Base):
 
     hero_image: Mapped[str | None] = mapped_column(String(500))
     gallery: Mapped[list[str]] = mapped_column(ARRAY(String), default=list)
+    video_url: Mapped[str | None] = mapped_column(String(500))
+    video_title: Mapped[str | None] = mapped_column(String(255))
+    video_description: Mapped[str | None] = mapped_column(Text)
+    video_source: Mapped[str | None] = mapped_column(String(255))
 
     latitude: Mapped[float | None] = mapped_column(Float)
     longitude: Mapped[float | None] = mapped_column(Float)
@@ -56,6 +60,16 @@ class Destination(Base):
     status: Mapped[DestinationStatus] = mapped_column(
         Enum(DestinationStatus, name="destination_status"), nullable=False, default=DestinationStatus.DRAFT
     )
+
+    # --- Google Places (New) photo sourcing ---
+    # google_place_id is a stable Google identifier — safe to persist.
+    # google_photos_cache/fetched_at are a short-lived cache of the photo
+    # metadata Places returns (never the raw image), refreshed by
+    # GOOGLE_PLACES_CACHE_HOURS rather than kept forever — see
+    # app/services/google_places.py.
+    google_place_id: Mapped[str | None] = mapped_column(String(255))
+    google_photos_cache: Mapped[list[dict]] = mapped_column(JSONB, default=list)
+    google_photos_fetched_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
 
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(

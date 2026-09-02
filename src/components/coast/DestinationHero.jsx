@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, MapPin, Compass, Waves } from 'lucide-react';
+import PlaceImage from '../shared/PlaceImage';
 import './DestinationHero.css';
 
 export default function DestinationHero({ destination }) {
@@ -7,12 +8,13 @@ export default function DestinationHero({ destination }) {
     <section className="dest-hero" aria-label={`Destination ${destination.name}`}>
       {/* Background Photography */}
       <div className="dest-hero__bg">
-        <img
-          src={destination.heroImage}
+        <PlaceImage
+          slug={destination.slug}
+          fallbackSrc={destination.heroImage}
           alt={`${destination.name}, ${destination.region}`}
           className="dest-hero__bg-img"
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
         />
         <div className="dest-hero__overlay" aria-hidden="true" />
       </div>

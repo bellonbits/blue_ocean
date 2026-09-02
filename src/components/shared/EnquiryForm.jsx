@@ -1,13 +1,22 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { CheckCircle2, AlertTriangle, Send, Loader2 } from 'lucide-react';
+import { contactDetails } from '../../data/organization';
 import './EnquiryForm.css';
 
-export default function EnquiryForm({ fields, submitLabel = 'Submit', successMessage, formId, onSubmit }) {
+export default function EnquiryForm({ fields, submitLabel = 'Submit', successMessage, errorMessage, formId, onSubmit }) {
   const initialState = Object.fromEntries(fields.map((f) => [f.name, f.defaultValue || '']));
   const [values, setValues] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [honeypot, setHoneypot] = useState('');
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+  const errorRef = useRef(null);
+
+  // A failed submission is easy to miss if it lands below the fold on a
+  // long form — pull it into view so "did that actually send?" never
+  // goes unanswered.
+  useEffect(() => {
+    if (status === 'error') errorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, [status]);
 
   const handleChange = (name, value) => {
     setValues((v) => ({ ...v, [name]: value }));
@@ -121,9 +130,16 @@ export default function EnquiryForm({ fields, submitLabel = 'Submit', successMes
       ))}
 
       {status === 'error' && (
-        <div className="enquiry-form__group--full enquiry-form__banner enquiry-form__banner--error">
+        <div ref={errorRef} className="enquiry-form__group--full enquiry-form__banner enquiry-form__banner--error" role="alert">
           <AlertTriangle size={16} />
-          <span>Something went wrong. Please try again.</span>
+          <span>
+            {errorMessage || (
+              <>
+                Your message was <strong>not delivered</strong> — please try submitting again. If it keeps failing,
+                email us directly at <a href={`mailto:${contactDetails.email}`}>{contactDetails.email}</a>.
+              </>
+            )}
+          </span>
         </div>
       )}
 

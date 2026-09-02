@@ -74,6 +74,10 @@ class ResearchProjectBase(BaseModel):
     expected_outcomes: str | None = None
     hero_image: str | None = None
     gallery: list[GalleryImage] = []
+    video_url: str | None = None
+    video_title: str | None = None
+    video_description: str | None = None
+    video_source: str | None = None
     objectives: list[str] = []
     findings: list[Finding] = []
     conservation_themes: list[str] = []
@@ -106,6 +110,10 @@ class ResearchProjectUpdate(BaseModel):
     expected_outcomes: str | None = None
     hero_image: str | None = None
     gallery: list[GalleryImage] | None = None
+    video_url: str | None = None
+    video_title: str | None = None
+    video_description: str | None = None
+    video_source: str | None = None
     objectives: list[str] | None = None
     findings: list[Finding] | None = None
     conservation_themes: list[str] | None = None

@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '../../../context/AuthContext';
 import { canManageAdmin } from '../roles';
 import RestrictedNotice from '../RestrictedNotice';
-import { adminNewsCategories, adminNewsArticles } from '../../../lib/contentApi';
+import {
+  adminNewsCategories, adminNewsArticles, adminListDestinations,
+  adminSpecies, adminResearchProjects, adminConservationProjects, adminExperiences, adminCommunities,
+} from '../../../lib/contentApi';
 import GenericResourcePage from './GenericResourcePage';
 
 const CATEGORY_FIELDS = [
@@ -14,7 +17,22 @@ const CATEGORY_FIELDS = [
 function ArticlesTab() {
   const { token } = useAuth();
   const [categories, setCategories] = useState([]);
-  useEffect(() => { adminNewsCategories.list(token).then(setCategories).catch(() => {}); }, [token]);
+  const [destinations, setDestinations] = useState([]);
+  const [species, setSpecies] = useState([]);
+  const [researchProjects, setResearchProjects] = useState([]);
+  const [conservationProjects, setConservationProjects] = useState([]);
+  const [experiences, setExperiences] = useState([]);
+  const [communities, setCommunities] = useState([]);
+
+  useEffect(() => {
+    adminNewsCategories.list(token).then(setCategories).catch(() => {});
+    adminListDestinations(token).then(setDestinations).catch(() => {});
+    adminSpecies.list(token).then(setSpecies).catch(() => {});
+    adminResearchProjects.list(token).then(setResearchProjects).catch(() => {});
+    adminConservationProjects.list(token).then(setConservationProjects).catch(() => {});
+    adminExperiences.list(token).then(setExperiences).catch(() => {});
+    adminCommunities.list(token).then(setCommunities).catch(() => {});
+  }, [token]);
 
   const fields = [
     { name: 'title', label: 'Title', required: true, section: 'Basic Information' },
@@ -30,14 +48,52 @@ function ArticlesTab() {
 
     { name: 'featured_image', label: 'Featured image', type: 'image', fullWidth: true, section: 'Media' },
     { name: 'gallery', label: 'Gallery', type: 'imagelist', fullWidth: true, section: 'Media' },
+    { name: 'video_url', label: 'Video', type: 'video', fullWidth: true, section: 'Media' },
+    { name: 'video_title', label: 'Video title', section: 'Media' },
+    { name: 'video_source', label: 'Video source / credit', section: 'Media' },
+    { name: 'video_description', label: 'Video description', type: 'textarea', fullWidth: true, rows: 2, section: 'Media' },
     { name: 'featured', label: 'Feature on homepage', type: 'checkbox', section: 'Media' },
+
+    {
+      name: 'destination_ids', label: 'Related destinations', type: 'multiselect', fullWidth: true, section: 'Related Content',
+      options: destinations.map((d) => ({ value: d.id, label: d.name })),
+    },
+    {
+      name: 'species_ids', label: 'Related marine species', type: 'multiselect', fullWidth: true, section: 'Related Content',
+      options: species.map((s) => ({ value: s.id, label: s.common_name })),
+    },
+    {
+      name: 'research_project_ids', label: 'Related research projects', type: 'multiselect', fullWidth: true, section: 'Related Content',
+      options: researchProjects.map((p) => ({ value: p.id, label: p.title })),
+    },
+    {
+      name: 'conservation_project_ids', label: 'Related conservation projects', type: 'multiselect', fullWidth: true, section: 'Related Content',
+      options: conservationProjects.map((p) => ({ value: p.id, label: p.title })),
+    },
+    {
+      name: 'experience_ids', label: 'Related ocean experiences', type: 'multiselect', fullWidth: true, section: 'Related Content',
+      options: experiences.map((e) => ({ value: e.id, label: e.title })),
+    },
+    {
+      name: 'community_ids', label: 'Related communities', type: 'multiselect', fullWidth: true, section: 'Related Content',
+      options: communities.map((c) => ({ value: c.id, label: c.name })),
+    },
   ];
 
   return (
     <GenericResourcePage
       resource={adminNewsArticles}
       fields={fields}
-      mapInitialValues={(item) => ({ ...item, category_id: item.category?.id })}
+      mapInitialValues={(item) => ({
+        ...item,
+        category_id: item.category?.id,
+        destination_ids: (item.destinations || []).map((d) => d.id),
+        species_ids: (item.species || []).map((s) => s.id),
+        research_project_ids: (item.research_projects || []).map((p) => p.id),
+        conservation_project_ids: (item.conservation_projects || []).map((p) => p.id),
+        experience_ids: (item.experiences || []).map((e) => e.id),
+        community_ids: (item.communities || []).map((c) => c.id),
+      })}
       itemLabel="article"
       createLabel="Write Article"
       searchKeys={['title', 'author']}

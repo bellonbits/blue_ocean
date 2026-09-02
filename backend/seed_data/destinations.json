@@ -15,7 +15,7 @@
     "gallery": [
       "/bosaso2.jpg",
       "/bosaso1.jpg",
-      "/marine_dolphins.jpg"
+      "/bosaso3.jpg"
     ],
     "coordinates": {
       "lat": 11.2842,
@@ -301,7 +301,8 @@
     "gallery": [
       "/qandala_main.jpg",
       "/qandala_1.jpg",
-      "/qandala_2.jpg"
+      "/qandala_2.jpg",
+      "/qandala2.jpeg"
     ],
     "coordinates": {
       "lat": 11.4719,
@@ -418,11 +419,11 @@
     "tagline": "A centuries-old Gulf of Aden trading port framed by white sand beaches and a living coral coastline.",
     "shortDescription": "Somaliland’s principal seaport and oldest continuously used harbor on the Horn of Africa, backed by red volcanic hills and fringed by shallow coral reef flats.",
     "fullDescription": "Berbera has served as a crossroads of Red Sea and Indian Ocean trade for well over a thousand years, its natural deepwater harbor sheltering merchant dhows long before the modern port was built.\n\nBehind the town, the arid Golis mountain range rises sharply from the coastal plain, giving way to a shoreline of pale sand beaches and warm, shallow reef flats that stay calm for much of the year. Traditional fishing communities still work these waters daily for reef fish, shark, and seasonal pelagics.\n\nBlue Ocean is beginning baseline surveys of Berbera’s nearshore reef flats and lagoon systems, an area of the Gulf of Aden that remains comparatively under-documented despite its long human history.",
-    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    "heroImage": "/berbera1.png",
     "gallery": [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80",
-      "/marine_fish.jpg"
+      "/berbera1.png",
+      "/berbera2.png",
+      "/berbera3.png"
     ],
     "coordinates": {
       "lat": 10.4396,
@@ -488,11 +489,11 @@
     "tagline": "A once-great Red Sea port, its coral-stone ruins standing quiet above the tide.",
     "shortDescription": "One of the oldest ports on the Horn of Africa coast, Zeila (Saylac) blends crumbling coral-stone architecture with calm, shallow turquoise flats and scattered offshore islets.",
     "fullDescription": "Zeila, also known as Saylac, was for centuries one of the most important trading ports on the Gulf of Aden, linking the Ethiopian highlands to Arabia, Persia, and India. Its harbor has since silted and quieted, leaving behind weathered coral-stone mosques, merchant houses, and city walls standing above the shoreline.\n\nThe waters offshore are shallow and calm for much of the year, sheltered by a scatter of low sandy islets, and support seasonal artisanal fishing much as they have for generations.\n\nBlue Ocean views Zeila as a priority site for documenting how a historic Gulf of Aden port town's marine life and fishing practices have shifted over time, alongside the town's largely unrestored maritime heritage.",
-    "heroImage": "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80",
+    "heroImage": "/zeila1.png",
     "gallery": [
-      "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-      "/marine_coral.jpg"
+      "/zeila1.png",
+      "/zeila2.png",
+      "/zeila3.png"
     ],
     "coordinates": {
       "lat": 11.3572,
@@ -544,11 +545,12 @@
     "tagline": "Southern Somalia’s premier ocean city, surrounded by white sand beaches and mangrove estuaries.",
     "shortDescription": "The vibrant coastal capital of Jubaland, featuring a natural deep-water bay, rich mangrove ecosystems near the Jubba River, and the gateway to the Bajuni Archipelago.",
     "fullDescription": "Kismayo is the economic and cultural heart of southern Somalia, blessed with an extraordinary natural harbor protected by a chain of nearshore barrier islands and headlands.\n\nLocated just south of where the fertile Jubba River empties into the Indian Ocean, Kismayo’s coastal waters are fed by nutrient-dense estuarine outflows that nourish immense mangrove forests, productive crustacean habitats, and vital nursery grounds for reef fish.\n\nThe beaches of Kismayo—stretching unbroken for tens of kilometers with powdery white sand—represent some of the finest natural coastlines in Eastern Africa. Blue Ocean conducts regular community beach cleanups, youth ocean education classes, and mangrove reforestation projects here.",
-    "heroImage": "/jubaland.jpg",
+    "heroImage": "/kismayo1.png",
     "gallery": [
-      "/jubaland.jpg",
-      "https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=800&q=80",
-      "/marine_turtles.jpg"
+      "/kismayo1.png",
+      "/kismayo2.png",
+      "/kismayo3.png",
+      "/kismayo4.png"
     ],
     "coordinates": {
       "lat": -0.3582,
@@ -722,11 +724,11 @@
     "tagline": "Somalia’s southernmost coastal headland, where the wilderness reaches the surf.",
     "shortDescription": "A remote, wild coastal point at Somalia’s southern border, characterized by virgin beaches, dense coastal bush, and undisturbed sea turtle breeding grounds.",
     "fullDescription": "Ras Kamboni marks the southernmost point of Somalia’s 3,025 km coastline. This remote headland is a true frontier wilderness where coastal thicket forests merge with pristine windswept dunes and dramatic coral headlands.\n\nBecause human activity is minimal here, Ras Kamboni’s beaches serve as vital, undisturbed nesting grounds for green and olive ridley sea turtles. The surrounding ocean waters support dense coral reefs that link seamlessly into the Lamu marine conservation corridors across the border.\n\nBlue Ocean is actively working with regional rangers and community representatives to designate key stretches of Ras Kamboni as protected marine sanctuaries.",
-    "heroImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    "heroImage": "/kamboni1.png",
     "gallery": [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-      "/marine_turtles.jpg",
-      "/marine_fish.jpg"
+      "/kamboni1.png",
+      "/kamboni2.png",
+      "/kamboni3.png"
     ],
     "coordinates": {
       "lat": -1.6406,
@@ -778,11 +780,11 @@
     "tagline": "The historic White Pearl of the Indian Ocean, alive with vibrant coastal life.",
     "shortDescription": "Somalia’s legendary capital city, home to centuries-old Hamar Weyne coral-stone architecture, vibrant fish markets, and iconic Indian Ocean beachfronts.",
     "fullDescription": "Known for centuries as the 'White Pearl of the Indian Ocean', Mogadishu is a historic maritime metropolis whose destiny has always been defined by the sea.\n\nFrom the medieval minarets and coral-rag stone buildings of the ancient Hamar Weyne and Shangani districts to the bustling morning landings at the central fish market, ocean culture permeates every corner of the city.\n\nThe coastal shelf off Mogadishu supports rich pelagic fisheries including king mackerel, sailfish, and skipjack tuna. Today, Mogadishu’s shoreline is undergoing a vibrant revival, with coastal cafes, watersports enthusiasts, and ocean research institutes taking root.",
-    "heroImage": "/mogadishu_beach.jpg",
+    "heroImage": "/mogadishu1.png",
     "gallery": [
-      "/mogadishu_beach.jpg",
-      "/somalia_coast.jpg",
-      "/marine_coral.jpg"
+      "/mogadishu1.png",
+      "/mogadishu2.png",
+      "/mogadishu3.png"
     ],
     "coordinates": {
       "lat": 2.0469,
@@ -854,11 +856,12 @@
     "tagline": "Somalia’s most famous shoreline, alive with evening strolls, swimming, and ocean breeze.",
     "shortDescription": "The beating heart of Mogadishu’s coastal recreation, featuring kilometers of golden sands, oceanfront dining, swimming, and vibrant community life.",
     "fullDescription": "Liido Beach is more than just a stretch of sand—it is the living symbol of Somalia’s resilience and deep affection for the ocean.\n\nEvery weekend, thousands of families, students, entrepreneurs, and athletes gather on Liido’s expansive shoreline to swim in the warm Indian Ocean surf, play beach football, enjoy fresh seafood at oceanfront cafes, and watch the sun dip below the horizon.\n\nThe beach is protected by a series of nearshore sandbanks and submerged coral outcrops that create safe swimming conditions inside the surf zone. Blue Ocean conducts regular youth ocean literacy campaigns and community beach stewardship events right here.",
-    "heroImage": "/mogadishu_beach.jpg",
+    "heroImage": "/liido1.png",
     "gallery": [
-      "/mogadishu_beach.jpg",
-      "/somalia_coast.jpg",
-      "/marine_fish.jpg"
+      "/liido1.png",
+      "/liido2.png",
+      "/liido3.png",
+      "/liido4.png"
     ],
     "coordinates": {
       "lat": 2.0538,
@@ -917,11 +920,11 @@
     "tagline": "A scenic offshore island, tranquil coral lagoon, and traditional salt farming coastline.",
     "shortDescription": "Famous for its picturesque offshore island, pristine coral barrier lagoon, fresh seafood shacks, and historic natural salt production pans.",
     "fullDescription": "Located just a short drive south of Mogadishu, Jazeera is a tranquil coastal escape characterized by a dramatic offshore coral island that sits just 500 meters from the mainland beach.\n\nAt low tide, calm shallow lagoons form behind the reef crest, providing an exceptional natural nursery for juvenile fish, octopus, and sea anemones. Traditional dhow boats ferry visitors across the tranquil channel to explore the rocky island and its sea caves.\n\nInland from the beach, extensive traditional solar salt evaporation pans have operated sustainably for decades, producing sea salt through the natural evaporation of Indian Ocean brine.",
-    "heroImage": "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80",
+    "heroImage": "/jazeera1.png",
     "gallery": [
-      "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=800&q=80",
-      "/marine_coral.jpg"
+      "/jazeera1.png",
+      "/jazeera2.png",
+      "/jazeera3.png"
     ],
     "coordinates": {
       "lat": 1.9547,
@@ -980,11 +983,11 @@
     "tagline": "An ancient ocean trading town of whitewashed coral architecture and soaring sand dunes.",
     "shortDescription": "One of the oldest maritime settlements on the Swahili Coast, Marka is famed for its distinctive white coral buildings, sweeping orange sand dunes, and artisan weaving.",
     "fullDescription": "Marka is an ancient port town steeped in centuries of Indian Ocean trade. Founded over a thousand years ago, the city was a vital center of the Ajuran Sultanate and a celebrated port of call for merchant vessels from Oman, Yemen, India, and China.\n\nThe town’s architecture is renowned for its whitewashed coral-stone buildings with ornate carved wooden doors, arched alleys, and tranquil interior courtyards. Directly behind the city, massive orange-gold sand dunes rise dramatically, creating a striking contrast against the turquoise Indian Ocean.\n\nMarka’s fishermen operate from open sandy beaches, braving the powerful ocean breakers in agile fiberglass boats to harvest kingfish, tuna, and snappers from the fertile Shabelle coastal banks.",
-    "heroImage": "/somalia_coast.jpg",
+    "heroImage": "/marka1.png",
     "gallery": [
-      "/somalia_coast.jpg",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-      "/marine_fish.jpg"
+      "/marka1.png",
+      "/marka2.png",
+      "/marka3.png"
     ],
     "coordinates": {
       "lat": 1.7159,
@@ -1043,11 +1046,11 @@
     "tagline": "A jewel of the Swahili Coast, rich in maritime heritage, coral architecture, and coastal reefs.",
     "shortDescription": "A historic walled port town known for its unique Bravanese culture, coral-stone towers, offshore barrier reefs, and renowned seafaring traditions.",
     "fullDescription": "Barawe (Brava) is one of the most culturally unique and historically significant coastal towns in the Horn of Africa. Established in the 10th century, it became a key port in the medieval Swahili trading network that linked East Africa to Persia and Arabia.\n\nThe town is home to the Bravanese people, who speak Chimwiini (a distinct Swahili dialect) and maintain famous crafts including hand-woven cotton textiles and the iconic 'Kofia Barawa' embroidered caps.\n\nBarawe is protected by offshore coral reefs and barrier islands that provide calm anchorage for fishing boats. The surrounding marine ecosystems support rich coral gardens, sea turtle foraging areas, and abundant reef fish.",
-    "heroImage": "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80",
+    "heroImage": "/barawe1.png",
     "gallery": [
-      "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80",
-      "/somalia_coast.jpg",
-      "/marine_coral.jpg"
+      "/barawe1.png",
+      "/barawe2.png",
+      "/barawe3.png"
     ],
     "coordinates": {
       "lat": 1.1133,
@@ -1099,11 +1102,11 @@
     "tagline": "The historic wind-swept harbor of central Somalia, famous for ancient trade and seasonal upwelling.",
     "shortDescription": "Historically the seat of the Sultanate of Hobyo, this central coastline is characterized by vast dunes, strong seasonal upwelling, and bountiful pelagic fisheries.",
     "fullDescription": "Hobyo ('Here is water') is an ancient coastal town in the Mudug region of central Somalia, strategically positioned midway along Somalia’s vast coastline.\n\nFounded as an essential freshwater replenishment port for Indian Ocean trading dhows traveling between the Persian Gulf and East Africa, Hobyo later became the capital of the historic Sultanate of Hobyo in the late 19th century.\n\nOceanographically, Hobyo sits at the epicenter of the Great Whirl and the powerful Somali Current upwelling system. In the summer months, cold, nutrient-rich deep water surges toward the coast, creating one of the highest concentrations of ocean biomass and pelagic fish in the Indian Ocean.",
-    "heroImage": "/somalia_coast.jpg",
+    "heroImage": "/hobyo1.png",
     "gallery": [
-      "/somalia_coast.jpg",
-      "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+      "/hobyo1.png",
+      "/hobyo2.png",
+      "/hobyo3.png"
     ],
     "coordinates": {
       "lat": 5.3503,

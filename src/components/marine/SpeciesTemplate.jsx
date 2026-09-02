@@ -10,6 +10,7 @@ import ConservationStatusSection from './ConservationStatusSection';
 import ResearchPreview from './ResearchPreview';
 import RelatedSpecies from './RelatedSpecies';
 import ExploreCTA from '../coast/ExploreCTA';
+import VideoEmbed from '../shared/VideoEmbed';
 
 export default function SpeciesTemplate() {
   const { slug } = useParams();
@@ -45,6 +46,26 @@ export default function SpeciesTemplate() {
 
       {/* 3. DARK: Visual Gallery */}
       <SpeciesGallery gallery={species.gallery} commonName={species.commonName} />
+
+      {species.videoUrl && (
+        <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
+          <VideoEmbed
+            url={species.videoUrl}
+            title={species.commonName}
+            videoTitle={species.videoTitle}
+            videoDescription={species.videoDescription}
+            videoSource={species.videoSource}
+          />
+        </section>
+      )}
+
+      {species.researchObservations && (
+        <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
+          <span className="label-text">Research Observations</span>
+          <div className="divider" />
+          <p className="section-subheading" style={{ whiteSpace: 'pre-line' }}>{species.researchObservations}</p>
+        </section>
+      )}
 
       {/* 4. LIGHT/RHYTHMIC: Habitat & Coastal Destinations (Connected to Sprint 2) */}
       <HabitatSection species={species} />

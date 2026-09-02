@@ -43,7 +43,7 @@ export const regions = [
     subtitle: 'Gulf of Aden Gateway',
     tagline: 'Ancient Red Sea trading ports set against dramatic red hills and a living coral coastline.',
     description: 'Facing the Gulf of Aden along the Horn of Africa, Somaliland is home to the historic port of Berbera and the ancient trading town of Zeila, with warm shallow reef flats, seasonal upwelling, and a maritime heritage stretching back millennia.',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+    image: '/berbera1.png',
     coastlineKm: 'Approx. 850 km',
     seas: ['Gulf of Aden'],
     destinationsCount: 2,
