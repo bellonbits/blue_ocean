@@ -44,7 +44,8 @@
   background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-body);
-  font-size: var(--text-sm);
+  /* 16px minimum avoids iOS Safari/WebKit auto-zooming the page on focus */
+  font-size: 16px;
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 

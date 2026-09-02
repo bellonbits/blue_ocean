@@ -184,7 +184,9 @@
   border: 1px solid var(--color-border);
   background: var(--color-background);
   color: var(--color-text);
-  font-size: 0.85rem;
+  /* 16px minimum — anything smaller makes iOS Safari/WebKit auto-zoom the
+     whole page on focus, which is what was throwing the layout off. */
+  font-size: 16px;
   font-family: var(--font-body);
 }
 

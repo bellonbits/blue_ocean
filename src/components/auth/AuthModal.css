@@ -250,7 +250,8 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-md, 8px);
   color: #ffffff;
-  font-size: 0.92rem;
+  /* 16px minimum avoids iOS Safari/WebKit auto-zooming the page on focus */
+  font-size: 16px;
   transition: all 0.2s ease;
 }
 

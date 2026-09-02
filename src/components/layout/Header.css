@@ -27,22 +27,22 @@
   box-shadow: none !important;
 }
 
-/* Scrolled header — sheer, colourless frosted glass */
+/* Scrolled header — frosted glass, clearly blurred */
 .header--scrolled {
-  background: rgba(6, 20, 28, 0.55) !important;
+  background: rgba(6, 20, 28, 0.82) !important;
   backdrop-filter: blur(24px) saturate(190%);
   -webkit-backdrop-filter: blur(24px) saturate(190%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
 }
 
-/* Light theme header when scrolled — 100% colourless glass, NO white fill */
+/* Light theme header when scrolled — frosted glass, clearly blurred */
 [data-theme="light"] .header--scrolled {
-  background: rgba(255, 255, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.82) !important;
   backdrop-filter: blur(24px) saturate(190%) !important;
   -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4) !important;
-  box-shadow: 0 4px 20px rgba(7, 25, 35, 0.05);
+  border-bottom: 1px solid rgba(7, 25, 35, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(7, 25, 35, 0.08);
 }
 
 /* Nav links when header is transparent (over hero) — always crisp white */
