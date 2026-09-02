@@ -28,12 +28,20 @@
   backface-visibility: hidden;
 }
 
+/* Over a hero photo the header always gets the same dark glass treatment
+   regardless of site theme — a hero image is rarely pure white, so this
+   follows the near-universal "dark glass + white text over a photo"
+   convention rather than switching to a bright, low-contrast light-theme
+   glass just because the rest of the site is in light mode. Previously
+   this was fully transparent with no blur at all, which is what read as
+   "too transparent" — hero text and the logo had nothing separating them
+   from the header's own text. */
 .header:not(.header--scrolled) {
-  background: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-bottom: none !important;
-  box-shadow: none !important;
+  background: rgba(9, 26, 36, 0.55) !important;
+  backdrop-filter: blur(22px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(190%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
 /* Scrolled header — true glassmorphism: translucent enough that blurred
