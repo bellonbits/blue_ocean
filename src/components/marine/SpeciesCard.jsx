@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Shield, MapPin, ArrowRight, Heart, Sparkles, Waves, Layers } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 import './SpeciesCard.css';
 
 // Status badge color and label helper
@@ -22,7 +22,8 @@ export function getStatusInfo(status) {
 }
 
 export default function SpeciesCard({ species, priority = false }) {
-  const [liked, setLiked] = useState(false);
+  const { isAuthenticated, isSaved, toggleSaved, openAuthModal } = useAuth();
+  const liked = isSaved('species', species.slug);
   const statusInfo = getStatusInfo(species.conservationStatus);
 
   return (
@@ -58,9 +59,13 @@ export default function SpeciesCard({ species, priority = false }) {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                setLiked(!liked);
+                if (!isAuthenticated) {
+                  openAuthModal('login');
+                  return;
+                }
+                toggleSaved('species', species.slug);
               }}
-              aria-label="Save species to field guide"
+              aria-label={liked ? 'Remove species from Saved' : 'Save species'}
             >
               <Heart size={14} fill={liked ? '#02CCFE' : 'none'} color={liked ? '#02CCFE' : '#FFFFFF'} />
             </button>

@@ -1,8 +1,10 @@
-"""Admin/CMS user accounts and roles.
+"""User accounts and roles.
 
-These are the accounts that log into the admin CMS to manage content —
-not public site visitors (there's no public registration; see
-scripts/create_superuser.py for bootstrapping the first account).
+Covers both admin/CMS staff (super_admin, admin, editor, researcher,
+content_manager) and plain public accounts (member — visitors, tourists,
+volunteers, researchers-in-the-lay-sense signing up for the site itself,
+not the CMS). POST /auth/register is public and defaults new accounts to
+MEMBER; see scripts/create_superuser.py for bootstrapping a staff account.
 """
 
 import enum
@@ -33,6 +35,9 @@ class UserRole(str, enum.Enum):
     EDITOR = "editor"
     RESEARCHER = "researcher"
     CONTENT_MANAGER = "content_manager"
+    # Plain visitor/tourist/volunteer account — no CMS access at all.
+    # The default role for public self-registration (see auth.py).
+    MEMBER = "member"
 
 
 class User(Base):
@@ -48,6 +53,11 @@ class User(Base):
     phone: Mapped[str | None] = mapped_column(String(50), nullable=True)
     avatar_url: Mapped[str | None] = mapped_column(String(500), nullable=True)
     notification_preferences: Mapped[dict] = mapped_column(JSONB, default=lambda: dict(DEFAULT_NOTIFICATION_PREFERENCES))
+    # Ocean Interests — self-selected tags from the dashboard Profile page
+    # (e.g. "coral-reefs", "sea-turtles"). Storage only for now, same as
+    # notification_preferences — nothing reads these to personalize content
+    # yet (that's the spec's explicitly-deferred "Personal Recommendations").
+    interests: Mapped[list[str]] = mapped_column(JSONB, default=list, nullable=False)
 
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(

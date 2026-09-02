@@ -122,6 +122,16 @@
   text-decoration: underline;
 }
 
+.chat-widget__image {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin: 0.4rem 0;
+}
+
 .chat-widget__bubble--typing {
   display: flex;
   align-items: center;

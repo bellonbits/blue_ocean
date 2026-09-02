@@ -3,10 +3,11 @@ from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
-from app.api.deps import require_role
+from app.api.deps import get_current_active_user, get_optional_current_user, require_role
 from app.core.rate_limit import limiter_contact_submission
 from app.db.session import get_db
 from app.models.contact_submission import ContactSubmission
+from app.models.notification import Notification
 from app.models.user import User, UserRole
 from app.schemas.contact_submission import ContactSubmissionCreate, ContactSubmissionRead, ContactSubmissionUpdate
 
@@ -19,12 +20,28 @@ _manage_submissions = require_role(UserRole.SUPER_ADMIN, UserRole.ADMIN)
 
 
 @router.post("", response_model=ContactSubmissionRead, status_code=status.HTTP_201_CREATED, dependencies=[Depends(limiter_contact_submission)])
-def create_contact_submission(payload: ContactSubmissionCreate, db: Session = Depends(get_db)) -> ContactSubmission:
-    submission = ContactSubmission(**payload.model_dump())
+def create_contact_submission(
+    payload: ContactSubmissionCreate,
+    db: Session = Depends(get_db),
+    user: User | None = Depends(get_optional_current_user),
+) -> ContactSubmission:
+    submission = ContactSubmission(**payload.model_dump(), user_id=user.id if user else None)
     db.add(submission)
     db.commit()
     db.refresh(submission)
     return submission
+
+
+@router.get("/me", response_model=list[ContactSubmissionRead])
+def list_my_contact_submissions(
+    db: Session = Depends(get_db), user: User = Depends(get_current_active_user)
+) -> list[ContactSubmission]:
+    return (
+        db.query(ContactSubmission)
+        .filter(ContactSubmission.user_id == user.id)
+        .order_by(ContactSubmission.created_at.desc())
+        .all()
+    )
 
 
 @router.get("", response_model=list[ContactSubmissionRead])
@@ -63,8 +80,21 @@ def update_contact_submission(
     if submission is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Contact submission not found.")
 
+    was_read = submission.is_read
     for field, value in payload.model_dump(exclude_unset=True).items():
         setattr(submission, field, value)
+
+    # Notify the submitter once their message goes from unread to read —
+    # the one v1 notification trigger (see Notification model docstring).
+    if submission.user_id and not was_read and submission.is_read:
+        db.add(
+            Notification(
+                user_id=submission.user_id,
+                title="Your message was reviewed",
+                body=f'Your enquiry "{submission.subject}" has been reviewed by our team.',
+                link="/dashboard/messages",
+            )
+        )
 
     db.commit()
     db.refresh(submission)

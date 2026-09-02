@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Compass } from 'lucide-react';
-import { useScrollReveal } from '../lib/hooks';
+import { useScrollReveal, useTrackRecentlyViewed } from '../lib/hooks';
 import { getExperienceBySlug } from '../data/experiences';
 import ExperienceHero from '../components/experiences/ExperienceHero';
 import ExperienceStory from '../components/experiences/ExperienceStory';
@@ -16,6 +16,17 @@ export default function ExperienceDetailPage() {
   const { slug } = useParams();
   const experience = getExperienceBySlug(slug);
   useScrollReveal();
+
+  useTrackRecentlyViewed(
+    experience && {
+      type: 'experience',
+      slug: experience.slug,
+      title: experience.title,
+      subtitle: experience.categoryName,
+      image: experience.heroImage,
+      path: `/experiences/${experience.slug}`,
+    }
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);

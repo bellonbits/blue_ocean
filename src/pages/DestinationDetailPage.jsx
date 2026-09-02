@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useScrollReveal } from '../lib/hooks';
+import { useScrollReveal, useTrackRecentlyViewed } from '../lib/hooks';
 import { getDestination, listDestinations } from '../lib/contentApi';
 // Species/research-project/experience domains aren't wired to the live API
 // yet (Phase 2 of the CMS plan) — bridge those three sections from the
@@ -30,6 +30,17 @@ export default function DestinationDetailPage() {
 
   // Activate scroll reveal animations
   useScrollReveal();
+
+  useTrackRecentlyViewed(
+    destination && {
+      type: 'destination',
+      slug: destination.slug,
+      title: destination.name,
+      subtitle: destination.region,
+      image: destination.heroImage,
+      path: `/explore-the-coast/${destination.slug}`,
+    }
+  );
 
   useEffect(() => {
     let cancelled = false;

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Activity, Layers } from 'lucide-react';
+import { Activity, Layers, Heart } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 import '../experiences/ExperienceHero.css';
 
 const STATUS_COLORS = {
@@ -12,6 +13,16 @@ const STATUS_COLORS = {
 
 export default function ResearchProjectHero({ project }) {
   const statusColor = STATUS_COLORS[project.status] || STATUS_COLORS.Active;
+  const { isAuthenticated, isSaved, toggleSaved, openAuthModal } = useAuth();
+  const liked = isSaved('research', project.slug);
+
+  const handleSave = () => {
+    if (!isAuthenticated) {
+      openAuthModal('login');
+      return;
+    }
+    toggleSaved('research', project.slug);
+  };
 
   return (
     <section className="exp-detail-hero" aria-label={`${project.title} Research Project`}>
@@ -60,6 +71,16 @@ export default function ResearchProjectHero({ project }) {
             <Activity size={13} />
             <span>{project.status}</span>
           </span>
+
+          <button
+            type="button"
+            className={`exp-detail-hero__save-btn ${liked ? 'exp-detail-hero__save-btn--active' : ''}`}
+            onClick={handleSave}
+            aria-label={liked ? 'Remove research project from Saved' : 'Save research project'}
+          >
+            <Heart size={13} fill={liked ? '#EF4444' : 'none'} />
+            <span>{liked ? 'Saved' : 'Save'}</span>
+          </button>
         </motion.div>
 
         <motion.h1

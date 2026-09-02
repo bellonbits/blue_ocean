@@ -9,7 +9,7 @@ const AREA_FIELDS = [
   { name: 'title', label: 'Title', required: true, section: 'Basic Information' },
   { name: 'slug', label: 'Slug', required: true, section: 'Basic Information' },
   { name: 'description', label: 'Description', type: 'textarea', fullWidth: true, section: 'Description' },
-  { name: 'image', label: 'Image URL', fullWidth: true, section: 'Media' },
+  { name: 'image', label: 'Image', type: 'image', fullWidth: true, section: 'Media' },
 ];
 
 const ISSUE_FIELDS = [
@@ -41,7 +41,7 @@ function ProjectsTab() {
     { name: 'aims', label: 'Aims', type: 'textarea', fullWidth: true, section: 'Description' },
     { name: 'problem_statement', label: 'Problem statement', type: 'textarea', fullWidth: true, section: 'Description' },
 
-    { name: 'hero_image', label: 'Main image URL', fullWidth: true, section: 'Media' },
+    { name: 'hero_image', label: 'Main image', type: 'image', fullWidth: true, section: 'Media' },
     { name: 'gallery', label: 'Gallery', type: 'imagelist', fullWidth: true, section: 'Media' },
     { name: 'featured', label: 'Feature on homepage', type: 'checkbox', section: 'Media' },
   ];

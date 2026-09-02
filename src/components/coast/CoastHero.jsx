@@ -13,8 +13,8 @@ export default function CoastHero() {
       {/* Background Image with dark ocean gradient */}
       <div className="coast-hero__bg">
         <img
-          src="/Green%20and%20Blue%20Scenic%20Travel%20Landscape%20Video.gif"
-          alt="Animated scenic landscape of Somalia's coastline"
+          src="/mogadishu_beach.jpg"
+          alt="Scenic landscape of Somalia's coastline"
           className="coast-hero__bg-img"
           loading="eager"
           fetchpriority="high"

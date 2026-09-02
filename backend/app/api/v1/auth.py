@@ -16,6 +16,7 @@ from app.schemas.user import (
     AuthResponse,
     ChangePasswordRequest,
     LoginJsonRequest,
+    UpdateInterestsRequest,
     UpdateNotificationPreferencesRequest,
     UpdateOwnProfileRequest,
     UserRead,
@@ -39,7 +40,7 @@ def register_user(payload: UserRegister, db: Session = Depends(get_db)) -> AuthR
         email=payload.email.lower(),
         hashed_password=hash_password(payload.password),
         full_name=payload.full_name,
-        role=UserRole.CONTENT_MANAGER,
+        role=UserRole.MEMBER,
         is_active=True,
     )
     db.add(user)
@@ -124,6 +125,20 @@ def update_notification_preferences(
     these toggles record intent without triggering anything (yet)."""
     updates = payload.model_dump(exclude_unset=True)
     current_user.notification_preferences = {**current_user.notification_preferences, **updates}
+    db.commit()
+    db.refresh(current_user)
+    return current_user
+
+
+@router.patch("/me/interests", response_model=UserRead)
+def update_own_interests(
+    payload: UpdateInterestsRequest,
+    current_user: User = Depends(get_current_active_user),
+    db: Session = Depends(get_db),
+) -> User:
+    """The dashboard Profile page's "Ocean Interests" checkboxes — storage
+    only, same as notification_preferences (see that endpoint's docstring)."""
+    current_user.interests = payload.interests
     db.commit()
     db.refresh(current_user)
     return current_user

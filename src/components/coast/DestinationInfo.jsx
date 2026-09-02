@@ -1,9 +1,14 @@
-import { MapPin, Compass, Waves, Calendar, Plane, CheckCircle2 } from 'lucide-react';
+import { useState } from 'react';
+import { MapPin, Compass, Waves, Calendar, Plane, CheckCircle2, Camera, Globe2 } from 'lucide-react';
+import { GOOGLE_MAPS_API_KEY } from '../../lib/googleMaps';
+import StreetViewPanel from './StreetViewPanel';
 import './DestinationInfo.css';
 
 export default function DestinationInfo({ destination }) {
   // Split full description into paragraphs
   const paragraphs = (destination.fullDescription || destination.shortDescription || '').split('\n\n').filter(Boolean);
+  const hasCoordinates = destination.coordinates?.lat != null && destination.coordinates?.lng != null;
+  const [mapMode, setMapMode] = useState(null); // null | 'map' | 'streetview'
 
   return (
     <section className="dest-info-section section" aria-label="Destination Overview and Details">
@@ -71,12 +76,38 @@ export default function DestinationInfo({ destination }) {
                 <span className="dest-info-row__value">{destination.destinationType}</span>
               </div>
 
-              {destination.coordinates?.lat != null && destination.coordinates?.lng != null && (
+              {hasCoordinates && (
                 <div className="dest-info-row">
-                  <span className="dest-info-row__label">COORDINATES</span>
-                  <span className="dest-info-row__value font-mono">
-                    {destination.coordinates.lat.toFixed(4)}° N, {destination.coordinates.lng.toFixed(4)}° E
-                  </span>
+                  <span className="dest-info-row__label">MAP LOCATION</span>
+                  <div className="dest-info-row__map-toggles">
+                    <button
+                      type="button"
+                      className={`dest-info-row__map-toggle ${mapMode === 'map' ? 'dest-info-row__map-toggle--active' : ''}`}
+                      onClick={() => setMapMode((m) => (m === 'map' ? null : 'map'))}
+                      aria-expanded={mapMode === 'map'}
+                    >
+                      <MapPin size={14} />
+                      <span>View on map</span>
+                    </button>
+                    <button
+                      type="button"
+                      className={`dest-info-row__map-toggle ${mapMode === 'streetview' ? 'dest-info-row__map-toggle--active' : ''}`}
+                      onClick={() => setMapMode((m) => (m === 'streetview' ? null : 'streetview'))}
+                      aria-expanded={mapMode === 'streetview'}
+                    >
+                      <Camera size={14} />
+                      <span>Street View</span>
+                    </button>
+                    <a
+                      className="dest-info-row__map-toggle"
+                      href={`https://earth.google.com/web/@${destination.coordinates.lat},${destination.coordinates.lng},0a,3000d,35y,0h,0t,0r`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Globe2 size={14} />
+                      <span>Google Earth</span>
+                    </a>
+                  </div>
                 </div>
               )}
 
@@ -90,6 +121,27 @@ export default function DestinationInfo({ destination }) {
                 <span className="dest-info-row__value">{destination.access}</span>
               </div>
             </div>
+
+            {hasCoordinates && mapMode === 'map' && (
+              <div className="dest-info-panel__map">
+                <iframe
+                  title={`Map showing ${destination.name}`}
+                  src={`https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_API_KEY}&q=${destination.coordinates.lat},${destination.coordinates.lng}&zoom=12`}
+                  width="100%"
+                  height="220"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            )}
+
+            {hasCoordinates && mapMode === 'streetview' && (
+              <div className="dest-info-panel__map">
+                <StreetViewPanel coordinates={destination.coordinates} name={destination.name} />
+              </div>
+            )}
           </aside>
         </div>
       </div>

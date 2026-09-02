@@ -6,10 +6,11 @@ import './ChatWidget.css';
 
 const GREETING = "Hi! I'm the Blue Ocean assistant. Ask me about our marine life, research, conservation work, or Somalia's coast.";
 
-// Renders assistant replies: markdown-style [label](/path) links become
-// real in-app navigation (internal paths) or plain anchors (external),
-// and **bold** spans render as <strong>. Line breaks are preserved via
-// CSS (white-space: pre-wrap) rather than parsed here.
+// Renders assistant replies: markdown-style ![alt](/path) images become
+// real <img> thumbnails, [label](/path) links become real in-app
+// navigation (internal paths) or plain anchors (external), and **bold**
+// spans render as <strong>. Line breaks are preserved via CSS
+// (white-space: pre-wrap) rather than parsed here.
 function MessageText({ text }) {
   // The model sometimes wraps a whole link in **bold** (**[label](url)**).
   // Links already get their own styling, so drop that redundant wrapper
@@ -17,8 +18,8 @@ function MessageText({ text }) {
   const normalized = text.replace(/\*\*(\[[^\]]+\]\([^)]+\))\*\*/g, '$1');
 
   const parts = [];
-  // Matches a markdown link OR a **bold** span, whichever comes first.
-  const tokenPattern = /\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*/g;
+  // Matches a markdown image, a markdown link, OR a **bold** span, whichever comes first.
+  const tokenPattern = /!\[([^\]]*)\]\(([^)]+)\)|\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*/g;
   let lastIndex = 0;
   let match;
   let key = 0;
@@ -27,8 +28,12 @@ function MessageText({ text }) {
     if (match.index > lastIndex) {
       parts.push(<span key={key++}>{normalized.slice(lastIndex, match.index)}</span>);
     }
-    const [, linkLabel, href, boldText] = match;
-    if (href !== undefined) {
+    const [, imageAlt, imageSrc, linkLabel, href, boldText] = match;
+    if (imageSrc !== undefined) {
+      parts.push(
+        <img key={key++} src={imageSrc} alt={imageAlt} className="chat-widget__image" loading="lazy" />
+      );
+    } else if (href !== undefined) {
       if (href.startsWith('/')) {
         parts.push(
           <Link key={key++} to={href} className="chat-widget__link">

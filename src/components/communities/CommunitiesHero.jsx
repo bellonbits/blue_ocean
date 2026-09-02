@@ -11,8 +11,8 @@ export default function CommunitiesHero() {
     <section className="exp-hero" aria-label="Blue Ocean Coastal Communities">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/puntland.jpg"
-          alt="A coastal fishing community along the Somali coast"
+          src="/con_beach_cleanup.jpg"
+          alt="A coastal community taking part in a beach cleanup"
           className="exp-hero__img"
         />
         <div className="exp-hero__overlay" />

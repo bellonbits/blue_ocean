@@ -9,7 +9,7 @@ const CATEGORY_FIELDS = [
   { name: 'tagline', label: 'Tagline', section: 'Basic Information' },
   { name: 'icon', label: 'Icon', section: 'Basic Information' },
   { name: 'description', label: 'Description', type: 'textarea', fullWidth: true, section: 'Description' },
-  { name: 'image', label: 'Image URL', fullWidth: true, section: 'Media' },
+  { name: 'image', label: 'Image', type: 'image', fullWidth: true, section: 'Media' },
 ];
 
 const STATUS_OPTIONS = [
@@ -38,7 +38,7 @@ function useExperienceFields() {
     { name: 'difficulty', label: 'Difficulty', section: 'Details' },
     { name: 'best_season', label: 'Best season', section: 'Details' },
 
-    { name: 'hero_image', label: 'Main image URL', fullWidth: true, section: 'Media' },
+    { name: 'hero_image', label: 'Main image', type: 'image', fullWidth: true, section: 'Media' },
     { name: 'gallery', label: 'Gallery', type: 'imagelist', fullWidth: true, section: 'Media' },
 
     { name: 'highlights', label: 'Highlights', type: 'list', fullWidth: true, section: 'More' },

@@ -9,8 +9,8 @@ export default function MarineHero() {
       {/* Background Visual */}
       <div className="marine-hero__media" aria-hidden="true">
         <img
-          src="/Blue%20and%20White%20Modern%20Save%20Our%20Ocean%20Video.gif"
-          alt="Animated ocean scene celebrating Somalia's marine life"
+          src="/marine_dolphins.jpg"
+          alt="Dolphins in Somalia's coastal waters"
           className="marine-hero__img"
           loading="eager"
           fetchpriority="high"

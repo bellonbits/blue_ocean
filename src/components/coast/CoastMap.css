@@ -243,6 +243,43 @@
 }
 
 @media (max-width: 900px) {
+  .map-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* A horizontally-scrolling strip here depended on an exact resting
+     scroll position and a flex-item width workaround — fragile, and it
+     could render mid-scroll with the first option clipped. A fixed 2x2
+     grid shows all four regions at once with no scroll state to get
+     wrong. */
+  .map-region-pills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .map-pill {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* :not(--active) so this never fights the active pill's turquoise fill */
+  .map-pill:not(.map-pill--active) {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+  }
+
+  .map-type-toggle-btn {
+    justify-content: center;
+  }
+
   .map-container-card {
     flex-direction: column;
     min-height: auto;

@@ -13,18 +13,18 @@ import './Admin.css';
 // the full target IA visible now (rather than only linking what exists)
 // is deliberate: it's what was locked in as the navigation shape.
 const CONTENT_LINKS = [
-  { to: '/dashboard/content/coast', label: 'Explore Coast', icon: MapPin, built: true },
-  { to: '/dashboard/content/experiences', label: 'Ocean Experiences', icon: Waves, built: true },
-  { to: '/dashboard/content/marine-life', label: 'Marine Life', icon: Fish, built: true },
-  { to: '/dashboard/content/research', label: 'Research', icon: Microscope, built: true },
-  { to: '/dashboard/content/conservation', label: 'Conservation', icon: ShieldCheck, built: true },
-  { to: '/dashboard/content/communities', label: 'Communities', icon: Users, built: true },
-  { to: '/dashboard/content/news', label: 'News', icon: Newspaper, built: true },
+  { to: '/admin/content/coast', label: 'Explore Coast', icon: MapPin, built: true },
+  { to: '/admin/content/experiences', label: 'Ocean Experiences', icon: Waves, built: true },
+  { to: '/admin/content/marine-life', label: 'Marine Life', icon: Fish, built: true },
+  { to: '/admin/content/research', label: 'Research', icon: Microscope, built: true },
+  { to: '/admin/content/conservation', label: 'Conservation', icon: ShieldCheck, built: true },
+  { to: '/admin/content/communities', label: 'Communities', icon: Users, built: true },
+  { to: '/admin/content/news', label: 'News', icon: Newspaper, built: true },
 ];
 
 const ORG_LINKS = [
-  { to: '/dashboard/team', label: 'Team', icon: UserCircle2, built: true },
-  { to: '/dashboard/media', label: 'Media', icon: Image, built: true },
+  { to: '/admin/team', label: 'Team', icon: UserCircle2, built: true },
+  { to: '/admin/media', label: 'Media', icon: Image, built: true },
 ];
 
 export default function AdminLayout() {
@@ -40,7 +40,12 @@ export default function AdminLayout() {
     return <Navigate to="/" replace />;
   }
 
-  const isAdmin = canManageAdmin(user);
+  // Staff-only. A plain member account (or any other non-CMS role) never
+  // sees this shell at all — they belong on their own /dashboard instead.
+  if (!canManageAdmin(user)) {
+    return <Navigate to="/dashboard" replace />;
+  }
+
   const roleDisplay = user?.role?.replace('_', ' ') || 'Member';
   const initial = user?.full_name ? user.full_name.charAt(0).toUpperCase() : (user?.email?.charAt(0).toUpperCase() || 'U');
 
@@ -66,37 +71,32 @@ export default function AdminLayout() {
     <div className="admin">
       <aside className="admin__sidebar">
         <div className="admin__brand">
-          <span className="admin__brand-mark">🌊</span>
-          <span className="admin__brand-text">Blue Ocean</span>
+          <img src="/logo_sky_blue.png" alt="Blue Ocean Somalia" className="admin__brand-logo" />
         </div>
 
         <nav className="admin__nav" aria-label="Dashboard navigation">
-          <NavLink to="/dashboard" end className={({ isActive }) => `admin__nav-link ${isActive ? 'admin__nav-link--active' : ''}`}>
+          <NavLink to="/admin" end className={({ isActive }) => `admin__nav-link ${isActive ? 'admin__nav-link--active' : ''}`}>
             <LayoutDashboard size={18} />
             <span>Dashboard</span>
           </NavLink>
 
-          {isAdmin && (
-            <>
-              <span className="admin__nav-heading">Content</span>
-              {CONTENT_LINKS.map(renderLink)}
+          <span className="admin__nav-heading">Content</span>
+          {CONTENT_LINKS.map(renderLink)}
 
-              <span className="admin__nav-heading">Organization</span>
-              {ORG_LINKS.map(renderLink)}
+          <span className="admin__nav-heading">Organization</span>
+          {ORG_LINKS.map(renderLink)}
 
-              <span className="admin__nav-heading">Inbox</span>
-              <NavLink to="/dashboard/inbox" className={({ isActive }) => `admin__nav-link ${isActive ? 'admin__nav-link--active' : ''}`}>
-                <Mail size={18} />
-                <span>Messages</span>
-              </NavLink>
+          <span className="admin__nav-heading">Inbox</span>
+          <NavLink to="/admin/inbox" className={({ isActive }) => `admin__nav-link ${isActive ? 'admin__nav-link--active' : ''}`}>
+            <Mail size={18} />
+            <span>Messages</span>
+          </NavLink>
 
-              <span className="admin__nav-heading">&nbsp;</span>
-              <NavLink to="/dashboard/settings" className={({ isActive }) => `admin__nav-link ${location.pathname.startsWith('/dashboard/settings') ? 'admin__nav-link--active' : ''}`}>
-                <SettingsIcon size={18} />
-                <span>Settings</span>
-              </NavLink>
-            </>
-          )}
+          <span className="admin__nav-heading">&nbsp;</span>
+          <NavLink to="/admin/settings" className={({ isActive }) => `admin__nav-link ${location.pathname.startsWith('/admin/settings') ? 'admin__nav-link--active' : ''}`}>
+            <SettingsIcon size={18} />
+            <span>Settings</span>
+          </NavLink>
         </nav>
 
         <div className="admin__sidebar-user">

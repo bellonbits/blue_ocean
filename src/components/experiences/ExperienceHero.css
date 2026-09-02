@@ -109,6 +109,69 @@
   padding: 6px 14px;
 }
 
+.exp-detail-hero__save-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.exp-detail-hero__save-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.exp-detail-hero__save-btn--active {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #FCA5A5;
+}
+
+.exp-detail-hero__track {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-top: var(--space-3);
+}
+
+.exp-detail-hero__track-label {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.exp-detail-hero__track-btn {
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.exp-detail-hero__track-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.exp-detail-hero__track-btn--active {
+  background: rgba(2, 204, 254, 0.18);
+  border-color: rgba(2, 204, 254, 0.5);
+  color: #7DD3FC;
+}
+
 .exp-detail-hero__title {
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 5.5vw, 4.4rem);

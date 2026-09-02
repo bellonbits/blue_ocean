@@ -17,7 +17,7 @@ const COMMUNITY_FIELDS = [
   { name: 'livelihoods', label: 'Livelihoods', type: 'list', fullWidth: true, section: 'Description' },
   { name: 'conservation_activities', label: 'Conservation activities', type: 'list', fullWidth: true, section: 'Description' },
 
-  { name: 'hero_image', label: 'Main image URL', fullWidth: true, section: 'Media' },
+  { name: 'hero_image', label: 'Main image', type: 'image', fullWidth: true, section: 'Media' },
   { name: 'gallery', label: 'Gallery', type: 'imagelist', fullWidth: true, section: 'Media' },
 ];
 
@@ -39,7 +39,7 @@ function StoriesTab() {
     { name: 'story_content', label: 'Story (one paragraph per line)', type: 'list', fullWidth: true, rows: 8, section: 'Story' },
     { name: 'marine_connection', label: 'Marine connection', type: 'textarea', fullWidth: true, section: 'Story' },
 
-    { name: 'featured_image', label: 'Featured image URL', fullWidth: true, section: 'Media' },
+    { name: 'featured_image', label: 'Featured image', type: 'image', fullWidth: true, section: 'Media' },
     { name: 'featured', label: 'Feature on homepage', type: 'checkbox', section: 'Media' },
   ];
 

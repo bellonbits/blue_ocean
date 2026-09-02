@@ -10,8 +10,8 @@ export default function NewsHero() {
     <section className="exp-hero" aria-label="Blue Ocean News & Discoveries">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/exp_coastal_cliff.jpg"
-          alt="Coastal cliffs along the Somali Bari coast"
+          src="/bargaal_main.jpg"
+          alt="Coastal town along Somalia's northern shore"
           className="exp-hero__img"
         />
         <div className="exp-hero__overlay" />

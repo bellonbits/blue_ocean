@@ -55,6 +55,10 @@ class UpdateNotificationPreferencesRequest(BaseModel):
     system_updates: bool | None = None
 
 
+class UpdateInterestsRequest(BaseModel):
+    interests: list[str]
+
+
 class ActivityLogEntryRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
@@ -76,6 +80,7 @@ class UserRead(BaseModel):
     phone: str | None = None
     avatar_url: str | None = None
     notification_preferences: dict = {}
+    interests: list[str] = []
     created_at: datetime
 
 

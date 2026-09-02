@@ -10,7 +10,7 @@ const FIELDS = [
   { name: 'subtitle', label: 'Subtitle', section: 'Basic Information' },
   { name: 'tagline', label: 'Tagline', fullWidth: true, type: 'textarea', rows: 2, section: 'Description' },
   { name: 'description', label: 'Description', fullWidth: true, type: 'textarea', section: 'Description' },
-  { name: 'image', label: 'Image URL', fullWidth: true, section: 'Media' },
+  { name: 'image', label: 'Image', type: 'image', fullWidth: true, section: 'Media' },
   { name: 'coastline_km', label: 'Coastline length', section: 'Details' },
   { name: 'seas', label: 'Seas', type: 'list', fullWidth: true, section: 'Details' },
   { name: 'highlights', label: 'Highlights', type: 'list', fullWidth: true, section: 'Details' },

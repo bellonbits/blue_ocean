@@ -10,8 +10,8 @@ export default function ExperiencesHero() {
     <section className="exp-hero" aria-label="Ocean Experiences">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/Blue%20Minimalist%20Explore%20the%20Ocean%20Video.gif"
-          alt="Animated ocean scene inviting exploration of Somalia's coast"
+          src="/exp_dhow_sailing.jpg"
+          alt="Traditional dhow sailing off Somalia's coast"
           className="exp-hero__img"
           loading="eager"
           fetchpriority="high"

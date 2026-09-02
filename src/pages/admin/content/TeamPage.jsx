@@ -44,8 +44,8 @@ function useTeamMemberFields() {
     { name: 'biography', label: 'Biography', type: 'textarea', fullWidth: true, rows: 6, section: 'Biography' },
     { name: 'expertise', label: 'Areas of Expertise', type: 'list', fullWidth: true, section: 'Biography' },
 
-    { name: 'profile_image', label: 'Profile Photo URL', section: 'Media' },
-    { name: 'cover_image', label: 'Cover Image URL', section: 'Media' },
+    { name: 'profile_image', label: 'Profile Photo', type: 'image', section: 'Media' },
+    { name: 'cover_image', label: 'Cover Image', type: 'image', section: 'Media' },
     { name: 'gallery', label: 'Field Gallery', type: 'imagelist', fullWidth: true, section: 'Media' },
 
     { name: 'email', label: 'Email', section: 'Contact' },

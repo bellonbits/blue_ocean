@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Compass } from 'lucide-react';
-import { useScrollReveal } from '../lib/hooks';
+import { useScrollReveal, useTrackRecentlyViewed } from '../lib/hooks';
 import { getProjectBySlug } from '../data/research';
 import ResearchProjectHero from '../components/research/ResearchProjectHero';
 import ResearchOverview from '../components/research/ResearchOverview';
@@ -18,6 +18,17 @@ export default function ResearchProjectDetailPage() {
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
   useScrollReveal();
+
+  useTrackRecentlyViewed(
+    project && {
+      type: 'research',
+      slug: project.slug,
+      title: project.title,
+      subtitle: project.areaName,
+      image: project.heroImage,
+      path: `/research/projects/${project.slug}`,
+    }
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);

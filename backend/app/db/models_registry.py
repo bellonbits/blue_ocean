@@ -33,3 +33,7 @@ from app.models.contact_submission import ContactSubmission  # noqa: F401
 from app.models.media import Media  # noqa: F401
 from app.models.activity_log import ActivityLogEntry  # noqa: F401
 from app.models.team_member import TeamMember  # noqa: F401
+from app.models.saved_item import SavedItem  # noqa: F401
+from app.models.experience_interest import ExperienceInterest  # noqa: F401
+from app.models.notification import Notification  # noqa: F401
+from app.models.application import Application  # noqa: F401

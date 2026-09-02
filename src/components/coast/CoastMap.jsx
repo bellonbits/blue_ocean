@@ -61,6 +61,7 @@ const darkOceanMapStyles = [
 const regionViewports = {
   all: { center: { lat: 6.0, lng: 47.5 }, zoom: 5.6 },
   puntland: { center: { lat: 10.2, lng: 50.0 }, zoom: 6.8 },
+  somaliland: { center: { lat: 10.6, lng: 44.3 }, zoom: 6.8 },
   somalia: { center: { lat: 2.8, lng: 46.0 }, zoom: 6.8 },
   jubaland: { center: { lat: -0.8, lng: 42.4 }, zoom: 7.4 },
 };
@@ -183,14 +184,37 @@ export default function CoastMap({ destinations = [] }) {
     });
   }, [mapLoaded, visibleDestinations, selectedId]);
 
-  // Handle Region Change Viewport
+  // Fit the viewport to whichever destinations are visible, instead of a
+  // fixed zoom/center — a fixed value tuned for a wide desktop map looked
+  // fine there but showed a huge, mostly-inland swath of the map on a
+  // narrow mobile viewport. Keyed on activeRegion (not visibleDestinations,
+  // which is a new array every render) so a marker click's own panTo/zoom
+  // isn't immediately undone by this effect.
+  useEffect(() => {
+    if (!mapLoaded || !googleMapInstance.current || !window.google) return;
+
+    const regionDestinations = destinations.filter(
+      (d) => (activeRegion === 'all' || d.regionId === activeRegion) && hasCoordinates(d)
+    );
+    if (regionDestinations.length === 0) return;
+
+    if (regionDestinations.length === 1) {
+      googleMapInstance.current.panTo({
+        lat: regionDestinations[0].coordinates.lat,
+        lng: regionDestinations[0].coordinates.lng,
+      });
+      googleMapInstance.current.setZoom(8);
+      return;
+    }
+
+    const bounds = new window.google.maps.LatLngBounds();
+    regionDestinations.forEach((d) => bounds.extend({ lat: d.coordinates.lat, lng: d.coordinates.lng }));
+    googleMapInstance.current.fitBounds(bounds, 48);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mapLoaded, activeRegion]);
+
   const handleRegionChange = (regionId) => {
     setActiveRegion(regionId);
-    if (!googleMapInstance.current) return;
-
-    const vp = regionViewports[regionId] || regionViewports.all;
-    googleMapInstance.current.panTo(vp.center);
-    googleMapInstance.current.setZoom(vp.zoom);
   };
 
   // Handle Map Type Toggle (Dark Road vs Satellite)
@@ -234,6 +258,12 @@ export default function CoastMap({ destinations = [] }) {
               className={`map-pill ${activeRegion === 'puntland' ? 'map-pill--active' : ''}`}
             >
               Puntland (North)
+            </button>
+            <button
+              onClick={() => handleRegionChange('somaliland')}
+              className={`map-pill ${activeRegion === 'somaliland' ? 'map-pill--active' : ''}`}
+            >
+              Somaliland (Northwest)
             </button>
             <button
               onClick={() => handleRegionChange('somalia')}

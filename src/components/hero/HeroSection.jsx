@@ -11,11 +11,11 @@ export default function HeroSection() {
 
   return (
     <section className="hero" aria-label="Hero — Discover Somalia's Blue Ocean">
-      {/* Background GIF */}
+      {/* Background Image */}
       <div className="hero__bg">
         <img
-          src="/ocean_hero.gif"
-          alt="Blue Ocean Somalia — Marine life, ocean waves and underwater animation"
+          src="/hero_ocean.jpg"
+          alt="Blue Ocean Somalia — Marine life and coastal waters"
           className="hero__bg-img"
           loading="eager"
           fetchpriority="high"

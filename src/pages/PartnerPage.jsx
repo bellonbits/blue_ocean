@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
 import EnquiryForm from '../components/shared/EnquiryForm';
+import { submitApplication } from '../lib/dashboardApi';
+import { useAuth } from '../context/AuthContext';
 import './SpeciesDirectoryPage.css';
 import '../components/shared/EnquiryForm.css';
 
@@ -33,6 +35,7 @@ const fields = [
 
 export default function PartnerPage() {
   useScrollReveal();
+  const { token } = useAuth();
 
   useEffect(() => {
     document.title = 'Partner With Us — Blue Ocean Somalia';
@@ -67,6 +70,7 @@ export default function PartnerPage() {
             fields={fields}
             submitLabel="Submit Partnership Enquiry"
             successMessage="Thanks for reaching out — our partnerships team will follow up to discuss next steps."
+            onSubmit={(values) => submitApplication('partner', values, token)}
           />
         </div>
       </section>

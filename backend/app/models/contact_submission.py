@@ -13,12 +13,17 @@ and unwired, same as every other not-yet-built connection in this repo.
 No `published` field — these aren't editorial content, they're an
 inbox. `is_read` and `is_favorite` are the only pieces of admin-facing
 state, to support a basic read/unread/starred inbox view.
+
+`user_id` is nullable — most submitters aren't logged in — and is only
+populated at submit time for a submission made while authenticated (no
+backfill of older anonymous rows). It backs the member dashboard's
+"Messages" page, a read-only view of a user's own past enquiries.
 """
 
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Boolean, DateTime, String, Text, func
+from sqlalchemy import Boolean, DateTime, ForeignKey, String, Text, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -29,6 +34,7 @@ class ContactSubmission(Base):
     __tablename__ = "contact_submissions"
 
     id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id: Mapped[uuid.UUID | None] = mapped_column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=True, index=True)
 
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     email: Mapped[str] = mapped_column(String(255), nullable=False)

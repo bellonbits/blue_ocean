@@ -2,12 +2,7 @@ import { useState } from 'react';
 import { CheckCircle2, AlertTriangle, Send, Loader2 } from 'lucide-react';
 import './EnquiryForm.css';
 
-// Front-end only: this project has no backend/CMS wired up yet, so
-// submission is simulated locally with a short delay to demonstrate the
-// idle -> submitting -> success/error flow. Replace the body of the
-// setTimeout in handleSubmit with a real API call once one exists —
-// call setStatus('error') in its catch block to surface the error state.
-export default function EnquiryForm({ fields, submitLabel = 'Submit', successMessage, formId }) {
+export default function EnquiryForm({ fields, submitLabel = 'Submit', successMessage, formId, onSubmit }) {
   const initialState = Object.fromEntries(fields.map((f) => [f.name, f.defaultValue || '']));
   const [values, setValues] = useState(initialState);
   const [errors, setErrors] = useState({});
@@ -19,7 +14,7 @@ export default function EnquiryForm({ fields, submitLabel = 'Submit', successMes
     if (errors[name]) setErrors((e) => ({ ...e, [name]: null }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const nextErrors = {};
@@ -47,9 +42,12 @@ export default function EnquiryForm({ fields, submitLabel = 'Submit', successMes
     }
 
     setStatus('submitting');
-    setTimeout(() => {
+    try {
+      await onSubmit(values);
       setStatus('success');
-    }, 700);
+    } catch {
+      setStatus('error');
+    }
   };
 
   if (status === 'success') {

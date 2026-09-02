@@ -39,6 +39,7 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
     return {
       all: destinations.length,
       puntland: destinations.filter((d) => d.regionId === 'puntland').length,
+      somaliland: destinations.filter((d) => d.regionId === 'somaliland').length,
       jubaland: destinations.filter((d) => d.regionId === 'jubaland').length,
       somalia: destinations.filter((d) => d.regionId === 'somalia').length,
     };
@@ -127,6 +128,15 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
           >
             Puntland
             <span className="dest-filter-count">{counts.puntland}</span>
+          </button>
+
+          <button
+            onClick={() => handleFilterChange('somaliland')}
+            className={`dest-filter-btn ${currentFilter === 'somaliland' ? 'dest-filter-btn--active' : ''}`}
+            id="filter-somaliland"
+          >
+            Somaliland
+            <span className="dest-filter-count">{counts.somaliland}</span>
           </button>
 
           <button

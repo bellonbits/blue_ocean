@@ -12,7 +12,7 @@ const AREA_FIELDS = [
   { name: 'slug', label: 'Slug', required: true, section: 'Basic Information' },
   { name: 'tag', label: 'Tag', section: 'Basic Information' },
   { name: 'description', label: 'Description', type: 'textarea', fullWidth: true, section: 'Description' },
-  { name: 'image', label: 'Image URL', fullWidth: true, section: 'Media' },
+  { name: 'image', label: 'Image', type: 'image', fullWidth: true, section: 'Media' },
 ];
 
 const METHODOLOGY_FIELDS = [
@@ -64,7 +64,7 @@ function ProjectsTab() {
     { name: 'objectives', label: 'Objectives', type: 'list', fullWidth: true, section: 'Description' },
     { name: 'conservation_themes', label: 'Conservation themes', type: 'list', fullWidth: true, section: 'Description' },
 
-    { name: 'hero_image', label: 'Main image URL', fullWidth: true, section: 'Media' },
+    { name: 'hero_image', label: 'Main image', type: 'image', fullWidth: true, section: 'Media' },
     { name: 'gallery', label: 'Gallery', type: 'imagelist', fullWidth: true, section: 'Media' },
     { name: 'featured', label: 'Feature on homepage', type: 'checkbox', section: 'Media' },
   ];

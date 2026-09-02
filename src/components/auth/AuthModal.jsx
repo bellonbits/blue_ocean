@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { X, Mail, Lock, User, Eye, EyeOff, Waves, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { canManageAdmin } from '../../pages/admin/roles';
 import './AuthModal.css';
 
 export default function AuthModal() {
@@ -15,6 +17,7 @@ export default function AuthModal() {
     error,
     setError,
   } = useAuth();
+  const navigate = useNavigate();
 
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -48,10 +51,15 @@ export default function AuthModal() {
 
   if (!authModalOpen) return null;
 
+  const goToDashboard = (user) => {
+    navigate(canManageAdmin(user) ? '/admin' : '/dashboard');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (authModalTab === 'login') {
-      await login(email, password);
+      const result = await login(email, password);
+      if (result.success) goToDashboard(result.user);
     } else {
       if (!fullName.trim()) {
         setError('Please enter your full name.');
@@ -65,7 +73,8 @@ export default function AuthModal() {
         setError('Passwords do not match. Please check and try again.');
         return;
       }
-      await register(fullName, email, password);
+      const result = await register(fullName, email, password);
+      if (result.success) goToDashboard(result.user);
     }
   };
 

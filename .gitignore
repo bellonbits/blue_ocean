@@ -35,3 +35,6 @@ public/jk.gif
 *.njsproj
 *.sln
 *.sw?
+
+# Build artifacts
+dist.zip

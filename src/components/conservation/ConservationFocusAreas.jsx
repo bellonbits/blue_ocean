@@ -1,16 +1,25 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Fish, Shield, Anchor, Trash2, Waves, GraduationCap, Users } from 'lucide-react';
+import { ArrowRight, Fish, Shield, Anchor, Trash2, Waves, GraduationCap, Users, AlertTriangle } from 'lucide-react';
 import { conservationFocusAreas, getFocusAreaProjectCount } from '../../data/conservation';
 import '../experiences/ExperienceCategories.css';
 
 const ICONS = {
   'marine-wildlife': Fish,
+  'illegal-fishing': AlertTriangle,
   'coral-habitat': Shield,
   'sustainable-fishing': Anchor,
   'ocean-pollution': Trash2,
   'beach-cleanup': Waves,
   'marine-education': GraduationCap,
   'community-conservation': Users,
+};
+
+// Illegal Fishing is the one focus area with its own dedicated landing
+// page (richer editorial content — what Blue Ocean is actually doing
+// about it — rather than just a filtered project list like every other
+// area). Every other card still routes to the generic filtered view.
+const CUSTOM_LINKS = {
+  'illegal-fishing': '/conservation/illegal-fishing',
 };
 
 export default function ConservationFocusAreas() {
@@ -24,7 +33,7 @@ export default function ConservationFocusAreas() {
             Where We Focus
           </h2>
           <p className="section-subheading" style={{ margin: '0 auto' }}>
-            Seven areas of active conservation work across Somalia's marine and coastal environment.
+            Eight areas of active conservation work across Somalia's marine and coastal environment.
           </p>
         </div>
 
@@ -36,7 +45,7 @@ export default function ConservationFocusAreas() {
             return (
               <Link
                 key={area.id}
-                to={`/conservation/projects?area=${area.id}`}
+                to={CUSTOM_LINKS[area.id] || `/conservation/projects?area=${area.id}`}
                 className="exp-cat-card"
               >
                 <div className="exp-cat-card__media">

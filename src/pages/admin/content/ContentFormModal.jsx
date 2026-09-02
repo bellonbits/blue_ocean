@@ -1,5 +1,8 @@
 import { useState, useEffect, Fragment } from 'react';
 import { X, Eye } from 'lucide-react';
+import LocationPicker from './LocationPicker';
+import GalleryManager from './GalleryManager';
+import ImagePicker from './ImagePicker';
 
 // Generic create/edit modal driven by a `fields` config array, the same
 // field-config idiom src/components/shared/EnquiryForm.jsx already uses on
@@ -13,6 +16,19 @@ import { X, Eye } from 'lucide-react';
 // stored as [{type:'paragraph', text, attribution}]), pairlist
 // (newline "label | value" rows, stored as [{[pairKeys[0]]: ..,
 // [pairKeys[1]]: ..}] — needs a `pairKeys: [k1, k2]` on the field).
+// location (a Google Maps pick-a-point widget, stored as {lat, lng} |
+// null — most resources persist separate latitude/longitude columns,
+// so the caller flattens {lat, lng} into those two fields when
+// building its submit payload, same as it already does for
+// region_id -> region). gallery (an upload-and-manage widget backed by
+// the Media Library API, stored as plain string[] URLs — same shape as
+// 'list', but admins upload files instead of typing URLs). image (the
+// single-image counterpart to 'gallery' — upload one file or paste a
+// URL, stored as a plain string, same shape as a 'text' field).
+// imagelist also renders the same upload-and-manage widget as 'gallery'
+// (upload files or paste URLs), just adapted to the [{url, caption}]
+// storage shape most gallery fields use instead of gallery's plain
+// string[] — captions aren't editable through this widget.
 //
 // Fields with a `section` key are grouped under a heading in field order —
 // "don't show everything at once" (Basic Info / Description / Media / …).
@@ -24,8 +40,10 @@ import { X, Eye } from 'lucide-react';
 // other resource's plain published boolean. When `onPreview` is also given
 // (and an item is being edited), a Preview button appears alongside them.
 function toFormValue(type, value, field) {
+  if (type === 'location') return value || null;
+  if (type === 'gallery') return value || [];
   if (type === 'list') return (value || []).join('\n');
-  if (type === 'imagelist') return (value || []).map((g) => g.url).join('\n');
+  if (type === 'imagelist') return (value || []).map((g) => g.url);
   if (type === 'blocklist') return (value || []).map((b) => b.text).join('\n\n');
   if (type === 'multiselect') return value || [];
   if (type === 'pairlist') {
@@ -37,12 +55,14 @@ function toFormValue(type, value, field) {
 }
 
 function fromFormValue(type, raw, required, field) {
+  if (type === 'location') return raw || null;
+  if (type === 'gallery') return raw || [];
   if (type === 'checkbox') return !!raw;
   if (type === 'number') return raw === '' ? null : Number(raw);
   if (type === 'multiselect') return raw || [];
   if (type === 'list') return String(raw || '').split('\n').map((s) => s.trim()).filter(Boolean);
   if (type === 'imagelist') {
-    return String(raw || '').split('\n').map((s) => s.trim()).filter(Boolean).map((url) => ({ url, caption: null }));
+    return (raw || []).filter(Boolean).map((url) => ({ url, caption: null }));
   }
   if (type === 'blocklist') {
     return String(raw || '').split('\n\n').map((s) => s.trim()).filter(Boolean).map((text) => ({ type: 'paragraph', text, attribution: null }));
@@ -114,12 +134,11 @@ export default function ContentFormModal({
                   {f.type === 'multiselect' && (
                     <span style={{ fontWeight: 400, color: 'var(--admin-text-dim)', fontSize: '0.78rem' }}> — Cmd/Ctrl-click to select multiple</span>
                   )}
-                  {f.type === 'textarea' || f.type === 'list' || f.type === 'imagelist' || f.type === 'blocklist' || f.type === 'pairlist' ? (
+                  {f.type === 'textarea' || f.type === 'list' || f.type === 'blocklist' || f.type === 'pairlist' ? (
                     <textarea
                       rows={f.rows || (f.type === 'textarea' ? 4 : f.type === 'blocklist' ? 8 : 3)}
                       placeholder={
-                        f.type === 'imagelist' ? 'One image URL per line'
-                          : f.type === 'blocklist' ? 'One paragraph per blank-line-separated block'
+                        f.type === 'blocklist' ? 'One paragraph per blank-line-separated block'
                           : f.type === 'pairlist' ? (f.placeholder || `One per line as "${f.pairKeys?.[0]} | ${f.pairKeys?.[1]}"`)
                           : f.type === 'list' ? 'One per line' : f.placeholder
                       }
@@ -149,6 +168,21 @@ export default function ContentFormModal({
                       type="checkbox"
                       checked={!!values[f.name]}
                       onChange={(e) => handleChange(f.name, e.target.checked)}
+                    />
+                  ) : f.type === 'location' ? (
+                    <LocationPicker
+                      value={values[f.name] || null}
+                      onChange={(next) => handleChange(f.name, next)}
+                    />
+                  ) : f.type === 'gallery' || f.type === 'imagelist' ? (
+                    <GalleryManager
+                      value={values[f.name] || []}
+                      onChange={(next) => handleChange(f.name, next)}
+                    />
+                  ) : f.type === 'image' ? (
+                    <ImagePicker
+                      value={values[f.name] || ''}
+                      onChange={(next) => handleChange(f.name, next)}
                     />
                   ) : (
                     <input

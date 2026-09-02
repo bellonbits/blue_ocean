@@ -303,6 +303,179 @@ The underwater topography features dramatic drop-offs with black coral formation
       { id: 'exp-cove', title: 'Mountain Cove Marine Sightseeing', category: 'Water', active: false },
     ],
   },
+  {
+    id: 'hurdiya',
+    slug: 'hurdiya',
+    name: 'Hurdiya',
+    region: 'Puntland',
+    regionId: 'puntland',
+    location: 'Bari Region, Northeastern Coast',
+    coastlineArea: 'Indian Ocean / Gulf of Aden approach',
+    destinationType: 'Fishing Town & Rocky Headland Coast',
+    tagline: "A working fishing town on Puntland's rugged eastern shoulder, where dhows still put out before dawn.",
+    shortDescription: "A small coastal community on the Bari region shoreline between Xaafuun and Bargaal, built around artisanal fishing and a stretch of rocky, current-swept coastline.",
+    fullDescription: `Hurdiya sits along one of the most exposed and least-developed stretches of Puntland's eastern coast, where the seabed drops quickly into cold, nutrient-rich water pushed north by the Somali Current. The town's economy has long been built around artisanal fishing — small crews working hand lines and traps for reef fish, lobster, and pelagic species from open wooden dhows.
+
+Unlike the more sheltered anchorages further south, Hurdiya's coastline is rocky and current-swept, which has kept large-scale development away but made it a productive ground for the fishing families who know its waters. Blue Ocean is working to document this coastline in more detail — its reef structure, the species that depend on it, and the fishing practices of the community itself — as part of a broader effort to understand and protect Puntland's less-studied eastern shore.`,
+    heroImage: '/hafun1.jpg',
+    gallery: [
+      '/hafun1.jpg',
+      '/hafun2.jpg',
+      '/hafun3.jpg',
+    ],
+    coordinates: { lat: 10.53, lng: 51.13 },
+    bestSeason: 'November to March',
+    access: 'Coastal road/track from Bargaal or Xaafuun; no paved airstrip',
+    featured: true,
+    highlights: [
+      'Rocky, current-swept headland coastline',
+      'Working artisanal fishing community',
+      'Productive lobster and reef-fish grounds',
+      'Gateway to the less-studied eastern Bari coast',
+    ],
+    marineSpecies: [
+      {
+        id: 'spiny-lobster-hurdiya',
+        name: 'Painted Spiny Lobster',
+        scientificName: 'Panulirus versicolor',
+        image: '/marine_coral.jpg',
+        description: 'A mainstay of Hurdiya’s artisanal fishery, sheltering in the rocky crevices along the headland.',
+      },
+      {
+        id: 'reef-fish-hurdiya',
+        name: 'Reef & Pelagic Fish',
+        scientificName: 'Various species',
+        image: '/marine_fish.jpg',
+        description: 'Snapper, grouper, and seasonal pelagics drawn to the nutrient-rich, current-swept water offshore.',
+      },
+    ],
+    researchProjects: [
+      {
+        id: 'hurdiya-fisheries-baseline',
+        title: 'Eastern Bari Coast Artisanal Fisheries Baseline Survey',
+        category: 'Fisheries Science',
+        status: 'Planning Phase',
+      },
+    ],
+    experiences: [
+      { id: 'exp-hurdiya-fishing', title: 'Traditional Dhow Fishing Excursion', category: 'Water', active: false },
+    ],
+  },
+
+  // --- SOMALILAND ---
+  {
+    id: 'berbera',
+    slug: 'berbera',
+    name: 'Berbera',
+    region: 'Somaliland',
+    regionId: 'somaliland',
+    location: 'Sahil Region, Somaliland',
+    coastlineArea: 'Gulf of Aden',
+    destinationType: 'Historic Deepwater Port & Coral Coast',
+    tagline: 'A centuries-old Gulf of Aden trading port framed by white sand beaches and a living coral coastline.',
+    shortDescription: 'Somaliland’s principal seaport and oldest continuously used harbor on the Horn of Africa, backed by red volcanic hills and fringed by shallow coral reef flats.',
+    fullDescription: `Berbera has served as a crossroads of Red Sea and Indian Ocean trade for well over a thousand years, its natural deepwater harbor sheltering merchant dhows long before the modern port was built.
+
+Behind the town, the arid Golis mountain range rises sharply from the coastal plain, giving way to a shoreline of pale sand beaches and warm, shallow reef flats that stay calm for much of the year. Traditional fishing communities still work these waters daily for reef fish, shark, and seasonal pelagics.
+
+Blue Ocean is beginning baseline surveys of Berbera’s nearshore reef flats and lagoon systems, an area of the Gulf of Aden that remains comparatively under-documented despite its long human history.`,
+    heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80',
+      '/marine_fish.jpg',
+    ],
+    coordinates: { lat: 10.4396, lng: 45.0143 },
+    bestSeason: 'October to April (Calm seas, avoid summer Khareef winds)',
+    access: 'Berbera Airport (BBO) & the Berbera–Hargeisa corridor highway',
+    featured: true,
+    highlights: [
+      'Somaliland’s oldest and largest natural deepwater harbor',
+      'Shallow, warm-water coral reef flats close to shore',
+      'Red volcanic Golis mountain backdrop',
+      'Active artisanal reef and pelagic fishing fleet',
+    ],
+    marineSpecies: [
+      {
+        id: 'berbera-reef-fish',
+        name: 'Reef & Pelagic Fish',
+        scientificName: 'Various species',
+        image: '/marine_fish.jpg',
+        description: 'Snapper, grouper, and seasonal pelagics support Berbera’s daily artisanal landings.',
+      },
+      {
+        id: 'berbera-green-turtle',
+        name: 'Green Sea Turtle',
+        scientificName: 'Chelonia mydas',
+        image: '/marine_turtles.jpg',
+        description: 'Forages the seagrass beds within Berbera’s sheltered coastal lagoon.',
+      },
+    ],
+    researchProjects: [
+      {
+        id: 'berbera-reef-baseline',
+        title: 'Gulf of Aden Reef Flat & Lagoon Baseline Survey',
+        category: 'Coral Reef Health',
+        status: 'Planning Phase',
+      },
+    ],
+    experiences: [
+      { id: 'exp-berbera-harbor', title: 'Historic Harbor & Old Town Walk', category: 'Land', active: false },
+      { id: 'exp-berbera-reef', title: 'Shallow Reef Flat Snorkeling', category: 'Water', active: false },
+    ],
+  },
+  {
+    id: 'zeila',
+    slug: 'zeila',
+    name: 'Zeila',
+    region: 'Somaliland',
+    regionId: 'somaliland',
+    location: 'Awdal Region, Western Somaliland',
+    coastlineArea: 'Gulf of Aden',
+    destinationType: 'Ancient Trading Port & Coral-Stone Ruins',
+    tagline: 'A once-great Red Sea port, its coral-stone ruins standing quiet above the tide.',
+    shortDescription: 'One of the oldest ports on the Horn of Africa coast, Zeila (Saylac) blends crumbling coral-stone architecture with calm, shallow turquoise flats and scattered offshore islets.',
+    fullDescription: `Zeila, also known as Saylac, was for centuries one of the most important trading ports on the Gulf of Aden, linking the Ethiopian highlands to Arabia, Persia, and India. Its harbor has since silted and quieted, leaving behind weathered coral-stone mosques, merchant houses, and city walls standing above the shoreline.
+
+The waters offshore are shallow and calm for much of the year, sheltered by a scatter of low sandy islets, and support seasonal artisanal fishing much as they have for generations.
+
+Blue Ocean views Zeila as a priority site for documenting how a historic Gulf of Aden port town's marine life and fishing practices have shifted over time, alongside the town's largely unrestored maritime heritage.`,
+    heroImage: 'https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+      '/marine_coral.jpg',
+    ],
+    coordinates: { lat: 11.3572, lng: 43.4808 },
+    bestSeason: 'November to March',
+    access: 'Overland from Hargeisa or Djibouti border crossing',
+    featured: false,
+    highlights: [
+      'Centuries-old coral-stone mosques and city ruins',
+      'Calm, shallow turquoise flats sheltered by offshore islets',
+      'One of the Horn of Africa’s oldest recorded trading ports',
+    ],
+    marineSpecies: [
+      {
+        id: 'zeila-reef-fish',
+        name: 'Shallow-Flat Reef Fish',
+        scientificName: 'Various species',
+        image: '/marine_coral.jpg',
+        description: 'Small reef and flat-dwelling species shelter among Zeila’s scattered coral outcrops.',
+      },
+    ],
+    researchProjects: [
+      {
+        id: 'zeila-heritage-fisheries',
+        title: 'Zeila Maritime Heritage & Artisanal Fisheries Study',
+        category: 'Fisheries Science',
+        status: 'Planning Phase',
+      },
+    ],
+    experiences: [
+      { id: 'exp-zeila-ruins', title: 'Coral-Stone Ruins Heritage Walk', category: 'Land', active: false },
+    ],
+  },
 
   // --- JUBALAND ---
   {

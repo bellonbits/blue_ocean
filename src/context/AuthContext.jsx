@@ -1,8 +1,11 @@
-import { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
+import { listSavedItems, toggleSavedItem as apiToggleSavedItem } from '../lib/dashboardApi';
 
 const AuthContext = createContext(null);
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
+const savedKey = (contentType, contentSlug) => `${contentType}:${contentSlug}`;
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
@@ -22,6 +25,53 @@ export function AuthProvider({ children }) {
   const [authModalTab, setAuthModalTab] = useState('login'); // 'login' | 'register'
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  // Saved items — fetched once per session (not per-card) so every heart
+  // icon on screen shares the same lookup instead of each firing its own
+  // request. Cleared on logout.
+  const [savedItems, setSavedItems] = useState([]);
+  const savedKeys = useMemo(
+    () => new Set(savedItems.map((item) => savedKey(item.content_type, item.content_slug))),
+    [savedItems]
+  );
+
+  const refreshSavedItems = useCallback(async (authToken) => {
+    if (!authToken) {
+      setSavedItems([]);
+      return;
+    }
+    try {
+      setSavedItems(await listSavedItems(authToken));
+    } catch {
+      // Non-fatal — hearts just show as unsaved until the next refresh.
+    }
+  }, []);
+
+  useEffect(() => {
+    refreshSavedItems(token);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [token]);
+
+  const toggleSaved = useCallback(
+    async (contentType, contentSlug) => {
+      if (!token) return { success: false, error: 'Not signed in.' };
+      try {
+        const result = await apiToggleSavedItem(token, contentType, contentSlug);
+        setSavedItems((prev) => {
+          const withoutThis = prev.filter(
+            (item) => !(item.content_type === contentType && item.content_slug === contentSlug)
+          );
+          return result ? [result, ...withoutThis] : withoutThis;
+        });
+        return { success: true, saved: !!result };
+      } catch (err) {
+        return { success: false, error: err.message };
+      }
+    },
+    [token]
+  );
+
+  const isSaved = useCallback((contentType, contentSlug) => savedKeys.has(savedKey(contentType, contentSlug)), [savedKeys]);
 
   // Sync token and user to localStorage
   useEffect(() => {
@@ -206,6 +256,10 @@ export function AuthProvider({ children }) {
     changePassword,
     updateNotificationPreferences,
     fetchActivity,
+    savedItems,
+    isSaved,
+    toggleSaved,
+    refreshSavedItems,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

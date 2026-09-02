@@ -48,5 +48,6 @@ class SlidingWindowRateLimiter:
 # Rate limiter instances for different route sensitivity tiers
 limiter_auth_login = SlidingWindowRateLimiter(max_requests=10, window_seconds=60)
 limiter_contact_submission = SlidingWindowRateLimiter(max_requests=5, window_seconds=300)
+limiter_application_submission = SlidingWindowRateLimiter(max_requests=5, window_seconds=300)
 limiter_media_upload = SlidingWindowRateLimiter(max_requests=25, window_seconds=60)
 limiter_general_api = SlidingWindowRateLimiter(max_requests=120, window_seconds=60)

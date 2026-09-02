@@ -18,6 +18,11 @@ from app.db.session import get_db
 from app.models.user import User, UserRole
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/v1/auth/login")
+# auto_error=False: don't 401 when there's no token at all — used by
+# endpoints public users can hit anonymously (contact/application forms)
+# that still want to attribute the submission to a user when one is
+# logged in.
+_optional_oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/v1/auth/login", auto_error=False)
 
 _credentials_exception = HTTPException(
     status_code=status.HTTP_401_UNAUTHORIZED,
@@ -47,6 +52,26 @@ def get_current_active_user(user: User = Depends(get_current_user)) -> User:
     if not user.is_active:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Inactive user account")
     return user
+
+
+def get_optional_current_user(
+    token: str | None = Depends(_optional_oauth2_scheme), db: Session = Depends(get_db)
+) -> User | None:
+    """Same as get_current_user, but returns None instead of 401'ing when
+    there's no token or it's invalid — for endpoints anonymous users can
+    also hit."""
+    if token is None:
+        return None
+    try:
+        payload = decode_access_token(token)
+    except InvalidTokenError:
+        return None
+
+    user_id = payload.get("sub")
+    if user_id is None:
+        return None
+
+    return db.get(User, UUID(user_id))
 
 
 def require_role(*allowed_roles: UserRole):

@@ -15,6 +15,7 @@ import app.db.models_registry  # noqa: E402,F401
 
 from app.api.v1 import (
     admin_stats,
+    applications,
     auth,
     communities,
     community_stories,
@@ -31,11 +32,14 @@ from app.api.v1 import (
     methodologies,
     news_articles,
     news_categories,
+    notifications,
     organization,
     regions,
     research_areas,
     research_projects,
     research_teams,
+    saved_items,
+    experience_interests,
     search,
     seo,
     species,
@@ -71,5 +75,9 @@ api_router.include_router(organization.router)
 api_router.include_router(contact_submissions.router)
 api_router.include_router(media.router)
 api_router.include_router(admin_stats.router)
+api_router.include_router(saved_items.router)
+api_router.include_router(experience_interests.router)
+api_router.include_router(notifications.router)
+api_router.include_router(applications.router)
 api_router.include_router(search.router)
 api_router.include_router(seo.router)

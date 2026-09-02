@@ -4,6 +4,7 @@ import { Menu, X, Sun, Moon, LogIn, UserPlus, LogOut, User as UserIcon, ChevronD
 import { navLinks, noHeroPaths } from '../../data/navigation';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
+import { canManageAdmin } from '../../pages/admin/roles';
 import './Header.css';
 
 export default function Header() {
@@ -57,6 +58,7 @@ export default function Header() {
 
   const userInitial = user?.full_name ? user.full_name.charAt(0).toUpperCase() : (user?.email?.charAt(0).toUpperCase() || 'U');
   const roleDisplay = user?.role?.replace('_', ' ') || 'Member';
+  const dashboardHref = canManageAdmin(user) ? '/admin' : '/dashboard';
 
   return (
     <>
@@ -144,7 +146,7 @@ export default function Header() {
                       <span>My Profile</span>
                     </Link>
                     <Link
-                      to="/dashboard"
+                      to={dashboardHref}
                       className="header__user-dropdown-item"
                       onClick={() => setUserDropdownOpen(false)}
                       id="header-dashboard-link"
@@ -295,7 +297,7 @@ export default function Header() {
                   <span>My Profile</span>
                 </Link>
                 <Link
-                  to="/dashboard"
+                  to={dashboardHref}
                   className="btn btn-primary"
                   style={{ width: '100%', justifyContent: 'center' }}
                   onClick={() => setMobileOpen(false)}

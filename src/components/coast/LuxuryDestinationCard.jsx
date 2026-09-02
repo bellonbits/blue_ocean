@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, Sun, Compass, Heart, Share2, ArrowRight, Sparkles } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 import './LuxuryDestinationCard.css';
 
 export default function LuxuryDestinationCard({ destination }) {
-  const [liked, setLiked] = useState(false);
+  const { isAuthenticated, isSaved, toggleSaved, openAuthModal } = useAuth();
+  const liked = isSaved('destination', destination.slug);
   const [copied, setCopied] = useState(false);
 
   const handleShare = (e) => {
@@ -21,7 +23,11 @@ export default function LuxuryDestinationCard({ destination }) {
   const handleLike = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setLiked(!liked);
+    if (!isAuthenticated) {
+      openAuthModal('login');
+      return;
+    }
+    toggleSaved('destination', destination.slug);
   };
 
   // Dynamic metrics

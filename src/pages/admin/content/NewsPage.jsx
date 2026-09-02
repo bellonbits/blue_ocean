@@ -28,7 +28,7 @@ function ArticlesTab() {
     { name: 'excerpt', label: 'Excerpt', type: 'textarea', fullWidth: true, section: 'Content' },
     { name: 'content', label: 'Article body (blank line between paragraphs)', type: 'blocklist', fullWidth: true, section: 'Content' },
 
-    { name: 'featured_image', label: 'Featured image URL', fullWidth: true, section: 'Media' },
+    { name: 'featured_image', label: 'Featured image', type: 'image', fullWidth: true, section: 'Media' },
     { name: 'gallery', label: 'Gallery', type: 'imagelist', fullWidth: true, section: 'Media' },
     { name: 'featured', label: 'Feature on homepage', type: 'checkbox', section: 'Media' },
   ];

@@ -50,27 +50,13 @@
 .admin__brand {
   display: flex;
   align-items: center;
-  gap: 10px;
   padding: 4px 8px 24px;
 }
 
-.admin__brand-mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--admin-primary), #5B9CFF);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.8rem;
-}
-
-.admin__brand-text {
-  font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: -0.01em;
+.admin__brand-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
 .admin__nav {
@@ -1030,6 +1016,140 @@
   white-space: nowrap;
 }
 
+/* Gallery manager (destination photo upload/delete widget) */
+.gallery-manager {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gallery-manager__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.gallery-manager__tile {
+  position: relative;
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-md);
+  overflow: hidden;
+  background: var(--admin-surface-2);
+}
+
+.gallery-manager__tile img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-manager__remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(15, 23, 42, 0.72);
+  color: #fff;
+  cursor: pointer;
+}
+
+.gallery-manager__remove:hover {
+  background: var(--admin-danger, #dc2626);
+}
+
+.gallery-manager__empty {
+  font-size: 0.82rem;
+  color: var(--admin-text-dim);
+}
+
+.gallery-manager__error {
+  font-size: 0.8rem;
+  color: var(--admin-danger, #dc2626);
+}
+
+.gallery-manager__upload-btn {
+  width: fit-content;
+}
+
+.gallery-manager__spinner {
+  animation: admin-spin 0.8s linear infinite;
+}
+
+@keyframes admin-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Single-image picker (hero image upload/replace widget) */
+.image-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image-picker__preview {
+  position: relative;
+  width: fit-content;
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-md);
+  overflow: hidden;
+}
+
+.image-picker__preview img {
+  display: block;
+  max-width: 240px;
+  height: 130px;
+  object-fit: cover;
+  background: var(--admin-surface-2);
+}
+
+.image-picker__remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(15, 23, 42, 0.72);
+  color: #fff;
+  cursor: pointer;
+}
+
+.image-picker__remove:hover {
+  background: var(--admin-danger, #dc2626);
+}
+
+.image-picker__empty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--admin-text-dim);
+}
+
+.image-picker__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.image-picker__url-input {
+  flex: 1;
+  min-width: 200px;
+}
+
 .admin__media-preview {
   width: 100%;
   max-height: 260px;
@@ -1092,16 +1212,44 @@
     align-items: center;
     border-right: none;
     border-bottom: 1px solid var(--admin-border);
-    padding: 12px 16px;
+    padding: 10px 16px;
     overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .admin__sidebar::-webkit-scrollbar {
+    display: none;
   }
 
   .admin__brand {
     padding: 0 12px 0 0;
+    flex-shrink: 0;
   }
 
   .admin__nav {
     flex-direction: row;
+    align-items: center;
+    flex: none;
+    gap: 4px;
+  }
+
+  .admin__nav-link {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* Section labels ("Content", "Organization"…) make sense stacked in a
+     vertical sidebar but read as broken, cut-off tab text once the nav
+     goes horizontal — the icons + link labels alone are enough context. */
+  .admin__nav-heading,
+  .admin__nav-subheading {
+    display: none;
+  }
+
+  .admin__sidebar-user {
+    display: none;
   }
 
   .admin__back-link {

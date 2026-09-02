@@ -1,5 +1,7 @@
 import EnquiryForm from '../shared/EnquiryForm';
 import { contactSubjects } from '../../data/organization';
+import { submitContactMessage } from '../../lib/dashboardApi';
+import { useAuth } from '../../context/AuthContext';
 
 const fields = [
   { name: 'name', label: 'Name', type: 'text', required: true, placeholder: 'Your full name' },
@@ -28,12 +30,17 @@ const fields = [
 ];
 
 export default function ContactForm() {
+  const { token } = useAuth();
+
+  const handleSubmit = (values) => submitContactMessage(values, token);
+
   return (
     <EnquiryForm
       formId="contact-form"
       fields={fields}
       submitLabel="Send Message"
       successMessage="Thank you for contacting Blue Ocean. We'll get back to you as soon as possible."
+      onSubmit={handleSubmit}
     />
   );
 }

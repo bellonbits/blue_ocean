@@ -10,8 +10,8 @@ export default function ResearchHero() {
     <section className="exp-hero" aria-label="Blue Ocean Research">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/Blue%20Simple%20Beauty%20Of%20The%20Ocean%20Video.gif"
-          alt="Blue Ocean field researchers surveying Somalia's coastal waters"
+          src="/marine_coral.jpg"
+          alt="Coral reef ecosystem studied by Blue Ocean's research teams"
           className="exp-hero__img"
         />
         <div className="exp-hero__overlay" />

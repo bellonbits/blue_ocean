@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Blue Ocean</string>
+    <string name="title_activity_main">Blue Ocean</string>
+    <string name="package_name">so.blueocean.app</string>
+    <string name="custom_url_scheme">so.blueocean.app</string>
+</resources>

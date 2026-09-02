@@ -5,8 +5,10 @@ import { AuthProvider } from './context/AuthContext';
 import AuthModal from './components/auth/AuthModal';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import MobileTabBar from './components/layout/MobileTabBar';
 import Home from './pages/Home';
 import ExploreCoastPage from './pages/ExploreCoastPage';
+import TourismPage from './pages/TourismPage';
 import DestinationDetailPage from './pages/DestinationDetailPage';
 import MarineLifePage from './pages/MarineLifePage';
 import SpeciesDirectoryPage from './pages/SpeciesDirectoryPage';
@@ -25,6 +27,7 @@ import ResearchGeomorphologyPage from './pages/ResearchGeomorphologyPage';
 import ConservationPage from './pages/ConservationPage';
 import ConservationProjectsPage from './pages/ConservationProjectsPage';
 import ConservationProjectDetailPage from './pages/ConservationProjectDetailPage';
+import ConservationIllegalFishingPage from './pages/ConservationIllegalFishingPage';
 import CoastalCommunitiesPage from './pages/CoastalCommunitiesPage';
 import CommunityStoryDetailPage from './pages/CommunityStoryDetailPage';
 import GetInvolvedPage from './pages/GetInvolvedPage';
@@ -43,6 +46,14 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import PublicationsPage from './pages/PublicationsPage';
 import ProfilePage from './pages/ProfilePage';
 import PlaceholderPage from './pages/PlaceholderPage';
+import DashboardLayout from './pages/dashboard/DashboardLayout';
+import DashboardHomePage from './pages/dashboard/DashboardHomePage';
+import SavedPage from './pages/dashboard/SavedPage';
+import MyExperiencesPage from './pages/dashboard/MyExperiencesPage';
+import MyResearchPage from './pages/dashboard/MyResearchPage';
+import DashboardMessagesPage from './pages/dashboard/MessagesPage';
+import DashboardGetInvolvedPage from './pages/dashboard/GetInvolvedPage';
+import DashboardProfilePage from './pages/dashboard/ProfilePage';
 import AdminLayout from './pages/admin/AdminLayout';
 import DashboardOverviewPage from './pages/admin/DashboardOverviewPage';
 import InboxPage from './pages/admin/InboxPage';
@@ -58,6 +69,7 @@ import NewsAdminPage from './pages/admin/content/NewsPage';
 import TeamAdminPage from './pages/admin/content/TeamPage';
 import MediaAdminPage from './pages/admin/content/MediaPage';
 import ChatWidget from './components/chat/ChatWidget';
+import NativeAppGate from './onboarding/NativeAppGate';
 import './styles/globals.css';
 import { useScrollReveal } from './lib/hooks';
 
@@ -75,7 +87,7 @@ function ScrollToTop() {
 
 function AppLayout() {
   const { pathname } = useLocation();
-  const isDashboard = pathname.startsWith('/dashboard');
+  const isDashboard = pathname.startsWith('/admin') || pathname.startsWith('/dashboard');
 
   return (
     <>
@@ -86,6 +98,7 @@ function AppLayout() {
         <Route path="/" element={<Home />} />
         
         {/* Sprint 2: Explore the Coast Routes */}
+        <Route path="/tourism" element={<TourismPage />} />
         <Route path="/explore-the-coast" element={<ExploreCoastPage />} />
         <Route path="/explore-the-coast/:slug" element={<DestinationDetailPage />} />
         <Route path="/explore" element={<Navigate to="/explore-the-coast" replace />} />
@@ -117,6 +130,7 @@ function AppLayout() {
 
         {/* Sprint 6: Conservation & Coastal Communities Routes */}
         <Route path="/conservation" element={<ConservationPage />} />
+        <Route path="/conservation/illegal-fishing" element={<ConservationIllegalFishingPage />} />
         <Route path="/conservation/projects" element={<ConservationProjectsPage />} />
         <Route path="/conservation/projects/:slug" element={<ConservationProjectDetailPage />} />
 
@@ -143,8 +157,19 @@ function AppLayout() {
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
         <Route path="/profile" element={<ProfilePage />} />
 
-        {/* Admin/CMS Dashboard */}
-        <Route path="/dashboard" element={<AdminLayout />}>
+        {/* Member dashboard — personal ocean discovery hub, any logged-in account */}
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<DashboardHomePage />} />
+          <Route path="saved" element={<SavedPage />} />
+          <Route path="experiences" element={<MyExperiencesPage />} />
+          <Route path="research" element={<MyResearchPage />} />
+          <Route path="get-involved" element={<DashboardGetInvolvedPage />} />
+          <Route path="messages" element={<DashboardMessagesPage />} />
+          <Route path="profile" element={<DashboardProfilePage />} />
+        </Route>
+
+        {/* Admin/CMS — staff only (super_admin/admin/editor/researcher/content_manager) */}
+        <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<DashboardOverviewPage />} />
           <Route path="inbox" element={<InboxPage />} />
           <Route path="settings" element={<SettingsPage />} />
@@ -161,7 +186,7 @@ function AppLayout() {
         </Route>
 
         {/* Preview renders full-bleed like the real public page — no admin sidebar/topbar */}
-        <Route path="/dashboard/content/coast/destinations/:id/preview" element={<DestinationPreviewPage />} />
+        <Route path="/admin/content/coast/destinations/:id/preview" element={<DestinationPreviewPage />} />
 
         {/* 404 fallback */}
         <Route
@@ -177,19 +202,22 @@ function AppLayout() {
       </Routes>
       {!isDashboard && <Footer />}
       {!isDashboard && <ChatWidget />}
+      {!isDashboard && <MobileTabBar />}
     </>
   );
 }
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <BrowserRouter>
-          <AppLayout />
-          <AuthModal />
-        </BrowserRouter>
-      </AuthProvider>
-    </ThemeProvider>
+    <NativeAppGate>
+      <ThemeProvider>
+        <AuthProvider>
+          <BrowserRouter>
+            <AppLayout />
+            <AuthModal />
+          </BrowserRouter>
+        </AuthProvider>
+      </ThemeProvider>
+    </NativeAppGate>
   );
 }

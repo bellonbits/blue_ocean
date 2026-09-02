@@ -1,4 +1,54 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
+
+// ---- Recently viewed (dashboard "Continue Exploring") --------------------
+//
+// Client-side only — no cross-device need, and avoids a backend write on
+// every single page view. Caps at 8 most-recent, deduped by type+slug.
+
+const RECENTLY_VIEWED_KEY = 'blue_ocean_recently_viewed';
+const RECENTLY_VIEWED_LIMIT = 8;
+
+/**
+ * Call from a content detail page to record it as viewed. `item` shape:
+ * { type: 'destination'|'species'|'experience'|'research', slug, title, subtitle, image, path }
+ */
+export function trackRecentlyViewed(item) {
+  if (!item?.type || !item?.slug) return;
+  try {
+    const existing = JSON.parse(localStorage.getItem(RECENTLY_VIEWED_KEY) || '[]');
+    const withoutDupe = existing.filter((e) => !(e.type === item.type && e.slug === item.slug));
+    const next = [{ ...item, viewedAt: Date.now() }, ...withoutDupe].slice(0, RECENTLY_VIEWED_LIMIT);
+    localStorage.setItem(RECENTLY_VIEWED_KEY, JSON.stringify(next));
+  } catch {
+    // localStorage unavailable (private mode etc.) — recently-viewed is a
+    // nice-to-have, fail silently.
+  }
+}
+
+/** Hook for reading the list, e.g. on the dashboard home page. */
+export function useRecentlyViewed() {
+  const [items, setItems] = useState([]);
+
+  const refresh = useCallback(() => {
+    try {
+      setItems(JSON.parse(localStorage.getItem(RECENTLY_VIEWED_KEY) || '[]'));
+    } catch {
+      setItems([]);
+    }
+  }, []);
+
+  useEffect(refresh, [refresh]);
+
+  return items;
+}
+
+/** Call from a detail page: records the view once per mount/slug change. */
+export function useTrackRecentlyViewed(item) {
+  useEffect(() => {
+    if (item) trackRecentlyViewed(item);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [item?.type, item?.slug]);
+}
 
 /**
  * useScrollReveal — attaches IntersectionObserver to elements with .reveal class

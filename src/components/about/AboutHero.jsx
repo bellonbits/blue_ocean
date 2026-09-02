@@ -7,8 +7,8 @@ export default function AboutHero() {
     <section className="exp-hero" aria-label="About Blue Ocean">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/hero_ocean.jpg"
-          alt="Somalia's open ocean waters"
+          src="/MOGADISHUBEACH%20LEDE.jpg"
+          alt="Mogadishu's coast, home to Blue Ocean's headquarters"
           className="exp-hero__img"
         />
         <div className="exp-hero__overlay" />

@@ -10,7 +10,7 @@ const CATEGORY_FIELDS = [
   { name: 'slug', label: 'Slug', required: true, section: 'Basic Information' },
   { name: 'group', label: 'Group', section: 'Basic Information' },
   { name: 'description', label: 'Description', type: 'textarea', fullWidth: true, section: 'Description' },
-  { name: 'image', label: 'Image URL', fullWidth: true, section: 'Media' },
+  { name: 'image', label: 'Image', type: 'image', fullWidth: true, section: 'Media' },
 ];
 
 const CONSERVATION_STATUSES = [
@@ -45,7 +45,7 @@ function useSpeciesFields() {
     { name: 'conservation_status', label: 'Conservation status', type: 'select', options: CONSERVATION_STATUSES, section: 'Conservation' },
     { name: 'status_explanation', label: 'Status explanation', type: 'textarea', fullWidth: true, section: 'Conservation' },
 
-    { name: 'hero_image', label: 'Main image URL', fullWidth: true, section: 'Media' },
+    { name: 'hero_image', label: 'Main image', type: 'image', fullWidth: true, section: 'Media' },
     { name: 'gallery', label: 'Gallery', type: 'imagelist', fullWidth: true, section: 'Media' },
     { name: 'featured', label: 'Feature on homepage', type: 'checkbox', section: 'Media' },
   ];

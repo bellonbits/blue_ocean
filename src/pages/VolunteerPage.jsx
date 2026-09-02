@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
 import EnquiryForm from '../components/shared/EnquiryForm';
+import { submitApplication } from '../lib/dashboardApi';
+import { useAuth } from '../context/AuthContext';
 import './SpeciesDirectoryPage.css';
 import '../components/shared/EnquiryForm.css';
 
@@ -25,6 +27,7 @@ const fields = [
 
 export default function VolunteerPage() {
   useScrollReveal();
+  const { token } = useAuth();
 
   useEffect(() => {
     document.title = 'Volunteer — Blue Ocean Somalia';
@@ -59,6 +62,7 @@ export default function VolunteerPage() {
             fields={fields}
             submitLabel="Submit Interest"
             successMessage="Thanks for offering your time — our team will reach out about opportunities matching your interests."
+            onSubmit={(values) => submitApplication('volunteer', values, token)}
           />
         </div>
       </section>
