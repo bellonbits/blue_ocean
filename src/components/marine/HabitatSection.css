@@ -13,7 +13,7 @@
 
 .habitat-sec__layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   gap: var(--space-8);
   align-items: start;
 }
@@ -152,7 +152,7 @@
 
 .habitat-sec__dest-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-4);
 }
 
@@ -228,12 +228,12 @@
 
 @media (max-width: 992px) {
   .habitat-sec__layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
 @media (max-width: 640px) {
   .habitat-sec__dest-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }

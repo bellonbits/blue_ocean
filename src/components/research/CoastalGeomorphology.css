@@ -31,7 +31,7 @@
 
 .coastal-geo__section {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: var(--space-10);
   align-items: start;
   padding-bottom: var(--space-12);
@@ -44,7 +44,7 @@
 }
 
 .coastal-geo__section:not(:has(.coastal-geo__figure)) {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   max-width: 760px;
 }
 
@@ -148,7 +148,7 @@
 
 @media (max-width: 900px) {
   .coastal-geo__section {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 
   .coastal-geo__figure {

@@ -36,22 +36,29 @@
   box-shadow: none !important;
 }
 
-/* Scrolled header — frosted glass, clearly blurred */
+/* Scrolled header — true glassmorphism: translucent enough that blurred
+   content is still visible moving behind it (the "glass" read), with a
+   light-catching top inset highlight and a hairline border for edge
+   definition so it doesn't just dissolve into similarly-toned content. */
 .header--scrolled {
-  background: rgba(6, 20, 28, 0.82) !important;
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  background: rgba(9, 26, 36, 0.55) !important;
+  backdrop-filter: blur(22px) saturate(190%);
+  -webkit-backdrop-filter: blur(22px) saturate(190%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
-/* Light theme header when scrolled — frosted glass, clearly blurred */
+/* Light theme header when scrolled — same glass recipe, tuned so the
+   pane still reads clearly against an equally light page (a plain low-
+   opacity white tint alone disappears into white content). */
 [data-theme="light"] .header--scrolled {
-  background: rgba(255, 255, 255, 0.82) !important;
-  backdrop-filter: blur(24px) saturate(190%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
-  border-bottom: 1px solid rgba(7, 25, 35, 0.08) !important;
-  box-shadow: 0 4px 20px rgba(7, 25, 35, 0.08);
+  /* A faint brand-cyan wash rather than plain white — pure white glass
+     over an equally near-white page has almost no visible presence. */
+  background: rgba(223, 243, 248, 0.72) !important;
+  backdrop-filter: blur(22px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(190%) !important;
+  border-bottom: 1px solid rgba(7, 25, 35, 0.12) !important;
+  box-shadow: 0 8px 28px rgba(7, 25, 35, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 /* Nav links when header is transparent (over hero) — always crisp white */

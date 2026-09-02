@@ -21,7 +21,7 @@
 
 .species-gal__grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   grid-template-rows: 240px 240px;
   gap: var(--space-4);
   border-radius: var(--radius-2xl);
@@ -187,7 +187,7 @@
 
 @media (max-width: 768px) {
   .species-gal__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto;
   }
   .species-gal__item.is-primary {

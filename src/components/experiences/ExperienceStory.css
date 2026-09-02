@@ -8,7 +8,7 @@
 
 .exp-story-layout {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   gap: var(--space-16);
   align-items: start;
 }
@@ -152,7 +152,7 @@
 
 @media (max-width: 1024px) {
   .exp-story-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-10);
   }
   .exp-story-panel {

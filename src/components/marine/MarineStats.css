@@ -22,7 +22,7 @@
 
 .marine-stats__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-8);
 }
 
@@ -78,14 +78,14 @@
 
 @media (max-width: 992px) {
   .marine-stats__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-6);
   }
 }
 
 @media (max-width: 540px) {
   .marine-stats__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .marine-stats__card {
     padding: var(--space-8) var(--space-4);

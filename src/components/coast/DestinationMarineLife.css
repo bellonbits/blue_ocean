@@ -10,7 +10,7 @@
 
 .dest-marine-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-6);
   margin-top: var(--space-10);
 }
@@ -101,12 +101,12 @@
 
 @media (max-width: 900px) {
   .dest-marine-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 600px) {
   .dest-marine-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }

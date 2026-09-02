@@ -102,7 +102,10 @@
 
   /* Layout */
   --container-max: 1320px;
-  --container-pad: var(--space-6);
+  /* Fluid, monotonic side padding instead of stepped per-breakpoint
+     values — scales smoothly from 16px at narrow widths to 32px at
+     wide, with no jump discontinuities at specific viewport widths. */
+  --container-pad: clamp(1rem, 4vw, 2rem);
   --header-height: 90px;
 
   color-scheme: dark;
@@ -426,7 +429,8 @@ h1, h2, h3, h4, h5, h6 {
 .section-heading {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: var(--text-4xl);
+  /* Fluid scale (20px → 36px) instead of stepped per-breakpoint sizes */
+  font-size: clamp(1.25rem, 1rem + 3vw, 2.25rem);
   line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--color-text);
@@ -724,9 +728,9 @@ h1, h2, h3, h4, h5, h6 {
 /* =========================================================
    8. Grid Utilities
    ========================================================= */
-.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
-.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
+.grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-6); }
 
 /* =========================================================
    9. Section Header Pattern
@@ -798,32 +802,20 @@ h1, h2, h3, h4, h5, h6 {
 /* =========================================================
    13. Responsive Breakpoints
    ========================================================= */
-@media (max-width: 1200px) {
-  :root { --container-pad: var(--space-8); }
-}
-
 @media (max-width: 1024px) {
-  .section-heading { font-size: var(--text-3xl); }
-  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 768px) {
   :root {
-    --container-pad: var(--space-5);
     --space-24: 4rem;
     --space-32: 5rem;
     --header-height: 68px;
   }
 
-  .section-heading { font-size: var(--text-2xl); }
-  .grid-3 { grid-template-columns: repeat(1, 1fr); }
-  .grid-2 { grid-template-columns: repeat(1, 1fr); }
-  .grid-4 { grid-template-columns: repeat(1, 1fr); }
-}
-
-@media (max-width: 480px) {
-  :root { --container-pad: var(--space-4); }
-  .section-heading { font-size: var(--text-xl); }
+  .grid-3 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .grid-2 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .grid-4 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 }
 
 /* =========================================================
