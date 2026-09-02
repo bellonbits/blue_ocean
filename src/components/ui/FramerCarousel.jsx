@@ -15,14 +15,23 @@ export default function FramerCarousel({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
   const [visibleCount, setVisibleCount] = useState(3);
+  const [itemW, setItemW] = useState(itemWidth);
   const containerRef = useRef(null);
 
-  // Update visible items count on resize
+  // Update visible items count (and, on narrow screens, shrink the card
+  // width to a share of the viewport instead of forcing the full desktop
+  // width onto a phone) on resize.
   useEffect(() => {
     const updateVisible = () => {
       if (containerRef.current) {
         const width = containerRef.current.offsetWidth;
-        const count = Math.max(1, Math.floor((width + gap) / (itemWidth + gap)));
+        // Below ~640px treat this as a phone: size each card to ~86% of
+        // the visible track so the next card peeks in as a scroll
+        // affordance, instead of a single card nearly filling the row
+        // with no visual hint that there's more to swipe to.
+        const responsiveWidth = width < 640 ? Math.round(width * 0.86) : Math.min(itemWidth, width);
+        setItemW(responsiveWidth);
+        const count = Math.max(1, Math.floor((width + gap) / (responsiveWidth + gap)));
         setVisibleCount(count);
       }
     };
@@ -52,6 +61,16 @@ export default function FramerCarousel({
 
   // Total pages for dots
   const totalPages = maxIndex + 1;
+  const step = itemW + gap;
+
+  const handleDragEnd = (event, info) => {
+    const threshold = itemW / 4;
+    if (info.offset.x < -threshold || info.velocity.x < -400) {
+      handleNext();
+    } else if (info.offset.x > threshold || info.velocity.x > 400) {
+      handlePrev();
+    }
+  };
 
   return (
     <div
@@ -94,8 +113,15 @@ export default function FramerCarousel({
       <div className="framer-carousel__viewport" ref={containerRef}>
         <motion.div
           className="framer-carousel__track"
+          drag="x"
+          dragConstraints={{ left: -(maxIndex * step), right: 0 }}
+          dragElastic={0.15}
+          dragMomentum={false}
+          style={{ touchAction: 'pan-y' }}
+          onDragStart={() => autoPlay && setIsPlaying(false)}
+          onDragEnd={handleDragEnd}
           animate={{
-            x: -(currentIndex * (itemWidth + gap)),
+            x: -(currentIndex * step),
           }}
           transition={{
             type: 'spring',
@@ -108,7 +134,7 @@ export default function FramerCarousel({
             <motion.div
               key={item.id || index}
               className="framer-carousel__item"
-              style={{ width: itemWidth, marginRight: gap }}
+              style={{ width: itemW, marginRight: gap }}
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.35 }}
