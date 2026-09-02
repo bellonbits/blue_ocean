@@ -832,3 +832,30 @@ commit a real one. `MEDIA_ROOT`'s local-disk storage (B10) won't survive
 a redeploy on most hosting platforms and isn't shared across multiple
 app instances — swap it for real object storage (S3 or equivalent)
 before this goes anywhere beyond a single-instance dev/staging box.
+
+### Optional database failover
+
+`FALLBACK_DATABASE_URL` (blank by default — fully disabled until set)
+lets requests automatically switch to a second Postgres database if the
+primary in `DATABASE_URL` becomes unreachable. See `app/db/session.py`
+for the mechanism. Things to know before turning this on:
+
+- **It's a resilience mechanism, not a sync mechanism.** Anything
+  written while running on the fallback exists ONLY there until someone
+  manually reconciles it back to the primary once it recovers. There is
+  no automatic replication between the two databases.
+- **Both databases need the same schema.** After any migration, run it
+  against both:
+  ```bash
+  uv run alembic upgrade head                                    # primary
+  DATABASE_URL=<fallback-connection-string> uv run alembic upgrade head  # fallback
+  ```
+- **The fallback value must be a real Postgres connection string with a
+  password** (`postgresql+psycopg://user:password@host:port/dbname`) —
+  e.g. from Supabase's dashboard under Settings -> Database -> Connection
+  string. A Supabase *publishable* key (the one used by `supabase-js` in
+  a browser) is a different kind of credential entirely and can't be
+  used here.
+- Failover is detected with one extra `SELECT 1` per request, so there's
+  a small latency cost on every request even when everything is healthy
+  — the accepted price for detecting an outage automatically.

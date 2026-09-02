@@ -20,6 +20,24 @@ class Settings(BaseSettings):
     # postgresql+psycopg://user:password@host:port/dbname
     database_url: str = "postgresql+psycopg://blue_ocean:blue_ocean_dev_local@localhost:5432/blue_ocean"
 
+    # Optional failover database (e.g. Supabase Postgres). Empty by
+    # default — no fallback logic runs at all unless this is set. When
+    # set, it MUST point at a real Postgres connection string (with
+    # password), e.g. from Supabase's dashboard under
+    # Settings -> Database -> Connection string. A Supabase "publishable"
+    # client-SDK key is NOT a substitute for this — that key is for the
+    # supabase-js browser client hitting Supabase's REST API, not for a
+    # direct SQLAlchemy/Postgres connection.
+    #
+    # This is a resilience mechanism, not a sync mechanism: if the
+    # primary goes down and requests fail over, anything written during
+    # that window lives ONLY in the fallback until someone manually
+    # reconciles it back once the primary recovers. Both databases must
+    # carry the same schema — run `alembic upgrade head` against each
+    # (temporarily override DATABASE_URL per run) whenever migrations
+    # change.
+    fallback_database_url: str = ""
+
     # --- CORS ---
     # Comma-separated list of allowed frontend origins.
     cors_origins: str = "http://localhost:5173"
