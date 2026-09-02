@@ -2,16 +2,29 @@
 // plus the parallel /admin/all and /admin/{id} routes the admin CMS uses to
 // see unpublished rows. Same request() shape as adminApi.js.
 
+import { supabase } from './supabaseClient';
+
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 async function request(path, options = {}) {
-  const res = await fetch(`${API_BASE_URL}/api/v1${path}`, {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers,
-    },
-  });
+  let res;
+  try {
+    res = await fetch(`${API_BASE_URL}/api/v1${path}`, {
+      ...options,
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers,
+      },
+    });
+  } catch (err) {
+    // The backend itself is unreachable (down, DNS failure, offline,
+    // CORS) — distinct from a reachable backend returning an error
+    // response, so callers can choose to fail over to Supabase only for
+    // this class of failure rather than for e.g. a genuine 404.
+    const networkError = new Error(`Blue Ocean API unreachable: ${err.message}`);
+    networkError.isNetworkError = true;
+    throw networkError;
+  }
 
   if (res.status === 204) return null;
 
@@ -49,9 +62,33 @@ function adaptRegion(r) {
   };
 }
 
+// Supabase fallback for listRegions() — same public shape via adaptRegion,
+// only reached when the FastAPI backend itself is unreachable. Mirrors
+// the backend's own destinations_count logic (a straight count of every
+// destination row with that region_id, not filtered by status).
+async function listRegionsFromSupabase() {
+  const [{ data: regions, error: regionsError }, { data: destinations, error: destError }] = await Promise.all([
+    supabase.from('regions').select('*').order('name'),
+    supabase.from('destinations').select('region_id'),
+  ]);
+  if (regionsError) throw regionsError;
+  if (destError) throw destError;
+
+  const counts = {};
+  (destinations || []).forEach((d) => { counts[d.region_id] = (counts[d.region_id] || 0) + 1; });
+
+  return (regions || [])
+    .map((r) => adaptRegion({ ...r, destinations_count: counts[r.id] || 0 }));
+}
+
 export async function listRegions() {
-  const regions = await request('/regions');
-  return regions.map(adaptRegion);
+  try {
+    const regions = await request('/regions');
+    return regions.map(adaptRegion);
+  } catch (err) {
+    if (err.isNetworkError && supabase) return listRegionsFromSupabase();
+    throw err;
+  }
 }
 
 // Admin functions return the raw API shape (snake_case, matches the
@@ -113,10 +150,49 @@ export function adaptDestination(d) {
   };
 }
 
+// Supabase fallback for listDestinations()/getDestination() — only
+// reached when the FastAPI backend itself is unreachable. Filtering by
+// region/featured happens client-side after the fetch rather than via
+// PostgREST's embedded-resource filter syntax, trading a slightly
+// larger one-off fetch for a much simpler, harder-to-get-wrong query on
+// a path that's exercised only during an outage.
+async function listDestinationsFromSupabase(params = {}) {
+  const { data, error } = await supabase
+    .from('destinations')
+    .select('*, region:regions(id,slug,name)')
+    .eq('status', 'published')
+    .order('name');
+  if (error) throw error;
+
+  let destinations = (data || []).map(adaptDestination);
+  if (params.region) destinations = destinations.filter((d) => d.regionId === params.region);
+  if (params.featured !== undefined) {
+    const wantFeatured = params.featured === 'true' || params.featured === true;
+    destinations = destinations.filter((d) => d.featured === wantFeatured);
+  }
+  return destinations;
+}
+
+async function getDestinationFromSupabase(slug) {
+  const { data, error } = await supabase
+    .from('destinations')
+    .select('*, region:regions(id,slug,name)')
+    .eq('slug', slug)
+    .eq('status', 'published')
+    .single();
+  if (error) throw error;
+  return adaptDestination(data);
+}
+
 export async function listDestinations(params = {}) {
-  const query = new URLSearchParams(params).toString();
-  const destinations = await request(`/destinations${query ? `?${query}` : ''}`);
-  return destinations.map(adaptDestination);
+  try {
+    const query = new URLSearchParams(params).toString();
+    const destinations = await request(`/destinations${query ? `?${query}` : ''}`);
+    return destinations.map(adaptDestination);
+  } catch (err) {
+    if (err.isNetworkError && supabase) return listDestinationsFromSupabase(params);
+    throw err;
+  }
 }
 
 // Real photos of a destination sourced from Google Places (New) on the
@@ -158,8 +234,13 @@ export async function getRelatedNews({ destination, species, researchProject, co
 }
 
 export async function getDestination(slug) {
-  const d = await request(`/destinations/${slug}`);
-  return adaptDestination(d);
+  try {
+    const d = await request(`/destinations/${slug}`);
+    return adaptDestination(d);
+  } catch (err) {
+    if (err.isNetworkError && supabase) return getDestinationFromSupabase(slug);
+    throw err;
+  }
 }
 
 export function adminListDestinations(token) {
