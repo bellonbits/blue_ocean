@@ -7,6 +7,7 @@
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   z-index: var(--z-nav);
   height: var(--header-height);
   display: flex;
@@ -17,6 +18,14 @@
   border-bottom: none;
   transition: background var(--transition-slow), backdrop-filter var(--transition-slow),
               box-shadow var(--transition-slow), border-color var(--transition-slow);
+  /* Older Mobile Safari (iOS <16, e.g. iPhone 7/7+) can mis-paint
+     `position: fixed` elements during scroll/address-bar collapse —
+     clipping or shifting them — unless they're promoted to their own
+     compositing layer. */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .header:not(.header--scrolled) {

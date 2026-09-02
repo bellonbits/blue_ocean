@@ -331,6 +331,10 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Some older Mobile Safari versions honor overflow-x separately on
+     <html> vs <body> — set on both so horizontal rubber-band scroll
+     can't reveal off-screen content. */
+  overflow-x: hidden;
 }
 
 body {
