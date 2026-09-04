@@ -3,6 +3,9 @@
 // see unpublished rows. Same request() shape as adminApi.js.
 
 import { supabase } from './supabaseClient';
+import { regions as staticRegions } from '../data/regions';
+import { destinations as staticDestinations } from '../data/destinations';
+import { localize } from './i18n/localizeData.js';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
@@ -81,14 +84,33 @@ async function listRegionsFromSupabase() {
     .map((r) => adaptRegion({ ...r, destinations_count: counts[r.id] || 0 }));
 }
 
+// Last-resort fallback for listRegions() — used when the backend is
+// unreachable AND either Supabase isn't configured or it fails too, so
+// the coast pages always render *something* instead of an empty grid.
+// Somali content comes from regionTranslations.so.js (generated from the
+// backend's region_translations table — see that file's header comment);
+// newer translations added only through the admin CMS after it was last
+// generated won't show up here until it's regenerated.
+function listRegionsFromStatic(lang) {
+  return staticRegions.map((r) => localize({ ...r, dbId: null }, lang));
+}
+
 export async function listRegions(lang) {
   try {
     const query = lang && lang !== 'en' ? `?lang=${lang}` : '';
     const regions = await request(`/regions${query}`);
     return regions.map(adaptRegion);
   } catch (err) {
-    if (err.isNetworkError && supabase) return listRegionsFromSupabase();
-    throw err;
+    if (!err.isNetworkError) throw err;
+    if (supabase) {
+      try {
+        return await listRegionsFromSupabase();
+      } catch {
+        // Supabase is configured but also unreachable/erroring — fall
+        // through to the local static data below.
+      }
+    }
+    return listRegionsFromStatic(lang);
   }
 }
 
@@ -185,17 +207,57 @@ async function getDestinationFromSupabase(slug) {
   return adaptDestination(data);
 }
 
+// Last-resort fallback for listDestinations()/getDestination() — used
+// when the backend is unreachable AND either Supabase isn't configured
+// or it fails too. src/data/destinations.js is the original static
+// dataset the backend was seeded from, so its shape already matches
+// adaptDestination()'s output almost exactly; this just fills in the
+// fields that only exist on the backend (dbId, video*, status) and
+// applies the Somali translations from destinationTranslations.so.js
+// (generated from the backend — see that file's header comment). Newer
+// content added only through the admin CMS (e.g. Alula) isn't in this
+// static dataset at all — an acceptable gap for an outage path.
+function adaptStaticDestination(d, lang) {
+  const localized = localize(d, lang);
+  return {
+    ...localized,
+    dbId: null,
+    videoUrl: d.videoUrl || null,
+    videoTitle: d.videoTitle || null,
+    videoDescription: d.videoDescription || null,
+    videoSource: d.videoSource || null,
+    status: d.status || 'published',
+  };
+}
+
+function listDestinationsFromStatic(params = {}, lang) {
+  let destinations = staticDestinations.map((d) => adaptStaticDestination(d, lang));
+  if (params.region) destinations = destinations.filter((d) => d.regionId === params.region);
+  if (params.featured !== undefined) {
+    const wantFeatured = params.featured === 'true' || params.featured === true;
+    destinations = destinations.filter((d) => d.featured === wantFeatured);
+  }
+  return destinations;
+}
+
 export async function listDestinations(params = {}) {
+  const { lang, ...rest } = params;
   try {
-    const { lang, ...rest } = params;
     const queryParams = { ...rest };
     if (lang && lang !== 'en') queryParams.lang = lang;
     const query = new URLSearchParams(queryParams).toString();
     const destinations = await request(`/destinations${query ? `?${query}` : ''}`);
     return destinations.map(adaptDestination);
   } catch (err) {
-    if (err.isNetworkError && supabase) return listDestinationsFromSupabase(params);
-    throw err;
+    if (!err.isNetworkError) throw err;
+    if (supabase) {
+      try {
+        return await listDestinationsFromSupabase(rest);
+      } catch {
+        // fall through to local static data
+      }
+    }
+    return listDestinationsFromStatic(rest, lang);
   }
 }
 
@@ -243,7 +305,16 @@ export async function getDestination(slug, lang) {
     const d = await request(`/destinations/${slug}${query}`);
     return adaptDestination(d);
   } catch (err) {
-    if (err.isNetworkError && supabase) return getDestinationFromSupabase(slug);
+    if (!err.isNetworkError) throw err;
+    if (supabase) {
+      try {
+        return await getDestinationFromSupabase(slug);
+      } catch {
+        // fall through to local static data
+      }
+    }
+    const found = staticDestinations.find((d) => d.slug === slug);
+    if (found) return adaptStaticDestination(found, lang);
     throw err;
   }
 }

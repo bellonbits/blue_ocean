@@ -1,4 +1,6 @@
-export const regions = [
+import { regionTranslationsSo } from './regionTranslations.so.js';
+
+const rawRegions = [
   {
     id: 'puntland',
     name: 'Puntland',
@@ -76,3 +78,8 @@ export const regions = [
     ],
   },
 ];
+
+export const regions = rawRegions.map((r) => {
+  const so = regionTranslationsSo[r.slug];
+  return so ? { ...r, translations: { so } } : r;
+});

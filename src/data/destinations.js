@@ -1,4 +1,6 @@
-export const destinations = [
+import { destinationTranslationsSo } from './destinationTranslations.so.js';
+
+const rawDestinations = [
   // --- PUNTLAND ---
   {
     id: 'bosaso',
@@ -1019,3 +1021,11 @@ Oceanographically, Hobyo sits at the epicenter of the Great Whirl and the powerf
     ],
   },
 ];
+
+// Somali translations attached here (rather than inline per-record above)
+// so the bulk of this file — generated once from the backend's original
+// seed content — doesn't need touching every time a translation changes.
+export const destinations = rawDestinations.map((d) => {
+  const so = destinationTranslationsSo[d.slug];
+  return so ? { ...d, translations: { so } } : d;
+});
