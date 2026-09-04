@@ -1,4 +1,5 @@
 import { destinationTranslationsSo } from './destinationTranslations.so.js';
+import { destinationVideosStatic } from './destinationVideos.static.js';
 
 const rawDestinations = [
   // --- PUNTLAND ---
@@ -1022,10 +1023,12 @@ Oceanographically, Hobyo sits at the epicenter of the Great Whirl and the powerf
   },
 ];
 
-// Somali translations attached here (rather than inline per-record above)
-// so the bulk of this file — generated once from the backend's original
-// seed content — doesn't need touching every time a translation changes.
+// Somali translations and video metadata attached here (rather than
+// inline per-record above) so the bulk of this file — generated once
+// from the backend's original seed content — doesn't need touching
+// every time a translation or video is added.
 export const destinations = rawDestinations.map((d) => {
   const so = destinationTranslationsSo[d.slug];
-  return so ? { ...d, translations: { so } } : d;
+  const video = destinationVideosStatic[d.slug];
+  return { ...d, ...(so ? { translations: { so } } : {}), ...video };
 });
