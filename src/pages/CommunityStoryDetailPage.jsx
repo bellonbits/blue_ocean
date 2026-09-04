@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Users } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
 import { getCommunityStoryBySlug, getCommunityBySlug } from '../data/communities';
+import { useLanguage } from '../context/LanguageContext';
 import CommunityStoryHero from '../components/communities/CommunityStoryHero';
 import CommunityStoryBody from '../components/communities/CommunityStoryBody';
 import CommunityLivelihoods from '../components/communities/CommunityLivelihoods';
@@ -14,8 +15,9 @@ import VideoEmbed from '../components/shared/VideoEmbed';
 
 export default function CommunityStoryDetailPage() {
   const { slug } = useParams();
-  const story = getCommunityStoryBySlug(slug);
-  const community = story ? getCommunityBySlug(story.communitySlug) : null;
+  const { language } = useLanguage();
+  const story = getCommunityStoryBySlug(slug, language);
+  const community = story ? getCommunityBySlug(story.communitySlug, language) : null;
   useScrollReveal();
 
   useEffect(() => {

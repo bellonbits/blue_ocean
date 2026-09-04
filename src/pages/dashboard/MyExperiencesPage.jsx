@@ -4,6 +4,7 @@ import { BookOpen, ArrowRight, X, Waves } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { listExperienceInterests, updateExperienceInterest, deleteExperienceInterest } from '../../lib/dashboardApi';
 import { getExperienceBySlug } from '../../data/experiences';
+import { useLanguage } from '../../context/LanguageContext';
 
 const STATUS_TABS = [
   { key: 'all', label: 'All' },
@@ -16,6 +17,7 @@ const STATUS_LABEL = { interested: 'Interested', upcoming: 'Upcoming', completed
 
 export default function MyExperiencesPage() {
   const { token } = useAuth();
+  const { language } = useLanguage();
   const [interests, setInterests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('all');
@@ -55,9 +57,9 @@ export default function MyExperiencesPage() {
     () =>
       interests
         .filter((i) => activeTab === 'all' || i.status === activeTab)
-        .map((i) => ({ interest: i, experience: getExperienceBySlug(i.experience_slug) }))
+        .map((i) => ({ interest: i, experience: getExperienceBySlug(i.experience_slug, language) }))
         .filter((row) => row.experience),
-    [interests, activeTab]
+    [interests, activeTab, language]
   );
 
   return (

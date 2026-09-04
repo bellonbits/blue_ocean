@@ -6,9 +6,11 @@ import CommunitiesDirectory from '../components/communities/CommunitiesDirectory
 import CommunityStoryGrid from '../components/communities/CommunityStoryGrid';
 import GetInvolvedCTA from '../components/shared/GetInvolvedCTA';
 import { getAllCommunityStories } from '../data/communities';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function CoastalCommunitiesPage() {
   const [searchParams] = useSearchParams();
+  const { language } = useLanguage();
   const categoryParam = searchParams.get('category') || 'all';
   useScrollReveal();
 
@@ -35,7 +37,7 @@ export default function CoastalCommunitiesPage() {
             </p>
           </div>
 
-          <CommunityStoryGrid initialCategory={categoryParam} storiesList={getAllCommunityStories()} />
+          <CommunityStoryGrid initialCategory={categoryParam} storiesList={getAllCommunityStories(language)} />
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useScrollReveal } from '../lib/hooks';
 import { listRegions, listDestinations } from '../lib/contentApi';
+import { useLanguage } from '../context/LanguageContext';
 import CoastHero from '../components/coast/CoastHero';
 import RegionCards from '../components/coast/RegionCards';
 import DestinationGrid from '../components/coast/DestinationGrid';
@@ -12,6 +13,7 @@ export default function ExploreCoastPage() {
   const [selectedRegion, setSelectedRegion] = useState('all');
   const [regions, setRegions] = useState([]);
   const [destinations, setDestinations] = useState([]);
+  const { language } = useLanguage();
 
   // Activate scroll reveal animations
   useScrollReveal();
@@ -23,13 +25,13 @@ export default function ExploreCoastPage() {
 
   useEffect(() => {
     let cancelled = false;
-    Promise.all([listRegions(), listDestinations()]).then(([r, d]) => {
+    Promise.all([listRegions(language), listDestinations({ lang: language })]).then(([r, d]) => {
       if (cancelled) return;
       setRegions(r);
       setDestinations(d);
     }).catch(() => {});
     return () => { cancelled = true; };
-  }, []);
+  }, [language]);
 
   const handleSelectRegion = (regionId) => {
     setSelectedRegion(regionId);

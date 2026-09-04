@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Compass } from 'lucide-react';
 import { useScrollReveal, useTrackRecentlyViewed } from '../lib/hooks';
 import { getExperienceBySlug } from '../data/experiences';
+import { useLanguage } from '../context/LanguageContext';
 import ExperienceHero from '../components/experiences/ExperienceHero';
 import ExperienceStory from '../components/experiences/ExperienceStory';
 import ExperienceGallery from '../components/experiences/ExperienceGallery';
@@ -15,7 +16,8 @@ import VideoEmbed from '../components/shared/VideoEmbed';
 
 export default function ExperienceDetailPage() {
   const { slug } = useParams();
-  const experience = getExperienceBySlug(slug);
+  const { language } = useLanguage();
+  const experience = getExperienceBySlug(slug, language);
   useScrollReveal();
 
   useTrackRecentlyViewed(

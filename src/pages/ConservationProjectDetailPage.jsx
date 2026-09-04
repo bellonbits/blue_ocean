@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Shield } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
 import { getConservationProjectBySlug } from '../data/conservation';
+import { useLanguage } from '../context/LanguageContext';
 import ConservationProjectHero from '../components/conservation/ConservationProjectHero';
 import ConservationStory from '../components/conservation/ConservationStory';
 import ConservationProblem from '../components/conservation/ConservationProblem';
@@ -17,7 +18,8 @@ import VideoEmbed from '../components/shared/VideoEmbed';
 
 export default function ConservationProjectDetailPage() {
   const { slug } = useParams();
-  const project = getConservationProjectBySlug(slug);
+  const { language } = useLanguage();
+  const project = getConservationProjectBySlug(slug, language);
   useScrollReveal();
 
   useEffect(() => {

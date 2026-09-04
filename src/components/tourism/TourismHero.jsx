@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Compass } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperiencesHero.css';
 
 export default function TourismHero() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+
   return (
     <section className="exp-hero" aria-label="Tourism — Blue Ocean Somalia">
       <div className="exp-hero__media" aria-hidden="true">
@@ -19,7 +23,7 @@ export default function TourismHero() {
           transition={{ duration: 0.6 }}
         >
           <Compass size={14} />
-          <span>TOURISM</span>
+          <span>{t('tourism.hero.badge')}</span>
         </motion.div>
 
         <motion.h1
@@ -28,8 +32,8 @@ export default function TourismHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Discover Somalia's <br />
-          <span className="exp-hero__title-accent">Blue Frontier.</span>
+          {t('tourism.hero.heading')} <br />
+          <span className="exp-hero__title-accent">{t('tourism.hero.headingAccent')}</span>
         </motion.h1>
 
         <motion.p
@@ -38,8 +42,7 @@ export default function TourismHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          Explore remarkable coastlines, marine ecosystems, islands, and coastal communities while discovering a new
-          perspective on Somalia's ocean.
+          {t('tourism.hero.subtext')}
         </motion.p>
 
         <motion.div
@@ -48,12 +51,12 @@ export default function TourismHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          <a href="/explore-the-coast" className="exp-hero__btn-primary">
-            <span>Explore the Coast</span>
+          <a href={localizedPath('/explore-the-coast')} className="exp-hero__btn-primary">
+            <span>{t('tourism.hero.ctaExploreCoast')}</span>
             <ArrowRight size={18} />
           </a>
           <a href="#tourism-experiences" className="exp-hero__btn-secondary">
-            <span>Discover Experiences</span>
+            <span>{t('tourism.hero.ctaDiscoverExperiences')}</span>
           </a>
         </motion.div>
       </div>

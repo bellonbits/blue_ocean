@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import '../coast/ExploreCTA.css';
 
 export default function TourismFutureExperience() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+
   return (
     <section className="explore-cta-section section" aria-label="Plan Your Future Experience">
       <div className="container">
@@ -10,22 +14,19 @@ export default function TourismFutureExperience() {
           <div className="explore-cta-glow" aria-hidden="true" />
 
           <div className="explore-cta-content">
-            <span className="label-text">What's Next</span>
+            <span className="label-text">{t('tourism.futureExperience.label')}</span>
 
             <h2 className="explore-cta-heading display-heading">
-              Your next ocean experience <br />
-              starts here.
+              {t('tourism.futureExperience.heading')} <br />
+              {t('tourism.futureExperience.headingAccent')}
             </h2>
 
-            <p className="explore-cta-subtext">
-              Discover destinations, explore marine life, and learn about the coast. Blue Ocean is building a
-              growing network of responsible ocean experiences across Somalia — most are still coming soon.
-            </p>
+            <p className="explore-cta-subtext">{t('tourism.futureExperience.subtext')}</p>
 
             <div className="explore-cta-buttons">
-              <Link to="/experiences" className="btn btn-primary btn-lg">
+              <Link to={localizedPath('/experiences')} className="btn btn-primary btn-lg">
                 <Sparkles size={18} />
-                <span>Explore Experiences</span>
+                <span>{t('tourism.futureExperience.ctaExplore')}</span>
                 <ArrowRight size={18} />
               </Link>
             </div>

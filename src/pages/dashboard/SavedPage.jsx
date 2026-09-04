@@ -6,6 +6,7 @@ import { listDestinations } from '../../lib/contentApi';
 import { getSpeciesBySlug } from '../../data/marineLife';
 import { getExperienceBySlug } from '../../data/experiences';
 import { getProjectBySlug } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 
 const TABS = [
   { key: 'all', label: 'All', icon: Heart },
@@ -22,7 +23,7 @@ const TYPE_LABEL = {
   research: 'Research',
 };
 
-function resolveSavedItem(item, destinationsBySlug) {
+function resolveSavedItem(item, destinationsBySlug, language) {
   switch (item.content_type) {
     case 'destination': {
       const d = destinationsBySlug.get(item.content_slug);
@@ -30,17 +31,17 @@ function resolveSavedItem(item, destinationsBySlug) {
       return { title: d.name, subtitle: d.region, image: d.heroImage, path: `/explore-the-coast/${d.slug}` };
     }
     case 'species': {
-      const s = getSpeciesBySlug(item.content_slug);
+      const s = getSpeciesBySlug(item.content_slug, language);
       if (!s) return null;
       return { title: s.commonName, subtitle: s.scientificName, image: s.heroImage, path: `/marine-life/species/${s.slug}` };
     }
     case 'experience': {
-      const e = getExperienceBySlug(item.content_slug);
+      const e = getExperienceBySlug(item.content_slug, language);
       if (!e) return null;
       return { title: e.title, subtitle: e.categoryName, image: e.heroImage, path: `/experiences/${e.slug}` };
     }
     case 'research': {
-      const p = getProjectBySlug(item.content_slug);
+      const p = getProjectBySlug(item.content_slug, language);
       if (!p) return null;
       return { title: p.title, subtitle: p.areaName, image: p.heroImage, path: `/research/projects/${p.slug}` };
     }
@@ -51,6 +52,7 @@ function resolveSavedItem(item, destinationsBySlug) {
 
 export default function SavedPage() {
   const { savedItems, toggleSaved } = useAuth();
+  const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState('all');
   const [destinationsBySlug, setDestinationsBySlug] = useState(new Map());
 
@@ -62,7 +64,7 @@ export default function SavedPage() {
   useEffect(() => {
     let cancelled = false;
     if (savedItems.some((item) => item.content_type === 'destination')) {
-      listDestinations()
+      listDestinations({ lang: language })
         .then((list) => {
           if (!cancelled) setDestinationsBySlug(new Map(list.map((d) => [d.slug, d])));
         })
@@ -72,15 +74,15 @@ export default function SavedPage() {
       cancelled = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [savedItems.length]);
+  }, [savedItems.length, language]);
 
   const resolved = useMemo(
     () =>
       savedItems
         .filter((item) => activeTab === 'all' || item.content_type === activeTab)
-        .map((item) => ({ item, view: resolveSavedItem(item, destinationsBySlug) }))
+        .map((item) => ({ item, view: resolveSavedItem(item, destinationsBySlug, language) }))
         .filter((entry) => entry.view !== null),
-    [savedItems, activeTab, destinationsBySlug]
+    [savedItems, activeTab, destinationsBySlug, language]
   );
 
   return (

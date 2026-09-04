@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Leaf, FolderOpen, BarChart3 } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import '../coast/ExploreCTA.css';
 
 export default function ResearchCTA() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+
   return (
     <section className="explore-cta-section section" aria-label="From Knowledge to Action">
       <div className="container">
@@ -10,32 +14,31 @@ export default function ResearchCTA() {
           <div className="explore-cta-glow" aria-hidden="true" />
 
           <div className="explore-cta-content">
-            <span className="label-text">From Knowledge to Action</span>
+            <span className="label-text">{t('research.cta.eyebrow')}</span>
 
             <h2 className="explore-cta-heading display-heading">
-              Research becomes protection
+              {t('research.cta.headingLine1')}
               <br />
-              when it reaches the coast.
+              {t('research.cta.headingLine2')}
             </h2>
 
             <p className="explore-cta-subtext">
-              Every finding feeds directly into Blue Ocean's conservation priorities — from marine protected area
-              proposals to community-led protection programs.
+              {t('research.cta.subtext')}
             </p>
 
             <div className="explore-cta-buttons">
-              <Link to="/conservation" className="btn btn-primary btn-lg" id="cta-explore-conservation">
+              <Link to={localizedPath('/conservation')} className="btn btn-primary btn-lg" id="cta-explore-conservation">
                 <Leaf size={18} />
-                <span>Explore Conservation</span>
+                <span>{t('research.cta.ctaConservation')}</span>
                 <ArrowRight size={18} />
               </Link>
-              <Link to="/research/projects" className="btn btn-outline btn-lg" id="cta-all-projects">
+              <Link to={localizedPath('/research/projects')} className="btn btn-outline btn-lg" id="cta-all-projects">
                 <FolderOpen size={18} />
-                <span>All Research Projects</span>
+                <span>{t('research.cta.ctaAllProjects')}</span>
               </Link>
-              <Link to="/research/statistics" className="btn btn-outline btn-lg" id="cta-coastal-statistics">
+              <Link to={localizedPath('/research/statistics')} className="btn btn-outline btn-lg" id="cta-coastal-statistics">
                 <BarChart3 size={18} />
-                <span>Coastal & Marine Statistics</span>
+                <span>{t('research.cta.ctaStatistics')}</span>
               </Link>
             </div>
           </div>

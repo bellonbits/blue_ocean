@@ -7,18 +7,62 @@
 // business alliance) rather than named individuals — no real personal
 // photos, quotes, or biographical claims exist, so none are invented
 // here either.
+//
+// i18n: narrative/display fields carry a `translations: { so: {...} }`
+// override merged in at read time via localize()/localizeList() from
+// lib/i18n/localizeData.js. `category` and `region` values are left
+// untranslated since they double as filter/enum keys elsewhere.
 // =========================================================
 
 import { speciesList } from './marineLife.js';
+import { localize, localizeList } from '../lib/i18n/localizeData.js';
 
 export const COMMUNITY_CATEGORIES = [
-  { id: 'fishermen', label: 'Fishermen & Fishing Communities', icon: 'Anchor' },
-  { id: 'traditional-knowledge', label: 'Traditional Marine Knowledge', icon: 'Leaf' },
-  { id: 'coastal-business', label: 'Coastal Businesses', icon: 'Briefcase' },
-  { id: 'youth', label: 'Youth', icon: 'GraduationCap' },
-  { id: 'women', label: 'Women in Coastal Communities', icon: 'Heart' },
-  { id: 'livelihoods', label: 'Sustainable Livelihoods', icon: 'Users' },
+  {
+    id: 'fishermen',
+    label: 'Fishermen & Fishing Communities',
+    icon: 'Anchor',
+    translations: { so: { label: 'Kalluumaystayaasha iyo Bulshooyinka Kalluumaysiga' } },
+  },
+  {
+    id: 'traditional-knowledge',
+    label: 'Traditional Marine Knowledge',
+    icon: 'Leaf',
+    translations: { so: { label: 'Aqoonta Dhaqameed ee Badda' } },
+  },
+  {
+    id: 'coastal-business',
+    label: 'Coastal Businesses',
+    icon: 'Briefcase',
+    translations: { so: { label: 'Ganacsiyada Xeebaha' } },
+  },
+  {
+    id: 'youth',
+    label: 'Youth',
+    icon: 'GraduationCap',
+    translations: { so: { label: 'Dhallinyarada' } },
+  },
+  {
+    id: 'women',
+    label: 'Women in Coastal Communities',
+    icon: 'Heart',
+    translations: { so: { label: 'Haweenka Bulshooyinka Xeebaha' } },
+  },
+  {
+    id: 'livelihoods',
+    label: 'Sustainable Livelihoods',
+    icon: 'Users',
+    translations: { so: { label: 'Nolol-maalmeedka Waarta' } },
+  },
 ];
+
+export function getCommunityCategories(language = 'en') {
+  return localizeList(COMMUNITY_CATEGORIES, language);
+}
+
+export function getCommunityCategoryInfo(id, language = 'en') {
+  return getCommunityCategories(language).find((c) => c.id === id);
+}
 
 function resolveSpecies(slugs = []) {
   return slugs
@@ -52,6 +96,21 @@ export const communities = [
       { url: '/bosaso2.jpg', caption: 'Bosaso\'s coastal fish market.' },
       { url: '/exp_dhow_sailing.jpg', caption: 'A traditional dhow under sail off the Bari coast.' },
     ],
+    translations: {
+      so: {
+        name: 'Iskaashatada Kalluumaysiga Boosaaso',
+        location: 'Boosaaso, Gobolka Bari',
+        description: 'Iskaashato ka kooban kooxo kalluumaystayaal dhaqameed oo isticmaala xadhig-gacmeed, kuwaas oo ka shaqeeya deked Boosaaso oo ka kalluumaysta biyaha Khaliijka Cadmeed sugidda tuna huruudda ah iyo kalluunka king.',
+        livelihoods: ['Kalluumaysiga xadhig-gacmeed ee dhaqameed', 'Ka ganacsiga suuqa kalluunka', 'Dayactirka doonyaha iyo dhisidda huurida'],
+        marineConnection: 'Doonyaha iskaashatadu waxay ku kalluumaystaan isla marinka Khaliijka Cadmeed ee Blue Ocean ku sahamiso dhaqdhaqaaqa dhurwaaga badda iyo nibiriga, taasoo ka dhigaysa lammaane toos ah oo ku lug leh kalluumaysiga iyo ilaalinta xayawaanka badda.',
+        conservationActivities: ['Duulaanka tijaabada ee Shahaadada Ganacsiga Cadaaladda ah ee Xadhig-gacmeedka', 'Soo sheegidda arag dhurwaag/nibiri intii lagu jiray safarrada kalluumaysiga'],
+        gallery: [
+          { url: '/bosaso1.jpg', caption: 'Doonyo xadhig-gacmeed oo ku xiran deked Boosaaso.' },
+          { url: '/bosaso2.jpg', caption: 'Suuqa kalluunka ee xeebta Boosaaso.' },
+          { url: '/exp_dhow_sailing.jpg', caption: 'Huuri dhaqameed oo shiraacyadeeda kor u qaaday xeebta Bari.' },
+        ],
+      },
+    },
   },
   {
     id: 'eyl-traditional-knowledge-keepers',
@@ -70,6 +129,21 @@ export const communities = [
       { url: '/eyl2.jpg', caption: 'Traditional fishing boats at rest in Eyl.' },
       { url: '/eyl3.jpg', caption: 'The rocky Bari escarpments where lobster surveys were conducted.' },
     ],
+    translations: {
+      so: {
+        name: 'Ilaaliyayaasha Aqoonta Dhaqameed ee Cayl',
+        location: 'Cayl, Gobolka Bari',
+        description: 'Qoysas kalluumaystayaal ah oo jiil ka jiil ku noolaa jarralayaasha Cayl, kuwaas oo aqoontooda ku saabsan dabeecadda lobster-ka, wareegyada dhalmada, iyo qaababka xilliyeed ay ka horreysay sahan kasta oo rasmi ah.',
+        livelihoods: ['Ururinta lobster-ka qodxaha leh', 'Kalluumaysiga shabagga cirifka jasiiradda'],
+        marineConnection: 'Aragtidooda dabeecadda dheddigga lobster-ka ay ugxan sido ("berried") ayaa si toos ah u qaabeeyay xeerka xadka cabbirka iyo sii deynta lagu shaqeeyo jarralayaasha Bari oo dhan.',
+        conservationActivities: ['Wada-naqshadeyntii Heshiiska Sii Deynta Dheddigga Ugxanta Sida & Xadka Cabbirka', 'Kormeerka xilliga xannibaadda'],
+        gallery: [
+          { url: '/eyl1.jpg', caption: 'Xeebta jarralayaasha Cayl, oo ah goobta ugu weyn ee lobster-ka lagu kalluumaysto.' },
+          { url: '/eyl2.jpg', caption: 'Doonyo kalluumaysi oo dhaqameed oo Cayl ku nasanaya.' },
+          { url: '/eyl3.jpg', caption: 'Jarralayaasha dhagaxa ah ee Bari halkaas oo sahannada lobster-ka lagu sameeyay.' },
+        ],
+      },
+    },
   },
   {
     id: 'kismayo-womens-fish-processing',
@@ -88,6 +162,21 @@ export const communities = [
       { url: '/marine_fish.jpg', caption: 'Fresh catch ready for processing.' },
       { url: '/marine_seagrass.jpg', caption: 'Seagrass channels near the collective\'s working waters.' },
     ],
+    translations: {
+      so: {
+        name: 'Ururka Haweenka Farsameynta Kalluunka ee Kismaayo',
+        location: 'Kismaayo, Jubada Hoose',
+        description: 'Urur haween hoggaaminayaan oo farsameeya oo iibiya kalluunka laga soo qabtay marsooyinka Kismaayo, kaasoo beddelay wixii hore loo tuuri jiray ilo joogto ah oo dakhli qoys.',
+        livelihoods: ['Farsameynta iyo qallajinta kalluunka', 'Ka ganacsiga suuqyada maxalliga ah', 'Waddooyinka ganacsiga kalluunka yaryar ee gaadhaya suuqyada gudaha'],
+        marineConnection: 'Ururku wuxuu ka shaqeeyaa isla marsooyinka Kismaayo ee la xiriira shaqada Blue Ocean ee ilaalinta cawsduurka badda iyo xayawaanka sirenian-ka ee biyaha ku hareeraysan Jasiiradaha Bajuun.',
+        conservationActivities: ['Habab farsameyn oo yareeya khasaaraha', 'Kulamo wacyi-gelin oo maxalli ah oo ku saabsan xamaalka kalluunka ee waara'],
+        gallery: [
+          { url: '/jubaland.jpg', caption: 'Biyaha xeebta iyo marsooyinka Kismaayo.' },
+          { url: '/marine_fish.jpg', caption: 'Kalluun cusub oo diyaar u ah farsameynta.' },
+          { url: '/marine_seagrass.jpg', caption: 'Marinnada cawsduurka badda ee u dhow biyaha ay ururku ka shaqeeyo.' },
+        ],
+      },
+    },
   },
   {
     id: 'hafun-youth-beach-guardians',
@@ -106,6 +195,21 @@ export const communities = [
       { url: '/hafun2.jpg', caption: 'Hafun tombolo beach, one of the monitored nesting rookeries.' },
       { url: '/marine_turtles.jpg', caption: 'A green sea turtle in the waters off Hafun.' },
     ],
+    translations: {
+      so: {
+        name: 'Ilaaliyayaasha Dhallinyarada ee Xeebta Xaafuun',
+        location: 'Xaafuun, Gobolka Bari',
+        description: 'Shabakad dhallinyaro deggan oo tababaran oo kormeerta xeebaha ay diinyada badeedku ugu ugxamaan ee ku hareeraysan Cirifka Xaafuun, intii ay socoto xilliga ugxanta oo dhan.',
+        livelihoods: ['Mushaarka xilliyeed ee ilaaliyeyaasha xeebta', 'Hagida dalxiiska deegaanka intii ugxantu socoto'],
+        marineConnection: 'Xeebaha tombolo-ga Xaafuun waa mid ka mid ah labada goob ee ugu muhiimsan ee Soomaaliya ay ku ugxamaan diinyada badeedka cagaaran iyo tan hawksbill-ka, ilaaliyayaashuna waxay joogaan xilliga sifayntu socoto oo dhan.',
+        conservationActivities: ['Barnaamijka Bulshada ee Ilaalinta Ugxanta Xeebta', 'Kormeerka sii deynta dhalanka cusub', 'Waxbarashada wacyiga badda ee da\'da isku dhow'],
+        gallery: [
+          { url: '/hafun1.jpg', caption: 'Xeebta Cirifka Xaafuun.' },
+          { url: '/hafun2.jpg', caption: 'Xeebta tombolo-ga Xaafuun, mid ka mid ah goobaha ugxanta ee la kormeero.' },
+          { url: '/marine_turtles.jpg', caption: 'Diinyo badeed oo cagaaran oo ku sugan biyaha Xaafuun.' },
+        ],
+      },
+    },
   },
   {
     id: 'mogadishu-coastal-business-alliance',
@@ -124,8 +228,32 @@ export const communities = [
       { url: '/con_beach_cleanup.jpg', caption: 'A quarterly community cleanup event.' },
       { url: '/somalia_coast.jpg', caption: "Banaadir's coastal waters." },
     ],
+    translations: {
+      so: {
+        name: 'Isbahaysiga Ganacsiga Xeebaha ee Muqdisho',
+        location: 'Muqdisho, Banaadir',
+        description: 'Maqaayadaha, kafateeriyada, iyo hagayaasha dalxiiska ee ku teedsan Xeebta Liido, kuwaas oo si wadajir ah u maalgeliya oo shaqaale u qaba jadwalka nadaafadda saddex bilood mar ee xeebta ugu dadka badan ee Muqdisho.',
+        livelihoods: ['Martigelinta iyo dalxiiska xeebta', 'Kirada iyo dalxiiska huuraha yaryar'],
+        marineConnection: 'Xeebta Liido waa xarunta ganacsi ee Isbahaysiga isla markaana ah mid ka mid ah labada goobood ee Blue Ocean ku sahamiso qiyaasta qashinka badda iyo kormeerka tayada biyaha.',
+        conservationActivities: ['Lammaane maalgeliya Shabakada Bulshada Nadaafadda Xeebta ee Koonfurta', 'Martigelinta dhagayska tayada biyaha ee dadweynaha loo dhigo'],
+        gallery: [
+          { url: '/mogadishu_beach.jpg', caption: 'Xeebta Liido, xeebta ugu dadka badan ee Muqdisho.' },
+          { url: '/con_beach_cleanup.jpg', caption: 'Dhacdo nadaafad bulsho oo saddex bilood mar ah.' },
+          { url: '/somalia_coast.jpg', caption: 'Biyaha xeebta Banaadir.' },
+        ],
+      },
+    },
   },
 ];
+
+export function getAllCommunities(language = 'en') {
+  return localizeList(communities, language);
+}
+
+export function getCommunityBySlug(slug, language = 'en') {
+  const community = communities.find((c) => c.slug === slug || c.id === slug);
+  return localize(community, language);
+}
 
 const rawStories = [
   {
@@ -150,6 +278,19 @@ const rawStories = [
     speciesSlugs: ['yellowfin-tuna'],
     featured: true,
     published: true,
+    translations: {
+      so: {
+        title: 'Doonyaha Xadhig-gacmeedka ee ku Sharraxaya Shahaadada',
+        location: 'Boosaaso, Gobolka Bari',
+        storyContent: [
+          'Jiillo badan, kooxaha xadhig-gacmeedka ee Boosaaso waxay si isku mid ah uga kalluumaysteen Khaliijka Cadmeed — xadhig, jirriddo, iyo hal kalluun mar walba. Waa mid ka mid ah hababka kalluumaysiga ugu takoorka badan ee jira, laakiin ilaa dhawaan, takoorkaas suuqa gebi ahaanba loo aqoonsan waayay.',
+          'Taasi way beddelantay markii iskaashatadu ay noqotay doonyaha tijaabada ee barnaamijka Shahaadada Ganacsiga Cadaaladda ah ee Xadhig-gacmeedka ee Blue Ocean, kaasoo ku dhisan qiimeyn kaydka la daabacay oo muujinaysa in dadka tuna huruudda ah ee maxalliga ah ay ku jiraan xadka waarta — haddii cadaadiska kalluumaysiga uu sii ahaado sida uu hadda yahay.',
+          'Shahaadaynta waxay la timaadaa waraaqo, diiwaangelinta hantida la qabtay, iyo xaqiijin dibadeed — isbeddel dhab ah oo ku yimid kooxo caadi ahaan ku shaqayn jiray dareen iyo khibrad. Laakiin waxay sidoo kale la timaadaa in tiro sii kordheysa oo iibiyayaal dhoofin ah ay hadda kala saari karaan hantidooda iyo tuna aan si waara loo qabanin, waxayna bilaabeen inay lacag u bixiyaan farqigaas.',
+          'Iskaashatadu waxay sidoo kale noqotay shabakad digniin hore oo aan rasmi ahayn oo u adeegta cilmi-baarista Blue Ocean ee xayawaanka badda — kooxuhu hadda waxay ka soo sheegaan arag dhurwaag iyo nibiri intii ay socdaan safarradooda maalinlaha ah, taasoo si toos ah ugu darsanaysa khariidadda marinka ee loo isticmaalo hindisaha Marinnada Ammaanka ee Haajirka Xayawaanka Badda.',
+        ],
+        marineConnection: 'Doonyaha xadhig-gacmeedka ee Boosaaso waxay ka shaqeeyaan isla biyaha Khaliijka Cadmeed ee Blue Ocean ku raadraaco dhurwaagyada badda deggan iyo nibiriyada haajirka ah.',
+      },
+    },
   },
   {
     id: 'eyl-lobster-accord-story',
@@ -172,6 +313,18 @@ const rawStories = [
     speciesSlugs: ['spiny-lobster'],
     featured: false,
     published: true,
+    translations: {
+      so: {
+        title: 'Sababta Kalluumaystayaasha Cayl ay u Bilaabeen Sii Deynta Dheddigga Ugxanta Sida',
+        location: 'Cayl, Gobolka Bari',
+        storyContent: [
+          'Wakhti dheer ka hor intaan koox cilmi-baaris ahi timaadin Cayl, qoysaska kalluumaystayaasha maxalliga ahi horay bay u ogaayeen lobster-ka ugxanta sida iyo goorta ay taasi dhici karto. Aqoontaas — oo laysu gudbin jiray jiil ka jiil intii aan la daabicin — ayaa noqotay tallaabada bilowga ah ee ugu dambeyntii u beddelantay daraasad rasmi ah oo ku saabsan tirada kaydka iyo dadaalka kalluumaysiga.',
+          'Markii Kooxda Sayniska Kalluumaysiga ee Blue Ocean ay bilaabeen sahaminta jarralayaasha Bari sanadkii 2022, waxaa cilmi-baarayaasha tilmaamay kalluumaystayaasha Cayl qaababka cufnaanta ee ugu horreeya ee la qiyaasi lahaa. Daraasaddii soo baxday waxay xaqiijisay wixii jiillo badan oo urursanayaasha lobster-ka ay shaki ku qabeen: ilaalinta dheddigga ugxanta sida ayaa ka muhiimsanayd kaqab kasta oo kale oo laga heli karo.',
+          'Waxa ka soo baxay wada-shaqeyntaas ma ahayn xeer dibadda laga soo saaray — waxay ahayd heshiis iskaashatooyinku iyaga qudhoodu ka qayb-qaateen naqshadaynteeda: sii dayn dheddig kasta oo ugxan sida, iyo la fiirsasho cabbir ugu yaraan lagu qabto. Laba sano ka dib, weli waa la raacayaa, xilli ka xilli, isla kooxihii ka qayb qaatay qorista heshiiskaas.',
+        ],
+        marineConnection: 'Biyaha jarralayaasha Cayl waa goobta ugu weyn ee lobster-ka qodxaha leh lagu kalluumaysto, taasoo ka dambaysa Heshiiska Sii Deynta Dheddigga Ugxanta Sida & Xadka Cabbirka.',
+      },
+    },
   },
   {
     id: 'hafun-beach-guardians-story',
@@ -195,6 +348,19 @@ const rawStories = [
     speciesSlugs: ['green-sea-turtle', 'hawksbill-turtle'],
     featured: true,
     published: true,
+    translations: {
+      so: {
+        title: 'Dhallinyarada Ilaalinaya Ugxanta Diinyada Badeedka ee Xaafuun',
+        location: 'Xaafuun, Gobolka Bari',
+        storyContent: [
+          'Koox cilmi-baaris ahi ma joogi karto xeeb habeen kasta xilli ugxan oo dhan — laakiin shabakad ilaaliyayaal maxalli ah oo tababaran way awoodaan. Farqigaas fudud ee daboolka ayaa ah waxa uu barnaamijka Ilaaliyayaasha Dhallinyarada ee Xeebta Xaafuun loogu talagalay in la xidho.',
+          'Dadka dhallinyarada ah ee ku dhaqan Cirifka Xaafuun ayaa hadda socda xeebaha tombolo-ga jadwal wareeg ah oo dhan bilaha ugxanta, iyagoo eegaya ugxan la khalkhaliyay, ka hortagaya ugaadhsatada iyo faragelinta, oo diiwaangelinaya waxay helaan Xarunta Cilmi-baarista Diinyada Badeedka ee Blue Ocean.',
+          'Doorkani wuxuu la yimaadaa mushaar xilliyeed, laakiin ilaaliyayaashu si joogto ah ayay u sharraxaan sii deynta dhalanka cusub — socodka diinyada dhawaan soo baxay ilaa xeebta hirarka — inuu yahay qaybta ugu dambeeya ee sababta ay sanadka soo socda dib ugu soo laabtaan. Dhawr ka mid ah ayaa noqday hage cilmi-baarayaal booqan iyo kooxaha dalxiiska deegaanka intii sanadka soo hara.',
+          'Xaafuun waa mid ka mid ah oo kaliya labada goobood ee ugu muhiimsan ee ugxanta diinyada cagaaran iyo hawksbill-ka ee laga diiwaangeliyay xeebta Soomaaliya. Kormeer joogto ah la\'aantiis, khalkhal aan la ogaan hal mar ayaa tirtiri kara ugxan dhan — taasoo ah farqiga ay barnaamijkani u yimid inuu xidho.',
+        ],
+        marineConnection: 'Xeebaha tombolo-ga Xaafuun waa mid ka mid ah labada goobood ee ugu weyn ee diinyada badeedku ku ugxamaan Soomaaliya, oo shabakada ilaaliyayaashu kormeeraan xilliga oo dhan.',
+      },
+    },
   },
   {
     id: 'mogadishu-cleanup-partners-story',
@@ -218,6 +384,19 @@ const rawStories = [
     speciesSlugs: [],
     featured: false,
     published: true,
+    translations: {
+      so: {
+        title: 'Ganacsatada Maalgelinaya Jadwalka Nadaafadda ee Xeebta Liido',
+        location: 'Muqdisho, Banaadir',
+        storyContent: [
+          'Xeebta Liido waa xagga xeebta ee ugu mashquulsan Muqdisho — maqaayadaha, kafateeriyada, iyo hagayaasha dalxiiska ee ku teedsanna, xeeb nadiif ah ma ahan wax door bidi ah, waa ganacsigooda oo dhan.',
+          'Markii shaqada khariidaynta qashinka ee Blue Ocean ay xaqiijisay in Liido ay tahay mid ka mid ah labada goobood ee ugu badan qashinka xeebta koonfureed, koox ganacsato xeebta ku teedsan ayaa isugu urursaday Isbahaysiga Ganacsiga Xeebaha ee Muqdisho si ay u maalgeliyaan oo u shaqaaleeyaan jadwal nadaafad oo soo noqnoqda, halkii ay ka sugi lahaayeen taageero dibadeed.',
+          'Isbahaysigu hadda wuxuu bixiyaa qalabka iyo shaqaalaha maxalliga ah ee nadaafadaha saddex bilood mar ah, wuxuuna martigeliyaa dhagayska tayada biyaha ee Blue Ocean ee dadweynaha loo dhigo xeebta — isagoo dabbaasha iyo booqdayaasha siinaya isha macluumaad ee hore u koobnayd faylalka cilmi-baarista.',
+          'Waa isku-duub fudud oo danaha iyo saameynta ah: xeeb nadiif ah ayaa macaamiisha sii soo jiidata, nadaafad kastana waxay ka hortagtaa in qashin dheeraad ah uu u kala jajabo maadada plastikada yaryar ee shaqada khariidaynta la socoto.',
+        ],
+        marineConnection: 'Xeebta Liido waa mid ka mid ah labada goobood ee barnaamijka Blue Ocean ee kormeerka qashinka badda iyo tayada biyaha uu socdo.',
+      },
+    },
   },
   {
     id: 'kismayo-fish-processing-story',
@@ -240,52 +419,60 @@ const rawStories = [
     speciesSlugs: ['dugong'],
     featured: false,
     published: true,
+    translations: {
+      so: {
+        title: 'Haweenka Beddelaya Hadhaagga Kalluunka Ganacsi',
+        location: 'Kismaayo, Jubada Hoose',
+        storyContent: [
+          'Marsooyinka Kismaayo, qayb ka mid ah wixii maalin kasta la soo qaban jiray hore ayaa si fudud loo tuuri jiray — aad bay u yaraayeen, ay isku dartamayeen, ama aad bay u badnaayeen iibiyayaasha oo doonaya kaliya kalluun tayo sare leh. Ururka Haweenka Farsameynta Kalluunka ee Kismaayo waxaa lagu dhisay isla qaybtaas la iska indhatiray.',
+          'Iyagoo farsameeya oo qallajinaya hantida haddii kale la tuuri lahaa, Ururku wuxuu dhibaatadii tuurista u beddelay ilo joogto ah oo dakhli qoys, waddooyinka ganacsiguna hadda waxay gaadhaan suuqyada gudaha ee ka baxsan xeebta laftirkeeda.',
+          'Biyaha ay Ururku ka shaqeeyo waxay ku yaalaan cirifka marinnada cawsduurka badda ee Jasiiradaha Bajuun — isla biyahaas oo Blue Ocean ku sahamiso mid ka mid ah dadyowga dugong-ga ugu dambeeya ee Bariga Afrika ku nool — xubnuhuna waxay noqdeen lammaane aan rasmi ahayn oo ilaaliya caafimaadka marinnada ay maalin walba ku tiirsan yihiin.',
+        ],
+        marineConnection: 'Marsooyinka Ururku waxay ku xeeran yihiin marinnada cawsduurka badda ee Jasiiradaha Bajuun, kuwaas oo loo sahamiyay marinka ilaalinta sirenian-ka.',
+      },
+    },
   },
 ];
 
-export const communityStories = rawStories.map((s) => {
-  const community = communities.find((c) => c.slug === s.communitySlug);
-  return {
-    ...s,
-    communityName: community?.name || null,
-    species: resolveSpecies(s.speciesSlugs),
-  };
-});
+function buildCommunityStories(language = 'en') {
+  const localizedCommunities = language === 'en' ? communities : localizeList(communities, language);
+  return rawStories.map((s) => {
+    const localizedStory = localize(s, language);
+    const community = localizedCommunities.find((c) => c.slug === localizedStory.communitySlug);
+    return {
+      ...localizedStory,
+      communityName: community?.name || null,
+      species: resolveSpecies(localizedStory.speciesSlugs),
+    };
+  });
+}
+
+export const communityStories = buildCommunityStories('en');
 
 // --- Public helpers -----------------------------------------------------
 
-export function getAllCommunities() {
-  return communities;
+export function getAllCommunityStories(language = 'en') {
+  return buildCommunityStories(language).filter((s) => s.published);
 }
 
-export function getCommunityBySlug(slug) {
-  return communities.find((c) => c.slug === slug || c.id === slug);
+export function getCommunityStoryBySlug(slug, language = 'en') {
+  return buildCommunityStories(language).find((s) => s.slug === slug || s.id === slug);
 }
 
-export function getAllCommunityStories() {
-  return communityStories.filter((s) => s.published);
+export function getFeaturedCommunityStory(language = 'en') {
+  const stories = buildCommunityStories(language);
+  return stories.find((s) => s.featured) || stories[0];
 }
 
-export function getCommunityStoryBySlug(slug) {
-  return communityStories.find((s) => s.slug === slug || s.id === slug);
+export function getStoriesByCommunity(communitySlug, language = 'en') {
+  return buildCommunityStories(language).filter((s) => s.communitySlug === communitySlug);
 }
 
-export function getFeaturedCommunityStory() {
-  return communityStories.find((s) => s.featured) || communityStories[0];
-}
-
-export function getStoriesByCommunity(communitySlug) {
-  return communityStories.filter((s) => s.communitySlug === communitySlug);
-}
-
-export function getRelatedCommunityStories(currentSlug, limit = 3) {
-  const current = getCommunityStoryBySlug(currentSlug);
-  if (!current) return communityStories.slice(0, limit);
-  return communityStories
+export function getRelatedCommunityStories(currentSlug, limit = 3, language = 'en') {
+  const stories = buildCommunityStories(language);
+  const current = stories.find((s) => s.slug === currentSlug || s.id === currentSlug);
+  if (!current) return stories.slice(0, limit);
+  return stories
     .filter((s) => s.slug !== currentSlug && (s.category === current.category || s.region === current.region))
     .slice(0, limit);
-}
-
-export function getCommunityCategoryInfo(id) {
-  return COMMUNITY_CATEGORIES.find((c) => c.id === id);
 }

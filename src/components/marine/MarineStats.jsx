@@ -1,35 +1,37 @@
 import { motion } from 'framer-motion';
 import { Fish, Layers, Microscope, Waves, Shield } from 'lucide-react';
 import { getMarineStats } from '../../data/marineLife';
+import { useLanguage } from '../../context/LanguageContext';
 import './MarineStats.css';
 
 export default function MarineStats() {
+  const { t } = useLanguage();
   const stats = getMarineStats();
 
   const statItems = [
     {
       icon: Fish,
       val: `${stats.documentedSpecies}+`,
-      label: 'DOCUMENTED SPECIES',
-      desc: 'Catalogued with verified scientific taxonomy',
+      label: t('marineLife.stats.documentedSpecies.label'),
+      desc: t('marineLife.stats.documentedSpecies.desc'),
     },
     {
       icon: Layers,
       val: `0${stats.categoriesCount}`,
-      label: 'CLASSIFICATION GROUPS',
-      desc: 'From marine mammals to benthic invertebrates',
+      label: t('marineLife.stats.classificationGroups.label'),
+      desc: t('marineLife.stats.classificationGroups.desc'),
     },
     {
       icon: Waves,
       val: `0${stats.ecosystemsCount}`,
-      label: 'COASTAL ECOSYSTEMS',
-      desc: 'Coral barriers, seagrass sinks & deep upwellings',
+      label: t('marineLife.stats.coastalEcosystems.label'),
+      desc: t('marineLife.stats.coastalEcosystems.desc'),
     },
     {
       icon: Microscope,
       val: `${stats.activeStudies}`,
-      label: 'RESEARCH PROJECTS',
-      desc: 'Active acoustic, genetic & field surveys',
+      label: t('marineLife.stats.researchProjects.label'),
+      desc: t('marineLife.stats.researchProjects.desc'),
     },
   ];
 

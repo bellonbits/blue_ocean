@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { Shield, ArrowRight } from 'lucide-react';
 import { getConservationProjectsForResearch } from '../../data/conservation';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceWildlife.css';
 
 export default function ResearchConservationConnection({ project }) {
-  const linked = getConservationProjectsForResearch(project.slug);
+  const { language } = useLanguage();
+  const linked = getConservationProjectsForResearch(project.slug, language);
 
   if (linked.length === 0) return null;
 

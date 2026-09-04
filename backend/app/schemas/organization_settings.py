@@ -39,6 +39,8 @@ class OrganizationSettingsBase(BaseModel):
     contact_locations: list[ContactLocation] = []
     contact_subjects: list[str] = []
     social_links: list[SocialLink] = []
+    enabled_languages: list[str] = ["en", "so"]
+    default_language: str = "en"
 
 
 class OrganizationSettingsUpdate(BaseModel):
@@ -58,6 +60,8 @@ class OrganizationSettingsUpdate(BaseModel):
     contact_locations: list[ContactLocation] | None = None
     contact_subjects: list[str] | None = None
     social_links: list[SocialLink] | None = None
+    enabled_languages: list[str] | None = None
+    default_language: str | None = None
 
 
 class OrganizationSettingsRead(OrganizationSettingsBase):

@@ -1,22 +1,24 @@
 import { ArrowRight, MapPin, Compass } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import './RegionCards.css';
 
 export default function RegionCards({ regions = [], onSelectRegion }) {
+  const { t } = useLanguage();
+
   return (
     <section className="region-section section" id="regions-overview" aria-labelledby="regions-heading">
       <div className="container">
         {/* Section Header */}
         <div className="section-header centered reveal">
-          <span className="label-text">Geographic Scope</span>
+          <span className="label-text">{t('exploreCoast.regions.eyebrow')}</span>
           <div className="divider centered" />
           <h2 className="section-heading" id="regions-heading">
-            One coastline.
+            {t('exploreCoast.regions.heading')}
             <br />
-            Three worlds to explore.
+            {t('exploreCoast.regions.headingAccent')}
           </h2>
           <p className="section-subheading">
-            Somalia's coastline encompasses three distinct marine realms — each with unique ocean currents,
-            underwater topography, and maritime heritage.
+            {t('exploreCoast.regions.subheading')}
           </p>
         </div>
 
@@ -47,7 +49,7 @@ export default function RegionCards({ regions = [], onSelectRegion }) {
                     {reg.subtitle}
                   </span>
                   <span className="region-card__count">
-                    {reg.destinationsCount} Destinations
+                    {reg.destinationsCount} {t('exploreCoast.regions.destinationsCountSuffix')}
                   </span>
                 </div>
 
@@ -73,7 +75,7 @@ export default function RegionCards({ regions = [], onSelectRegion }) {
                     }}
                     id={`filter-region-${reg.id}`}
                   >
-                    <span>Explore {reg.name}</span>
+                    <span>{t('exploreCoast.regions.exploreRegionCta', reg.name)}</span>
                     <ArrowRight size={16} />
                   </button>
                 </div>

@@ -2,16 +2,18 @@ import { NavLink } from 'react-router-dom';
 import { Home, Compass, Fish, User } from 'lucide-react';
 import { isNative } from '../../lib/native';
 import { useAuth } from '../../context/AuthContext';
+import { useLanguage } from '../../context/LanguageContext';
 import './MobileTabBar.css';
 
 const TABS = [
-  { to: '/', label: 'Home', icon: Home, end: true },
-  { to: '/explore-the-coast', label: 'Explore', icon: Compass },
-  { to: '/marine-life', label: 'Marine Life', icon: Fish },
+  { to: '', labelKey: 'mobileTabBar.home', icon: Home, end: true },
+  { to: '/explore-the-coast', labelKey: 'mobileTabBar.explore', icon: Compass },
+  { to: '/marine-life', labelKey: 'mobileTabBar.marineLife', icon: Fish },
 ];
 
 export default function MobileTabBar() {
   const { isAuthenticated, openAuthModal } = useAuth();
+  const { language, t } = useLanguage();
 
   if (!isNative()) return null;
 
@@ -24,15 +26,15 @@ export default function MobileTabBar() {
 
   return (
     <nav className="mobile-tabbar" aria-label="Primary">
-      {TABS.map(({ to, label, icon: Icon, end }) => (
+      {TABS.map(({ to, labelKey, icon: Icon, end }) => (
         <NavLink
           key={to}
-          to={to}
+          to={`/${language}${to}`}
           end={end}
           className={({ isActive }) => `mobile-tabbar__item ${isActive ? 'mobile-tabbar__item--active' : ''}`}
         >
           <Icon size={20} strokeWidth={2.25} />
-          <span>{label}</span>
+          <span>{t(labelKey)}</span>
         </NavLink>
       ))}
       <NavLink
@@ -43,7 +45,7 @@ export default function MobileTabBar() {
         }
       >
         <User size={20} strokeWidth={2.25} />
-        <span>{isAuthenticated ? 'Profile' : 'Sign In'}</span>
+        <span>{isAuthenticated ? t('auth.profile') : t('auth.signIn')}</span>
       </NavLink>
     </nav>
   );

@@ -1,22 +1,27 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Layers, Sparkles } from 'lucide-react';
-import { marineCategories } from '../../data/marineLife';
+import { getSpeciesCategories } from '../../data/marineLife';
+import { useLanguage } from '../../context/LanguageContext';
 import './MarineCategories.css';
 
 export default function MarineCategories() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+  const marineCategories = getSpeciesCategories(language);
+
   return (
     <section className="marine-cats section" aria-labelledby="marine-cats-heading">
       <div className="container">
         {/* Header */}
         <div className="section-header centered reveal">
-          <span className="label-text">TAXONOMIC TAXONOMY</span>
+          <span className="label-text">{t('marineLife.categories.eyebrow')}</span>
           <div className="divider centered" />
           <h2 className="section-heading" id="marine-cats-heading">
-            Marine Life Classification
+            {t('marineLife.categories.heading')}
           </h2>
           <p className="section-subheading" style={{ margin: '0 auto' }}>
-            Explore Somalia’s marine flora and fauna categorized by scientific groups and ecological niches across the Indian Ocean and Gulf of Aden.
+            {t('marineLife.categories.subheading')}
           </p>
         </div>
 
@@ -25,7 +30,7 @@ export default function MarineCategories() {
           {marineCategories.map((cat, idx) => (
             <Link
               key={cat.id}
-              to={`/marine-life/species?category=${cat.id}`}
+              to={localizedPath(`/marine-life/species?category=${cat.id}`)}
               className="marine-cat-card"
             >
               <div className="marine-cat-card__media">
@@ -41,7 +46,7 @@ export default function MarineCategories() {
 
                 <div className="marine-cat-card__footer">
                   <span className="marine-cat-card__cta">
-                    <span>Explore Taxa</span>
+                    <span>{t('marineLife.categories.exploreCta')}</span>
                     <ArrowRight size={14} className="marine-cat-card__arrow" />
                   </span>
                 </div>

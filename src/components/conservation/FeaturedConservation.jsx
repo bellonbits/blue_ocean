@@ -1,27 +1,30 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Activity, ArrowRight } from 'lucide-react';
 import { getFeaturedConservationProject, getAllConservationProjects } from '../../data/conservation';
+import { useLanguage } from '../../context/LanguageContext';
 import ConservationProjectCard from './ConservationProjectCard';
 import '../research/FeaturedResearch.css';
 
 export default function FeaturedConservation() {
-  const featured = getFeaturedConservationProject();
-  const others = getAllConservationProjects()
+  const { language, t } = useLanguage();
+  const featured = getFeaturedConservationProject(language);
+  const others = getAllConservationProjects(language)
     .filter((p) => p.slug !== featured.slug)
     .slice(0, 3);
+  const localizedPath = (path) => `/${language}${path}`;
 
   return (
     <section className="featured-research section" aria-labelledby="featured-conservation-heading">
       <div className="container">
         <div className="section-header reveal">
-          <span className="label-text">FEATURED PROJECT</span>
+          <span className="label-text">{t('conservation.featured.label')}</span>
           <div className="divider" />
           <h2 className="section-heading" id="featured-conservation-heading">
-            Conservation in focus
+            {t('conservation.featured.heading')}
           </h2>
         </div>
 
-        <Link to={`/conservation/projects/${featured.slug}`} className="featured-research__card reveal">
+        <Link to={localizedPath(`/conservation/projects/${featured.slug}`)} className="featured-research__card reveal">
           <div className="featured-research__media">
             <img src={featured.heroImage} alt={featured.title} className="featured-research__img" loading="eager" />
             <div className="featured-research__overlay" />
@@ -44,7 +47,7 @@ export default function FeaturedConservation() {
             </div>
 
             <span className="featured-research__cta">
-              <span>Explore project</span>
+              <span>{t('conservation.featured.cta')}</span>
               <ArrowRight size={16} />
             </span>
           </div>

@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { getRelatedSpecies } from '../../data/marineLife';
+import { useLanguage } from '../../context/LanguageContext';
 import SpeciesCard from './SpeciesCard';
 import './RelatedSpecies.css';
 
 export default function RelatedSpecies({ currentSlug, categoryName }) {
-  const related = getRelatedSpecies(currentSlug, 3);
+  const { language } = useLanguage();
+  const related = getRelatedSpecies(currentSlug, 3, language);
 
   if (!related || related.length === 0) return null;
 

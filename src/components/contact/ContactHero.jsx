@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperiencesHero.css';
 
 export default function ContactHero() {
+  const { t } = useLanguage();
+
   return (
     <section className="exp-hero" aria-label="Contact Blue Ocean" style={{ minHeight: '60vh' }}>
       <div className="exp-hero__media" aria-hidden="true">
@@ -23,7 +26,7 @@ export default function ContactHero() {
           transition={{ duration: 0.6 }}
         >
           <MessageCircle size={14} />
-          <span>CONTACT</span>
+          <span>{t('contact.hero.badge')}</span>
         </motion.div>
 
         <motion.h1
@@ -32,7 +35,7 @@ export default function ContactHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Let's <span className="exp-hero__title-accent">connect.</span>
+          {t('contact.hero.heading')} <span className="exp-hero__title-accent">{t('contact.hero.headingAccent')}</span>
         </motion.h1>
 
         <motion.p
@@ -41,8 +44,7 @@ export default function ContactHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          Whether you're interested in research, conservation, partnerships, ocean experiences or simply want to
-          learn more, we'd love to hear from you.
+          {t('contact.hero.subtext')}
         </motion.p>
       </div>
     </section>

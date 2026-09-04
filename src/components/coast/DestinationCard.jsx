@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, Compass } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import './DestinationCard.css';
 
 export default function DestinationCard({ destination, index }) {
+  const { t } = useLanguage();
   return (
     <article
       className={`dest-card reveal reveal-delay-${(index % 3) + 1}`}
@@ -24,7 +26,7 @@ export default function DestinationCard({ destination, index }) {
             {destination.region}
           </span>
           {destination.featured && (
-            <span className="dest-card__featured-badge">Featured</span>
+            <span className="dest-card__featured-badge">{t('exploreCoast.card.featuredBadge')}</span>
           )}
         </div>
 
@@ -58,7 +60,7 @@ export default function DestinationCard({ destination, index }) {
             className="dest-card__cta"
             id={`dest-explore-${destination.slug}`}
           >
-            <span>Explore</span>
+            <span>{t('exploreCoast.card.exploreCta')}</span>
             <ArrowRight size={15} />
           </Link>
         </div>

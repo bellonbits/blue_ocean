@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getRelatedConservationProjects } from '../../data/conservation';
+import { useLanguage } from '../../context/LanguageContext';
 import ConservationProjectCard from './ConservationProjectCard';
 import '../experiences/RelatedExperiences.css';
 
 export default function RelatedConservation({ currentSlug }) {
-  const related = getRelatedConservationProjects(currentSlug, 3);
+  const { language } = useLanguage();
+  const related = getRelatedConservationProjects(currentSlug, 3, language);
 
   if (!related || related.length === 0) return null;
 

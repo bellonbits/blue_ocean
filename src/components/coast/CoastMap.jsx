@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Navigation, ArrowRight, Compass, Waves, Layers, Globe, Eye } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import './CoastMap.css';
 
 const GOOGLE_MAPS_API_KEY = 'AIzaSyAk6rrT_DxxSanx0pwKjLruI-XhgN_zsko';
@@ -67,6 +68,8 @@ const regionViewports = {
 };
 
 export default function CoastMap({ destinations = [] }) {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
   const mapRef = useRef(null);
   const googleMapInstance = useRef(null);
   const markersRef = useRef([]);
@@ -234,13 +237,13 @@ export default function CoastMap({ destinations = [] }) {
       <div className="container">
         {/* Header */}
         <div className="section-header centered reveal">
-          <span className="label-text">Interactive Cartography</span>
+          <span className="label-text">{t('exploreCoast.map.eyebrow')}</span>
           <div className="divider centered" />
           <h2 className="section-heading" id="map-heading">
-            Find your way along the coast.
+            {t('exploreCoast.map.heading')}
           </h2>
           <p className="section-subheading">
-            Explore Somalia's 3,025 km maritime frontier powered by Google Maps. Click any marker to inspect regional biodiversity and ocean research.
+            {t('exploreCoast.map.subheading')}
           </p>
         </div>
 
@@ -251,41 +254,41 @@ export default function CoastMap({ destinations = [] }) {
               onClick={() => handleRegionChange('all')}
               className={`map-pill ${activeRegion === 'all' ? 'map-pill--active' : ''}`}
             >
-              All Coast (3,025 km)
+              {t('exploreCoast.map.pillAll')}
             </button>
             <button
               onClick={() => handleRegionChange('puntland')}
               className={`map-pill ${activeRegion === 'puntland' ? 'map-pill--active' : ''}`}
             >
-              Puntland (North)
+              {t('exploreCoast.map.pillPuntland')}
             </button>
             <button
               onClick={() => handleRegionChange('somaliland')}
               className={`map-pill ${activeRegion === 'somaliland' ? 'map-pill--active' : ''}`}
             >
-              Somaliland (Northwest)
+              {t('exploreCoast.map.pillSomaliland')}
             </button>
             <button
               onClick={() => handleRegionChange('somalia')}
               className={`map-pill ${activeRegion === 'somalia' ? 'map-pill--active' : ''}`}
             >
-              Central & Southern
+              {t('exploreCoast.map.pillSomalia')}
             </button>
             <button
               onClick={() => handleRegionChange('jubaland')}
               className={`map-pill ${activeRegion === 'jubaland' ? 'map-pill--active' : ''}`}
             >
-              Jubaland (South)
+              {t('exploreCoast.map.pillJubaland')}
             </button>
           </div>
 
           <button
             onClick={toggleMapType}
             className="map-type-toggle-btn"
-            title="Toggle Satellite Imagery"
+            title={t('exploreCoast.map.toggleTitle')}
           >
             <Layers size={14} />
-            <span>{mapType === 'roadmap' ? 'Satellite View' : 'Dark Ocean View'}</span>
+            <span>{mapType === 'roadmap' ? t('exploreCoast.map.toggleSatellite') : t('exploreCoast.map.toggleDarkOcean')}</span>
           </button>
         </div>
 
@@ -296,7 +299,7 @@ export default function CoastMap({ destinations = [] }) {
             {!mapLoaded && !mapError && (
               <div className="map-loading-overlay">
                 <Compass size={36} className="map-loading-icon" />
-                <span>Loading Somali Coastal Cartography...</span>
+                <span>{t('exploreCoast.map.loadingText')}</span>
               </div>
             )}
           </div>
@@ -339,11 +342,11 @@ export default function CoastMap({ destinations = [] }) {
 
                 <div className="map-inspector__actions">
                   <Link
-                    to={`/explore-the-coast/${selectedDest.slug}`}
+                    to={localizedPath(`/explore-the-coast/${selectedDest.slug}`)}
                     className="btn btn-primary btn-sm"
                     id={`map-explore-${selectedDest.slug}`}
                   >
-                    <span>View Destination Guide</span>
+                    <span>{t('exploreCoast.map.inspectorCta')}</span>
                     <ArrowRight size={14} />
                   </Link>
                 </div>

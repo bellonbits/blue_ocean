@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Info } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
 import { getAllTeams } from '../data/research';
+import { useLanguage } from '../context/LanguageContext';
 import ResearchTeamCard from '../components/research/ResearchTeamCard';
 import '../components/experiences/ExperienceGrid.css';
 import './SpeciesDirectoryPage.css';
@@ -10,7 +11,8 @@ import './ResearchTeamPage.css';
 
 export default function ResearchTeamPage() {
   useScrollReveal();
-  const teams = getAllTeams();
+  const { language } = useLanguage();
+  const teams = getAllTeams(language);
 
   useEffect(() => {
     document.title = 'Research Team — Blue Ocean Somalia';

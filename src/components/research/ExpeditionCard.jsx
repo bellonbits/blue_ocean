@@ -1,7 +1,10 @@
 import { MapPin, Clock, Sparkles } from 'lucide-react';
+import { getStatusLabel } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceCard.css';
 
 export default function ExpeditionCard({ expedition }) {
+  const { language, t } = useLanguage();
   const image = expedition.species[0]?.heroImage || '/exp_scuba_diving.jpg';
 
   return (
@@ -14,7 +17,7 @@ export default function ExpeditionCard({ expedition }) {
           <span className="exp-card__category-badge">{expedition.areaName}</span>
           <span className="badge badge-coming-soon exp-card__status-badge">
             <Sparkles size={11} />
-            <span>Coming Soon</span>
+            <span>{getStatusLabel(expedition.status, language)}</span>
           </span>
         </div>
       </div>
@@ -43,7 +46,7 @@ export default function ExpeditionCard({ expedition }) {
         )}
 
         <div className="exp-card__footer">
-          <span className="exp-card__meta-item">Team: {expedition.researchTeamName}</span>
+          <span className="exp-card__meta-item">{t('research.card.teamLabel')}: {expedition.researchTeamName}</span>
         </div>
       </div>
     </article>

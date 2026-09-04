@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { FileText, Sparkles, Calendar } from 'lucide-react';
+import { getStatusLabel } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 import './ResearchReportCard.css';
 
 export default function ResearchReportCard({ report }) {
+  const { language, t } = useLanguage();
   return (
     <article className="report-card">
       <div className="report-card__icon">
@@ -14,7 +17,7 @@ export default function ResearchReportCard({ report }) {
           <span className="report-card__area">{report.areaName}</span>
           <span className="badge badge-coming-soon">
             <Sparkles size={11} />
-            <span>Coming Soon</span>
+            <span>{getStatusLabel(report.status, language)}</span>
           </span>
         </div>
 
@@ -30,7 +33,7 @@ export default function ResearchReportCard({ report }) {
         </div>
 
         <Link to={`/research/projects/${report.projectSlug}`} className="report-card__link">
-          <span>View related project</span>
+          <span>{t('research.card.viewRelatedProjectCta')}</span>
         </Link>
       </div>
     </article>

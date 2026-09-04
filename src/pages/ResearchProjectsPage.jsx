@@ -4,11 +4,13 @@ import { ArrowLeft } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
 import ResearchProjectGrid from '../components/research/ResearchProjectGrid';
 import { getAllProjects } from '../data/research';
+import { useLanguage } from '../context/LanguageContext';
 import './SpeciesDirectoryPage.css';
 
 export default function ResearchProjectsPage() {
   const [searchParams] = useSearchParams();
   const areaParam = searchParams.get('area') || 'all';
+  const { language } = useLanguage();
   useScrollReveal();
 
   useEffect(() => {
@@ -38,7 +40,7 @@ export default function ResearchProjectsPage() {
 
       <section className="species-dir-content-sec section">
         <div className="container">
-          <ResearchProjectGrid initialArea={areaParam} projectsList={getAllProjects()} />
+          <ResearchProjectGrid initialArea={areaParam} projectsList={getAllProjects(language)} />
         </div>
       </section>
     </main>

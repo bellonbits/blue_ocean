@@ -1,21 +1,25 @@
 import { motion } from 'framer-motion';
 import { Waves, Sparkles, MapPin, Activity, ArrowRight } from 'lucide-react';
-import { marineEcosystems } from '../../data/marineLife';
+import { getMarineEcosystems } from '../../data/marineLife';
+import { useLanguage } from '../../context/LanguageContext';
 import './EcosystemsSection.css';
 
 export default function EcosystemsSection() {
+  const { language, t } = useLanguage();
+  const marineEcosystems = getMarineEcosystems(language);
+
   return (
     <section className="ecosystems-sec section" id="ecosystems-section" aria-labelledby="ecosystems-heading">
       <div className="container">
         {/* Header */}
         <div className="section-header centered reveal">
-          <span className="label-text">HABITAT FOUNDATIONS</span>
+          <span className="label-text">{t('marineLife.ecosystems.eyebrow')}</span>
           <div className="divider centered" />
           <h2 className="section-heading" id="ecosystems-heading">
-            Somalia’s Living Marine Ecosystems
+            {t('marineLife.ecosystems.heading')}
           </h2>
           <p className="section-subheading" style={{ margin: '0 auto' }}>
-            From high-energy coral barriers and vast seagrass meadows to Earth’s most productive ocean upwellings along the Horn of Africa.
+            {t('marineLife.ecosystems.subheading')}
           </p>
         </div>
 
@@ -39,7 +43,7 @@ export default function EcosystemsSection() {
 
                 {/* Key Regions */}
                 <div className="eco-card__regions">
-                  <span className="eco-card__regions-label">Key Zones:</span>
+                  <span className="eco-card__regions-label">{t('marineLife.ecosystems.keyZonesLabel')}</span>
                   <div className="eco-card__regions-tags">
                     {eco.keyRegions.map((r, i) => (
                       <span key={i} className="eco-card__region-tag">
@@ -52,7 +56,7 @@ export default function EcosystemsSection() {
 
                 <div className="eco-card__footer">
                   <span className="eco-card__supported">
-                    <strong>Supported:</strong> {eco.speciesSupported}
+                    <strong>{t('marineLife.ecosystems.supportedLabel')}</strong> {eco.speciesSupported}
                   </span>
                 </div>
               </div>

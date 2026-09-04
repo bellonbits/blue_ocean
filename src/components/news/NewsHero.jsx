@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { Newspaper, ArrowRight } from 'lucide-react';
 import { getAllArticles } from '../../data/news';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperiencesHero.css';
 
 export default function NewsHero() {
-  const count = getAllArticles().length;
+  const { language, t } = useLanguage();
+  const count = getAllArticles(language).length;
 
   return (
     <section className="exp-hero" aria-label="Blue Ocean News & Discoveries">
@@ -26,7 +28,7 @@ export default function NewsHero() {
           transition={{ duration: 0.6 }}
         >
           <Newspaper size={14} />
-          <span>NEWS & DISCOVERIES</span>
+          <span>{t('news.hero.badge')}</span>
         </motion.div>
 
         <motion.h1
@@ -35,8 +37,8 @@ export default function NewsHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Latest discoveries. <br />
-          <span className="exp-hero__title-accent">Stories from the coast.</span>
+          {t('news.hero.heading')} <br />
+          <span className="exp-hero__title-accent">{t('news.hero.headingAccent')}</span>
         </motion.h1>
 
         <motion.p
@@ -45,8 +47,7 @@ export default function NewsHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          Follow Blue Ocean's latest research, marine discoveries, conservation work and stories from Somalia's
-          coastal communities.
+          {t('news.hero.subtext')}
         </motion.p>
 
         <motion.div
@@ -56,11 +57,11 @@ export default function NewsHero() {
           transition={{ duration: 0.7, delay: 0.3 }}
         >
           <a href="#news-categories" className="exp-hero__btn-primary">
-            <span>Explore Stories</span>
+            <span>{t('news.hero.ctaPrimary')}</span>
             <ArrowRight size={18} />
           </a>
           <a href="/news/articles" className="exp-hero__btn-secondary">
-            <span>All Articles</span>
+            <span>{t('news.hero.ctaSecondary')}</span>
           </a>
         </motion.div>
 
@@ -72,7 +73,7 @@ export default function NewsHero() {
         >
           <div className="exp-hero__pill">
             <span className="exp-hero__pill-dot" />
-            <span>{count} Published Stories</span>
+            <span>{t('news.hero.pillPublished', count)}</span>
           </div>
         </motion.div>
       </div>

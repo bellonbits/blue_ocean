@@ -3,10 +3,12 @@ import { useParams } from 'react-router-dom';
 import SpeciesTemplate from '../components/marine/SpeciesTemplate';
 import { getSpeciesBySlug } from '../data/marineLife';
 import { useTrackRecentlyViewed } from '../lib/hooks';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function SpeciesDetailPage() {
   const { slug } = useParams();
-  const species = getSpeciesBySlug(slug);
+  const { language } = useLanguage();
+  const species = getSpeciesBySlug(slug, language);
 
   useEffect(() => {
     if (species) {

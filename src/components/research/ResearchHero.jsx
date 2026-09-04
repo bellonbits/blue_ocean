@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
 import { Microscope, ArrowRight } from 'lucide-react';
 import { getResearchStats } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperiencesHero.css';
 
 export default function ResearchHero() {
   const stats = getResearchStats();
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
 
   return (
     <section className="exp-hero" aria-label="Blue Ocean Research">
@@ -26,7 +29,7 @@ export default function ResearchHero() {
           transition={{ duration: 0.6 }}
         >
           <Microscope size={14} />
-          <span>SCIENTIFIC RESEARCH & DISCOVERY</span>
+          <span>{t('research.hero.badge')}</span>
         </motion.div>
 
         <motion.h1
@@ -35,8 +38,8 @@ export default function ResearchHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Understanding the ocean. <br />
-          <span className="exp-hero__title-accent">Protecting its future.</span>
+          {t('research.hero.heading')} <br />
+          <span className="exp-hero__title-accent">{t('research.hero.headingAccent')}</span>
         </motion.h1>
 
         <motion.p
@@ -45,7 +48,7 @@ export default function ResearchHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          Explore Blue Ocean's research into Somalia's marine biodiversity, fisheries, ecosystems and coastal environment.
+          {t('research.hero.subtext')}
         </motion.p>
 
         <motion.div
@@ -55,11 +58,11 @@ export default function ResearchHero() {
           transition={{ duration: 0.7, delay: 0.3 }}
         >
           <a href="#research-areas" className="exp-hero__btn-primary">
-            <span>Explore Research</span>
+            <span>{t('research.hero.ctaExplore')}</span>
             <ArrowRight size={18} />
           </a>
-          <a href="/research/projects" className="exp-hero__btn-secondary">
-            <span>View Projects</span>
+          <a href={localizedPath('/research/projects')} className="exp-hero__btn-secondary">
+            <span>{t('research.hero.ctaProjects')}</span>
           </a>
         </motion.div>
 
@@ -71,15 +74,15 @@ export default function ResearchHero() {
         >
           <div className="exp-hero__pill">
             <span className="exp-hero__pill-dot" />
-            <span>{stats.totalProjects} Research Projects</span>
+            <span>{stats.totalProjects} {t('research.hero.pillProjects')}</span>
           </div>
           <div className="exp-hero__pill">
             <span className="exp-hero__pill-dot" />
-            <span>{stats.researchAreasCount} Research Areas</span>
+            <span>{stats.researchAreasCount} {t('research.hero.pillAreas')}</span>
           </div>
           <div className="exp-hero__pill">
             <span className="exp-hero__pill-dot" />
-            <span>{stats.researchSites} Field Sites</span>
+            <span>{stats.researchSites} {t('research.hero.pillSites')}</span>
           </div>
         </motion.div>
       </div>

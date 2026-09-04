@@ -4,12 +4,15 @@ import { Compass, Waves, ArrowLeft } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
 import SpeciesGrid from '../components/marine/SpeciesGrid';
 import ExploreCTA from '../components/coast/ExploreCTA';
-import { speciesList } from '../data/marineLife';
+import { getAllSpecies } from '../data/marineLife';
+import { useLanguage } from '../context/LanguageContext';
 import './SpeciesDirectoryPage.css';
 
 export default function SpeciesDirectoryPage() {
   const [searchParams] = useSearchParams();
   const categoryParam = searchParams.get('category') || 'all';
+  const { language } = useLanguage();
+  const speciesList = getAllSpecies(language);
   useScrollReveal();
 
   useEffect(() => {

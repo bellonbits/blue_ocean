@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getRelatedProjects } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 import ResearchProjectCard from './ResearchProjectCard';
 import '../experiences/RelatedExperiences.css';
 
 export default function RelatedResearch({ currentSlug }) {
-  const related = getRelatedProjects(currentSlug, 3);
+  const { language } = useLanguage();
+  const related = getRelatedProjects(currentSlug, 3, language);
 
   if (!related || related.length === 0) return null;
 

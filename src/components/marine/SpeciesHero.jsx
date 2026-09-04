@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Shield, ChevronLeft, MapPin, Layers, Waves, Calendar, Compass, Heart } from 'lucide-react';
-import { getStatusInfo } from './SpeciesCard';
+import { getSpeciesStatusInfo } from '../../data/marineLife';
+import { useLanguage } from '../../context/LanguageContext';
 import './SpeciesHero.css';
 
 export default function SpeciesHero({ species }) {
-  const statusInfo = getStatusInfo(species.conservationStatus);
+  const { language } = useLanguage();
+  const statusInfo = getSpeciesStatusInfo(species.conservationStatus, language);
 
   return (
     <section className="species-hero" aria-label={`${species.commonName} Field Profile`}>

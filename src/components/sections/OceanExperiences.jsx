@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { MapPin, Clock, ArrowRight, Heart, Sparkles } from 'lucide-react';
 import FramerCarousel from '../ui/FramerCarousel';
 import { getFeaturedExperiences } from '../../data/experiences';
+import { useLanguage } from '../../context/LanguageContext';
 import './OceanExperiences.css';
 
-const experiencesData = getFeaturedExperiences();
-
 export default function OceanExperiences() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
   const [likes, setLikes] = useState({});
+  const experiencesData = getFeaturedExperiences(language);
 
   const toggleLike = (id, e) => {
     e.preventDefault();
@@ -21,13 +23,13 @@ export default function OceanExperiences() {
       <div className="container">
         {/* Header */}
         <div className="section-header centered reveal">
-          <span className="label-text">Ocean Expeditions & Activities</span>
+          <span className="label-text">{t('oceanExperiencesPreview.eyebrow')}</span>
           <div className="divider centered" />
           <h2 className="section-heading" id="experiences-heading">
-            Experience the Somali Coast
+            {t('oceanExperiencesPreview.heading')}
           </h2>
           <p className="section-subheading" style={{ margin: '0 auto' }}>
-            Boat tours, snorkeling, diving, fishing, island exploration and more — all coming to the Somali coast.
+            {t('oceanExperiencesPreview.subheading')}
           </p>
         </div>
 
@@ -43,7 +45,7 @@ export default function OceanExperiences() {
               const isLiked = likes[exp.id];
 
               return (
-                <Link to={`/experiences/${exp.slug}`} className="exp-lux-card">
+                <Link to={localizedPath(`/experiences/${exp.slug}`)} className="exp-lux-card">
                   {/* Background Image */}
                   <div className="exp-lux-card__bg">
                     <img
@@ -86,7 +88,7 @@ export default function OceanExperiences() {
                     <div className="exp-lux-card__meta-bar">
                       <span className="badge badge-coming-soon">
                         <Sparkles size={11} />
-                        <span>Coming Soon</span>
+                        <span>{t('oceanExperiencesPreview.comingSoon')}</span>
                       </span>
                       <div className="exp-lux-card__highlight-pill">
                         <span>{exp.region}</span>
@@ -99,7 +101,7 @@ export default function OceanExperiences() {
                     <p className="exp-lux-card__desc">{exp.shortDescription}</p>
 
                     <span className="exp-lux-card__cta">
-                      <span>View Experience</span>
+                      <span>{t('oceanExperiencesPreview.cardCta')}</span>
                       <ArrowRight size={15} />
                     </span>
                   </div>
@@ -110,8 +112,8 @@ export default function OceanExperiences() {
         </div>
 
         <div className="experiences__cta-row reveal">
-          <Link to="/experiences" className="btn btn-primary btn-lg">
-            <span>Explore Experiences</span>
+          <Link to={localizedPath('/experiences')} className="btn btn-primary btn-lg">
+            <span>{t('oceanExperiencesPreview.mainCta')}</span>
             <ArrowRight size={18} />
           </Link>
         </div>

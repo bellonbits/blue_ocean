@@ -1,9 +1,11 @@
 import { getConservationProjectsByFocusArea } from '../../data/conservation';
+import { useLanguage } from '../../context/LanguageContext';
 import ConservationProjectCard from './ConservationProjectCard';
 import '../experiences/ExperienceGrid.css';
 
 export default function IllegalFishingProjects() {
-  const projects = getConservationProjectsByFocusArea('illegal-fishing');
+  const { language } = useLanguage();
+  const projects = getConservationProjectsByFocusArea('illegal-fishing', language);
 
   if (projects.length === 0) return null;
 

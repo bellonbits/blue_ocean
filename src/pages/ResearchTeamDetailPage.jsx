@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Anchor, Waves, Compass, Fish, Sprout, Droplets } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
 import { getTeamBySlug } from '../data/research';
+import { useLanguage } from '../context/LanguageContext';
 import ResearchProjectCard from '../components/research/ResearchProjectCard';
 import '../components/experiences/ExperienceGrid.css';
 import '../components/research/ResearchTeamCard.css';
@@ -13,7 +14,8 @@ const ICONS = { Anchor, Waves, Compass, Fish, Sprout, Droplets };
 
 export default function ResearchTeamDetailPage() {
   const { slug } = useParams();
-  const team = getTeamBySlug(slug);
+  const { language } = useLanguage();
+  const team = getTeamBySlug(slug, language);
   useScrollReveal();
 
   useEffect(() => {

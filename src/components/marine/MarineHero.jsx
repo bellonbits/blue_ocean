@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Compass, Sparkles, ArrowRight, Fish, Shield, Waves } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import './MarineHero.css';
 
 export default function MarineHero() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+
   return (
     <section className="marine-hero" aria-label="Marine Life of Somalia">
       {/* Background Visual */}
@@ -38,8 +42,8 @@ export default function MarineHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Life beneath <br />
-          <span className="marine-hero__title-accent">the surface.</span>
+          {t('marineLife.hero.heading')} <br />
+          <span className="marine-hero__title-accent">{t('marineLife.hero.headingAccent')}</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -49,7 +53,7 @@ export default function MarineHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          Discover the marine species and coastal ecosystems that make Somalia’s 3,025 km maritime frontier extraordinary — from gentle oceanic giants to pristine barrier reefs.
+          {t('marineLife.hero.subtext')}
         </motion.p>
 
         {/* CTAs */}
@@ -59,12 +63,12 @@ export default function MarineHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
         >
-          <Link to="/marine-life/species" className="marine-hero__btn-primary">
-            <span>Explore Species Directory</span>
+          <Link to={localizedPath('/marine-life/species')} className="marine-hero__btn-primary">
+            <span>{t('marineLife.hero.ctaPrimary')}</span>
             <ArrowRight size={18} />
           </Link>
           <a href="#ecosystems-section" className="marine-hero__btn-secondary">
-            <span>Explore Ecosystems</span>
+            <span>{t('marineLife.hero.ctaSecondary')}</span>
           </a>
         </motion.div>
 

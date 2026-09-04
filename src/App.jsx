@@ -1,7 +1,8 @@
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet, useLocation, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider } from './context/AuthContext';
+import { LanguageProvider, useLanguage, stripLangPrefix } from './context/LanguageContext';
 import AuthModal from './components/auth/AuthModal';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
@@ -85,6 +86,108 @@ function ScrollToTop() {
   return null;
 }
 
+// The public content routes (Home, Tourism, Explore the Coast, Marine
+// Life, Research, Conservation, Communities, News, About, Contact, Get
+// Involved) are mounted twice below — once under /en, once under /so —
+// via this shared array rather than duplicating the JSX, so there's one
+// source of truth for the route list. Admin/Dashboard/Profile are
+// internal, staff/account tools and deliberately stay unprefixed (see
+// BLUE_OCEAN_BACKLOG.md section 10.1).
+function localizedRoutes() {
+  return [
+    <Route index element={<Home />} key="home" />,
+
+    // Sprint 2: Explore the Coast Routes
+    <Route path="tourism" element={<TourismPage />} key="tourism" />,
+    <Route path="explore-the-coast" element={<ExploreCoastPage />} key="explore-the-coast" />,
+    <Route path="explore-the-coast/:slug" element={<DestinationDetailPage />} key="explore-the-coast-slug" />,
+    <Route path="explore" element={<Navigate to="../explore-the-coast" replace />} key="explore" />,
+    <Route path="explore/:slug" element={<DestinationDetailPage />} key="explore-slug" />,
+
+    // Sprint 3: Marine Life Library Routes
+    <Route path="marine-life" element={<MarineLifePage />} key="marine-life" />,
+    <Route path="marine-life/species" element={<SpeciesDirectoryPage />} key="marine-life-species" />,
+    <Route path="marine-life/species/:slug" element={<SpeciesDetailPage />} key="marine-life-species-slug" />,
+    <Route path="marine-life/:slug" element={<SpeciesDetailPage />} key="marine-life-slug" />,
+
+    // Sprint 5: Ocean Experiences Routes
+    <Route path="experiences" element={<OceanExperiencesPage />} key="experiences" />,
+    <Route path="experiences/:slug" element={<ExperienceDetailPage />} key="experiences-slug" />,
+
+    // Sprint 4: Research Routes
+    <Route path="research" element={<ResearchPage />} key="research" />,
+    <Route path="research/projects" element={<ResearchProjectsPage />} key="research-projects" />,
+    <Route path="research/projects/:slug" element={<ResearchProjectDetailPage />} key="research-projects-slug" />,
+    <Route path="research/reports" element={<ResearchReportsPage />} key="research-reports" />,
+    <Route path="research/team" element={<ResearchTeamPage />} key="research-team" />,
+    <Route path="research/team/:slug" element={<ResearchTeamDetailPage />} key="research-team-slug" />,
+    <Route path="research/expeditions" element={<ResearchExpeditionsPage />} key="research-expeditions" />,
+    <Route path="research/statistics" element={<ResearchStatisticsPage />} key="research-statistics" />,
+    <Route path="research/coastal-geography" element={<ResearchGeomorphologyPage />} key="research-coastal-geography" />,
+    <Route path="research/publications" element={<PublicationsPage />} key="research-publications" />,
+    // "Data & Reports" — the existing Reports page already covers this
+    <Route path="research/data" element={<Navigate to="../research/reports" replace />} key="research-data" />,
+
+    // Sprint 6: Conservation & Coastal Communities Routes
+    <Route path="conservation" element={<ConservationPage />} key="conservation" />,
+    <Route path="conservation/illegal-fishing" element={<ConservationIllegalFishingPage />} key="conservation-illegal-fishing" />,
+    <Route path="conservation/projects" element={<ConservationProjectsPage />} key="conservation-projects" />,
+    <Route path="conservation/projects/:slug" element={<ConservationProjectDetailPage />} key="conservation-projects-slug" />,
+
+    <Route path="communities" element={<CoastalCommunitiesPage />} key="communities" />,
+    <Route path="coastal-communities" element={<Navigate to="../communities" replace />} key="coastal-communities" />,
+    <Route path="communities/:slug" element={<CommunityStoryDetailPage />} key="communities-slug" />,
+
+    <Route path="get-involved" element={<GetInvolvedPage />} key="get-involved" />,
+    <Route path="get-involved/volunteer" element={<VolunteerPage />} key="get-involved-volunteer" />,
+    <Route path="get-involved/partner" element={<PartnerPage />} key="get-involved-partner" />,
+    <Route path="get-involved/support" element={<SupportPage />} key="get-involved-support" />,
+
+    // Sprint 7: News, About & Contact Routes
+    <Route path="news" element={<NewsPage />} key="news" />,
+    <Route path="news/articles" element={<NewsArticlesPage />} key="news-articles" />,
+    <Route path="news/:slug" element={<ArticleDetailPage />} key="news-slug" />,
+
+    <Route path="about" element={<AboutPage />} key="about" />,
+    <Route path="about/team" element={<TeamDirectoryPage />} key="about-team" />,
+    <Route path="about/team/:slug" element={<TeamMemberProfilePage />} key="about-team-slug" />,
+
+    <Route path="contact" element={<ContactPage />} key="contact" />,
+    <Route path="press" element={<PressPage />} key="press" />,
+    <Route path="privacy" element={<PrivacyPolicyPage />} key="privacy" />,
+
+    // 404 fallback, scoped inside /en and /so so it still gets Header/Footer
+    <Route
+      path="*"
+      element={
+        <PlaceholderPage
+          title="Page Not Found"
+          description="The page you're looking for doesn't exist yet. Head back to the homepage to explore Blue Ocean Somalia."
+          emoji="🔍"
+        />
+      }
+      key="not-found"
+    />,
+  ];
+}
+
+// "/" itself (no language segment) — send first-time visitors to their
+// detected/saved language's homepage.
+function RootRedirect() {
+  const { language } = useLanguage();
+  return <Navigate to={`/${language}`} replace />;
+}
+
+// Anything that isn't /en, /so, /admin, /dashboard, or /profile — almost
+// always an old bookmark or external link to a pre-localization URL
+// (e.g. /tourism) — gets replayed under the current language rather than
+// 404ing.
+function LegacyRedirect() {
+  const { language } = useLanguage();
+  const location = useLocation();
+  return <Navigate to={`/${language}${location.pathname}${location.search}`} replace />;
+}
+
 function AppLayout() {
   const { pathname } = useLocation();
   const isDashboard = pathname.startsWith('/admin') || pathname.startsWith('/dashboard');
@@ -94,71 +197,27 @@ function AppLayout() {
       <ScrollToTop />
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        
-        {/* Sprint 2: Explore the Coast Routes */}
-        <Route path="/tourism" element={<TourismPage />} />
-        <Route path="/explore-the-coast" element={<ExploreCoastPage />} />
-        <Route path="/explore-the-coast/:slug" element={<DestinationDetailPage />} />
-        <Route path="/explore" element={<Navigate to="/explore-the-coast" replace />} />
-        <Route path="/explore/:slug" element={<DestinationDetailPage />} />
+      <Outlet />
+      {!isDashboard && <Footer />}
+      {!isDashboard && <ChatWidget />}
+      {!isDashboard && <MobileTabBar />}
+    </>
+  );
+}
 
-        {/* Sprint 3: Marine Life Library Routes */}
-        <Route path="/marine-life" element={<MarineLifePage />} />
-        <Route path="/marine-life/species" element={<SpeciesDirectoryPage />} />
-        <Route path="/marine-life/species/:slug" element={<SpeciesDetailPage />} />
-        <Route path="/marine-life/:slug" element={<SpeciesDetailPage />} />
+function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<AppLayout />}>
+        <Route index element={<RootRedirect />} />
 
-        {/* Sprint 5: Ocean Experiences Routes */}
-        <Route path="/experiences" element={<OceanExperiencesPage />} />
-        <Route path="/experiences/:slug" element={<ExperienceDetailPage />} />
+        <Route path="en" element={<Outlet />}>{localizedRoutes()}</Route>
+        <Route path="so" element={<Outlet />}>{localizedRoutes()}</Route>
 
-        {/* Sprint 4: Research Routes */}
-        <Route path="/research" element={<ResearchPage />} />
-        <Route path="/research/projects" element={<ResearchProjectsPage />} />
-        <Route path="/research/projects/:slug" element={<ResearchProjectDetailPage />} />
-        <Route path="/research/reports" element={<ResearchReportsPage />} />
-        <Route path="/research/team" element={<ResearchTeamPage />} />
-        <Route path="/research/team/:slug" element={<ResearchTeamDetailPage />} />
-        <Route path="/research/expeditions" element={<ResearchExpeditionsPage />} />
-        <Route path="/research/statistics" element={<ResearchStatisticsPage />} />
-        <Route path="/research/coastal-geography" element={<ResearchGeomorphologyPage />} />
-        <Route path="/research/publications" element={<PublicationsPage />} />
-        {/* "Data & Reports" — the existing Reports page already covers this */}
-        <Route path="/research/data" element={<Navigate to="/research/reports" replace />} />
-
-        {/* Sprint 6: Conservation & Coastal Communities Routes */}
-        <Route path="/conservation" element={<ConservationPage />} />
-        <Route path="/conservation/illegal-fishing" element={<ConservationIllegalFishingPage />} />
-        <Route path="/conservation/projects" element={<ConservationProjectsPage />} />
-        <Route path="/conservation/projects/:slug" element={<ConservationProjectDetailPage />} />
-
-        <Route path="/communities" element={<CoastalCommunitiesPage />} />
-        <Route path="/coastal-communities" element={<Navigate to="/communities" replace />} />
-        <Route path="/communities/:slug" element={<CommunityStoryDetailPage />} />
-
-        <Route path="/get-involved" element={<GetInvolvedPage />} />
-        <Route path="/get-involved/volunteer" element={<VolunteerPage />} />
-        <Route path="/get-involved/partner" element={<PartnerPage />} />
-        <Route path="/get-involved/support" element={<SupportPage />} />
-
-        {/* Sprint 7: News, About & Contact Routes */}
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/news/articles" element={<NewsArticlesPage />} />
-        <Route path="/news/:slug" element={<ArticleDetailPage />} />
-
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/about/team" element={<TeamDirectoryPage />} />
-        <Route path="/about/team/:slug" element={<TeamMemberProfilePage />} />
-
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/press" element={<PressPage />} />
-        <Route path="/privacy" element={<PrivacyPolicyPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="profile" element={<ProfilePage />} />
 
         {/* Member dashboard — personal ocean discovery hub, any logged-in account */}
-        <Route path="/dashboard" element={<DashboardLayout />}>
+        <Route path="dashboard" element={<DashboardLayout />}>
           <Route index element={<DashboardHomePage />} />
           <Route path="saved" element={<SavedPage />} />
           <Route path="experiences" element={<MyExperiencesPage />} />
@@ -169,7 +228,7 @@ function AppLayout() {
         </Route>
 
         {/* Admin/CMS — staff only (super_admin/admin/editor/researcher/content_manager) */}
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="admin" element={<AdminLayout />}>
           <Route index element={<DashboardOverviewPage />} />
           <Route path="inbox" element={<InboxPage />} />
           <Route path="settings" element={<SettingsPage />} />
@@ -186,24 +245,12 @@ function AppLayout() {
         </Route>
 
         {/* Preview renders full-bleed like the real public page — no admin sidebar/topbar */}
-        <Route path="/admin/content/coast/destinations/:id/preview" element={<DestinationPreviewPage />} />
+        <Route path="admin/content/coast/destinations/:id/preview" element={<DestinationPreviewPage />} />
 
-        {/* 404 fallback */}
-        <Route
-          path="*"
-          element={
-            <PlaceholderPage
-              title="Page Not Found"
-              description="The page you're looking for doesn't exist yet. Head back to the homepage to explore Blue Ocean Somalia."
-              emoji="🔍"
-            />
-          }
-        />
-      </Routes>
-      {!isDashboard && <Footer />}
-      {!isDashboard && <ChatWidget />}
-      {!isDashboard && <MobileTabBar />}
-    </>
+        {/* Any pre-localization bookmark/link (e.g. /tourism, /research/projects) */}
+        <Route path="*" element={<LegacyRedirect />} />
+      </Route>
+    </Routes>
   );
 }
 
@@ -213,11 +260,15 @@ export default function App() {
       <ThemeProvider>
         <AuthProvider>
           <BrowserRouter>
-            <AppLayout />
-            <AuthModal />
+            <LanguageProvider>
+              <AppRoutes />
+              <AuthModal />
+            </LanguageProvider>
           </BrowserRouter>
         </AuthProvider>
       </ThemeProvider>
     </NativeAppGate>
   );
 }
+
+export { stripLangPrefix };

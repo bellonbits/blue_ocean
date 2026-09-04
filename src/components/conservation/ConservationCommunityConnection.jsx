@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Users, ArrowRight } from 'lucide-react';
 import { getStoriesByCommunity, getCommunityCategoryInfo } from '../../data/communities';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceLocations.css';
 
 export default function ConservationCommunityConnection({ project }) {
+  const { language } = useLanguage();
   if (!project.communityLinks || project.communityLinks.length === 0) return null;
 
   return (
@@ -22,8 +24,8 @@ export default function ConservationCommunityConnection({ project }) {
 
         <div className="exp-locations-dest-grid">
           {project.communityLinks.map((com) => {
-            const categoryInfo = getCommunityCategoryInfo(com.category);
-            const stories = getStoriesByCommunity(com.slug);
+            const categoryInfo = getCommunityCategoryInfo(com.category, language);
+            const stories = getStoriesByCommunity(com.slug, language);
             const storyLink = stories[0] ? `/communities/${stories[0].slug}` : '/communities';
             return (
               <Link key={com.slug} to={storyLink} className="exp-locations-dest-card">

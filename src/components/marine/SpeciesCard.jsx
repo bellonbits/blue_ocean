@@ -2,29 +2,18 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Shield, MapPin, ArrowRight, Heart, Sparkles, Waves, Layers } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { useLanguage } from '../../context/LanguageContext';
+import { getSpeciesStatusInfo } from '../../data/marineLife';
 import './SpeciesCard.css';
 
-// Status badge color and label helper
-export function getStatusInfo(status) {
-  switch (status?.toLowerCase()) {
-    case 'critically endangered':
-      return { label: 'Critically Endangered', bg: 'rgba(239, 68, 68, 0.15)', border: 'rgba(239, 68, 68, 0.4)', text: '#FCA5A5' };
-    case 'endangered':
-      return { label: 'Endangered', bg: 'rgba(249, 115, 22, 0.15)', border: 'rgba(249, 115, 22, 0.4)', text: '#FDBA74' };
-    case 'vulnerable':
-      return { label: 'Vulnerable', bg: 'rgba(234, 179, 8, 0.15)', border: 'rgba(234, 179, 8, 0.4)', text: '#FDE047' };
-    case 'near threatened':
-      return { label: 'Near Threatened', bg: 'rgba(59, 130, 246, 0.15)', border: 'rgba(59, 130, 246, 0.4)', text: '#93C5FD' };
-    case 'least concern':
-    default:
-      return { label: status || 'Least Concern', bg: 'rgba(16, 185, 129, 0.15)', border: 'rgba(16, 185, 129, 0.4)', text: '#6EE7B7' };
-  }
-}
+// Re-exported for backward compatibility with any remaining callers.
+export const getStatusInfo = getSpeciesStatusInfo;
 
 export default function SpeciesCard({ species, priority = false }) {
   const { isAuthenticated, isSaved, toggleSaved, openAuthModal } = useAuth();
+  const { language, t } = useLanguage();
   const liked = isSaved('species', species.slug);
-  const statusInfo = getStatusInfo(species.conservationStatus);
+  const statusInfo = getSpeciesStatusInfo(species.conservationStatus, language);
 
   return (
     <article className="species-card">
@@ -75,7 +64,7 @@ export default function SpeciesCard({ species, priority = false }) {
           <div className="species-card__specs-row">
             <div className="species-card__spec-chip">
               <Layers size={11} />
-              <span>{species.group || 'Marine Taxa'}</span>
+              <span>{species.group || t('marineLife.card.genericTaxa')}</span>
             </div>
             {species.habitat && (
               <div className="species-card__spec-chip">
@@ -112,7 +101,7 @@ export default function SpeciesCard({ species, priority = false }) {
             </div>
 
             <span className="species-card__cta">
-              <span>Field Profile</span>
+              <span>{t('marineLife.card.viewCta')}</span>
               <ArrowRight size={14} className="species-card__cta-arrow" />
             </span>
           </div>

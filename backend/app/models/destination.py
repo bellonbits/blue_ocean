@@ -12,7 +12,7 @@ import enum
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Boolean, DateTime, Enum, Float, ForeignKey, String, Text, func
+from sqlalchemy import Boolean, DateTime, Enum, Float, ForeignKey, String, Text, UniqueConstraint, func
 from sqlalchemy.dialects.postgresql import ARRAY, JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -75,3 +75,42 @@ class Destination(Base):
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
     )
+
+    translations: Mapped[list["DestinationTranslation"]] = relationship(
+        back_populates="destination", cascade="all, delete-orphan"
+    )
+
+
+class DestinationTranslation(Base):
+    """Non-English content for a destination — English itself lives on the
+    base `Destination` row (name/tagline/short_description/full_description/
+    highlights), so this table only ever holds the other languages (today,
+    just 'so' for Somali). A missing row for a given language just means
+    that translation hasn't been written yet; the public API falls back to
+    the English base fields rather than showing a blank page (see
+    `_localize` in destinations.py) — first-draft-then-human-review Somali
+    content is still better represented as "not yet translated" than as
+    silently-wrong English.
+    """
+
+    __tablename__ = "destination_translations"
+    __table_args__ = (UniqueConstraint("destination_id", "language", name="uq_destination_translation_language"),)
+
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    destination_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("destinations.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    language: Mapped[str] = mapped_column(String(5), nullable=False)
+
+    title: Mapped[str | None] = mapped_column(String(150))
+    tagline: Mapped[str | None] = mapped_column(Text)
+    short_description: Mapped[str | None] = mapped_column(Text)
+    full_description: Mapped[str | None] = mapped_column(Text)
+    highlights: Mapped[list[str]] = mapped_column(ARRAY(String), default=list)
+
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
+
+    destination: Mapped["Destination"] = relationship(back_populates="translations")

@@ -1,12 +1,15 @@
 import { useState, useMemo } from 'react';
 import { Search, RotateCcw } from 'lucide-react';
 import CommunityStoryCard from './CommunityStoryCard';
-import { COMMUNITY_CATEGORIES } from '../../data/communities';
+import { getCommunityCategories } from '../../data/communities';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceGrid.css';
 
 const REGIONS = ['Puntland', 'Jubaland', 'Somalia'];
 
 export default function CommunityStoryGrid({ initialCategory = 'all', storiesList = [] }) {
+  const { language, t } = useLanguage();
+  const communityCategories = getCommunityCategories(language);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [selectedRegion, setSelectedRegion] = useState('all');
@@ -48,17 +51,17 @@ export default function CommunityStoryGrid({ initialCategory = 'all', storiesLis
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search stories, communities, locations..."
+            placeholder={t('communities.storyGrid.searchPlaceholder')}
             className="exp-grid__search-input"
-            aria-label="Search community stories"
+            aria-label={t('communities.storyGrid.searchAriaLabel')}
           />
         </div>
 
-        <div className="exp-grid__pills" role="group" aria-label="Filter by category">
+        <div className="exp-grid__pills" role="group" aria-label={t('communities.storyGrid.filterCategoryAriaLabel')}>
           <button type="button" className={`exp-grid__pill ${selectedCategory === 'all' ? 'is-active' : ''}`} onClick={() => setSelectedCategory('all')}>
-            All Stories
+            {t('communities.storyGrid.allStories')}
           </button>
-          {COMMUNITY_CATEGORIES.map((cat) => (
+          {communityCategories.map((cat) => (
             <button
               key={cat.id}
               type="button"
@@ -70,9 +73,9 @@ export default function CommunityStoryGrid({ initialCategory = 'all', storiesLis
           ))}
         </div>
 
-        <div className="exp-grid__pills" role="group" aria-label="Filter by region">
+        <div className="exp-grid__pills" role="group" aria-label={t('communities.storyGrid.filterRegionAriaLabel')}>
           <button type="button" className={`exp-grid__pill ${selectedRegion === 'all' ? 'is-active' : ''}`} onClick={() => setSelectedRegion('all')}>
-            All Regions
+            {t('communities.storyGrid.allRegions')}
           </button>
           {REGIONS.map((region) => (
             <button
@@ -98,14 +101,14 @@ export default function CommunityStoryGrid({ initialCategory = 'all', storiesLis
           <div className="exp-grid__empty-icon">
             <Search size={32} />
           </div>
-          <h3 className="exp-grid__empty-title">No stories matched your search</h3>
+          <h3 className="exp-grid__empty-title">{t('communities.storyGrid.emptyTitle')}</h3>
           <p className="exp-grid__empty-desc">
-            Try a different category or region, or clear your search.
+            {t('communities.storyGrid.emptyDesc')}
           </p>
           {hasActiveFilters && (
             <button type="button" className="exp-grid__empty-btn" onClick={handleReset}>
               <RotateCcw size={16} />
-              <span>Reset Filters</span>
+              <span>{t('communities.storyGrid.resetFilters')}</span>
             </button>
           )}
         </div>

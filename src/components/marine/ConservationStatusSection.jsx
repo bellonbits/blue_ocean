@@ -1,12 +1,14 @@
 import { Shield, AlertCircle, Heart, Anchor, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getStatusInfo } from './SpeciesCard';
+import { getSpeciesStatusInfo } from '../../data/marineLife';
 import { getConservationProjectsForSpecies } from '../../data/conservation';
+import { useLanguage } from '../../context/LanguageContext';
 import './ConservationStatusSection.css';
 
 export default function ConservationStatusSection({ species }) {
-  const statusInfo = getStatusInfo(species.conservationStatus);
-  const linkedProjects = getConservationProjectsForSpecies(species.slug);
+  const { language } = useLanguage();
+  const statusInfo = getSpeciesStatusInfo(species.conservationStatus, language);
+  const linkedProjects = getConservationProjectsForSpecies(species.slug, language);
 
   return (
     <section className="con-status-sec section" aria-labelledby="con-status-heading">

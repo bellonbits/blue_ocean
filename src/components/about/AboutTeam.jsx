@@ -1,24 +1,27 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Info } from 'lucide-react';
 import { getAllTeams } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 import ResearchTeamCard from '../research/ResearchTeamCard';
 import '../research/ResearchTeamCard.css';
 import '../../pages/ResearchTeamPage.css';
 
 export default function AboutTeam() {
-  const teams = getAllTeams();
+  const { language, t } = useLanguage();
+  const teams = getAllTeams(language);
+  const localizedPath = (path) => `/${language}${path}`;
 
   return (
     <section className="research-obj section" aria-labelledby="about-team-heading">
       <div className="container">
         <div className="section-header reveal">
-          <span className="label-text">OUR TEAM</span>
+          <span className="label-text">{t('about.team.label')}</span>
           <div className="divider" />
           <h2 className="section-heading" id="about-team-heading">
-            The units behind the work
+            {t('about.team.heading')}
           </h2>
           <p className="section-subheading">
-            Blue Ocean's field research runs through specialist units organized by area of focus.
+            {t('about.team.subheading')}
           </p>
         </div>
 
@@ -28,8 +31,7 @@ export default function AboutTeam() {
         >
           <Info size={16} />
           <span>
-            Individual staff profiles are not yet published — teams are shown here as organizational units until
-            Blue Ocean's full roster is confirmed.
+            {t('about.team.notice')}
           </span>
         </div>
 
@@ -40,8 +42,8 @@ export default function AboutTeam() {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: 'var(--space-10)' }}>
-          <Link to="/research/team" className="btn btn-outline btn-lg">
-            <span>View Full Research Team</span>
+          <Link to={localizedPath('/research/team')} className="btn btn-outline btn-lg">
+            <span>{t('about.team.viewAllCta')}</span>
             <ArrowRight size={16} />
           </Link>
         </div>

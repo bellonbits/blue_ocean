@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, Sun, Compass, Heart, ArrowRight, Sparkles } from 'lucide-react';
 import FramerCarousel from '../ui/FramerCarousel';
+import { useLanguage } from '../../context/LanguageContext';
 import './ExploreCoast.css';
 
 const regionsData = [
@@ -89,6 +90,8 @@ const regionsData = [
 ];
 
 export default function ExploreCoast() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
   const [likes, setLikes] = useState({});
 
   const toggleLike = (id, e) => {
@@ -102,14 +105,13 @@ export default function ExploreCoast() {
       <div className="container">
         {/* Header */}
         <div className="section-header reveal">
-          <span className="label-text">Regional Coastal Journeys</span>
+          <span className="label-text">{t('exploreCoastPreview.eyebrow')}</span>
           <div className="divider" />
           <h2 className="section-heading" id="explore-heading">
-            Explore Somalia's Coast
+            {t('exploreCoastPreview.heading')}
           </h2>
           <p className="section-subheading">
-            From the dramatic cliffs of Puntland to the tropical atolls of Jubaland —
-            discover curated journeys along Africa's longest maritime frontier.
+            {t('exploreCoastPreview.subheading')}
           </p>
         </div>
 
@@ -126,7 +128,7 @@ export default function ExploreCoast() {
 
               return (
                 <div className="lux-card">
-                  <Link to={region.path} className="lux-card__link">
+                  <Link to={localizedPath(region.path)} className="lux-card__link">
                     {/* Background Image */}
                     <div className="lux-card__bg">
                       <img
@@ -199,7 +201,7 @@ export default function ExploreCoast() {
                       </div>
 
                       <div className="lux-card__cta-btn">
-                        <span>Explore Region</span>
+                        <span>{t('exploreCoastPreview.cardCta')}</span>
                         <ArrowRight size={16} />
                       </div>
                     </div>

@@ -1,59 +1,27 @@
 import { Fish, Shield, Anchor, Trash2, GraduationCap, Users, Microscope } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import '../research/ResearchIntro.css';
 
-const points = [
-  {
-    icon: Fish,
-    title: 'Marine wildlife protection',
-    text: 'Safeguarding endangered and vulnerable species — sea turtles, sharks, dugongs, and cetaceans — across Somali waters.',
-  },
-  {
-    icon: Shield,
-    title: 'Habitat protection',
-    text: 'Defending coral reefs, seagrass meadows, and mangrove nurseries against degradation and unregulated development.',
-  },
-  {
-    icon: Anchor,
-    title: 'Sustainable fishing',
-    text: 'Working directly with artisanal fleets to protect fish stocks and nursery grounds without undermining livelihoods.',
-  },
-  {
-    icon: Trash2,
-    title: 'Pollution reduction',
-    text: 'Mapping marine debris and water quality, then organizing the cleanup and prevention work that data points toward.',
-  },
-  {
-    icon: GraduationCap,
-    title: 'Ocean education',
-    text: 'Building ocean literacy in coastal schools and communities to grow the next generation of stewards.',
-  },
-  {
-    icon: Users,
-    title: 'Community conservation',
-    text: 'Partnering with coastal communities so conservation is led by the people who depend on the ocean most.',
-  },
-  {
-    icon: Microscope,
-    title: 'Research-driven conservation',
-    text: 'Every initiative here is built directly on Blue Ocean\'s own field research — not assumption.',
-  },
-];
+const ICONS = [Fish, Shield, Anchor, Trash2, GraduationCap, Users, Microscope];
 
 export default function ConservationIntro() {
+  const { t } = useLanguage();
+  const points = t('conservation.intro.points');
+
   return (
     <section className="research-intro section" aria-labelledby="conservation-intro-heading">
       <div className="container">
         <div className="research-intro__header reveal">
-          <span className="label-text">Our Approach</span>
+          <span className="label-text">{t('conservation.intro.label')}</span>
           <div className="divider" />
           <h2 className="section-heading" id="conservation-intro-heading">
-            The ocean gives us life. Protecting it is everyone's responsibility.
+            {t('conservation.intro.heading')}
           </h2>
         </div>
 
         <div className="research-intro__grid reveal">
           {points.map((p, i) => {
-            const Icon = p.icon;
+            const Icon = ICONS[i] || Shield;
             return (
               <div key={i} className="research-intro__card">
                 <div className="research-intro__icon">

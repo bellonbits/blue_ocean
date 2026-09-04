@@ -58,6 +58,13 @@ class OrganizationSettings(Base):
     contact_subjects: Mapped[list[str]] = mapped_column(ARRAY(String), default=list)
     social_links: Mapped[list[dict]] = mapped_column(JSONB, default=list)
 
+    # Site-wide language configuration (Settings → Languages in the admin).
+    # `enabled_languages` gates which languages the switcher offers at all;
+    # `default_language` is what a first-time, no-preference visitor gets
+    # before browser-language detection/localStorage kicks in client-side.
+    enabled_languages: Mapped[list[str]] = mapped_column(ARRAY(String), default=lambda: ["en", "so"])
+    default_language: Mapped[str] = mapped_column(String(5), default="en", server_default="en")
+
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now(), onupdate=func.now()

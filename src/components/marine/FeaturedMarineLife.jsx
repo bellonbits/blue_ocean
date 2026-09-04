@@ -2,12 +2,15 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Shield, Compass, Heart } from 'lucide-react';
 import { getFeaturedSpecies } from '../../data/marineLife';
+import { useLanguage } from '../../context/LanguageContext';
 import FramerCarousel from '../ui/FramerCarousel';
 import SpeciesCard from './SpeciesCard';
 import './FeaturedMarineLife.css';
 
 export default function FeaturedMarineLife() {
-  const featured = getFeaturedSpecies();
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+  const featured = getFeaturedSpecies(language);
 
   return (
     <section className="featured-marine section" aria-labelledby="featured-marine-heading">
@@ -15,19 +18,19 @@ export default function FeaturedMarineLife() {
         {/* Header */}
         <div className="featured-marine__header reveal">
           <div className="featured-marine__header-left">
-            <span className="label-text">ICONIC OCEAN TAXA</span>
+            <span className="label-text">{t('marineLife.featured.eyebrow')}</span>
             <div className="divider" />
             <h2 className="section-heading" id="featured-marine-heading">
-              Meet the life of the ocean.
+              {t('marineLife.featured.heading')}
             </h2>
             <p className="section-subheading">
-              From giant oceanic filter feeders in deep upwelling trenches to ancient sea turtles nesting along untouched tombolo dunes.
+              {t('marineLife.featured.subheading')}
             </p>
           </div>
 
           <div className="featured-marine__header-right">
-            <Link to="/marine-life/species" className="featured-marine__view-all-btn">
-              <span>Full Species Directory</span>
+            <Link to={localizedPath('/marine-life/species')} className="featured-marine__view-all-btn">
+              <span>{t('marineLife.featured.viewAllCta')}</span>
               <ArrowRight size={16} />
             </Link>
           </div>

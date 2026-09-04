@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, Sun, Compass, Heart, Share2, ArrowRight, Sparkles } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { useLanguage } from '../../context/LanguageContext';
 import PlaceImage from '../shared/PlaceImage';
 import './LuxuryDestinationCard.css';
 
 export default function LuxuryDestinationCard({ destination }) {
   const { isAuthenticated, isSaved, toggleSaved, openAuthModal } = useAuth();
+  const { t } = useLanguage();
   const liked = isSaved('destination', destination.slug);
   const [copied, setCopied] = useState(false);
 
@@ -65,14 +67,18 @@ export default function LuxuryDestinationCard({ destination }) {
             <div className="lux-card__spec-item">
               <Calendar size={12} className="lux-card__spec-icon" />
               <span className="lux-card__spec-val">
-                {destination.region === 'Puntland' ? '7 Days' : destination.region === 'Jubaland' ? '6 Days' : '5 Days'}
+                {destination.regionId === 'puntland'
+                  ? t('exploreCoast.card.duration7')
+                  : destination.regionId === 'jubaland'
+                    ? t('exploreCoast.card.duration6')
+                    : t('exploreCoast.card.duration5')}
               </span>
             </div>
             <div className="lux-card__spec-divider" />
             <div className="lux-card__spec-item">
               <Sun size={12} className="lux-card__spec-icon" />
               <span className="lux-card__spec-val">
-                {destination.bestSeason ? destination.bestSeason.split(' ')[0] : 'Oct-Apr'}
+                {destination.bestSeason ? destination.bestSeason.split(' ')[0] : t('exploreCoast.card.seasonFallback')}
               </span>
             </div>
           </div>
@@ -82,17 +88,17 @@ export default function LuxuryDestinationCard({ destination }) {
             <button
               onClick={handleLike}
               className={`lux-card__action-btn ${liked ? 'lux-card__action-btn--liked' : ''}`}
-              aria-label="Save destination"
+              aria-label={t('exploreCoast.card.saveAriaLabel')}
             >
               <Heart size={14} fill={liked ? '#EF4444' : 'none'} color={liked ? '#EF4444' : '#FFFFFF'} />
             </button>
             <button
               onClick={handleShare}
               className="lux-card__action-btn"
-              aria-label="Share destination"
+              aria-label={t('exploreCoast.card.shareAriaLabel')}
             >
               <Share2 size={14} color="#FFFFFF" />
-              {copied && <span className="lux-card__toast">Copied!</span>}
+              {copied && <span className="lux-card__toast">{t('exploreCoast.card.copiedToast')}</span>}
             </button>
           </div>
         </div>
@@ -100,10 +106,10 @@ export default function LuxuryDestinationCard({ destination }) {
         {/* Bottom Area: Prominent Horizontal Title, Metrics & CTA */}
         <div className="lux-card__bottom">
           <div className="lux-card__badge-row">
-            <span className="lux-card__badge-sub">{destination.destinationType || 'Coastal Heritage'}</span>
+            <span className="lux-card__badge-sub">{destination.destinationType || t('exploreCoast.card.heritageFallback')}</span>
             <div className="lux-card__score-badge">
               <Sparkles size={12} />
-              <span>{biodiversityScore} Bio Score</span>
+              <span>{biodiversityScore} {t('exploreCoast.card.bioScore')}</span>
             </div>
           </div>
 
@@ -115,20 +121,20 @@ export default function LuxuryDestinationCard({ destination }) {
           <div className="lux-card__metrics">
             <div className="lux-card__metric">
               <span className="lux-card__metric-num">{biodiversityScore}</span>
-              <span className="lux-card__metric-lbl">Biodiversity</span>
+              <span className="lux-card__metric-lbl">{t('exploreCoast.card.biodiversity')}</span>
             </div>
             <div className="lux-card__metric">
               <span className="lux-card__metric-num">{coralIntegrity}%</span>
-              <span className="lux-card__metric-lbl">Reef Health</span>
+              <span className="lux-card__metric-lbl">{t('exploreCoast.card.reefHealth')}</span>
             </div>
             <div className="lux-card__metric">
-              <span className="lux-card__metric-num">Somalia</span>
-              <span className="lux-card__metric-lbl">Coastline</span>
+              <span className="lux-card__metric-num">{t('exploreCoast.card.coastlineCountry')}</span>
+              <span className="lux-card__metric-lbl">{t('exploreCoast.card.coastlineLabel')}</span>
             </div>
           </div>
 
           <div className="lux-card__cta-btn">
-            <span>Explore Destination</span>
+            <span>{t('exploreCoast.card.exploreDestinationCta')}</span>
             <ArrowRight size={16} />
           </div>
         </div>

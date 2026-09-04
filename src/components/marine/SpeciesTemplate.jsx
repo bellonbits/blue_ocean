@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Search, Waves } from 'lucide-react';
 import { useScrollReveal } from '../../lib/hooks';
 import { getSpeciesBySlug } from '../../data/marineLife';
+import { useLanguage } from '../../context/LanguageContext';
 import SpeciesHero from './SpeciesHero';
 import SpeciesInfo from './SpeciesInfo';
 import SpeciesGallery from './SpeciesGallery';
@@ -14,7 +15,8 @@ import VideoEmbed from '../shared/VideoEmbed';
 
 export default function SpeciesTemplate() {
   const { slug } = useParams();
-  const species = getSpeciesBySlug(slug);
+  const { language } = useLanguage();
+  const species = getSpeciesBySlug(slug, language);
   useScrollReveal();
 
   if (!species) {

@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Activity } from 'lucide-react';
 import { getConservationProjectsForDestination } from '../../data/conservation';
+import { useLanguage } from '../../context/LanguageContext';
 import './DestinationResearch.css';
 
 export default function DestinationConservation({ destination }) {
-  const projects = getConservationProjectsForDestination(destination.slug);
+  const { language } = useLanguage();
+  const projects = getConservationProjectsForDestination(destination.slug, language);
 
   if (projects.length === 0) return null;
 

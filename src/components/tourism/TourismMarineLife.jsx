@@ -1,25 +1,28 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getFeaturedSpecies } from '../../data/marineLife';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceCategories.css';
 
 export default function TourismMarineLife() {
-  const species = getFeaturedSpecies().slice(0, 6);
+  const { language, t } = useLanguage();
+  const species = getFeaturedSpecies(language).slice(0, 6);
+  const localizedPath = (path) => `/${language}${path}`;
 
   return (
     <section className="exp-cats section" aria-labelledby="tourism-marine-life-heading">
       <div className="container">
         <div className="section-header centered reveal">
-          <span className="label-text">Marine Life You Could Encounter</span>
+          <span className="label-text">{t('tourism.marineLife.label')}</span>
           <div className="divider centered" />
           <h2 className="section-heading" id="tourism-marine-life-heading">
-            Meet the life beneath the surface.
+            {t('tourism.marineLife.heading')}
           </h2>
         </div>
 
         <div className="exp-cats__grid">
           {species.map((s) => (
-            <Link key={s.id} to={`/marine-life/species/${s.slug}`} className="exp-cat-card">
+            <Link key={s.id} to={localizedPath(`/marine-life/species/${s.slug}`)} className="exp-cat-card">
               <div className="exp-cat-card__media">
                 <img src={s.heroImage} alt={s.commonName} className="exp-cat-card__img" loading="lazy" />
                 <div className="exp-cat-card__overlay" />
@@ -30,7 +33,7 @@ export default function TourismMarineLife() {
                 <p className="exp-cat-card__tagline">{s.tagline}</p>
 
                 <span className="exp-cat-card__cta">
-                  <span>Discover</span>
+                  <span>{t('tourism.marineLife.ctaDiscover')}</span>
                   <ArrowRight size={14} className="exp-cat-card__arrow" />
                 </span>
               </div>
@@ -39,8 +42,8 @@ export default function TourismMarineLife() {
         </div>
 
         <div className="reveal" style={{ display: 'flex', justifyContent: 'center', marginTop: 'var(--space-10)' }}>
-          <Link to="/marine-life" className="btn btn-primary btn-lg">
-            <span>Explore Full Marine Life Library</span>
+          <Link to={localizedPath('/marine-life')} className="btn btn-primary btn-lg">
+            <span>{t('tourism.marineLife.ctaExploreLibrary')}</span>
             <ArrowRight size={18} />
           </Link>
         </div>

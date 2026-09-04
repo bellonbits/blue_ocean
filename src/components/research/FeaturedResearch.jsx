@@ -1,27 +1,30 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Activity, ArrowRight } from 'lucide-react';
-import { getFeaturedProject, getAllProjects } from '../../data/research';
+import { getFeaturedProject, getAllProjects, getStatusLabel } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 import ResearchProjectCard from './ResearchProjectCard';
 import './FeaturedResearch.css';
 
 export default function FeaturedResearch() {
-  const featured = getFeaturedProject();
-  const others = getAllProjects()
+  const { language, t } = useLanguage();
+  const featured = getFeaturedProject(language);
+  const others = getAllProjects(language)
     .filter((p) => p.slug !== featured.slug)
     .slice(0, 3);
+  const localizedPath = (path) => `/${language}${path}`;
 
   return (
     <section className="featured-research section" aria-labelledby="featured-research-heading">
       <div className="container">
         <div className="section-header reveal">
-          <span className="label-text">FEATURED PROJECT</span>
+          <span className="label-text">{t('research.featured.eyebrow')}</span>
           <div className="divider" />
           <h2 className="section-heading" id="featured-research-heading">
-            Research in focus
+            {t('research.featured.heading')}
           </h2>
         </div>
 
-        <Link to={`/research/projects/${featured.slug}`} className="featured-research__card reveal">
+        <Link to={localizedPath(`/research/projects/${featured.slug}`)} className="featured-research__card reveal">
           <div className="featured-research__media">
             <img src={featured.heroImage} alt={featured.title} className="featured-research__img" loading="eager" />
             <div className="featured-research__overlay" />
@@ -39,12 +42,12 @@ export default function FeaturedResearch() {
               </span>
               <span className="featured-research__meta-item">
                 <Activity size={13} />
-                <span>{featured.status}</span>
+                <span>{getStatusLabel(featured.status, language)}</span>
               </span>
             </div>
 
             <span className="featured-research__cta">
-              <span>Explore project</span>
+              <span>{t('research.featured.cta')}</span>
               <ArrowRight size={16} />
             </span>
           </div>

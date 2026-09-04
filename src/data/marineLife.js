@@ -1,7 +1,16 @@
 // =========================================================
 // Marine Life Data Model & Classification Library
 // Blue Ocean Somalia — Sprint 3: Marine Life Field Guide
+//
+// i18n note: each translatable record carries a `translations.so`
+// block with only the Somali overrides for that record (see
+// ../lib/i18n/localizeData.js for merge semantics). Fields used as
+// filter/lookup keys (`category`, `habitat`, `conservationStatus`)
+// stay in English on the record itself — their translated display
+// labels are served through the getter functions below instead.
 // =========================================================
+
+import { localize, localizeList } from '../lib/i18n/localizeData.js';
 
 export const marineCategories = [
   {
@@ -13,6 +22,14 @@ export const marineCategories = [
     count: 14,
     countLabel: '14+ Documented Species',
     group: 'Cetaceans',
+    translations: {
+      so: {
+        title: 'Dhurwaaga & Nibiriyada',
+        description: 'Dhurwaagyada wareega ee deggan, nibiriyada guuritaanka ah ee Humpback-ka, iyo nibiriyada buluugga ah ee aan sida fudud loo arki karin oo dhex mara moolalka badda ee qoto dheer.',
+        countLabel: '14+ Nooc oo la Diiwaan Geliyay',
+        group: 'Cetacea (Xayawaanka Naaska leh ee Badda)',
+      },
+    },
   },
   {
     id: 'sharks-rays',
@@ -23,6 +40,14 @@ export const marineCategories = [
     count: 28,
     countLabel: '28+ Documented Species',
     group: 'Elasmobranchs',
+    translations: {
+      so: {
+        title: 'Libaaxyada Badda & Diinka Baalasha Leh',
+        description: 'Libaaxyada badda ee nibiriga ah oo qaboobsan, ugaarsadayaasha ugu sarreeya qalcadaha dhagax-mareenka, iyo diinka manta-ha ee weyn ee isugu yimaadda marinnada hodanka ku ah nafaqada.',
+        countLabel: '28+ Nooc oo la Diiwaan Geliyay',
+        group: 'Elasmobranchs (Kalluunka Qalfoofka Cartilage-ka ah)',
+      },
+    },
   },
   {
     id: 'sea-turtles',
@@ -33,6 +58,14 @@ export const marineCategories = [
     count: 5,
     countLabel: '5 Documented Species',
     group: 'Marine Reptiles',
+    translations: {
+      so: {
+        title: 'Diinka Badeedka',
+        description: 'Diinka cagaaran, diinka qolof-dhexaadka ah, diinka madaxa weyn, iyo diinka saytuunka ah oo isticmaala xeebaha ugxan-dhigashada ee qadiimiga ah ee ku yaal Hufun iyo Bajuni.',
+        countLabel: '5 Nooc oo la Diiwaan Geliyay',
+        group: 'Xamaaratada Badda',
+      },
+    },
   },
   {
     id: 'fish',
@@ -43,6 +76,14 @@ export const marineCategories = [
     count: 420,
     countLabel: '420+ Documented Species',
     group: 'Actinopterygii',
+    translations: {
+      so: {
+        title: 'Kalluunka',
+        description: 'Kalluun midab dhalaalaya oo ku nool qalcadaha dhagax-mareenka, jeedarka iyo tuna-ha isku ururiya, kalluunka dayimaha leh, iyo kalluunka waaweyn ee ku barwaaqoobaya moolalka badda ee ugu hodan badan Afrika.',
+        countLabel: '420+ Nooc oo la Diiwaan Geliyay',
+        group: 'Actinopterygii (Kalluunka Baalasha Adag leh)',
+      },
+    },
   },
   {
     id: 'coral-reefs',
@@ -53,6 +94,14 @@ export const marineCategories = [
     count: 180,
     countLabel: '180+ Coral Types',
     group: 'Cnidarians',
+    translations: {
+      so: {
+        title: 'Dhagax-Mareenka Badda',
+        description: 'Dhagax-mareenka maskaxda u eg, dhagax-mareenka miiska u eg, iyo beeraha dhagax-mareenka ee waaweyn oo hoy u ah in ka badan 80% kala duwanaanshaha noolaha xeebaha.',
+        countLabel: '180+ Nooc oo Dhagax-Mareen ah',
+        group: 'Cnidaria (Xayawaanka Qanjiraha Sunta leh)',
+      },
+    },
   },
   {
     id: 'seagrass',
@@ -63,6 +112,14 @@ export const marineCategories = [
     count: 12,
     countLabel: '12 Seagrass Types',
     group: 'Marine Angiosperms',
+    translations: {
+      so: {
+        title: 'Doogga Badda',
+        description: 'Dooxooyin balaadhan oo badda hoosteeda ah kuwaas oo u shaqeeya sidii meelo muhiim ah oo lagu ururiyo kaarboonka buluuga ah, waxayna sidoo kale u ahaan meelo muhiim ah oo ay wax ka daaqaan doonbadeedyada iyo diinka cagaaran.',
+        countLabel: '12 Nooc oo Doog Badeed ah',
+        group: 'Dhirta Badda ee Ubaxa Dhalaya',
+      },
+    },
   },
   {
     id: 'crustaceans',
@@ -73,6 +130,14 @@ export const marineCategories = [
     count: 85,
     countLabel: '85+ Documented Species',
     group: 'Crustacea',
+    translations: {
+      so: {
+        title: 'Xayawaanka Qolofta Adag leh',
+        description: 'Aargoosto qodxaha leh, dhooddi biyaha qoto dheer ku nool, dhooddiga "ashaarad", iyo qololaha nadiifiyaha ah, kuwaas oo sameeya saldhig muhiim ah oo shabakadda cuntada guntinka badda.',
+        countLabel: '85+ Nooc oo la Diiwaan Geliyay',
+        group: 'Crustacea (Xayawaanka Qolofta Adag leh)',
+      },
+    },
   },
   {
     id: 'other',
@@ -83,6 +148,14 @@ export const marineCategories = [
     count: 65,
     countLabel: '65+ Documented Species',
     group: 'Invertebrates',
+    translations: {
+      so: {
+        title: 'Noolaha Badda Kale',
+        description: 'Xayawaanka qodxaha leh (Echinoderms), xayawaanka sida foosxaska ah (cephalopods), khiyaarka badda, sabaayada waaweyn, iyo qallanjada badda oo ku badan qarticka qaaradeed ee Soomaaliya.',
+        countLabel: '65+ Nooc oo la Diiwaan Geliyay',
+        group: 'Xayawaanka Laf-dhabarta La\'aan',
+      },
+    },
   },
 ];
 
@@ -96,6 +169,14 @@ export const marineEcosystems = [
     keyRegions: ['Bajuni Archipelago', 'Cap Guardafui', 'Qandala Coves'],
     healthMetric: '94% Structural Integrity',
     speciesSupported: 'Over 600 species',
+    translations: {
+      so: {
+        title: 'Dhagax-Mareenka Saafiga ah',
+        description: 'Dhagax-mareen xoog badan oo xannibaya hirarka iyo dhagax-mareen ilaalisan oo leh awood gaar ah oo u dulqaadan kulaylka, gaar ahaan aagagga Bajuni iyo Cap Guardafui.',
+        healthMetric: '94% Dhisme oo Dhammaystiran',
+        speciesSupported: 'In ka badan 600 oo nooc',
+      },
+    },
   },
   {
     id: 'seagrass-meadows',
@@ -106,6 +187,14 @@ export const marineEcosystems = [
     keyRegions: ['Lower Juba Coast', 'Kismayo Lagoon', 'Hafun Bay'],
     healthMetric: '620 km² Documented Extent',
     speciesSupported: 'Dugongs, Green Turtles, Juvenile Snappers',
+    translations: {
+      so: {
+        title: 'Dooxooyinka Doogga Badda ee Kaarboonka Buluuga ah',
+        description: 'Dooxooyin doog badeed oo qaro weyn ah oo hoos yimaada heerka mowjadaha, kuwaas oo nuugaya kaarboon 35 jibbaar ka badan xawaaraha kaymaha roobabka kulaylaha, waxayna sidoo kale koriyaan kalluunka yaryar.',
+        healthMetric: '620 km² oo Baaxad ah oo la Diiwaan Geliyay',
+        speciesSupported: 'Doonbadeedyada, Diinka Cagaaran, Kalluunka Snapper ee Yaryar',
+      },
+    },
   },
   {
     id: 'deep-pelagic-upwellings',
@@ -116,6 +205,14 @@ export const marineEcosystems = [
     keyRegions: ['Ras Asir (Cap Guardafui)', 'Bari Pelagic Shelf', 'Nugaal Trough'],
     healthMetric: 'Top 5 Marine Upwellings Globally',
     speciesSupported: 'Whale Sharks, Yellowfin Tuna, Humpbacks',
+    translations: {
+      so: {
+        title: 'Moolalka Badda ee Qoto Dheer',
+        description: 'Qulqulka Badda Soomaaliya wuxuu sameeyaa mid ka mid ah afarta molal ee ugu waaweyn adduunka, isagoo soo jiidaya biyo qabow oo qoto dheer ah, kuwaas oo nafaqo aad u badan sidda, ilaa dusha sare.',
+        healthMetric: 'Kow ilaa Shan ee Moolalka Badda ee Adduunka',
+        speciesSupported: 'Libaaxa Nibiriga ah, Jeedarka, Nibiriga Humpback-ka',
+      },
+    },
   },
   {
     id: 'mangrove-forests',
@@ -126,6 +223,14 @@ export const marineEcosystems = [
     keyRegions: ['Bajuni Barrier Islands', 'Lower Juba Estuary', 'Eyl Gorge Mouth'],
     healthMetric: 'Vital Shoreline Defense',
     speciesSupported: 'Mud Crabs, Sea Bass, Herons, Reef Sharks',
+    translations: {
+      so: {
+        title: 'Kaymaha Cawska Badda (Mangrove) ee Xeebta',
+        description: 'Kaymaha xididada dhaadheer leh ee nooca Rhizophora mucronata ayaa ilaaliya tuulooyinka xeebta ka hortagga duufaannada, iyagoo sidoo kale u ah meelo koriya dhalaanka kalluunka.',
+        healthMetric: 'Difaac Muhiim ah oo Xeebta ah',
+        speciesSupported: 'Dhooddiga Dhoobka, Kalluunka Bass-ka, Haadka Calaanle, Libaaxyada Dhagax-mareenka',
+      },
+    },
   },
   {
     id: 'sandy-tombolos-dunes',
@@ -136,6 +241,14 @@ export const marineEcosystems = [
     keyRegions: ['Hafun Peninsula', 'Bargaal Shoreline', 'Mogadishu Coastal Arc'],
     healthMetric: 'Critical Nesting Habitat',
     speciesSupported: 'Loggerheads, Hawksbills, Ghost Crabs',
+    translations: {
+      so: {
+        title: 'Ciidda iyo Dhaadhaha Xeebta',
+        description: 'Ciid dabiici ah oo balaadhan iyo buurooyin ciid xeebeed ah oo ah meelo ugxan-dhigasho aan la carqaladeynin oo u ah abtirsiinta qadiimiga ah ee diinka badeedka.',
+        healthMetric: 'Deegaan Ugxan-dhigasho oo Muhiim ah',
+        speciesSupported: 'Diinka Madaxa Weyn, Diinka Qolof-dhexaadka ah, Dhooddiga Ashaaradda',
+      },
+    },
   },
   {
     id: 'rocky-cliffs-coves',
@@ -146,6 +259,14 @@ export const marineEcosystems = [
     keyRegions: ['Bari Headlands', 'Eyl Escarpment', 'Qandala Sea Caves'],
     healthMetric: 'Unspoiled Frontier',
     speciesSupported: 'Rock Lobsters, Moray Eels, Seabird Colonies',
+    translations: {
+      so: {
+        title: 'Buuraha Dhagaxa Nuurad ah iyo Dhinacyada Xeebta',
+        description: 'Qaababka dhagaxa nuurad ah ee Karkaar ee dhaadheer ayaa gala biyaha badda ee buluug-madow ah, iyagoo sameeya deegaano god-god ah iyo meelo hoyasho ah.',
+        healthMetric: 'Xudduud aan Weli la Xumeyn',
+        speciesSupported: 'Aargoosto Dhagaxa, Maraakiibta Moray, Kooxaha Haadka Badda',
+      },
+    },
   },
 ];
 
@@ -197,6 +318,25 @@ export const speciesList = [
     conservationProjects: [
       { id: 'safe-corridors', title: 'Marine Mammal Migration Safe Corridors', region: 'Somali Basin' },
     ],
+    translations: {
+      so: {
+        commonName: 'Dhurwaanka Sanka Gaaban',
+        categoryName: 'Dhurwaaga & Nibiriyada',
+        group: 'Xayawaanka Naaska leh ee Badda',
+        tagline: 'Caqli badan. Bulsheed. Loo abuuray badda furan.',
+        editorialStatement: 'Kalluumeystayaasha xeebta Soomaaliyeed ayaa aad u ixtiraama sababtoo ah waxay hagaan kooxaha kalluunka xilliyeed, xayawaankan naaska leh ee caqliga badan waxay sameeyaan kooxo isku dhow oo dhex mara haróorooyinka gaagaaban iyo jiirarka xeebta ee qoto dheer.',
+        description: 'Dhurwaanka sanka gaaban ee caadiga ah waa mid ka mid ah xayawaanka naaska leh ee badda ee ugu caansan adduunka. Waqooyiga xeebta Soomaaliya ee dherer ahaan 3,025 km, dadka deggan halkaas waxay ku barwaaqoobaan halka ay ku kulmaan Gacanka Cadmeed iyo Badweynta Hindiya ee diiran.',
+        distribution: 'Waxay si ballaaran ugu faafaan xeebta Soomaaliya oo dhan, iyagoo aad ugu badan marinka Gacanka Cadmeed iyo biyaha gaagaaban ee jasiiradaha Bajuni.',
+        diet: 'Xarshinbiro, kalluunka mackerel-ka ee isugu urura, dhalaanka jeedarka, kalluunka mullet-ka, iyo xayawaanka qolofta leh ee guntinka badda.',
+        statusExplanation: 'Caalamka ahaan waxaa lagu qeexaa Halis Yar (IUCN), inkastoo dadyowga Soomaaliyeed ay wajahaan cadaadis soo kordhaya oo ka imanaya shabagyada aan la kormeerin iyo socodka maraakiibta ee marinnada badda.',
+        interestingFacts: [
+          'Kalluumeystayaasha Soomaaliyeed ayaa ka wada shaqeeya dhurwaanka jiilba jiil.',
+          'Waxay dabbaali karaan xawaare dhaafaya 35 km/h markay ugaarsanayaan.',
+          'Dhurwaan kastaa wuxuu leeyahay foodhi gaar ah oo u shaqeeya sida magac shakhsi ah.',
+          'Maskaxdoodu waxay leedahay awood sare, taasoo u oggolaanaysa xalinta dhibaatooyinka kakan iyo iskaashiga bulsheed.',
+        ],
+      },
+    },
   },
 
   // 2. Whale Shark (Sharks & Rays)
@@ -246,6 +386,25 @@ export const speciesList = [
     conservationProjects: [
       { id: 'shark-sanctuary', title: 'Horn of Africa Elasmobranch Protection Initiative', region: 'Gulf of Aden & Guardafui Channel' },
     ],
+    translations: {
+      so: {
+        commonName: 'Libaaxa Nibiriga ah ee Badda',
+        categoryName: 'Libaaxyada Badda & Diinka Baalasha Leh',
+        group: 'Elasmobranch (Kalluunka Qalfoofka Cartilage-ka ah)',
+        tagline: 'Waaweynta qaboobsan ee moolalka qoto dheer ee hodanka ku ah nafaqada.',
+        editorialStatement: 'Isagoo aamusnaan ku sii socda moolalka hodanka ku ah plankton-ka ee Geeska Afrika, kalluunka ugu weyn adduunka wuxuu marag u yahaan barwaaqada aan la taaban ee marinka badda ee Soomaaliya ee qoto dheer.',
+        description: 'Libaaxa nibiriga ah waa nooca kalluunka ugu weyn ee la yaqaan ee nool. Wuxuu gaadhaa dherer ka badan 12 mitir, xayawaankan si tartiib ah u dhaqaaqa oo cuntada shaandheeya wuxuu u guuraa kumanaan kiiloomitir si uu u raaco kobaca plankton-ka xilliyeed ee ka dhasha molalka xooggan ee Qulqulka Badda Soomaaliya intii u dhaxaysa Oktoobar iyo Abriil.',
+        distribution: 'Waxay ku badan yihiin qarka badda ee qoto dheer ee xeebta Puntland, aagagga molalka Raas Caseyr, iyo jidadka guuritaanka koonfureed ee xagga Kenya.',
+        diet: 'Plankton, krill, ukumaha kalluunka, dirxiga dhooddiga, iyo kalluun yaryar oo isugu urura sida sardhiinka.',
+        statusExplanation: 'Waxaa lagu qeexay Halis Xoogan liiska IUCN, sababo la xiriira kalluumeysiga taariikhiga ah ee ku beegan biyaha caalamiga ah, dhaawac uga yimaada maraakiibta marinnada mashquulka ah, iyo qabashada kama-dambeysta ah.',
+        interestingFacts: [
+          'In kasta oo ay waaweyn yihiin, libaaxyada nibiriga ah waxba uma dhimayaan bini-aadamka, waxayna wax ku cunaan oo keliya shaandhaha afkooda.',
+          'Libaax kasta wuxuu leeyahay qaab u gaar ah oo dhibco cad ah iyo xariiqyo ah oo ka danbeeya dhuxushiisa, sida faraha bini-aadamka.',
+          'Maqaarkoodu wuxuu gaadhaa dhererka 15 santimitir, kana dhigaya mid ka mid ah maqaarka ugu adag xayawaanka.',
+          'Waxay shaandheyn karaan in ka badan 6,000 litir oo biyo badeed ah saacad kasta intay wax cunayaan.',
+        ],
+      },
+    },
   },
 
   // 3. Green Sea Turtle (Sea Turtles)
@@ -294,6 +453,25 @@ export const speciesList = [
     conservationProjects: [
       { id: 'turtle-patrol', title: 'Community Beach Guardian Nest Protection Program', region: 'Hafun Sandspit' },
     ],
+    translations: {
+      so: {
+        commonName: 'Diinta Badeedka ee Cagaaran',
+        categoryName: 'Diinka Badeedka',
+        group: 'Xamaarad Badeed',
+        tagline: 'Safarayaasha qadiimiga ah oo ugxan ka dhiga ciidda saafiga ah.',
+        editorialStatement: 'Iyagoo dhex maraya badaha si ay ugu noqdaan xeebihii ay ka dhasheen, diinta badeedka ee cagaaran waxay matalaan malaayiin sano oo taariikh badeed oo nool ah oo ku teedsan xeebta Soomaaliya.',
+        description: 'Diinta badeedka ee cagaaran waa xamaarad badeed caan ah oo cunta doogga oo door muhiim ah ka ciyaarta ilaalinta doogga badda ee caafimaadka qaba. Ciidda xeebaha Soomaaliya ee aan la carqaladeynin, gaar ahaan Hufun iyo jasiiradaha Bajuni, waxay u shaqeeyaan sidii meelo ugxan-dhigasho oo muhiim ah.',
+        distribution: 'Meelaha ugxan-dhigashada ee Jasiirad-gacanka Hufun iyo Jasiiradaha Bajuni; waxayna wax ka daaqaan doogga badda intii u dhaxaysa Kismaayo iyo Boosaaso.',
+        diet: 'Kuwa waaweyn waxay ugu badnaan wax ka cunaan doogga badda (Thalassia) iyo algae-ga; kuwa yaryar waxay cunaan cunto kasta.',
+        statusExplanation: 'Waxaa lagu qeexay Halis Xoogan liiska IUCN, sababo la xiriira ururinta ukumaha taariikhiga ah, luminta xeebaha ugxan-dhigashada, cunista caagga (plastic-ka), iyo ku dhex xayirmis shabagyada kalluumeysiga.',
+        interestingFacts: [
+          'Diinta cagaaran magaceeda kama iman midabka qolofteeda, ee wuxuu ka yimid dufanka cagaaran ee hoosta qolofteeda ku yaal.',
+          'Diinta dhaddigga ah waxay ku noqotaa xeebtii ay ku dhalatay tobanaan sano ka hor si ay u dhigato ukumaheeda.',
+          'Iyagoo wax ka daaqaya doogga badda, waxay ka hortagaan in doogga xad-dhaafo oo dhinto, iyagoo ilaalinaya meelaha ay ku koraan kalluunka.',
+          'Waxay hakin karaan neefsigooda ilaa shan saacadood iyagoo hurda ama nasanaya.',
+        ],
+      },
+    },
   },
 
   // 4. Yellowfin Tuna (Fish)
@@ -342,6 +520,25 @@ export const speciesList = [
     conservationProjects: [
       { id: 'sustainable-catch', title: 'Fair Trade Handline Certification for Somali Artisanal Fleets', region: 'Puntland Coast' },
     ],
+    translations: {
+      so: {
+        commonName: 'Jeedarka Baalasha Huruudda ah',
+        categoryName: 'Kalluunka',
+        group: 'Actinopterygii (Kalluunka Baalasha Adag leh)',
+        tagline: 'Awood weyn oo xawaare sare leh oo ka mid ah Badweynta Hindiya.',
+        editorialStatement: 'Isagoo xawaare cajiib ah ku jarjaraya qulqulka badda, jeedarku wuxuu yahay wadnaha deegaanka iyo laf-dhabarta dhaqaale ee kalluumeysiga xeebta Soomaaliya.',
+        description: 'Jeedarku waa ugaarsadayaal badda ku caan baxay jidhkooda si fiican u qaabaysan, baalashooda huruudda ah ee dhalaalaya, iyo awoodooda dulqaadka aad u sarreysa.',
+        distribution: 'Waxay ku baahsan yihiin dhammaan biyaha badweynta Soomaaliya, iyagoo si gaar ah ugu badan xeebta Bari iyo Marinka Guardafui xilliyeed.',
+        diet: 'Sardhiin, kalluun yaryar, kalluunka duula, xarshinbiro, iyo dirxiga dhooddiga badda.',
+        statusExplanation: 'Waxaa lagu qeexay Halis u Dhow liiska IUCN, sababo la xiriira cadaadiska kalluumeysiga warshadaha shisheeye ee khadadka dhaadheer ee ku dhow xuduudda dhaqaale ee gaarka u ah Soomaaliya.',
+        interestingFacts: [
+          'Waxay dabbaali karaan xawaare gaadhaya 75 km/h, taasoo ka dhigaysa mid ka mid ah xayawaanka ugu dheereeya badda.',
+          'Si ka duwan kalluunka intiisa kale, jeedarku wuxuu leeyahay muruqyo dugsi sida xayawaanka dhiiga diirran, taasoo u oggolaanaysa dabbaalka si ugu wanaagsan.',
+          'Kalluumeystayaasha Soomaaliyeed waxay isticmaalaan xadhig kalluumeysi oo dhaqameed ah oo aan waxyeello u geysan guntinka badda.',
+          'Waxay leeyihiin god gaar ah oo baalashoodu ku dhex dhacaan si ay u yareeyaan caqabadaha biyaha.',
+        ],
+      },
+    },
   },
 
   // 5. Staghorn & Table Coral (Coral Reefs)
@@ -390,6 +587,25 @@ export const speciesList = [
     conservationProjects: [
       { id: 'mpa-zoning', title: 'Somali Marine Protected Area (MPA) Framework & Reef Zoning', region: 'Bajuni Marine Reserve' },
     ],
+    translations: {
+      so: {
+        commonName: 'Dhagax-Mareenka Laamaha iyo Miiska u eg',
+        categoryName: 'Dhagax-Mareenka Badda',
+        group: 'Cnidaria (Dhagax-mareenka Adag)',
+        tagline: 'Dhisme nool oo ka mid ah dhagax-mareenka xannibaya ee Soomaaliya.',
+        editorialStatement: 'Iyagoo dhisaya magaalooyin badda hoosteeda ah oo qaab saddex-geesoodka ah leh, kuwaas oo hoy u ah kumanaan nooc oo badda ah, dhagax-mareenka adkaysiga leh ee Soomaaliya waxay matalaan deegaanno dhagax-mareen oo saafi ah.',
+        description: 'Dhagax-mareenka Acropora waa nooca ugu horreeya ee dhisa dhagax-mareenka Badweynta Hindiya ee Galbeed. Iyagoo sameeya laamo u eg geesaha deerada iyo miisas fidsan, kooxahan waxay taageeraan noolaha ballaaran ee jasiiradaha Bajuni iyo Gacanka Cadmeed.',
+        distribution: 'Nidaamyo dhagax-mareen oo waaweyn oo ku yaal jasiiradaha Bajuni, dhagax-mareenka Qandala, iyo dooxyada ilaalisan ee Bari.',
+        diet: 'Algae-ga hoos degga ee iftiin-kariyaha ah iyo shaandheynta zooplankton-ka habeenkii.',
+        statusExplanation: 'Waxaa lagu qeexay Halis, sababo la xiriira aashitada badweynta caalamiga ah, kalluumeysiga burburiya ee goobaha qaarkood, iyo kuleylka badda.',
+        interestingFacts: [
+          'Dhagax-mareenku waa xayawaan, ma aha dhir; midabkooda qurxoon wuxuu ka yimaadaa algae-ga aan la arki karin ee ku nool unugyadooda.',
+          'Molalka xeebta Soomaaliya waxay keenaan biyo qabow oo gargaara ilaalinta dhagax-mareenka ka hortagga kuleylka.',
+          'Hektar keliya oo dhagax-mareen caafimaad qaba ah wuxuu soo saari karaa ilaa 35 tan oo kalluun ah sannad kasta.',
+          'Dhagax-mareenku waxay dhalaan isku mar sannadkiiba hal ama laba jeer, iyagoo sii daaya malaayiin ukun ah dhacdo isku waqti ah.',
+        ],
+      },
+    },
   },
 
   // 6. Humpback Whale (Dolphins & Whales)
@@ -438,6 +654,25 @@ export const speciesList = [
     conservationProjects: [
       { id: 'ship-strike-warning', title: 'Maritime Route Whale Collision Advisory System', region: 'Gulf of Aden Transit Lanes' },
     ],
+    translations: {
+      so: {
+        commonName: 'Nibiriga Weyn ee Booda',
+        categoryName: 'Dhurwaaga & Nibiriyada',
+        group: 'Xayawaanka Naaska leh ee Badda (Nibiriyada Balleennada leh)',
+        tagline: 'Waaweynta badda oo ku heesa dooxooyinka badda hoosteeda ah.',
+        editorialStatement: 'Iyagoo xilliga qabow guuraya jiirarka badda ee qoto dheer ee Soomaaliya, nibiriyada Humpback-ku waxay si xoog leh ugu boodaan cirka, iyagoo ka buuxiya marinnada dhawaqa qoto dheer heeso xayawaanimo oo taban.',
+        description: 'Nibiriyada Humpback-ku waa nibiriyo caan ku ah baalashooda waaweyn, codadkooda kakan, iyo dabeecaddooda gaarka ah ee ay ku booddaan marinka badda Soomaaliya.',
+        distribution: 'Marin guuritaan ah oo ku teedsan xeebta bari ee Soomaaliya oo dhan, iyagoo isugu urura si ay u nastaan agagaarka Ceel iyo Raas Caseyr.',
+        diet: 'Krill, kalluun yaryar oo isugu urura (sardhiin, herring, capelin) iyagoo isticmaalaya shabag-buufin si ay wax u cunaan.',
+        statusExplanation: 'Tirada caalamiga ah waa Halis Yar; hase yeeshee, koox-hoosaadka ku nool Badweynta Hindiya ee Waqooyi ayaa halis xoogan ku jirta, waxaana ka yar 250 xayawaan ah.',
+        interestingFacts: [
+          'Heesaha nibiriga Humpback-ku waxay dhex mari karaan kumanaan kiiloomitir oo badda ah iyagoo maraya marinka dhawaqa ee qoto dheer (SOFAR).',
+          'Baalashoodu waxay gaadhi karaan saddex meelood meel dhererka jidhkooda oo dhan, kuwaas oo ah addimada ugu waaweyn xayawaan kasta oo Dhulka ku nool.',
+          'Waxay ku cunaan iskaashi, iyagoo buufinaya bulbulo hawo si ay ugaarta u kaxeeyaan ka hor inta aysan xagga sare u boodin.',
+          'Ilmaha nibiriga Humpback-ka ee dhawaan dhashay wuxuu maalin kasta cabbi karaa ilaa 600 litir oo caano hooyo ah.',
+        ],
+      },
+    },
   },
 
   // 7. Oceanic Manta Ray (Sharks & Rays)
@@ -486,6 +721,25 @@ export const speciesList = [
     conservationProjects: [
       { id: 'elasmobranch-ban', title: 'National Mobulid & Ray Trade Ban Enforcement', region: 'Somalia Waters' },
     ],
+    translations: {
+      so: {
+        commonName: 'Diinka Baalasha Weyn ee Badda',
+        categoryName: 'Libaaxyada Badda & Diinka Baalasha Leh',
+        group: 'Elasmobranch (Diinka Baalasha Leh)',
+        tagline: 'Waaweynta qaboobsan oo ku duulaysa badda cagaaran ee bilicsan.',
+        editorialStatement: 'Iyagoo leh baalal dhaadheer oo dhaafaya toddoba mitir, diinka manta-ha ee badda waxay si nimco leh u duulaan korka goobaha nadaafadda qoto dheer iyo qarka dhagax-mareenka ee hodanka ku ah plankton-ka, ku teedsan jasiiradaha dibedda ee Soomaaliya.',
+        description: 'Diinka manta-ha ee badda waa nooca diinka ugu weyn Dhulka. Waxay leeyihiin saamiga maskaxda ugu weyn marka loo eego jidhka kalluunka kale, waxayna muujiyaan xiisaha iyo dabeecadaha bulsheed ee kakan ee biyaha Soomaaliya.',
+        distribution: 'Dhagax-mareenka dibedda ee jasiiradaha Bajuni, buuraha badda ee Raas Caseyr, iyo qarka qoto dheer ee Hufun.',
+        diet: 'Zooplankton aan la arki karin, ukumaha kalluunka, iyo xayawaanka yaryar ee qolofta leh ee badda.',
+        statusExplanation: 'Waxaa lagu qeexay Halis Xoogan liiska IUCN, sababo la xiriira kalluumeysiga sarreeya ee lagu bartilmaameedsanayo dhuxusha, suuqyada caalamiga ah ee aan waarin, iyo tirada tarmidda ee gaabis ah.',
+        interestingFacts: [
+          'Diinka manta-ha waxay gudbeen imtixaanka is-aqoonsiga muraayadda, taasoo muujinaysa heer sare oo is-fahamka ah.',
+          'Si ka duwan diinka qaba sunta, diinka manta-hu ma laha dabo sun leh, waxayna gabi ahaanba khatar u yihiin dabbaashayaasha.',
+          'Manta kasta wuxuu leeyahay qaab dhibco ah oo caalamka gudihiisa u gaar ah oo aan is-bedelin nolosha oo dhan.',
+          'Waa inay si joogto ah u dabbaalaan si biyo oksijiin leh ugu qulqulaan dhuxushooda.',
+        ],
+      },
+    },
   },
 
   // 8. Hawksbill Sea Turtle (Sea Turtles)
@@ -534,6 +788,25 @@ export const speciesList = [
     conservationProjects: [
       { id: 'tortoiseshell-trade-ban', title: 'Zero-Tolerance Wildlife Trafficking & Beach Ranger Patrols', region: 'National Somali Seaboard' },
     ],
+    translations: {
+      so: {
+        commonName: 'Diinta Badeedka ee Qolof-Dhexaadka ah',
+        categoryName: 'Diinka Badeedka',
+        group: 'Xamaarad Badeed',
+        tagline: 'Beerayaasha dhagax-mareenka ee halista xoogan ku jira, kuwaas oo leh qolof aad u qurux badan.',
+        editorialStatement: 'Muhiim u ah ilaalinta beeraha dhagax-mareenka ee caafimaadka qaba iyagoo xakameynaya isbaarjooyinka, diinta qolof-dhexaadka ah waa mid ka mid ah xayawaanka ugu qurxoon ee ugu haliska badan ee badda Soomaaliya.',
+        description: 'Diinta qolof-dhexaadka ah waxaa lagu garanayaa afkeeda cidhiidhsan ee af-badan iyo qolofteeda isku dul saaran. Waxay ku noolaan meesha ugu badan dhagax-mareenka nool ee jasiiradaha Bajuni iyo Guardafui.',
+        distribution: 'Dhagax-mareenka iyo biyaha gaagaaban ee dhagaxa leh ee jasiiradaha Bajuni, dooxyada Guardafui, iyo dhagax-mareenka xeebta Ceel.',
+        diet: 'Isbaarjooyinka dhagax-mareenka (Porifera), ubaxa badda, dhagax-mareenka jilicsan, iyo qallanjada.',
+        statusExplanation: 'Waxaa lagu qeexay Halis Xoogan oo Aad U Sarreysa liiska IUCN, sababo la xiriira ugaarsiga taariikhiga ah ee qolofteeda dahabka ah, luminta deegaanka, iyo ku dhex xayirmis shabagyada.',
+        interestingFacts: [
+          'Cuntadoodu badanaa waxay ka kooban tahay isbaarjooyin sun leh oo silika badan, kuwaas oo dili kara xayawaanka kale.',
+          'Habka ay wax u cunaan wuxuu gargaaraa in bannaan looga sameeyo dhagax-mareenka si kuwa si tartiib ah u koraya ay u degaan oo u barwaaqoobaan.',
+          'Waxay leeyihiin qarka qolofteeda oo faro leh, kaas oo gargaara dhaqdhaqaaqooda godadka cidhiidhsan ee dhagax-mareenka.',
+          'Dhaddigyada ugxan-dhigasho ah waxay galaan geedaha hooseeya ee xeebta iyo buurooyinka ciidda, kuwaas oo dhiga u dhaxeeya 100 ilaa 150 ukun.',
+        ],
+      },
+    },
   },
 
   // 9. Spiny Lobster (Crustaceans)
@@ -581,6 +854,24 @@ export const speciesList = [
     conservationProjects: [
       { id: 'egg-bearing-release', title: 'Community Berried Female Release & Size-Limit Accord', region: 'Puntland Fishermen Union' },
     ],
+    translations: {
+      so: {
+        commonName: 'Aargoosto Qodxaha Leh',
+        categoryName: 'Xayawaanka Qolofta Adag leh',
+        group: 'Crustacea (Xayawaan Lugo Toban leh)',
+        tagline: 'Deggan habeenkii ee godadka dhagaxa nuurad ah iyo qarka dhagaxa ah.',
+        editorialStatement: 'Loo tixgeliyaa saldhig muhiim ah oo dhaqaalaha kalluumeysiga xeebta Soomaaliya, aargoostada qodxaha leh waxay ku barwaaqoowdaa godadka dhagaxa nuurad ah iyo dhagax-mareenka hirarku garaacaan ee xeebta bari.',
+        description: 'Aargoostada Soomaaliyeed ma laha cadhada waaweyn ee aargoostada Atlantic-ka, waxayna isku halleeyaan tiirar dhaadheer oo qodxo leh iyo qolof adag oo isdifaacid. Waxay soo baxaan habeenkii si ay wax uga raadiyaan qarka dhagaxa ah iyo dhagax-mareenka intii u dhaxaysa Ceel iyo Kismaayo.',
+        distribution: 'Waxay si ballaaran ugu faafaan qarka dhagaxa ah ee xeebta Puntland (Ceel, Hufun, Bargaal) iyo dhagax-mareenka Bajuni.',
+        diet: 'Xayawaanka labada qolofood leh, canjeelada badda, xayawaanka jilicsan, dixiriga, iyo hilibka qudhmay ee guntinka badda.',
+        statusExplanation: 'Caalamka ahaan waxaa lagu qeexay Halis Yar, inkastoo xilliyada xayirka iyo xaddidaadaha cabbirka ay maamulaan ururrada kalluumeysiga Soomaaliyeed si looga hortago in xad-dhaaf lagu qabto dumarka sida ukumaha.',
+        interestingFacts: [
+          'Waxay soo saaraan dhawaq xoog leh iyagoo isku duubaya salka tiirarkooda si ay uga hortagaan ugaarsadayaasha.',
+          'Xilliga guuritaanka, aargoostada qodxaha leh waxay sameeyaan safaf isku xigxiga oo ilaa 50 xayawaan ah oo dhex socda guntinka badda.',
+          'Kalluumeystayaasha Soomaaliyeed waxay isticmaalaan dabinno dhaqameed iyo dabbaal-qoto ah oo aan waxyeello u geysan guntinka badda.',
+        ],
+      },
+    },
   },
 
   // 10. Ribbon Seagrass & Dugong Forage (Seagrass)
@@ -627,6 +918,24 @@ export const speciesList = [
     conservationProjects: [
       { id: 'seagrass-protection', title: 'No-Anchor Marine Seagrass Conservation Zones', region: 'Bajuni Archipelago' },
     ],
+    translations: {
+      so: {
+        commonName: 'Doogga Badda ee Xariiqda ah',
+        categoryName: 'Doogga Badda',
+        group: 'Dhirta Badda ee Ubaxa Dhalaysa',
+        tagline: 'Dooxooyin balaadhan oo kaarboon buluug ah, kuwaas oo xasilliyaya biyaha xeebta ee gaagaaban.',
+        editorialStatement: 'Iyagoo sameeya dooxooyin badda hoosteeda ah oo ka tarsan Jubada Hoose iyo haróorooyinka Bajuni, dooxooyinka doogga badda ee xariiqda ah waxay qabtaan kaarboon, waxayna sidoo kale u ahaan meelo koriya kalluunka yaryar iyo meelo ay wax ka daaqaan doonbadeedyada.',
+        description: 'Doogga badda ee xariiqda ah waa dhir badeed oo dhab ah oo ubax dhalaysa, kuwaas oo sameeya dooxooyin qaro weyn oo ku teedsan xeebta koonfureed ee ilaalisan ee Soomaaliya. Iyadoo ku xidhan xididdo kakan, waxay xasilisaa ciidda xeebta, shaandheysaa biyaha, waxayna u ahaan ilaha ugu weyn ee cuntada diinta badeedka ee cagaaran ee halista ku jirta.',
+        distribution: 'Waxay si weyn u daboolaan haróorooyinka gaagaaban ee Jubbaland, gacanka Kismaayo, iyo gacamada ilaalisan ee Hufun iyo Qandala.',
+        diet: 'Iftiin-kariye isticmaala iftiinka qorraxda, macdanaha biyaha badda, iyo kaarbon-dioxide-ka.',
+        statusExplanation: 'Waxaa lagu qeexay Halis Yar IUCN, inkastoo ay khatar ugu jiraan qodista deked, biyaha xeebta ee qulqulaya, iyo shabagyada sharci-darrada ah ee guntinka badda.',
+        interestingFacts: [
+          'Dooxooyinka doogga badda waxay ururin karaan kaarboon ilaa 35 jeer ka dhakhso badan kaymaha kulaylaha ee Amazon.',
+          'Si ka duwan algae-ga, doogga badda waa dhir dhab ah oo leh xidid, jir, caleen, ubax, iyo abuur.',
+          'Hal eeker oo doog badeed ah wuxuu taageeri karaa ilaa 40,000 kalluun iyo 50 malyan xayawaan yaryar oo laf-dhabar la\'aan ah.',
+        ],
+      },
+    },
   },
 
   // 11. Giant Clam (Other Marine Life)
@@ -673,6 +982,24 @@ export const speciesList = [
     conservationProjects: [
       { id: 'clam-sanctuary', title: 'Community Giant Clam Seed Stock & Reef Restoration Accord', region: 'Bajuni Islands' },
     ],
+    translations: {
+      so: {
+        commonName: 'Sabaayada Weyn ee Qolofta Faraqa leh',
+        categoryName: 'Noolaha Badda Kale',
+        group: 'Mollusca (Xayawaanka Labada Qolofood leh)',
+        tagline: 'Dahab nool oo ka mid ah dhagax-mareenka dibedda ah.',
+        editorialStatement: 'Si joogto ah ugu dhex jira madaxa dhagax-mareenka nool, iyagoo leh maro dabiici ah oo midab bilicsan leh, sabaayada waaweyn waxay u shaqeeyaan sidii shaandheeye dabiici ah iyo deegaano yaryar oo ku yaal dhagax-mareenka caafimaadka qaba ee Soomaaliya.',
+        description: 'Sabaayada waaweyn ee qolof-faraqleh waxay caan ku tahay qolofteeda weyn ee qaabaysan iyo maradeeda midabka dhalaalaya oo sido nafaqo ka soo jeeda algae-ga hoos deggan. Biyaha saafiga ah ee jasiiradaha Bajuni, xayawaankan qadiimiga ah waxay ku barwaaqoobaan madaxa dhagax-mareenka ee gaagaaban, iyagoo maalin kasta shaandheynaya boqollaal litir oo biyo ah.',
+        distribution: 'Dhagax-mareenka dibedda iyo dhagax-mareenka ilaalisan ee ku teedsan Jubbaland iyo dooxyada Cap Guardafui.',
+        diet: 'Algae-ga hoos degga ee iftiin-kariyaha ah iyo shaandheynta phytoplankton-ka aan la arki karin.',
+        statusExplanation: 'Waxaa lagu qeexay Halis liiska IUCN, sababo la xiriira ururinta taariikhiga ah ee qolofaha qurxinta iyo ganacsiga aquarium-ka, hadda waxaa lagu ilaaliyaa kaydka Soomaaliyeed.',
+        interestingFacts: [
+          'Maradda sabaayo kastaa waxay leedahay qaab midab oo kakan oo u shaqeeya sida solar panel algae-geeda.',
+          'Waa labo-jinsi, waxayna sii daayaan ukumo iyo shahwo labaduba xilliga dhalidda ee dayaxa buuxa.',
+          'Si ka duwan sheekooyinka, sabaayada waaweyni ma qabtaan bini-aadamka — xirkoodu waa mid tartiib ah oo isdifaac ah oo keliya.',
+        ],
+      },
+    },
   },
 
   // 12. Dugong (Dolphins & Whales / Marine Mammal)
@@ -718,38 +1045,106 @@ export const speciesList = [
     conservationProjects: [
       { id: 'dugong-safe-zones', title: 'Zero-Gillnet Protected Corridors for Somali Sirenians', region: 'Bajuni Marine Reserve' },
     ],
+    translations: {
+      so: {
+        commonName: 'Doonbadeedka (Sac-Sida Badda)',
+        categoryName: 'Dhurwaaga & Nibiriyada',
+        group: 'Xayawaanka Naaska leh ee Badda (Sirenia)',
+        tagline: 'Xayawaan qaboobsan oo cunta doogga ku nool marinnada mangrove-ka ee gaagaaban.',
+        editorialStatement: 'Sheekooyinka dhaqanka Soomaaliyeed waxaa lagu tilmaamaa ruuxa nabadda ee biyaha gaagaaban, doonbadeedka naadirka ah wuxuu si aamusnaan leh wax uga daaqaa dooxooyinka doogga badda ee balaadhan ee haróorooyinka ilaalisan ee koonfurta Soomaaliya.',
+        description: 'Doonbadeedku waa xayawaanka naaska leh ee badda ee kaliya cunta doogga, waxaana ay xigasho dhow la leeyihiin maanuuska iyo maroodiga. Waxay ku tiirsan yihiin oo keliya dooxooyinka doogga badda ee biyaha diiran ee ilaalisan. Marinnada mangrove-ka ee fog ee jasiiradaha Bajuni waxay ka mid yihiin meelaha ugu dambeeya ee ammaanka ah ee doonbadeedyada ku hadha Bariga Afrika.',
+        distribution: 'Waxay ku xaddidan yihiin dooxooyinka doogga badda ee ilaalisan iyo marinnada mangrove-ka ee Jubada Hoose iyo jasiiradaha Bajuni.',
+        diet: 'Wuxuu keliya cunaa doogga badda, gaar ahaan Halophila ovalis iyo xididdada Cymodocea.',
+        statusExplanation: 'Caalamka ahaan waxaa lagu qeexay Halis (Bariga Afrika-na waxaa lagu qeexay Halis Xoogan oo Aad U Sarreysa), sababo la xiriira ku dhex xayirmis shabagyada, dhaawaca huurayaasha, iyo burburinta deegaanka doogga badda.',
+        interestingFacts: [
+          'Doonbadeedku wuxuu xigasho la leeyahay maroodiga marka loo eego nibiriyada ama dhurwaanka, iyagoo wadaaga qaab lafo oo isku eg.',
+          'Doonbadeed qaan gaadhay wuxuu maalin kasta cuni karaa ilaa 40 kg oo doog badeed ah.',
+          'Tirada tarmiddoodu waa gaabis (hal ilmo ayay dhashaan 3 ilaa 7 sano), taasoo ka dhigaysa soo kabashada tiradoodu mid adag.',
+        ],
+      },
+    },
   },
 ];
 
+// Conservation status display labels & badge colors, keyed by the
+// English `conservationStatus` value stored on each species record.
+// `conservationStatus` itself stays in English (it's used as a filter
+// key in SpeciesGrid/SpeciesFilters) — use getSpeciesStatusInfo() to
+// get the localized label for display.
+const speciesStatusColors = {
+  'critically endangered': { bg: 'rgba(239, 68, 68, 0.15)', border: 'rgba(239, 68, 68, 0.4)', text: '#FCA5A5' },
+  endangered: { bg: 'rgba(249, 115, 22, 0.15)', border: 'rgba(249, 115, 22, 0.4)', text: '#FDBA74' },
+  vulnerable: { bg: 'rgba(234, 179, 8, 0.15)', border: 'rgba(234, 179, 8, 0.4)', text: '#FDE047' },
+  'near threatened': { bg: 'rgba(59, 130, 246, 0.15)', border: 'rgba(59, 130, 246, 0.4)', text: '#93C5FD' },
+  'least concern': { bg: 'rgba(16, 185, 129, 0.15)', border: 'rgba(16, 185, 129, 0.4)', text: '#6EE7B7' },
+};
+
+const speciesStatusLabels = {
+  en: {
+    'critically endangered': 'Critically Endangered',
+    endangered: 'Endangered',
+    vulnerable: 'Vulnerable',
+    'near threatened': 'Near Threatened',
+    'least concern': 'Least Concern',
+  },
+  so: {
+    'critically endangered': 'Halis Xoogan oo Aad U Sarreysa',
+    endangered: 'Halis Xoogan',
+    vulnerable: 'Halis',
+    'near threatened': 'Halis u Dhow',
+    'least concern': 'Halis Yar',
+  },
+};
+
+// Status badge color + localized label helper (replaces the old
+// English-only getStatusInfo that used to live in SpeciesCard.jsx).
+export function getSpeciesStatusInfo(status, language = 'en') {
+  const key = status?.toLowerCase() || 'least concern';
+  const colors = speciesStatusColors[key] || speciesStatusColors['least concern'];
+  const labels = speciesStatusLabels[language] || speciesStatusLabels.en;
+  const label = labels[key] || status || speciesStatusLabels.en['least concern'];
+  return { label, ...colors };
+}
+
 // Helper functions for dynamic lookups and statistics
-export function getAllSpecies() {
-  return speciesList;
+export function getSpeciesCategories(language = 'en') {
+  return localizeList(marineCategories, language);
 }
 
-export function getSpeciesBySlug(slug) {
-  return speciesList.find((s) => s.slug === slug || s.id === slug);
+export function getMarineEcosystems(language = 'en') {
+  return localizeList(marineEcosystems, language);
 }
 
-export function getFeaturedSpecies() {
-  return speciesList.filter((s) => s.featured);
+export function getAllSpecies(language = 'en') {
+  return localizeList(speciesList, language);
 }
 
-export function getSpeciesByCategory(categoryId) {
-  if (!categoryId || categoryId === 'all') return speciesList;
-  return speciesList.filter((s) => s.category === categoryId);
+export function getSpeciesBySlug(slug, language = 'en') {
+  const species = speciesList.find((s) => s.slug === slug || s.id === slug);
+  return localize(species, language);
 }
 
-export function getSpeciesByHabitat(habitat) {
-  if (!habitat || habitat === 'all') return speciesList;
-  return speciesList.filter((s) => s.habitat.toLowerCase().includes(habitat.toLowerCase()));
+export function getFeaturedSpecies(language = 'en') {
+  return localizeList(speciesList.filter((s) => s.featured), language);
 }
 
-export function getRelatedSpecies(currentSlug, limit = 3) {
-  const current = getSpeciesBySlug(currentSlug);
-  if (!current) return speciesList.slice(0, limit);
-  return speciesList
+export function getSpeciesByCategory(categoryId, language = 'en') {
+  if (!categoryId || categoryId === 'all') return localizeList(speciesList, language);
+  return localizeList(speciesList.filter((s) => s.category === categoryId), language);
+}
+
+export function getSpeciesByHabitat(habitat, language = 'en') {
+  if (!habitat || habitat === 'all') return localizeList(speciesList, language);
+  return localizeList(speciesList.filter((s) => s.habitat.toLowerCase().includes(habitat.toLowerCase())), language);
+}
+
+export function getRelatedSpecies(currentSlug, limit = 3, language = 'en') {
+  const current = speciesList.find((s) => s.slug === currentSlug || s.id === currentSlug);
+  if (!current) return localizeList(speciesList.slice(0, limit), language);
+  const related = speciesList
     .filter((s) => s.slug !== currentSlug && (s.category === current.category || s.habitat === current.habitat))
     .slice(0, limit);
+  return localizeList(related, language);
 }
 
 export function getMarineStats() {

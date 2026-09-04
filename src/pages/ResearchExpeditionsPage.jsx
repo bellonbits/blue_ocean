@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Info } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
 import { getAllExpeditions } from '../data/research';
+import { useLanguage } from '../context/LanguageContext';
 import ExpeditionCard from '../components/research/ExpeditionCard';
 import '../components/experiences/ExperienceGrid.css';
 import './SpeciesDirectoryPage.css';
@@ -10,7 +11,8 @@ import './ResearchReportsPage.css';
 
 export default function ResearchExpeditionsPage() {
   useScrollReveal();
-  const expeditions = getAllExpeditions();
+  const { language } = useLanguage();
+  const expeditions = getAllExpeditions(language);
 
   useEffect(() => {
     document.title = 'Research Expeditions — Blue Ocean Somalia';

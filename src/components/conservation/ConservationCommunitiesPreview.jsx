@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import '../coast/ExploreCTA.css';
 
 export default function ConservationCommunitiesPreview() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+
   return (
     <section className="explore-cta-section section" aria-label="Conservation and Communities">
       <div className="container">
@@ -10,23 +14,22 @@ export default function ConservationCommunitiesPreview() {
           <div className="explore-cta-glow" aria-hidden="true" />
 
           <div className="explore-cta-content">
-            <span className="label-text">Conservation & Communities</span>
+            <span className="label-text">{t('conservation.communitiesPreview.label')}</span>
 
             <h2 className="explore-cta-heading display-heading">
-              Conservation works when communities
+              {t('conservation.communitiesPreview.headingLine1')}
               <br />
-              are part of the solution.
+              {t('conservation.communitiesPreview.headingLine2')}
             </h2>
 
             <p className="explore-cta-subtext">
-              Every project on this page connects back to the fishing cooperatives, beach guardians, and coastal
-              businesses who live alongside the ocean it protects.
+              {t('conservation.communitiesPreview.subtext')}
             </p>
 
             <div className="explore-cta-buttons">
-              <Link to="/communities" className="btn btn-primary btn-lg" id="cta-coastal-communities">
+              <Link to={localizedPath('/communities')} className="btn btn-primary btn-lg" id="cta-coastal-communities">
                 <Users size={18} />
-                <span>Meet the Communities</span>
+                <span>{t('conservation.communitiesPreview.cta')}</span>
                 <ArrowRight size={18} />
               </Link>
             </div>

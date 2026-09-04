@@ -1,15 +1,17 @@
-import { organization } from '../../data/organization';
+import { getOrganization } from '../../data/organization';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceStory.css';
 
 export default function OrganizationStory() {
-  const { story, whyOceanMatters, whoWeWorkWith } = organization;
+  const { t, language } = useLanguage();
+  const { story, whyOceanMatters, whoWeWorkWith } = getOrganization(language);
 
   return (
     <section className="exp-story-section section" id="our-story" aria-label="Our Story">
       <div className="container">
         <div className="exp-story-layout">
           <div className="exp-story-narrative reveal">
-            <span className="label-text">Our Story</span>
+            <span className="label-text">{t('about.story.label')}</span>
             <div className="divider" />
 
             <h2 className="exp-story-headline section-heading">

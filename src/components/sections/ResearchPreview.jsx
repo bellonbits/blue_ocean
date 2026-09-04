@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Compass } from 'lucide-react';
-import { researchAreas } from '../../data/research';
+import { getResearchAreas } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 import './ResearchPreview.css';
 
 export default function ResearchPreview() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+  const researchAreas = getResearchAreas(language);
+
   return (
     <section className="research-section section" aria-labelledby="research-heading">
       {/* Background decorations */}
@@ -16,18 +21,17 @@ export default function ResearchPreview() {
         <div className="research-section__layout">
           {/* Left: Header */}
           <div className="research-section__header reveal">
-            <span className="label-text">Scientific Research</span>
+            <span className="label-text">{t('researchPreview.eyebrow')}</span>
             <div className="divider" />
             <h2 className="section-heading" id="research-heading">
-              Researching Somalia's Ocean
+              {t('researchPreview.heading')}
             </h2>
             <p className="section-subheading">
-              Blue Ocean conducts rigorous scientific research across Somalia's marine environments —
-              generating baseline data to protect wildlife, support coastal communities, and inform environmental policy.
+              {t('researchPreview.subheading')}
             </p>
 
-            <Link to="/research" className="btn btn-primary research-section__btn" id="research-explore-all">
-              Explore Our Research
+            <Link to={localizedPath('/research')} className="btn btn-primary research-section__btn" id="research-explore-all">
+              {t('researchPreview.cta')}
               <ArrowRight size={16} />
             </Link>
           </div>
@@ -36,7 +40,7 @@ export default function ResearchPreview() {
           <div className="research-section__areas">
             {researchAreas.map((area, i) => (
               <Link
-                to={`/research/projects?area=${area.id}`}
+                to={localizedPath(`/research/projects?area=${area.id}`)}
                 key={area.id}
                 className={`research-card reveal reveal-delay-${(i % 4) + 1}`}
                 style={{

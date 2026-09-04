@@ -2,9 +2,11 @@ import { useState, useMemo } from 'react';
 import LuxuryDestinationCard from './LuxuryDestinationCard';
 import FramerCarousel from '../ui/FramerCarousel';
 import { Search, MapPin, LayoutGrid, SlidersHorizontal, Sparkles } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import './DestinationGrid.css';
 
 export default function DestinationGrid({ destinations = [], selectedRegion, onSelectRegion }) {
+  const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState(selectedRegion || 'all');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState('carousel'); // 'carousel' | 'grid'
@@ -50,15 +52,15 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
       <div className="container">
         {/* Section Header */}
         <div className="section-header reveal">
-          <span className="label-text">Somalia Coastal Catalog</span>
+          <span className="label-text">{t('exploreCoast.destinationGrid.eyebrow')}</span>
           <div className="divider" />
           <div className="dest-section__title-row">
             <div>
               <h2 className="section-heading" id="dest-heading">
-                Places worth discovering.
+                {t('exploreCoast.destinationGrid.heading')}
               </h2>
               <p className="section-subheading">
-                Explore individual coastal settlements, historic trading ports, natural harbors, and remote barrier islands across the Horn of Africa.
+                {t('exploreCoast.destinationGrid.subheading')}
               </p>
             </div>
 
@@ -68,20 +70,20 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
                 <button
                   onClick={() => setViewMode('carousel')}
                   className={`dest-view-btn ${viewMode === 'carousel' ? 'dest-view-btn--active' : ''}`}
-                  title="Carousel View"
-                  aria-label="Carousel View"
+                  title={t('exploreCoast.destinationGrid.viewCarouselTitle')}
+                  aria-label={t('exploreCoast.destinationGrid.viewCarouselTitle')}
                 >
                   <Sparkles size={16} />
-                  <span>Carousel</span>
+                  <span>{t('exploreCoast.destinationGrid.viewCarousel')}</span>
                 </button>
                 <button
                   onClick={() => setViewMode('grid')}
                   className={`dest-view-btn ${viewMode === 'grid' ? 'dest-view-btn--active' : ''}`}
-                  title="Grid View"
-                  aria-label="Grid View"
+                  title={t('exploreCoast.destinationGrid.viewGridTitle')}
+                  aria-label={t('exploreCoast.destinationGrid.viewGridTitle')}
                 >
                   <LayoutGrid size={16} />
-                  <span>Grid</span>
+                  <span>{t('exploreCoast.destinationGrid.viewGrid')}</span>
                 </button>
               </div>
 
@@ -90,17 +92,17 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
                 <Search size={16} className="dest-section__search-icon" />
                 <input
                   type="text"
-                  placeholder="Search destinations, bays, towns..."
+                  placeholder={t('exploreCoast.destinationGrid.searchPlaceholder')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="dest-section__search-input"
-                  aria-label="Search destinations"
+                  aria-label={t('exploreCoast.destinationGrid.searchAriaLabel')}
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
                     className="dest-section__search-clear"
-                    aria-label="Clear search"
+                    aria-label={t('exploreCoast.destinationGrid.searchClearAriaLabel')}
                   >
                     ✕
                   </button>
@@ -117,7 +119,7 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
             className={`dest-filter-btn ${currentFilter === 'all' ? 'dest-filter-btn--active' : ''}`}
             id="filter-all"
           >
-            All Destinations
+            {t('exploreCoast.destinationGrid.filterAll')}
             <span className="dest-filter-count">{counts.all}</span>
           </button>
 
@@ -126,7 +128,7 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
             className={`dest-filter-btn ${currentFilter === 'puntland' ? 'dest-filter-btn--active' : ''}`}
             id="filter-puntland"
           >
-            Puntland
+            {t('exploreCoast.destinationGrid.filterPuntland')}
             <span className="dest-filter-count">{counts.puntland}</span>
           </button>
 
@@ -135,7 +137,7 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
             className={`dest-filter-btn ${currentFilter === 'somaliland' ? 'dest-filter-btn--active' : ''}`}
             id="filter-somaliland"
           >
-            Somaliland
+            {t('exploreCoast.destinationGrid.filterSomaliland')}
             <span className="dest-filter-count">{counts.somaliland}</span>
           </button>
 
@@ -144,7 +146,7 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
             className={`dest-filter-btn ${currentFilter === 'jubaland' ? 'dest-filter-btn--active' : ''}`}
             id="filter-jubaland"
           >
-            Jubaland
+            {t('exploreCoast.destinationGrid.filterJubaland')}
             <span className="dest-filter-count">{counts.jubaland}</span>
           </button>
 
@@ -153,7 +155,7 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
             className={`dest-filter-btn ${currentFilter === 'somalia' ? 'dest-filter-btn--active' : ''}`}
             id="filter-somalia"
           >
-            Central & Southern Coast
+            {t('exploreCoast.destinationGrid.filterSomalia')}
             <span className="dest-filter-count">{counts.somalia}</span>
           </button>
         </div>
@@ -186,9 +188,9 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
         ) : (
           <div className="dest-empty-state reveal">
             <MapPin size={40} className="dest-empty-icon" />
-            <h3 className="dest-empty-title">No destinations match your filter</h3>
+            <h3 className="dest-empty-title">{t('exploreCoast.destinationGrid.emptyTitle')}</h3>
             <p className="dest-empty-desc">
-              Try adjusting your search terms or select another coastal region.
+              {t('exploreCoast.destinationGrid.emptyDesc')}
             </p>
             <button
               onClick={() => {
@@ -197,7 +199,7 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
               }}
               className="btn btn-primary btn-sm"
             >
-              Reset Filters
+              {t('exploreCoast.destinationGrid.resetFilters')}
             </button>
           </div>
         )}

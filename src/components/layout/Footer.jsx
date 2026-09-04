@@ -2,47 +2,48 @@ import { Link } from 'react-router-dom';
 import { Waves } from 'lucide-react';
 import { socialLinks } from '../../data/organization';
 import { ICON_MAP } from '../shared/SocialIcons';
+import { useLanguage } from '../../context/LanguageContext';
 import './Footer.css';
 
 const footerColumns = [
   {
-    heading: 'Explore',
+    headingKey: 'footer.exploreHeading',
     links: [
-      { label: 'Explore the Coast', path: '/explore-the-coast' },
-      { label: 'Ocean Experiences', path: '/experiences' },
-      { label: 'Marine Life', path: '/marine-life' },
+      { labelKey: 'nav.exploreCoast', path: '/explore-the-coast' },
+      { labelKey: 'nav.oceanExperiences', path: '/experiences' },
+      { labelKey: 'nav.marineLife', path: '/marine-life' },
       { label: 'Puntland', path: '/explore-the-coast/bosaso' },
       { label: 'Jubaland', path: '/explore-the-coast/kismayo' },
     ],
   },
   {
-    heading: 'Research',
+    headingKey: 'footer.researchHeading',
     links: [
-      { label: 'Our Research', path: '/research' },
-      { label: 'Projects', path: '/research/projects' },
-      { label: 'Expeditions', path: '/research/expeditions' },
-      { label: 'Publications', path: '/research/publications' },
-      { label: 'Data & Reports', path: '/research/data' },
+      { labelKey: 'footer.ourResearch', path: '/research' },
+      { labelKey: 'footer.projects', path: '/research/projects' },
+      { labelKey: 'footer.expeditions', path: '/research/expeditions' },
+      { labelKey: 'footer.publications', path: '/research/publications' },
+      { labelKey: 'footer.dataReports', path: '/research/data' },
     ],
   },
   {
-    heading: 'Protect',
+    headingKey: 'footer.protectHeading',
     links: [
-      { label: 'Conservation', path: '/conservation' },
-      { label: 'Communities', path: '/communities' },
-      { label: 'Get Involved', path: '/get-involved' },
-      { label: 'Volunteer', path: '/get-involved/volunteer' },
-      { label: 'Partner With Us', path: '/get-involved/partner' },
+      { labelKey: 'nav.conservation', path: '/conservation' },
+      { labelKey: 'nav.communities', path: '/communities' },
+      { labelKey: 'nav.getInvolved', path: '/get-involved' },
+      { labelKey: 'footer.volunteer', path: '/get-involved/volunteer' },
+      { labelKey: 'footer.partnerWithUs', path: '/get-involved/partner' },
     ],
   },
   {
-    heading: 'Blue Ocean',
+    headingKey: 'footer.orgHeading',
     links: [
-      { label: 'About Us', path: '/about' },
-      { label: 'Contact', path: '/contact' },
-      { label: 'News', path: '/news' },
-      { label: 'Press', path: '/press' },
-      { label: 'Privacy Policy', path: '/privacy' },
+      { labelKey: 'footer.aboutUs', path: '/about' },
+      { labelKey: 'nav.contact', path: '/contact' },
+      { labelKey: 'nav.news', path: '/news' },
+      { labelKey: 'footer.press', path: '/press' },
+      { labelKey: 'footer.privacyPolicy', path: '/privacy' },
     ],
   },
 ];
@@ -50,7 +51,9 @@ const footerColumns = [
 const footerSocialLinks = socialLinks.map((s) => ({ ...s, icon: ICON_MAP[s.icon] }));
 
 export default function Footer() {
+  const { language, t } = useLanguage();
   const currentYear = new Date().getFullYear();
+  const localizedPath = (path) => `/${language}${path}`;
   // The footer is always rendered as a dark, immersive closing section
   // regardless of the active site theme, so it always uses the light logo.
   const logoSrc = '/logo.png';
@@ -73,7 +76,7 @@ export default function Footer() {
           {/* Top — Brand + Social */}
           <div className="footer__top">
             <div className="footer__brand">
-              <Link to="/" className="footer__logo" aria-label="Blue Ocean">
+              <Link to={localizedPath('')} className="footer__logo" aria-label="Blue Ocean">
                 <img
                   src={logoSrc}
                   alt="Blue Ocean Somalia"
@@ -81,7 +84,7 @@ export default function Footer() {
                 />
               </Link>
               <p className="footer__tagline">
-                Exploring, researching, and protecting Somalia's remarkable marine environments — from Puntland to Jubaland.
+                {t('footer.tagline')}
               </p>
 
               {/* Social Icons */}
@@ -105,13 +108,13 @@ export default function Footer() {
             {/* Nav Columns */}
             <div className="footer__columns">
               {footerColumns.map((col) => (
-                <div key={col.heading} className="footer__col">
-                  <h3 className="footer__col-heading">{col.heading}</h3>
+                <div key={col.headingKey} className="footer__col">
+                  <h3 className="footer__col-heading">{t(col.headingKey)}</h3>
                   <ul className="footer__col-list">
                     {col.links.map((link) => (
                       <li key={link.path}>
-                        <Link to={link.path} className="footer__col-link">
-                          {link.label}
+                        <Link to={localizedPath(link.path)} className="footer__col-link">
+                          {link.labelKey ? t(link.labelKey) : link.label}
                         </Link>
                       </li>
                     ))}
@@ -124,10 +127,10 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="footer__bottom">
             <p className="footer__copy">
-              © {currentYear} Blue Ocean Somalia. All rights reserved.
+              {t('footer.copyright', currentYear)}
             </p>
             <p className="footer__mission">
-              Protecting Somalia's ocean for future generations.
+              {t('footer.mission')}
             </p>
           </div>
         </div>

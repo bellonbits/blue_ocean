@@ -4,6 +4,8 @@ import { Menu, X, Sun, Moon, LogIn, UserPlus, LogOut, User as UserIcon, ChevronD
 import { navLinks, noHeroPaths } from '../../data/navigation';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
+import { useLanguage, stripLangPrefix } from '../../context/LanguageContext';
+import { SUPPORTED_LANGUAGES, LANGUAGE_LABELS } from '../../lib/i18n/translations';
 import { canManageAdmin } from '../../pages/admin/roles';
 import './Header.css';
 
@@ -16,6 +18,10 @@ export default function Header() {
   const userDropdownRef = useRef(null);
   const { theme, toggleTheme, isDark } = useTheme();
   const { user, isAuthenticated, logout, openAuthModal } = useAuth();
+  const { language, setLanguage, t } = useLanguage();
+  // Nav links always point into the localized route tree, regardless of
+  // whether the current page happens to be one (e.g. viewed from /admin).
+  const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
   // Solid background on scroll
   useEffect(() => {
@@ -47,10 +53,12 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
-  const isActive = (path) =>
-    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
+  const currentPath = stripLangPrefix(location.pathname);
 
-  const isNoHeroPage = noHeroPaths.includes(location.pathname);
+  const isActive = (path) =>
+    path === '/' ? currentPath === '/' : currentPath.startsWith(path);
+
+  const isNoHeroPage = noHeroPaths.includes(currentPath);
   const solidHeader = scrolled || isNoHeroPage;
 
   const desktopLogoSrc = !isDark && solidHeader ? '/logo_sky_blue.png' : '/logo.png';
@@ -69,7 +77,7 @@ export default function Header() {
       >
         <div className="container header__inner">
           {/* Logo */}
-          <Link to="/" className="header__logo" aria-label="Blue Ocean Home">
+          <Link to={localizedPath('/')} className="header__logo" aria-label="Blue Ocean Home">
             <img
               src={desktopLogoSrc}
               alt="Blue Ocean Somalia"
@@ -83,10 +91,10 @@ export default function Header() {
               {navLinks.map((link) => (
                 <li key={link.path}>
                   <Link
-                    to={link.path}
+                    to={localizedPath(link.path)}
                     className={`header__nav-link ${isActive(link.path) ? 'header__nav-link--active' : ''}`}
                   >
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 </li>
               ))}
@@ -95,6 +103,22 @@ export default function Header() {
 
           {/* Desktop Actions */}
           <div className="header__actions">
+            {/* Language Switcher */}
+            <div className="lang-switch" role="group" aria-label={t('common.switchLanguage')}>
+              {SUPPORTED_LANGUAGES.map((code) => (
+                <button
+                  key={code}
+                  type="button"
+                  className={`lang-switch__option ${language === code ? 'lang-switch__option--active' : ''}`}
+                  onClick={() => setLanguage(code)}
+                  aria-pressed={language === code}
+                  id={`lang-switch-${code}`}
+                >
+                  {LANGUAGE_LABELS[code].short}
+                </button>
+              ))}
+            </div>
+
             {/* Theme Toggle */}
             <button
               className="theme-toggle"
@@ -143,7 +167,7 @@ export default function Header() {
                       id="header-profile-link"
                     >
                       <UserCircle size={15} />
-                      <span>My Profile</span>
+                      <span>{t('auth.myProfile')}</span>
                     </Link>
                     <Link
                       to={dashboardHref}
@@ -152,7 +176,7 @@ export default function Header() {
                       id="header-dashboard-link"
                     >
                       <LayoutDashboard size={15} />
-                      <span>Dashboard</span>
+                      <span>{t('auth.dashboard')}</span>
                     </Link>
                     <button
                       className="header__user-dropdown-item header__user-dropdown-item--logout"
@@ -162,7 +186,7 @@ export default function Header() {
                       }}
                     >
                       <LogOut size={15} />
-                      <span>Log Out</span>
+                      <span>{t('auth.logOut')}</span>
                     </button>
                   </div>
                 )}
@@ -176,7 +200,7 @@ export default function Header() {
                   id="header-login-btn"
                 >
                   <LogIn size={15} />
-                  <span>Log In</span>
+                  <span>{t('auth.logIn')}</span>
                 </button>
                 <button
                   type="button"
@@ -185,7 +209,7 @@ export default function Header() {
                   id="header-register-btn"
                 >
                   <UserPlus size={15} />
-                  <span>Create Account</span>
+                  <span>{t('auth.createAccount')}</span>
                 </button>
               </div>
             )}
@@ -214,7 +238,7 @@ export default function Header() {
         <div className="mobile-menu__inner">
           {/* Mobile Header */}
           <div className="mobile-menu__header">
-            <Link to="/" className="header__logo" onClick={() => setMobileOpen(false)}>
+            <Link to={localizedPath('/')} className="header__logo" onClick={() => setMobileOpen(false)}>
               <img
                 src={mobileLogoSrc}
                 alt="Blue Ocean Somalia"
@@ -222,6 +246,21 @@ export default function Header() {
               />
             </Link>
             <div className="mobile-menu__header-actions">
+              {/* Language Switcher in mobile */}
+              <div className="lang-switch" role="group" aria-label={t('common.switchLanguage')}>
+                {SUPPORTED_LANGUAGES.map((code) => (
+                  <button
+                    key={code}
+                    type="button"
+                    className={`lang-switch__option ${language === code ? 'lang-switch__option--active' : ''}`}
+                    onClick={() => setLanguage(code)}
+                    aria-pressed={language === code}
+                    id={`mobile-lang-switch-${code}`}
+                  >
+                    {LANGUAGE_LABELS[code].short}
+                  </button>
+                ))}
+              </div>
               {/* Theme Toggle in mobile */}
               <button
                 className="theme-toggle"
@@ -271,11 +310,11 @@ export default function Header() {
                   style={{ animationDelay: `${i * 0.05 + 0.1}s` }}
                 >
                   <Link
-                    to={link.path}
+                    to={localizedPath(link.path)}
                     className={`mobile-menu__link ${isActive(link.path) ? 'mobile-menu__link--active' : ''}`}
                     onClick={() => setMobileOpen(false)}
                   >
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 </li>
               ))}
@@ -294,7 +333,7 @@ export default function Header() {
                   id="mobile-profile-link"
                 >
                   <UserCircle size={16} />
-                  <span>My Profile</span>
+                  <span>{t('auth.myProfile')}</span>
                 </Link>
                 <Link
                   to={dashboardHref}
@@ -304,7 +343,7 @@ export default function Header() {
                   id="mobile-dashboard-link"
                 >
                   <LayoutDashboard size={16} />
-                  <span>Dashboard</span>
+                  <span>{t('auth.dashboard')}</span>
                 </Link>
                 <button
                   type="button"
@@ -316,7 +355,7 @@ export default function Header() {
                   }}
                 >
                   <LogOut size={16} />
-                  <span>Log Out</span>
+                  <span>{t('auth.logOut')}</span>
                 </button>
               </>
             ) : (
@@ -332,7 +371,7 @@ export default function Header() {
                   id="mobile-register-cta"
                 >
                   <UserPlus size={16} />
-                  <span>Create Account</span>
+                  <span>{t('auth.createAccount')}</span>
                 </button>
                 <button
                   type="button"
@@ -345,7 +384,7 @@ export default function Header() {
                   id="mobile-login-cta"
                 >
                   <LogIn size={16} />
-                  <span>Log In</span>
+                  <span>{t('auth.logIn')}</span>
                 </button>
               </>
             )}

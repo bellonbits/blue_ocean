@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
+import { useLanguage } from '../context/LanguageContext';
 import ArticleGrid from '../components/news/ArticleGrid';
 import { getAllArticles } from '../data/news';
 import './SpeciesDirectoryPage.css';
@@ -9,6 +10,7 @@ import './SpeciesDirectoryPage.css';
 export default function NewsArticlesPage() {
   const [searchParams] = useSearchParams();
   const categoryParam = searchParams.get('category') || 'all';
+  const { language } = useLanguage();
   useScrollReveal();
 
   useEffect(() => {
@@ -39,7 +41,7 @@ export default function NewsArticlesPage() {
 
       <section className="species-dir-content-sec section">
         <div className="container">
-          <ArticleGrid initialCategory={categoryParam} articlesList={getAllArticles()} />
+          <ArticleGrid initialCategory={categoryParam} articlesList={getAllArticles(language)} />
         </div>
       </section>
     </main>

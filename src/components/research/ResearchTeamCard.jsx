@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { Anchor, Waves, Compass, Fish, Sprout, Droplets, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import './ResearchTeamCard.css';
 
 const ICONS = { Anchor, Waves, Compass, Fish, Sprout, Droplets };
 
 export default function ResearchTeamCard({ team }) {
+  const { t } = useLanguage();
   const Icon = ICONS[team.icon] || Anchor;
 
   return (
@@ -24,9 +26,9 @@ export default function ResearchTeamCard({ team }) {
         </div>
 
         <div className="team-card__footer">
-          <span className="team-card__count">{team.projects.length} {team.projects.length === 1 ? 'Project' : 'Projects'}</span>
+          <span className="team-card__count">{team.projects.length} {team.projects.length === 1 ? t('research.card.projectSingular') : t('research.card.projectPlural')}</span>
           <span className="team-card__cta">
-            <span>View Team</span>
+            <span>{t('research.card.viewTeamCta')}</span>
             <ArrowRight size={13} />
           </span>
         </div>

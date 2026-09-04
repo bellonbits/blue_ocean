@@ -8,10 +8,13 @@ import MarineStats from '../components/marine/MarineStats';
 import EcosystemsSection from '../components/marine/EcosystemsSection';
 import SpeciesGrid from '../components/marine/SpeciesGrid';
 import ExploreCTA from '../components/coast/ExploreCTA';
-import { speciesList } from '../data/marineLife';
+import { getAllSpecies } from '../data/marineLife';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function MarineLifePage() {
   const { pathname } = useLocation();
+  const { language } = useLanguage();
+  const speciesList = getAllSpecies(language);
   useScrollReveal();
 
   useEffect(() => {

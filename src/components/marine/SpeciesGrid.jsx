@@ -4,6 +4,7 @@ import SpeciesCard from './SpeciesCard';
 import SpeciesSearch from './SpeciesSearch';
 import SpeciesFilters from './SpeciesFilters';
 import FramerCarousel from '../ui/FramerCarousel';
+import { useLanguage } from '../../context/LanguageContext';
 import './SpeciesGrid.css';
 
 export default function SpeciesGrid({
@@ -11,6 +12,7 @@ export default function SpeciesGrid({
   speciesList = [],
   showSearchHeader = true,
 }) {
+  const { t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [selectedHabitat, setSelectedHabitat] = useState('all');
@@ -92,7 +94,7 @@ export default function SpeciesGrid({
               aria-label="Open filter options"
             >
               <SlidersHorizontal size={16} />
-              <span>Filters</span>
+              <span>{t('marineLife.speciesGrid.filtersButton')}</span>
               {hasActiveFilters && <span className="species-dir__filter-dot" />}
             </button>
 
@@ -102,19 +104,19 @@ export default function SpeciesGrid({
                 type="button"
                 className={`species-dir__toggle-btn ${viewMode === 'grid' ? 'is-active' : ''}`}
                 onClick={() => setViewMode('grid')}
-                title="Grid view"
+                title={t('marineLife.speciesGrid.gridViewTitle')}
               >
                 <Grid size={16} />
-                <span className="species-dir__toggle-label">Grid</span>
+                <span className="species-dir__toggle-label">{t('marineLife.speciesGrid.gridView')}</span>
               </button>
               <button
                 type="button"
                 className={`species-dir__toggle-btn ${viewMode === 'carousel' ? 'is-active' : ''}`}
                 onClick={() => setViewMode('carousel')}
-                title="Carousel view"
+                title={t('marineLife.speciesGrid.carouselViewTitle')}
               >
                 <SlidersHorizontal size={16} />
-                <span className="species-dir__toggle-label">Carousel</span>
+                <span className="species-dir__toggle-label">{t('marineLife.speciesGrid.carouselView')}</span>
               </button>
             </div>
           </div>
@@ -144,14 +146,14 @@ export default function SpeciesGrid({
           {/* Active Filter Tags */}
           {hasActiveFilters && (
             <div className="species-dir__active-tags">
-              <span className="species-dir__active-label">Active Filters:</span>
+              <span className="species-dir__active-label">{t('marineLife.speciesGrid.activeFiltersLabel')}</span>
               {selectedCategory !== 'all' && (
                 <button
                   type="button"
                   className="species-dir__tag-chip"
                   onClick={() => setSelectedCategory('all')}
                 >
-                  <span>Category: {selectedCategory}</span>
+                  <span>{t('marineLife.speciesGrid.categoryLabel')}: {selectedCategory}</span>
                   <span className="species-dir__tag-x">×</span>
                 </button>
               )}
@@ -161,7 +163,7 @@ export default function SpeciesGrid({
                   className="species-dir__tag-chip"
                   onClick={() => setSelectedHabitat('all')}
                 >
-                  <span>Habitat: {selectedHabitat}</span>
+                  <span>{t('marineLife.speciesGrid.habitatLabel')}: {selectedHabitat}</span>
                   <span className="species-dir__tag-x">×</span>
                 </button>
               )}
@@ -171,7 +173,7 @@ export default function SpeciesGrid({
                   className="species-dir__tag-chip"
                   onClick={() => setSelectedStatus('all')}
                 >
-                  <span>Status: {selectedStatus}</span>
+                  <span>{t('marineLife.speciesGrid.statusLabel')}: {selectedStatus}</span>
                   <span className="species-dir__tag-x">×</span>
                 </button>
               )}
@@ -190,7 +192,7 @@ export default function SpeciesGrid({
                 className="species-dir__clear-all-link"
                 onClick={handleReset}
               >
-                Clear all
+                {t('marineLife.speciesGrid.clearAll')}
               </button>
             </div>
           )}
@@ -227,9 +229,9 @@ export default function SpeciesGrid({
               <div className="species-dir__empty-icon">
                 <Search size={32} />
               </div>
-              <h3 className="species-dir__empty-title">No species matched your criteria</h3>
+              <h3 className="species-dir__empty-title">{t('marineLife.speciesGrid.emptyTitle')}</h3>
               <p className="species-dir__empty-desc">
-                Try searching with alternative Somali or scientific terms, or reset the taxonomy and status filters.
+                {t('marineLife.speciesGrid.emptyDesc')}
               </p>
               <button
                 type="button"
@@ -237,7 +239,7 @@ export default function SpeciesGrid({
                 onClick={handleReset}
               >
                 <RotateCcw size={16} />
-                <span>Reset All Filters</span>
+                <span>{t('marineLife.speciesGrid.resetFilters')}</span>
               </button>
             </div>
           )}

@@ -81,9 +81,10 @@ async function listRegionsFromSupabase() {
     .map((r) => adaptRegion({ ...r, destinations_count: counts[r.id] || 0 }));
 }
 
-export async function listRegions() {
+export async function listRegions(lang) {
   try {
-    const regions = await request('/regions');
+    const query = lang && lang !== 'en' ? `?lang=${lang}` : '';
+    const regions = await request(`/regions${query}`);
     return regions.map(adaptRegion);
   } catch (err) {
     if (err.isNetworkError && supabase) return listRegionsFromSupabase();
@@ -186,7 +187,10 @@ async function getDestinationFromSupabase(slug) {
 
 export async function listDestinations(params = {}) {
   try {
-    const query = new URLSearchParams(params).toString();
+    const { lang, ...rest } = params;
+    const queryParams = { ...rest };
+    if (lang && lang !== 'en') queryParams.lang = lang;
+    const query = new URLSearchParams(queryParams).toString();
     const destinations = await request(`/destinations${query ? `?${query}` : ''}`);
     return destinations.map(adaptDestination);
   } catch (err) {
@@ -233,9 +237,10 @@ export async function getRelatedNews({ destination, species, researchProject, co
   return articles.map(adaptArticleSummary);
 }
 
-export async function getDestination(slug) {
+export async function getDestination(slug, lang) {
   try {
-    const d = await request(`/destinations/${slug}`);
+    const query = lang && lang !== 'en' ? `?lang=${lang}` : '';
+    const d = await request(`/destinations/${slug}${query}`);
     return adaptDestination(d);
   } catch (err) {
     if (err.isNetworkError && supabase) return getDestinationFromSupabase(slug);

@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion';
 import { Waves, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperiencesHero.css';
 
 export default function AboutHero() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+
   return (
     <section className="exp-hero" aria-label="About Blue Ocean">
       <div className="exp-hero__media" aria-hidden="true">
@@ -23,7 +27,7 @@ export default function AboutHero() {
           transition={{ duration: 0.6 }}
         >
           <Waves size={14} />
-          <span>ABOUT BLUE OCEAN</span>
+          <span>{t('about.hero.badge')}</span>
         </motion.div>
 
         <motion.h1
@@ -32,8 +36,8 @@ export default function AboutHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          A deeper connection <br />
-          <span className="exp-hero__title-accent">to Somalia's ocean.</span>
+          {t('about.hero.heading')} <br />
+          <span className="exp-hero__title-accent">{t('about.hero.headingAccent')}</span>
         </motion.h1>
 
         <motion.p
@@ -42,7 +46,7 @@ export default function AboutHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          Blue Ocean explores, studies, protects and shares the marine environment of Somalia.
+          {t('about.hero.subtext')}
         </motion.p>
 
         <motion.div
@@ -52,11 +56,11 @@ export default function AboutHero() {
           transition={{ duration: 0.7, delay: 0.3 }}
         >
           <a href="#our-story" className="exp-hero__btn-primary">
-            <span>Our Story</span>
+            <span>{t('about.hero.ctaStory')}</span>
             <ArrowRight size={18} />
           </a>
-          <a href="/contact" className="exp-hero__btn-secondary">
-            <span>Get in Touch</span>
+          <a href={localizedPath('/contact')} className="exp-hero__btn-secondary">
+            <span>{t('about.hero.ctaContact')}</span>
           </a>
         </motion.div>
       </div>

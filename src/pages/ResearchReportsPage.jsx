@@ -2,7 +2,8 @@ import { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Search, Info } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
-import { getAllReports, researchAreas } from '../data/research';
+import { getAllReports, getResearchAreas } from '../data/research';
+import { useLanguage } from '../context/LanguageContext';
 import ResearchReportCard from '../components/research/ResearchReportCard';
 import '../components/experiences/ExperienceGrid.css';
 import './SpeciesDirectoryPage.css';
@@ -10,9 +11,11 @@ import './ResearchReportsPage.css';
 
 export default function ResearchReportsPage() {
   useScrollReveal();
+  const { language } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedArea, setSelectedArea] = useState('all');
-  const reports = getAllReports();
+  const reports = getAllReports(language);
+  const researchAreas = getResearchAreas(language);
 
   useEffect(() => {
     document.title = 'Research Reports — Blue Ocean Somalia';

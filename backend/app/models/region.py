@@ -3,7 +3,7 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import DateTime, String, Text, func
+from sqlalchemy import DateTime, ForeignKey, String, Text, UniqueConstraint, func
 from sqlalchemy.dialects.postgresql import ARRAY, UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -32,3 +32,34 @@ class Region(Base):
     )
 
     destinations: Mapped[list["Destination"]] = relationship(back_populates="region")
+    translations: Mapped[list["RegionTranslation"]] = relationship(
+        back_populates="region", cascade="all, delete-orphan"
+    )
+
+
+class RegionTranslation(Base):
+    """Non-English content for a region — same pattern as
+    DestinationTranslation in app/models/destination.py: English lives on
+    the base Region row, this table only ever holds the other languages."""
+
+    __tablename__ = "region_translations"
+    __table_args__ = (UniqueConstraint("region_id", "language", name="uq_region_translation_language"),)
+
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    region_id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("regions.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    language: Mapped[str] = mapped_column(String(5), nullable=False)
+
+    name: Mapped[str | None] = mapped_column(String(150))
+    subtitle: Mapped[str | None] = mapped_column(String(255))
+    tagline: Mapped[str | None] = mapped_column(Text)
+    description: Mapped[str | None] = mapped_column(Text)
+    highlights: Mapped[list[str]] = mapped_column(ARRAY(String), default=list)
+
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
+
+    region: Mapped["Region"] = relationship(back_populates="translations")

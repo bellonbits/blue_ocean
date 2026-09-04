@@ -1,12 +1,16 @@
 import { useState, useMemo } from 'react';
 import { Search, RotateCcw } from 'lucide-react';
 import ResearchProjectCard from './ResearchProjectCard';
-import { researchAreas, PROJECT_STATUSES } from '../../data/research';
+import { getResearchAreas, getProjectStatuses } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceGrid.css';
 
 const REGIONS = ['Puntland', 'Jubaland', 'Somalia'];
 
 export default function ResearchProjectGrid({ initialArea = 'all', projectsList = [] }) {
+  const { language } = useLanguage();
+  const researchAreas = getResearchAreas(language);
+  const projectStatuses = getProjectStatuses(language);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedArea, setSelectedArea] = useState(initialArea);
   const [selectedRegion, setSelectedRegion] = useState('all');
@@ -95,14 +99,14 @@ export default function ResearchProjectGrid({ initialArea = 'all', projectsList 
           <button type="button" className={`exp-grid__pill ${selectedStatus === 'all' ? 'is-active' : ''}`} onClick={() => setSelectedStatus('all')}>
             All Statuses
           </button>
-          {PROJECT_STATUSES.map((status) => (
+          {projectStatuses.map((status) => (
             <button
-              key={status}
+              key={status.value}
               type="button"
-              className={`exp-grid__pill ${selectedStatus === status ? 'is-active' : ''}`}
-              onClick={() => setSelectedStatus(status)}
+              className={`exp-grid__pill ${selectedStatus === status.value ? 'is-active' : ''}`}
+              onClick={() => setSelectedStatus(status.value)}
             >
-              {status}
+              {status.label}
             </button>
           ))}
         </div>

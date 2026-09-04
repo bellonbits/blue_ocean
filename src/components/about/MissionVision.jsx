@@ -1,18 +1,20 @@
 import { Target, Eye } from 'lucide-react';
-import { organization } from '../../data/organization';
+import { getOrganization } from '../../data/organization';
+import { useLanguage } from '../../context/LanguageContext';
 import './MissionVision.css';
 
 export default function MissionVision() {
-  const { mission, vision } = organization;
+  const { language, t } = useLanguage();
+  const { mission, vision } = getOrganization(language);
 
   return (
     <section className="mission-vision section" aria-labelledby="mission-vision-heading">
       <div className="container">
         <div className="section-header centered reveal">
-          <span className="label-text">WHAT DRIVES US</span>
+          <span className="label-text">{t('about.missionVision.label')}</span>
           <div className="divider centered" />
           <h2 className="section-heading" id="mission-vision-heading">
-            Mission & Vision
+            {t('about.missionVision.heading')}
           </h2>
         </div>
 
@@ -21,7 +23,7 @@ export default function MissionVision() {
             <div className="mission-vision__icon">
               <Target size={24} />
             </div>
-            <span className="mission-vision__label">Mission</span>
+            <span className="mission-vision__label">{t('about.missionVision.missionLabel')}</span>
             <h3 className="mission-vision__statement">{mission.statement}</h3>
             <p className="mission-vision__desc">{mission.description}</p>
           </div>
@@ -30,7 +32,7 @@ export default function MissionVision() {
             <div className="mission-vision__icon">
               <Eye size={24} />
             </div>
-            <span className="mission-vision__label">Vision</span>
+            <span className="mission-vision__label">{t('about.missionVision.visionLabel')}</span>
             <h3 className="mission-vision__statement">{vision.statement}</h3>
             <p className="mission-vision__desc">{vision.description}</p>
           </div>

@@ -1,20 +1,24 @@
-import { CONSERVATION_APPROACH_STEPS } from '../../data/conservation';
+import { getConservationApproachSteps } from '../../data/conservation';
+import { useLanguage } from '../../context/LanguageContext';
 import '../research/ResearchObjectives.css';
 
 export default function ConservationApproach() {
+  const { language, t } = useLanguage();
+  const steps = getConservationApproachSteps(language);
+
   return (
     <section className="research-obj section" aria-labelledby="conservation-approach-heading">
       <div className="container">
         <div className="section-header reveal">
-          <span className="label-text">OUR METHOD</span>
+          <span className="label-text">{t('conservation.approach.label')}</span>
           <div className="divider" />
           <h2 className="section-heading" id="conservation-approach-heading">
-            Turning knowledge into action.
+            {t('conservation.approach.heading')}
           </h2>
         </div>
 
         <div className="research-obj__list reveal">
-          {CONSERVATION_APPROACH_STEPS.map((s) => (
+          {steps.map((s) => (
             <div key={s.step} className="research-obj__item">
               <span className="research-obj__num">{s.step}</span>
               <div>

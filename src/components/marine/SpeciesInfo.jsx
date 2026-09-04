@@ -1,9 +1,11 @@
 import { Layers, Waves, ArrowDown, Activity, Clock, Award, ShieldCheck, Scale, Ruler } from 'lucide-react';
-import { getStatusInfo } from './SpeciesCard';
+import { getSpeciesStatusInfo } from '../../data/marineLife';
+import { useLanguage } from '../../context/LanguageContext';
 import './SpeciesInfo.css';
 
 export default function SpeciesInfo({ species }) {
-  const statusInfo = getStatusInfo(species.conservationStatus);
+  const { language } = useLanguage();
+  const statusInfo = getSpeciesStatusInfo(species.conservationStatus, language);
 
   const facts = [
     { label: 'COMMON NAME', value: species.commonName },

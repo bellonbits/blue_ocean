@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, MapPin, Compass } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import './CoastHero.css';
 
 export default function CoastHero() {
+  const { t } = useLanguage();
+
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -31,7 +34,7 @@ export default function CoastHero() {
             transition={{ duration: 0.6 }}
           >
             <Compass size={14} className="coast-hero__badge-icon" />
-            <span>3,025 KM COASTLINE · HORN OF AFRICA</span>
+            <span>{t('exploreCoast.hero.badge')}</span>
           </motion.div>
 
           <motion.h1
@@ -40,9 +43,9 @@ export default function CoastHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            Explore Somalia's
+            {t('exploreCoast.hero.heading')}
             <br />
-            <span className="coast-hero__title-accent">Blue Frontier</span>
+            <span className="coast-hero__title-accent">{t('exploreCoast.hero.headingAccent')}</span>
           </motion.h1>
 
           <motion.p
@@ -51,8 +54,7 @@ export default function CoastHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            From remote islands and coral-rich waters to historic coastal towns,
-            discover the places that define Somalia's extraordinary coastline.
+            {t('exploreCoast.hero.subtext')}
           </motion.p>
 
           <motion.div
@@ -66,7 +68,7 @@ export default function CoastHero() {
               className="btn btn-primary btn-lg"
               id="cta-explore-destinations"
             >
-              Explore Destinations
+              {t('exploreCoast.hero.ctaExploreDestinations')}
               <ArrowDown size={18} />
             </button>
             <button
@@ -75,7 +77,7 @@ export default function CoastHero() {
               id="cta-view-map"
             >
               <MapPin size={18} />
-              View Map
+              {t('exploreCoast.hero.ctaViewMap')}
             </button>
           </motion.div>
         </div>

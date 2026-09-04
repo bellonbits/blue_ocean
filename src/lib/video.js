@@ -6,6 +6,7 @@
 
 const YOUTUBE_RE = /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{6,})/;
 const VIMEO_RE = /vimeo\.com\/(?:video\/)?(\d+)/;
+const TIKTOK_RE = /tiktok\.com\/@[\w.-]+\/video\/(\d+)/;
 
 export function getVideoEmbedUrl(url) {
   if (!url) return null;
@@ -15,6 +16,9 @@ export function getVideoEmbedUrl(url) {
 
   const vimeoMatch = url.match(VIMEO_RE);
   if (vimeoMatch) return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+
+  const tiktokMatch = url.match(TIKTOK_RE);
+  if (tiktokMatch) return `https://www.tiktok.com/embed/v2/${tiktokMatch[1]}`;
 
   return null;
 }

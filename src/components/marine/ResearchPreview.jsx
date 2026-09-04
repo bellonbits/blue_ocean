@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Microscope, MapPin, Activity, ArrowRight } from 'lucide-react';
 import { getProjectBySlug } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 import './ResearchPreview.css';
 
 export default function ResearchPreview({ species }) {
+  const { language } = useLanguage();
   if (!species.researchProjects || species.researchProjects.length === 0) return null;
 
   return (
@@ -24,7 +26,7 @@ export default function ResearchPreview({ species }) {
         {/* Research Cards Grid */}
         <div className="research-prev__grid reveal">
           {species.researchProjects.map((project) => {
-            const fullProject = getProjectBySlug(project.id);
+            const fullProject = getProjectBySlug(project.id, language);
             return (
               <div key={project.id} className="research-prev__card">
                 <div className="research-prev__card-header">

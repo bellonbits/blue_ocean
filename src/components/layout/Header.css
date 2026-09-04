@@ -125,6 +125,17 @@
   width: 100%;
 }
 
+/* Overrides the shared .container class's max-width (1320px, sized for
+   page content) — the logo + 11 nav links + language/theme/auth controls
+   need ~1665px to render on one line without overlap, so the narrower
+   cap was causing content to overflow the (centered) box invisibly at
+   most viewport widths. The extra `.header` ancestor is there purely to
+   out-specificity `.container` (same single-class specificity otherwise,
+   so the winner depended on CSS source order rather than intent). */
+.header .header__inner {
+  max-width: 1700px;
+}
+
 /* --- Logo --- */
 .header__logo {
   display: flex;
@@ -268,6 +279,48 @@
 [data-theme="light"] .theme-toggle__track {
   background: rgba(0, 100, 80, 0.1);
   border-color: rgba(0, 143, 128, 0.35);
+}
+
+/* --- Language Switcher --- */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 2px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(0, 207, 232, 0.35);
+  border-radius: var(--radius-full);
+  padding: 2px;
+}
+
+.lang-switch__option {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  transition: color var(--transition-slow), background var(--transition-slow);
+}
+
+.lang-switch__option:hover {
+  color: var(--color-text);
+}
+
+.lang-switch__option--active {
+  color: #030D1A;
+  background: linear-gradient(135deg, #00CFE8 0%, #009BB0 100%);
+}
+
+[data-theme="light"] .lang-switch__option--active {
+  color: #FFFFFF;
+}
+
+.mobile-menu__header-actions .lang-switch {
+  margin-right: var(--space-2);
 }
 
 
@@ -729,9 +782,32 @@
     font-size: 0.75rem;
     padding: 0.35rem 0.5rem;
   }
+
+  .header__actions {
+    gap: var(--space-2);
+  }
+
+  /* The pill styling on .lang-switch (added for visual consistency with
+     the theme toggle) costs more width than the old text-only switcher —
+     claw it back here, the one zone (960-1180px) tight enough for 11
+     nav links + actions to actually run out of room. */
+  .lang-switch {
+    padding: 1px;
+    gap: 1px;
+  }
+
+  .lang-switch__option {
+    padding: 2px 5px;
+    font-size: 0.68rem;
+  }
 }
 
-@media (max-width: 960px) {
+/* The desktop row (logo + 11 nav links + language/theme/auth controls)
+   needs ~1665px of unbroken width even with .header__inner's widened
+   max-width (see above) — common laptop widths (1366-1536px) are well
+   under that, so they get the mobile nav instead of a squeezed or
+   overflowing desktop row. */
+@media (max-width: 1700px) {
   .header__nav,
   .header__actions {
     display: none;

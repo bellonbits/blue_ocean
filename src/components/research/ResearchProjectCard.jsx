@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Activity, ArrowRight } from 'lucide-react';
+import { getStatusLabel } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceCard.css';
 
 const STATUS_COLORS = {
@@ -10,6 +12,7 @@ const STATUS_COLORS = {
 };
 
 export default function ResearchProjectCard({ project, priority = false }) {
+  const { language, t } = useLanguage();
   const statusColor = STATUS_COLORS[project.status] || STATUS_COLORS.Active;
 
   return (
@@ -31,7 +34,7 @@ export default function ResearchProjectCard({ project, priority = false }) {
               style={{ background: statusColor.bg, color: statusColor.text, border: `1px solid ${statusColor.border}` }}
             >
               <Activity size={11} />
-              <span>{project.status}</span>
+              <span>{getStatusLabel(project.status, language)}</span>
             </span>
           </div>
         </div>
@@ -50,7 +53,7 @@ export default function ResearchProjectCard({ project, priority = false }) {
 
           <div className="exp-card__footer">
             <span className="exp-card__cta">
-              <span>View Project</span>
+              <span>{t('research.card.viewProjectCta')}</span>
               <ArrowRight size={14} className="exp-card__cta-arrow" />
             </span>
           </div>

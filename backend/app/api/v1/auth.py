@@ -17,6 +17,7 @@ from app.schemas.user import (
     ChangePasswordRequest,
     LoginJsonRequest,
     UpdateInterestsRequest,
+    UpdateLanguageRequest,
     UpdateNotificationPreferencesRequest,
     UpdateOwnProfileRequest,
     UserRead,
@@ -139,6 +140,21 @@ def update_own_interests(
     """The dashboard Profile page's "Ocean Interests" checkboxes — storage
     only, same as notification_preferences (see that endpoint's docstring)."""
     current_user.interests = payload.interests
+    db.commit()
+    db.refresh(current_user)
+    return current_user
+
+
+@router.patch("/me/language", response_model=UserRead)
+def update_preferred_language(
+    payload: UpdateLanguageRequest,
+    current_user: User = Depends(get_current_active_user),
+    db: Session = Depends(get_db),
+) -> User:
+    """Persists the account's language choice so it follows the user across
+    devices — the anonymous/pre-login case is handled entirely client-side
+    (browser-language detection + localStorage, see LanguageContext.jsx)."""
+    current_user.preferred_language = payload.preferred_language
     db.commit()
     db.refresh(current_user)
     return current_user

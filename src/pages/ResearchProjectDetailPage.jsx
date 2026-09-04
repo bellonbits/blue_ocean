@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Compass } from 'lucide-react';
 import { useScrollReveal, useTrackRecentlyViewed } from '../lib/hooks';
 import { getProjectBySlug } from '../data/research';
+import { useLanguage } from '../context/LanguageContext';
 import ResearchProjectHero from '../components/research/ResearchProjectHero';
 import ResearchOverview from '../components/research/ResearchOverview';
 import ResearchObjectives from '../components/research/ResearchObjectives';
@@ -17,7 +18,8 @@ import VideoEmbed from '../components/shared/VideoEmbed';
 
 export default function ResearchProjectDetailPage() {
   const { slug } = useParams();
-  const project = getProjectBySlug(slug);
+  const { language } = useLanguage();
+  const project = getProjectBySlug(slug, language);
   useScrollReveal();
 
   useTrackRecentlyViewed(

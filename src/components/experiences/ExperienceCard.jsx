@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Clock, ArrowRight, Sparkles } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import './ExperienceCard.css';
 
 export default function ExperienceCard({ experience, priority = false }) {
+  const { t } = useLanguage();
   const isComingSoon = experience.status === 'coming-soon';
 
   return (
@@ -22,7 +24,7 @@ export default function ExperienceCard({ experience, priority = false }) {
             {isComingSoon && (
               <span className="badge badge-coming-soon exp-card__status-badge">
                 <Sparkles size={11} />
-                <span>Coming Soon</span>
+                <span>{experience.statusLabel}</span>
               </span>
             )}
           </div>
@@ -46,7 +48,7 @@ export default function ExperienceCard({ experience, priority = false }) {
 
           <div className="exp-card__footer">
             <span className="exp-card__cta">
-              <span>View Experience</span>
+              <span>{t('oceanExperiences.card.viewCta')}</span>
               <ArrowRight size={14} className="exp-card__cta-arrow" />
             </span>
           </div>

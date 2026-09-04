@@ -2,10 +2,12 @@ import { useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Library, ArrowRight, X } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
-import { getProjectBySlug } from '../../data/research';
+import { getProjectBySlug, getStatusLabel } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 
 export default function MyResearchPage() {
   const { savedItems, toggleSaved } = useAuth();
+  const { language } = useLanguage();
 
   useEffect(() => {
     document.title = 'My Research — Blue Ocean Somalia';
@@ -16,9 +18,9 @@ export default function MyResearchPage() {
     () =>
       savedItems
         .filter((item) => item.content_type === 'research')
-        .map((item) => ({ item, project: getProjectBySlug(item.content_slug) }))
+        .map((item) => ({ item, project: getProjectBySlug(item.content_slug, language) }))
         .filter((row) => row.project),
-    [savedItems]
+    [savedItems, language]
   );
 
   return (
@@ -54,7 +56,7 @@ export default function MyResearchPage() {
                   {project.heroImage && <img src={project.heroImage} alt="" loading="lazy" />}
                 </div>
                 <div className="user-dash-recent-card__body">
-                  <span className="user-dash-recent-card__type">{project.status}</span>
+                  <span className="user-dash-recent-card__type">{getStatusLabel(project.status, language)}</span>
                   <h3>{project.title}</h3>
                   {project.areaName && <p>{project.areaName}</p>}
                   <span className="user-dash-recent-card__cta">

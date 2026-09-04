@@ -6,14 +6,37 @@
 // attribution rather than named individuals, and impact figures are
 // computed from this data model (getConservationImpact) rather than
 // hand-typed, so nothing here is a fabricated statistic.
+//
+// Localization: every exported getter takes a `language` argument
+// ('en' | 'so'). Somali overrides live under each record's
+// `translations.so` key and are merged in via localize()/localizeList()
+// from ../lib/i18n/localizeData.js. Enum keys used for filtering, CSS
+// lookups, or routing (status keys, focus-area ids, issue ids) are never
+// translated — only their display labels are.
 // =========================================================
 
 import { destinations } from './destinations.js';
 import { speciesList } from './marineLife.js';
 import { researchProjects } from './research.js';
 import { communities } from './communities.js';
+import { localize, localizeList } from '../lib/i18n/localizeData.js';
 
+// Enum keys — used for filtering/logic. Never translated.
 export const CONSERVATION_STATUSES = ['Planned', 'Active', 'Completed', 'Coming Soon'];
+
+const STATUS_LABELS_SO = {
+  Planned: 'La Qorsheeyay',
+  Active: 'Socda',
+  Completed: 'La Dhammeeyay',
+  'Coming Soon': 'Dhawaan',
+};
+
+// Display label for a status enum key. The key itself (used for
+// filtering and CSS/style lookups) is always the English value above.
+export function getStatusLabel(statusKey, language = 'en') {
+  if (language === 'so' && STATUS_LABELS_SO[statusKey]) return STATUS_LABELS_SO[statusKey];
+  return statusKey;
+}
 
 export const conservationFocusAreas = [
   {
@@ -22,6 +45,12 @@ export const conservationFocusAreas = [
     title: 'Marine Wildlife',
     description: 'Protecting endangered and vulnerable marine species — from sea turtles to sharks and cetaceans — across Somali waters.',
     image: '/marine_turtles.jpg',
+    translations: {
+      so: {
+        title: 'Duurjoogta Badda',
+        description: 'Ilaalinta noocyada badeed ee halista ku jira ama nugul ah — laga bilaabo diinta badda ilaa sharka iyo nibiriyada — ee ku baahsan biyaha Soomaaliyeed.',
+      },
+    },
   },
   {
     id: 'coral-habitat',
@@ -29,6 +58,12 @@ export const conservationFocusAreas = [
     title: 'Coral & Habitat Protection',
     description: 'Safeguarding coral reefs, seagrass meadows, and mangrove nurseries against degradation and unregulated development.',
     image: '/marine_coral.jpg',
+    translations: {
+      so: {
+        title: 'Ilaalinta Jiirka iyo Deegaanka',
+        description: 'Difaaca jiirka badda, dooxyada cawska badda, iyo beeraha caws-qoyanka (mangrove) ee ah meelaha korriinka noolaha yaryar, iyagoo laga ilaalinayo sii-xumaanshaha iyo horumar aan la xakumin.',
+      },
+    },
   },
   {
     id: 'illegal-fishing',
@@ -36,6 +71,12 @@ export const conservationFocusAreas = [
     title: 'Illegal Fishing',
     description: 'Documenting illegal and destructive fishing activity in Somali waters and supporting evidence-based, sustainable management of the resources coastal communities depend on.',
     image: '/marine_fish.jpg',
+    translations: {
+      so: {
+        title: 'Kalluumeysiga Sharci-darrada ah',
+        description: 'Diiwaangelinta howlaha kalluumeysiga sharci-darrada ah ee wax-u-dhiman ee ka socda biyaha Soomaaliyeed, iyo taageeridda maamul waara oo ku salaysan xog sax ah ee khayraadka ay bulshooyinka xeebaha ku tiirsan yihiin.',
+      },
+    },
   },
   {
     id: 'sustainable-fishing',
@@ -43,6 +84,12 @@ export const conservationFocusAreas = [
     title: 'Sustainable Fishing',
     description: 'Working with artisanal fleets to protect fish stocks, nursery grounds, and livelihoods for the long term.',
     image: '/exp_dhow_sailing.jpg',
+    translations: {
+      so: {
+        title: 'Kalluumeysi Waara',
+        description: 'La shaqaynta doonyaha kalluumeysiga ee dhaqameed si loo ilaaliyo kaydka kalluunka, meelaha korriinka, iyo nolol-maalmeedka mustaqbalka fog.',
+      },
+    },
   },
   {
     id: 'ocean-pollution',
@@ -50,6 +97,12 @@ export const conservationFocusAreas = [
     title: 'Ocean Pollution',
     description: 'Mapping marine debris, microplastics, and coastal pollution sources to guide cleanup and prevention.',
     image: '/mogadishu_beach.jpg',
+    translations: {
+      so: {
+        title: 'Wasakhaynta Badweynta',
+        description: 'Khariidaynta qashinka badda, walxaha plastikga yaryar (microplastics), iyo isha wasakhda xeebaha, si loo hagaajiyo howlaha nadaafadda iyo ka hortagga.',
+      },
+    },
   },
   {
     id: 'beach-cleanup',
@@ -57,6 +110,12 @@ export const conservationFocusAreas = [
     title: 'Beach Cleanup',
     description: 'Organizing community-led shoreline cleanups along Somalia\'s most heavily used coastlines.',
     image: '/con_beach_cleanup.jpg',
+    translations: {
+      so: {
+        title: 'Nadaafadda Xeebaha',
+        description: 'Habaynta ololayaal nadaafad oo bulshada hoggaamiso ee ka socda xeebaha ugu isticmaalka badan ee Soomaaliya.',
+      },
+    },
   },
   {
     id: 'marine-education',
@@ -64,6 +123,12 @@ export const conservationFocusAreas = [
     title: 'Marine Education',
     description: 'Building ocean literacy in coastal schools and communities to grow the next generation of stewards.',
     image: '/con_youth_education.jpg',
+    translations: {
+      so: {
+        title: 'Waxbarashada Badda',
+        description: 'Kobcinta aqoonta ku saabsan badweynta dugsiyada iyo bulshooyinka xeebaha si loo soo saaro jiil cusub oo ilaaliya deegaanka.',
+      },
+    },
   },
   {
     id: 'community-conservation',
@@ -71,23 +136,33 @@ export const conservationFocusAreas = [
     title: 'Community Conservation',
     description: 'Partnering with coastal communities so conservation is led by the people who depend on the ocean most.',
     image: '/puntland.jpg',
+    translations: {
+      so: {
+        title: 'Ilaalinta Bulsho-hoggaamineed',
+        description: 'La shaqaynta bulshooyinka xeebaha si ilaalinta deegaanka loo hoggaamiyo dadka ugu tiirsanaanta badweynta.',
+      },
+    },
   },
 ];
+
+export function getConservationFocusAreas(language = 'en') {
+  return localizeList(conservationFocusAreas, language);
+}
 
 // Controlled vocabulary of issues a project can address — selected per
 // project, not free text, so the Problem section only ever shows
 // issues Blue Ocean actually works on.
 export const CONSERVATION_ISSUES = [
-  { id: 'habitat-degradation', label: 'Habitat Degradation', icon: 'TreePine' },
-  { id: 'plastic-pollution', label: 'Plastic & Marine Debris', icon: 'Trash2' },
-  { id: 'unsustainable-fishing', label: 'Unsustainable Fishing', icon: 'Fish' },
-  { id: 'illegal-fishing', label: 'Illegal & Unregulated Fishing', icon: 'AlertTriangle' },
-  { id: 'bycatch', label: 'Bycatch & Entanglement', icon: 'AlertTriangle' },
-  { id: 'wildlife-trade', label: 'Illegal Wildlife Trade', icon: 'ShieldOff' },
-  { id: 'vessel-strikes', label: 'Vessel Strikes', icon: 'Ship' },
-  { id: 'water-quality', label: 'Declining Water Quality', icon: 'Droplets' },
-  { id: 'climate-warming', label: 'Warming & Bleaching', icon: 'Thermometer' },
-  { id: 'low-awareness', label: 'Limited Ocean Literacy', icon: 'BookOpen' },
+  { id: 'habitat-degradation', label: 'Habitat Degradation', icon: 'TreePine', translations: { so: { label: 'Sii-xumaanshaha Deegaanka' } } },
+  { id: 'plastic-pollution', label: 'Plastic & Marine Debris', icon: 'Trash2', translations: { so: { label: 'Plastikga iyo Qashinka Badda' } } },
+  { id: 'unsustainable-fishing', label: 'Unsustainable Fishing', icon: 'Fish', translations: { so: { label: 'Kalluumeysi Aan Waarin' } } },
+  { id: 'illegal-fishing', label: 'Illegal & Unregulated Fishing', icon: 'AlertTriangle', translations: { so: { label: 'Kalluumeysi Sharci-darro ah oo Aan La Xakumin' } } },
+  { id: 'bycatch', label: 'Bycatch & Entanglement', icon: 'AlertTriangle', translations: { so: { label: 'Qabashada Aan Loo Baahnayn iyo Ku Xidhmidda Shabagyada' } } },
+  { id: 'wildlife-trade', label: 'Illegal Wildlife Trade', icon: 'ShieldOff', translations: { so: { label: 'Ganacsiga Sharci-darrada ah ee Duurjoogta' } } },
+  { id: 'vessel-strikes', label: 'Vessel Strikes', icon: 'Ship', translations: { so: { label: 'Kudhufashada Doonyaha' } } },
+  { id: 'water-quality', label: 'Declining Water Quality', icon: 'Droplets', translations: { so: { label: 'Hoos-u-dhaca Tayada Biyaha' } } },
+  { id: 'climate-warming', label: 'Warming & Bleaching', icon: 'Thermometer', translations: { so: { label: 'Kulaylka iyo Cadaanshaha Jiirka' } } },
+  { id: 'low-awareness', label: 'Limited Ocean Literacy', icon: 'BookOpen', translations: { so: { label: 'Aqoon Yari ku saabsan Badweynta' } } },
 ];
 
 // Blue Ocean's shared conservation methodology — the same five steps
@@ -98,28 +173,62 @@ export const CONSERVATION_APPROACH_STEPS = [
     step: '01',
     title: 'Research',
     desc: 'Every initiative starts with data — field surveys, species monitoring, and habitat assessments that establish an evidence baseline.',
+    translations: {
+      so: {
+        title: 'Cilmi-baaris',
+        desc: 'Hindise kastaa wuxuu ku bilaabmaa xog — sahan goob ah, kormeerka noocyada, iyo qiimaynta deegaanka — kuwaas oo aasaas u ah xaqiiqo la hubiyay.',
+      },
+    },
   },
   {
     step: '02',
     title: 'Understand',
     desc: 'Raw findings are translated into a clear picture of what is actually threatening a species, habitat, or coastal livelihood.',
+    translations: {
+      so: {
+        title: 'Fahamka',
+        desc: 'Natiijooyinka ceyriinka ah waxaa loo beddelaa sawir cad oo muujinaya waxa runtii khatar ku ah nooc, deegaan, ama nolol-maalmeedka xeebaha.',
+      },
+    },
   },
   {
     step: '03',
     title: 'Engage',
     desc: 'Coastal communities, fishing cooperatives, and local authorities are brought in as partners in the response, not bystanders to it.',
+    translations: {
+      so: {
+        title: 'La-xiriirka',
+        desc: 'Bulshooyinka xeebaha, iskaashatooyinka kalluumeysiga, iyo maamullada deegaanka waxaa loogu casumaa inay noqdaan wehelo ka qayb qaata xalka, ee aysan ahayn kuwo daawan.',
+      },
+    },
   },
   {
     step: '04',
     title: 'Protect',
     desc: 'Findings become action — protected corridors, gear changes, seasonal closures, cleanup networks, or policy proposals.',
+    translations: {
+      so: {
+        title: 'Ilaalinta',
+        desc: 'Natiijooyinku waxay noqdaan tallaabo dhab ah — waddooyin la ilaaliyo, isbeddel qalabka kalluumeysiga, xannibaadyo xilliyeed, shabakadaha nadaafadda, ama soo jeedinno siyaasadeed.',
+      },
+    },
   },
   {
     step: '05',
     title: 'Measure',
     desc: 'We track whether an intervention is actually working, and adjust the approach as new field data comes in.',
+    translations: {
+      so: {
+        title: 'Qiimaynta',
+        desc: 'Waxaan la soconaa in tallaabadu runtii shaqaynayso iyo in kale, waxaana habka wax ka beddelnaa marka xog goob oo cusub soo gasho.',
+      },
+    },
   },
 ];
+
+export function getConservationApproachSteps(language = 'en') {
+  return localizeList(CONSERVATION_APPROACH_STEPS, language);
+}
 
 const rawProjects = [
   {
@@ -150,6 +259,23 @@ const rawProjects = [
     researchProjectSlugs: ['cetacean-monitoring', 'acoustic-hydrophone'],
     communitySlugs: ['bosaso-fishing-cooperative'],
     featured: true,
+    translations: {
+      so: {
+        title: 'Waddooyinka Ammaanka ee Socodka Xayawaanka Naaska Leh ee Badda',
+        summary: 'Khariidaynta dhaqdhaqaaqa delfiinka iyo nibiriga ee Gacanka Cadmeed si waddooyinka socodka loo sii wado iyagoo ka fog khilaafka maraakiibta iyo kalluumeysiga.',
+        editorialStatement: 'Cutub kastaa waxa ay mudan tahay waddo ka fog khilaaf.',
+        whatItIs: 'Hindise joogto ah oo lagu aqoonsanayo oo si rasmi ah loogu soo jeedinayo waddooyin ammaan ah oo loogu talagalay quruumaha delfiinka deggan iyo nibiriyada guuraaga (humpback) ee xeebta woqooyi ee Soomaaliya.',
+        whyItMatters: 'Dhaqdhaqaaqa maraakiibta iyo qalabka kalluumeysigu waa laba ka mid ah khataraha ugu badan ee laga hortagi karo ee ay wajahaan xayawaanka naaska leh ee deggan — waana kuwo aan laga hortagi karin ilaa aad ogaato meesha ay xayawaanku ku sugan yihiin.',
+        whoIsInvolved: 'Xarunta Cilmi-baarista Nibiriga iyo Xayawaanka Naaska Leh ee Blue Ocean, oo la shaqaynaysa iskaashatooyinka kalluumeysiga dhaqameed ee waddada Boosaaso–Qandala.',
+        aims: 'Soo jeedin waddo la khariideeyay oo ku salaysan xog la hubiyay oo ay ku qorsheysan karaan hawlwadeenada maraakiibta iyo kalluumeysiga maxaliga ah labaduba.',
+        problemStatement: 'Quruumaha delfiinka deggan iyo nibiriyada guuraaga waxay la wadaagaan Gacanka Cadmeed waddooyin maraakiib oo cufan iyo goobo kalluumeysi firfircoon — iyadoon jirin wado rasmi ah oo yareysa isku dhacyada.',
+        gallery: [
+          { url: '/marine_dolphins.jpg', caption: 'Quruux delfiin ah oo deggan waddada Gacanka Cadmeed.' },
+          { url: '/bosaso2.jpg', caption: 'Deked Boosaaso, oo ah meel muhiim ah oo dhaqdhaqaaqa maraakiibtu ku badan yahay ee waddada.' },
+          { url: '/exp_coastal_cliff.jpg', caption: 'Biyaha xeebeed ee ku teedsan waddada la soo jeediyay.' },
+        ],
+      },
+    },
   },
   {
     id: 'elasmobranch-protection-initiative',
@@ -179,6 +305,23 @@ const rawProjects = [
     researchProjectSlugs: ['whale-shark-satellite'],
     communitySlugs: [],
     featured: false,
+    translations: {
+      so: {
+        title: 'Hindisaha Ilaalinta Elasmobranch-ka ee Geeska Afrika',
+        summary: 'Dadaal ilaalineed oo gobolka ku baahsan oo loogu talagalay sharkiyada weyn ee daaqa xilliga upwelling-ka Guardafui, oo ku dhisan shaqada Blue Ocean ee calaamadaynta iyo aqoonsiga sawirka.',
+        editorialStatement: 'Kalluunka ugu weyn ee badweynta wuxuu u baahan yahay mid ka mid ah ilaalinta ugu xoogga badan.',
+        whatItIs: 'Hindise gobol oo lagula kaashanayo ururo shirkeed oo ka tirsan Geeska Afrika, si loo helo xaalad la ilaaliyo oo loogu talagalo isku-ururka sharkiyada weyn ee daaqa.',
+        whyItMatters: 'Sharkiyada weyn way gaabsadaan koritaanka waxayna ka gaabsan yihiin dib-u-soo-kabashada dhimista tirada bulshadooda — beer daaqeed keliya oo aan la xakumin ayaa burin kara sanado ilaalin oo ka jira meelo kale oo socodkooda ah.',
+        whoIsInvolved: 'Xarunta Cilmi-baarista Elasmobranch-ka ee Blue Ocean, oo la shaqaynaysa shabakadaha cilmi-baarista sharka weyn ee gobolka oo wadaagaya xogta calaamadaynta iyo aqoonsiga sawirka.',
+        aims: 'Xaalad la ilaaliyo oo la aqoonsaday oo loogu talagalay beerta daaqa ee Guardafui, iyo heer kormeer gobol oo la wadaago.',
+        problemStatement: 'Sharkiyada weyn ee daaqa xilliga upwelling-ka Guardafui wali lama ilaalin, waxaana sii kordhaya khatarta dalxiiska aan la xakumin iyo ku xidhmidda shabagyada kalluumeysiga si aan ula kac ahayn.',
+        gallery: [
+          { url: '/marine_sharks.jpg', caption: 'Shark weyn oo daaqaya dushiisa biyaha u dhow Cap Guardafui.' },
+          { url: '/exp_scuba_diving.jpg', caption: 'Cilmi-baarayaal dhex-dhex ah oo sameynaya nidaamka aqoonsiga sawirka.' },
+          { url: '/bargaal_main.jpg', caption: 'Bargaal, oo ah meel xilliyeed oo isugu imaanaya sharka weyn ee daaqa.' },
+        ],
+      },
+    },
   },
   {
     id: 'mobulid-ray-trade-ban-enforcement',
@@ -208,6 +351,23 @@ const rawProjects = [
     researchProjectSlugs: ['manta-photo-id'],
     communitySlugs: [],
     featured: false,
+    translations: {
+      so: {
+        title: 'Fulinta Mamnuucidda Ganacsiga Manta-yada iyo Mobulid-ka Qaranka',
+        summary: 'Dadaal fulin iyo kormeer oo lagu qorsheeyay looga hortago ganacsiga manta-ga iyo diirka mobulid-ka, oo ku dhisan diiwaanka aqoonsiga sawirka ee Jasiiradaha Baajuun.',
+        editorialStatement: 'Mamnuucidda ganacsigu waxa uu ilaaliyaa kaliya waxa uu arki karo.',
+        whatItIs: 'Barnaamij la qorsheeyay oo isku daraya xogta tirakoobka aqoonsiga sawirka iyo taageerada fulinta xayiraadaha jira ee ganacsiga diirka mobulid-ka ee Soomaaliya.',
+        whyItMatters: 'Manta-ga iyo diirka mobulid-ka ayaa lagu bartilmaameedsadaa xuubabkooda dahaarka marka lagu daro shabakadaha ganacsiga gobolka, fulintuna way adkaataa marka aan jirin xog tiro-koob oo la hubiyay.',
+        whoIsInvolved: 'Xarunta Cilmi-baarista Elasmobranch-ka ee Blue Ocean, oo u socda heshiis iskaashi la leh maamulada kalluumeysiga gobolka.',
+        aims: 'Aasaas tiro-koob gobol oo la xaqiijiyay oo ay hay\'adaha fulintu isticmaali karaan si ay ugu mudnaanta siiyaan patrolka iyo baaritaanka.',
+        problemStatement: 'Manta-ga iyo diirka mobulid-ka waxay wajahaan baahida ganacsiga xuubabkooda dahaarka, mana jiro tiro-koob gobol oo la hubiyay oo lagu mudnaanta siin karo fulinta.',
+        gallery: [
+          { url: '/exp_scuba_diving.jpg', caption: 'Cilmi-baare dhex-dhex ah oo u soo dhawaanaya diir manta ah si uu u qaado sawir aqoonsi.' },
+          { url: '/marine_coral.jpg', caption: 'Jiir badeed oo la aqoonsaday inuu yahay meel u badan in ay nadiifiyaan kalluunka.' },
+          { url: '/jubaland.jpg', caption: 'Biyaha Jasiiradaha Baajuun ee ay daboolayso diiwaanka la qorsheeyay.' },
+        ],
+      },
+    },
   },
   {
     id: 'sirenian-protected-corridors',
@@ -237,6 +397,23 @@ const rawProjects = [
     researchProjectSlugs: ['dugong-aerial-survey'],
     communitySlugs: [],
     featured: false,
+    translations: {
+      so: {
+        title: 'Waddooyinka la Ilaaliyo ee Aan Shabag-Dhaadheer Lahayn ee Naasleyda Badda ee Soomaaliya',
+        summary: 'Dejinta jidad cawska badda ah oo shabag-dhaadheer laga saaray, oo loogu talagalay mid ka mid ah kooxaha ugu dambeeya ee dugong-ga deggan ee Bariga Afrika.',
+        editorialStatement: 'Mid ka mid ah qalcadaha ugu dambeeya wuxuu mudan yahay mid ka mid ah ilaalinta ugu adag.',
+        whatItIs: 'Soo jeedin lagu saarayo shabagyada dhaadheer jidadka cawska badda ee la ilaaliyo ee Jasiiradaha Baajuun, oo si toos ah looga soo qaatay sahanka hawada ee dugong-ga ee Blue Ocean.',
+        whyItMatters: 'Shabagyada dhaadheer waa sababta ugu weyn ee dhimashada dugong-ga gobolka oo dhan, kooxdan yar ee deggani waxayna ku hayaan meel yar oo ay ku lumaan karaan.',
+        whoIsInvolved: 'Xarunta Kala-duwanaanta Noolaha Badda ee Blue Ocean, oo iskaashi la leh bulshooyinka kalluumeysiga ee Jasiiradaha Baajuun ee isticmaala jidadkaas.',
+        aims: 'Aag aan shabag-dhaadheer lahayn oo bulshadu ixtiraamto oo daboolaya jidadka ay kooxda la sahmiyay ku badan tahay.',
+        problemStatement: 'Ku xidhmidda shabagyada dhaadheer waa khatarta ugu weyn ee kooxda yar ee dugong-ga ee isticmaasha jidadka cawska badda ee Jasiiradaha Baajuun.',
+        gallery: [
+          { url: '/marine_seagrass.jpg', caption: 'Wadada raaca ee dugong-ga oo lagu arki karo dooxo caws bad oo dhaadheer.' },
+          { url: '/jubaland.jpg', caption: 'Wadiiqooyinka caws-qoyanka ee ku jira waddada la soo jeediyay.' },
+          { url: '/somalia_coast.jpg', caption: 'Biyaha xeebeed ee koonfureed ee ku jira aagga sahanka.' },
+        ],
+      },
+    },
   },
   {
     id: 'mpa-framework-reef-zoning',
@@ -266,6 +443,23 @@ const rawProjects = [
     researchProjectSlugs: ['coral-thermal-study'],
     communitySlugs: [],
     featured: true,
+    translations: {
+      so: {
+        title: 'Qaab-dhismeedka Aagagga la Ilaaliyo ee Badda (MPA) iyo Qaybinta Jiirka',
+        summary: 'Qaab-dhismeed qaybineed oo lagu qorsheeyay Aagagga la Ilaaliyo ee Badda ee ugu horreeya ee Soomaaliya oo diirado ku salaysan, oo ku dhisan xogta cilmiga hidda-wadaha kulaylka jiirka.',
+        editorialStatement: 'Soomaaliya wali ma laha Aagag la Ilaaliyo oo Badeed. Kaas ayaa boodhka ah ee tan xalinayso.',
+        whatItIs: 'Soo jeedin qaybineed oo lagu qorsheeyay oo aqoonsanaysa goobaha jiirka ee Baajuun iyo Qandala ee ugu mudnaanta badan in la ilaaliyo si rasmi ah, oo ku salaysan cabbirka adkaanta kulaylka ee jiirka la cabbiray.',
+        whyItMatters: 'Soomaaliya hadda ma laha Aagag la Ilaaliyo oo Badeed haba yaraatee — boodh la calaamadiyay ilaa daraasad xeebeed oo taariikhi ah oo sanadkii 2000, kuna reeban jiirka ugu adag ilaalin sharci ah.',
+        whoIsInvolved: 'Xarunta Jiirka Badda iyo Deegaannada Xeebaha ee Blue Ocean, oo soo saaraysa soo jeedinta qaybinta si loogu gudbiyo maamullada xeebaha ee mustaqbalka.',
+        aims: 'Qaab-dhismeed MPA oo diyaar u ah in la gudbiyo, oo mudnaanta siinaya goobaha jiirka ugu adag ee kulaylka ee ilaa hadda la aqoonsaday.',
+        problemStatement: 'Soomaaliya sharci ahaan ma laha Aagag la Ilaaliyo oo Badeed, taasoo ka tagaysa xitaa goobaheeda jiirka ugu adag ilaalin sharci ah oo ka hortagta qodista, dhabta, ama horumarka aan la xakumin.',
+        gallery: [
+          { url: '/marine_coral.jpg', caption: 'Beer jiir ah oo ku taal Jasiiradaha Baajuun.' },
+          { url: '/exp_coral_snorkeling.jpg', caption: 'Kooxda sahanka oo soo ururinaya qaybo jiir ah si loo falanqeeyo hiddaha.' },
+          { url: '/qandala_main.jpg', caption: 'Jiirada Qandala ee lagu daray soo jeedinta qaybinta.' },
+        ],
+      },
+    },
   },
   {
     id: 'no-anchor-seagrass-zones',
@@ -295,6 +489,23 @@ const rawProjects = [
     researchProjectSlugs: ['blue-carbon-audit'],
     communitySlugs: [],
     featured: false,
+    translations: {
+      so: {
+        title: 'Aagagga Ilaalinta Cawska Badda ee Aan Barroosin Lahayn',
+        summary: 'Ilaalinta dooxyada cawska badda ee sarreeya kaarboonka ee Jasiiradaha Juba Hoose oo ka hortagaysa waxyeelada barroosinka.',
+        editorialStatement: 'Dooxo aadan dushiisa ka arki karin wali waa mid mudan in la ilaaliyo.',
+        whatItIs: 'Soo jeedin aag aan barroosin lahayn oo daboolaya dooxyada cawska badda ee lagu cabbiray sahanka kaarboonka buluuga ah ee Blue Ocean.',
+        whyItMatters: 'Waxyeelada barroosinku wuxuu jeexaa xididada cawska badda ilbiriqsiyo gudahood, isagoo burinaya kaydinta kaarboonka ee dooxadu qaadatay tobanaan sano inay dhisto.',
+        whoIsInvolved: 'Xarunta Jiirka Badda iyo Deegaannada Xeebaha ee Blue Ocean, oo la shaqaynaysa hawlwadeenada doonyaha ee isticmaala Buuxdada Kismaayo iyo Khaliijka Hufun.',
+        aims: 'Aag barroosin la mamnuucay oo daboolaya dhammaan dooxada la sahamiyay, iyo agabyo barroosin oo beddel ah oo loo diyaariyo dhaqdhaqaaqa doonyaha maxaliga ah.',
+        problemStatement: 'Barroosinka aan la xakumin ee Buuxdada Kismaayo iyo Khaliijka Hufun ayaa waxyeeleynaya dooxyada cawska badda ee kaydiya kaarboon aad u badan una adeega diinta iyo dugong-ga raadinaya cunto.',
+        gallery: [
+          { url: '/marine_seagrass.jpg', caption: 'Doox caws bad oo hoosaadka biyaha ku yaal oo loo qaatay sahanka kaarboonka buluuga ah.' },
+          { url: '/jubaland.jpg', caption: 'Jasiiradaha Juba Hoose, oo ah aagga sahanka ugu weyn.' },
+          { url: '/marine_turtles.jpg', caption: 'Diin bad oo cagaaran oo raadinaysa cunto gudaha dooxada la sahamiyay.' },
+        ],
+      },
+    },
   },
   {
     id: 'fair-trade-handline-certification',
@@ -324,6 +535,23 @@ const rawProjects = [
     researchProjectSlugs: ['fisheries-stock'],
     communitySlugs: ['bosaso-fishing-cooperative'],
     featured: false,
+    translations: {
+      so: {
+        title: 'Shahaadada Ganacsiga Caadilka ah ee Kalluumeysiga Xadhigga',
+        summary: 'Waddo shahaadeed oo loogu talagalay doonyaha kalluumeysiga dhaqameed ee Soomaaliya, oo ku dhisan qiimeyn kaydka tuna-ga oo la daabacay.',
+        editorialStatement: 'Kalluumeysi waara wuxuu mudan yahay suuq aqoonsada.',
+        whatItIs: 'Barnaamij shahaado ah oo aqoonsanaya doonyaha kalluumeysiga xadhigga ah ee ka soo ururiya tuna-ga yellowfin-ka intii ay ku jirto xadka kaydka waara.',
+        whyItMatters: 'Kalluumeysiga xadhigga ahi horeba ayuu u yahay mid ka mid ah habab ugu doorbidan ee kalluumeysiga — shahaadadu waxay siisaa doonyaha isticmaala habkan faa\'iido suuq oo ka sarreeya kuwa aan waari doonin.',
+        whoIsInvolved: 'Kooxda Sayniska Kalluumeysiga ee Blue Ocean, oo si toos ah ula shaqaynaysa iskaashatooyinka xadhigga ee Boosaaso iyo Bargaal.',
+        aims: 'Astaan shahaado oo la aqoonsaday oo ay iibsadayaasha dibadda isticmaali karaan si ay u aqoonsadaan tuna-ga xadhigga ee Soomaaliya ee si waara loo qabtay.',
+        problemStatement: 'Doonyaha kalluumeysiga xadhigga ee Soomaaliya ma laha hab ay kaga soocan karaan kaydkooda waara suuqyada dibadda oo aan kala sooc samayn habka kalluumeysiga.',
+        gallery: [
+          { url: '/exp_dhow_sailing.jpg', caption: 'Doonyo kalluumeysi dhaqameed oo xadhig isticmaala oo ku jira waddada shahaadada.' },
+          { url: '/marine_fish.jpg', caption: 'Tuna yellowfin ah oo la soo dejiyay si loo qaado tijaabo baayoolaji.' },
+          { url: '/bosaso2.jpg', caption: 'Suuqa kalluunka Boosaaso, oo ah meel muhiim ah oo dejin iyo hubinta shahaadada.' },
+        ],
+      },
+    },
   },
   {
     id: 'berried-female-release-accord',
@@ -353,6 +581,23 @@ const rawProjects = [
     researchProjectSlugs: ['lobster-sustainable-yield'],
     communitySlugs: ['eyl-traditional-knowledge-keepers'],
     featured: false,
+    translations: {
+      so: {
+        title: 'Heshiiska Sii-daynta Dheddigyada Ukunta Sita iyo Xadka Cabbirka',
+        summary: 'Xannibaad xilliyeed iyo hab sii-dayn oo bulshadu aqbashay, oo si toos ah uga soo baxay daraasad la dhammeeyay oo ku saabsan miisaanka lobster-ka.',
+        editorialStatement: 'Kalluumeysi ilaaliya dhalatadiisa ayaa ilaaliya mustaqbalkiisa.',
+        whatItIs: 'Heshiis bulshadu aqbashay oo shardhi ah in la sii daayo dheddigyada lobster-ka ee ukunta sita ("berried") iyo in la fuliyo cabbirka ugu yar ee la qaadan karo, hadda oo ay raacayaan iskaashatooyinka ka qayb-galay.',
+        whyItMatters: 'Ilaalinta dheddigyada dhalanaya waa mid ka mid ah tallaabooyinka ugu waxtarka badan ee kalluumeysigu qaadan karo — waxay si toos ah u ilaalisaa awoodda dhalmada jiilka soo socda.',
+        whoIsInvolved: 'Kooxda Sayniska Kalluumeysiga ee Blue Ocean iyo iskaashatooyinka kalluumeysiga lobster-ka ee dhaqameed ee Eyl, Hufun, iyo Bargaal, kuwaas oo wada naqshadeeyay oo aqbalay heshiiska.',
+        aims: 'Heshiis xilli-xannibaad iyo xad-cabbir ah oo bulshadu fulinayso oo waara, kuna daboolan kalluumeysiga lobster-ka ee dhabta Bari.',
+        problemStatement: 'Ururinta lobster-ka ee dhabta Bari wax ilaalin joogto ah lahaa lagama helin dheddigyada ukunta sita ama cabbirrada ugu yar ka hor heshiiskan.',
+        gallery: [
+          { url: '/exp_coastal_cliff.jpg', caption: 'Dhabta jibaale ee lagu sameeyay daraasadda lobster-ka.' },
+          { url: '/eyl1.jpg', caption: 'Eyl, oo ah meel ugu weyn oo lagu soo dejiyo lobster-ka dhaqameed.' },
+          { url: '/exp_scuba_diving.jpg', caption: 'Cilmi-baare dhex-dhex ah oo diiwaan gelinaya cufnaanta lobster-ka ee godadka jiirka.' },
+        ],
+      },
+    },
   },
   {
     id: 'southern-coast-debris-mapping',
@@ -382,6 +627,23 @@ const rawProjects = [
     researchProjectSlugs: ['marine-debris-microplastics-mapping'],
     communitySlugs: [],
     featured: false,
+    translations: {
+      so: {
+        title: 'Khariidaynta Qashinka Badda iyo Microplastics-ka',
+        summary: 'La socodka cufnaanta qashinka iyo wasakhda microplastics-ka ee xeebaha ugu isticmaalka badan ee dadweynaha Soomaaliya.',
+        editorialStatement: 'Ma nadiifin kartid wax aadan khariidayn.',
+        whatItIs: 'Barnaamij joogto ah oo lagu qiimeeyo cufnaanta qashinka iyo microplastics-ka ee daboolaya Kismaayo iyo Xeebta Liido, Muqdisho.',
+        whyItMatters: 'Dadaalka nadaafaddu waa xaddidan — khariidaynta halka qashinku runtii ku ururo, iyo halka uu ka yimaado, ayaa saacad kasta oo nadaafad ah ka dhigaysa mid faa\'iido badan.',
+        whoIsInvolved: 'Kooxda Wasakhda iyo Tayada Biyaha ee Blue Ocean, oo la shaqaynaysa mutadawiciin bulsho ah oo loo tababaray habka sahanka.',
+        aims: 'Khariidad dadweyne oo cufnaanta qashinka muujinaysa, iyo hab kormeer oo dib loo celin karo oo kooxaha bulshada iyagu keligood fulin karaan.',
+        problemStatement: 'Qashinka guryaha iyo baakadaha dhulka ka soo jeeda ayaa ugu badan qashinka laga helo xeebaha ugu isticmaalka badan ee dadweynaha Soomaaliya, iyadoon jirin khariidad dadweyne oo muujineysa halka uu ku ururo.',
+        gallery: [
+          { url: '/con_beach_cleanup.jpg', caption: 'Bulsho oo kala saaraysa qashinka intii lagu jiray sahan xeebeed.' },
+          { url: '/mogadishu_beach.jpg', caption: 'Xeebta Liido, oo ah mid ka mid ah labada goob ee sahanka qashinka.' },
+          { url: '/jubaland.jpg', caption: 'Xeebta Kismaayo oo lagu sahamiyay cufnaanta qashinka.' },
+        ],
+      },
+    },
   },
   {
     id: 'southern-coast-beach-cleanup-network',
@@ -411,6 +673,23 @@ const rawProjects = [
     researchProjectSlugs: ['marine-debris-microplastics-mapping'],
     communitySlugs: ['mogadishu-coastal-business-alliance'],
     featured: false,
+    translations: {
+      so: {
+        title: 'Shabakada Nadaafadda Xeebaha ee Bulshada Koonfurta',
+        summary: 'Nadaafado xeeb oo mutadawiciintu hoggaamiyaan oo saddex biloodba mar ka dhaca labada goob ee shaqada khariidaynta Blue Ocean u aqoonsatay inay yihiin meelaha qashinku ugu badan yahay.',
+        editorialStatement: 'Khariidaddu waxay micno u leedahay marka dad soo bandhigo boorso.',
+        whatItIs: 'Barnaamij nadaafad oo mutadawiciintu hoggaamiyaan oo ku soo noqnoqda xeebaha loo aqoonsaday inay yihiin meelaha qashinku ugu badan yahay, oo lala shaqeeyo ganacsatada iyo kooxaha bulshada maxaliga ah.',
+        whyItMatters: 'Nadaafadaha joogtada ahi waxay ka hortagaan in qashinku kala jajabo microplastics uuna dib ugu noqdo biyaha — mudda uu qashinku joogo, ayaa sii adkaanaysa saarideeda.',
+        whoIsInvolved: 'Mutadawiciinta bulshada, ganacsatada xeebaha, iyo Kooxda Wasakhda iyo Tayada Biyaha ee Blue Ocean, kuwaas oo isku duwa xulashada goobaha iyagoo isticmaalaya khariidada qashinka.',
+        aims: 'Jadwal nadaafad saddex-biloodle ah oo iskaafiya oo daboolaya dhammaan goobaha uu shaqada khariidaynta socota calaamadiyay.',
+        problemStatement: 'Qashinka uu shaqada khariidaynta socota aqoonsaday wuxuu u baahan yahay saaris joogto ah oo la habeeyay — ee aan ahayn nadaafado hal-mar ah — si looga hortago inuu kala jajabo microplastics.',
+        gallery: [
+          { url: '/con_beach_cleanup.jpg', caption: 'Mutadawiciin kala saaraya qashinka la soo ururiyay noocyadiisa.' },
+          { url: '/mogadishu_beach.jpg', caption: 'Xeebta Liido, oo ah goob nadaafad oo ku soo noqnoqota.' },
+          { url: '/jubaland.jpg', caption: 'Xeebta Kismaayo, oo ah goobta koonfureed ee shabakadda.' },
+        ],
+      },
+    },
   },
   {
     id: 'banaadir-ocean-literacy-guidance',
@@ -440,6 +719,23 @@ const rawProjects = [
     researchProjectSlugs: ['banaadir-coastal-water-quality-monitoring'],
     communitySlugs: ['mogadishu-coastal-business-alliance', 'hafun-youth-beach-guardians'],
     featured: false,
+    translations: {
+      so: {
+        title: 'Hagitaanka Caafimaadka Xeebaha Dadweynaha iyo Aqoonta Badda ee Banaadir',
+        summary: 'U beddelidda kormeerka joogtada ah ee tayada biyaha ee Muqdisho hagitaan dadweyne iyo waxbarasho badeed oo heer dugsi ah.',
+        editorialStatement: 'Badweynta magaalada caasimadda ah waxay mudan tahay baaritaan dadweyne oo la mid ah kan biyaha la cabbo.',
+        whatItIs: 'Barnaamij hagitaan dadweyne iyo gaadhsiin dugsiyeed oo ku dhisan kormeerka joogtada ah ee tayada biyaha ee Blue Ocean ee xeebta Banaadir.',
+        whyItMatters: 'Hagitaanka caafimaadka dadweynaha waxa uu faa\'iido leeyahay kaliya markuu runtii gaadho dabaasha, kalluumeystayaasha, iyo dugsiyada xeebaha — shaqadaas turjumaad si toos ah uma dhicin.',
+        whoIsInvolved: 'Kooxda Wasakhda iyo Tayada Biyaha ee Blue Ocean, oo iskaashi la leh dugsiyada xeebaha iyo kooxaha bulshada ee Muqdisho.',
+        aims: 'Hagitaan tayada biyaha oo si joogto ah loo cusboonaysiiyo, iyo manhaj waxbarasho badeed oo loogu talagalay dugsiyada xeebaha.',
+        problemStatement: 'Xogta tayada biyaha ee xeebta Muqdisho ayaa taariikh ahaan ku hadhay faylalka cilmi-baarista halkii ay ka gaadhi lahayd dabaasha, kalluumeystayaasha, iyo dugsiyada u baahan.',
+        gallery: [
+          { url: '/con_youth_education.jpg', caption: 'Fasal aqoon-badeed oo xeebeed oo lala qabtay ardayda maxaliga ah.' },
+          { url: '/mogadishu_beach.jpg', caption: 'Xeebta Liido, oo ah goobta ugu weyn ee kormeerka joogtada ah.' },
+          { url: '/somalia_coast.jpg', caption: 'Biyaha xeebeed ee Banaadir ee ay daboolayso barnaamijka hagitaanka.' },
+        ],
+      },
+    },
   },
   {
     id: 'beach-guardian-nest-protection',
@@ -469,6 +765,23 @@ const rawProjects = [
     researchProjectSlugs: ['turtle-telemetry'],
     communitySlugs: ['hafun-youth-beach-guardians'],
     featured: false,
+    translations: {
+      so: {
+        title: 'Barnaamijka Ilaalinta Buulasha ee Ilaaliyeyaasha Xeebaha Bulshada',
+        summary: 'Tababarka ilaaliyeyaal xeeb oo maxalli ah si ay u kormeeraan buulasha diinta badda ee Xeebta Hufun iyo Baajuun.',
+        editorialStatement: 'Ilaalinta buul ugu wanaagsan waxay ku nooshahay xeebta, ma aha xarunta cilmi-baarista.',
+        whatItIs: 'Shabakad ilaaliyeyaal xeeb ah oo la tababaray oo kormeera buulasha diinta, ka hortagta carqaladaynta, oo taageerta sii-daynta dhalatada ee labada goob ee dhalmada.',
+        whyItMatters: 'Kormeerka buulashu wuxuu shaqeeyaa kaliya haddii qof runtii xeebta joogo intii ay socoto qaadka — shabakad bulsho ku salaysan ayaa xeebta joogi kara si aad uga adag kooxda cilmi-baarista keligeed.',
+        whoIsInvolved: 'Xarunta Cilmi-baarista Diinta Badda ee Blue Ocean, oo tababarta oo la shaqaynaysa dadka bulshada ee Hufun iyo Jasiiradaha Baajuun.',
+        aims: 'Shabakad ilaaliye maxalli ah oo iskaafiya oo daboolaya dhammaan xeebaha buulasha firfircoon ee labada goob, xilli walba.',
+        problemStatement: 'Buulasha diinta cagaaran iyo hawksbill-ka ee Xeebta Hufun iyo Baajuun waxay wajahaan carqaladayn iyo natiijooyin qaadid oo liita iyadoon jirin kormeer joogto ah oo dhulka ku fadhiya.',
+        gallery: [
+          { url: '/marine_turtles.jpg', caption: 'Diin bad oo cagaaran oo daaqaysa caws badeed oo hoosaadka biyaha ku yaal Baajuun.' },
+          { url: '/hafun2.jpg', caption: 'Xeebta Tombolo ee Hufun, oo ah mid ka mid ah labada goob ee ilaaliyeyaashu kormeeraan.' },
+          { url: '/con_youth_education.jpg', caption: 'Dugsi tababar oo loogu talagalay ilaaliyeyaasha xeebaha.' },
+        ],
+      },
+    },
   },
   {
     id: 'illegal-fishing-monitoring',
@@ -498,6 +811,23 @@ const rawProjects = [
     researchProjectSlugs: ['fisheries-stock'],
     communitySlugs: ['bosaso-fishing-cooperative'],
     featured: true,
+    translations: {
+      so: {
+        title: 'Kormeerka Kalluumeysiga Sharci-darrada ah ee Xeebta Bari ee Bari',
+        summary: 'Diiwaangelinta howlaha kalluumeysiga aan shatiga lahayn ee wax-u-dhiman ee ka socda xeebta bari ee Puntland si loo taageero maamulka kalluumeysiga oo ku salaysan xog sax ah.',
+        editorialStatement: 'Ilaalinta biyaha Soomaaliya waxay ka bilaabantaa in la ogaado sida saxda ah ee ka dhacaysa gudahooda.',
+        whatItIs: 'Dadaal kormeer oo joogto ah oo diiwaangeliya dhaqdhaqaaqa doonyaha aan shatiga lahayn, qalabka wax-u-dhiman, iyo cadaadiska ururinta ee ku teedsan xeebta Boosaaso–Hurdiya–Qandala, isagoo si toos ah ula shaqaynaya kooxaha kalluumeysiga dhaqameed ee maalin walba biyahaas ka shaqeeya.',
+        whyItMatters: 'Kalluumeysiga sharci-darrada ah iyo kan wax-u-dhimani wuxuu ka xayuubin karaa kaydka kalluunka xeebta ka dhow inta uu soo kabsan karo, isagoo saameynaya isla kalluumeystayaasha dhaqameed ee ku tiirsan wax-soo-saarka waara — saameynta ayaa markasta ka soo muuqata ururinta maxaliga ka hor inta aysan ka soo muuqan tirakoob rasmi ah.',
+        whoIsInvolved: 'Xarunta Cilmi-baarista Kalluumeysiga ee Blue Ocean, oo la shaqaynaysa kooxaha iyo iskaashatooyinka kalluumeysiga dhaqameed ee xeebta bari ee Bari.',
+        aims: 'Diiwaan xog sax ah oo la hubiyay oo ku saabsan cadaadiska kalluumeysiga iyo dhaqdhaqaaqa sharci-darrada ah, oo lagu wargelin karo maamulka kalluumeysiga waara iyo iskaashatooyinka mustaqbalka ee dawladda iyo hay\'adaha kalluumeysiga gobolka.',
+        problemStatement: 'Dhaqdhaqaaqa doonyaha aan shatiga lahayn ee wax-u-dhiman ee xeebta bari ee Puntland ee u furan dabaysha ayaa inta badan aan la diiwaangelin, taasoo ka tagaysa maamulayaasha kalluumeysiga iyo bulshooyinka xeebaha iyagoon lahayn xog ay ku jawaabaan.',
+        gallery: [
+          { url: '/marine_fish.jpg', caption: 'Kalluun jiir iyo kuwo badweyn ah oo lagu sahamiyay xeebta bari ee Bari.' },
+          { url: '/hafun1.jpg', caption: 'Biyaha xeebeed ee u dhow Hurdiya, oo qayb ka ah xeebta la kormeerayo.' },
+          { url: '/bosaso2.jpg', caption: 'Deked Boosaaso, oo ah meel muhiim ah oo lagu soo dejiyo kalluunka gobolka.' },
+        ],
+      },
+    },
   },
   {
     id: 'sustainable-lobster-yield',
@@ -526,6 +856,22 @@ const rawProjects = [
     researchProjectSlugs: ['lobster-sustainable-yield'],
     communitySlugs: [],
     featured: false,
+    translations: {
+      so: {
+        title: 'Iskaashiga Wax-soo-saarka Waara ee Lobster-ka iyo Ka-hortagga Kalluumeysiga Sharci-darrada ah',
+        summary: 'U beddelidda xogta kaydka lobster-ka xadad dhab ah oo bulshadu hoggaamiso, kuwaas oo ka hortagaya in ururinta sharci-darrada ahi burinayso kalluumeysi ay magaalooyin oo dhan ku tiirsan yihiin.',
+        editorialStatement: 'Kalluumeysi wax-soo-saarkan le\'eg wuxuu mudan yahay in si sax ah loo ilaaliyo.',
+        whatItIs: 'Iskaashi la qorsheeyay oo u dhexeeya cilmi-baarista kalluumeysiga ee Blue Ocean iyo bulshooyinka lobster-ka ee Eyl iyo Hurdiya, kaas oo u beddelaya xogta kaydka iyo qabashada halkii-dadaal xadad ururin oo dhab ah oo bulshadu isku raacday.',
+        whyItMatters: 'Lobster-ka ayaa ah mid ka mid ah kalluumeysiyada dhaqameed ee ugu qiimaha badan ee xeebtan — waana mid ka mid ah kuwa ugu badan ee wajaha ururinta sharci-darrada ah ee xilliga aan loo oggolayn ee ay fulinayaan hawlwadeeno ka baxsan oo aan waxba ka lahayn haddii kaydku badbaado tobankii sano ee soo socda.',
+        whoIsInvolved: 'Xarunta Cilmi-baarista Kalluumeysiga ee Blue Ocean, oo iskaashi la leh kooxaha iyo iskaashatooyinka lobster-ka ee Eyl iyo Hurdiya.',
+        aims: 'Tilmaamo ururin oo bulshadu isku raacday oo ku salaysan xog kayd oo dhab ah, iyo nidaam kormeer oo la wadaago si loo ogaado goor hore dhaqdhaqaaq sharci-darro ah ama xilli aan la oggolayn.',
+        problemStatement: 'Ururinta lobster-ka ee sharci-darrada ah iyo aan la xakumin waxay ku sii socotaa inay dhaafto waxa kalluumeysigu awoodo inuu u waarto, iyadoon kalluumeystayaasha maxaliga ahi lahayn hab wadaag ah oo xog ku saleysan oo ay wax kaga qabtaan.',
+        gallery: [
+          { url: '/marine_coral.jpg', caption: 'Deegaan jiir dhagax ah oo taageeraya kalluumeysiga lobster-ka gobolka.' },
+          { url: '/eyl1.jpg', caption: 'Eyl, oo ah mid ka mid ah labada bulsho ee iskaashiga kalluumeysigan.' },
+        ],
+      },
+    },
   },
 ];
 
@@ -578,6 +924,10 @@ export const conservationProjects = rawProjects.map((p) => {
   const area = conservationFocusAreas.find((a) => a.id === p.focusArea);
   return {
     ...p,
+    // English enum key, always stable — used for filtering, CSS/style
+    // lookups. The `status` field above is the (possibly localized)
+    // display value; this is the key that never changes with language.
+    statusKey: p.status,
     focusAreaName: area?.title || p.focusArea,
     destinations: resolveDestinations(p.destinationSlugs),
     species: resolveSpecies(p.speciesSlugs),
@@ -587,35 +937,64 @@ export const conservationProjects = rawProjects.map((p) => {
   };
 });
 
+// --- Localization ---------------------------------------------------
+
+function localizeProject(project, language = 'en') {
+  if (!project) return project;
+  const localized = localize(project, language);
+  const localizedArea = conservationFocusAreas.find((a) => a.id === project.focusArea);
+  const localizedIssues = (project.issues || []).map((issue) => {
+    const source = CONSERVATION_ISSUES.find((i) => i.id === issue.id) || issue;
+    return localize(source, language);
+  });
+  return {
+    ...localized,
+    status: getStatusLabel(project.statusKey, language),
+    focusAreaName: (localizedArea && localize(localizedArea, language)?.title) || localized.focusAreaName,
+    issues: localizedIssues,
+  };
+}
+
+function localizeProjects(list, language = 'en') {
+  return (list || []).map((p) => localizeProject(p, language));
+}
+
 // --- Public helpers -----------------------------------------------------
 
-export function getAllConservationProjects() {
-  return conservationProjects;
+export function getAllConservationProjects(language = 'en') {
+  return localizeProjects(conservationProjects, language);
 }
 
-export function getConservationProjectBySlug(slug) {
-  return conservationProjects.find((p) => p.slug === slug || p.id === slug);
+export function getConservationProjectBySlug(slug, language = 'en') {
+  const project = conservationProjects.find((p) => p.slug === slug || p.id === slug);
+  return project ? localizeProject(project, language) : undefined;
 }
 
-export function getFeaturedConservationProject() {
-  return conservationProjects.find((p) => p.featured) || conservationProjects[0];
+export function getFeaturedConservationProject(language = 'en') {
+  const project = conservationProjects.find((p) => p.featured) || conservationProjects[0];
+  return project ? localizeProject(project, language) : undefined;
 }
 
-export function getConservationProjectsByFocusArea(focusAreaId) {
-  if (!focusAreaId || focusAreaId === 'all') return conservationProjects;
-  return conservationProjects.filter((p) => p.focusArea === focusAreaId);
+export function getConservationProjectsByFocusArea(focusAreaId, language = 'en') {
+  const list = !focusAreaId || focusAreaId === 'all'
+    ? conservationProjects
+    : conservationProjects.filter((p) => p.focusArea === focusAreaId);
+  return localizeProjects(list, language);
 }
 
-export function getRelatedConservationProjects(currentSlug, limit = 3) {
-  const current = getConservationProjectBySlug(currentSlug);
-  if (!current) return conservationProjects.slice(0, limit);
-  return conservationProjects
-    .filter((p) => p.slug !== currentSlug && (p.focusArea === current.focusArea || p.region === current.region))
-    .slice(0, limit);
+export function getRelatedConservationProjects(currentSlug, limit = 3, language = 'en') {
+  const current = conservationProjects.find((p) => p.slug === currentSlug || p.id === currentSlug);
+  const list = !current
+    ? conservationProjects.slice(0, limit)
+    : conservationProjects
+      .filter((p) => p.slug !== currentSlug && (p.focusArea === current.focusArea || p.region === current.region))
+      .slice(0, limit);
+  return localizeProjects(list, language);
 }
 
-export function getFocusAreaBySlug(slug) {
-  return conservationFocusAreas.find((a) => a.slug === slug || a.id === slug);
+export function getFocusAreaBySlug(slug, language = 'en') {
+  const area = conservationFocusAreas.find((a) => a.slug === slug || a.id === slug);
+  return area ? localize(area, language) : undefined;
 }
 
 export function getFocusAreaProjectCount(focusAreaId) {
@@ -624,24 +1003,25 @@ export function getFocusAreaProjectCount(focusAreaId) {
 
 // Reverse relationships — used by Research, Marine Life, and Coast
 // detail pages to surface the conservation work connected to them.
-export function getConservationProjectsForResearch(researchSlug) {
-  return conservationProjects.filter((p) => p.researchProjectSlugs.includes(researchSlug));
+export function getConservationProjectsForResearch(researchSlug, language = 'en') {
+  return localizeProjects(conservationProjects.filter((p) => p.researchProjectSlugs.includes(researchSlug)), language);
 }
 
-export function getConservationProjectsForSpecies(speciesSlug) {
-  return conservationProjects.filter((p) => p.speciesSlugs.includes(speciesSlug));
+export function getConservationProjectsForSpecies(speciesSlug, language = 'en') {
+  return localizeProjects(conservationProjects.filter((p) => p.speciesSlugs.includes(speciesSlug)), language);
 }
 
-export function getConservationProjectsForDestination(destinationSlug) {
-  return conservationProjects.filter((p) => p.destinationSlugs.includes(destinationSlug));
+export function getConservationProjectsForDestination(destinationSlug, language = 'en') {
+  return localizeProjects(conservationProjects.filter((p) => p.destinationSlugs.includes(destinationSlug)), language);
 }
 
-export function getConservationProjectsForCommunity(communitySlug) {
-  return conservationProjects.filter((p) => p.communitySlugs.includes(communitySlug));
+export function getConservationProjectsForCommunity(communitySlug, language = 'en') {
+  return localizeProjects(conservationProjects.filter((p) => p.communitySlugs.includes(communitySlug)), language);
 }
 
 // Impact figures are computed directly from the data above — nothing
-// here is a hand-typed statistic.
+// here is a hand-typed statistic. Purely numeric, so no localization
+// is needed.
 export function getConservationImpact() {
   const uniqueDestinations = new Set();
   const uniqueSpecies = new Set();

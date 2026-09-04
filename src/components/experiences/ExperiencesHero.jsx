@@ -1,10 +1,14 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Compass, ArrowRight, Sparkles } from 'lucide-react';
 import { getExperienceStats } from '../../data/experiences';
+import { useLanguage } from '../../context/LanguageContext';
 import './ExperiencesHero.css';
 
 export default function ExperiencesHero() {
   const stats = getExperienceStats();
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
 
   return (
     <section className="exp-hero" aria-label="Ocean Experiences">
@@ -37,8 +41,8 @@ export default function ExperiencesHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Experience <br />
-          <span className="exp-hero__title-accent">the ocean.</span>
+          {t('oceanExperiences.hero.heading')} <br />
+          <span className="exp-hero__title-accent">{t('oceanExperiences.hero.headingAccent')}</span>
         </motion.h1>
 
         <motion.p
@@ -47,7 +51,7 @@ export default function ExperiencesHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          Discover the future of ocean exploration along Somalia's extraordinary coastline — boat tours, snorkeling, diving, fishing, island exploration and more, all coming to the Somali coast.
+          {t('oceanExperiences.hero.subtext')}
         </motion.p>
 
         <motion.div
@@ -57,12 +61,12 @@ export default function ExperiencesHero() {
           transition={{ duration: 0.7, delay: 0.3 }}
         >
           <a href="#experiences-grid" className="exp-hero__btn-primary">
-            <span>Explore Experiences</span>
+            <span>{t('oceanExperiences.hero.ctaPrimary')}</span>
             <ArrowRight size={18} />
           </a>
-          <a href="/explore-the-coast" className="exp-hero__btn-secondary">
-            <span>Explore the Coast</span>
-          </a>
+          <Link to={localizedPath('/explore-the-coast')} className="exp-hero__btn-secondary">
+            <span>{t('oceanExperiences.hero.ctaSecondary')}</span>
+          </Link>
         </motion.div>
 
         <motion.div

@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
 import { Shield, ArrowRight } from 'lucide-react';
 import { getConservationImpact } from '../../data/conservation';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperiencesHero.css';
 
 export default function ConservationHero() {
   const impact = getConservationImpact();
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
 
   return (
     <section className="exp-hero" aria-label="Blue Ocean Conservation">
@@ -26,7 +29,7 @@ export default function ConservationHero() {
           transition={{ duration: 0.6 }}
         >
           <Shield size={14} />
-          <span>CONSERVATION</span>
+          <span>{t('conservation.hero.badge')}</span>
         </motion.div>
 
         <motion.h1
@@ -35,8 +38,8 @@ export default function ConservationHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          Protect what lies <br />
-          <span className="exp-hero__title-accent">beneath the surface.</span>
+          {t('conservation.hero.heading')} <br />
+          <span className="exp-hero__title-accent">{t('conservation.hero.headingAccent')}</span>
         </motion.h1>
 
         <motion.p
@@ -45,8 +48,7 @@ export default function ConservationHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          From marine wildlife and habitats to sustainable coastal communities, discover how Blue Ocean is working
-          toward a healthier Somali coast.
+          {t('conservation.hero.subtext')}
         </motion.p>
 
         <motion.div
@@ -56,11 +58,11 @@ export default function ConservationHero() {
           transition={{ duration: 0.7, delay: 0.3 }}
         >
           <a href="#conservation-focus" className="exp-hero__btn-primary">
-            <span>Explore Conservation</span>
+            <span>{t('conservation.hero.ctaExplore')}</span>
             <ArrowRight size={18} />
           </a>
-          <a href="/get-involved" className="exp-hero__btn-secondary">
-            <span>Get Involved</span>
+          <a href={localizedPath('/get-involved')} className="exp-hero__btn-secondary">
+            <span>{t('conservation.hero.ctaGetInvolved')}</span>
           </a>
         </motion.div>
 
@@ -72,15 +74,15 @@ export default function ConservationHero() {
         >
           <div className="exp-hero__pill">
             <span className="exp-hero__pill-dot" />
-            <span>{impact.totalProjects} Conservation Projects</span>
+            <span>{impact.totalProjects} {t('conservation.hero.pillProjects')}</span>
           </div>
           <div className="exp-hero__pill">
             <span className="exp-hero__pill-dot" />
-            <span>{impact.focusAreas} Focus Areas</span>
+            <span>{impact.focusAreas} {t('conservation.hero.pillAreas')}</span>
           </div>
           <div className="exp-hero__pill">
             <span className="exp-hero__pill-dot" />
-            <span>{impact.locations} Locations</span>
+            <span>{impact.locations} {t('conservation.hero.pillLocations')}</span>
           </div>
         </motion.div>
       </div>

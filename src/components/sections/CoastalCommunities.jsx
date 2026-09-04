@@ -1,4 +1,5 @@
 import { Users, Anchor, Briefcase, GraduationCap, Leaf, Heart } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import './CoastalCommunities.css';
 
 const communities = [
@@ -59,19 +60,20 @@ const communities = [
 ];
 
 export default function CoastalCommunities() {
+  const { t } = useLanguage();
+
   return (
     <section className="communities section" aria-labelledby="communities-heading">
       <div className="container">
         {/* Header */}
         <div className="section-header reveal">
-          <span className="label-text">Coastal Communities</span>
+          <span className="label-text">{t('coastalCommunitiesPreview.eyebrow')}</span>
           <div className="divider" />
           <h2 className="section-heading" id="communities-heading">
-            People of the Coast
+            {t('coastalCommunitiesPreview.heading')}
           </h2>
           <p className="section-subheading">
-            Blue Ocean is not just about the ocean — it's about the people who live by it.
-            Somalia's coastal communities are at the heart of everything we do.
+            {t('coastalCommunitiesPreview.subheading')}
           </p>
         </div>
 
@@ -94,7 +96,7 @@ export default function CoastalCommunities() {
               />
               <div className="communities__image-badge">
                 <span className="communities__image-badge-number">3,025 km</span>
-                <span className="communities__image-badge-label">of Somali coastline</span>
+                <span className="communities__image-badge-label">{t('coastalCommunitiesPreview.coastlineLabel')}</span>
               </div>
             </div>
           </div>

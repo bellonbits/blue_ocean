@@ -1,15 +1,18 @@
+// `labelKey` looks up the translated label via useLanguage()'s t() —
+// see src/lib/i18n/translations.js's `nav` section. `path` is the
+// unprefixed, language-agnostic path; callers add the /en or /so prefix.
 export const navLinks = [
-  { label: 'Home', path: '/' },
-  { label: 'Tourism', path: '/tourism' },
-  { label: 'Explore the Coast', path: '/explore-the-coast' },
-  { label: 'Ocean Experiences', path: '/experiences' },
-  { label: 'Marine Life', path: '/marine-life' },
-  { label: 'Research', path: '/research' },
-  { label: 'Conservation', path: '/conservation' },
-  { label: 'Communities', path: '/communities' },
-  { label: 'News', path: '/news' },
-  { label: 'About', path: '/about' },
-  { label: 'Contact', path: '/contact' },
+  { labelKey: 'nav.home', path: '/' },
+  { labelKey: 'nav.tourism', path: '/tourism' },
+  { labelKey: 'nav.exploreCoast', path: '/explore-the-coast' },
+  { labelKey: 'nav.oceanExperiences', path: '/experiences' },
+  { labelKey: 'nav.marineLife', path: '/marine-life' },
+  { labelKey: 'nav.research', path: '/research' },
+  { labelKey: 'nav.conservation', path: '/conservation' },
+  { labelKey: 'nav.communities', path: '/communities' },
+  { labelKey: 'nav.news', path: '/news' },
+  { labelKey: 'nav.about', path: '/about' },
+  { labelKey: 'nav.contact', path: '/contact' },
 ];
 
 // Pages whose top banner has no dark hero photo behind the header — the

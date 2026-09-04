@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { MapPin, ArrowRight } from 'lucide-react';
 import { getCommunityCategoryInfo } from '../../data/communities';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceCard.css';
 
 export default function CommunityStoryCard({ story, priority = false }) {
-  const categoryInfo = getCommunityCategoryInfo(story.category);
+  const { language, t } = useLanguage();
+  const categoryInfo = getCommunityCategoryInfo(story.category, language);
 
   return (
     <article className="exp-card">
@@ -19,7 +21,7 @@ export default function CommunityStoryCard({ story, priority = false }) {
           <div className="exp-card__gradient" />
 
           <div className="exp-card__top-bar">
-            <span className="exp-card__category-badge">{categoryInfo?.label || 'Community Story'}</span>
+            <span className="exp-card__category-badge">{categoryInfo?.label || t('communities.card.genericCategory')}</span>
           </div>
         </div>
 
@@ -37,7 +39,7 @@ export default function CommunityStoryCard({ story, priority = false }) {
 
           <div className="exp-card__footer">
             <span className="exp-card__cta">
-              <span>Read Story</span>
+              <span>{t('communities.card.readCta')}</span>
               <ArrowRight size={14} className="exp-card__cta-arrow" />
             </span>
           </div>

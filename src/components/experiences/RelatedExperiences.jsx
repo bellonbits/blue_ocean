@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getRelatedExperiences } from '../../data/experiences';
+import { useLanguage } from '../../context/LanguageContext';
 import ExperienceCard from './ExperienceCard';
 import './RelatedExperiences.css';
 
 export default function RelatedExperiences({ currentSlug }) {
-  const related = getRelatedExperiences(currentSlug, 3);
+  const { language } = useLanguage();
+  const related = getRelatedExperiences(currentSlug, 3, language);
 
   if (!related || related.length === 0) return null;
 

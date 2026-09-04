@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Newspaper } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
+import { useLanguage } from '../context/LanguageContext';
 import { getArticleBySlug } from '../data/news';
 import ArticleHero from '../components/news/ArticleHero';
 import ArticleContent from '../components/news/ArticleContent';
@@ -13,7 +14,8 @@ import VideoEmbed from '../components/shared/VideoEmbed';
 
 export default function ArticleDetailPage() {
   const { slug } = useParams();
-  const article = getArticleBySlug(slug);
+  const { language } = useLanguage();
+  const article = getArticleBySlug(slug, language);
   useScrollReveal();
 
   useEffect(() => {

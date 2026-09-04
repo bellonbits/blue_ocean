@@ -1,16 +1,20 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import './HeroSection.css';
 
 export default function HeroSection() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+
   const scrollToContent = () => {
     const el = document.getElementById('explore-coast');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="hero" aria-label="Hero — Discover Somalia's Blue Ocean">
+    <section className="hero" aria-label={`${t('home.heroHeadline')} ${t('home.heroHeadlineAccent')}`}>
       {/* Background Image */}
       <div className="hero__bg">
         <img
@@ -33,9 +37,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            Discover Somalia's
+            {t('home.heroHeadline')}
             <br />
-            <span className="hero__headline-accent">Blue Ocean</span>
+            <span className="hero__headline-accent">{t('home.heroHeadlineAccent')}</span>
           </motion.h1>
 
           {/* Supporting text */}
@@ -45,8 +49,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            Explore Somalia's coast, discover its marine life, support ocean research,
-            and help protect one of Africa's remarkable marine environments.
+            {t('home.heroSubtext')}
           </motion.p>
 
           {/* CTA Pairs */}
@@ -57,20 +60,20 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <div className="hero__cta-group">
-              <Link to="/explore-the-coast" className="btn btn-primary btn-lg" id="hero-explore-coast">
-                Explore the Coast
+              <Link to={localizedPath('/explore-the-coast')} className="btn btn-primary btn-lg" id="hero-explore-coast">
+                {t('nav.exploreCoast')}
                 <ArrowRight size={18} />
               </Link>
-              <Link to="/marine-life" className="btn btn-outline btn-lg" id="hero-discover-marine">
-                Discover Marine Life
+              <Link to={localizedPath('/marine-life')} className="btn btn-outline btn-lg" id="hero-discover-marine">
+                {t('home.heroDiscoverMarineLife')}
               </Link>
             </div>
             <div className="hero__cta-group">
-              <Link to="/research/expeditions" className="btn btn-ghost btn-lg" id="hero-join-expedition">
-                Join a Research Expedition
+              <Link to={localizedPath('/research/expeditions')} className="btn btn-ghost btn-lg" id="hero-join-expedition">
+                {t('home.heroJoinExpedition')}
               </Link>
-              <Link to="/research" className="btn btn-ghost btn-lg" id="hero-learn-research">
-                Learn About Our Research
+              <Link to={localizedPath('/research')} className="btn btn-ghost btn-lg" id="hero-learn-research">
+                {t('home.heroLearnResearch')}
               </Link>
             </div>
           </motion.div>

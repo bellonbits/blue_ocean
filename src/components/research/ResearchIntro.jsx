@@ -1,43 +1,26 @@
 import { HelpCircle, Waves, MapPin, ShieldCheck, Users } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import './ResearchIntro.css';
 
 const points = [
-  {
-    icon: HelpCircle,
-    title: 'What we research',
-    text: 'Marine biodiversity, fisheries, coral reefs, sharks and rays, cetaceans, sea turtles, ocean pollution, water quality, and coastal ecosystems.',
-  },
-  {
-    icon: Waves,
-    title: 'Why it matters',
-    text: 'Somalia has one of Africa’s longest and least-studied coastlines — every survey fills a real gap in what is known about it.',
-  },
-  {
-    icon: MapPin,
-    title: 'Where research happens',
-    text: 'From the deep pelagic upwellings off Puntland to the coral atolls and mangrove estuaries of Jubaland.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'How it drives conservation',
-    text: 'Findings feed directly into marine protected area proposals, sustainable fishing guidelines, and species protection programs.',
-  },
-  {
-    icon: Users,
-    title: 'How it connects to communities',
-    text: 'Fishing cooperatives, beach guardians, and traditional maritime knowledge holders are partners in the fieldwork itself.',
-  },
+  { icon: HelpCircle, key: 'whatWeResearch' },
+  { icon: Waves, key: 'whyItMatters' },
+  { icon: MapPin, key: 'whereResearchHappens' },
+  { icon: ShieldCheck, key: 'howItDrivesConservation' },
+  { icon: Users, key: 'howItConnectsToCommunities' },
 ];
 
 export default function ResearchIntro() {
+  const { t } = useLanguage();
+
   return (
     <section className="research-intro section" aria-labelledby="research-intro-heading">
       <div className="container">
         <div className="research-intro__header reveal">
-          <span className="label-text">Why we research</span>
+          <span className="label-text">{t('research.intro.eyebrow')}</span>
           <div className="divider" />
           <h2 className="section-heading" id="research-intro-heading">
-            Every expedition begins with a question.
+            {t('research.intro.heading')}
           </h2>
         </div>
 
@@ -49,8 +32,8 @@ export default function ResearchIntro() {
                 <div className="research-intro__icon">
                   <Icon size={22} />
                 </div>
-                <h3 className="research-intro__card-title">{p.title}</h3>
-                <p className="research-intro__card-text">{p.text}</p>
+                <h3 className="research-intro__card-title">{t(`research.intro.points.${p.key}.title`)}</h3>
+                <p className="research-intro__card-text">{t(`research.intro.points.${p.key}.text`)}</p>
               </div>
             );
           })}

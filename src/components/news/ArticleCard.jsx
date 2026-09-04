@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceCard.css';
 
 export default function ArticleCard({ article, priority = false }) {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+
   return (
     <article className="exp-card">
-      <Link to={`/news/${article.slug}`} className="exp-card__link" aria-label={`Read ${article.title}`}>
+      <Link to={localizedPath(`/news/${article.slug}`)} className="exp-card__link" aria-label={`Read ${article.title}`}>
         <div className="exp-card__media-wrap">
           <img
             src={article.featuredImage}
@@ -37,7 +41,7 @@ export default function ArticleCard({ article, priority = false }) {
 
           <div className="exp-card__footer">
             <span className="exp-card__cta">
-              <span>Read Story</span>
+              <span>{t('news.articleCard.readMore')}</span>
               <ArrowRight size={14} className="exp-card__cta-arrow" />
             </span>
           </div>

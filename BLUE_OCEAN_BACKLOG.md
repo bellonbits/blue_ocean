@@ -116,6 +116,49 @@ Add an admin `Settings → Social Media` panel (Instagram, Facebook, TikTok, You
 
 ---
 
+## 10. Bilingual & Localization (English / Somali)
+
+### 10.1 Language Architecture
+**Status:** UNDONE — no i18n scaffolding exists in the codebase yet (`src/`, `backend/app`); this is new infrastructure, not an extension of existing code.
+
+- Language switcher (EN | SO) in main nav; inside the mobile menu on small screens.
+- Language-aware URLs: `/en/...` and `/so/...` for every public route (homepage, Tourism, Explore Coast incl. Hurdiya and other destinations, Ocean Experiences, Marine Life, Research, Conservation, Illegal Fishing, Coastal Communities, News, About, Contact, Get Involved).
+- All UI strings translated: navigation, forms + validation messages, buttons/CTAs, footer, error/loading/empty states — not just the nav.
+- SEO metadata (title/description/OG tags, sitemap entries) generated per language.
+
+### 10.2 Bilingual CMS Content
+**Status:** UNDONE
+
+- Translated-content tables alongside each base resource, e.g. `destination_translations` (`destination_id`, `language`, `title`, `short_description`, `description`, `tourism_content`, `conservation_content`, ...). Same pattern for Marine Life, Research, Conservation, Experiences, Communities, News, Pages.
+- Admin forms split each translatable field into English / Somali sub-sections (e.g. Title/Cinwaan, Short Description/Sharaxaad Kooban, Full Description/Sharaxaad Buuxda) rather than relying on live machine translation.
+- Editorial workflow: English → Somali draft (AI-assisted allowed) → human review by a fluent Somali speaker → publish. Machine translation is never the final published source, especially for conservation/research/fisheries/community content.
+
+### 10.3 Language Preference
+**Status:** UNDONE
+
+- First visit: detect browser language, default to English/Somali accordingly; manual switch always available; preference persisted (cookie/localStorage for anonymous users).
+- Logged-in users: `Preferred Language` in account settings, persisted server-side so it follows the user across devices.
+
+### 10.4 Admin: Settings → Languages
+**Status:** UNDONE
+
+- Toggle English/Somali on/off, set default language.
+- Translation Status dashboard: per content type (Homepage, Tourism, Hurdiya, Marine Life, Research, Conservation, News, ...), show EN ✓ / SO ✓ / SO ⚠ (missing or unreviewed) so the content team can see completeness at a glance.
+
+### 10.5 Somali Typography QA
+**Status:** UNDONE
+
+- Somali is Latin-script (no RTL work needed) but often runs longer than the English equivalent — audit nav, cards, hero headings, buttons, mobile layouts, forms, news cards, and long research descriptions for overflow/truncation. Never hard-fix a layout to English text width in a way that breaks Somali.
+
+---
+
+## 11. Final QA & Launch
+**Status:** UNDONE
+
+- Real-device mobile QA across both languages (see 9.1), plus everything in the Recommended Order below.
+
+---
+
 ## Recommended Order
 
 ```
@@ -130,9 +173,12 @@ Add an admin `Settings → Social Media` panel (Instagram, Facebook, TikTok, You
 09. Expedition Apply / Join
 10. Latest from Blue Ocean
 11. Real Social Media URLs
-12. Real-Device QA
+12. Real-Device QA (English)
+13. Bilingual & Localization (EN/SO) — architecture, CMS fields, language-aware URLs, translation workflow, admin dashboard
+14. Somali Typography QA
+15. Final QA & Launch
 ```
 
-Dependency chain: Video Support → Related Content → Marine Life/Research relationships → Expedition relationships → Apply/Join → Latest from Blue Ocean → Social integration → Mobile QA → Launch.
+Dependency chain: Video Support → Related Content → Marine Life/Research relationships → Expedition relationships → Apply/Join → Latest from Blue Ocean → Social integration → Mobile QA → Bilingual & Localization → Somali Typography QA → Final QA & Launch.
 
-Before launch, add a Content & Data Verification pass (Hurdiya, illegal fishing, marine species, research observations, expedition info, mission/vision, social accounts) between "development complete" and real-device testing.
+Before launch, add a Content & Data Verification pass (Hurdiya, illegal fishing, marine species, research observations, expedition info, mission/vision, social accounts) between "development complete" and real-device testing — and, once bilingual, verify Somali content has been through human review, not just machine translation.

@@ -4,11 +4,13 @@ import { canManageAdmin } from './roles';
 import RestrictedNotice from './RestrictedNotice';
 import SettingsForm from './SettingsForm';
 import UsersPage from './UsersPage';
+import TranslationStatusPanel from './TranslationStatusPanel';
 
 const TABS = [
   { key: 'general', label: 'General' },
   { key: 'social', label: 'Social Media' },
   { key: 'website', label: 'Website' },
+  { key: 'languages', label: 'Languages' },
   { key: 'users', label: 'Users' },
 ];
 
@@ -27,6 +29,17 @@ const SOCIAL_FIELDS = [
     fullWidth: true, rows: 6, section: 'Social Media',
     placeholder: 'One per line, e.g.\nInstagram | https://instagram.com/blueoceansomalia\nYouTube | https://youtube.com/@blueoceansomalia',
     hint: 'One per line as "Platform | URL"',
+  },
+];
+
+const LANGUAGE_FIELDS = [
+  {
+    name: 'default_language', label: 'Default Language', section: 'Languages',
+    hint: '"en" or "so" — what a first-time visitor gets before browser detection/localStorage kicks in',
+  },
+  {
+    name: 'enabled_languages', label: 'Enabled Languages', type: 'list', fullWidth: true, section: 'Languages',
+    hint: 'One per line — language codes offered in the switcher, e.g. en / so',
   },
 ];
 
@@ -75,6 +88,12 @@ export default function SettingsPage() {
       {tab === 'general' && <SettingsForm key="general" fields={GENERAL_FIELDS} />}
       {tab === 'social' && <SettingsForm key="social" fields={SOCIAL_FIELDS} />}
       {tab === 'website' && <SettingsForm key="website" fields={WEBSITE_FIELDS} />}
+      {tab === 'languages' && (
+        <>
+          <SettingsForm key="languages" fields={LANGUAGE_FIELDS} />
+          <TranslationStatusPanel />
+        </>
+      )}
       {tab === 'users' && <UsersPage embedded />}
     </div>
   );

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useScrollReveal, useTrackRecentlyViewed } from '../lib/hooks';
+import { useLanguage } from '../context/LanguageContext';
 import { getDestination, listDestinations } from '../lib/contentApi';
 // Species/research-project/experience domains aren't wired to the live API
 // yet (Phase 2 of the CMS plan) — bridge those three sections from the
@@ -21,6 +22,7 @@ import { ArrowLeft, Compass } from 'lucide-react';
 
 export default function DestinationDetailPage() {
   const { slug } = useParams();
+  const { language } = useLanguage();
   const [destination, setDestination] = useState(null);
   const [allDestinations, setAllDestinations] = useState([]);
   const [notFound, setNotFound] = useState(false);
@@ -49,7 +51,7 @@ export default function DestinationDetailPage() {
     setDestination(null);
     setNotFound(false);
 
-    getDestination(slug)
+    getDestination(slug, language)
       .then((d) => {
         if (cancelled) return;
         const bridge = staticDestinations.find((s) => s.slug === slug) || {};
@@ -62,10 +64,10 @@ export default function DestinationDetailPage() {
       })
       .catch(() => { if (!cancelled) setNotFound(true); });
 
-    listDestinations().then((d) => { if (!cancelled) setAllDestinations(d); }).catch(() => {});
+    listDestinations({ lang: language }).then((d) => { if (!cancelled) setAllDestinations(d); }).catch(() => {});
 
     return () => { cancelled = true; };
-  }, [slug]);
+  }, [slug, language]);
 
   // 404 Fallback if destination slug not found
   if (notFound) {
@@ -77,7 +79,7 @@ export default function DestinationDetailPage() {
           <p style={{ color: 'var(--color-text-muted)' }}>
             The coastal destination you are looking for has not been charted yet. Explore our full catalog of Somali coastal destinations.
           </p>
-          <Link to="/explore-the-coast" className="btn btn-primary" style={{ marginTop: 'var(--space-2)' }}>
+          <Link to={`/${language}/explore-the-coast`} className="btn btn-primary" style={{ marginTop: 'var(--space-2)' }}>
             <ArrowLeft size={16} />
             <span>Return to Coastline Explorer</span>
           </Link>

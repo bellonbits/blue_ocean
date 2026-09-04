@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
+import { useLanguage } from '../context/LanguageContext';
 import NewsHero from '../components/news/NewsHero';
 import FeaturedArticle from '../components/news/FeaturedArticle';
 import NewsCategoryStrip from '../components/news/NewsCategoryStrip';
@@ -11,8 +12,10 @@ import '../components/experiences/ExperienceGrid.css';
 
 export default function NewsPage() {
   useScrollReveal();
-  const featured = getFeaturedArticle();
-  const latest = getLatestArticles(6, featured.slug);
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+  const featured = getFeaturedArticle(language);
+  const latest = getLatestArticles(6, featured.slug, language);
 
   useEffect(() => {
     document.title = 'News & Discoveries — Blue Ocean Somalia';
@@ -29,12 +32,12 @@ export default function NewsPage() {
         <div className="container">
           <div className="section-header reveal" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 'var(--space-4)' }}>
             <div>
-              <span className="label-text">LATEST ARTICLES</span>
+              <span className="label-text">{t('news.viewAllCta.eyebrow')}</span>
               <div className="divider" />
-              <h2 className="section-heading" id="latest-articles-heading">More from Blue Ocean</h2>
+              <h2 className="section-heading" id="latest-articles-heading">{t('news.viewAllCta.heading')}</h2>
             </div>
-            <Link to="/news/articles" className="btn btn-outline">
-              <span>View All Stories</span>
+            <Link to={localizedPath('/news/articles')} className="btn btn-outline">
+              <span>{t('news.viewAllCta.cta')}</span>
               <ArrowRight size={16} />
             </Link>
           </div>

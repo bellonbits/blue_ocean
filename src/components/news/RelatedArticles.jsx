@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getRelatedArticles } from '../../data/news';
+import { useLanguage } from '../../context/LanguageContext';
 import ArticleCard from './ArticleCard';
 import '../experiences/RelatedExperiences.css';
 
 export default function RelatedArticles({ currentSlug }) {
-  const related = getRelatedArticles(currentSlug, 3);
+  const { language } = useLanguage();
+  const related = getRelatedArticles(currentSlug, 3, language);
 
   if (!related || related.length === 0) return null;
 

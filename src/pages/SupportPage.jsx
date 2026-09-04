@@ -7,13 +7,15 @@ import EnquiryForm from '../components/shared/EnquiryForm';
 import ConservationProjectCard from '../components/conservation/ConservationProjectCard';
 import { submitApplication } from '../lib/dashboardApi';
 import { useAuth } from '../context/AuthContext';
+import { useLanguage } from '../context/LanguageContext';
 import './SpeciesDirectoryPage.css';
 import '../components/shared/EnquiryForm.css';
 
 export default function SupportPage() {
   useScrollReveal();
   const { token } = useAuth();
-  const supportableProjects = getAllConservationProjects().filter((p) => p.status !== 'Completed');
+  const { language } = useLanguage();
+  const supportableProjects = getAllConservationProjects(language).filter((p) => (p.statusKey || p.status) !== 'Completed');
 
   useEffect(() => {
     document.title = 'Support a Project — Blue Ocean Somalia';

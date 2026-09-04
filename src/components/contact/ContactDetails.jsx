@@ -1,18 +1,18 @@
 import { Mail, MapPin } from 'lucide-react';
 import { contactDetails, organization } from '../../data/organization';
+import { useLanguage } from '../../context/LanguageContext';
 import SocialLinks from '../shared/SocialLinks';
 import './ContactDetails.css';
 
 export default function ContactDetails() {
+  const { t } = useLanguage();
+
   return (
     <div className="contact-details reveal">
-      <span className="label-text">Get in Touch</span>
+      <span className="label-text">{t('contact.details.label')}</span>
       <div className="divider" />
-      <h2 className="section-heading">Let's connect.</h2>
-      <p className="contact-details__intro">
-        Whether you're interested in research, conservation, partnerships, ocean experiences or simply want to
-        learn more, we'd love to hear from you.
-      </p>
+      <h2 className="section-heading">{t('contact.details.heading')}</h2>
+      <p className="contact-details__intro">{t('contact.details.intro')}</p>
 
       <div className="contact-details__rows">
         <div className="contact-details__row">
@@ -20,7 +20,7 @@ export default function ContactDetails() {
             <Mail size={18} />
           </div>
           <div>
-            <span className="contact-details__row-label">Email</span>
+            <span className="contact-details__row-label">{t('contact.details.emailLabel')}</span>
             <a href={`mailto:${contactDetails.email}`} className="contact-details__row-value">
               {contactDetails.email}
             </a>
@@ -32,7 +32,7 @@ export default function ContactDetails() {
             <MapPin size={18} />
           </div>
           <div>
-            <span className="contact-details__row-label">Field Offices</span>
+            <span className="contact-details__row-label">{t('contact.details.officesLabel')}</span>
             {contactDetails.locations.map((loc) => (
               <span key={loc.value} className="contact-details__row-value" style={{ display: 'block' }}>
                 {loc.value}
@@ -43,7 +43,7 @@ export default function ContactDetails() {
       </div>
 
       <div className="contact-details__social">
-        <span className="contact-details__row-label">Follow Blue Ocean</span>
+        <span className="contact-details__row-label">{t('contact.details.followLabel')}</span>
         <SocialLinks />
       </div>
 

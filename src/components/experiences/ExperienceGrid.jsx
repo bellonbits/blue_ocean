@@ -1,10 +1,13 @@
 import { useState, useMemo } from 'react';
 import { Search, RotateCcw, Info } from 'lucide-react';
 import ExperienceCard from './ExperienceCard';
-import { experienceCategories } from '../../data/experiences';
+import { getExperienceCategories } from '../../data/experiences';
+import { useLanguage } from '../../context/LanguageContext';
 import './ExperienceGrid.css';
 
 export default function ExperienceGrid({ initialCategory = 'all', experiencesList = [] }) {
+  const { language, t } = useLanguage();
+  const experienceCategories = getExperienceCategories(language);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
 
@@ -40,8 +43,7 @@ export default function ExperienceGrid({ initialCategory = 'all', experiencesLis
       <div className="exp-grid__notice">
         <Info size={16} />
         <span>
-          Every experience below is in active development. Blue Ocean does not currently operate live bookings —
-          this directory previews what's coming to the Somali coast.
+          {t('oceanExperiences.grid.notice')}
         </span>
       </div>
 
@@ -53,19 +55,19 @@ export default function ExperienceGrid({ initialCategory = 'all', experiencesLis
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search experiences, locations, regions..."
+            placeholder={t('oceanExperiences.grid.searchPlaceholder')}
             className="exp-grid__search-input"
-            aria-label="Search ocean experiences"
+            aria-label={t('oceanExperiences.grid.searchAriaLabel')}
           />
         </div>
 
-        <div className="exp-grid__pills" role="group" aria-label="Filter by category">
+        <div className="exp-grid__pills" role="group" aria-label={t('oceanExperiences.grid.filterAriaLabel')}>
           <button
             type="button"
             className={`exp-grid__pill ${selectedCategory === 'all' ? 'is-active' : ''}`}
             onClick={() => setSelectedCategory('all')}
           >
-            All
+            {t('oceanExperiences.grid.allPill')}
           </button>
           {experienceCategories.map((cat) => (
             <button
@@ -92,14 +94,14 @@ export default function ExperienceGrid({ initialCategory = 'all', experiencesLis
           <div className="exp-grid__empty-icon">
             <Search size={32} />
           </div>
-          <h3 className="exp-grid__empty-title">No experiences matched your search</h3>
+          <h3 className="exp-grid__empty-title">{t('oceanExperiences.grid.emptyTitle')}</h3>
           <p className="exp-grid__empty-desc">
-            Try a different category or clear your search to see everything planned for the Somali coast.
+            {t('oceanExperiences.grid.emptyDesc')}
           </p>
           {hasActiveFilters && (
             <button type="button" className="exp-grid__empty-btn" onClick={handleReset}>
               <RotateCcw size={16} />
-              <span>Reset Filters</span>
+              <span>{t('oceanExperiences.grid.resetFilters')}</span>
             </button>
           )}
         </div>

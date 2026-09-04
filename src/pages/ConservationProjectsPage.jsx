@@ -4,10 +4,12 @@ import { ArrowLeft } from 'lucide-react';
 import { useScrollReveal } from '../lib/hooks';
 import ConservationProjectGrid from '../components/conservation/ConservationProjectGrid';
 import { getAllConservationProjects } from '../data/conservation';
+import { useLanguage } from '../context/LanguageContext';
 import './SpeciesDirectoryPage.css';
 
 export default function ConservationProjectsPage() {
   const [searchParams] = useSearchParams();
+  const { language } = useLanguage();
   const areaParam = searchParams.get('area') || 'all';
   useScrollReveal();
 
@@ -39,7 +41,7 @@ export default function ConservationProjectsPage() {
 
       <section className="species-dir-content-sec section">
         <div className="container">
-          <ConservationProjectGrid initialArea={areaParam} projectsList={getAllConservationProjects()} />
+          <ConservationProjectGrid initialArea={areaParam} projectsList={getAllConservationProjects(language)} language={language} />
         </div>
       </section>
     </main>

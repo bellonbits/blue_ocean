@@ -58,6 +58,11 @@ class User(Base):
     # notification_preferences — nothing reads these to personalize content
     # yet (that's the spec's explicitly-deferred "Personal Recommendations").
     interests: Mapped[list[str]] = mapped_column(JSONB, default=list, nullable=False)
+    # Logged-in language preference (see OrganizationSettings.default_language
+    # for the site-wide default anonymous visitors get). None means the user
+    # has never set one explicitly — the frontend falls back to its
+    # browser-detected/localStorage choice rather than treating None as English.
+    preferred_language: Mapped[str | None] = mapped_column(String(5), nullable=True)
 
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(

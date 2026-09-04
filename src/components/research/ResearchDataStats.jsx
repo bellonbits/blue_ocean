@@ -1,27 +1,29 @@
 import { getResearchStats } from '../../data/research';
+import { useLanguage } from '../../context/LanguageContext';
 import './ResearchDataStats.css';
 
 export default function ResearchDataStats() {
   const stats = getResearchStats();
+  const { t } = useLanguage();
 
   const cards = [
-    { value: stats.speciesObserved, label: 'Species Studied' },
-    { value: stats.researchSites, label: 'Research Sites' },
-    { value: stats.totalProjects, label: 'Research Projects' },
-    { value: stats.activeProjects, label: 'Active Studies' },
+    { value: stats.speciesObserved, label: t('research.stats.labels.speciesStudied') },
+    { value: stats.researchSites, label: t('research.stats.labels.researchSites') },
+    { value: stats.totalProjects, label: t('research.stats.labels.researchProjects') },
+    { value: stats.activeProjects, label: t('research.stats.labels.activeStudies') },
   ];
 
   return (
     <section className="research-data section" aria-labelledby="research-data-heading">
       <div className="container">
         <div className="section-header centered reveal">
-          <span className="label-text" style={{ color: '#02CCFE' }}>RESEARCH DATA</span>
+          <span className="label-text" style={{ color: '#02CCFE' }}>{t('research.stats.eyebrow')}</span>
           <div className="divider centered" />
           <h2 className="section-heading" id="research-data-heading">
-            The numbers behind the work
+            {t('research.stats.heading')}
           </h2>
           <p className="section-subheading" style={{ margin: '0 auto' }}>
-            Figures computed directly from Blue Ocean's published research records.
+            {t('research.stats.subheading')}
           </p>
         </div>
 

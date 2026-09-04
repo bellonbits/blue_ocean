@@ -59,6 +59,10 @@ class UpdateInterestsRequest(BaseModel):
     interests: list[str]
 
 
+class UpdateLanguageRequest(BaseModel):
+    preferred_language: str = Field(min_length=2, max_length=5)
+
+
 class ActivityLogEntryRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
@@ -81,6 +85,7 @@ class UserRead(BaseModel):
     avatar_url: str | None = None
     notification_preferences: dict = {}
     interests: list[str] = []
+    preferred_language: str | None = None
     created_at: datetime
 
 

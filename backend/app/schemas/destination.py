@@ -15,6 +15,25 @@ class DestinationRegionSummary(BaseModel):
     name: str
 
 
+class DestinationTranslationIn(BaseModel):
+    title: str | None = None
+    tagline: str | None = None
+    short_description: str | None = None
+    full_description: str | None = None
+    highlights: list[str] | None = None
+
+
+class DestinationTranslationRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    language: str
+    title: str | None = None
+    tagline: str | None = None
+    short_description: str | None = None
+    full_description: str | None = None
+    highlights: list[str] = []
+
+
 class DestinationBase(BaseModel):
     slug: str
     name: str
@@ -37,6 +56,9 @@ class DestinationBase(BaseModel):
     featured: bool = False
     highlights: list[str] = []
     status: DestinationStatus = DestinationStatus.DRAFT
+    # Keyed by language code (e.g. "so") — English lives in the fields
+    # above, so this only ever carries the non-English translations.
+    translations: dict[str, DestinationTranslationIn] | None = None
 
 
 class DestinationCreate(DestinationBase):
@@ -66,6 +88,7 @@ class DestinationUpdate(BaseModel):
     featured: bool | None = None
     highlights: list[str] | None = None
     status: DestinationStatus | None = None
+    translations: dict[str, DestinationTranslationIn] | None = None
 
 
 class DestinationRead(DestinationBase):
@@ -73,3 +96,4 @@ class DestinationRead(DestinationBase):
 
     id: UUID
     region: DestinationRegionSummary
+    translations: list[DestinationTranslationRead] = []

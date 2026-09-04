@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import { Fish, Shield, ArrowRight } from 'lucide-react';
 import { getConservationProjectBySlug } from '../../data/conservation';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceWildlife.css';
 
 export default function CommunityOceanConnection({ story }) {
-  const project = story.conservationProjectSlug ? getConservationProjectBySlug(story.conservationProjectSlug) : null;
+  const { language } = useLanguage();
+  const project = story.conservationProjectSlug ? getConservationProjectBySlug(story.conservationProjectSlug, language) : null;
   const hasSpecies = story.species && story.species.length > 0;
 
   if (!hasSpecies && !project) return null;

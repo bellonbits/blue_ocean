@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 import { Users, ArrowRight } from 'lucide-react';
 import { getAllCommunities, getAllCommunityStories } from '../../data/communities';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperiencesHero.css';
 
 export default function CommunitiesHero() {
-  const communityCount = getAllCommunities().length;
-  const storyCount = getAllCommunityStories().length;
+  const { language, t } = useLanguage();
+  const communityCount = getAllCommunities(language).length;
+  const storyCount = getAllCommunityStories(language).length;
 
   return (
     <section className="exp-hero" aria-label="Blue Ocean Coastal Communities">
@@ -27,7 +29,7 @@ export default function CommunitiesHero() {
           transition={{ duration: 0.6 }}
         >
           <Users size={14} />
-          <span>COASTAL COMMUNITIES</span>
+          <span>{t('communities.hero.badge')}</span>
         </motion.div>
 
         <motion.h1
@@ -36,8 +38,8 @@ export default function CommunitiesHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          The coast belongs <br />
-          <span className="exp-hero__title-accent">to its people.</span>
+          {t('communities.hero.heading')} <br />
+          <span className="exp-hero__title-accent">{t('communities.hero.headingAccent')}</span>
         </motion.h1>
 
         <motion.p
@@ -46,7 +48,7 @@ export default function CommunitiesHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          Meet the communities whose lives, knowledge and livelihoods are connected to Somalia's coastline.
+          {t('communities.hero.subtext')}
         </motion.p>
 
         <motion.div
@@ -56,11 +58,11 @@ export default function CommunitiesHero() {
           transition={{ duration: 0.7, delay: 0.3 }}
         >
           <a href="#community-stories" className="exp-hero__btn-primary">
-            <span>Read Their Stories</span>
+            <span>{t('communities.hero.ctaPrimary')}</span>
             <ArrowRight size={18} />
           </a>
           <a href="/get-involved" className="exp-hero__btn-secondary">
-            <span>Get Involved</span>
+            <span>{t('communities.hero.ctaSecondary')}</span>
           </a>
         </motion.div>
 
@@ -72,11 +74,11 @@ export default function CommunitiesHero() {
         >
           <div className="exp-hero__pill">
             <span className="exp-hero__pill-dot" />
-            <span>{communityCount} Communities</span>
+            <span>{t('communities.hero.pillCommunities', communityCount)}</span>
           </div>
           <div className="exp-hero__pill">
             <span className="exp-hero__pill-dot" />
-            <span>{storyCount} Stories</span>
+            <span>{t('communities.hero.pillStories', storyCount)}</span>
           </div>
         </motion.div>
       </div>

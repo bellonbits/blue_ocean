@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { MapPin, Activity, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceCard.css';
 
 const STATUS_COLORS = {
@@ -10,7 +11,8 @@ const STATUS_COLORS = {
 };
 
 export default function ConservationProjectCard({ project, priority = false }) {
-  const statusColor = STATUS_COLORS[project.status] || STATUS_COLORS.Active;
+  const { t } = useLanguage();
+  const statusColor = STATUS_COLORS[project.statusKey || project.status] || STATUS_COLORS.Active;
 
   return (
     <article className="exp-card">
@@ -50,7 +52,7 @@ export default function ConservationProjectCard({ project, priority = false }) {
 
           <div className="exp-card__footer">
             <span className="exp-card__cta">
-              <span>Explore Project</span>
+              <span>{t('conservation.card.exploreCta')}</span>
               <ArrowRight size={14} className="exp-card__cta-arrow" />
             </span>
           </div>

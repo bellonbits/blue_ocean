@@ -6,10 +6,12 @@ import ExperienceCategories from '../components/experiences/ExperienceCategories
 import ExperienceGrid from '../components/experiences/ExperienceGrid';
 import ExploreCTA from '../components/coast/ExploreCTA';
 import { getAllExperiences } from '../data/experiences';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function OceanExperiencesPage() {
   const [searchParams] = useSearchParams();
   const categoryParam = searchParams.get('category') || 'all';
+  const { language } = useLanguage();
   useScrollReveal();
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export default function OceanExperiencesPage() {
             </p>
           </div>
 
-          <ExperienceGrid initialCategory={categoryParam} experiencesList={getAllExperiences()} />
+          <ExperienceGrid initialCategory={categoryParam} experiencesList={getAllExperiences(language)} />
         </div>
       </section>
 

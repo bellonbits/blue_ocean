@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getRelatedCommunityStories } from '../../data/communities';
 import CommunityStoryCard from './CommunityStoryCard';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/RelatedExperiences.css';
 
 export default function RelatedStories({ currentSlug }) {
-  const related = getRelatedCommunityStories(currentSlug, 3);
+  const { language } = useLanguage();
+  const related = getRelatedCommunityStories(currentSlug, 3, language);
 
   if (!related || related.length === 0) return null;
 

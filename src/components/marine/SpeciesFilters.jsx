@@ -1,5 +1,6 @@
 import { Filter, RotateCcw, X, Check } from 'lucide-react';
-import { marineCategories } from '../../data/marineLife';
+import { getSpeciesCategories } from '../../data/marineLife';
+import { useLanguage } from '../../context/LanguageContext';
 import './SpeciesFilters.css';
 
 const habitatOptions = [
@@ -34,6 +35,9 @@ export default function SpeciesFilters({
   isOpenMobile,
   onCloseMobile,
 }) {
+  const { language } = useLanguage();
+  const marineCategories = getSpeciesCategories(language);
+
   return (
     <aside className={`species-filters ${isOpenMobile ? 'is-mobile-open' : ''}`}>
       {/* Mobile Header */}

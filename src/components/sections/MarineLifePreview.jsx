@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Fish, Waves, Compass, Sun, MapPin, ArrowRight, Heart, Sparkles } from 'lucide-react';
 import FramerCarousel from '../ui/FramerCarousel';
+import { useLanguage } from '../../context/LanguageContext';
 import './MarineLifePreview.css';
 
 const marineSpeciesData = [
@@ -104,6 +105,8 @@ const marineSpeciesData = [
 ];
 
 export default function MarineLifePreview() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
   const [likes, setLikes] = useState({});
 
   const toggleLike = (id, e) => {
@@ -117,13 +120,13 @@ export default function MarineLifePreview() {
       <div className="container">
         {/* Header */}
         <div className="section-header centered reveal">
-          <span className="label-text">Biodiversity & Marine Biology</span>
+          <span className="label-text">{t('marineLifePreview.eyebrow')}</span>
           <div className="divider centered" />
           <h2 className="section-heading" id="marine-heading">
-            Discover Marine Life
+            {t('marineLifePreview.heading')}
           </h2>
           <p className="section-subheading" style={{ margin: '0 auto' }}>
-            Somalia's ocean hosts hundreds of extraordinary marine species — from gentle whale sharks and ancient sea turtles to vast untouched coral atolls.
+            {t('marineLifePreview.subheading')}
           </p>
         </div>
 
@@ -140,7 +143,7 @@ export default function MarineLifePreview() {
 
               return (
                 <div className="lux-card">
-                  <Link to={species.path} className="lux-card__link">
+                  <Link to={localizedPath(species.path)} className="lux-card__link">
                     {/* Background Image */}
                     <div className="lux-card__bg">
                       <img
@@ -213,7 +216,7 @@ export default function MarineLifePreview() {
                       </div>
 
                       <div className="lux-card__cta-btn">
-                        <span>Explore Species</span>
+                        <span>{t('marineLifePreview.cardCta')}</span>
                         <ArrowRight size={16} />
                       </div>
                     </div>
@@ -226,8 +229,8 @@ export default function MarineLifePreview() {
 
         {/* Main CTA */}
         <div className="marine__cta reveal">
-          <Link to="/marine-life" className="btn btn-primary btn-lg" id="marine-explore-all">
-            Explore Full Marine Life Library
+          <Link to={localizedPath('/marine-life')} className="btn btn-primary btn-lg" id="marine-explore-all">
+            {t('marineLifePreview.mainCta')}
             <ArrowRight size={18} />
           </Link>
         </div>

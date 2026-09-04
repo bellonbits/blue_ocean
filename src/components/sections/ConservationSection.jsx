@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Trash2, Recycle, TreePine, Users, BookOpen, Heart, ArrowRight, Sparkles, CheckCircle } from 'lucide-react';
 import FramerCarousel from '../ui/FramerCarousel';
+import { useLanguage } from '../../context/LanguageContext';
 import './ConservationSection.css';
 
 const conservationPillars = [
@@ -80,18 +81,21 @@ const conservationPillars = [
 ];
 
 export default function ConservationSection() {
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+
   return (
     <section className="conservation section" aria-labelledby="conservation-heading">
       <div className="container">
         {/* Header */}
         <div className="section-header centered reveal">
-          <span className="label-text">Ocean Conservation & Guardianship</span>
+          <span className="label-text">{t('conservationPreview.eyebrow')}</span>
           <div className="divider centered" />
           <h2 className="section-heading" id="conservation-heading">
-            Protecting Our Living Ocean
+            {t('conservationPreview.heading')}
           </h2>
           <p className="section-subheading" style={{ margin: '0 auto' }}>
-            From safeguarding endangered marine species to empowering coastal communities, explore active initiatives protecting Somalia’s 3,025 km maritime frontier.
+            {t('conservationPreview.subheading')}
           </p>
         </div>
 
@@ -141,8 +145,8 @@ export default function ConservationSection() {
                   <h3 className="con-lux-card__title">{pillar.title}</h3>
                   <p className="con-lux-card__desc">{pillar.desc}</p>
 
-                  <Link to="/conservation" className="con-lux-card__cta">
-                    <span>Explore Initiative</span>
+                  <Link to={localizedPath('/conservation')} className="con-lux-card__cta">
+                    <span>{t('conservationPreview.cardCta')}</span>
                     <ArrowRight size={15} />
                   </Link>
                 </div>
@@ -157,18 +161,18 @@ export default function ConservationSection() {
             <div className="conservation__banner-text">
               <Heart size={26} color="#02CCFE" />
               <div>
-                <h3 className="conservation__banner-title">Join the Ocean Stewardship Network</h3>
+                <h3 className="conservation__banner-title">{t('conservationPreview.bannerTitle')}</h3>
                 <p className="conservation__banner-sub">
-                  Every action protects Somalia’s marine future — volunteer, partner, or sponsor an initiative.
+                  {t('conservationPreview.bannerSubtext')}
                 </p>
               </div>
             </div>
             <div className="conservation__banner-actions">
-              <Link to="/get-involved/volunteer" className="btn btn-primary" id="con-volunteer-btn">
-                Volunteer With Us
+              <Link to={localizedPath('/get-involved/volunteer')} className="btn btn-primary" id="con-volunteer-btn">
+                {t('conservationPreview.volunteerCta')}
               </Link>
-              <Link to="/get-involved/partner" className="btn btn-outline" id="con-partner-btn">
-                Partner With Us
+              <Link to={localizedPath('/get-involved/partner')} className="btn btn-outline" id="con-partner-btn">
+                {t('conservationPreview.partnerCta')}
               </Link>
             </div>
           </div>

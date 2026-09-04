@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Users } from 'lucide-react';
 import { getCommunityCategoryInfo } from '../../data/communities';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceHero.css';
 
 export default function CommunityStoryHero({ story }) {
-  const categoryInfo = getCommunityCategoryInfo(story.category);
+  const { language } = useLanguage();
+  const categoryInfo = getCommunityCategoryInfo(story.category, language);
 
   return (
     <section className="exp-detail-hero" aria-label={story.title}>

@@ -1,36 +1,39 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Anchor, Leaf, Briefcase, GraduationCap, Heart, Users } from 'lucide-react';
 import { getAllCommunities, getCommunityCategoryInfo, getStoriesByCommunity } from '../../data/communities';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceCategories.css';
 
 const ICONS = { Anchor, Leaf, Briefcase, GraduationCap, Heart, Users };
 
 export default function CommunitiesDirectory() {
-  const allCommunities = getAllCommunities();
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+  const allCommunities = getAllCommunities(language);
 
   return (
     <section className="exp-cats section" aria-labelledby="communities-directory-heading">
       <div className="container">
         <div className="section-header centered reveal">
-          <span className="label-text">WHO WE WORK WITH</span>
+          <span className="label-text">{t('communities.directory.label')}</span>
           <div className="divider centered" />
           <h2 className="section-heading" id="communities-directory-heading">
-            People of the Coast
+            {t('communities.directory.heading')}
           </h2>
           <p className="section-subheading" style={{ margin: '0 auto' }}>
-            Blue Ocean is not just about the ocean — it's about the people who live by it.
+            {t('communities.directory.subheading')}
           </p>
         </div>
 
         <div className="exp-cats__grid">
           {allCommunities.map((com) => {
-            const categoryInfo = getCommunityCategoryInfo(com.category);
+            const categoryInfo = getCommunityCategoryInfo(com.category, language);
             const Icon = ICONS[categoryInfo?.icon] || Users;
             const stories = getStoriesByCommunity(com.slug);
             const link = stories[0] ? `/communities/${stories[0].slug}` : '/communities';
 
             return (
-              <Link key={com.id} to={link} className="exp-cat-card">
+              <Link key={com.id} to={localizedPath(link)} className="exp-cat-card">
                 <div className="exp-cat-card__media">
                   <img src={com.heroImage} alt={com.name} className="exp-cat-card__img" loading="lazy" />
                   <div className="exp-cat-card__overlay" />
@@ -45,7 +48,7 @@ export default function CommunitiesDirectory() {
                   <p className="exp-cat-card__tagline">{com.description}</p>
 
                   <span className="exp-cat-card__cta">
-                    <span>{stories[0] ? 'Read Their Story' : 'Learn More'}</span>
+                    <span>{stories[0] ? t('communities.directory.ctaStory') : t('communities.directory.ctaLearnMore')}</span>
                     <ArrowRight size={14} className="exp-cat-card__arrow" />
                   </span>
                 </div>

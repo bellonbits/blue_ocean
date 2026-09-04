@@ -1,12 +1,13 @@
 import { useState, useMemo } from 'react';
 import { Search, RotateCcw } from 'lucide-react';
 import ConservationProjectCard from './ConservationProjectCard';
-import { conservationFocusAreas, CONSERVATION_STATUSES } from '../../data/conservation';
+import { getConservationFocusAreas, CONSERVATION_STATUSES, getStatusLabel } from '../../data/conservation';
 import '../experiences/ExperienceGrid.css';
 
 const REGIONS = ['Puntland', 'Jubaland', 'Somalia'];
 
-export default function ConservationProjectGrid({ initialArea = 'all', projectsList = [] }) {
+export default function ConservationProjectGrid({ initialArea = 'all', projectsList = [], language = 'en' }) {
+  const focusAreas = getConservationFocusAreas(language);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedArea, setSelectedArea] = useState(initialArea);
   const [selectedRegion, setSelectedRegion] = useState('all');
@@ -26,7 +27,7 @@ export default function ConservationProjectGrid({ initialArea = 'all', projectsL
     return projectsList.filter((p) => {
       if (selectedArea !== 'all' && p.focusArea !== selectedArea) return false;
       if (selectedRegion !== 'all' && p.region !== selectedRegion) return false;
-      if (selectedStatus !== 'all' && p.status !== selectedStatus) return false;
+      if (selectedStatus !== 'all' && (p.statusKey || p.status) !== selectedStatus) return false;
 
       if (searchQuery.trim() !== '') {
         const q = searchQuery.toLowerCase().trim();
@@ -62,7 +63,7 @@ export default function ConservationProjectGrid({ initialArea = 'all', projectsL
           <button type="button" className={`exp-grid__pill ${selectedArea === 'all' ? 'is-active' : ''}`} onClick={() => setSelectedArea('all')}>
             All Areas
           </button>
-          {conservationFocusAreas.map((area) => (
+          {focusAreas.map((area) => (
             <button
               key={area.id}
               type="button"
@@ -101,7 +102,7 @@ export default function ConservationProjectGrid({ initialArea = 'all', projectsL
               className={`exp-grid__pill ${selectedStatus === status ? 'is-active' : ''}`}
               onClick={() => setSelectedStatus(status)}
             >
-              {status}
+              {getStatusLabel(status, language)}
             </button>
           ))}
         </div>

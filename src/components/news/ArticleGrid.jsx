@@ -1,12 +1,15 @@
 import { useState, useMemo } from 'react';
 import { Search, RotateCcw } from 'lucide-react';
 import ArticleCard from './ArticleCard';
-import { NEWS_CATEGORIES } from '../../data/news';
+import { getNewsCategories } from '../../data/news';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceGrid.css';
 
 const PAGE_SIZE = 6;
 
 export default function ArticleGrid({ initialCategory = 'all', articlesList = [] }) {
+  const { language, t } = useLanguage();
+  const categories = getNewsCategories(language);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -50,21 +53,21 @@ export default function ArticleGrid({ initialCategory = 'all', articlesList = []
             type="text"
             value={searchQuery}
             onChange={(e) => { setSearchQuery(e.target.value); setVisibleCount(PAGE_SIZE); }}
-            placeholder="Search stories, locations, species..."
+            placeholder={t('news.grid.searchPlaceholder')}
             className="exp-grid__search-input"
-            aria-label="Search articles"
+            aria-label={t('news.grid.searchAriaLabel')}
           />
         </div>
 
-        <div className="exp-grid__pills" role="group" aria-label="Filter by category">
+        <div className="exp-grid__pills" role="group" aria-label={t('news.grid.filterAriaLabel')}>
           <button
             type="button"
             className={`exp-grid__pill ${selectedCategory === 'all' ? 'is-active' : ''}`}
             onClick={() => { setSelectedCategory('all'); setVisibleCount(PAGE_SIZE); }}
           >
-            All
+            {t('news.grid.allPill')}
           </button>
-          {NEWS_CATEGORIES.map((cat) => (
+          {categories.map((cat) => (
             <button
               key={cat.id}
               type="button"
@@ -88,7 +91,7 @@ export default function ArticleGrid({ initialCategory = 'all', articlesList = []
           {hasMore && (
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: 'var(--space-10)' }}>
               <button type="button" className="btn btn-outline btn-lg" onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}>
-                <span>Load More Stories</span>
+                <span>{t('news.grid.loadMore')}</span>
               </button>
             </div>
           )}
@@ -98,14 +101,14 @@ export default function ArticleGrid({ initialCategory = 'all', articlesList = []
           <div className="exp-grid__empty-icon">
             <Search size={32} />
           </div>
-          <h3 className="exp-grid__empty-title">No stories matched your search</h3>
+          <h3 className="exp-grid__empty-title">{t('news.grid.emptyTitle')}</h3>
           <p className="exp-grid__empty-desc">
-            Try a different category, or clear your search.
+            {t('news.grid.emptyDesc')}
           </p>
           {hasActiveFilters && (
             <button type="button" className="exp-grid__empty-btn" onClick={handleReset}>
               <RotateCcw size={16} />
-              <span>Reset Filters</span>
+              <span>{t('news.grid.resetFilters')}</span>
             </button>
           )}
         </div>

@@ -1,32 +1,35 @@
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { getFeaturedArticle, getLatestArticles } from '../../data/news';
+import { useLanguage } from '../../context/LanguageContext';
 import ArticleCard from './ArticleCard';
 import '../research/FeaturedResearch.css';
 import '../sections/NewsPreview.css';
 
 export default function LatestDiscoveries() {
-  const featured = getFeaturedArticle();
-  const others = getLatestArticles(3, featured.slug);
+  const { language, t } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+  const featured = getFeaturedArticle(language);
+  const others = getLatestArticles(3, featured.slug, language);
 
   return (
     <section className="featured-research section" aria-labelledby="latest-discoveries-heading">
       <div className="container">
         <div className="news-preview__header reveal">
           <div>
-            <span className="label-text">FROM THE FIELD</span>
+            <span className="label-text">{t('newsPreview.eyebrow')}</span>
             <div className="divider" />
             <h2 className="section-heading" id="latest-discoveries-heading">
-              Latest discoveries
+              {t('newsPreview.heading')}
             </h2>
           </div>
-          <Link to="/news" className="btn btn-outline" id="latest-discoveries-view-all">
-            <span>View All Stories</span>
+          <Link to={localizedPath('/news')} className="btn btn-outline" id="latest-discoveries-view-all">
+            <span>{t('newsPreview.cta')}</span>
             <ArrowRight size={16} />
           </Link>
         </div>
 
-        <Link to={`/news/${featured.slug}`} className="featured-research__card reveal">
+        <Link to={localizedPath(`/news/${featured.slug}`)} className="featured-research__card reveal">
           <div className="featured-research__media">
             <img src={featured.featuredImage} alt={featured.title} className="featured-research__img" loading="lazy" />
             <div className="featured-research__overlay" />
@@ -49,7 +52,7 @@ export default function LatestDiscoveries() {
             </div>
 
             <span className="featured-research__cta">
-              <span>Read story</span>
+              <span>{t('newsPreview.readMore')}</span>
               <ArrowRight size={16} />
             </span>
           </div>
