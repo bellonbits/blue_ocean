@@ -1,11 +1,11 @@
-# Blue Ocean — Mobile (iOS & Android)
+# Blue Heaven — Mobile (iOS & Android)
 
 The site is wrapped for native iOS and Android with [Capacitor](https://capacitorjs.com).
 Same React app, same backend — the native shell adds a splash screen, a first-launch
 onboarding flow, and native chrome (status bar, safe areas).
 
 - **App ID:** `so.blueocean.app`
-- **App name:** Blue Ocean
+- **App name:** Blue Heaven
 
 ## Everyday workflow
 

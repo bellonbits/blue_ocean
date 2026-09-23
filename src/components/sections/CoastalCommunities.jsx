@@ -7,7 +7,7 @@ const communities = [
     id: 'fishermen',
     icon: Anchor,
     title: 'Fishermen & Fishing Communities',
-    desc: 'Somalia\'s fishermen carry centuries of marine knowledge. Blue Ocean works alongside them — protecting their livelihoods while conserving the ocean they depend on.',
+    desc: 'Somalia\'s fishermen carry centuries of marine knowledge. Blue Heaven works alongside them — protecting their livelihoods while conserving the ocean they depend on.',
     color: 'rgba(14,165,233,0.1)',
     border: 'rgba(14,165,233,0.2)',
     iconColor: '#7DD3FC',

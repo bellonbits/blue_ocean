@@ -15,7 +15,7 @@ export default function ResearchTeamPage() {
   const teams = getAllTeams(language);
 
   useEffect(() => {
-    document.title = 'Research Team — Blue Ocean Somalia';
+    document.title = 'Research Team — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
@@ -34,7 +34,7 @@ export default function ResearchTeamPage() {
           <div className="divider" />
           <h1 className="species-dir-hero__title">Our Research Teams</h1>
           <p className="species-dir-hero__desc">
-            The specialist units behind Blue Ocean's field research, organized by area of scientific focus.
+            The specialist units behind Blue Heaven's field research, organized by area of scientific focus.
           </p>
         </div>
       </section>
@@ -45,7 +45,7 @@ export default function ResearchTeamPage() {
             <Info size={16} />
             <span>
               Individual researcher profiles are not yet published. Teams are shown here as organizational units
-              until Blue Ocean's full roster is confirmed.
+              until Blue Heaven's full roster is confirmed.
             </span>
           </div>
 

@@ -25,8 +25,8 @@ export default function ConservationProjectDetailPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = project
-      ? `${project.title} — Blue Ocean Conservation`
-      : 'Conservation Project Not Found — Blue Ocean Somalia';
+      ? `${project.title} — Blue Heaven Conservation`
+      : 'Conservation Project Not Found — Blue Heaven Somalia';
   }, [project]);
 
   if (!project) {

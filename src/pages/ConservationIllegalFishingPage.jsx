@@ -10,12 +10,12 @@ export default function ConservationIllegalFishingPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Illegal Fishing — Blue Ocean Conservation';
+    document.title = 'Illegal Fishing — Blue Heaven Conservation';
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <main id="main-content" className="conservation-illegal-fishing-page" aria-label="Illegal Fishing — Blue Ocean Conservation">
+    <main id="main-content" className="conservation-illegal-fishing-page" aria-label="Illegal Fishing — Blue Heaven Conservation">
       <IllegalFishingHero />
       <IllegalFishingApproach />
       <IllegalFishingProjects />

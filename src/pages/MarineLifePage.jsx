@@ -18,7 +18,7 @@ export default function MarineLifePage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Marine Life of Somalia — Blue Ocean Field Guide & Species Library';
+    document.title = 'Marine Life of Somalia — Blue Heaven Field Guide & Species Library';
     window.scrollTo(0, 0);
   }, [pathname]);
 

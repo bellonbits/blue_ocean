@@ -7,7 +7,7 @@ export default function ContactHero() {
   const { t } = useLanguage();
 
   return (
-    <section className="exp-hero" aria-label="Contact Blue Ocean" style={{ minHeight: '60vh' }}>
+    <section className="exp-hero" aria-label="Contact Blue Heaven" style={{ minHeight: '60vh' }}>
       <div className="exp-hero__media" aria-hidden="true">
         <img
           src="/exp_coastal_cliff.jpg"

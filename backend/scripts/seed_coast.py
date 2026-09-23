@@ -4,7 +4,7 @@ Seed regions and destinations from the frontend's real content.
 seed_data/regions.json and seed_data/destinations.json are exported
 directly from src/data/regions.js and src/data/destinations.js (see
 the comment at the top of each JSON file's generating command in the
-Sprint B3 notes) — so this loads Blue Ocean's actual published content,
+Sprint B3 notes) — so this loads Blue Heaven's actual published content,
 not placeholder data. Re-running is safe: upserts by slug.
 
 Cross-links present in the source JSON (marineSpecies, researchProjects,

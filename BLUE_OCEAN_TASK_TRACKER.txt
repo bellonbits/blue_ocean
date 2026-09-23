@@ -1,5 +1,5 @@
 ================================================================================
-BLUE OCEAN — WEBSITE DEVELOPMENT BRIEF — TASK TRACKER
+BLUE HEAVEN — WEBSITE DEVELOPMENT BRIEF — TASK TRACKER
 Audited against the live codebase on 2026-09-02
 ================================================================================
 
@@ -53,7 +53,7 @@ SECTION 3 — HOMEPAGE
 ================================================================================
 | Requirement                                    | Status | Notes
 |--------------------------------------------------|--------|-----------------------------------
-| Hero headline "Discover Somalia's Blue Ocean"     | DONE   | Exact match — HeroSection.jsx
+| Hero headline "Discover Somalia's Blue Heaven"     | DONE   | Exact match — HeroSection.jsx
 | Hero subtext                                      | DONE   | Exact match
 | Button: Explore the Coast                         | DONE   |
 | Button: Discover Marine Life                      | DONE   |
@@ -239,7 +239,7 @@ SECTION 12 — NEWS & DISCOVERIES
 |                                            |         | page (ArticleHero.jsx) — needs verification
 
 ================================================================================
-SECTION 13 — ABOUT BLUE OCEAN
+SECTION 13 — ABOUT BLUE HEAVEN
 ================================================================================
 | Requirement                          | Status  | Notes
 |------------------------------------------|---------|-----------------------------------
@@ -322,7 +322,7 @@ SECTION 17 — SOCIAL MEDIA INTEGRATION
 | X / Twitter                             | DONE    |
 | (caveat)                                | NOTE    | URLs are placeholders (instagram.com,
 |                                          |         | facebook.com, etc.) — need real handles
-| "Latest from Blue Ocean" section        | MISSING | No such section found anywhere in the app
+| "Latest from Blue Heaven" section        | MISSING | No such section found anywhere in the app
 
 ================================================================================
 SECTION 18 — FIRST DEVELOPMENT VERSION
@@ -350,8 +350,8 @@ TOP PRIORITY GAPS TO CLOSE NEXT
   3. Expedition fields: species studied (expose existing relation), available
      spaces, price, and an Apply/Join flow.
   4. Marine species "research observations" field.
-  5. "Latest from Blue Ocean" social feed section.
+  5. "Latest from Blue Heaven" social feed section.
   6. Related news/articles cross-linking on destinations, species, and
      research projects.
-  7. Replace placeholder social media URLs with real Blue Ocean accounts.
+  7. Replace placeholder social media URLs with real Blue Heaven accounts.
 ================================================================================

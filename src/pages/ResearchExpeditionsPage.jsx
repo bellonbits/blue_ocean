@@ -15,7 +15,7 @@ export default function ResearchExpeditionsPage() {
   const expeditions = getAllExpeditions(language);
 
   useEffect(() => {
-    document.title = 'Research Expeditions — Blue Ocean Somalia';
+    document.title = 'Research Expeditions — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
@@ -34,7 +34,7 @@ export default function ResearchExpeditionsPage() {
           <div className="divider" />
           <h1 className="species-dir-hero__title">Research Expeditions</h1>
           <p className="species-dir-hero__desc">
-            Join Blue Ocean's research teams in the field. Every expedition below is in planning — dates, pricing,
+            Join Blue Heaven's research teams in the field. Every expedition below is in planning — dates, pricing,
             and availability will be announced once operational.
           </p>
         </div>
@@ -45,7 +45,7 @@ export default function ResearchExpeditionsPage() {
           <div className="exp-grid__notice" style={{ marginBottom: 'var(--space-8)' }}>
             <Info size={16} />
             <span>
-              No expeditions are currently bookable. This page previews Blue Ocean's planned field programs —
+              No expeditions are currently bookable. This page previews Blue Heaven's planned field programs —
               register your interest with the team once dates are confirmed.
             </span>
           </div>

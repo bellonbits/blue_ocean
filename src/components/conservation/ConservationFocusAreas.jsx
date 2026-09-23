@@ -16,7 +16,7 @@ const ICONS = {
 };
 
 // Illegal Fishing is the one focus area with its own dedicated landing
-// page (richer editorial content — what Blue Ocean is actually doing
+// page (richer editorial content — what Blue Heaven is actually doing
 // about it — rather than just a filtered project list like every other
 // area). Every other card still routes to the generic filtered view.
 const CUSTOM_LINKS = {

@@ -10,7 +10,7 @@ export default function MyResearchPage() {
   const { language } = useLanguage();
 
   useEffect(() => {
-    document.title = 'My Research — Blue Ocean Somalia';
+    document.title = 'My Research — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 

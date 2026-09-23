@@ -11,12 +11,12 @@ export default function ResearchPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Research — Blue Ocean Somalia';
+    document.title = 'Research — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <main id="main-content" aria-label="Blue Ocean Research">
+    <main id="main-content" aria-label="Blue Heaven Research">
       <ResearchHero />
       <ResearchIntro />
       <ResearchAreas />

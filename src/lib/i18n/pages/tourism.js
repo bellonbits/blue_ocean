@@ -16,10 +16,10 @@ export default {
         ctaDiscoverExperiences: 'Discover Experiences',
       },
       intro: {
-        label: 'Blue Ocean Tourism',
+        label: 'Blue Heaven Tourism',
         heading: 'A coastline waiting to be discovered.',
         subheading:
-          "Somalia's coastline stretches across thousands of kilometres of Indian Ocean waters, connecting diverse marine ecosystems, coastal landscapes, and communities. Blue Ocean brings these places together through responsible tourism, marine education, and exploration.",
+          "Somalia's coastline stretches across thousands of kilometres of Indian Ocean waters, connecting diverse marine ecosystems, coastal landscapes, and communities. Blue Heaven brings these places together through responsible tourism, marine education, and exploration.",
         points: {
           explore: {
             title: 'Explore',
@@ -27,7 +27,7 @@ export default {
           },
           learn: {
             title: 'Learn',
-            text: "Understand the marine environment and the wildlife that depends on it, grounded in Blue Ocean's own field research.",
+            text: "Understand the marine environment and the wildlife that depends on it, grounded in Blue Heaven's own field research.",
           },
           protect: {
             title: 'Protect',
@@ -46,7 +46,7 @@ export default {
         label: 'Ocean Experiences',
         heading: 'Experience the ocean.',
         subheading:
-          "Blue Ocean is building a growing network of responsible ocean experiences across Somalia — some active today, others coming soon. We never imply a tour, operator, or booking is available before it's confirmed.",
+          "Blue Heaven is building a growing network of responsible ocean experiences across Somalia — some active today, others coming soon. We never imply a tour, operator, or booking is available before it's confirmed.",
         ctaSeeAll: 'See All Experiences',
       },
       marineLife: {
@@ -111,7 +111,7 @@ export default {
         label: 'Research Behind the Experience',
         heading: 'Explore with knowledge.',
         subheading:
-          "Before exploring a reef, learn what lives there — every destination on this page connects back to Blue Ocean's own field research.",
+          "Before exploring a reef, learn what lives there — every destination on this page connects back to Blue Heaven's own field research.",
         ctaExplore: 'Explore',
         ctaExploreResearch: 'Explore Our Research',
       },
@@ -125,17 +125,17 @@ export default {
         heading: 'Your next ocean experience',
         headingAccent: 'starts here.',
         subtext:
-          'Discover destinations, explore marine life, and learn about the coast. Blue Ocean is building a growing network of responsible ocean experiences across Somalia — most are still coming soon.',
+          'Discover destinations, explore marine life, and learn about the coast. Blue Heaven is building a growing network of responsible ocean experiences across Somalia — most are still coming soon.',
         ctaExplore: 'Explore Experiences',
       },
       getInvolved: {
         label: 'Get Involved',
-        heading: 'Your path into Blue Ocean.',
+        heading: 'Your path into Blue Heaven.',
         paths: {
           visit: { title: 'Visit', text: 'Explore the coast.' },
           learn: { title: 'Learn', text: 'Discover marine life and research.' },
           support: { title: 'Support', text: 'Support conservation.' },
-          partner: { title: 'Partner', text: 'Work with Blue Ocean.' },
+          partner: { title: 'Partner', text: 'Work with Blue Heaven.' },
         },
       },
       closingCta: {
@@ -158,18 +158,18 @@ export default {
         ctaDiscoverExperiences: 'Ogoow Waaya-aragnimooyinka',
       },
       intro: {
-        label: 'Dalxiiska Blue Ocean',
+        label: 'Dalxiiska Blue Heaven',
         heading: 'Xeeb sugaysa in la sahamiyo.',
         subheading:
-          "Xeebta Soomaaliya waxay ku fidsan tahay kumanaan kilomitir oo ah biyaha Badweynta Hindiya, iyadoo isku xidhaysa nidaamyo kala duwan oo deegaan badeed, muuqaallo xeebeed, iyo bulshooyin. Blue Ocean waxay isku keentaa goobahan iyadoo adeegsanaysa dalxiis mas'uul ah, waxbarasho badeed, iyo sahaminta.",
+          "Xeebta Soomaaliya waxay ku fidsan tahay kumanaan kilomitir oo ah biyaha Badweynta Hindiya, iyadoo isku xidhaysa nidaamyo kala duwan oo deegaan badeed, muuqaallo xeebeed, iyo bulshooyin. Blue Heaven waxay isku keentaa goobahan iyadoo adeegsanaysa dalxiis mas'uul ah, waxbarasho badeed, iyo sahaminta.",
         points: {
           explore: {
             title: 'Sahaminta',
-            text: 'Ka daalac goobo xeebeed oo cajiib ah oo ku kala yaal saddex gobol, laga bilaabo dhagaxyo dhaadheer ilaa jasiirado dab-yaqaan ah iyo dekedo taariikhi ah.',
+            text: 'Ka daalac goobo xeebeed oo cajiib ah oo ku kala yaal saddex gobol, laga bilaabo dhagaxyo dhaadheer ilaa jasiirado murjaan ah iyo dekedo taariikhi ah.',
           },
           learn: {
             title: 'Barashada',
-            text: "Fahan deegaanka badda iyo xayawaanka ku tiirsan, oo ku salaysan cilmi-baarista goobeed ee Blue Ocean.",
+            text: "Fahan deegaanka badda iyo xayawaanka ku tiirsan, oo ku salaysan cilmi-baarista goobeed ee Blue Heaven.",
           },
           protect: {
             title: 'Ilaalinta',
@@ -188,7 +188,7 @@ export default {
         label: 'Waaya-aragnimooyinka Badda',
         heading: 'La kulan badda.',
         subheading:
-          "Blue Ocean waxay dhisaysaa shabakad sii kordhaysa oo ah waaya-aragnimooyin badeed oo mas'uul ah oo ku kala yaal Soomaaliya. Qaar hadda shaqaynaya, kuwa kalena dhawaan la bilaabi doono. Marnaba kama sheegno in dalxiis, hawlwadeen, ama qabsiga la heli karo intaanu la xaqiijin.",
+          "Blue Heaven waxay dhisaysaa shabakad sii kordhaysa oo ah waaya-aragnimooyin badeed oo mas'uul ah oo ku kala yaal Soomaaliya. Qaar hadda shaqaynaya, kuwa kalena dhawaan la bilaabi doono. Marnaba kama sheegno in dalxiis, hawlwadeen, ama ballansiga la heli karo intaanu la xaqiijin.",
         ctaSeeAll: 'Arag Dhammaan Waaya-aragnimooyinka',
       },
       marineLife: {
@@ -203,7 +203,7 @@ export default {
         topics: {
           protectWildlife: {
             title: 'Ilaali xayawaanka badda',
-            text: 'Ka fogow qorshoolayaasha badda, dolfiinada, iyo noolaha jiirriga, fiiri iyada oo aan la dhibin.',
+            text: 'Ka fogow diinka badda, doolfinda, iyo noolaha murjaanka, daawasho iyaga oo aan la dhibin.',
           },
           respectCommunities: {
             title: 'Ixtiraam bulshooyinka xeebaha',
@@ -218,8 +218,8 @@ export default {
             text: 'Aqoonta deegaanka ee ku saabsan qulqulka biyaha, xilliyada, iyo wadooyinka amaanka ah waxay u jirtaa sabab, raac.',
           },
           protectCoral: {
-            title: 'Ilaali jiirriga iyo hoyga noolaha',
-            text: 'Marnaba ha isku taagin ama taaban jiirriga. Hal firqi oo taxadar la\'aan ah ayaa burin kara horumar tobanaan sano qaatay.',
+            title: 'Ilaali murjaanka iyo hoyga noolaha badda',
+            text: 'Marnaba ha isku taagin ama taaban murjaanka. Hal taabasho oo taxadar la\'aan ah ayaa burin kara nidaam tobanaan sano qaatay si uu u kobco.',
           },
           supportFishing: {
             title: 'Taageer kalluumeysiga waarta',
@@ -253,7 +253,7 @@ export default {
         label: 'Cilmi-baarista Ka Dambeysa Waaya-aragnimada',
         heading: 'Ku daalac aqoon.',
         subheading:
-          "Ka hor inta aadan daalicin jiirri, baro waxa ku nool. Meel kasta oo bogga ku taal waxay xiriir la leedahay cilmi-baarista goobeed ee Blue Ocean.",
+          "Ka hor inta aadan daalicin meel xeebeed, baro waxa ku nool. Meel kasta oo bogga ku taal waxay xiriir la leedahay cilmi-baarista goobeed ee Blue Heaven.",
         ctaExplore: 'Sahamiso',
         ctaExploreResearch: 'Daalac Cilmi-baaristayada',
       },
@@ -267,17 +267,17 @@ export default {
         heading: 'Waaya-aragnimadaada xiga ee badda',
         headingAccent: 'waxay ka bilaabantaa halkan.',
         subtext:
-          "Daalac meelaha, sahamiso nolosha badeed, oo baro xeebta. Blue Ocean waxay dhisaysaa shabakad sii kordhaysa oo ah waaya-aragnimooyin badeed oo mas'uul ah oo ku kala yaal Soomaaliya, inta badan weli way soo socdaan.",
+          "Daalac meelaha, sahamiso nolosha badeed, oo baro xeebta. Blue Heaven waxay dhisaysaa shabakad sii kordhaysa oo ah waaya-aragnimooyin badeed oo mas'uul ah oo ku kala yaal Soomaaliya, inta badan weli way soo socdaan.",
         ctaExplore: 'Sahamiso Waaya-aragnimooyinka',
       },
       getInvolved: {
         label: 'Ka Qaybgal',
-        heading: 'Waddadaada Blue Ocean.',
+        heading: 'Waddadaada Blue Heaven.',
         paths: {
           visit: { title: 'Booqo', text: 'Ka daalac xeebta.' },
           learn: { title: 'Baro', text: 'Ogow nolosha badeed iyo cilmi-baarista.' },
           support: { title: 'Taageer', text: 'Taageer ilaalinta.' },
-          partner: { title: 'Iskaashi', text: 'La shaqee Blue Ocean.' },
+          partner: { title: 'Iskaashi', text: 'La shaqee Blue Heaven.' },
         },
       },
       closingCta: {

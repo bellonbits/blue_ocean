@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Secure backend proxy for the Blue Ocean site chat assistant. Keeps GROQ_API_KEY server-side.",
+  "description": "Secure backend proxy for the Blue Heaven site chat assistant. Keeps GROQ_API_KEY server-side.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

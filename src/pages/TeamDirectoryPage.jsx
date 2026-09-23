@@ -12,7 +12,7 @@ export default function TeamDirectoryPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Our Team — Blue Ocean Somalia';
+    document.title = 'Our Team — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 

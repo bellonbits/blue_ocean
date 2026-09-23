@@ -32,7 +32,7 @@ export default function IllegalFishingApproach() {
           <span className="label-text">Our Response</span>
           <div className="divider" />
           <h2 className="section-heading" id="illegal-fishing-approach-heading">
-            What Blue Ocean is doing about it.
+            What Blue Heaven is doing about it.
           </h2>
           <p className="section-subheading" style={{ margin: '0 auto' }}>
             This isn't a claim that illegal fishing is a problem — it's an account of the work. Evidence-based

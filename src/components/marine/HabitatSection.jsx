@@ -55,7 +55,7 @@ export default function HabitatSection({ species }) {
             </div>
 
             <p className="habitat-sec__dest-intro">
-              Explore coastal regions mapped in the Blue Ocean destination directory where this species is regularly surveyed:
+              Explore coastal regions mapped in the Blue Heaven destination directory where this species is regularly surveyed:
             </p>
 
             <div className="habitat-sec__dest-grid">

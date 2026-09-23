@@ -1,5 +1,5 @@
 """
-Blue Ocean API — FastAPI application entrypoint.
+Blue Heaven API — FastAPI application entrypoint.
 
 - Sprint B1 (Foundation): app boots, connects to Postgres, exposes a
   health check, and has CORS wired for the Vite frontend.

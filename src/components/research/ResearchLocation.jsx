@@ -15,7 +15,7 @@ export default function ResearchLocation({ project }) {
             Where this project takes place
           </h2>
           <p className="section-subheading">
-            {project.title} connects to these destinations in the Blue Ocean coastal directory.
+            {project.title} connects to these destinations in the Blue Heaven coastal directory.
           </p>
         </div>
 

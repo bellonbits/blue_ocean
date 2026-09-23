@@ -16,7 +16,7 @@ export default function SpeciesDirectoryPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Species Directory — Blue Ocean Marine Life Field Guide';
+    document.title = 'Species Directory — Blue Heaven Marine Life Field Guide';
     window.scrollTo(0, 0);
   }, []);
 

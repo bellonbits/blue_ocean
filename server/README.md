@@ -1,4 +1,4 @@
-# Blue Ocean Chat Proxy
+# Blue Heaven Chat Proxy
 
 A minimal Express server that keeps your `GROQ_API_KEY` out of the browser.
 The frontend chat widget talks to this server; this server talks to Groq.
@@ -92,7 +92,7 @@ routes:
 
    ```ini
    [Unit]
-   Description=Blue Ocean chat proxy
+   Description=Blue Heaven chat proxy
    After=network.target
 
    [Service]
@@ -113,7 +113,7 @@ routes:
    `/api/chat` with no CORS setup needed.
 6. If you don't reverse-proxy under the same domain, set `ALLOWED_ORIGINS`
    to your site's actual origin and set `VITE_CHAT_API_URL` at build time to
-   the API's public URL (e.g. `https://api.blueoceansomalia.com/api/chat`).
+   the API's public URL (e.g. `https://api.blueheavensomalia.com/api/chat`).
 
 ## Getting a Groq API key
 

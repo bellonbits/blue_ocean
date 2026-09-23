@@ -12,9 +12,9 @@ export default function SpeciesDetailPage() {
 
   useEffect(() => {
     if (species) {
-      document.title = `${species.commonName} (${species.scientificName}) — Blue Ocean Marine Field Guide`;
+      document.title = `${species.commonName} (${species.scientificName}) — Blue Heaven Marine Field Guide`;
     } else {
-      document.title = 'Species Record — Blue Ocean Marine Life';
+      document.title = 'Species Record — Blue Heaven Marine Life';
     }
   }, [species]);
 

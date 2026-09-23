@@ -9,7 +9,7 @@ export default function ResearchGeomorphologyPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Coastal Geomorphology & Habitats — Blue Ocean Somalia';
+    document.title = 'Coastal Geomorphology & Habitats — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 

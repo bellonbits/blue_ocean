@@ -19,7 +19,7 @@ export default function DashboardHomePage() {
   const [experienceCount, setExperienceCount] = useState(0);
 
   useEffect(() => {
-    document.title = 'My Dashboard — Blue Ocean Somalia';
+    document.title = 'My Dashboard — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 

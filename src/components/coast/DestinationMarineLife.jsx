@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Fish } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import './DestinationMarineLife.css';
 
 export default function DestinationMarineLife({ destination }) {
+  const { language } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+  const isSo = language === 'so';
+
   const speciesList = destination.marineSpecies || [];
 
   if (speciesList.length === 0) return null;
@@ -12,13 +17,17 @@ export default function DestinationMarineLife({ destination }) {
       <div className="container">
         {/* Header */}
         <div className="section-header centered reveal">
-          <span className="label-text">Ecosystem Spotlight</span>
+          <span className="label-text">
+            {isSo ? 'Iftiiminta Nidaamka Deegaanka' : 'Ecosystem Spotlight'}
+          </span>
           <div className="divider centered" />
           <h2 className="section-heading" id="dest-marine-heading">
-            Life beneath these waters.
+            {isSo ? 'Nolosha hoos taal biyahan.' : 'Life beneath these waters.'}
           </h2>
           <p className="section-subheading">
-            Key marine wildlife, pelagic species, and benthic habitats documented in the waters off {destination.name}.
+            {isSo
+              ? `Xayawaanka badda ee muhiimka ah, noocyada badda furan, iyo deegaannada lagu diiwaan geliyay biyaha ${destination.name}.`
+              : `Key marine wildlife, pelagic species, and benthic habitats documented in the waters off ${destination.name}.`}
           </p>
         </div>
 
@@ -57,9 +66,9 @@ export default function DestinationMarineLife({ destination }) {
 
         {/* CTA to full Marine Life Library */}
         <div className="dest-marine-cta reveal">
-          <Link to="/marine-life" className="btn btn-primary" id="dest-marine-explore-all">
+          <Link to={localizedPath('/marine-life')} className="btn btn-primary" id="dest-marine-explore-all">
             <Fish size={18} />
-            <span>Explore Marine Life Library</span>
+            <span>{isSo ? 'Sahamiso Kaydka Nolosha Badda' : 'Explore Marine Life Library'}</span>
             <ArrowRight size={16} />
           </Link>
         </div>

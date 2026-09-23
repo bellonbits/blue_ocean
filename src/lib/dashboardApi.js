@@ -3,7 +3,7 @@
 // unlike contentApi.js's public GETs. Same request()/withAuth() shape as
 // adminApi.js and contentApi.js.
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/api\/v1\/?$/, '');
 
 async function request(path, token, options = {}) {
   const res = await fetch(`${API_BASE_URL}/api/v1${path}`, {

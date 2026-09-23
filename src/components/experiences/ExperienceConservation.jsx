@@ -20,14 +20,14 @@ export default function ExperienceConservation({ experience }) {
             <div className="exp-con-sec__icon-box">
               <Leaf size={36} color="#6EE7B7" />
               <div className="exp-con-sec__icon-meta">
-                <span className="exp-con-sec__icon-prefix">BLUE OCEAN COMMITMENT</span>
+                <span className="exp-con-sec__icon-prefix">BLUE HEAVEN COMMITMENT</span>
                 <span className="exp-con-sec__icon-name">Low-Impact Ocean Tourism</span>
               </div>
             </div>
 
             <div className="exp-con-sec__narrative-wrap">
               <p className="exp-con-sec__explanation">
-                Every Blue Ocean experience is designed around the health of the coastline that makes it possible.
+                Every Blue Heaven experience is designed around the health of the coastline that makes it possible.
                 Guides and operating partners for {experience.title} follow these principles:
               </p>
 

@@ -112,7 +112,7 @@ export default function CoastalStatistics() {
           <span>
             The figures below are an archival reference dataset — reproduced from a {statsSource.year} international
             country profile with reference years mostly between 1990 and 2000. They are not current measurements and
-            predate Blue Ocean's own field research; treat them as a historical baseline only.
+            predate Blue Heaven's own field research; treat them as a historical baseline only.
           </span>
         </div>
 

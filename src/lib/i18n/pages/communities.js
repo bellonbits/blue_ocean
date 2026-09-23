@@ -18,7 +18,7 @@ export default {
       directory: {
         label: 'WHO WE WORK WITH',
         heading: 'People of the Coast',
-        subheading: "Blue Ocean is not just about the ocean — it's about the people who live by it.",
+        subheading: "Blue Heaven is not just about the ocean — it's about the people who live by it.",
         ctaStory: 'Read Their Story',
         ctaLearnMore: 'Learn More',
       },
@@ -54,7 +54,7 @@ export default {
       directory: {
         label: 'CIDDA AAN LA SHAQEYNO',
         heading: 'Dadka Xeebta',
-        subheading: 'Blue Ocean ma aha oo keliya wax ku saabsan badda, waxay la xiriirtaa dadka ku nool xeebta.',
+        subheading: 'Blue Heaven ma aha oo keliya wax ku saabsan badda, waxay la xiriirtaa dadka ku nool xeebta.',
         ctaStory: 'Akhri Sheekadooda',
         ctaLearnMore: 'Wax Badan Ogow',
       },

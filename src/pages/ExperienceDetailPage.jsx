@@ -34,8 +34,8 @@ export default function ExperienceDetailPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = experience
-      ? `${experience.title} — Blue Ocean Ocean Experiences`
-      : 'Experience Not Found — Blue Ocean Somalia';
+      ? `${experience.title} — Blue Heaven Ocean Experiences`
+      : 'Experience Not Found — Blue Heaven Somalia';
   }, [experience]);
 
   if (!experience) {

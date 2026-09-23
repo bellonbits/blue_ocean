@@ -14,7 +14,7 @@ export default function NewsArticlesPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'All Stories — Blue Ocean Somalia';
+    document.title = 'All Stories — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
@@ -33,7 +33,7 @@ export default function NewsArticlesPage() {
           <div className="divider" />
           <h1 className="species-dir-hero__title">All Stories</h1>
           <p className="species-dir-hero__desc">
-            Search and filter Blue Ocean's published research findings, conservation updates, and stories from
+            Search and filter Blue Heaven's published research findings, conservation updates, and stories from
             Somalia's coast.
           </p>
         </div>

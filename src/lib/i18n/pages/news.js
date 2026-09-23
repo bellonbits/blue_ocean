@@ -9,7 +9,7 @@ export default {
         badge: 'NEWS & DISCOVERIES',
         heading: 'Latest discoveries.',
         headingAccent: 'Stories from the coast.',
-        subtext: "Follow Blue Ocean's latest research, marine discoveries, conservation work and stories from Somalia's coastal communities.",
+        subtext: "Follow Blue Heaven's latest research, marine discoveries, conservation work and stories from Somalia's coastal communities.",
         ctaPrimary: 'Explore Stories',
         ctaSecondary: 'All Articles',
         pillPublished: (count) => `${count} Published Stories`,
@@ -30,7 +30,7 @@ export default {
       },
       viewAllCta: {
         eyebrow: 'LATEST ARTICLES',
-        heading: 'More from Blue Ocean',
+        heading: 'More from Blue Heaven',
         cta: 'View All Stories',
       },
       grid: {
@@ -51,7 +51,7 @@ export default {
         badge: 'WARARKA IYO HELITAANNADA',
         heading: 'Natiijooyinkii ugu dambeeyay.',
         headingAccent: 'Sheekooyinka xeebta.',
-        subtext: 'La soco cilmi-baaristii ugu dambeysay ee Blue Ocean, natiijooyinka badda, shaqada ilaalinta, iyo sheekooyinka ka yimaada bulshooyinka xeebta Soomaaliya.',
+        subtext: 'La soco cilmi-baaristii ugu dambeysay ee Blue Heaven, natiijooyinka badda, shaqada ilaalinta, iyo sheekooyinka ka yimaada bulshooyinka xeebta Soomaaliya.',
         ctaPrimary: 'Sahamiso Sheekooyinka',
         ctaSecondary: 'Dhammaan Maqaallada',
         pillPublished: (count) => `${count} Sheeko oo la Daabacay`,
@@ -72,7 +72,7 @@ export default {
       },
       viewAllCta: {
         eyebrow: 'MAQAALLADA UGU DAMBEEYAY',
-        heading: 'Wax dheeraad ah oo ka yimid Blue Ocean',
+        heading: 'Wax dheeraad ah oo ka yimid Blue Heaven',
         cta: 'Dhammaan Sheekooyinka Fiiri',
       },
       grid: {

@@ -18,7 +18,7 @@ export default function TourismPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Tourism — Blue Ocean Somalia';
+    document.title = 'Tourism — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 

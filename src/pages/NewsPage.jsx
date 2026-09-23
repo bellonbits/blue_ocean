@@ -18,12 +18,12 @@ export default function NewsPage() {
   const latest = getLatestArticles(6, featured.slug, language);
 
   useEffect(() => {
-    document.title = 'News & Discoveries — Blue Ocean Somalia';
+    document.title = 'News & Discoveries — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <main id="main-content" aria-label="Blue Ocean News & Discoveries">
+    <main id="main-content" aria-label="Blue Heaven News & Discoveries">
       <NewsHero />
       <FeaturedArticle />
       <NewsCategoryStrip />

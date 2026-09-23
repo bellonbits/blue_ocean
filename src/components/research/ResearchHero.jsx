@@ -10,11 +10,11 @@ export default function ResearchHero() {
   const localizedPath = (path) => `/${language}${path}`;
 
   return (
-    <section className="exp-hero" aria-label="Blue Ocean Research">
+    <section className="exp-hero" aria-label="Blue Heaven Research">
       <div className="exp-hero__media" aria-hidden="true">
         <img
           src="/marine_coral.jpg"
-          alt="Coral reef ecosystem studied by Blue Ocean's research teams"
+          alt="Coral reef ecosystem studied by Blue Heaven's research teams"
           className="exp-hero__img"
         />
         <div className="exp-hero__overlay" />

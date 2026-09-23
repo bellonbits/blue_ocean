@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { FileText } from 'lucide-react';
 import './StaticContentPage.css';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/api\/v1\/?$/, '');
 
 export default function PublicationsPage() {
   const [publications, setPublications] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    document.title = 'Publications — Blue Ocean Somalia';
+    document.title = 'Publications — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
@@ -31,7 +31,7 @@ export default function PublicationsPage() {
           <span className="label-text">Research</span>
           <h1 className="static-page__title">Publications</h1>
           <p className="static-page__subtitle">
-            Research findings Blue Ocean has published from work along Somalia's coast.
+            Research findings Blue Heaven has published from work along Somalia's coast.
           </p>
         </div>
 

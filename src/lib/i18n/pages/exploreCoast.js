@@ -105,11 +105,11 @@ export default {
   so: {
     exploreCoast: {
       hero: {
-        badge: '3,025 KM XEEB · GEESKA AFRICA',
+        badge: '3,025 KM XEEB · GEESKA AFRIKA',
         heading: 'Sahamiso',
         headingAccent: 'Xuduudda Buluugga ah ee Soomaaliya',
         subtext:
-          'Laga bilaabo jasiiradaha fog iyo biyaha hodanka ku ah dhurwaaga ilaa magaalooyinka xeebaha ee taariikhda leh, ogow goobaha muujiya xeebta gaarka ah ee Soomaaliya.',
+          'Laga bilaabo jasiiradaha fog iyo biyaha hodanka ku ah murjaanka ilaa magaalooyinka xeebaha ee taariikhda leh, ogow goobaha muujiya xeebta gaarka ah ee Soomaaliya.',
         ctaExploreDestinations: 'Sahamiso Meelaha Dalxiiska',
         ctaViewMap: 'Fiiri Khariidadda',
       },
@@ -191,7 +191,7 @@ export default {
         heritageFallback: 'Dhaxal Xeebeed',
         bioScore: 'Dhibcaha Nolosha',
         biodiversity: 'Kala Duwanaanta Nolosha',
-        reefHealth: 'Caafimaadka Dhillada',
+        reefHealth: 'Caafimaadka Murjaanka',
         coastlineCountry: 'Soomaaliya',
         coastlineLabel: 'Xeebta',
         exploreDestinationCta: 'Sahamiso Meesha',

@@ -60,7 +60,7 @@ export default function DashboardOverviewPage() {
   return (
     <div>
       <h1 className="admin__title">Overview</h1>
-      <p className="admin__subtitle">Live counts across the Blue Ocean CMS.</p>
+      <p className="admin__subtitle">Live counts across the Blue Heaven CMS.</p>
 
       {error && <div className="admin__error">{error}</div>}
       {isLoading && <div className="admin__loading">Loading stats…</div>}

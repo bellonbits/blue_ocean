@@ -29,7 +29,7 @@ router = APIRouter(tags=["seo"])
 
 
 SITE_BASE_URL = "https://blueocean.so"
-SITE_TITLE_DEFAULT = "Blue Ocean Somalia — Marine Conservation & Research"
+SITE_TITLE_DEFAULT = "Blue Heaven Somalia — Marine Conservation & Research"
 SITE_DESC_DEFAULT = "Dedicated to documenting, protecting, and sustainably exploring the rich marine ecosystems along Somalia's 3,330 km coastline."
 DEFAULT_OG_IMAGE = "https://blueocean.so/images/hero-marine.jpg"
 
@@ -197,7 +197,7 @@ def get_rss_feed(db: Session = Depends(get_db)) -> Response:
             f"      <guid isPermaLink=\"true\">{link}</guid>\n"
             f"      <description>{desc}</description>\n"
             f"      <pubDate>{pub_rfc}</pubDate>\n"
-            f"      <author>{escape(art.author or 'Blue Ocean Somalia')}</author>\n"
+            f"      <author>{escape(art.author or 'Blue Heaven Somalia')}</author>\n"
             f"    </item>"
         )
 
@@ -224,7 +224,7 @@ def get_rss_feed(db: Session = Depends(get_db)) -> Response:
             f"      <guid isPermaLink=\"true\">{link}</guid>\n"
             f"      <description>{desc}</description>\n"
             f"      <pubDate>{pub_rfc}</pubDate>\n"
-            f"      <author>{escape(cs.author or 'Blue Ocean Somalia')}</author>\n"
+            f"      <author>{escape(cs.author or 'Blue Heaven Somalia')}</author>\n"
             f"    </item>"
         )
 
@@ -263,7 +263,7 @@ def get_seo_meta(
     json_ld: dict = {
         "@context": "https://schema.org",
         "@type": "NGO",
-        "name": "Blue Ocean Somalia",
+        "name": "Blue Heaven Somalia",
         "url": SITE_BASE_URL,
         "logo": f"{SITE_BASE_URL}/images/logo.png",
         "description": SITE_DESC_DEFAULT,
@@ -271,36 +271,36 @@ def get_seo_meta(
 
     # Match static routes
     if clean_path == "/" or clean_path == "":
-        title = f"Blue Ocean Somalia — Documenting & Protecting 3,330 km of Coastline"
+        title = f"Blue Heaven Somalia — Documenting & Protecting 3,330 km of Coastline"
         desc = SITE_DESC_DEFAULT
     elif clean_path == "/explore-the-coast":
-        title = "Explore the Somali Coastline — Blue Ocean Somalia"
+        title = "Explore the Somali Coastline — Blue Heaven Somalia"
         desc = "Discover pristine coral reefs, coastal towns, archipelagos, and ancient trade ports along the Somali coast."
     elif clean_path == "/marine-life":
-        title = "Marine Life of Somalia — Blue Ocean Somalia"
+        title = "Marine Life of Somalia — Blue Heaven Somalia"
         desc = "Explore Somalia's marine biodiversity: dolphins, whales, whale sharks, sea turtles, corals, and coastal fishes."
     elif clean_path == "/research":
-        title = "Marine Research & Expeditions — Blue Ocean Somalia"
+        title = "Marine Research & Expeditions — Blue Heaven Somalia"
         desc = "Scientific surveys, acoustic tagging, and environmental monitoring across Somali waters."
     elif clean_path == "/ocean-experiences":
-        title = "Ocean Experiences — Blue Ocean Somalia"
+        title = "Ocean Experiences — Blue Heaven Somalia"
         desc = "Boat tours, snorkeling, diving, island exploration, and sustainable marine tourism on the Somali coast."
     elif clean_path == "/conservation":
-        title = "Conservation Initiatives — Blue Ocean Somalia"
+        title = "Conservation Initiatives — Blue Heaven Somalia"
         desc = "Community-led turtle protection, mangrove restoration, reef monitoring, and marine protected area frameworks."
     elif clean_path == "/coastal-communities":
-        title = "Coastal Communities — Blue Ocean Somalia"
+        title = "Coastal Communities — Blue Heaven Somalia"
         desc = "Stories and sustainable livelihoods from the fishing cooperatives, youth guardians, and coastal towns of Somalia."
     elif clean_path == "/news":
-        title = "News & Field Dispatch — Blue Ocean Somalia"
+        title = "News & Field Dispatch — Blue Heaven Somalia"
         desc = "Latest updates, expedition dispatches, research findings, and conservation milestones from Somali waters."
     elif clean_path == "/about":
         org = db.query(OrganizationSettings).first()
-        title = "About Blue Ocean — Our Mission, Vision & Team"
-        desc = org.mission if org and org.mission else "Learn about Blue Ocean Somalia's mission to safeguard marine ecosystems."
+        title = "About Blue Heaven — Our Mission, Vision & Team"
+        desc = org.mission if org and org.mission else "Learn about Blue Heaven Somalia's mission to safeguard marine ecosystems."
     elif clean_path == "/contact":
-        title = "Contact Us — Blue Ocean Somalia"
-        desc = "Get in touch with the Blue Ocean team for research partnerships, conservation inquiries, or media requests."
+        title = "Contact Us — Blue Heaven Somalia"
+        desc = "Get in touch with the Blue Heaven team for research partnerships, conservation inquiries, or media requests."
 
     # Match dynamic entity routes
     parts = [p for p in clean_path.split("/") if p]
@@ -310,7 +310,7 @@ def get_seo_meta(
         if section == "explore-the-coast":
             dest = db.query(Destination).filter(Destination.slug == slug, Destination.status == DestinationStatus.PUBLISHED).first()
             if dest:
-                title = f"{dest.name} — Coastal Guide | Blue Ocean Somalia"
+                title = f"{dest.name} — Coastal Guide | Blue Heaven Somalia"
                 desc = dest.tagline or dest.short_description or SITE_DESC_DEFAULT
                 image = dest.hero_image or DEFAULT_OG_IMAGE
                 og_type = "place"
@@ -327,7 +327,7 @@ def get_seo_meta(
         elif section == "news":
             art = db.query(NewsArticle).filter(NewsArticle.slug == slug, NewsArticle.published.is_(True)).first()
             if art:
-                title = f"{art.title} | Blue Ocean News"
+                title = f"{art.title} | Blue Heaven News"
                 desc = art.excerpt or SITE_DESC_DEFAULT
                 image = art.featured_image or DEFAULT_OG_IMAGE
                 og_type = "article"
@@ -338,15 +338,15 @@ def get_seo_meta(
                     "description": desc,
                     "image": image,
                     "url": canonical_url,
-                    "author": {"@type": "Person", "name": art.author or "Blue Ocean Somalia"},
-                    "publisher": {"@type": "Organization", "name": "Blue Ocean Somalia"},
+                    "author": {"@type": "Person", "name": art.author or "Blue Heaven Somalia"},
+                    "publisher": {"@type": "Organization", "name": "Blue Heaven Somalia"},
                     "datePublished": art.date or art.created_at.isoformat(),
                 }
 
         elif section == "coastal-communities":
             cs = db.query(CommunityStory).filter(CommunityStory.slug == slug, CommunityStory.published.is_(True)).first()
             if cs:
-                title = f"{cs.title} — Community Story | Blue Ocean Somalia"
+                title = f"{cs.title} — Community Story | Blue Heaven Somalia"
                 desc = cs.marine_connection or SITE_DESC_DEFAULT
                 image = cs.featured_image or DEFAULT_OG_IMAGE
                 og_type = "article"
@@ -357,13 +357,13 @@ def get_seo_meta(
                     "description": desc,
                     "image": image,
                     "url": canonical_url,
-                    "author": {"@type": "Person", "name": cs.author or "Blue Ocean Somalia"},
+                    "author": {"@type": "Person", "name": cs.author or "Blue Heaven Somalia"},
                 }
 
         elif section == "ocean-experiences":
             exp = db.query(Experience).filter(Experience.slug == slug, Experience.published.is_(True)).first()
             if exp:
-                title = f"{exp.title} — Ocean Experience | Blue Ocean Somalia"
+                title = f"{exp.title} — Ocean Experience | Blue Heaven Somalia"
                 desc = exp.tagline or exp.short_description or SITE_DESC_DEFAULT
                 image = exp.hero_image or DEFAULT_OG_IMAGE
                 og_type = "product"
@@ -381,7 +381,7 @@ def get_seo_meta(
         if section == "marine-life" and sub == "species":
             sp = db.query(Species).filter(Species.slug == slug, Species.published.is_(True)).first()
             if sp:
-                title = f"{sp.common_name} ({sp.scientific_name}) — Marine Life | Blue Ocean Somalia"
+                title = f"{sp.common_name} ({sp.scientific_name}) — Marine Life | Blue Heaven Somalia"
                 desc = sp.tagline or sp.description or SITE_DESC_DEFAULT
                 image = sp.hero_image or DEFAULT_OG_IMAGE
                 og_type = "article"
@@ -398,7 +398,7 @@ def get_seo_meta(
         elif section == "research" and sub == "projects":
             rp = db.query(ResearchProject).filter(ResearchProject.slug == slug, ResearchProject.published.is_(True)).first()
             if rp:
-                title = f"{rp.title} — Research Project | Blue Ocean Somalia"
+                title = f"{rp.title} — Research Project | Blue Heaven Somalia"
                 desc = rp.summary or rp.editorial_statement or SITE_DESC_DEFAULT
                 image = rp.hero_image or DEFAULT_OG_IMAGE
                 og_type = "article"
@@ -414,7 +414,7 @@ def get_seo_meta(
         elif section == "conservation" and sub == "projects":
             cp = db.query(ConservationProject).filter(ConservationProject.slug == slug, ConservationProject.published.is_(True)).first()
             if cp:
-                title = f"{cp.title} — Conservation Initiative | Blue Ocean Somalia"
+                title = f"{cp.title} — Conservation Initiative | Blue Heaven Somalia"
                 desc = cp.summary or cp.editorial_statement or SITE_DESC_DEFAULT
                 image = cp.hero_image or DEFAULT_OG_IMAGE
                 og_type = "article"

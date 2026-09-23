@@ -10,7 +10,7 @@ export default function MessagesPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    document.title = 'Messages — Blue Ocean Somalia';
+    document.title = 'Messages — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 

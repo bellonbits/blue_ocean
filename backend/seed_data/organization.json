@@ -1,9 +1,9 @@
 {
   "organization": {
-    "name": "Blue Ocean Somalia",
+    "name": "Blue Heaven Somalia",
     "mission": {
       "statement": "Explore. Study. Protect. Share.",
-      "description": "Blue Ocean exists to explore Somalia's marine environment, study it with scientific rigor, protect it in partnership with the communities who depend on it, and share what we learn openly — because a coastline this significant deserves to be known, not just guarded."
+      "description": "Blue Heaven exists to explore Somalia's marine environment, study it with scientific rigor, protect it in partnership with the communities who depend on it, and share what we learn openly — because a coastline this significant deserves to be known, not just guarded."
     },
     "vision": {
       "statement": "A future where Somalia's ocean is understood, protected and sustainably used.",
@@ -12,7 +12,7 @@
     "story": {
       "intro": "We believe you cannot protect what you do not understand.",
       "paragraphs": [
-        "Blue Ocean began with a simple observation: Somalia holds the longest coastline in mainland Africa — 3,025 kilometers — and one of its least studied. Decades of instability left a scientific gap most neighboring countries closed long ago, even as the reefs, fisheries, and coastal communities along this coast kept going.",
+        "Blue Heaven began with a simple observation: Somalia holds the longest coastline in mainland Africa — 3,025 kilometers — and one of its least studied. Decades of instability left a scientific gap most neighboring countries closed long ago, even as the reefs, fisheries, and coastal communities along this coast kept going.",
         "We started as a small field research effort and grew into an organization spanning exploration, science, conservation, and community partnership — not because those are separate missions, but because none of them works without the others. Research without conservation is just documentation. Conservation without communities doesn't last. And none of it means much if nobody outside the field team ever hears about it."
       ]
     },
@@ -56,7 +56,7 @@
     ]
   },
   "contactDetails": {
-    "email": "info@blueoceansomalia.org",
+    "email": "info@blueheavensomalia.org",
     "locations": [
       {
         "label": "Field Office",

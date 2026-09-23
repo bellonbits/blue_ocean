@@ -19,7 +19,7 @@ const STATUS_META = {
 
 const WAYS_TO_HELP = [
   { to: '/get-involved/volunteer', label: 'Volunteer', desc: 'Offer your time and skills.', icon: Users },
-  { to: '/get-involved/partner', label: 'Partner', desc: 'Partner with Blue Ocean.', icon: Handshake },
+  { to: '/get-involved/partner', label: 'Partner', desc: 'Partner with Blue Heaven.', icon: Handshake },
   { to: '/get-involved/support', label: 'Support', desc: 'Support a conservation project.', icon: HeartHandshake },
 ];
 
@@ -29,7 +29,7 @@ export default function GetInvolvedPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    document.title = 'Get Involved — Blue Ocean Somalia';
+    document.title = 'Get Involved — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 

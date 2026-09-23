@@ -8,11 +8,11 @@ export default function AboutHero() {
   const localizedPath = (path) => `/${language}${path}`;
 
   return (
-    <section className="exp-hero" aria-label="About Blue Ocean">
+    <section className="exp-hero" aria-label="About Blue Heaven">
       <div className="exp-hero__media" aria-hidden="true">
         <img
           src="/MOGADISHUBEACH%20LEDE.jpg"
-          alt="Mogadishu's coast, home to Blue Ocean's headquarters"
+          alt="Mogadishu's coast, home to Blue Heaven's headquarters"
           className="exp-hero__img"
         />
         <div className="exp-hero__overlay" />

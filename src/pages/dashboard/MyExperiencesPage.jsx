@@ -23,7 +23,7 @@ export default function MyExperiencesPage() {
   const [activeTab, setActiveTab] = useState('all');
 
   useEffect(() => {
-    document.title = 'My Experiences — Blue Ocean Somalia';
+    document.title = 'My Experiences — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 

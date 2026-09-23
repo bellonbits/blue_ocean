@@ -77,10 +77,10 @@ export default function Header() {
       >
         <div className="container header__inner">
           {/* Logo */}
-          <Link to={localizedPath('/')} className="header__logo" aria-label="Blue Ocean Home">
+          <Link to={localizedPath('/')} className="header__logo" aria-label="Blue Heaven Home">
             <img
               src={desktopLogoSrc}
-              alt="Blue Ocean Somalia"
+              alt="Blue Heaven Somalia"
               className="header__logo-img"
             />
           </Link>
@@ -155,7 +155,7 @@ export default function Header() {
                 {userDropdownOpen && (
                   <div className="header__user-dropdown" role="menu">
                     <div className="header__user-dropdown-info">
-                      <div className="header__user-dropdown-name">{user.full_name || 'Blue Ocean User'}</div>
+                      <div className="header__user-dropdown-name">{user.full_name || 'Blue Heaven User'}</div>
                       <div className="header__user-dropdown-email">{user.email}</div>
                       <span className="header__user-dropdown-role badge badge-turquoise">{roleDisplay}</span>
                     </div>
@@ -241,7 +241,7 @@ export default function Header() {
             <Link to={localizedPath('/')} className="header__logo" onClick={() => setMobileOpen(false)}>
               <img
                 src={mobileLogoSrc}
-                alt="Blue Ocean Somalia"
+                alt="Blue Heaven Somalia"
                 className="header__logo-img"
               />
             </Link>
@@ -293,7 +293,7 @@ export default function Header() {
                 <div className="header__user-avatar mobile-menu__user-avatar">{userInitial}</div>
               )}
               <div className="mobile-menu__user-details">
-                <div className="mobile-menu__user-name">{user.full_name || 'Blue Ocean User'}</div>
+                <div className="mobile-menu__user-name">{user.full_name || 'Blue Heaven User'}</div>
                 <div className="mobile-menu__user-email">{user.email}</div>
                 <span className="badge badge-turquoise" style={{ marginTop: '4px', fontSize: '0.72rem' }}>{roleDisplay}</span>
               </div>

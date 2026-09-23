@@ -146,7 +146,7 @@ async def _ensure_google_photos(destination: Destination, db: Session) -> list[d
 async def get_destination_photos(slug: str, db: Session = Depends(get_db)) -> list[dict]:
     """Real photos of this destination, sourced from Google Places (New)
     when configured — never the raw Google photo name/URL, always a
-    Blue Ocean-hosted proxy path so the frontend stays independent of
+    Blue Heaven-hosted proxy path so the frontend stays independent of
     where the image actually comes from.
     """
     destination = db.query(Destination).filter(

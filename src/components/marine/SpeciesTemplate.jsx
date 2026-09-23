@@ -27,7 +27,7 @@ export default function SpeciesTemplate() {
           <div className="divider centered" />
           <h1 className="section-heading">Species Not Found</h1>
           <p className="section-subheading" style={{ margin: '0 auto 24px' }}>
-            The requested species record is not currently published in the Blue Ocean field guide or the URL is incorrect.
+            The requested species record is not currently published in the Blue Heaven field guide or the URL is incorrect.
           </p>
           <Link to="/marine-life/species" className="btn btn--primary">
             <ArrowLeft size={16} />

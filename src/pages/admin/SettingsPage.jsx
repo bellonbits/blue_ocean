@@ -27,7 +27,7 @@ const SOCIAL_FIELDS = [
   {
     name: 'social_links', label: 'Social Links', type: 'pairlist', pairKeys: ['label', 'href'],
     fullWidth: true, rows: 6, section: 'Social Media',
-    placeholder: 'One per line, e.g.\nInstagram | https://instagram.com/blueoceansomalia\nYouTube | https://youtube.com/@blueoceansomalia',
+    placeholder: 'One per line, e.g.\nInstagram | https://instagram.com/blueheavensomalia\nYouTube | https://youtube.com/@blueheavensomalia',
     hint: 'One per line as "Platform | URL"',
   },
 ];

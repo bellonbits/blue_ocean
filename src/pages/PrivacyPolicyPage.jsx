@@ -5,7 +5,7 @@ import './StaticContentPage.css';
 
 export default function PrivacyPolicyPage() {
   useEffect(() => {
-    document.title = 'Privacy Policy — Blue Ocean Somalia';
+    document.title = 'Privacy Policy — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
             <AlertTriangle size={20} />
             <span>
               This is a standard-shape policy template, not yet reviewed by counsel. Replace the
-              placeholder specifics below with Blue Ocean's actual data practices before treating
+              placeholder specifics below with Blue Heaven's actual data practices before treating
               it as a binding policy.
             </span>
           </div>

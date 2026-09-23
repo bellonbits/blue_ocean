@@ -9,7 +9,7 @@ export default function NewsHero() {
   const count = getAllArticles(language).length;
 
   return (
-    <section className="exp-hero" aria-label="Blue Ocean News & Discoveries">
+    <section className="exp-hero" aria-label="Blue Heaven News & Discoveries">
       <div className="exp-hero__media" aria-hidden="true">
         <img
           src="/bargaal_main.jpg"

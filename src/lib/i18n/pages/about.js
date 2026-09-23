@@ -7,10 +7,10 @@ export default {
   en: {
     about: {
       hero: {
-        badge: 'ABOUT BLUE OCEAN',
+        badge: 'ABOUT BLUE HEAVEN',
         heading: 'A deeper connection',
         headingAccent: "to Somalia's ocean.",
-        subtext: 'Blue Ocean explores, studies, protects and shares the marine environment of Somalia.',
+        subtext: 'Blue Heaven explores, studies, protects and shares the marine environment of Somalia.',
         ctaStory: 'Our Story',
         ctaContact: 'Get in Touch',
       },
@@ -30,15 +30,15 @@ export default {
       whereWeWork: {
         label: 'GEOGRAPHIC SCOPE',
         heading: 'Where We Work',
-        subheading: "Blue Ocean's work spans Somalia's entire 3,025 km coastline, across three distinct regions.",
+        subheading: "Blue Heaven's work spans Somalia's entire 3,025 km coastline, across three distinct regions.",
         exploreCta: 'Explore the Coast',
         destinationsLabel: 'Destinations',
       },
       team: {
         label: 'OUR TEAM',
         heading: 'The units behind the work',
-        subheading: "Blue Ocean's field research runs through specialist units organized by area of focus.",
-        notice: "Individual staff profiles are not yet published — teams are shown here as organizational units until Blue Ocean's full roster is confirmed.",
+        subheading: "Blue Heaven's field research runs through specialist units organized by area of focus.",
+        notice: "Individual staff profiles are not yet published — teams are shown here as organizational units until Blue Heaven's full roster is confirmed.",
         viewAllCta: 'View Full Research Team',
       },
     },
@@ -46,10 +46,10 @@ export default {
   so: {
     about: {
       hero: {
-        badge: 'KU SAABSAN BLUE OCEAN',
+        badge: 'KU SAABSAN BLUE HEAVEN',
         heading: 'Xiriir qoto dheer',
         headingAccent: 'oo aad la yeelato badda Soomaaliya.',
-        subtext: 'Blue Ocean waxay sahamisaa, baartaa, ilaalisaa, oo la wadaagtaa deegaanka badda ee Soomaaliya.',
+        subtext: 'Blue Heaven waxay sahamisaa, baartaa, ilaalisaa, oo la wadaagtaa deegaanka badda ee Soomaaliya.',
         ctaStory: 'Sheekadeenna',
         ctaContact: 'Nala Soo Xiriir',
       },
@@ -69,15 +69,15 @@ export default {
       whereWeWork: {
         label: 'BAAXADDA JUGRAAFIYEEDKA',
         heading: 'Meesha Aan Ka Shaqeyno',
-        subheading: 'Shaqada Blue Ocean waxay ka gudubtaa xeebta Soomaaliya oo dhan ee 3,025 km ah, iyadoo ka socota saddex gobol oo kala duwan.',
+        subheading: 'Shaqada Blue Heaven waxay ka gudubtaa xeebta Soomaaliya oo dhan ee 3,025 km ah, iyadoo ka socota saddex gobol oo kala duwan.',
         exploreCta: 'Sahamiso Xeebta',
         destinationsLabel: 'Meelo',
       },
       team: {
         label: 'KOOXDEENNA',
         heading: 'Unugyada ka dambeeya shaqada',
-        subheading: 'Cilmi-baaridda goobta ee Blue Ocean waxay ka dhacdaa unugyo takhasus leh oo loo qaybiyey xagga diirada saaran.',
-        notice: "Astaamaha shaqaalaha gaarka ah weli lama daabicin, kooxaha waxaa halkan lagu soo bandhigay sida unugyo hay'adeed, ilaa liiska buuxa ee Blue Ocean la xaqiijiyo.",
+        subheading: 'Cilmi-baaridda goobta ee Blue Heaven waxay ka dhacdaa unugyo takhasus leh oo loo qaybiyey xagga diirada saaran.',
+        notice: "Astaamaha shaqaalaha gaarka ah weli lama daabicin, kooxaha waxaa halkan lagu soo bandhigay sida unugyo hay'adeed, ilaa liiska buuxa ee Blue Heaven la xaqiijiyo.",
         viewAllCta: 'Arag Kooxda Cilmi-baarista oo Dhan',
       },
     },

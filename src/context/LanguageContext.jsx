@@ -81,7 +81,7 @@ export function LanguageProvider({ children }) {
     async (lang) => {
       if (!isAuthenticated || !token) return;
       try {
-        const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+        const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/api\/v1\/?$/, '');
         await fetch(`${API_BASE_URL}/api/v1/auth/me/language`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },

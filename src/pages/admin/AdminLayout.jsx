@@ -8,7 +8,7 @@ import { useAuth } from '../../context/AuthContext';
 import { canManageAdmin } from './roles';
 import './Admin.css';
 
-// The locked Blue Ocean CMS sidebar — every entry the org will eventually
+// The locked Blue Heaven CMS sidebar — every entry the org will eventually
 // need, even where the page isn't built yet (see ComingSoonPage). Keeping
 // the full target IA visible now (rather than only linking what exists)
 // is deliberate: it's what was locked in as the navigation shape.
@@ -71,7 +71,7 @@ export default function AdminLayout() {
     <div className="admin">
       <aside className="admin__sidebar">
         <div className="admin__brand">
-          <img src="/logo_sky_blue.png" alt="Blue Ocean Somalia" className="admin__brand-logo" />
+          <img src="/logo_sky_blue.png" alt="Blue Heaven Somalia" className="admin__brand-logo" />
         </div>
 
         <nav className="admin__nav" aria-label="Dashboard navigation">

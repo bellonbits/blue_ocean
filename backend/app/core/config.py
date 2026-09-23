@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
     # --- App ---
-    app_name: str = "Blue Ocean API"
+    app_name: str = "Blue Heaven API"
     api_v1_prefix: str = "/api/v1"
     environment: str = "development"  # development | staging | production
     debug: bool = True
@@ -69,7 +69,7 @@ class Settings(BaseSettings):
     # real key is configured.
     google_places_api_key: str = ""
     # How long a resolved place_id / fetched photo list stays cached
-    # before Blue Ocean re-queries Google — keeps costs down without
+    # before Blue Heaven re-queries Google — keeps costs down without
     # storing Google's photo tokens indefinitely.
     google_places_cache_hours: int = 24
 

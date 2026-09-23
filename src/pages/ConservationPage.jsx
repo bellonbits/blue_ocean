@@ -13,12 +13,12 @@ export default function ConservationPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Conservation — Blue Ocean Somalia';
+    document.title = 'Conservation — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <main id="main-content" aria-label="Blue Ocean Conservation">
+    <main id="main-content" aria-label="Blue Heaven Conservation">
       <ConservationHero />
       <ConservationIntro />
       <ConservationFocusAreas />

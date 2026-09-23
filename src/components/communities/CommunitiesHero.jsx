@@ -10,7 +10,7 @@ export default function CommunitiesHero() {
   const storyCount = getAllCommunityStories(language).length;
 
   return (
-    <section className="exp-hero" aria-label="Blue Ocean Coastal Communities">
+    <section className="exp-hero" aria-label="Blue Heaven Coastal Communities">
       <div className="exp-hero__media" aria-hidden="true">
         <img
           src="/con_beach_cleanup.jpg"

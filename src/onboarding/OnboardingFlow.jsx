@@ -24,7 +24,7 @@ export default function OnboardingFlow({ onComplete }) {
   };
 
   return (
-    <div className="onboarding" role="dialog" aria-label="Welcome to Blue Ocean Somalia">
+    <div className="onboarding" role="dialog" aria-label="Welcome to Blue Heaven Somalia">
       <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.div
           key={slide.id}

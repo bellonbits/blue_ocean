@@ -4,7 +4,7 @@ import { MessageCircle, X, Send, Waves, AlertTriangle } from 'lucide-react';
 import { sendChatMessage } from '../../lib/chatApi';
 import './ChatWidget.css';
 
-const GREETING = "Hi! I'm the Blue Ocean assistant. Ask me about our marine life, research, conservation work, or Somalia's coast.";
+const GREETING = "Hi! I'm the Blue Heaven assistant. Ask me about our marine life, research, conservation work, or Somalia's coast.";
 
 // Renders assistant replies: markdown-style ![alt](/path) images become
 // real <img> thumbnails, [label](/path) links become real in-app
@@ -103,11 +103,11 @@ export default function ChatWidget() {
   return (
     <div className="chat-widget" aria-live="polite">
       {open && (
-        <div className="chat-widget__panel" role="dialog" aria-label="Blue Ocean chat assistant">
+        <div className="chat-widget__panel" role="dialog" aria-label="Blue Heaven chat assistant">
           <div className="chat-widget__header">
             <div className="chat-widget__header-title">
               <Waves size={18} />
-              <span>Blue Ocean Assistant</span>
+              <span>Blue Heaven Assistant</span>
             </div>
             <button
               type="button"

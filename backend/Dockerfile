@@ -1,5 +1,5 @@
 # ==============================================================================
-# Production Multi-Stage Dockerfile for Blue Ocean FastAPI Backend
+# Production Multi-Stage Dockerfile for Blue Heaven FastAPI Backend
 # ==============================================================================
 
 # ------------------------------------------------------------------------------

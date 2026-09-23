@@ -12,7 +12,7 @@ export default {
         badge: 'CONSERVATION',
         heading: 'Protect what lies',
         headingAccent: 'beneath the surface.',
-        subtext: 'From marine wildlife and habitats to sustainable coastal communities, discover how Blue Ocean is working toward a healthier Somali coast.',
+        subtext: 'From marine wildlife and habitats to sustainable coastal communities, discover how Blue Heaven is working toward a healthier Somali coast.',
         ctaExplore: 'Explore Conservation',
         ctaGetInvolved: 'Get Involved',
         pillProjects: 'Conservation Projects',
@@ -49,7 +49,7 @@ export default {
           },
           {
             title: 'Research-driven conservation',
-            text: "Every initiative here is built directly on Blue Ocean's own field research — not assumption.",
+            text: "Every initiative here is built directly on Blue Heaven's own field research — not assumption.",
           },
         ],
       },
@@ -73,7 +73,7 @@ export default {
       impact: {
         label: 'OUR IMPACT',
         heading: 'The scale of the work',
-        subheading: "Figures computed directly from Blue Ocean's published conservation projects — not estimates.",
+        subheading: "Figures computed directly from Blue Heaven's published conservation projects — not estimates.",
         statProjects: 'Conservation Projects',
         statActive: 'Active Initiatives',
         statLocations: 'Locations',
@@ -100,7 +100,7 @@ export default {
         badge: 'ILAALINTA',
         heading: 'Ilaali waxa ku hoos jira',
         headingAccent: 'dusha badda.',
-        subtext: 'Laga bilaabo duurjoogta iyo deegaannada badda ilaa bulshooyinka xeebaha ee waara, ogow sida Blue Ocean ugu shaqeynayso xeeb Soomaaliyeed oo caafimaad qabta.',
+        subtext: 'Laga bilaabo duurjoogta iyo deegaannada badda ilaa bulshooyinka xeebaha ee waara, ogow sida Blue Heaven ugu shaqeynayso xeeb Soomaaliyeed oo caafimaad qabta.',
         ctaExplore: 'Sahamiso Ilaalinta',
         ctaGetInvolved: 'Ka Qeyb Qaado',
         pillProjects: 'Mashaariic Ilaalin',
@@ -109,23 +109,23 @@ export default {
       },
       intro: {
         label: 'Habraacayaga',
-        heading: "Badda ayaa na siisa nolosha. Ilaalinteedu waa mas'uuliyad qof kastaa.",
+        heading: "Badda ayaa na siisa nolosha. Ilaalinteedu waa mas'uuliyad qof kasta saaran.",
         points: [
           {
             title: 'Ilaalinta duurjoogta badda',
-            text: 'Ilaalinta noocyada halista ku jira ama nugul, sida diinka badda, sharkaha, dugongyada, iyo cetaceans-ka, gudaha biyaha Soomaaliya.',
+            text: 'Ilaalinta noocyada halista ku jira ama nugul, sida diinka badda, libaax-badeedka, dhurwaa-badeedka (dugong), iyo nibiriyada & doolfinda, ee biyaha Soomaaliya.',
           },
           {
             title: 'Ilaalinta deegaanka',
-            text: 'Difaaca cawska badda (coral reefs), dhirta bad-doonka (seagrass meadows), iyo beeraha caanaha (mangrove nurseries) ka hortagga sii xumaanshaha iyo horumarinta aan sharciga lahayn.',
+            text: 'Difaaca dhagax-mareennada murjaanka, cawska badda (seagrass), iyo xannaanooyinka kaymaha qaaraha (mangroves) si looga hortago xaalufka iyo waxyeellada deegaanka.',
           },
           {
-            title: 'Kalluumeysiga waarta',
-            text: 'Si toos ah ula shaqeynta kalluumeystayaasha yaryar si loo ilaaliyo kaydka kalluunka iyo goobaha koritaanka iyada oo aan la burinayn nolol-maalmeedka.',
+            title: 'Kalluumeysiga waara',
+            text: 'Si toos ah ula shaqeynta kalluumeystayaasha yaryar si loo ilaaliyo kaydka kalluunka iyo goobaha taranka iyada oo aan wax loo dhimayn nolol-maalmeedka.',
           },
           {
-            title: 'Yareynta wasakhda',
-            text: 'Khariidadaynta qashinka badda iyo tayada biyaha, ka dibna abaabulida shaqada nadiifinta iyo ka hortagga ee xogtu tilmaamayso.',
+            title: 'Yareynta wasakhowga',
+            text: 'Khariidadaynta qashinka badda iyo tayada biyaha, ka dibna abaabulidda shaqada nadiifinta iyo ka-hortagga ee xogtu tilmaamayso.',
           },
           {
             title: 'Waxbarashada badda',
@@ -137,7 +137,7 @@ export default {
           },
           {
             title: 'Ilaalinta ku salaysan cilmi-baaris',
-            text: "Hindise kastaa halkan waxa uu si toos ah ugu dhisan yahay cilmi-baariska duurka ee Blue Ocean, ma aha malo.",
+            text: "Hindise kastaa halkan waxa uu si toos ah ugu dhisan yahay cilmi-baarista goobta ee Blue Heaven, ma aha malo.",
           },
         ],
       },
@@ -155,13 +155,13 @@ export default {
       },
       featured: {
         label: 'MASHRUUCA MUUQDA',
-        heading: 'Ilaalinta oo la xiisaynayo',
+        heading: 'Ilaalinta Diiradda Lagu Saaray',
         cta: 'Sahamiso mashruuca',
       },
       impact: {
         label: 'SAAMEYNTEENNA',
         heading: 'Baaxadda shaqada',
-        subheading: "Tirooyinka waxaa si toos ah looga xisaabiyay mashaariicda ilaalinta ee Blue Ocean daabacday, mana aha qiyaas.",
+        subheading: "Tirooyinka waxaa si toos ah looga xisaabiyay mashaariicda ilaalinta ee Blue Heaven daabacday, mana aha qiyaas.",
         statProjects: 'Mashaariic Ilaalin',
         statActive: 'Hindisayaal Firfircoon',
         statLocations: 'Goobo',

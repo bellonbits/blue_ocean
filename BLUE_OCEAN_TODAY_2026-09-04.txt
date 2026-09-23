@@ -1,0 +1,137 @@
+================================================================================
+BLUE HEAVEN — WHAT WAS DONE TODAY
+2026-09-04
+================================================================================
+
+SUMMARY
+--------------------------------------------------------------------------------
+Today's work had two main threads: making the whole site properly bilingual
+(English/Somali), and fixing real bugs found along the way (a header layout
+bug, and gaps in what shows up if the backend or database is ever down).
+
+
+PART 1 — FULL SITE TRANSLATION (ENGLISH / SOMALI)
+--------------------------------------------------------------------------------
+Before today, switching the site to Somali only translated menus and page
+titles. The actual content on cards and detail pages (descriptions, stats,
+highlights, badges) stayed in English no matter what. That gap is now closed
+everywhere.
+
+Translated today:
+  - Ocean Experiences: all 8 experiences, all 8 categories, gallery captions
+  - Marine Life: all 12 species, all 8 categories, all 6 ecosystems
+  - Coastal Communities: all 5 communities and 5 stories
+  - Conservation: all 14 projects, all 8 focus areas
+  - Research: all 12 projects, 9 research areas, 6 teams, 4 expeditions
+  - News: all 10 articles, all 6 categories
+  - About page: mission, vision, story, "what we do" section
+  - Destinations and Regions: all 18 destinations and 4 regions (this part
+    lives in the database, not in the website code, so it can keep growing
+    without another round of translation work)
+  - Every card's buttons and badges across the site ("Read More", "Explore",
+    "Coming Soon", "Featured", filter menus, search boxes, empty states,
+    etc.) — previously several of these stayed in English even when
+    everything else switched.
+
+Also fixed one subtle bug from this work: a destination card was deciding
+"7 days / 6 days / 5 days" trip length by checking the region's English
+name. Once region names started translating, that check would have quietly
+broken. It now checks a fixed internal code instead, so it keeps working
+in both languages.
+
+
+PART 2 — DESTINATION CONTENT: VIDEOS AND A NEW LOCATION
+--------------------------------------------------------------------------------
+Added real video content to 11 destinations, sourced from the links
+supplied today: Berbera, Zeila, Bosaso, Eyl, Hobyo, Barawe, Kismayo,
+Ras Kamboni, and the Jazeera and Liido Beach entries in Mogadishu.
+
+Along the way, found that the site could only play YouTube or Vimeo links.
+TikTok links were silently doing nothing. Added proper TikTok support so
+the Jazeera and Liido Beach videos (which only exist on TikTok) now play.
+
+Also created a brand new destination: Alula (Caluula), a fishing port near
+Cape Guardafui at the very tip of the Horn of Africa, in Puntland. It did
+not exist on the site before. Added full English and Somali content,
+verified coordinates against Wikipedia (11.97N, 50.75E) rather than
+guessing, and attached the Guardafui video that was supplied for it.
+
+Not covered (no matching video was available): Qandala, Bargaal, Hafun,
+Hurdiya, Marka, and the general Mogadishu city page.
+
+
+PART 3 — HEADER BUG FIX
+--------------------------------------------------------------------------------
+Reported issue: some header buttons (Log In, Create Account) were not
+fitting on screen.
+
+Root cause found: the header's content area was capped at the same width
+as the rest of the page (1320px), but the logo plus all 11 menu links plus
+the language switch, dark mode toggle, and login buttons actually need
+about 1665px to fit on one line without overlapping. This bug existed
+before today's session too. It only ever looked fine on very wide screens,
+because the overflow was spilling into empty space at the edge of the
+screen rather than visibly squeezing.
+
+Fix: widened the header's own content area, and set it so any screen
+narrower than about 1700px shows the compact mobile-style menu (the
+"hamburger" icon) instead of trying to cram all 11 links into a row that
+cannot fit. Common laptop screens (1366px, 1440px, 1536px wide) now get
+the clean mobile menu instead of a broken layout. Confirmed with real
+screenshots at many screen widths, including the mobile menu itself.
+
+
+PART 4 — WHAT HAPPENS IF THE BACKEND OR DATABASE GOES DOWN
+--------------------------------------------------------------------------------
+The Explore the Coast page normally gets its destinations from the backend
+server. If that fails, it was already set up to try a backup database
+(Supabase). But if BOTH of those are unavailable, the page would show
+nothing at all.
+
+Added a third, final fallback: a local copy of the destination and region
+data built directly into the website itself. If both the server and the
+backup database are unreachable, the page now falls back to this local
+copy instead of showing an empty page.
+
+This local copy also includes:
+  - Somali translations (pulled directly from the database, so it is the
+    same wording that's live on the site today, not a re-write)
+  - The videos added in Part 2
+
+Tested by fully blocking the backend and confirming the page still showed
+all 17 original destinations, with correct Somali names, and that a video
+(Berbera) still played.
+
+Known limits of this fallback: it is a snapshot, not a live mirror. Alula
+(added today) and anything added later through the admin panel will not
+appear in this offline copy unless someone regenerates it. This is an
+acceptable trade-off since it only ever matters during an outage.
+
+
+PART 5 — CODE CHANGES PUSHED TO GITHUB
+--------------------------------------------------------------------------------
+Four commits went out today, in this order:
+  1. Full English/Somali bilingual support and the header fix
+  2. Offline-safe local data fallback for destinations and regions
+  3. Somali translations added to that offline fallback
+  4. Destination videos added to that offline fallback
+
+All were pushed to the main branch and are live in the repository.
+
+Five unrelated files were found sitting in the "public" folder (a churn
+analysis document, a Kafka PDF, a Jupyter notebook, and two CSVs). These
+look like they were dropped there by accident from a different task and
+were deliberately left out of every commit. They are still sitting on
+disk if anyone wants to check them before deciding whether to delete them.
+
+
+WHAT'S STILL OPEN
+--------------------------------------------------------------------------------
+  - Qandala, Bargaal, Hafun, Hurdiya, Marka, and Mogadishu (city page) have
+    no video yet, no matching footage was supplied for them.
+  - Alula's photos are generic placeholder coastal images, not real photos
+    of the town, none were available today.
+  - The offline fallback copy will go stale if content keeps changing
+    through the admin panel. It's fine as an emergency backstop, but it is
+    not meant to replace checking the live site.
+================================================================================

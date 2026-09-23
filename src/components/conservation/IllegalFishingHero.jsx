@@ -6,7 +6,7 @@ import '../../pages/SpeciesDirectoryPage.css';
 
 export default function IllegalFishingHero() {
   return (
-    <section className="exp-hero" aria-label="Illegal Fishing — Blue Ocean Conservation">
+    <section className="exp-hero" aria-label="Illegal Fishing — Blue Heaven Conservation">
       <div className="exp-hero__media" aria-hidden="true">
         <img
           src="/marine_fish.jpg"
@@ -49,7 +49,7 @@ export default function IllegalFishingHero() {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           Illegal and destructive fishing can threaten marine ecosystems, fisheries, and the livelihoods of coastal
-          communities. Blue Ocean works to increase awareness, support research, and promote sustainable management
+          communities. Blue Heaven works to increase awareness, support research, and promote sustainable management
           of Somalia's marine resources.
         </motion.p>
 

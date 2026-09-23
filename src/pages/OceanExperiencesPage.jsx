@@ -15,7 +15,7 @@ export default function OceanExperiencesPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Ocean Experiences — Blue Ocean Somalia';
+    document.title = 'Ocean Experiences — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 

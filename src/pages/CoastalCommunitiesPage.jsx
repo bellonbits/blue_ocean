@@ -15,12 +15,12 @@ export default function CoastalCommunitiesPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Coastal Communities — Blue Ocean Somalia';
+    document.title = 'Coastal Communities — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <main id="main-content" aria-label="Blue Ocean Coastal Communities">
+    <main id="main-content" aria-label="Blue Heaven Coastal Communities">
       <CommunitiesHero />
       <CommunitiesDirectory />
 

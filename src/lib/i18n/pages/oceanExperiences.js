@@ -24,7 +24,7 @@ export default {
         exploreCta: 'Explore',
       },
       grid: {
-        notice: "Every experience below is in active development. Blue Ocean does not currently operate live bookings — this directory previews what's coming to the Somali coast.",
+        notice: "Every experience below is in active development. Blue Heaven does not currently operate live bookings — this directory previews what's coming to the Somali coast.",
         searchPlaceholder: 'Search experiences, locations, regions...',
         searchAriaLabel: 'Search ocean experiences',
         filterAriaLabel: 'Filter by category',
@@ -56,7 +56,7 @@ export default {
         exploreCta: 'Sahamiso',
       },
       grid: {
-        notice: "Waaya-aragnimo kasta oo hoos ku taal waxay ku jirtaa horumarin firfircoon. Blue Ocean hadda ma fulinayso dalabyo tooska ah. Liiskan wuxuu ku tusinayaa waxa ku soo socda xeebta Soomaaliya.",
+        notice: "Waaya-aragnimo kasta oo hoos ku taal waxay ku jirtaa horumarin firfircoon. Blue Heaven hadda ma fulinayso dalabyo tooska ah. Liiskan wuxuu ku tusinayaa waxa ku soo socda xeebta Soomaaliya.",
         searchPlaceholder: 'Raadi waaya-aragnimooyin, goobaha, gobollada...',
         searchAriaLabel: 'Raadi waaya-aragnimada badda',
         filterAriaLabel: 'Kala saar nooca',

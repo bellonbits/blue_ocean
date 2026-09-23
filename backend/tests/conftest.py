@@ -1,4 +1,4 @@
-"""Pytest fixtures for Blue Ocean backend tests."""
+"""Pytest fixtures for Blue Heaven backend tests."""
 
 import pytest
 from fastapi.testclient import TestClient

@@ -14,7 +14,7 @@ export default function ResearchProjectsPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Research Projects — Blue Ocean Somalia';
+    document.title = 'Research Projects — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 

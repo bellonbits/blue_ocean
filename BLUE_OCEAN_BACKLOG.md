@@ -1,4 +1,4 @@
-# Blue Ocean — Remaining Development Backlog
+# Blue Heaven — Remaining Development Backlog
 
 Derived from the task tracker audit (`BLUE_OCEAN_TASK_TRACKER.txt`). Tracks the gaps still open, grouped by where they live in the system rather than by brief section number.
 
@@ -83,7 +83,7 @@ Added `research_observations` (plain text, admin textarea) to the Species model,
 
 ## 6. Social / Latest Updates
 
-### 6.1 "Latest from Blue Ocean"
+### 6.1 "Latest from Blue Heaven"
 **Status:** UNDONE
 
 Homepage section pulling automatically from existing News / Research / Conservation / Community content (and social feeds where technically supported) — not a manually maintained block.
@@ -95,7 +95,7 @@ Homepage section pulling automatically from existing News / Research / Conservat
 ### 7.1 Replace Placeholder URLs
 **Status:** UNDONE
 
-Add an admin `Settings → Social Media` panel (Instagram, Facebook, TikTok, YouTube, LinkedIn, X) backing the Footer and "Latest from Blue Ocean" — not hardcoded in React.
+Add an admin `Settings → Social Media` panel (Instagram, Facebook, TikTok, YouTube, LinkedIn, X) backing the Footer and "Latest from Blue Heaven" — not hardcoded in React.
 
 ---
 
@@ -171,7 +171,7 @@ Add an admin `Settings → Social Media` panel (Instagram, Facebook, TikTok, You
 07. Expedition Available Spaces
 08. Expedition Pricing
 09. Expedition Apply / Join
-10. Latest from Blue Ocean
+10. Latest from Blue Heaven
 11. Real Social Media URLs
 12. Real-Device QA (English)
 13. Bilingual & Localization (EN/SO) — architecture, CMS fields, language-aware URLs, translation workflow, admin dashboard
@@ -179,6 +179,6 @@ Add an admin `Settings → Social Media` panel (Instagram, Facebook, TikTok, You
 15. Final QA & Launch
 ```
 
-Dependency chain: Video Support → Related Content → Marine Life/Research relationships → Expedition relationships → Apply/Join → Latest from Blue Ocean → Social integration → Mobile QA → Bilingual & Localization → Somali Typography QA → Final QA & Launch.
+Dependency chain: Video Support → Related Content → Marine Life/Research relationships → Expedition relationships → Apply/Join → Latest from Blue Heaven → Social integration → Mobile QA → Bilingual & Localization → Somali Typography QA → Final QA & Launch.
 
 Before launch, add a Content & Data Verification pass (Hurdiya, illegal fishing, marine species, research observations, expedition info, mission/vision, social accounts) between "development complete" and real-device testing — and, once bilingual, verify Somali content has been through human review, not just machine translation.

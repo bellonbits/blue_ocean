@@ -19,7 +19,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main id="main-content" aria-label="Blue Ocean Homepage">
+    <main id="main-content" aria-label="Blue Heaven Homepage">
       <HeroSection />
       <ExploreCoast />
       <MarineLifePreview />

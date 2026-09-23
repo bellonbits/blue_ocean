@@ -6,7 +6,7 @@ import { getTeamMember, listTeamMembers } from '../lib/contentApi';
 import { ICON_MAP } from '../components/shared/SocialIcons';
 import './TeamMemberProfilePage.css';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/api\/v1\/?$/, '');
 
 export default function TeamMemberProfilePage() {
   const { slug } = useParams();
@@ -29,7 +29,7 @@ export default function TeamMemberProfilePage() {
       .then(async (m) => {
         if (cancelled) return;
         setMember(m);
-        document.title = `${m.name} — Blue Ocean Somalia`;
+        document.title = `${m.name} — Blue Heaven Somalia`;
 
         // Related Stories: published news articles that reference any of
         // this person's research/conservation projects — a real

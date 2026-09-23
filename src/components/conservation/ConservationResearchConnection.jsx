@@ -15,7 +15,7 @@ export default function ConservationResearchConnection({ project }) {
             Built on research.
           </h2>
           <p className="section-subheading">
-            {project.title} is grounded directly in Blue Ocean's own field research.
+            {project.title} is grounded directly in Blue Heaven's own field research.
           </p>
         </div>
 

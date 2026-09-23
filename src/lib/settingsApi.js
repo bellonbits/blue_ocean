@@ -2,7 +2,7 @@
 // content + social links) — GET/PATCH only, no list/create/delete, since
 // there's exactly one row (see backend/app/models/organization_settings.py).
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/api\/v1\/?$/, '');
 
 async function request(path, options = {}) {
   const res = await fetch(`${API_BASE_URL}/api/v1${path}`, {

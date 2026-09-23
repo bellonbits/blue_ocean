@@ -45,12 +45,12 @@
       {
         "title": "Resident pod confirmed year-round",
         "description": "Acoustic and visual survey data confirm a resident bottlenose dolphin pod present in the Bosaso corridor across all four survey seasons to date.",
-        "source": "Blue Ocean Cetacean Research Unit, 2024–2025 Field Seasons"
+        "source": "Blue Heaven Cetacean Research Unit, 2024–2025 Field Seasons"
       },
       {
         "title": "Seasonal spinner dolphin aggregations",
         "description": "Larger spinner dolphin aggregations were recorded between October and May, coinciding with the northeast monsoon period.",
-        "source": "Blue Ocean Cetacean Research Unit, 2025 Season Summary"
+        "source": "Blue Heaven Cetacean Research Unit, 2025 Season Summary"
       }
     ],
     "speciesSlugs": [
@@ -178,7 +178,7 @@
       {
         "title": "Peak vocal activity in winter months",
         "description": "Hydrophone data show a marked increase in humpback whale vocal activity between December and February, consistent with the northern migration window.",
-        "source": "Blue Ocean Cetacean Research Unit, 2025 Acoustic Summary"
+        "source": "Blue Heaven Cetacean Research Unit, 2025 Acoustic Summary"
       }
     ],
     "speciesSlugs": [
@@ -297,12 +297,12 @@
       {
         "title": "Multi-month residency confirmed",
         "description": "Tagged individuals showed residency periods of up to four months within the Guardafui upwelling zone before departing on longer pelagic transits.",
-        "source": "Blue Ocean Elasmobranch Research Unit, 2024 Tagging Report"
+        "source": "Blue Heaven Elasmobranch Research Unit, 2024 Tagging Report"
       },
       {
         "title": "Feeding aggregation peaks December–April",
         "description": "Sighting frequency data confirm the strongest feeding aggregations occur between December and April, aligned with peak plankton bloom.",
-        "source": "Blue Ocean Elasmobranch Research Unit, 2024–2025 Season Summary"
+        "source": "Blue Heaven Elasmobranch Research Unit, 2024–2025 Season Summary"
       }
     ],
     "speciesSlugs": [
@@ -545,7 +545,7 @@
       {
         "title": "Two-rookery migratory link confirmed",
         "description": "Satellite tracks confirm individual turtles moving between the Hafun and Bajuni rookeries within a single nesting season, suggesting a shared regional population.",
-        "source": "Blue Ocean Sea Turtle Research Unit, 2025 Telemetry Report"
+        "source": "Blue Heaven Sea Turtle Research Unit, 2025 Telemetry Report"
       }
     ],
     "speciesSlugs": [
@@ -683,7 +683,7 @@
       {
         "title": "Stock within sustainable range",
         "description": "Biomass estimates place the Somali EEZ yellowfin tuna stock within a sustainable range as of the 2025 assessment, though monitoring is recommended given regional fishing pressure.",
-        "source": "Blue Ocean Fisheries Science Team, Published Stock Assessment, 2025"
+        "source": "Blue Heaven Fisheries Science Team, Published Stock Assessment, 2025"
       }
     ],
     "speciesSlugs": [
@@ -807,7 +807,7 @@
       {
         "title": "Seasonal closure recommendation adopted",
         "description": "Study findings informed a community-adopted closed season for egg-bearing females, now observed by participating Puntland fishing cooperatives.",
-        "source": "Blue Ocean Fisheries Science Team, Final Study Report, 2024"
+        "source": "Blue Heaven Fisheries Science Team, Final Study Report, 2024"
       }
     ],
     "speciesSlugs": [
@@ -932,7 +932,7 @@
       {
         "title": "Resilient genotype cluster identified",
         "description": "Preliminary genotyping identified a cluster of Acropora colonies in the Qandala patch reefs with elevated thermal tolerance relative to Bajuni samples.",
-        "source": "Blue Ocean Coral Reef Research Unit, 2025 Interim Report"
+        "source": "Blue Heaven Coral Reef Research Unit, 2025 Interim Report"
       }
     ],
     "speciesSlugs": [
@@ -1177,7 +1177,7 @@
       {
         "title": "Small resident population confirmed",
         "description": "Aerial survey data confirm a small, resident dugong population using the Bajuni seagrass channels year-round, among the last known strongholds in East Africa.",
-        "source": "Blue Ocean Marine Biodiversity Unit, 2025 Drone Survey Report"
+        "source": "Blue Heaven Marine Biodiversity Unit, 2025 Drone Survey Report"
       }
     ],
     "speciesSlugs": [
@@ -1279,7 +1279,7 @@
       {
         "title": "Land-based debris dominant",
         "description": "Debris composition surveys found land-based sources — packaging and household waste — to be the dominant contributor at both survey sites, ahead of fishing-gear debris.",
-        "source": "Blue Ocean Pollution & Water Quality Team, 2025 Survey Summary"
+        "source": "Blue Heaven Pollution & Water Quality Team, 2025 Survey Summary"
       }
     ],
     "speciesSlugs": [],
@@ -1384,7 +1384,7 @@
     ],
     "researchTeamSlug": "pollution-water-quality-team",
     "conservationThemes": [
-      "Informs Blue Ocean’s public coastal health guidance"
+      "Informs Blue Heaven’s public coastal health guidance"
     ],
     "featured": false,
     "areaName": "Water Quality",

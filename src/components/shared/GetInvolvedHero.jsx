@@ -4,7 +4,7 @@ import '../experiences/ExperiencesHero.css';
 
 export default function GetInvolvedHero() {
   return (
-    <section className="exp-hero" aria-label="Get Involved with Blue Ocean">
+    <section className="exp-hero" aria-label="Get Involved with Blue Heaven">
       <div className="exp-hero__media" aria-hidden="true">
         <img
           src="/exp_scuba_diving.jpg"

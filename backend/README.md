@@ -1,6 +1,6 @@
-# Blue Ocean API (backend)
+# Blue Heaven API (backend)
 
-FastAPI + PostgreSQL backend for Blue Ocean Somalia.
+FastAPI + PostgreSQL backend for Blue Heaven Somalia.
 
 - **Sprint B1 (Foundation)** — app boots, connects to Postgres, health check, CORS.
 - **Sprint B2 (Authentication + Roles)** — JWT login, 5 admin roles, and
@@ -111,7 +111,13 @@ backend/
 │   │   ├── news_article.py     # NewsArticle model + 6 link tables
 │   │   ├── organization_settings.py # OrganizationSettings model (singleton)
 │   │   ├── contact_submission.py # ContactSubmission model
-│   │   └── media.py             # Media model (uploaded file metadata)
+│   │   ├── media.py             # Media model (uploaded file metadata)
+│   │   ├── team_member.py       # TeamMember model + team_member_destinations link table
+│   │   ├── saved_item.py        # SavedItem model (user bookmarking)
+│   │   ├── experience_interest.py # ExperienceInterest model (user booking interest)
+│   │   ├── notification.py      # Notification model
+│   │   ├── application.py       # Application model (volunteer / research / partner)
+│   │   └── activity_log.py      # ActivityLog model (audit trail)
 │   ├── schemas/
 │   │   ├── user.py              # UserCreate, UserRead
 │   │   ├── token.py             # Token
@@ -135,7 +141,15 @@ backend/
 │   │   ├── news_article.py      # NewsArticleCreate/Update/Read, ContentBlock, GalleryImage
 │   │   ├── organization_settings.py # OrganizationSettingsRead/Update (no Create — singleton)
 │   │   ├── contact_submission.py # ContactSubmissionCreate/Update/Read
-│   │   └── media.py             # MediaUpdate/Read (no Create schema — multipart upload, not JSON)
+│   │   ├── media.py             # MediaUpdate/Read (no Create schema — multipart upload, not JSON)
+│   │   ├── team_member.py       # TeamMemberCreate/Update/Read
+│   │   ├── admin_stats.py       # AdminStatsResponse
+│   │   ├── saved_item.py        # SavedItemCreate/Read
+│   │   ├── experience_interest.py # ExperienceInterestCreate/Read
+│   │   ├── notification.py      # NotificationRead
+│   │   ├── application.py       # ApplicationCreate/Read
+│   │   ├── search.py            # SearchResult, SearchResponse
+│   │   └── seo.py               # SeoMetadataResponse
 │   └── api/
 │       ├── deps.py          # get_current_user, require_role() — the actual security boundary
 │       └── v1/
@@ -163,7 +177,15 @@ backend/
 │           ├── news_articles.py       # /api/v1/news-articles (public read, editor/content_manager+ write)
 │           ├── organization.py        # /api/v1/organization (public read, editor/content_manager+ write, no create/delete)
 │           ├── contact_submissions.py # /api/v1/contact-submissions (public create, admin-only read/list/update/delete)
-│           └── media.py               # /api/v1/media (editor/content_manager+ upload/browse/edit, admin-only delete)
+│           ├── media.py               # /api/v1/media (editor/content_manager+ upload/browse/edit, admin-only delete)
+│           ├── team_members.py        # /api/v1/team-members (public read, admin write)
+│           ├── admin_stats.py         # /api/v1/admin/stats (admin-only)
+│           ├── saved_items.py         # /api/v1/saved-items (authenticated user bookmarks)
+│           ├── experience_interests.py# /api/v1/experience-interests (authenticated user booking interest)
+│           ├── notifications.py       # /api/v1/notifications (authenticated user inbox)
+│           ├── applications.py        # /api/v1/applications (public create, admin manage)
+│           ├── search.py              # /api/v1/search (public unified search)
+│           └── seo.py                 # /api/v1/seo/meta, /sitemap.xml, /rss.xml
 ├── media_storage/            # uploaded files (Sprint B10, gitignored) — created on first run
 ├── scripts/
 │   ├── create_superuser.py  # bootstrap the first account (no public registration)
@@ -817,11 +839,9 @@ data migrations.
 
 ## Frontend connection
 
-The Vite frontend should call this API via `VITE_API_URL` (see the root
-`.env.example`), e.g. `VITE_API_URL=http://localhost:8000/api/v1`. Wiring
-the frontend's API service layer and `AuthContext` up to these endpoints
-is a separate step — the frontend still reads from `src/data/*.js` and
-has no login UI yet.
+The Vite frontend connects to this API using the root `.env` variable:
+`VITE_API_URL=http://localhost:8000` (the frontend client automatically normalizes trailing `/api/v1` prefixes).
+The frontend is fully integrated with this backend through `src/lib/contentApi.js`, `src/lib/adminApi.js`, `src/lib/dashboardApi.js`, and `src/context/AuthContext.jsx`, providing live JWT authentication, role enforcement, content caching, and fallback resilience.
 
 ## Environment variables
 

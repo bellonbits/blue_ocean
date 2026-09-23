@@ -3,7 +3,7 @@
 // require an admin/super_admin role — the backend enforces that via
 // require_role(), this is just a thin fetch wrapper around it.
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/api\/v1\/?$/, '');
 
 async function request(path, token, options = {}) {
   const res = await fetch(`${API_BASE_URL}/api/v1${path}`, {

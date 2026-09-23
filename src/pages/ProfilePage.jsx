@@ -74,7 +74,7 @@ export default function ProfilePage() {
   const [activity, setActivity] = useState(null);
 
   useEffect(() => {
-    document.title = 'My Profile — Blue Ocean Somalia';
+    document.title = 'My Profile — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
@@ -215,7 +215,7 @@ export default function ProfilePage() {
 
             <div className="profile-hero__info">
               <div className="profile-hero__name-row">
-                <h1 className="profile-hero__name">{user.full_name || 'Blue Ocean User'}</h1>
+                <h1 className="profile-hero__name">{user.full_name || 'Blue Heaven User'}</h1>
                 <span className="profile-hero__verified">
                   <BadgeCheck size={14} />
                   <span>Verified Profile</span>
@@ -406,7 +406,7 @@ export default function ProfilePage() {
               {notificationsStatus === 'saved' && <span className="profile-card__title-hint">Saved</span>}
             </div>
             <p className="profile-card__note">
-              Choose what you'd hear about. (No emails send yet — Blue Ocean hasn't wired up outbound email;
+              Choose what you'd hear about. (No emails send yet — Blue Heaven hasn't wired up outbound email;
               this just records your preference for when it does.)
             </p>
             <div className="profile-notifications">

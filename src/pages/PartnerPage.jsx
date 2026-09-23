@@ -38,7 +38,7 @@ export default function PartnerPage() {
   const { token } = useAuth();
 
   useEffect(() => {
-    document.title = 'Partner With Us — Blue Ocean Somalia';
+    document.title = 'Partner With Us — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
@@ -55,10 +55,10 @@ export default function PartnerPage() {
 
           <span className="label-text">PARTNER WITH US</span>
           <div className="divider" />
-          <h1 className="species-dir-hero__title">Work with Blue Ocean to create lasting impact.</h1>
+          <h1 className="species-dir-hero__title">Work with Blue Heaven to create lasting impact.</h1>
           <p className="species-dir-hero__desc">
             Research institutions, conservation organizations, universities, tourism operators, coastal businesses,
-            NGOs, media, and corporate partners all play a role in Blue Ocean's work.
+            NGOs, media, and corporate partners all play a role in Blue Heaven's work.
           </p>
         </div>
       </section>

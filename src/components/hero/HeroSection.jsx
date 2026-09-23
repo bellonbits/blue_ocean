@@ -19,7 +19,7 @@ export default function HeroSection() {
       <div className="hero__bg">
         <img
           src="/hero_ocean.jpg"
-          alt="Blue Ocean Somalia — Marine life and coastal waters"
+          alt="Blue Heaven Somalia — Marine life and coastal waters"
           className="hero__bg-img"
           loading="eager"
           fetchpriority="high"

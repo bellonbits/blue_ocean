@@ -1,4 +1,4 @@
-"""Individual public profiles for Blue Ocean staff/researchers — distinct
+"""Individual public profiles for Blue Heaven staff/researchers — distinct
 from ResearchTeam (institutional units like "Cetacean & Marine Mammal
 Research Unit"), which stays as-is. This table starts empty: no
 fabricated names, photos, or bios. It's the org's job to populate real

@@ -18,7 +18,7 @@ export default function ResearchReportsPage() {
   const researchAreas = getResearchAreas(language);
 
   useEffect(() => {
-    document.title = 'Research Reports — Blue Ocean Somalia';
+    document.title = 'Research Reports — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
@@ -48,7 +48,7 @@ export default function ResearchReportsPage() {
           <div className="divider" />
           <h1 className="species-dir-hero__title">Research Reports</h1>
           <p className="species-dir-hero__desc">
-            Progress summaries from Blue Ocean's active and completed research projects.
+            Progress summaries from Blue Heaven's active and completed research projects.
           </p>
         </div>
       </section>

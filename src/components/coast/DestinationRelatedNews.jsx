@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Newspaper, ArrowRight } from 'lucide-react';
 import { getRelatedNews } from '../../lib/contentApi';
+import { useLanguage } from '../../context/LanguageContext';
 import ArticleCard from '../news/ArticleCard';
 
 // Real relationship-driven "related stories" — pulls whichever published
@@ -11,6 +12,9 @@ import ArticleCard from '../news/ArticleCard';
 // empty section.
 export default function DestinationRelatedNews({ slug }) {
   const [articles, setArticles] = useState([]);
+  const { language } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+  const isSo = language === 'so';
 
   useEffect(() => {
     let cancelled = false;
@@ -28,11 +32,11 @@ export default function DestinationRelatedNews({ slug }) {
       <div className="section-header reveal">
         <span className="label-text">
           <Newspaper size={13} style={{ verticalAlign: '-2px', marginRight: 6 }} />
-          LATEST STORIES
+          {isSo ? 'SHEEKOOYINKA UGU DAMBEEYAY' : 'LATEST STORIES'}
         </span>
         <div className="divider" />
         <h2 className="section-heading" id="related-news-heading">
-          News from this destination
+          {isSo ? 'Wararka ku saabsan goobtan' : 'News from this destination'}
         </h2>
       </div>
 
@@ -43,8 +47,8 @@ export default function DestinationRelatedNews({ slug }) {
       </div>
 
       <div style={{ textAlign: 'center', marginTop: 'var(--space-8)' }}>
-        <Link to="/news" className="btn btn-outline btn-sm">
-          <span>Explore All Stories</span>
+        <Link to={localizedPath('/news')} className="btn btn-outline btn-sm">
+          <span>{isSo ? 'Sahamiso Dhammaan Sheekooyinka' : 'Explore All Stories'}</span>
           <ArrowRight size={14} />
         </Link>
       </div>

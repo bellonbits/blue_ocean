@@ -15,7 +15,7 @@ export default function ExperienceLocations({ experience }) {
             Where your journey begins
           </h2>
           <p className="section-subheading">
-            {experience.title} connects to these destinations in the Blue Ocean coastal directory.
+            {experience.title} connects to these destinations in the Blue Heaven coastal directory.
           </p>
         </div>
 

@@ -162,7 +162,7 @@ function localizedRoutes() {
       element={
         <PlaceholderPage
           title="Page Not Found"
-          description="The page you're looking for doesn't exist yet. Head back to the homepage to explore Blue Ocean Somalia."
+          description="The page you're looking for doesn't exist yet. Head back to the homepage to explore Blue Heaven Somalia."
           emoji="🔍"
         />
       }

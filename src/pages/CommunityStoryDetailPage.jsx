@@ -23,8 +23,8 @@ export default function CommunityStoryDetailPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = story
-      ? `${story.title} — Blue Ocean Coastal Communities`
-      : 'Story Not Found — Blue Ocean Somalia';
+      ? `${story.title} — Blue Heaven Coastal Communities`
+      : 'Story Not Found — Blue Heaven Somalia';
   }, [story]);
 
   if (!story) {

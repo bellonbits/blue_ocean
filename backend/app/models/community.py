@@ -1,4 +1,4 @@
-"""Coastal communities Blue Ocean partners with (fishing cooperatives,
+"""Coastal communities Blue Heaven partners with (fishing cooperatives,
 traditional-knowledge keepers, youth groups, ...).
 
 `category` stays a plain string (like `Expedition.status`), not its own

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Compass, Fish, FlaskConical } from 'lucide-react';
+import { ArrowRight, Fish, FlaskConical } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import './ExploreCTA.css';
 

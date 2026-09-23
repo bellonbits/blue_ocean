@@ -1,5 +1,5 @@
 // =========================================================
-// Blue Ocean Chat Proxy
+// Blue Heaven Chat Proxy
 //
 // A tiny Express server whose only job is to hold the GROQ_API_KEY
 // server-side and forward chat requests to Groq's OpenAI-compatible
@@ -128,5 +128,5 @@ app.post('/api/chat', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Blue Ocean chat proxy listening on port ${PORT}`);
+  console.log(`Blue Heaven chat proxy listening on port ${PORT}`);
 });

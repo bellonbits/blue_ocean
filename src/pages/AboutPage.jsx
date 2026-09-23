@@ -12,12 +12,12 @@ export default function AboutPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'About Blue Ocean — Blue Ocean Somalia';
+    document.title = 'About Blue Heaven — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <main id="main-content" aria-label="About Blue Ocean">
+    <main id="main-content" aria-label="About Blue Heaven">
       <AboutHero />
       <OrganizationStory />
       <MissionVision />

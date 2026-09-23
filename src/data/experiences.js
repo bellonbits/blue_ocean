@@ -1,11 +1,11 @@
 // =========================================================
 // Ocean Experiences Data Model & Discovery Library
-// Blue Ocean Somalia — Sprint 5: Ocean Experiences
+// Blue Heaven Somalia — Sprint 5: Ocean Experiences
 //
 // All experiences ship with status: 'coming-soon' at launch —
 // this is a discovery platform for future ocean activities,
 // not a live booking system. Update `status` per experience
-// as Blue Ocean operationalizes each activity.
+// as Blue Heaven operationalizes each activity.
 //
 // i18n note: each translatable record carries a `translations.so`
 // block with only the Somali overrides for that record (see
@@ -351,7 +351,7 @@ const rawExperiences = [
     story: {
       whatItIs: 'A multi-day scuba expedition into deep reef walls and pelagic drop-offs, designed for certified divers seeking largely unsurveyed waters.',
       whereItHappens: 'The Guardafui Deep off the tip of the Horn of Africa, where the Somali Current upwelling draws nutrient-rich water — and the animals that follow it — close to shore.',
-      whatToExpect: 'Wall dives beside whale sharks and oceanic manta rays, with dive briefings led alongside Blue Ocean’s marine research teams.',
+      whatToExpect: 'Wall dives beside whale sharks and oceanic manta rays, with dive briefings led alongside Blue Heaven’s marine research teams.',
     },
     region: 'Puntland',
     location: 'Guardafui Deep',
@@ -386,7 +386,7 @@ const rawExperiences = [
         story: {
           whatItIs: 'Safar quusid (scuba) oo dhowr maalmood ah oo loo maro darbiyada murjaanka qoto dheer iyo meelaha badda dheer, oo loogu talagalay quusayaasha shahaadada haysta ee raadinaya biyo aan weli si buuxda loo sahamin.',
           whereItHappens: 'Guardafui Deep-ka oo ku yaal dhamaadka Geeska Afrika, halkaas oo Qulqulka Badweynta Soomaaliya uu keenno biyo hodan ah oo nafaqo leh—iyo xayawaanka raaca—oo u soo dhawaanaya xeebta.',
-          whatToExpect: 'Quusid darbiyo ah oo la socda sharkiga nibiriga (whale shark) iyo raayada manta-ga badweynta, iyadoo casharrada quusidda la hagaayo kooxaha cilmi-baarista badweynta ee Blue Ocean.',
+          whatToExpect: 'Quusid darbiyo ah oo la socda sharkiga nibiriga (whale shark) iyo raayada manta-ga badweynta, iyadoo casharrada quusidda la hagaayo kooxaha cilmi-baarista badweynta ee Blue Heaven.',
         },
         region: 'Puntland',
         location: 'Guardafui Deep',
@@ -639,7 +639,7 @@ const rawExperiences = [
     story: {
       whatItIs: 'A guided expedition for underwater and coastal photographers, pairing camera time with marine research fieldwork.',
       whereItHappens: 'A rotating circuit across Somalia’s richest reef and coastline subjects, from Bajuni coral gardens to Qandala’s black coral drop-offs.',
-      whatToExpect: 'Structured shoots at reef sites and cleaning stations, with guidance on light, buoyancy, and approach — and the option to contribute images to Blue Ocean’s species photo-ID archives.',
+      whatToExpect: 'Structured shoots at reef sites and cleaning stations, with guidance on light, buoyancy, and approach — and the option to contribute images to Blue Heaven’s species photo-ID archives.',
     },
     region: 'Somalia',
     location: 'Somalia Seaboard',
@@ -661,7 +661,7 @@ const rawExperiences = [
     destinationSlugs: ['kismayo', 'bajuni-islands', 'qandala'],
     marineSpeciesSlugs: ['acropora-coral', 'green-sea-turtle', 'manta-ray'],
     conservationThemes: [
-      'Images contribute to Blue Ocean’s photo-ID species databases',
+      'Images contribute to Blue Heaven’s photo-ID species databases',
       'No flash photography near nesting or resting marine life',
       'Shared work supports public ocean literacy campaigns',
     ],
@@ -674,7 +674,7 @@ const rawExperiences = [
         story: {
           whatItIs: 'Safar la hagayo oo loogu talagalay sawir-qaadayaasha badda hoosteeda iyo xeebta, kaas oo isku daraya waqtiga kamarada iyo shaqada cilmi-baarista badweynta.',
           whereItHappens: 'Wareeg is-badbadalaya oo ka baxsan xeebaha ugu hodansan ee Soomaaliya, laga bilaabo beeraha murjaanka Bajuni ilaa qarka murjaanka madow ee Qandala.',
-          whatToExpect: 'Sawir qaad oo si hab ahaan loo qaabeeyay oo ka dhaca goobaha reefka iyo saldhagaha nadaafadda, oo la siinayo talooyin ku saabsan iftiinka, dheelitirka biyaha, iyo habka loo dhawaado—iyadoo fursad la siinayo in sawirrada lagu darsado kaydka aqoonsiga noocyada ee Blue Ocean.',
+          whatToExpect: 'Sawir qaad oo si hab ahaan loo qaabeeyay oo ka dhaca goobaha reefka iyo saldhagaha nadaafadda, oo la siinayo talooyin ku saabsan iftiinka, dheelitirka biyaha, iyo habka loo dhawaado—iyadoo fursad la siinayo in sawirrada lagu darsado kaydka aqoonsiga noocyada ee Blue Heaven.',
         },
         region: 'Soomaaliya',
         location: 'Xeebta Soomaaliya',
@@ -693,7 +693,7 @@ const rawExperiences = [
           'Ku habboon sawir-qaadayaasha sare iyo kuwa badda hoosteeda',
         ],
         conservationThemes: [
-          'Sawirrada waxay gacan ka geystaan kaydadka aqoonsiga noocyada ee Blue Ocean',
+          'Sawirrada waxay gacan ka geystaan kaydadka aqoonsiga noocyada ee Blue Heaven',
           'Ma jiro sawir-iftiin (flash) oo u dhow xayawaanka ugxanaya ama nasanaya',
           'Shaqada la wadaagay waxay taageertaa ololayaasha aqoonta bulshada ee badweynta',
         ],

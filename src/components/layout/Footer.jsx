@@ -76,10 +76,10 @@ export default function Footer() {
           {/* Top — Brand + Social */}
           <div className="footer__top">
             <div className="footer__brand">
-              <Link to={localizedPath('')} className="footer__logo" aria-label="Blue Ocean">
+              <Link to={localizedPath('')} className="footer__logo" aria-label="Blue Heaven">
                 <img
                   src={logoSrc}
-                  alt="Blue Ocean Somalia"
+                  alt="Blue Heaven Somalia"
                   className="footer__logo-img"
                 />
               </Link>

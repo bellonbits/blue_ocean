@@ -23,7 +23,7 @@ export default function ProfilePage() {
   const [saveState, setSaveState] = useState('idle'); // idle | saving | saved
 
   useEffect(() => {
-    document.title = 'Profile — Blue Ocean Somalia';
+    document.title = 'Profile — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
@@ -50,7 +50,7 @@ export default function ProfilePage() {
     <div className="user-dash-page">
       <div className="user-dash-hero">
         <h1>Profile</h1>
-        <p>Your Blue Ocean identity and what you care most about.</p>
+        <p>Your Blue Heaven identity and what you care most about.</p>
       </div>
 
       <div className="user-dash-profile-card">

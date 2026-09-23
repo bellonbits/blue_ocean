@@ -10,12 +10,12 @@ export default function ContactPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Contact — Blue Ocean Somalia';
+    document.title = 'Contact — Blue Heaven Somalia';
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <main id="main-content" aria-label="Contact Blue Ocean">
+    <main id="main-content" aria-label="Contact Blue Heaven">
       <ContactHero />
 
       <section className="section" aria-label="Contact Details and Form">

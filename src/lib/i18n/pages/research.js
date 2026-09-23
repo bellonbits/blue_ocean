@@ -12,7 +12,7 @@ export default {
         badge: 'SCIENTIFIC RESEARCH & DISCOVERY',
         heading: 'Understanding the ocean.',
         headingAccent: 'Protecting its future.',
-        subtext: "Explore Blue Ocean's research into Somalia's marine biodiversity, fisheries, ecosystems and coastal environment.",
+        subtext: "Explore Blue Heaven's research into Somalia's marine biodiversity, fisheries, ecosystems and coastal environment.",
         ctaExplore: 'Explore Research',
         ctaProjects: 'View Projects',
         pillProjects: 'Research Projects',
@@ -61,7 +61,7 @@ export default {
       stats: {
         eyebrow: 'RESEARCH DATA',
         heading: 'The numbers behind the work',
-        subheading: "Figures computed directly from Blue Ocean's published research records.",
+        subheading: "Figures computed directly from Blue Heaven's published research records.",
         labels: {
           speciesStudied: 'Species Studied',
           researchSites: 'Research Sites',
@@ -73,7 +73,7 @@ export default {
         eyebrow: 'From Knowledge to Action',
         headingLine1: 'Research becomes protection',
         headingLine2: 'when it reaches the coast.',
-        subtext: "Every finding feeds directly into Blue Ocean's conservation priorities — from marine protected area proposals to community-led protection programs.",
+        subtext: "Every finding feeds directly into Blue Heaven's conservation priorities — from marine protected area proposals to community-led protection programs.",
         ctaConservation: 'Explore Conservation',
         ctaAllProjects: 'All Research Projects',
         ctaStatistics: 'Coastal & Marine Statistics',
@@ -94,7 +94,7 @@ export default {
         badge: 'CILMI-BAARIS & DAAHFURKA SAYNISKA',
         heading: 'Fahamka badda.',
         headingAccent: 'Ilaalinta mustaqbalkeeda.',
-        subtext: 'Sahamiso cilmi-baarista Blue Ocean ee ku saabsan kala duwanaanta nolosha badda Soomaaliya, kalluumeysiga, nidaamyada deegaanka iyo deegaanka xeebaha.',
+        subtext: 'Sahamiso cilmi-baarista Blue Heaven ee ku saabsan kala duwanaanta nolosha badda Soomaaliya, kalluumeysiga, nidaamyada deegaanka iyo deegaanka xeebaha.',
         ctaExplore: 'Sahamiso Cilmi-baarista',
         ctaProjects: 'Eeg Mashaariicda',
         pillProjects: 'Mashaariic Cilmi-baaris',
@@ -107,23 +107,23 @@ export default {
         points: {
           whatWeResearch: {
             title: 'Waxa aan baarno',
-            text: 'Kala duwanaanta noolaha badda, kalluumeysiga, dhogorta murjaanka, sharkyada iyo raytiga, dhurwaaga iyo dheeriyaha badda, diinka badda, wasakhaynta badda, tayada biyaha, iyo nidaamyada deegaanka xeebaha.',
+            text: 'Kala duwanaanta noolaha badda, kalluumeysiga, dhagax-mareennada murjaanka, libaax-badeedka iyo falaadhaha badda, nibiriyada iyo doolfinda, diinka badda, wasakhowga badda, tayada biyaha, iyo nidaamyada deegaanka xeebaha.',
           },
           whyItMatters: {
             title: 'Sababta ay muhiim u tahay',
-            text: 'Soomaaliya waxay leedahay mid ka mid ah xeebaha ugu dheer ee Afrika, kuwaas oo ah kuwa ugu yar ee la baaray. Sahan kastaa wuxuu buuxiyaa faraq dhab ah oo jira aqoonta laga haysto.',
+            text: 'Soomaaliya waxay leedahay mid ka mid ah xeebaha ugu dheer uguna yar ee la baaray Afrika. Sahan kastaa wuxuu buuxiyaa nusqaanka dhabta ah ee ka jira aqoonta badda.',
           },
           whereResearchHappens: {
             title: 'Meesha cilmi-baaristu ka dhacdo',
-            text: 'Laga bilaabo kacsiga qoto dheer ee badda ee xeebta Puntland, ilaa jasiiradaha murjaanka iyo webiyada canjeelka ee Jubbaland.',
+            text: 'Laga bilaabo soo-kicidda biyaha qoto dheer ee xeebta Puntland, ilaa jasiiradaha murjaanka iyo marinnada kaymaha qaaraha ee Jubbaland.',
           },
           howItDrivesConservation: {
-            title: 'Sida ay u horumariso ilaalinta',
-            text: 'Natiijooyinka waxaa si toos ah loogu isticmaalaa soo jeedinta aagagga badda ee la ilaaliyo, tilmaamaha kalluumeysiga waarta, iyo barnaamijyada ilaalinta noocyada.',
+            title: 'Sida ay u kobciso ilaalinta',
+            text: 'Natiijooyinka waxaa si toos ah loogu adeegsadaa soo-jeedinta aagagga badda ee la ilaaliyo, tilmaamaha kalluumeysiga waara, iyo barnaamijyada ilaalinta noocyada badda.',
           },
           howItConnectsToCommunities: {
             title: 'Sida ay ula xiriirto bulshooyinka',
-            text: 'Iskaashatooyinka kalluumeysiga, ilaaliyayaasha xeebaha, iyo dadka haysta aqoonta dhaqameed ee badda waa lammaanayaal ku jira shaqada duurjoogta ah.',
+            text: 'Iskaashatooyinka kalluumeysiga, ilaaliyayaasha xeebaha, iyo dadka aqoonta dhaqameed u leh badda waa lammaaneyaal toos ah oo ku jira shaqada goobta.',
           },
         },
       },
@@ -143,7 +143,7 @@ export default {
       stats: {
         eyebrow: 'XOGTA CILMI-BAARISTA',
         heading: 'Tirooyinka Ka Danbeeya Shaqada',
-        subheading: 'Tirooyinka waxaa si toos ah looga xisaabiyay diiwaannada cilmi-baaris ee Blue Ocean daabacday.',
+        subheading: 'Tirooyinka waxaa si toos ah looga xisaabiyay diiwaannada cilmi-baaris ee Blue Heaven daabacday.',
         labels: {
           speciesStudied: 'Noocyada La Baaray',
           researchSites: 'Goobaha Cilmi-baarista',
@@ -155,7 +155,7 @@ export default {
         eyebrow: 'Aqoon ilaa Ficil',
         headingLine1: 'Cilmi-baaristu waxay noqotaa ilaalin',
         headingLine2: 'marka ay xeebta gaarto.',
-        subtext: 'Natiijo kastaa waxay si toos ah u gashaa mudnaanaha ilaalinta Blue Ocean, laga bilaabo soo jeedinta aagagga badda ee la ilaaliyo ilaa barnaamijyada ilaalinta ee bulshadu hoggaamiso.',
+        subtext: 'Natiijo kastaa waxay si toos ah u gashaa mudnaanaha ilaalinta Blue Heaven, laga bilaabo soo jeedinta aagagga badda ee la ilaaliyo ilaa barnaamijyada ilaalinta ee bulshadu hoggaamiso.',
         ctaConservation: 'Sahamiso Ilaalinta',
         ctaAllProjects: 'Dhammaan Mashaariicda Cilmi-baarista',
         ctaStatistics: 'Tirakoobka Xeebaha & Badda',

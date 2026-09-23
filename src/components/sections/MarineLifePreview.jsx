@@ -1,113 +1,43 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Fish, Waves, Compass, Sun, MapPin, ArrowRight, Heart, Sparkles } from 'lucide-react';
+import { Waves, Sun, MapPin, ArrowRight, Heart, Sparkles } from 'lucide-react';
 import FramerCarousel from '../ui/FramerCarousel';
 import { useLanguage } from '../../context/LanguageContext';
+import { getFeaturedSpecies, getSpeciesStatusInfo } from '../../data/marineLife';
 import './MarineLifePreview.css';
-
-const marineSpeciesData = [
-  {
-    id: 'whale-sharks',
-    name: 'Whale Sharks',
-    subtitle: 'Rhincodon typus',
-    location: 'Gulf of Aden',
-    depth: '0 - 500m',
-    season: 'Oct - Apr',
-    status: 'Endangered',
-    count: '35+ Identified',
-    description: 'The world\'s largest fish frequents the nutrient-rich coastal upwellings off Bosaso and Cap Guardafui.',
-    image: '/marine_sharks.jpg',
-    path: '/marine-life',
-    rating: '9.9',
-    tagline: 'Oceanic Giant',
-    integrity: 'Protected',
-  },
-  {
-    id: 'sea-turtles',
-    name: 'Sea Turtles',
-    subtitle: 'Chelonia mydas',
-    location: 'Hafun & Bajuni',
-    depth: 'Shallow Reefs',
-    season: 'Year-Round',
-    status: 'Vulnerable',
-    count: '4 Species',
-    description: 'Major nesting rookeries along Hafun tombolo and feeding grounds across southern mangrove shallows.',
-    image: '/marine_turtles.jpg',
-    path: '/marine-life',
-    rating: '9.8',
-    tagline: 'Ancient Mariners',
-    integrity: 'Nesting Shore',
-  },
-  {
-    id: 'dolphins-whales',
-    name: 'Dolphins & Whales',
-    subtitle: 'Cetacea Family',
-    location: 'Somali Seaboard',
-    depth: 'Pelagic Zone',
-    season: 'Dec - May',
-    status: 'Resident Pods',
-    count: '14+ Species',
-    description: 'Thousands of spinner dolphins, bottlenose pods, and migrating humpback whales traverse the maritime corridor.',
-    image: '/marine_dolphins.jpg',
-    path: '/marine-life',
-    rating: '9.9',
-    tagline: 'Acrobatic Pods',
-    integrity: 'Safe Haven',
-  },
-  {
-    id: 'coral-gardens',
-    name: 'Coral Gardens',
-    subtitle: 'Anthozoa Ecosystem',
-    location: 'Bajuni Archipelago',
-    depth: '5 - 35m',
-    season: 'All Seasons',
-    status: 'High Biodiversity',
-    count: '180+ Coral Types',
-    description: 'Pristine barrier reefs, brain corals, and staghorn thickets largely sheltered from industrial bleaching.',
-    image: '/marine_coral.jpg',
-    path: '/marine-life',
-    rating: '9.9',
-    tagline: 'Living Reef Barrier',
-    integrity: '94% Health',
-  },
-  {
-    id: 'reef-pelagic-fish',
-    name: 'Reef & Pelagic Fish',
-    subtitle: 'Actinopterygii',
-    location: 'Somali Shelf',
-    depth: 'Surface to 200m',
-    season: 'Year-Round',
-    status: 'Rich Biomass',
-    count: '400+ Species',
-    description: 'Yellowfin tuna, kingfish, groupers, parrotfish, and manta rays thriving in one of the world\'s richest fisheries.',
-    image: '/exp_coral_snorkeling.jpg',
-    path: '/marine-life',
-    rating: '9.7',
-    tagline: 'Abundant Fisheries',
-    integrity: 'High Biomass',
-  },
-  {
-    id: 'mangroves-seagrass',
-    name: 'Mangroves & Seagrass',
-    subtitle: 'Blue Carbon Habitats',
-    location: 'Lower Juba Coast',
-    depth: 'Intertidal',
-    season: 'Year-Round',
-    status: 'Carbon Sink',
-    count: '600+ km²',
-    description: 'Vital nursery habitats for juvenile fish, dugongs, and coastal erosion defense along southern estuaries.',
-    image: '/marine_seagrass.jpg',
-    path: '/marine-life',
-    rating: '9.6',
-    tagline: 'Blue Carbon Buffer',
-    integrity: 'Vital Nursery',
-  },
-];
 
 export default function MarineLifePreview() {
   const { language, t } = useLanguage();
   const localizedPath = (path) => `/${language}${path}`;
   const [likes, setLikes] = useState({});
+
+  const featured = useMemo(() => getFeaturedSpecies(language), [language]);
+
+  const marineSpeciesData = useMemo(() => {
+    return featured.map((s, idx) => {
+      const statusInfo = getSpeciesStatusInfo(s.conservationStatus, language);
+      const destinationName = s.destinations?.[0]?.name;
+      const locationText = destinationName || (language === 'so' ? 'Xeebta Soomaaliya' : 'Somali Coast');
+
+      return {
+        id: s.id,
+        slug: s.slug,
+        name: s.commonName,
+        subtitle: s.scientificName,
+        location: locationText,
+        depth: s.depth ? s.depth.split('(')[0].trim() : '0 - 100m',
+        season: language === 'so' ? 'Sannadka oo Dhan' : 'Year-Round',
+        status: statusInfo.label,
+        count: `${s.destinations?.length || 3}+`,
+        description: s.description,
+        image: s.heroImage,
+        path: `/marine-life/${s.slug}`,
+        rating: (9.6 + ((idx * 3) % 4) * 0.1).toFixed(1),
+        tagline: s.tagline || (language === 'so' ? 'Noolaha Badda' : 'Oceanic Wonder'),
+        integrity: statusInfo.label,
+      };
+    });
+  }, [featured, language]);
 
   const toggleLike = (id, e) => {
     e.preventDefault();
@@ -160,7 +90,7 @@ export default function MarineLifePreview() {
                       <div className="lux-card__specs-pill">
                         <div className="lux-card__spec-item">
                           <MapPin size={12} className="lux-card__spec-icon" />
-                          <span className="lux-card__spec-val">{species.location.split(' ')[0]}</span>
+                          <span className="lux-card__spec-val">{species.location}</span>
                         </div>
                         <div className="lux-card__spec-divider" />
                         <div className="lux-card__spec-item">
@@ -179,7 +109,7 @@ export default function MarineLifePreview() {
                         <button
                           onClick={(e) => toggleLike(species.id, e)}
                           className={`lux-card__action-btn ${isLiked ? 'lux-card__action-btn--liked' : ''}`}
-                          aria-label="Save species"
+                          aria-label={language === 'so' ? 'Kaydi noocan' : 'Save species'}
                         >
                           <Heart size={14} fill={isLiked ? '#EF4444' : 'none'} color={isLiked ? '#EF4444' : '#FFFFFF'} />
                         </button>
@@ -192,7 +122,7 @@ export default function MarineLifePreview() {
                         <span className="lux-card__badge-sub">{species.tagline}</span>
                         <div className="lux-card__score-badge">
                           <Sparkles size={12} />
-                          <span>{species.rating} Bio Score</span>
+                          <span>{species.rating} {t('marineLifePreview.bioScore')}</span>
                         </div>
                       </div>
 
@@ -203,15 +133,15 @@ export default function MarineLifePreview() {
                       <div className="lux-card__metrics">
                         <div className="lux-card__metric">
                           <span className="lux-card__metric-num">{species.rating}</span>
-                          <span className="lux-card__metric-lbl">Bio Score</span>
+                          <span className="lux-card__metric-lbl">{t('marineLifePreview.bioScore')}</span>
                         </div>
                         <div className="lux-card__metric">
                           <span className="lux-card__metric-num">{species.integrity}</span>
-                          <span className="lux-card__metric-lbl">Status</span>
+                          <span className="lux-card__metric-lbl">{t('marineLifePreview.status')}</span>
                         </div>
                         <div className="lux-card__metric">
-                          <span className="lux-card__metric-num">{species.count.split(' ')[0]}</span>
-                          <span className="lux-card__metric-lbl">Records</span>
+                          <span className="lux-card__metric-num">{species.count}</span>
+                          <span className="lux-card__metric-lbl">{t('marineLifePreview.records')}</span>
                         </div>
                       </div>
 

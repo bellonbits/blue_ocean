@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getDestinationPhotos } from '../../lib/contentApi';
 
 // Real destination photography, Google Places first, falling back to
-// Blue Ocean's own local image — per Blue Ocean's chosen fallback order:
+// Blue Heaven's own local image — per Blue Heaven's chosen fallback order:
 //
 //   Google Places photo available → use it
 //   otherwise                     → use fallbackSrc (local image/placeholder)

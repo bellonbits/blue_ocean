@@ -3,7 +3,7 @@ import { listSavedItems, toggleSavedItem as apiToggleSavedItem } from '../lib/da
 
 const AuthContext = createContext(null);
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/api\/v1\/?$/, '');
 
 const savedKey = (contentType, contentSlug) => `${contentType}:${contentSlug}`;
 

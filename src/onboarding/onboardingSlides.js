@@ -2,8 +2,8 @@ export const onboardingSlides = [
   {
     id: 'welcome',
     image: '/hero_ocean.jpg',
-    eyebrow: 'Blue Ocean Somalia',
-    title: "Discover Somalia's\nBlue Ocean",
+    eyebrow: 'Blue Heaven Somalia',
+    title: "Discover Somalia's\nBlue Heaven",
     body: "Exploring, researching, and protecting one of Africa's most remarkable marine environments — from Puntland to Jubaland.",
   },
   {

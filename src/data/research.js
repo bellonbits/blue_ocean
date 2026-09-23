@@ -1,9 +1,9 @@
 // =========================================================
 // Research & Scientific Discovery Data Model
-// Blue Ocean Somalia — Sprint 4: Research
+// Blue Heaven Somalia — Sprint 4: Research
 //
 // Research team & report content is intentionally institutional
-// (e.g. "Blue Ocean Fisheries Science Team") rather than named
+// (e.g. "Blue Heaven Fisheries Science Team") rather than named
 // individuals — no real researcher photos/bios exist yet. Reports
 // ship with status: 'coming-soon' since no publishable documents
 // exist yet — do not add live PDF links until real files exist.
@@ -252,8 +252,8 @@ const rawProjects = [
     ],
     methodology: ['acoustic-monitoring', 'photography', 'field-surveys', 'geographic-mapping'],
     findings: [
-      { title: 'Resident pod confirmed year-round', description: 'Acoustic and visual survey data confirm a resident bottlenose dolphin pod present in the Bosaso corridor across all four survey seasons to date.', source: 'Blue Ocean Cetacean Research Unit, 2024–2025 Field Seasons' },
-      { title: 'Seasonal spinner dolphin aggregations', description: 'Larger spinner dolphin aggregations were recorded between October and May, coinciding with the northeast monsoon period.', source: 'Blue Ocean Cetacean Research Unit, 2025 Season Summary' },
+      { title: 'Resident pod confirmed year-round', description: 'Acoustic and visual survey data confirm a resident bottlenose dolphin pod present in the Bosaso corridor across all four survey seasons to date.', source: 'Blue Heaven Cetacean Research Unit, 2024–2025 Field Seasons' },
+      { title: 'Seasonal spinner dolphin aggregations', description: 'Larger spinner dolphin aggregations were recorded between October and May, coinciding with the northeast monsoon period.', source: 'Blue Heaven Cetacean Research Unit, 2025 Season Summary' },
     ],
     speciesSlugs: ['bottlenose-dolphin'],
     destinationSlugs: ['bosaso', 'kismayo', 'qandala'],
@@ -281,8 +281,8 @@ const rawProjects = [
           'In la dhiso diiwaan sawir-aqoonsi ah oo ay ku jiraan xubnaha guutada ee si gaar ah loo aqoonsan karo.',
         ],
         findings: [
-          { title: 'La xaqiijiyay guuto joogto ah oo sanadka oo dhan jirta', description: 'Xogta sahanka dhawaaqa iyo aragtida ayaa xaqiijisay in guuto dhurwaag bottlenose ah oo joogto ah ay ku sugan tahay marinka Boosaaso xilliyada afarta sahan ee la sameeyay ilaa hadda.', source: 'Blue Ocean Cetacean Research Unit, 2024–2025 Field Seasons' },
-          { title: 'Isu-imaatinka xilliyeed ee dhurwaagyada spinner', description: 'Isu-imaatimo waaweyn oo dhurwaag spinner ah ayaa la diiwaan geliyay bishii Oktoobar ilaa Maajo, taasoo la mid ah xilliga dabaysha waqooyi-bari.', source: 'Blue Ocean Cetacean Research Unit, 2025 Season Summary' },
+          { title: 'La xaqiijiyay guuto joogto ah oo sanadka oo dhan jirta', description: 'Xogta sahanka dhawaaqa iyo aragtida ayaa xaqiijisay in guuto dhurwaag bottlenose ah oo joogto ah ay ku sugan tahay marinka Boosaaso xilliyada afarta sahan ee la sameeyay ilaa hadda.', source: 'Blue Heaven Cetacean Research Unit, 2024–2025 Field Seasons' },
+          { title: 'Isu-imaatinka xilliyeed ee dhurwaagyada spinner', description: 'Isu-imaatimo waaweyn oo dhurwaag spinner ah ayaa la diiwaan geliyay bishii Oktoobar ilaa Maajo, taasoo la mid ah xilliga dabaysha waqooyi-bari.', source: 'Blue Heaven Cetacean Research Unit, 2025 Season Summary' },
         ],
         conservationThemes: ['Wuxuu si toos ah u gelayaa hindisaha Marino Ammaan ah ee U-guuritaanka Xayawaanka Badda'],
       },
@@ -317,7 +317,7 @@ const rawProjects = [
     ],
     methodology: ['acoustic-monitoring', 'geographic-mapping'],
     findings: [
-      { title: 'Peak vocal activity in winter months', description: 'Hydrophone data show a marked increase in humpback whale vocal activity between December and February, consistent with the northern migration window.', source: 'Blue Ocean Cetacean Research Unit, 2025 Acoustic Summary' },
+      { title: 'Peak vocal activity in winter months', description: 'Hydrophone data show a marked increase in humpback whale vocal activity between December and February, consistent with the northern migration window.', source: 'Blue Heaven Cetacean Research Unit, 2025 Acoustic Summary' },
     ],
     speciesSlugs: ['humpback-whale'],
     destinationSlugs: ['eyl', 'bosaso', 'hafun'],
@@ -345,7 +345,7 @@ const rawProjects = [
           'In la dhiso xog aasaasi ah oo loogu talagalay qiimaynta halista kubaneysiga markabka ee mustaqbalka.',
         ],
         findings: [
-          { title: 'Dhaqdhaqaaqa codka ugu sarreeya xilliga qabowga', description: 'Xogta hydrophone-ku waxay muujinaysaa kordhin muuqata oo dhaqdhaqaaqa codka nibiriga kubaneed ah oo dhex maray Diseembar iyo Febraayo, taasoo la mid ah xilliga u-guuritaanka waqooyi.', source: 'Blue Ocean Cetacean Research Unit, 2025 Acoustic Summary' },
+          { title: 'Dhaqdhaqaaqa codka ugu sarreeya xilliga qabowga', description: 'Xogta hydrophone-ku waxay muujinaysaa kordhin muuqata oo dhaqdhaqaaqa codka nibiriga kubaneed ah oo dhex maray Diseembar iyo Febraayo, taasoo la mid ah xilliga u-guuritaanka waqooyi.', source: 'Blue Heaven Cetacean Research Unit, 2025 Acoustic Summary' },
         ],
         conservationThemes: ['Wuxuu taageerayaa Nidaamka Talobixinta Isku-dhaca Nibiriga ee Jidka Badda'],
       },
@@ -380,8 +380,8 @@ const rawProjects = [
     ],
     methodology: ['photography', 'species-identification', 'geographic-mapping'],
     findings: [
-      { title: 'Multi-month residency confirmed', description: 'Tagged individuals showed residency periods of up to four months within the Guardafui upwelling zone before departing on longer pelagic transits.', source: 'Blue Ocean Elasmobranch Research Unit, 2024 Tagging Report' },
-      { title: 'Feeding aggregation peaks December–April', description: 'Sighting frequency data confirm the strongest feeding aggregations occur between December and April, aligned with peak plankton bloom.', source: 'Blue Ocean Elasmobranch Research Unit, 2024–2025 Season Summary' },
+      { title: 'Multi-month residency confirmed', description: 'Tagged individuals showed residency periods of up to four months within the Guardafui upwelling zone before departing on longer pelagic transits.', source: 'Blue Heaven Elasmobranch Research Unit, 2024 Tagging Report' },
+      { title: 'Feeding aggregation peaks December–April', description: 'Sighting frequency data confirm the strongest feeding aggregations occur between December and April, aligned with peak plankton bloom.', source: 'Blue Heaven Elasmobranch Research Unit, 2024–2025 Season Summary' },
     ],
     speciesSlugs: ['whale-shark'],
     destinationSlugs: ['bosaso', 'hafun', 'bargaal'],
@@ -409,8 +409,8 @@ const rawProjects = [
           'In xogta calaamadaynta lala wadaago shabakadaha cilmi-baarista sharka nibiriga ee gobolka.',
         ],
         findings: [
-          { title: 'La xaqiijiyay joogitaan dhawr bilood ah', description: 'Shakhsiyaadka la calaamadeeyay waxay muujiyeen muddo joogitaan ah oo gaaraysa afar bilood gudaha aagga kacsanaanta Guardafui ka hor intaanay ka bixin socdaal badweyn oo dheer.', source: 'Blue Ocean Elasmobranch Research Unit, 2024 Tagging Report' },
-          { title: 'Isu-imaatinka wax-cunista ayaa sare u kaca Diseembar–Abriil', description: 'Xogta soo-aragga ayaa xaqiijisay in isu-imaatimada ugu xoogga badan ay dhacaan Diseembar ilaa Abriil, taasoo la mid ah xilliga ugu sarreeya ee kobaca plankton-ka.', source: 'Blue Ocean Elasmobranch Research Unit, 2024–2025 Season Summary' },
+          { title: 'La xaqiijiyay joogitaan dhawr bilood ah', description: 'Shakhsiyaadka la calaamadeeyay waxay muujiyeen muddo joogitaan ah oo gaaraysa afar bilood gudaha aagga kacsanaanta Guardafui ka hor intaanay ka bixin socdaal badweyn oo dheer.', source: 'Blue Heaven Elasmobranch Research Unit, 2024 Tagging Report' },
+          { title: 'Isu-imaatinka wax-cunista ayaa sare u kaca Diseembar–Abriil', description: 'Xogta soo-aragga ayaa xaqiijisay in isu-imaatimada ugu xoogga badan ay dhacaan Diseembar ilaa Abriil, taasoo la mid ah xilliga ugu sarreeya ee kobaca plankton-ka.', source: 'Blue Heaven Elasmobranch Research Unit, 2024–2025 Season Summary' },
         ],
         conservationThemes: ['Wuxuu taageerayaa Hindisaha Ilaalinta Elasmobranch-ka ee Geeska Afrika'],
       },
@@ -503,7 +503,7 @@ const rawProjects = [
     ],
     methodology: ['field-surveys', 'species-identification', 'geographic-mapping', 'community-knowledge'],
     findings: [
-      { title: 'Two-rookery migratory link confirmed', description: 'Satellite tracks confirm individual turtles moving between the Hafun and Bajuni rookeries within a single nesting season, suggesting a shared regional population.', source: 'Blue Ocean Sea Turtle Research Unit, 2025 Telemetry Report' },
+      { title: 'Two-rookery migratory link confirmed', description: 'Satellite tracks confirm individual turtles moving between the Hafun and Bajuni rookeries within a single nesting season, suggesting a shared regional population.', source: 'Blue Heaven Sea Turtle Research Unit, 2025 Telemetry Report' },
     ],
     speciesSlugs: ['green-sea-turtle', 'hawksbill-turtle'],
     destinationSlugs: ['hafun', 'kismayo', 'eyl'],
@@ -531,7 +531,7 @@ const rawProjects = [
           'In la tababaro ilaaliyayaasha xeebaha ee bulshada hab-raacyada la socodka ugxanta.',
         ],
         findings: [
-          { title: 'La xaqiijiyay xiriirka u-guuritaanka labada goobood', description: 'Raadraacyada dayax-gacmeed waxay xaqiijinayaan in shakhsiyaad diin ah ay u dhaqaaqaan inta u dhaxaysa Hafun iyo Baajuni xilli ugxan hal ah gudahiis, taasoo soo jeedinaysa dad-weyne gobol oo la wadaago.', source: 'Blue Ocean Sea Turtle Research Unit, 2025 Telemetry Report' },
+          { title: 'La xaqiijiyay xiriirka u-guuritaanka labada goobood', description: 'Raadraacyada dayax-gacmeed waxay xaqiijinayaan in shakhsiyaad diin ah ay u dhaqaaqaan inta u dhaxaysa Hafun iyo Baajuni xilli ugxan hal ah gudahiis, taasoo soo jeedinaysa dad-weyne gobol oo la wadaago.', source: 'Blue Heaven Sea Turtle Research Unit, 2025 Telemetry Report' },
         ],
         conservationThemes: ['Wuxuu si toos ah u taageerayaa Barnaamijka Ilaalinta Ugxanta ee Ilaaliyayaasha Xeebaha Bulshada'],
       },
@@ -566,7 +566,7 @@ const rawProjects = [
     ],
     methodology: ['fisheries-data', 'species-identification', 'community-knowledge'],
     findings: [
-      { title: 'Stock within sustainable range', description: 'Biomass estimates place the Somali EEZ yellowfin tuna stock within a sustainable range as of the 2025 assessment, though monitoring is recommended given regional fishing pressure.', source: 'Blue Ocean Fisheries Science Team, Published Stock Assessment, 2025' },
+      { title: 'Stock within sustainable range', description: 'Biomass estimates place the Somali EEZ yellowfin tuna stock within a sustainable range as of the 2025 assessment, though monitoring is recommended given regional fishing pressure.', source: 'Blue Heaven Fisheries Science Team, Published Stock Assessment, 2025' },
     ],
     speciesSlugs: ['yellowfin-tuna'],
     destinationSlugs: ['bosaso', 'bargaal', 'kismayo'],
@@ -594,7 +594,7 @@ const rawProjects = [
           'In natiijooyinka la daabaco si loo wax ku baro siyaasadda xaddidaadda qabashada ee waara.',
         ],
         findings: [
-          { title: 'Kayd ku dhex jira heer waara', description: 'Qiyaasyada baayoomaska waxay dhigayaan kaydka tuna-ga huruudda ah ee EEZ Soomaaliya heer waara sida ay ahayd qiimaynta 2025, in kasta oo la soo jeedinayo in la sii socodsiiyo la socodka marka la eego cadaadiska kalluumeysiga gobolka.', source: 'Blue Ocean Fisheries Science Team, Published Stock Assessment, 2025' },
+          { title: 'Kayd ku dhex jira heer waara', description: 'Qiyaasyada baayoomaska waxay dhigayaan kaydka tuna-ga huruudda ah ee EEZ Soomaaliya heer waara sida ay ahayd qiimaynta 2025, in kasta oo la soo jeedinayo in la sii socodsiiyo la socodka marka la eego cadaadiska kalluumeysiga gobolka.', source: 'Blue Heaven Fisheries Science Team, Published Stock Assessment, 2025' },
         ],
         conservationThemes: ['Wuxuu saldhig u yahay Shahaadada Ganacsiga Cadaaladda ah ee Kalluumeysiga Gacanta ee Kalluumeysatada Soomaaliyeed'],
       },
@@ -629,7 +629,7 @@ const rawProjects = [
     ],
     methodology: ['underwater-surveys', 'fisheries-data', 'community-knowledge'],
     findings: [
-      { title: 'Seasonal closure recommendation adopted', description: 'Study findings informed a community-adopted closed season for egg-bearing females, now observed by participating Puntland fishing cooperatives.', source: 'Blue Ocean Fisheries Science Team, Final Study Report, 2024' },
+      { title: 'Seasonal closure recommendation adopted', description: 'Study findings informed a community-adopted closed season for egg-bearing females, now observed by participating Puntland fishing cooperatives.', source: 'Blue Heaven Fisheries Science Team, Final Study Report, 2024' },
     ],
     speciesSlugs: ['spiny-lobster'],
     destinationSlugs: ['eyl', 'bargaal', 'hafun'],
@@ -657,7 +657,7 @@ const rawProjects = [
           'In la soo jeediyo waqtiyada xannibaadda xilliyeed ee waara.',
         ],
         findings: [
-          { title: 'Talooyinka xannibaadda xilliyeed ayaa la aqbalay', description: 'Natiijooyinka daraasadda waxay wax ku baraan xannibaad xilliyeed oo bulshadu aqbashay oo loogu talagalay dhaddigyada sita ugxanta, oo hadda ay dhawraan iskaashatooyinka kalluumeysiga Puntland ee ka qaybqaataya.', source: 'Blue Ocean Fisheries Science Team, Final Study Report, 2024' },
+          { title: 'Talooyinka xannibaadda xilliyeed ayaa la aqbalay', description: 'Natiijooyinka daraasadda waxay wax ku baraan xannibaad xilliyeed oo bulshadu aqbashay oo loogu talagalay dhaddigyada sita ugxanta, oo hadda ay dhawraan iskaashatooyinka kalluumeysiga Puntland ee ka qaybqaataya.', source: 'Blue Heaven Fisheries Science Team, Final Study Report, 2024' },
         ],
         conservationThemes: ['Wuxuu aasaas u yahay Heshiiska Sii-deynta Dhaddigyada Ugxanta Sita & Xaddidaadda Cabbirka ee Bulshada'],
       },
@@ -692,7 +692,7 @@ const rawProjects = [
     ],
     methodology: ['underwater-surveys', 'species-identification', 'water-sampling', 'geographic-mapping'],
     findings: [
-      { title: 'Resilient genotype cluster identified', description: 'Preliminary genotyping identified a cluster of Acropora colonies in the Qandala patch reefs with elevated thermal tolerance relative to Bajuni samples.', source: 'Blue Ocean Coral Reef Research Unit, 2025 Interim Report' },
+      { title: 'Resilient genotype cluster identified', description: 'Preliminary genotyping identified a cluster of Acropora colonies in the Qandala patch reefs with elevated thermal tolerance relative to Bajuni samples.', source: 'Blue Heaven Coral Reef Research Unit, 2025 Interim Report' },
     ],
     speciesSlugs: ['acropora-coral'],
     destinationSlugs: ['kismayo', 'qandala', 'bosaso'],
@@ -720,7 +720,7 @@ const rawProjects = [
           'In la aasaaso kayd hidde-side oo loogu talagalay nurserida dib-u-celinta ee mustaqbalka.',
         ],
         findings: [
-          { title: 'La aqoonsaday koox hidde-side oo adkaysan', description: 'Hidde-sidaynta hordhaca ahi waxay aqoonsatay koox ka mid ah bulshooyinka Acropora ee jiirarka Qandala oo leh u-adkaysi kulayl oo sare marka loo eego muunadaha Baajuni.', source: 'Blue Ocean Coral Reef Research Unit, 2025 Interim Report' },
+          { title: 'La aqoonsaday koox hidde-side oo adkaysan', description: 'Hidde-sidaynta hordhaca ahi waxay aqoonsatay koox ka mid ah bulshooyinka Acropora ee jiirarka Qandala oo leh u-adkaysi kulayl oo sare marka loo eego muunadaha Baajuni.', source: 'Blue Heaven Coral Reef Research Unit, 2025 Interim Report' },
         ],
         conservationThemes: ['Wuxuu wax ku baraa Qaabdhismeedka Aagagga Ilaalinta Badda (MPA) Soomaaliyeed & Qeybinta Jiirifka'],
       },
@@ -813,7 +813,7 @@ const rawProjects = [
     ],
     methodology: ['geographic-mapping', 'species-identification', 'community-knowledge'],
     findings: [
-      { title: 'Small resident population confirmed', description: 'Aerial survey data confirm a small, resident dugong population using the Bajuni seagrass channels year-round, among the last known strongholds in East Africa.', source: 'Blue Ocean Marine Biodiversity Unit, 2025 Drone Survey Report' },
+      { title: 'Small resident population confirmed', description: 'Aerial survey data confirm a small, resident dugong population using the Bajuni seagrass channels year-round, among the last known strongholds in East Africa.', source: 'Blue Heaven Marine Biodiversity Unit, 2025 Drone Survey Report' },
     ],
     speciesSlugs: ['dugong'],
     destinationSlugs: ['kismayo'],
@@ -841,7 +841,7 @@ const rawProjects = [
           'In la aqoonsado aagagga mudnaanta ilaalinta deegaanka dugongyada.',
         ],
         findings: [
-          { title: 'La xaqiijiyay dad-weyne yar oo joogto ah', description: 'Xogta sahanka hawada ayaa xaqiijinaysa dad-weyne dugong ah oo yar oo joogto ah kana isticmaalaya kanaalada doogga badda ee Baajuni sanadka oo dhan, oo ka mid ah kaladii ugu dambeeyay ee la yaqaan ee Bariga Afrika.', source: 'Blue Ocean Marine Biodiversity Unit, 2025 Drone Survey Report' },
+          { title: 'La xaqiijiyay dad-weyne yar oo joogto ah', description: 'Xogta sahanka hawada ayaa xaqiijinaysa dad-weyne dugong ah oo yar oo joogto ah kana isticmaalaya kanaalada doogga badda ee Baajuni sanadka oo dhan, oo ka mid ah kaladii ugu dambeeyay ee la yaqaan ee Bariga Afrika.', source: 'Blue Heaven Marine Biodiversity Unit, 2025 Drone Survey Report' },
         ],
         conservationThemes: ['Wuxuu taageerayaa Marinada Ilaalinta ee Aan Shabag-Toos Lahayn ee Sirenians-ka Soomaaliyeed'],
       },
@@ -876,7 +876,7 @@ const rawProjects = [
     ],
     methodology: ['field-surveys', 'water-sampling', 'community-knowledge'],
     findings: [
-      { title: 'Land-based debris dominant', description: 'Debris composition surveys found land-based sources — packaging and household waste — to be the dominant contributor at both survey sites, ahead of fishing-gear debris.', source: 'Blue Ocean Pollution & Water Quality Team, 2025 Survey Summary' },
+      { title: 'Land-based debris dominant', description: 'Debris composition surveys found land-based sources — packaging and household waste — to be the dominant contributor at both survey sites, ahead of fishing-gear debris.', source: 'Blue Heaven Pollution & Water Quality Team, 2025 Survey Summary' },
     ],
     speciesSlugs: [],
     destinationSlugs: ['kismayo', 'liido-beach'],
@@ -904,7 +904,7 @@ const rawProjects = [
           'In la tababaro mutadawiciinta bulshada hab-raac la socod oo dib loo celin karo.',
         ],
         findings: [
-          { title: 'Qashinka dhulka ka yimid ayaa ugu badan', description: 'Sahannada qaybinta qashinka waxay heleen in ilaha dhulka ka yimid — baakadaha iyo qashinka guryaha — ay yihiin kuwa ugu waxqabadka badan ee labada goob, kuwaas oo ka horreeya qashinka qalabka kalluumeysiga.', source: 'Blue Ocean Pollution & Water Quality Team, 2025 Survey Summary' },
+          { title: 'Qashinka dhulka ka yimid ayaa ugu badan', description: 'Sahannada qaybinta qashinka waxay heleen in ilaha dhulka ka yimid — baakadaha iyo qashinka guryaha — ay yihiin kuwa ugu waxqabadka badan ee labada goob, kuwaas oo ka horreeya qashinka qalabka kalluumeysiga.', source: 'Blue Heaven Pollution & Water Quality Team, 2025 Survey Summary' },
         ],
         conservationThemes: ['Wuxuu si toos ah u helaa kheyraadka iskaashiga nadiifinta xeebaha ee bulshada'],
       },
@@ -942,7 +942,7 @@ const rawProjects = [
     speciesSlugs: [],
     destinationSlugs: ['mogadishu', 'liido-beach'],
     researchTeamSlug: 'pollution-water-quality-team',
-    conservationThemes: ['Informs Blue Ocean’s public coastal health guidance'],
+    conservationThemes: ['Informs Blue Heaven’s public coastal health guidance'],
     featured: false,
     translations: {
       so: {
@@ -964,7 +964,7 @@ const rawProjects = [
           'In la calaamadeeyo wax-ka-baxsan oo tilmaamaya wasakhowga ama daadinta biyaha.',
           'In natiijooyinka lala wadaago xiriirka caafimaadka bulshada iyo kalluumeysiga.',
         ],
-        conservationThemes: ['Wuxuu wax ku baraa hagitaanka caafimaadka xeebaha ee Blue Ocean bulshada'],
+        conservationThemes: ['Wuxuu wax ku baraa hagitaanka caafimaadka xeebaha ee Blue Heaven bulshada'],
       },
     },
   },
@@ -1179,7 +1179,7 @@ function resolveSpecies(slugs = []) {
     }));
 }
 
-const DEFAULT_TEAM_NAME = { en: 'Blue Ocean Research Team', so: 'Kooxda Cilmi-baarista Blue Ocean' };
+const DEFAULT_TEAM_NAME = { en: 'Blue Heaven Research Team', so: 'Kooxda Cilmi-baarista Blue Heaven' };
 const REPORT_TITLE_SUFFIX = { en: 'Progress Summary', so: 'Soo Koobka Horumarka' };
 
 // --- Language-aware builders ------------------------------------------

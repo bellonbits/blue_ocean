@@ -1,5 +1,5 @@
 ================================================================================
-BLUE OCEAN — DEPLOYMENT STATUS & WHAT WAS DONE TODAY
+BLUE HEAVEN — DEPLOYMENT STATUS & WHAT WAS DONE TODAY
 2026-09-02
 ================================================================================
 
@@ -8,7 +8,7 @@ PART 1 — DEPLOYMENT: WHAT'S NEEDED FROM YOUR SIDE
 
 THE HEADLINE ISSUE
 -------------------
-The live site (blueoceansomalia.vercel.app) only has its FRONTEND deployed.
+The live site (blueheavensomalia.vercel.app) only has its FRONTEND deployed.
 The backend (the API that serves destinations, handles the contact form,
 logins, and the admin panel) currently only runs on a local development
 machine — it is NOT reachable from the internet.
@@ -45,7 +45,7 @@ WHAT NEEDS TO HAPPEN
                                one). Generate with:
                                python3 -c "import secrets; print(secrets.token_urlsafe(48))"
      - CORS_ORIGINS         → the live frontend's URL
-                               (https://blueoceansomalia.vercel.app, plus
+                               (https://blueheavensomalia.vercel.app, plus
                                any custom domain)
      - GOOGLE_PLACES_API_KEY → optional, only needed if you want the
                                "real photo from Google Places" feature
@@ -94,7 +94,7 @@ Once a backend URL exists and is reachable, tell Claude and the rest
 (env var in Vercel, verifying the live site) can be wired up in minutes.
 
 ================================================================================
-PART 2 — WHAT WAS DONE TODAY ON BLUE OCEAN
+PART 2 — WHAT WAS DONE TODAY ON BLUE HEAVEN
 ================================================================================
 
 CHAT ASSISTANT
@@ -188,10 +188,10 @@ NOT DONE — FEATURES
   in the admin (the database relation exists, just isn't in the form),
   no available-spaces field, no price field, and no Apply/Join flow or
   application-review admin screen at all.
-- "Latest from Blue Ocean" homepage section — doesn't exist yet.
+- "Latest from Blue Heaven" homepage section — doesn't exist yet.
 - Social media links (Instagram, TikTok, Facebook, YouTube, LinkedIn, X)
   point to placeholder URLs (instagram.com, facebook.com, etc.), not
-  Blue Ocean's real accounts. No admin settings panel to manage them —
+  Blue Heaven's real accounts. No admin settings panel to manage them —
   currently hardcoded in the frontend.
 - Bajuni Islands destination still uses a stock photo — no real photos
   were supplied for it in today's batch.

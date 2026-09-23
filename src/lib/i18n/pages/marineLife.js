@@ -78,7 +78,7 @@ export default {
       hero: {
         heading: 'Nolosha ku taal',
         headingAccent: 'hoosta badda.',
-        subtext: 'Ogow noocyada nolosha badda iyo nidaamyada deegaanka xeebta ee ka dhigaya xuduudda badda ee Soomaaliya, oo dhererkeedu gaadhayo 3,025 km, mid gaar ah, laga bilaabo xayawaanka waaweyn ee nabdoon ee badda ilaa reefyada murjaanka ee nadiifka ah.',
+        subtext: 'Ogow noocyada nolosha badda iyo nidaamyada deegaanka xeebaha ee ka dhigaya xuduudda badda ee Soomaaliya, oo dhererkeedu gaadhayo 3,025 km, mid gaar ah — laga bilaabo xayawaanka waaweyn ee nabadgelya badda ilaa dhagax-mareennada murjaanka ee nadiifka ah.',
         ctaPrimary: 'Sahamiso Liiska Noocyada',
         ctaSecondary: 'Sahamiso Nidaamyada Deegaanka',
       },
@@ -117,7 +117,7 @@ export default {
         heading: 'Nidaamyada Deegaanka Badda ee Nool ee Soomaaliya',
         subheading: 'Laga bilaabo xeryaha murjaanka ee tamarta sarreysa iyo berrooyinka caws-badeedka ee ballaaran, ilaa godadka badda ee ugu wax-soo-saarka badan Adduunka ee ku yaal Geeska Afrika.',
         keyZonesLabel: 'Aagagga Muhiimka ah:',
-        supportedLabel: 'La Taageeray:',
+        supportedLabel: 'Noocyada Ku Tiirsan:',
       },
       speciesGrid: {
         filtersButton: 'Shaandhayaal',
@@ -129,7 +129,7 @@ export default {
         categoryLabel: 'Qaybta',
         habitatLabel: 'Deegaanka',
         statusLabel: 'Xaaladda',
-        clearAll: 'Nadiifi dhammaan',
+        clearAll: 'Tirtir dhammaan',
         emptyTitle: 'Ma jiro nooc la mid ah shuruudahaaga',
         emptyDesc: 'Isku day inaad raadiso erayo kale oo Soomaali ah ama cilmi ah, ama dib-u-deji shaandhooyinka kala sooca iyo xaaladda.',
         resetFilters: 'Dib-u-deji Dhammaan Shaandhooyinka',

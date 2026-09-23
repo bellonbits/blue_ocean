@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, MapPin, Compass, Waves } from 'lucide-react';
 import PlaceImage from '../shared/PlaceImage';
+import { useLanguage } from '../../context/LanguageContext';
 import './DestinationHero.css';
 
 export default function DestinationHero({ destination }) {
+  const { language } = useLanguage();
+  const localizedPath = (path) => `/${language}${path}`;
+
   return (
     <section className="dest-hero" aria-label={`Destination ${destination.name}`}>
       {/* Background Photography */}
@@ -22,9 +26,9 @@ export default function DestinationHero({ destination }) {
       <div className="container dest-hero__container">
         {/* Breadcrumb / Back Link */}
         <div className="dest-hero__back anim-slide-up">
-          <Link to="/explore-the-coast" className="dest-hero__back-link">
+          <Link to={localizedPath('/explore-the-coast')} className="dest-hero__back-link">
             <ArrowLeft size={16} />
-            <span>Explore Somalia's Coast</span>
+            <span>{language === 'so' ? 'Sahamiso Xeebta Soomaaliya' : "Explore Somalia's Coast"}</span>
           </Link>
         </div>
 

@@ -8,7 +8,7 @@ export default function TourismHero() {
   const localizedPath = (path) => `/${language}${path}`;
 
   return (
-    <section className="exp-hero" aria-label="Tourism — Blue Ocean Somalia">
+    <section className="exp-hero" aria-label="Tourism — Blue Heaven Somalia">
       <div className="exp-hero__media" aria-hidden="true">
         <img src="/somalia_coast.jpg" alt="Somalia's coastline meeting the Indian Ocean" className="exp-hero__img" />
         <div className="exp-hero__overlay" />

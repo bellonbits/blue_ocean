@@ -1,6 +1,6 @@
 // =========================================================
-// Organization Data Model — About Blue Ocean
-// Blue Ocean Somalia — Sprint 7: News, About & Contact
+// Organization Data Model — About Blue Heaven
+// Blue Heaven Somalia — Sprint 7: News, About & Contact
 //
 // Team profiles intentionally reuse the institutional research units
 // from research.js (see getAllTeams) rather than introducing a
@@ -12,16 +12,16 @@
 import { localize } from '../lib/i18n/localizeData.js';
 
 export const organization = {
-  name: 'Blue Ocean Somalia',
+  name: 'Blue Heaven Somalia',
   mission: {
     statement: "To explore, study, protect, and share Somalia's marine environment with the world.",
     description:
-      'Blue Ocean exists to explore Somalia\'s marine environment, study it with scientific rigor, protect it in partnership with the communities who depend on it, and share what we learn openly — because a coastline this significant deserves to be known, not just guarded.',
+      'Blue Heaven exists to explore Somalia\'s marine environment, study it with scientific rigor, protect it in partnership with the communities who depend on it, and share what we learn openly — because a coastline this significant deserves to be known, not just guarded.',
     translations: {
       so: {
         statement: 'In la sahamiyo, la barto, la ilaaliyo, oo aduunka lala wadaago deegaanka badda Soomaaliya.',
         description:
-          'Blue Ocean waxay u taagan tahay in la sahamiyo deegaanka badda Soomaaliya, si cilmi ah loo baaro, lala ilaaliyo bulshooyinka ku tiirsan, oo si furan loola wadaago waxa la baranayo — sababtoo ah xeeb muhiimad leh sida tan way u baahan tahay in la yaqaano, ee aanay ahayn in la ilaaliyo oo keliya.',
+          'Blue Heaven waxay u taagan tahay in la sahamiyo deegaanka badda Soomaaliya, si cilmi ah loo baaro, lala ilaaliyo bulshooyinka ku tiirsan, oo si furan loola wadaago waxa la baranayo — sababtoo ah xeeb muhiimad leh sida tan way u baahan tahay in la yaqaano, ee aanay ahayn in la ilaaliyo oo keliya.',
       },
     },
   },
@@ -40,14 +40,14 @@ export const organization = {
   story: {
     intro: 'We believe you cannot protect what you do not understand.',
     paragraphs: [
-      'Blue Ocean began with a simple observation: Somalia holds the longest coastline in mainland Africa — 3,025 kilometers — and one of its least studied. Decades of instability left a scientific gap most neighboring countries closed long ago, even as the reefs, fisheries, and coastal communities along this coast kept going.',
+      'Blue Heaven began with a simple observation: Somalia holds the longest coastline in mainland Africa — 3,025 kilometers — and one of its least studied. Decades of instability left a scientific gap most neighboring countries closed long ago, even as the reefs, fisheries, and coastal communities along this coast kept going.',
       'We started as a small field research effort and grew into an organization spanning exploration, science, conservation, and community partnership — not because those are separate missions, but because none of them works without the others. Research without conservation is just documentation. Conservation without communities doesn\'t last. And none of it means much if nobody outside the field team ever hears about it.',
     ],
     translations: {
       so: {
         intro: 'Waxaan aaminsanahay in aan la ilaalin karin waxaad garanayn.',
         paragraphs: [
-          'Blue Ocean waxay ka bilaabatay fiiro fudud: Soomaaliya waxay leedahay xeebta ugu dheer Afrika dhulka weyn — 3,025 kilomitir — waxayna ka mid tahay tan ugu yar ee cilmi-ahaan lagu baaray. Tobanaan sano oo xasilloonida la\'aan ah ayaa keenay farac cilmiyeed oo ay dalalka deriska ahi horay u xirteen, inkastoo geedaha murjaanka, kalluumaysiga, iyo bulshooyinka xeebaha ay sii wadeen.',
+          'Blue Heaven waxay ka bilaabatay fiiro fudud: Soomaaliya waxay leedahay xeebta ugu dheer Afrika dhulka weyn — 3,025 kilomitir — waxayna ka mid tahay tan ugu yar ee cilmi-ahaan lagu baaray. Tobanaan sano oo xasilloonida la\'aan ah ayaa keenay farac cilmiyeed oo ay dalalka deriska ahi horay u xirteen, inkastoo geedaha murjaanka, kalluumaysiga, iyo bulshooyinka xeebaha ay sii wadeen.',
           'Waxaan ku bilownay dadaal yar oo cilmi-baaris duurjoog ah, waxaanan u kobacnay hay\'ad ku baaxad weyn sahaminta, sayniska, ilaalinta, iyo iskaashiga bulshada — mana aha sababtoo ah hawlgaladaasi kala duwan yihiin, ee waa sababtoo ah midkoodna kama shaqeeyo mid la\'aantiis. Cilmi-baaris aan ilaalin lahayn waa uun diiwaan-gelin. Ilaalin aan bulsho lahayn ma sii socon karto. Waxna kama tarayaan haddii aan qof ka baxsan kooxda duurjoogga ah waligiis maqal.',
         ],
       },
@@ -155,7 +155,7 @@ export const socialLinks = [
 ];
 
 export const contactDetails = {
-  email: 'info@blueoceansomalia.org',
+  email: 'info@blueheavensomalia.org',
   locations: [
     { label: 'Field Office', value: 'Bosaso, Puntland' },
     { label: 'Field Office', value: 'Kismayo, Jubaland' },

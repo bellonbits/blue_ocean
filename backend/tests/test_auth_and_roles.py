@@ -24,7 +24,7 @@ def test_auth_me_with_token(client: TestClient, super_admin_token: str):
     )
     assert response.status_code == 200
     data = response.json()
-    assert data["email"] == "admin@blueoceansomalia.org"
+    assert data["email"] == "admin@blueheavensomalia.org"
     assert data["role"] == "super_admin"
 
 
