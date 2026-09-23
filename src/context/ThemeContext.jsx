@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { syncStatusBarWithTheme } from '../lib/native';
 
 const ThemeContext = createContext();
 
@@ -23,6 +24,7 @@ export function ThemeProvider({ children }) {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    syncStatusBarWithTheme(theme === 'dark');
     try {
       localStorage.setItem(STORAGE_KEY, theme);
     } catch (e) {

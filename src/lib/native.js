@@ -25,8 +25,24 @@ export async function markOnboardingComplete() {
 export async function prepareNativeChrome() {
   if (!isNative()) return;
   try {
-    await StatusBar.setStyle({ style: Style.Dark });
     await StatusBar.setOverlaysWebView({ overlay: false });
+  } catch {
+    // StatusBar plugin can be unavailable on some devices — non-fatal.
+  }
+}
+
+// Keeps the status bar's icon/text color and background in sync with the
+// app's own light/dark theme toggle — previously it was set once at launch
+// to Style.Dark (light icons) and never touched again, so switching to the
+// light theme left light-on-light, barely legible status bar icons.
+// setBackgroundColor is a no-op on iOS (Capacitor only supports it on
+// Android); iOS instead takes its status bar color from the page background
+// showing through, which is why overlaysWebView stays false above.
+export async function syncStatusBarWithTheme(isDark) {
+  if (!isNative()) return;
+  try {
+    await StatusBar.setStyle({ style: isDark ? Style.Dark : Style.Light });
+    await StatusBar.setBackgroundColor({ color: isDark ? '#06141C' : '#F5FAFC' });
   } catch {
     // StatusBar plugin can be unavailable on some devices — non-fatal.
   }
