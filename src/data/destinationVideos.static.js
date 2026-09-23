@@ -22,10 +22,10 @@ export const destinationVideosStatic = {
     videoSource: "YouTube",
   },
   "bosaso": {
-    videoUrl: "https://www.youtube.com/watch?v=uuLSLFniCTw",
-    videoTitle: "Best Video About Bosaso, Puntland State",
-    videoDescription: "An overview of Bosaso city, its working port, and surrounding coastline.",
-    videoSource: "YouTube",
+    videoUrl: "/bosaso_video.mp4",
+    videoTitle: "Bosaso Beach",
+    videoDescription: "Community-submitted footage of a busy day at a Bosaso beach, showing the coastline and turquoise waters where locals gather.",
+    videoSource: "Community Submission",
   },
   "eyl": {
     videoUrl: "https://www.youtube.com/watch?v=rwoOzknC7Go",
