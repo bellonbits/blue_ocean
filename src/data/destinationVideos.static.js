@@ -22,7 +22,7 @@ export const destinationVideosStatic = {
     videoSource: "YouTube",
   },
   "bosaso": {
-    videoUrl: "/public/bosaso/1002(1).mp4",
+    videoUrl: "/1002(1).mp4",
     videoTitle: "Bosaso Beach",
     videoDescription: "Community-submitted footage of a busy day at a Bosaso beach, showing the coastline and turquoise waters where locals gather.",
     videoSource: "Community Submission",

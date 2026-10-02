@@ -19,7 +19,7 @@ const rawDestinations = [
 Because the continental shelf drops rapidly just off the coast, Bosaso is uniquely situated near deep pelagic waters where powerful nutrient-rich seasonal upwellings nourish immense schools of yellowfin tuna, kingfish, and migrating whale sharks.
 
 Along the shoreline, traditional wooden dhow builders continue heritage crafts that have linked the Horn of Africa to the Arabian Peninsula and Indian subcontinent for millennia. Blue Heaven’s research teams operate coastal monitoring stations here tracking fisheries health and marine mammal migrations along the Aden channel.`,
-    heroImage: '/public/bosaso/1002-Cover.jpg',
+    heroImage: '/1002-Cover.jpg',
     gallery: [
       '/bosaso1.jpg',
       '/bosaso2.jpg',
