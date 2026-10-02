@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Navigation, ArrowRight, Compass, Waves, Layers, Globe, Eye } from 'lucide-react';
+import { ArrowRight, Compass, Waves, Layers, LocateFixed, X } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { getUserPosition, distanceKm, formatCoordinates } from '../../lib/geolocation';
 import './CoastMap.css';
 
 const GOOGLE_MAPS_API_KEY = 'AIzaSyAk6rrT_DxxSanx0pwKjLruI-XhgN_zsko';
@@ -78,8 +79,21 @@ export default function CoastMap({ destinations = [] }) {
   const [mapType, setMapType] = useState('roadmap'); // 'roadmap' | 'satellite' | 'hybrid'
   const [selectedId, setSelectedId] = useState('bosaso');
   const [activeRegion, setActiveRegion] = useState('all');
+  const userMarkerRef = useRef(null);
+  const userCircleRef = useRef(null);
+  const [userPos, setUserPos] = useState(null); // { lat, lng, accuracy } from device GPS
+  const [locating, setLocating] = useState(false);
+  const [locError, setLocError] = useState(null); // 'denied' | 'unavailable' | 'timeout'
 
   const hasCoordinates = (d) => d.coordinates?.lat != null && d.coordinates?.lng != null;
+
+  const nearest = userPos
+    ? destinations
+        .filter(hasCoordinates)
+        .map((d) => ({ dest: d, km: distanceKm(userPos, d.coordinates) }))
+        .sort((a, b) => a.km - b.km)
+        .slice(0, 3)
+    : [];
 
   const selectedDest =
     destinations.find((d) => d.id === selectedId && hasCoordinates(d)) || destinations.find(hasCoordinates);
@@ -220,6 +234,87 @@ export default function CoastMap({ destinations = [] }) {
     setActiveRegion(regionId);
   };
 
+  const handleLocate = async () => {
+    setLocating(true);
+    setLocError(null);
+    try {
+      setUserPos(await getUserPosition());
+    } catch (err) {
+      setLocError(err.code || 'unavailable');
+    } finally {
+      setLocating(false);
+    }
+  };
+
+  const handleClearLocation = () => {
+    setUserPos(null);
+    setLocError(null);
+    const map = googleMapInstance.current;
+    const regionDestinations = destinations.filter(
+      (d) => (activeRegion === 'all' || d.regionId === activeRegion) && hasCoordinates(d)
+    );
+    if (!map || !window.google || regionDestinations.length === 0) return;
+    const bounds = new window.google.maps.LatLngBounds();
+    regionDestinations.forEach((d) => bounds.extend({ lat: d.coordinates.lat, lng: d.coordinates.lng }));
+    map.fitBounds(bounds, 48);
+  };
+
+  // Blue "you are here" dot + accuracy ring, and frame the visitor together
+  // with the nearest coastal destinations so both are on screen at once.
+  useEffect(() => {
+    if (userMarkerRef.current) {
+      userMarkerRef.current.setMap(null);
+      userMarkerRef.current = null;
+    }
+    if (userCircleRef.current) {
+      userCircleRef.current.setMap(null);
+      userCircleRef.current = null;
+    }
+    if (!userPos || !mapLoaded || !googleMapInstance.current || !window.google) return;
+
+    const map = googleMapInstance.current;
+    const center = { lat: userPos.lat, lng: userPos.lng };
+
+    userCircleRef.current = new window.google.maps.Circle({
+      map,
+      center,
+      radius: userPos.accuracy || 0,
+      fillColor: '#4285F4',
+      fillOpacity: 0.15,
+      strokeOpacity: 0,
+      clickable: false,
+    });
+    userMarkerRef.current = new window.google.maps.Marker({
+      position: center,
+      map,
+      title: t('exploreCoast.map.youAreHere'),
+      zIndex: 999,
+      icon: {
+        path: window.google.maps.SymbolPath.CIRCLE,
+        scale: 8,
+        fillColor: '#4285F4',
+        fillOpacity: 1,
+        strokeColor: '#FFFFFF',
+        strokeWeight: 3,
+      },
+    });
+
+    const bounds = new window.google.maps.LatLngBounds();
+    bounds.extend(center);
+    nearest.forEach(({ dest }) => bounds.extend({ lat: dest.coordinates.lat, lng: dest.coordinates.lng }));
+    map.fitBounds(bounds, 64);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mapLoaded, userPos]);
+
+  const focusDestination = (dest) => {
+    setSelectedId(dest.id);
+    const map = googleMapInstance.current;
+    if (map) {
+      map.panTo({ lat: dest.coordinates.lat, lng: dest.coordinates.lng });
+      if (map.getZoom() < 7) map.setZoom(8);
+    }
+  };
+
   // Handle Map Type Toggle (Dark Road vs Satellite)
   const toggleMapType = () => {
     if (!googleMapInstance.current || !window.google) return;
@@ -282,15 +377,57 @@ export default function CoastMap({ destinations = [] }) {
             </button>
           </div>
 
-          <button
-            onClick={toggleMapType}
-            className="map-type-toggle-btn"
-            title={t('exploreCoast.map.toggleTitle')}
-          >
-            <Layers size={14} />
-            <span>{mapType === 'roadmap' ? t('exploreCoast.map.toggleSatellite') : t('exploreCoast.map.toggleDarkOcean')}</span>
-          </button>
+          <div className="map-controls__actions">
+            <button
+              onClick={userPos ? handleClearLocation : handleLocate}
+              disabled={locating}
+              className={`map-type-toggle-btn map-locate-btn ${userPos ? 'map-locate-btn--active' : ''}`}
+              id="map-use-my-location"
+            >
+              {userPos ? <X size={14} /> : <LocateFixed size={14} />}
+              <span>
+                {locating
+                  ? t('exploreCoast.map.locating')
+                  : userPos
+                    ? t('exploreCoast.map.clearLocation')
+                    : t('exploreCoast.map.useMyLocation')}
+              </span>
+            </button>
+            <button
+              onClick={toggleMapType}
+              className="map-type-toggle-btn"
+              title={t('exploreCoast.map.toggleTitle')}
+            >
+              <Layers size={14} />
+              <span>{mapType === 'roadmap' ? t('exploreCoast.map.toggleSatellite') : t('exploreCoast.map.toggleDarkOcean')}</span>
+            </button>
+          </div>
         </div>
+
+        {locError && (
+          <p className="map-locate-error" role="alert">
+            {t(`exploreCoast.map.error${locError.charAt(0).toUpperCase()}${locError.slice(1)}`)}
+          </p>
+        )}
+
+        {nearest.length > 0 && (
+          <div className="map-nearest" aria-live="polite">
+            <span className="map-nearest__heading">{t('exploreCoast.map.nearestHeading')}</span>
+            <div className="map-nearest__list">
+              {nearest.map(({ dest, km }) => (
+                <button
+                  key={dest.id}
+                  type="button"
+                  onClick={() => focusDestination(dest)}
+                  className={`map-nearest__item ${dest.id === selectedId ? 'map-nearest__item--active' : ''}`}
+                >
+                  <span className="map-nearest__name">{dest.name}</span>
+                  <span className="map-nearest__km">{Math.round(km).toLocaleString()} {t('exploreCoast.map.kmAway')}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Map Layout Card */}
         <div className="map-container-card glass reveal">
@@ -330,10 +467,17 @@ export default function CoastMap({ destinations = [] }) {
                 <div className="map-inspector__meta">
                   <div className="map-inspector__meta-item">
                     <Compass size={13} />
-                    <span>
-                      {selectedDest.coordinates.lat.toFixed(4)}° N, {selectedDest.coordinates.lng.toFixed(4)}° E
-                    </span>
+                    <span>{formatCoordinates(selectedDest.coordinates.lat, selectedDest.coordinates.lng)}</span>
                   </div>
+                  {userPos && (
+                    <div className="map-inspector__meta-item">
+                      <LocateFixed size={13} />
+                      <span>
+                        {Math.round(distanceKm(userPos, selectedDest.coordinates)).toLocaleString()}{' '}
+                        {t('exploreCoast.map.kmAway')}
+                      </span>
+                    </div>
+                  )}
                   <div className="map-inspector__meta-item">
                     <Waves size={13} />
                     <span>{selectedDest.coastlineArea}</span>

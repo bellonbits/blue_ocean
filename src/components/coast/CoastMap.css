@@ -65,6 +65,86 @@
   border-color: var(--color-turquoise);
 }
 
+.map-controls__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.map-locate-btn:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+/* Blue matches the "you are here" dot drawn on the map itself. */
+.map-locate-btn--active {
+  background: rgba(66, 133, 244, 0.15);
+  border-color: #4285F4;
+  color: #8AB4F8;
+}
+
+.map-locate-error {
+  margin: calc(var(--space-4) * -1) 0 var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+}
+
+.map-nearest {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin: calc(var(--space-4) * -1) 0 var(--space-6);
+}
+
+.map-nearest__heading {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.map-nearest__list {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.map-nearest__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.map-nearest__item:hover,
+.map-nearest__item--active {
+  border-color: #4285F4;
+  background: rgba(66, 133, 244, 0.12);
+}
+
+.map-nearest__name {
+  font-weight: 700;
+}
+
+.map-nearest__km {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
 /* Map Card */
 .map-container-card {
   position: relative;
@@ -278,6 +358,11 @@
 
   .map-type-toggle-btn {
     justify-content: center;
+  }
+
+  .map-controls__actions {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .map-container-card {
