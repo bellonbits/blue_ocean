@@ -375,13 +375,15 @@
   width: min(380px, 100vw);
   z-index: calc(var(--z-nav) + 1);
   transform: translateX(100%);
-  transition: transform var(--transition-slower);
+  transition: transform var(--transition-slower), visibility var(--transition-slower);
   pointer-events: none;
+  visibility: hidden;
 }
 
 .mobile-menu--open {
   transform: translateX(0);
   pointer-events: all;
+  visibility: visible;
 }
 
 .mobile-menu__inner {

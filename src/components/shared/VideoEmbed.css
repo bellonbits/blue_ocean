@@ -1,42 +1,52 @@
 /* ==========================================================================
    BLUE HEAVEN CINEMATIC VIDEO THEATER & MULTI-VIDEO SHOWCASE
+   Ultra-responsive mobile-first design with fluid glassmorphic aesthetics.
    ========================================================================== */
 
 .video-cinema-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 22px;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   margin: 0 auto;
   font-family: inherit;
   scroll-margin-top: 100px;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------------------
-   Header Bar: Eyebrow + Quick Segment Tabs
+   1. Header Bar: Eyebrow Badge + Quick Segment Tabs
    -------------------------------------------------------------------------- */
 .video-cinema__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
-  padding: 0 4px;
+  padding: 0 2px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .video-cinema__eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 16px;
+  padding: 6px 14px;
   border-radius: 9999px;
   background: rgba(14, 165, 233, 0.08);
   border: 1px solid rgba(14, 165, 233, 0.22);
   color: #0284c7;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  flex-shrink: 0;
 }
 
 [data-theme='dark'] .video-cinema__eyebrow {
@@ -69,27 +79,33 @@
   color: currentColor;
 }
 
-/* Quick Segment Tabs */
+/* Quick Segment Switcher Tabs */
 .video-cinema__tabs {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .video-cinema__tab {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 16px;
+  padding: 6px 14px;
   border-radius: 9999px;
   background: var(--color-surface, rgba(255, 255, 255, 0.06));
   border: 1px solid var(--color-border, rgba(255, 255, 255, 0.12));
   color: var(--color-text-muted, #64748b);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  flex-shrink: 0;
 }
 
 .video-cinema__tab:hover {
@@ -113,34 +129,37 @@
 }
 
 .video-cinema__tab-title {
-  max-width: 190px;
+  max-width: 180px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 /* --------------------------------------------------------------------------
-   Stage & Screen (16:9 Cinema Container)
+   2. Cinema Stage & Screen Container (16:9 Widescreen)
    -------------------------------------------------------------------------- */
 .video-cinema__stage {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .video-cinema__ambient-glow {
   position: absolute;
-  inset: -12px;
+  inset: -10px;
   background: radial-gradient(
     circle at 50% 50%,
-    rgba(14, 165, 233, 0.22) 0%,
-    rgba(2, 132, 199, 0.12) 45%,
+    rgba(14, 165, 233, 0.2) 0%,
+    rgba(2, 132, 199, 0.1) 45%,
     transparent 70%
   );
   filter: blur(28px);
-  border-radius: 32px;
+  border-radius: 28px;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.75;
+  opacity: 0.7;
   transition: opacity 0.5s ease;
 }
 
@@ -158,8 +177,8 @@
   background: #020617;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow:
-    0 25px 60px -15px rgba(2, 6, 23, 0.6),
-    0 10px 25px -5px rgba(2, 6, 23, 0.4),
+    0 20px 50px -15px rgba(2, 6, 23, 0.55),
+    0 10px 20px -5px rgba(2, 6, 23, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -178,7 +197,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Cover Thumbnail & Scrim Layer
+   3. Cover Screen & Scrims (Poster State)
    -------------------------------------------------------------------------- */
 .video-cinema__cover {
   position: absolute;
@@ -197,22 +216,21 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
-  filter: brightness(0.92) contrast(1.05);
+  filter: brightness(0.93) contrast(1.05);
 }
 
 .video-cinema__cover:hover .video-cinema__cover-img {
   transform: scale(1.04);
-  filter: brightness(0.96) contrast(1.08);
+  filter: brightness(0.97) contrast(1.08);
 }
 
-/* Scrims: Top vignette, bottom ocean gradient, outer vignette */
 .video-cinema__scrim-top {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 110px;
-  background: linear-gradient(180deg, rgba(2, 6, 23, 0.7) 0%, transparent 100%);
+  height: 100px;
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.72) 0%, transparent 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -222,11 +240,11 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 180px;
+  height: 160px;
   background: linear-gradient(
     0deg,
-    rgba(2, 6, 23, 0.95) 0%,
-    rgba(2, 6, 23, 0.7) 45%,
+    rgba(2, 6, 23, 0.94) 0%,
+    rgba(2, 6, 23, 0.65) 45%,
     transparent 100%
   );
   pointer-events: none;
@@ -236,19 +254,19 @@
 .video-cinema__vignette {
   position: absolute;
   inset: 0;
-  box-shadow: inset 0 0 80px rgba(2, 6, 23, 0.5);
+  box-shadow: inset 0 0 60px rgba(2, 6, 23, 0.45);
   pointer-events: none;
   z-index: 2;
 }
 
 /* --------------------------------------------------------------------------
-   Top Floating Badges (Inside Cover)
+   4. Floating Badges & Centered Play Orb
    -------------------------------------------------------------------------- */
 .video-cinema__cover-badge-top {
   position: absolute;
-  top: 20px;
-  left: 22px;
-  right: 22px;
+  top: 18px;
+  left: 20px;
+  right: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -259,7 +277,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 12px;
+  padding: 4px 12px;
   border-radius: 9999px;
   background: rgba(2, 6, 23, 0.65);
   backdrop-filter: blur(12px);
@@ -289,9 +307,7 @@
   font-weight: 600;
 }
 
-/* --------------------------------------------------------------------------
-   Floating Centerpiece: Dual-Ring Glassmorphic Play Button
-   -------------------------------------------------------------------------- */
+/* Centerpiece Floating Play Orb */
 .video-cinema__play-center {
   position: absolute;
   top: 50%;
@@ -300,15 +316,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   z-index: 4;
-  pointer-events: none; /* Allows parent or inner button click */
+  pointer-events: none;
 }
 
 .video-cinema__play-orb {
   position: relative;
-  width: 84px;
-  height: 84px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   border: none;
   background: transparent;
@@ -322,25 +338,23 @@
 }
 
 .video-cinema__cover:hover .video-cinema__play-orb {
-  transform: scale(1.12);
+  transform: scale(1.1);
 }
 
-/* Outer Pulsing Soundwave Ring */
 .video-cinema__play-ring-outer {
   position: absolute;
-  inset: -14px;
+  inset: -12px;
   border-radius: 50%;
-  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
   animation: cinemaSonarPulse 3s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
   pointer-events: none;
 }
 
-/* Inner Pulsing Ring */
 .video-cinema__play-ring-inner {
   position: absolute;
   inset: -5px;
   border-radius: 50%;
-  border: 1.5px solid rgba(56, 189, 248, 0.65);
+  border: 1.5px solid rgba(56, 189, 248, 0.6);
   animation: cinemaSonarPulse 3s cubic-bezier(0.2, 0.8, 0.2, 1) infinite 0.7s;
   pointer-events: none;
 }
@@ -351,16 +365,15 @@
     opacity: 0.9;
   }
   60% {
-    transform: scale(1.5);
+    transform: scale(1.45);
     opacity: 0;
   }
   100% {
-    transform: scale(1.5);
+    transform: scale(1.45);
     opacity: 0;
   }
 }
 
-/* Glassmorphic Play Disc */
 .video-cinema__play-disc {
   position: relative;
   width: 100%;
@@ -394,22 +407,22 @@
     rgba(3, 105, 161, 1) 100%
   );
   box-shadow:
-    0 20px 45px -4px rgba(2, 132, 199, 0.8),
-    0 0 45px rgba(56, 189, 248, 0.7),
+    0 20px 40px -4px rgba(2, 132, 199, 0.8),
+    0 0 40px rgba(56, 189, 248, 0.7),
     inset 0 2px 6px rgba(255, 255, 255, 0.8);
   border-color: #ffffff;
 }
 
 .video-cinema__play-triangle {
-  margin-left: 5px; /* Visual optical balance for play triangle */
+  margin-left: 4px;
   fill: #ffffff;
   stroke: #ffffff;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.35));
   transition: transform 0.3s ease;
 }
 
 .video-cinema__cover:hover .video-cinema__play-triangle {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .video-cinema__play-hint {
@@ -420,7 +433,7 @@
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -434,25 +447,23 @@
   transform: translateY(-2px);
 }
 
-/* --------------------------------------------------------------------------
-   Bottom Info Inside Cover
-   -------------------------------------------------------------------------- */
+/* Bottom Metadata Inside Cover */
 .video-cinema__cover-footer {
   position: absolute;
-  bottom: 22px;
-  left: 24px;
-  right: 24px;
+  bottom: 18px;
+  left: 20px;
+  right: 20px;
   z-index: 3;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   pointer-events: none;
 }
 
 .video-cinema__cover-title {
   margin: 0;
   color: #ffffff;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.25;
@@ -468,20 +479,24 @@
   align-items: center;
   gap: 6px;
   color: #bae6fd;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 500;
   text-shadow: 0 2px 8px rgba(2, 6, 23, 0.8);
 }
 
 /* --------------------------------------------------------------------------
-   Caption Strip Below Screen
+   5. Caption Details Strip Below Screen
    -------------------------------------------------------------------------- */
 .video-cinema__caption-strip {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
-  padding: 4px 6px;
+  gap: 20px;
+  padding: 4px 4px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .video-cinema__caption-main {
@@ -491,7 +506,7 @@
 
 .video-cinema__caption-title {
   margin: 0 0 6px;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-text, #0f172a);
   letter-spacing: -0.015em;
@@ -499,7 +514,7 @@
 
 .video-cinema__caption-desc {
   margin: 0;
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   line-height: 1.6;
   color: var(--color-text-muted, #64748b);
 }
@@ -515,7 +530,7 @@
 }
 
 .video-cinema__caption-source-label {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -523,7 +538,7 @@
 }
 
 .video-cinema__caption-source-val {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 600;
   color: #0284c7;
 }
@@ -533,29 +548,34 @@
 }
 
 /* --------------------------------------------------------------------------
-   Interactive Multi-Video Playlist Grid
+   6. Multi-Video Interactive Playlist / Carousel
    -------------------------------------------------------------------------- */
 .video-cinema__playlist {
-  margin-top: 10px;
-  padding: 20px 24px;
-  border-radius: 20px;
+  margin-top: 8px;
+  padding: 18px 20px;
+  border-radius: 18px;
   background: var(--color-surface, rgba(255, 255, 255, 0.04));
   border: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .video-cinema__playlist-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .video-cinema__playlist-title-wrap {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -563,11 +583,11 @@
 }
 
 .video-cinema__playlist-pill {
-  padding: 4px 10px;
+  padding: 3px 10px;
   border-radius: 9999px;
   background: rgba(14, 165, 233, 0.1);
   color: #0284c7;
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 700;
   border: 1px solid rgba(14, 165, 233, 0.2);
 }
@@ -577,32 +597,38 @@
   border-color: rgba(56, 189, 248, 0.25);
 }
 
+/* Grid on Desktop & Tablet */
 .video-cinema__playlist-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
-/* Individual Video Card */
+/* Video Card */
 .video-cinema__card {
   display: flex;
   flex-direction: column;
   background: var(--color-surface-hover, rgba(255, 255, 255, 0.02));
   border: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   text-align: left;
   padding: 0;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   outline: none;
+  box-sizing: border-box;
 }
 
 .video-cinema__card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: rgba(14, 165, 233, 0.4);
-  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.25);
 }
 
 .video-cinema__card--active {
@@ -610,7 +636,7 @@
   background: rgba(14, 165, 233, 0.06);
   box-shadow:
     0 0 0 2px rgba(14, 165, 233, 0.3),
-    0 12px 30px -6px rgba(14, 165, 233, 0.25);
+    0 10px 25px -6px rgba(14, 165, 233, 0.22);
 }
 
 .video-cinema__card-thumb-wrap {
@@ -629,7 +655,7 @@
 }
 
 .video-cinema__card:hover .video-cinema__card-thumb {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .video-cinema__card-fallback {
@@ -644,26 +670,26 @@
 
 .video-cinema__card-index {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  padding: 3px 8px;
-  border-radius: 6px;
-  background: rgba(2, 6, 23, 0.75);
+  top: 7px;
+  left: 7px;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: rgba(2, 6, 23, 0.78);
   backdrop-filter: blur(6px);
   color: #ffffff;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   font-family: monospace;
 }
 
 .video-cinema__card-action-badge {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
-  width: 28px;
-  height: 28px;
+  bottom: 7px;
+  right: 7px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: rgba(2, 6, 23, 0.75);
+  background: rgba(2, 6, 23, 0.78);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: #ffffff;
@@ -676,7 +702,7 @@
 .video-cinema__card:hover .video-cinema__card-action-badge {
   background: #0ea5e9;
   border-color: #38bdf8;
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .video-cinema__card--active .video-cinema__card-action-badge {
@@ -684,39 +710,39 @@
   border-color: #34d399;
 }
 
-/* Audio Waveform Equalizer when currently active */
+/* Audio Waveform Equalizer when playing */
 .video-cinema__now-playing {
   display: flex;
   align-items: flex-end;
   gap: 2px;
-  height: 12px;
+  height: 11px;
 }
 
 .video-cinema__bar {
-  width: 2.5px;
+  width: 2.2px;
   background: #ffffff;
   border-radius: 1px;
   animation: equalizerBounce 1.2s infinite ease-in-out;
 }
 
-.video-cinema__bar--1 { height: 6px; animation-delay: 0s; }
-.video-cinema__bar--2 { height: 12px; animation-delay: 0.2s; }
-.video-cinema__bar--3 { height: 8px; animation-delay: 0.4s; }
+.video-cinema__bar--1 { height: 5px; animation-delay: 0s; }
+.video-cinema__bar--2 { height: 11px; animation-delay: 0.2s; }
+.video-cinema__bar--3 { height: 7px; animation-delay: 0.4s; }
 
 @keyframes equalizerBounce {
   0%, 100% { height: 3px; }
-  50% { height: 12px; }
+  50% { height: 11px; }
 }
 
 .video-cinema__card-body {
-  padding: 12px 14px;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
 .video-cinema__card-top-tag {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
 }
 
@@ -737,7 +763,7 @@
 }
 
 .video-cinema__card-title {
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 600;
   color: var(--color-text, #0f172a);
   line-height: 1.35;
@@ -748,43 +774,263 @@
 }
 
 .video-cinema__card-source {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   color: var(--color-text-dim, #94a3b8);
 }
 
-/* --------------------------------------------------------------------------
-   Mobile & Tablet Responsiveness
-   -------------------------------------------------------------------------- */
+/* ==========================================================================
+   7. Mobile & Tablet Responsiveness (@media <= 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
+  .video-cinema-wrapper {
+    gap: 16px;
+    scroll-margin-top: 80px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Header: Stack title row & make tabs horizontally swipeable */
+  .video-cinema__header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .video-cinema__eyebrow {
+    align-self: flex-start;
+    padding: 5px 12px;
+    font-size: 0.72rem;
+  }
+
+  .video-cinema__tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    gap: 8px;
+    padding: 2px 14px 8px 2px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .video-cinema__tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .video-cinema__tab {
+    padding: 6px 12px;
+    font-size: 0.76rem;
+    flex-shrink: 0;
+  }
+
+  .video-cinema__tab-title {
+    max-width: 140px;
+  }
+
+  /* Stage & Screen */
+  .video-cinema__stage {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .video-cinema__screen {
+    border-radius: 16px;
+  }
+
+  .video-cinema__ambient-glow {
+    display: none; /* Hide glow on mobile to prevent subpixel horizontal overflow */
+  }
+
+  /* Cover Top Badges */
+  .video-cinema__cover-badge-top {
+    top: 10px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .video-cinema__cover-pill {
+    padding: 3px 8px;
+    font-size: 0.68rem;
+  }
+
+  .video-cinema__cover-count {
+    padding: 2px 7px;
+    font-size: 0.66rem;
+  }
+
+  /* Compact Play Orb for Mobile */
+  .video-cinema__play-center {
+    gap: 5px;
+  }
+
   .video-cinema__play-orb {
-    width: 68px;
-    height: 68px;
+    width: 58px;
+    height: 58px;
   }
 
   .video-cinema__play-ring-outer {
-    inset: -10px;
+    inset: -8px;
+    border-width: 1px;
+  }
+
+  .video-cinema__play-ring-inner {
+    inset: -4px;
+    border-width: 1px;
+  }
+
+  .video-cinema__play-triangle {
+    width: 22px;
+    height: 22px;
+    margin-left: 3px;
+  }
+
+  .video-cinema__play-hint {
+    padding: 2px 8px;
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* Compact Cover Footer */
+  .video-cinema__cover-footer {
+    bottom: 10px;
+    left: 12px;
+    right: 12px;
+    gap: 2px;
   }
 
   .video-cinema__cover-title {
-    font-size: 1.1rem;
+    font-size: 0.92rem;
+    line-height: 1.2;
+    -webkit-line-clamp: 1;
   }
 
+  .video-cinema__cover-source {
+    font-size: 0.7rem;
+  }
+
+  .video-cinema__scrim-top {
+    height: 60px;
+  }
+
+  .video-cinema__scrim-bottom {
+    height: 90px;
+  }
+
+  /* Caption Strip */
   .video-cinema__caption-strip {
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
+    padding: 2px 2px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .video-cinema__caption-title {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+
+  .video-cinema__caption-desc {
+    font-size: 0.86rem;
+    line-height: 1.55;
   }
 
   .video-cinema__caption-meta {
-    align-items: flex-start;
-    border-left: none;
-    border-top: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     padding-left: 0;
     padding-top: 8px;
+    border-left: none;
+    border-top: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+  }
+
+  /* Playlist Carousel (Horizontal Scroll on Mobile) */
+  .video-cinema__playlist {
+    margin-top: 4px;
+    padding: 14px 12px;
+    border-radius: 16px;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .video-cinema__playlist-header {
+    margin-bottom: 10px;
+  }
+
+  .video-cinema__playlist-title-wrap {
+    font-size: 0.76rem;
+  }
+
+  .video-cinema__playlist-pill {
+    padding: 2px 8px;
+    font-size: 0.7rem;
   }
 
   .video-cinema__playlist-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     gap: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+    scrollbar-width: none;
+    padding: 4px 14px 8px 2px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .video-cinema__playlist-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .video-cinema__card {
+    flex: 0 0 200px;
+    min-width: 200px;
+    max-width: 200px;
+    scroll-snap-align: start;
+    border-radius: 11px;
+    box-sizing: border-box;
+  }
+
+  .video-cinema__card-body {
+    padding: 8px 10px;
+    gap: 2px;
+  }
+
+  .video-cinema__card-title {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .video-cinema__card-source {
+    font-size: 0.68rem;
+  }
+}
+
+/* Tablet refinements (@media 769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .video-cinema__playlist-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
