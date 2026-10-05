@@ -62,10 +62,12 @@ export default function ResearchProjectDetailPage() {
     <main id="main-content" className="research-project-detail-page" aria-label={`Research Project: ${project.title}`}>
       <ResearchProjectHero project={project} />
       <ResearchOverview project={project} />
-      {project.videoUrl && (
+      {(project.videoUrl || (project.videos && project.videos.length > 0)) && (
         <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
           <VideoEmbed
             url={project.videoUrl}
+            thumbnail={project.videoThumbnail || project.thumbnail}
+            videos={project.videos}
             title={project.title}
             videoTitle={project.videoTitle}
             videoDescription={project.videoDescription}

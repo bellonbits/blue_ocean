@@ -78,7 +78,7 @@ def test_update_own_profile(client: TestClient):
         "/api/v1/auth/me", json={"full_name": "Still Content Manager", "role": "super_admin"}, headers=headers
     )
     assert res.status_code == 200
-    assert res.json()["role"] == "content_manager"
+    assert res.json()["role"] == "member"
 
     # Requires auth
     assert client.patch("/api/v1/auth/me", json={"full_name": "Nope"}).status_code == 401

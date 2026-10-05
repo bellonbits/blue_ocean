@@ -45,9 +45,11 @@ class Destination(Base):
     hero_image: Mapped[str | None] = mapped_column(String(500))
     gallery: Mapped[list[str]] = mapped_column(ARRAY(String), default=list)
     video_url: Mapped[str | None] = mapped_column(String(500))
+    video_thumbnail: Mapped[str | None] = mapped_column(String(500))
     video_title: Mapped[str | None] = mapped_column(String(255))
     video_description: Mapped[str | None] = mapped_column(Text)
     video_source: Mapped[str | None] = mapped_column(String(255))
+    videos: Mapped[list[dict]] = mapped_column(JSONB, default=list)
 
     latitude: Mapped[float | None] = mapped_column(Float)
     longitude: Mapped[float | None] = mapped_column(Float)

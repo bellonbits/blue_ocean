@@ -14,6 +14,7 @@ import DestinationResearch from '../../../components/coast/DestinationResearch';
 import DestinationConservation from '../../../components/coast/DestinationConservation';
 import DestinationExperiences from '../../../components/coast/DestinationExperiences';
 import RelatedDestinations from '../../../components/coast/RelatedDestinations';
+import VideoEmbed from '../../../components/shared/VideoEmbed';
 
 // Admin-only: renders a draft/archived (or published) destination through
 // the exact same public components the live site uses, sourced from the
@@ -89,6 +90,19 @@ export default function DestinationPreviewPage() {
           <DestinationHero destination={destination} />
           <DestinationInfo destination={destination} />
           <DestinationGallery destination={destination} />
+          {(destination.videoUrl || (destination.videos && destination.videos.length > 0)) && (
+            <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
+              <VideoEmbed
+                url={destination.videoUrl}
+                thumbnail={destination.videoThumbnail}
+                videos={destination.videos}
+                title={destination.name}
+                videoTitle={destination.videoTitle}
+                videoDescription={destination.videoDescription}
+                videoSource={destination.videoSource}
+              />
+            </section>
+          )}
           <DestinationMarineLife destination={destination} />
           <DestinationResearch destination={destination} />
           <DestinationConservation destination={destination} />

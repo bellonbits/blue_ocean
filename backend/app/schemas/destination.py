@@ -46,9 +46,11 @@ class DestinationBase(BaseModel):
     hero_image: str | None = None
     gallery: list[str] = []
     video_url: str | None = None
+    video_thumbnail: str | None = None
     video_title: str | None = None
     video_description: str | None = None
     video_source: str | None = None
+    videos: list[dict] = []
     latitude: float | None = None
     longitude: float | None = None
     best_season: str | None = None
@@ -78,9 +80,11 @@ class DestinationUpdate(BaseModel):
     hero_image: str | None = None
     gallery: list[str] | None = None
     video_url: str | None = None
+    video_thumbnail: str | None = None
     video_title: str | None = None
     video_description: str | None = None
     video_source: str | None = None
+    videos: list[dict] | None = None
     latitude: float | None = None
     longitude: float | None = None
     best_season: str | None = None

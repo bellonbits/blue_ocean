@@ -53,10 +53,12 @@ export default function CommunityStoryDetailPage() {
       <CommunityLivelihoods community={community} />
       <CommunityOceanConnection story={story} />
       <CommunityGallery community={community} story={story} />
-      {story.videoUrl && (
+      {(story.videoUrl || (story.videos && story.videos.length > 0)) && (
         <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
           <VideoEmbed
             url={story.videoUrl}
+            thumbnail={story.videoThumbnail || story.thumbnail}
+            videos={story.videos}
             title={story.title}
             videoTitle={story.videoTitle}
             videoDescription={story.videoDescription}

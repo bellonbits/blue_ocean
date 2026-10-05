@@ -13,7 +13,7 @@ import uuid
 from datetime import datetime
 
 from sqlalchemy import Boolean, Column, DateTime, ForeignKey, String, Table, Text, func
-from sqlalchemy.dialects.postgresql import ARRAY, UUID
+from sqlalchemy.dialects.postgresql import ARRAY, JSONB, UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
@@ -46,9 +46,11 @@ class CommunityStory(Base):
     region: Mapped[str | None] = mapped_column(String(100))
     featured_image: Mapped[str | None] = mapped_column(String(500))
     video_url: Mapped[str | None] = mapped_column(String(500))
+    video_thumbnail: Mapped[str | None] = mapped_column(String(500))
     video_title: Mapped[str | None] = mapped_column(String(255))
     video_description: Mapped[str | None] = mapped_column(Text)
     video_source: Mapped[str | None] = mapped_column(String(255))
+    videos: Mapped[list[dict]] = mapped_column(JSONB, default=list)
     author: Mapped[str | None] = mapped_column(String(255))
     date: Mapped[str | None] = mapped_column(String(20))
     story_content: Mapped[list[str]] = mapped_column(ARRAY(Text), default=list)

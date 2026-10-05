@@ -23,9 +23,40 @@ export const destinationVideosStatic = {
   },
   "bosaso": {
     videoUrl: "/1002(1).mp4",
-    videoTitle: "Bosaso Beach",
+    videoThumbnail: "/bosaso_beach_thumb.jpg",
+    videoTitle: "Bosaso Beach & Turquoise Waters",
     videoDescription: "Community-submitted footage of a busy day at a Bosaso beach, showing the coastline and turquoise waters where locals gather.",
     videoSource: "Community Submission",
+    videos: [
+      {
+        url: "/1002(1).mp4",
+        thumbnail: "/bosaso_beach_thumb.jpg",
+        title: "Bosaso Beach & Turquoise Waters",
+        description: "Community-submitted footage of a busy day at a Bosaso beach, showing the coastline and turquoise waters where locals gather.",
+        source: "Community Submission",
+      },
+      {
+        url: "/bosaso/1005.mp4",
+        thumbnail: "/bosaso_1005_thumb.jpg",
+        title: "Pristine Shoreline & Azure Waters",
+        description: "Sunlit footage of the calm turquoise waters and rolling surf along the pristine white sands of Bosaso's outer shoreline.",
+        source: "Community Submission",
+      },
+      {
+        url: "/bosaso_coastal_life.mp4",
+        thumbnail: "/bosaso_life_thumb.jpg",
+        title: "Coastal Life & Traditional Dhow Fleet",
+        description: "Scenes along the Gulf of Aden shoreline in Bosaso, showing local dhows and morning coastal activity.",
+        source: "Community Submission",
+      },
+      {
+        url: "/bosaso_harbor.mp4",
+        thumbnail: "/bosaso_harbor_thumb.jpg",
+        title: "Bosaso Commercial Seaport & Harbor Waters",
+        description: "Deep pelagic waters and harbor activity off the northern Bari coast.",
+        source: "Community Submission",
+      },
+    ],
   },
   "eyl": {
     videoUrl: "https://www.youtube.com/watch?v=rwoOzknC7Go",

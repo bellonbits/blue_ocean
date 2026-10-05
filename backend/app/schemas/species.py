@@ -41,9 +41,11 @@ class SpeciesBase(BaseModel):
     hero_image: str | None = None
     gallery: list[GalleryImage] = []
     video_url: str | None = None
+    video_thumbnail: str | None = None
     video_title: str | None = None
     video_description: str | None = None
     video_source: str | None = None
+    videos: list[dict] = []
     habitat: str | None = None
     depth: str | None = None
     distribution: str | None = None
@@ -77,9 +79,11 @@ class SpeciesUpdate(BaseModel):
     hero_image: str | None = None
     gallery: list[GalleryImage] | None = None
     video_url: str | None = None
+    video_thumbnail: str | None = None
     video_title: str | None = None
     video_description: str | None = None
     video_source: str | None = None
+    videos: list[dict] | None = None
     habitat: str | None = None
     depth: str | None = None
     distribution: str | None = None

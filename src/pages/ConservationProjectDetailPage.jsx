@@ -51,10 +51,12 @@ export default function ConservationProjectDetailPage() {
   return (
     <main id="main-content" className="conservation-project-detail-page" aria-label={`Conservation Project: ${project.title}`}>
       <ConservationProjectHero project={project} />
-      {project.videoUrl && (
+      {(project.videoUrl || (project.videos && project.videos.length > 0)) && (
         <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
           <VideoEmbed
             url={project.videoUrl}
+            thumbnail={project.videoThumbnail || project.thumbnail}
+            videos={project.videos}
             title={project.title}
             videoTitle={project.videoTitle}
             videoDescription={project.videoDescription}

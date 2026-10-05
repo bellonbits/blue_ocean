@@ -57,9 +57,11 @@ class ExperienceBase(BaseModel):
     hero_image: str | None = None
     gallery: list[GalleryImage] = []
     video_url: str | None = None
+    video_thumbnail: str | None = None
     video_title: str | None = None
     video_description: str | None = None
     video_source: str | None = None
+    videos: list[dict] = []
     highlights: list[str] = []
     conservation_themes: list[str] = []
     featured: bool = False
@@ -88,9 +90,11 @@ class ExperienceUpdate(BaseModel):
     hero_image: str | None = None
     gallery: list[GalleryImage] | None = None
     video_url: str | None = None
+    video_thumbnail: str | None = None
     video_title: str | None = None
     video_description: str | None = None
     video_source: str | None = None
+    videos: list[dict] | None = None
     highlights: list[str] | None = None
     conservation_themes: list[str] | None = None
     featured: bool | None = None

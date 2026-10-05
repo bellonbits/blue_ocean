@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Upload, Trash2, Copy, X } from 'lucide-react';
+import { Upload, Trash2, Copy, X, Play, Film } from 'lucide-react';
 import { useAuth } from '../../../context/AuthContext';
 import { canManageAdmin } from '../roles';
 import RestrictedNotice from '../RestrictedNotice';
@@ -9,6 +9,16 @@ function formatSize(bytes) {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function isVideoMedia(media) {
+  if (!media) return false;
+  return (
+    media.mime_type?.startsWith('video/') ||
+    media.filename?.endsWith('.mp4') ||
+    media.filename?.endsWith('.webm') ||
+    media.filename?.endsWith('.mov')
+  );
 }
 
 export default function MediaPage() {
@@ -84,7 +94,7 @@ export default function MediaPage() {
       <div className="admin__header-row">
         <div>
           <h1 className="admin__title">Media Library</h1>
-          <p className="admin__subtitle">Images used across destinations, species, projects, and articles.</p>
+          <p className="admin__subtitle">Photos and video clips used across destinations, species, projects, and articles.</p>
         </div>
         <button className="btn btn-primary btn-sm" onClick={() => fileInputRef.current?.click()} disabled={uploading}>
           <Upload size={15} />
@@ -93,7 +103,7 @@ export default function MediaPage() {
         <input
           ref={fileInputRef}
           type="file"
-          accept="image/jpeg,image/png,image/webp,image/gif"
+          accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime"
           multiple
           hidden
           onChange={handleFileChange}
@@ -106,12 +116,24 @@ export default function MediaPage() {
 
       {!isLoading && items.length > 0 && (
         <div className="admin__media-grid">
-          {items.map((media) => (
-            <button key={media.id} className="admin__media-tile" onClick={() => openDetail(media)}>
-              <img src={mediaUrl(media)} alt={media.alt_text || media.filename} loading="lazy" />
-              <span className="admin__media-tile-name">{media.filename}</span>
-            </button>
-          ))}
+          {items.map((media) => {
+            const isVideo = isVideoMedia(media);
+            return (
+              <button key={media.id} className="admin__media-tile" onClick={() => openDetail(media)}>
+                {isVideo ? (
+                  <div className="admin__media-tile-video-wrap">
+                    <video src={mediaUrl(media) + '#t=0.5'} preload="metadata" className="admin__media-tile-video" />
+                    <span className="admin__media-video-badge">
+                      <Play size={10} fill="currentColor" /> VIDEO
+                    </span>
+                  </div>
+                ) : (
+                  <img src={mediaUrl(media)} alt={media.alt_text || media.filename} loading="lazy" />
+                )}
+                <span className="admin__media-tile-name">{media.filename}</span>
+              </button>
+            );
+          })}
         </div>
       )}
 
@@ -119,10 +141,14 @@ export default function MediaPage() {
         <div className="admin__modal-backdrop" onClick={() => setSelected(null)}>
           <div className="admin__modal" onClick={(e) => e.stopPropagation()}>
             <div className="admin__modal-header">
-              <h3>Image Details</h3>
+              <h3>{isVideoMedia(selected) ? 'Video Details' : 'Image Details'}</h3>
               <button onClick={() => setSelected(null)} aria-label="Close"><X size={18} /></button>
             </div>
-            <img src={mediaUrl(selected)} alt={selected.alt_text || selected.filename} className="admin__media-preview" />
+            {isVideoMedia(selected) ? (
+              <video src={mediaUrl(selected)} controls className="admin__media-preview" />
+            ) : (
+              <img src={mediaUrl(selected)} alt={selected.alt_text || selected.filename} className="admin__media-preview" />
+            )}
             <div className="admin__form">
               <label>File name<input type="text" value={selected.filename} disabled /></label>
               <label>

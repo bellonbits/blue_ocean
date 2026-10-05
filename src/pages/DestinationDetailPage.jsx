@@ -104,10 +104,12 @@ export default function DestinationDetailPage() {
       {/* 4. Asymmetrical 3-Photo Editorial Gallery */}
       <DestinationGallery destination={destination} />
 
-      {destination.videoUrl && (
-        <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
+      {(destination.videoUrl || (destination.videos && destination.videos.length > 0)) && (
+        <section id="destination-videos" className="section container" style={{ maxWidth: 960, margin: '0 auto' }}>
           <VideoEmbed
             url={destination.videoUrl}
+            thumbnail={destination.videoThumbnail}
+            videos={destination.videos}
             title={destination.name}
             videoTitle={destination.videoTitle}
             videoDescription={destination.videoDescription}

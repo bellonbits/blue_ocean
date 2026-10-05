@@ -49,10 +49,12 @@ export default function SpeciesTemplate() {
       {/* 3. DARK: Visual Gallery */}
       <SpeciesGallery gallery={species.gallery} commonName={species.commonName} />
 
-      {species.videoUrl && (
+      {(species.videoUrl || (species.videos && species.videos.length > 0)) && (
         <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
           <VideoEmbed
             url={species.videoUrl}
+            thumbnail={species.videoThumbnail || species.thumbnail}
+            videos={species.videos}
             title={species.commonName}
             videoTitle={species.videoTitle}
             videoDescription={species.videoDescription}

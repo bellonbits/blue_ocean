@@ -78,9 +78,11 @@ class ConservationProjectBase(BaseModel):
     hero_image: str | None = None
     gallery: list[GalleryImage] = []
     video_url: str | None = None
+    video_thumbnail: str | None = None
     video_title: str | None = None
     video_description: str | None = None
     video_source: str | None = None
+    videos: list[dict] = []
     featured: bool = False
     published: bool = True
 
@@ -112,9 +114,11 @@ class ConservationProjectUpdate(BaseModel):
     hero_image: str | None = None
     gallery: list[GalleryImage] | None = None
     video_url: str | None = None
+    video_thumbnail: str | None = None
     video_title: str | None = None
     video_description: str | None = None
     video_source: str | None = None
+    videos: list[dict] | None = None
     featured: bool | None = None
     published: bool | None = None
     issue_ids: list[UUID] | None = None

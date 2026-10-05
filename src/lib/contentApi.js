@@ -161,9 +161,25 @@ export function adaptDestination(d) {
     heroImage: d.hero_image,
     gallery: d.gallery || [],
     videoUrl: d.video_url || null,
+    videoThumbnail: d.video_thumbnail || null,
     videoTitle: d.video_title || null,
     videoDescription: d.video_description || null,
     videoSource: d.video_source || null,
+    videos: (Array.isArray(d.videos) && d.videos.length > 0)
+      ? d.videos.map((v) => ({
+          url: v.url || v.video_url || '',
+          thumbnail: v.thumbnail || v.cover_image || v.video_thumbnail || null,
+          title: v.title || v.video_title || null,
+          description: v.description || v.video_description || null,
+          source: v.source || v.video_source || null,
+        }))
+      : (d.video_url ? [{
+          url: d.video_url,
+          thumbnail: d.video_thumbnail || null,
+          title: d.video_title || null,
+          description: d.video_description || null,
+          source: d.video_source || null,
+        }] : []),
     coordinates: { lat: d.latitude, lng: d.longitude },
     bestSeason: d.best_season,
     access: d.access,
@@ -219,13 +235,31 @@ async function getDestinationFromSupabase(slug) {
 // static dataset at all — an acceptable gap for an outage path.
 function adaptStaticDestination(d, lang) {
   const localized = localize(d, lang);
+  const normalizedVideos = (Array.isArray(d.videos) && d.videos.length > 0)
+    ? d.videos.map((v) => ({
+        url: v.url || v.video_url || '',
+        thumbnail: v.thumbnail || v.cover_image || v.video_thumbnail || null,
+        title: v.title || v.video_title || null,
+        description: v.description || v.video_description || null,
+        source: v.source || v.video_source || null,
+      }))
+    : (d.videoUrl ? [{
+        url: d.videoUrl,
+        thumbnail: d.videoThumbnail || null,
+        title: d.videoTitle || null,
+        description: d.videoDescription || null,
+        source: d.videoSource || null,
+      }] : []);
+
   return {
     ...localized,
     dbId: null,
     videoUrl: d.videoUrl || null,
+    videoThumbnail: d.videoThumbnail || null,
     videoTitle: d.videoTitle || null,
     videoDescription: d.videoDescription || null,
     videoSource: d.videoSource || null,
+    videos: normalizedVideos,
     status: d.status || 'published',
   };
 }

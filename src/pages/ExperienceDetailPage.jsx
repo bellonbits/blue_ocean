@@ -61,10 +61,12 @@ export default function ExperienceDetailPage() {
       <ExperienceHero experience={experience} />
       <ExperienceStory experience={experience} />
       <ExperienceGallery experience={experience} />
-      {experience.videoUrl && (
+      {(experience.videoUrl || (experience.videos && experience.videos.length > 0)) && (
         <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
           <VideoEmbed
             url={experience.videoUrl}
+            thumbnail={experience.videoThumbnail || experience.thumbnail}
+            videos={experience.videos}
             title={experience.title}
             videoTitle={experience.videoTitle}
             videoDescription={experience.videoDescription}

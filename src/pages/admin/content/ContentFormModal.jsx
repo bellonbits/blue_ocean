@@ -4,6 +4,7 @@ import LocationPicker from './LocationPicker';
 import GalleryManager from './GalleryManager';
 import ImagePicker from './ImagePicker';
 import VideoPicker from './VideoPicker';
+import VideosManager from './VideosManager';
 
 // Generic create/edit modal driven by a `fields` config array, the same
 // field-config idiom src/components/shared/EnquiryForm.jsx already uses on
@@ -42,9 +43,24 @@ import VideoPicker from './VideoPicker';
 // submitting. Covers both Destination's 3-state status string and every
 // other resource's plain published boolean. When `onPreview` is also given
 // (and an item is being edited), a Preview button appears alongside them.
-function toFormValue(type, value, field) {
+function toFormValue(type, value, field, item) {
   if (type === 'location') return value || null;
   if (type === 'gallery') return value || [];
+  if (type === 'videos') {
+    if (Array.isArray(value) && value.length > 0) return value;
+    if (item?.video_url) {
+      return [
+        {
+          url: item.video_url,
+          thumbnail: item.video_thumbnail || '',
+          title: item.video_title || '',
+          description: item.video_description || '',
+          source: item.video_source || '',
+        },
+      ];
+    }
+    return [];
+  }
   if (type === 'list') return (value || []).join('\n');
   if (type === 'imagelist') return (value || []).map((g) => g.url);
   if (type === 'blocklist') return (value || []).map((b) => b.text).join('\n\n');
@@ -60,6 +76,9 @@ function toFormValue(type, value, field) {
 function fromFormValue(type, raw, required, field) {
   if (type === 'location') return raw || null;
   if (type === 'gallery') return raw || [];
+  if (type === 'videos') {
+    return Array.isArray(raw) ? raw.filter((v) => v && (v.url || v.thumbnail || v.title)) : [];
+  }
   if (type === 'checkbox') return !!raw;
   if (type === 'number') return raw === '' ? null : Number(raw);
   if (type === 'multiselect') return raw || [];
@@ -90,7 +109,7 @@ export default function ContentFormModal({
 
   useEffect(() => {
     const next = {};
-    fields.forEach((f) => { next[f.name] = toFormValue(f.type, initialValues?.[f.name], f); });
+    fields.forEach((f) => { next[f.name] = toFormValue(f.type, initialValues?.[f.name], f, initialValues); });
     setValues(next);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialValues]);
@@ -100,6 +119,14 @@ export default function ContentFormModal({
   const buildPayload = (overrides = {}) => {
     const payload = {};
     fields.forEach((f) => { payload[f.name] = fromFormValue(f.type, values[f.name], f.required, f); });
+    if (payload.videos !== undefined) {
+      const primary = payload.videos[0] || {};
+      payload.video_url = primary.url || null;
+      payload.video_thumbnail = primary.thumbnail || null;
+      payload.video_title = primary.title || null;
+      payload.video_description = primary.description || null;
+      payload.video_source = primary.source || null;
+    }
     return { ...payload, ...overrides };
   };
 
@@ -190,6 +217,11 @@ export default function ContentFormModal({
                   ) : f.type === 'video' ? (
                     <VideoPicker
                       value={values[f.name] || ''}
+                      onChange={(next) => handleChange(f.name, next)}
+                    />
+                  ) : f.type === 'videos' ? (
+                    <VideosManager
+                      value={values[f.name] || []}
                       onChange={(next) => handleChange(f.name, next)}
                     />
                   ) : (

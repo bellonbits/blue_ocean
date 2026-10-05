@@ -48,10 +48,12 @@ export default function ArticleDetailPage() {
       <ArticleHero article={article} />
       <ArticleContent article={article} />
       <ArticleGallery article={article} />
-      {article.videoUrl && (
+      {(article.videoUrl || (article.videos && article.videos.length > 0)) && (
         <section className="section container" style={{ maxWidth: 900, margin: '0 auto' }}>
           <VideoEmbed
             url={article.videoUrl}
+            thumbnail={article.videoThumbnail || article.thumbnail}
+            videos={article.videos}
             title={article.title}
             videoTitle={article.videoTitle}
             videoDescription={article.videoDescription}

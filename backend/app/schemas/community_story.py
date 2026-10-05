@@ -37,9 +37,11 @@ class CommunityStoryBase(BaseModel):
     region: str | None = None
     featured_image: str | None = None
     video_url: str | None = None
+    video_thumbnail: str | None = None
     video_title: str | None = None
     video_description: str | None = None
     video_source: str | None = None
+    videos: list[dict] = []
     author: str | None = None
     date: str | None = None
     story_content: list[str] = []
@@ -64,9 +66,11 @@ class CommunityStoryUpdate(BaseModel):
     region: str | None = None
     featured_image: str | None = None
     video_url: str | None = None
+    video_thumbnail: str | None = None
     video_title: str | None = None
     video_description: str | None = None
     video_source: str | None = None
+    videos: list[dict] | None = None
     author: str | None = None
     date: str | None = None
     story_content: list[str] | None = None

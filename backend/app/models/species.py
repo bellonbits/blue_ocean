@@ -56,9 +56,11 @@ class Species(Base):
     # than a plain string array.
     gallery: Mapped[list[dict]] = mapped_column(JSONB, default=list)
     video_url: Mapped[str | None] = mapped_column(String(500))
+    video_thumbnail: Mapped[str | None] = mapped_column(String(500))
     video_title: Mapped[str | None] = mapped_column(String(255))
     video_description: Mapped[str | None] = mapped_column(Text)
     video_source: Mapped[str | None] = mapped_column(String(255))
+    videos: Mapped[list[dict]] = mapped_column(JSONB, default=list)
 
     habitat: Mapped[str | None] = mapped_column(String(255))
     depth: Mapped[str | None] = mapped_column(String(100))
