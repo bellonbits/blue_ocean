@@ -1,0 +1,420 @@
+/* ==========================================================================
+   Visual Diary 3D Coverflow Gallery
+   Matches exact reference design: Iridescent glowing rounded card container,
+   pill location filters, 3D overlapping perspective coverflow, and round arrow buttons.
+   ========================================================================== */
+
+.diary-gallery-section {
+  position: relative;
+  width: 100%;
+  padding: 60px 20px;
+  background: radial-gradient(circle at 50% 30%, #312e81 0%, #1e1b4b 35%, #0f172a 75%, #030712 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Ambient Bokeh Lights */
+.diary-gallery-bokeh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(circle at 15% 25%, rgba(168, 85, 247, 0.28) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(59, 130, 246, 0.28) 0%, transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(236, 72, 153, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 75% 20%, rgba(14, 165, 233, 0.25) 0%, transparent 35%);
+  filter: blur(40px);
+  z-index: 1;
+}
+
+/* Main Outer Glass Container with Iridescent Gradient Border */
+.diary-gallery-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1120px;
+  background: #ffffff !important;
+  border-radius: 36px;
+  padding: 52px 36px 44px 36px;
+  box-shadow: 
+    0 40px 100px -20px rgba(12, 10, 36, 0.55),
+    0 0 0 1.5px rgba(255, 255, 255, 0.9),
+    0 0 50px -10px rgba(168, 85, 247, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+[data-theme="dark"] .diary-gallery-card {
+  background: #0d131f !important;
+  box-shadow: 
+    0 40px 100px -20px rgba(0, 0, 0, 0.8),
+    0 0 0 1.5px rgba(255, 255, 255, 0.12),
+    0 0 50px -10px rgba(99, 102, 241, 0.4);
+}
+
+/* Subtle Iridescent Border Stroke */
+.diary-gallery-card::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 37.5px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.7) 0%, rgba(59, 130, 246, 0.5) 45%, rgba(236, 72, 153, 0.6) 80%, rgba(56, 189, 248, 0.7) 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Header */
+.diary-gallery__header {
+  text-align: center;
+  max-width: 580px;
+  margin-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.diary-gallery__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #555075;
+}
+
+.diary-gallery__title {
+  font-family: var(--font-modern, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 800;
+  color: #0c1024;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+[data-theme="dark"] .diary-gallery__title {
+  color: #ffffff;
+}
+
+.diary-gallery__subtext {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #64748b;
+  margin: 0;
+}
+
+[data-theme="dark"] .diary-gallery__subtext {
+  color: #94a3b8;
+}
+
+/* Filter Pills Track */
+.diary-pills-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.diary-pill {
+  padding: 6px 18px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid #cbd5e1;
+  background: transparent;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .diary-pill {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+}
+
+.diary-pill:hover {
+  border-color: #0f172a;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .diary-pill:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.diary-pill--active {
+  background: #090d16 !important;
+  color: #ffffff !important;
+  border-color: #090d16 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .diary-pill--active {
+  background: #3b82f6 !important;
+  border-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+.diary-pill--view-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 3D Coverflow Stage */
+.diary-coverflow-stage {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  overflow: visible;
+  margin-bottom: 24px;
+}
+
+/* Individual Coverflow Cards */
+.diary-flow-card {
+  position: absolute;
+  width: 320px;
+  height: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #1e293b;
+  transition: 
+    transform 0.55s cubic-bezier(0.2, 0.9, 0.3, 1),
+    opacity 0.55s ease,
+    box-shadow 0.55s ease,
+    filter 0.55s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  box-sizing: border-box;
+}
+
+.diary-flow-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Play Badge for Video Items: Clean white circle with dark play icon */
+.diary-flow-card__play-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  z-index: 4;
+}
+
+.diary-flow-card:hover .diary-flow-card__play-badge {
+  transform: scale(1.14);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* 3D Offset Positions */
+/* Center Card */
+.diary-flow-card--center {
+  transform: translateX(0) translateZ(80px) scale(1.08);
+  z-index: 10;
+  box-shadow: 0 30px 65px -10px rgba(0, 0, 0, 0.42);
+  opacity: 1;
+  filter: brightness(1);
+}
+
+/* Left 1 */
+.diary-flow-card--left-1 {
+  transform: translateX(-195px) translateZ(10px) scale(0.88);
+  z-index: 5;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+  opacity: 0.96;
+  filter: brightness(0.95);
+}
+
+/* Right 1 */
+.diary-flow-card--right-1 {
+  transform: translateX(195px) translateZ(10px) scale(0.88);
+  z-index: 5;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+  opacity: 0.96;
+  filter: brightness(0.95);
+}
+
+/* Left 2 */
+.diary-flow-card--left-2 {
+  transform: translateX(-360px) translateZ(-40px) scale(0.76);
+  z-index: 2;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  opacity: 0.88;
+  filter: brightness(0.88);
+}
+
+/* Right 2 */
+.diary-flow-card--right-2 {
+  transform: translateX(360px) translateZ(-40px) scale(0.76);
+  z-index: 2;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  opacity: 0.88;
+  filter: brightness(0.88);
+}
+
+/* Hidden (further out) */
+.diary-flow-card--hidden {
+  transform: scale(0.5);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Navigation Controls (Round Outline Arrows) */
+.diary-gallery__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.diary-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid #0f172a;
+  background: transparent;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] .diary-nav-btn {
+  border-color: #cbd5e1;
+  color: #cbd5e1;
+}
+
+.diary-nav-btn:hover {
+  background: #0f172a;
+  color: #ffffff;
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .diary-nav-btn:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff;
+}
+
+/* Lightbox Modal */
+.diary-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.25s ease;
+}
+
+.diary-lightbox__content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.diary-lightbox__media {
+  max-width: 100%;
+  max-height: 75vh;
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.diary-lightbox__caption {
+  margin-top: 16px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.diary-lightbox__close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.diary-lightbox__close:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .diary-flow-card {
+    width: 270px;
+    height: 360px;
+  }
+  .diary-flow-card--left-1 { transform: translateX(-140px) scale(0.85); }
+  .diary-flow-card--right-1 { transform: translateX(140px) scale(0.85); }
+  .diary-flow-card--left-2 { transform: translateX(-240px) scale(0.7); opacity: 0.5; }
+  .diary-flow-card--right-2 { transform: translateX(240px) scale(0.7); opacity: 0.5; }
+}
+
+@media (max-width: 640px) {
+  .diary-gallery-card {
+    padding: 36px 16px;
+    border-radius: 24px;
+  }
+  .diary-coverflow-stage {
+    height: 360px;
+  }
+  .diary-flow-card {
+    width: 230px;
+    height: 310px;
+  }
+  .diary-flow-card--left-1 { transform: translateX(-90px) scale(0.85); }
+  .diary-flow-card--right-1 { transform: translateX(90px) scale(0.85); }
+  .diary-flow-card--left-2 { display: none; }
+  .diary-flow-card--right-2 { display: none; }
+}

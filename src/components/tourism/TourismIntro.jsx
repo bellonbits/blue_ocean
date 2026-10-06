@@ -23,7 +23,7 @@ export default function TourismIntro() {
           <p className="section-subheading">{t('tourism.intro.subheading')}</p>
         </div>
 
-        <div className="research-intro__grid reveal" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
+        <div className="research-intro__grid research-intro__grid--3 reveal">
           {pointDefs.map((p, i) => {
             const Icon = p.icon;
             return (

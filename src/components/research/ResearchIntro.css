@@ -68,14 +68,33 @@
   color: #526A75;
 }
 
+.research-intro__grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.research-intro__grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 @media (max-width: 1200px) {
-  .research-intro__grid {
+  .research-intro__grid,
+  .research-intro__grid--4 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
+@media (max-width: 1024px) {
+  .research-intro__grid,
+  .research-intro__grid--3,
+  .research-intro__grid--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 640px) {
-  .research-intro__grid {
+  .research-intro__grid,
+  .research-intro__grid--3,
+  .research-intro__grid--4 {
     grid-template-columns: minmax(0, 1fr);
   }
 }

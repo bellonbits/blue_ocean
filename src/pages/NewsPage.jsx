@@ -10,6 +10,8 @@ import ArticleCard from '../components/news/ArticleCard';
 import { getLatestArticles, getFeaturedArticle } from '../data/news';
 import '../components/experiences/ExperienceGrid.css';
 
+import '../styles/portalDesignSystem.css';
+
 export default function NewsPage() {
   useScrollReveal();
   const { language, t } = useLanguage();
@@ -23,32 +25,42 @@ export default function NewsPage() {
   }, []);
 
   return (
-    <main id="main-content" aria-label="Blue Heaven News & Discoveries">
-      <NewsHero />
-      <FeaturedArticle />
-      <NewsCategoryStrip />
+    <div className="portal-page">
+      <main id="main-content" aria-label="Blue Heaven News & Discoveries">
+        {/* 1. Inset Rounded Hero */}
+        <NewsHero />
 
-      <section className="section" aria-labelledby="latest-articles-heading">
-        <div className="container">
-          <div className="section-header reveal" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 'var(--space-4)' }}>
+        {/* 2. Featured Panorama Article */}
+        <section className="portal-card-section" aria-label="Featured Article">
+          <FeaturedArticle />
+        </section>
+
+        {/* 3. Category Strip */}
+        <section className="portal-card-section portal-card-section--tint" aria-label="News Categories">
+          <NewsCategoryStrip />
+        </section>
+
+        {/* 4. Latest Articles Grid */}
+        <section className="portal-card-section" aria-labelledby="latest-articles-heading">
+          <div className="portal-section-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px', textAlign: 'left', maxWidth: '100%', margin: '0 0 32px 0' }}>
             <div>
-              <span className="label-text">{t('news.viewAllCta.eyebrow')}</span>
-              <div className="divider" />
-              <h2 className="section-heading" id="latest-articles-heading">{t('news.viewAllCta.heading')}</h2>
+              <span className="portal-section-tag">{t('news.viewAllCta.eyebrow')}</span>
+              <h2 className="portal-section-title" id="latest-articles-heading">{t('news.viewAllCta.heading')}</h2>
             </div>
-            <Link to={localizedPath('/news/articles')} className="btn btn-outline">
+            <Link to={localizedPath('/news/articles')} className="portal-btn-secondary">
               <span>{t('news.viewAllCta.cta')}</span>
               <ArrowRight size={16} />
             </Link>
           </div>
 
-          <div className="exp-grid__results reveal" style={{ marginTop: 'var(--space-10)' }}>
+          <div className="exp-grid__results reveal">
             {latest.map((a, i) => (
               <ArticleCard key={a.id} article={a} priority={i < 3} />
             ))}
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
   );
 }
+

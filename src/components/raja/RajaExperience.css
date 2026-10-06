@@ -1,0 +1,1402 @@
+/* ==========================================================================
+   Raja Ampat & Coastal Paradise Luxury Editorial Design System
+   Matches reference layout: High-fashion serif typography, pill controls,
+   floating glass elements, looping 3D ribbon vectors, and celestial bubble collage.
+   ========================================================================== */
+
+/* Outer Shell / Canvas Wrapper (giving that clean bordered mockup look) */
+.raja-page {
+  background: #f1f3f5;
+  color: #0c121e;
+  font-family: var(--font-modern, 'Plus Jakarta Sans', sans-serif);
+  min-height: 100vh;
+  padding: 16px;
+  overflow-x: hidden;
+}
+
+[data-theme="dark"] .raja-page {
+  background: #06090e;
+  color: #f8fafc;
+}
+
+.raja-canvas {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ==========================================================================
+   1. FLOATING NAVBAR (Pill Style)
+   ========================================================================== */
+.raja-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-radius: 9999px;
+  padding: 8px 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 16px;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .raja-nav {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.raja-nav__menu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0c121e;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .raja-nav__menu-btn {
+  color: #f8fafc;
+}
+
+.raja-nav__menu-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .raja-nav__menu-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.raja-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.raja-nav__link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+[data-theme="dark"] .raja-nav__link {
+  color: #94a3b8;
+}
+
+.raja-nav__link:hover,
+.raja-nav__link--active {
+  color: #0c121e;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .raja-nav__link:hover,
+[data-theme="dark"] .raja-nav__link--active {
+  color: #ffffff;
+}
+
+.raja-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.raja-nav__search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .raja-nav__search-btn {
+  color: #cbd5e1;
+}
+
+.raja-nav__search-btn:hover {
+  color: #0c121e;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.raja-nav__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0c121e;
+  color: #ffffff !important;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 9px 22px;
+  border-radius: 9999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.raja-nav__cta:hover {
+  transform: translateY(-1px);
+  background: #1e293b;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .raja-nav__cta {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .raja-nav__cta:hover {
+  background: #0ea5e9;
+}
+
+/* ==========================================================================
+   2. HERO SECTION
+   ========================================================================== */
+.raja-hero {
+  position: relative;
+  width: 100%;
+  height: 640px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  background: #031422;
+}
+
+.raja-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.raja-hero:hover .raja-hero__bg {
+  transform: scale(1.02);
+}
+
+.raja-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(3, 20, 34, 0.15) 0%,
+    rgba(3, 20, 34, 0.05) 40%,
+    rgba(3, 20, 34, 0.25) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Looping 3D Ribbon Curve Graphic */
+.raja-hero__ribbon-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.raja-hero__ribbon-path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 12;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 6px 16px rgba(255, 255, 255, 0.45));
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 0;
+  animation: ribbonGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes ribbonGlow {
+  0% {
+    stroke: rgba(255, 255, 255, 0.75);
+    stroke-width: 11;
+  }
+  100% {
+    stroke: rgba(255, 255, 255, 0.95);
+    stroke-width: 14;
+    filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.8));
+  }
+}
+
+/* Large Serif Display Title */
+.raja-hero__title-wrap {
+  position: relative;
+  z-index: 4;
+  margin-top: 24px;
+}
+
+.raja-hero__title {
+  font-family: var(--font-editorial, 'Playfair Display', serif);
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  margin: 0;
+}
+
+.raja-hero__title span {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Right-Aligned Hero Floating Box */
+.raja-hero__desc-box {
+  position: relative;
+  z-index: 4;
+  align-self: flex-end;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+  margin-right: 24px;
+}
+
+.raja-hero__desc-text {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+}
+
+.raja-hero__lets-go-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0c121e;
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+}
+
+.raja-hero__lets-go-btn:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================================================================
+   3. FOUR CARDS SHOWCASE ROW
+   ========================================================================== */
+.raja-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.raja-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.raja-card:hover {
+  transform: translateY(-4px);
+}
+
+.raja-card__thumb-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+  background: #e2e8f0;
+}
+
+.raja-card__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.raja-card:hover .raja-card__thumb {
+  transform: scale(1.08);
+}
+
+.raja-card__title {
+  font-family: var(--font-editorial, 'Playfair Display', serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #0c121e;
+  line-height: 1.2;
+  margin: 0;
+  transition: color 0.2s ease;
+}
+
+[data-theme="dark"] .raja-card__title {
+  color: #f8fafc;
+}
+
+.raja-card:hover .raja-card__title {
+  color: #0284c7;
+}
+
+.raja-card__desc {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #64748b;
+  margin: 0;
+}
+
+[data-theme="dark"] .raja-card__desc {
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   4. BENTO EDITORIAL SECTION ("The Unmatched Beauty of the Archipelago")
+   ========================================================================== */
+.raja-bento-section {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 48px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .raja-bento-section {
+  background: #0b111a;
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.raja-bento__header {
+  display: grid;
+  grid-template-columns: 140px 1.4fr 1fr;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.raja-bento__eyebrow {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: capitalize;
+  padding-top: 8px;
+}
+
+[data-theme="dark"] .raja-bento__eyebrow {
+  color: #94a3b8;
+}
+
+.raja-bento__heading {
+  font-family: var(--font-editorial, 'Playfair Display', serif);
+  font-size: clamp(2rem, 3.8vw, 3.25rem);
+  font-weight: 700;
+  color: #0c121e;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+[data-theme="dark"] .raja-bento__heading {
+  color: #ffffff;
+}
+
+.raja-bento__subtext {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+  padding-top: 6px;
+}
+
+[data-theme="dark"] .raja-bento__subtext {
+  color: #94a3b8;
+}
+
+/* Bento Row: 4 Elements */
+.raja-bento__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 2fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Card 1: Smartphone Map Mockup */
+.bento-card-phone {
+  background: #0b0f17;
+  border-radius: 28px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 310px;
+  position: relative;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+  border: 4px solid #1e293b;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.bento-card-phone__top {
+  display: flex;
+  justify-content: flex-end;
+  z-index: 2;
+}
+
+.bento-card__expand-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bento-card__expand-icon:hover {
+  background: #0284c7;
+  transform: scale(1.1);
+}
+
+.bento-card-phone__map-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 40% 50%, #0d1e2e 0%, #050a10 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.bento-pin {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.85);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  animation: floatPin 3s ease-in-out infinite alternate;
+}
+
+.bento-pin--1 {
+  top: 38%;
+  left: 35%;
+}
+
+.bento-pin--2 {
+  top: 55%;
+  left: 20%;
+  animation-delay: 1.5s;
+}
+
+@keyframes floatPin {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+.bento-card-phone__footer {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+}
+
+.bento-card-phone__footer h4 {
+  font-family: var(--font-editorial, 'Playfair Display', serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* Card 2: Weather & Sea Conditions */
+.bento-card-weather {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.bento-card-weather__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.bento-card-weather__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+  z-index: 2;
+}
+
+.bento-card-weather__badge {
+  position: relative;
+  z-index: 3;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.bento-card-weather__temp {
+  font-family: var(--font-editorial, 'Playfair Display', serif);
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.bento-card-weather__status {
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* Card 3: Social Proof / Star Rating */
+.bento-card-social {
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 310px;
+}
+
+[data-theme="dark"] .bento-card-social {
+  background: #111a26;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.bento-avatars-cluster {
+  display: flex;
+  align-items: center;
+}
+
+.bento-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2.5px solid #ffffff;
+  margin-left: -10px;
+  object-fit: cover;
+  background: #cbd5e1;
+}
+
+[data-theme="dark"] .bento-avatar {
+  border-color: #111a26;
+}
+
+.bento-avatars-cluster .bento-avatar:first-child {
+  margin-left: 0;
+}
+
+.bento-card-social__rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  margin-bottom: 8px;
+}
+
+.bento-star-icon {
+  color: #f59e0b;
+}
+
+.bento-rating-val {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0c121e;
+}
+
+[data-theme="dark"] .bento-rating-val {
+  color: #ffffff;
+}
+
+.bento-card-social__text {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #64748b;
+  margin: 0;
+}
+
+[data-theme="dark"] .bento-card-social__text {
+  color: #94a3b8;
+}
+
+/* Card 4: Aerial Beach Carousel Card */
+.bento-card-carousel {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.bento-card-carousel__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+.bento-card-carousel__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(3, 14, 26, 0.85) 0%, rgba(3, 14, 26, 0.2) 60%, transparent 100%);
+  z-index: 2;
+}
+
+.bento-card-carousel__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.bento-card-carousel__title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.35;
+  max-width: 260px;
+  margin: 0;
+}
+
+.bento-card-carousel__controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bento-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: #0c121e;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bento-nav-btn:hover {
+  background: #ffffff;
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   5. CELESTIAL BUBBLE COLLAGE ("Visit Raja ampat with us")
+   ========================================================================== */
+.raja-bubble-section {
+  background: #03060a;
+  border-radius: 32px;
+  padding: 64px 32px;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.raja-bubble-section__bg-glow {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.raja-bubble__header {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.raja-bubble__title {
+  font-family: var(--font-editorial, 'Playfair Display', serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.75rem);
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.raja-bubble__subtext {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.raja-bubble__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.raja-bubble__btn-white {
+  background: #ffffff;
+  color: #0c121e;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 26px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.raja-bubble__btn-white:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+}
+
+.raja-bubble__btn-glass {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.raja-bubble__btn-glass:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Organic Circular Bubble Galaxy */
+.raja-bubble-galaxy {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  height: 480px;
+  margin: 0 auto;
+}
+
+.bubble-node {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.bubble-node:hover {
+  transform: scale(1.12);
+  box-shadow: 0 20px 50px rgba(2, 132, 199, 0.5), 0 0 25px rgba(56, 189, 248, 0.4);
+  border-color: #38bdf8;
+  z-index: 20 !important;
+}
+
+.bubble-node__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Precise Celestial Placements matching reference screenshot */
+.bubble-center-hero {
+  width: 290px;
+  height: 290px;
+  top: 45%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  border-width: 3px;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.bubble-boxfish {
+  width: 180px;
+  height: 180px;
+  top: 15%;
+  left: 60%;
+  z-index: 9;
+  border-color: #00e5ff;
+}
+
+.bubble-swimmer {
+  width: 175px;
+  height: 175px;
+  top: 48%;
+  left: 78%;
+  z-index: 8;
+}
+
+.bubble-cliff-left {
+  width: 210px;
+  height: 210px;
+  top: 45%;
+  left: 7%;
+  z-index: 8;
+}
+
+.bubble-motors {
+  width: 110px;
+  height: 110px;
+  top: 18%;
+  left: 28%;
+  z-index: 7;
+}
+
+.bubble-small-top {
+  width: 65px;
+  height: 65px;
+  top: 24%;
+  left: 44%;
+  z-index: 6;
+}
+
+.bubble-diver-far-right {
+  width: 75px;
+  height: 75px;
+  top: 26%;
+  left: 91%;
+  z-index: 6;
+}
+
+.bubble-islet-bottom {
+  width: 115px;
+  height: 115px;
+  top: 70%;
+  left: 72%;
+  z-index: 7;
+}
+
+.bubble-reef-tiny {
+  width: 50px;
+  height: 50px;
+  top: 86%;
+  left: 58%;
+  z-index: 6;
+}
+
+.bubble-bottom-left-slice {
+  width: 130px;
+  height: 130px;
+  top: 75%;
+  left: 17%;
+  z-index: 7;
+}
+
+/* ==========================================================================
+   6. DISCOVER YOUR DESTINATION & PLAN TIERS
+   ========================================================================== */
+.raja-discover-section {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 44px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .raja-discover-section {
+  background: #0b111a;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.raja-discover__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.raja-discover__title {
+  font-family: var(--font-editorial, 'Playfair Display', serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: #0c121e;
+  line-height: 1.15;
+  margin: 0;
+}
+
+[data-theme="dark"] .raja-discover__title {
+  color: #ffffff;
+}
+
+.raja-discover__subtext {
+  font-size: 0.88rem;
+  color: #64748b;
+  margin: 8px 0 0 0;
+}
+
+[data-theme="dark"] .raja-discover__subtext {
+  color: #94a3b8;
+}
+
+.raja-plan-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.raja-plan-tab {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: #f1f5f9;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .raja-plan-tab {
+  background: #1e293b;
+  color: #cbd5e1;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.raja-plan-tab:hover {
+  background: #e2e8f0;
+  color: #0c121e;
+}
+
+.raja-plan-tab--active {
+  background: #0c121e !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .raja-plan-tab--active {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   7. BEST PRICE SECTION (Multi-Plane Overlapping Collage)
+   ========================================================================== */
+.raja-best-price-section {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 56px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  align-items: center;
+  gap: 48px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .raja-best-price-section {
+  background: #0b111a;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.raja-best-price__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  z-index: 2;
+}
+
+.raja-best-price__heading {
+  font-family: var(--font-editorial, 'Playfair Display', serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 700;
+  color: #0c121e;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+[data-theme="dark"] .raja-best-price__heading {
+  color: #ffffff;
+}
+
+.raja-best-price__btn {
+  background: #0c121e;
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 26px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.raja-best-price__btn:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .raja-best-price__btn {
+  background: #0284c7;
+}
+
+/* Layered Multi-Plane Photo Composition */
+.raja-plane-stage {
+  position: relative;
+  width: 100%;
+  height: 440px;
+}
+
+/* Base Large Rounded Image (Boardwalk) */
+.raja-plane-base {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 82%;
+  height: 380px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.raja-plane-base__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.raja-plane-stage:hover .raja-plane-base__img {
+  transform: scale(1.04);
+}
+
+/* Floating White Ribbon on Best Price Stage */
+.raja-plane-ribbon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Floating Card 1: Scuba Diver (Top Left) */
+.raja-plane-card-diver {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  width: 180px;
+  height: 180px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(2, 132, 199, 0.35);
+  border: 4px solid #ffffff;
+  z-index: 3;
+  transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .raja-plane-card-diver {
+  border-color: #0b111a;
+}
+
+.raja-plane-card-diver:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+.raja-plane-card-diver__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Floating Card 2: Jet Ski (Bottom Right) */
+.raja-plane-card-jetski {
+  position: absolute;
+  bottom: 0;
+  right: 25px;
+  width: 320px;
+  height: 185px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.25);
+  border: 4px solid #ffffff;
+  z-index: 4;
+  transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .raja-plane-card-jetski {
+  border-color: #0b111a;
+}
+
+.raja-plane-card-jetski:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.raja-plane-card-jetski__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS (Tablet & Mobile)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .raja-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .raja-bento__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .raja-bento__header {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .raja-best-price-section {
+    grid-template-columns: 1fr;
+  }
+
+  .raja-plane-stage {
+    height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .raja-page {
+    padding: 10px;
+  }
+
+  .raja-canvas {
+    gap: 20px;
+  }
+
+  .raja-hero {
+    height: 520px;
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .raja-hero__title {
+    font-size: 3.2rem;
+  }
+
+  .raja-hero__desc-box {
+    margin-right: 0;
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+
+  .raja-cards-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .raja-bento-section {
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .raja-bento__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .raja-bubble-section {
+    padding: 36px 16px;
+    border-radius: 20px;
+  }
+
+  .raja-bubble-galaxy {
+    height: 420px;
+    transform: scale(0.85);
+    transform-origin: center center;
+  }
+
+  .raja-discover-section {
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .raja-best-price-section {
+    padding: 32px 20px;
+    border-radius: 20px;
+    gap: 32px;
+  }
+
+  .raja-plane-stage {
+    height: 340px;
+  }
+
+  .raja-plane-base {
+    width: 100%;
+    height: 280px;
+  }
+
+  .raja-plane-card-diver {
+    width: 120px;
+    height: 120px;
+    left: 10px;
+  }
+
+  .raja-plane-card-jetski {
+    width: 240px;
+    height: 140px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .raja-nav {
+    top: 8px;
+    padding: 6px 12px;
+  }
+
+  .raja-nav__links {
+    display: none;
+  }
+
+  .raja-hero {
+    height: 480px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .raja-hero__title {
+    font-size: 2.5rem;
+  }
+
+  .raja-hero__desc-text {
+    font-size: 0.82rem;
+  }
+
+  .raja-bubble-galaxy {
+    height: 380px;
+    transform: scale(0.72);
+    transform-origin: center center;
+    overflow: hidden;
+  }
+
+  .raja-plane-stage {
+    height: 300px;
+  }
+
+  .raja-plane-base {
+    height: 240px;
+  }
+
+  .raja-plane-card-diver {
+    width: 100px;
+    height: 100px;
+    left: 4px;
+    top: -10px;
+  }
+
+  .raja-plane-card-jetski {
+    width: 200px;
+    height: 120px;
+    right: 4px;
+    bottom: -10px;
+  }
+}

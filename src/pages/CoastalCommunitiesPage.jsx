@@ -8,6 +8,8 @@ import GetInvolvedCTA from '../components/shared/GetInvolvedCTA';
 import { getAllCommunityStories } from '../data/communities';
 import { useLanguage } from '../context/LanguageContext';
 
+import '../styles/portalDesignSystem.css';
+
 export default function CoastalCommunitiesPage() {
   const [searchParams] = useSearchParams();
   const { language } = useLanguage();
@@ -20,28 +22,35 @@ export default function CoastalCommunitiesPage() {
   }, []);
 
   return (
-    <main id="main-content" aria-label="Blue Heaven Coastal Communities">
-      <CommunitiesHero />
-      <CommunitiesDirectory />
+    <div className="portal-page">
+      <main id="main-content" aria-label="Blue Heaven Coastal Communities">
+        {/* 1. Inset Rounded Hero */}
+        <CommunitiesHero />
 
-      <section className="section" id="community-stories" aria-labelledby="community-stories-heading">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="label-text">VOICES FROM THE COAST</span>
-            <div className="divider" />
-            <h2 className="section-heading" id="community-stories-heading">
+        {/* 2. Communities Directory */}
+        <section className="portal-card-section" aria-label="Communities Directory">
+          <CommunitiesDirectory />
+        </section>
+
+        {/* 3. Community Stories */}
+        <section className="portal-card-section portal-card-section--tint" id="community-stories" aria-labelledby="community-stories-heading">
+          <div className="portal-section-header">
+            <span className="portal-section-tag">VOICES FROM THE COAST</span>
+            <h2 className="portal-section-title" id="community-stories-heading">
               Community Stories
             </h2>
-            <p className="section-subheading">
-              Real stories from the people whose lives are connected to Somalia's coastline.
+            <p className="portal-section-subtitle">
+              Authentic stories from artisanal fishing families, elders, and youth along Somalia's 3,330 km coastline.
             </p>
           </div>
 
           <CommunityStoryGrid initialCategory={categoryParam} storiesList={getAllCommunityStories(language)} />
-        </div>
-      </section>
+        </section>
 
-      <GetInvolvedCTA />
-    </main>
+        {/* 4. Sunset CTA */}
+        <GetInvolvedCTA />
+      </main>
+    </div>
   );
 }
+

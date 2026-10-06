@@ -53,7 +53,15 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
+  // Allow external triggers (like RajaNavbar) to open this drawer
+  useEffect(() => {
+    const handleOpenMenu = () => setMobileOpen(true);
+    window.addEventListener('open-main-nav', handleOpenMenu);
+    return () => window.removeEventListener('open-main-nav', handleOpenMenu);
+  }, []);
+
   const currentPath = stripLangPrefix(location.pathname);
+  const isHome = currentPath === '/' || currentPath === '';
 
   const isActive = (path) =>
     path === '/' ? currentPath === '/' : currentPath.startsWith(path);
@@ -72,7 +80,7 @@ export default function Header() {
     <>
       <header
         ref={headerRef}
-        className={`header ${solidHeader ? 'header--scrolled' : ''}`}
+        className={`header ${solidHeader ? 'header--scrolled' : ''} ${isHome ? 'header--home-hidden' : ''}`}
         role="banner"
       >
         <div className="container header__inner">

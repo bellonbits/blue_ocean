@@ -1,137 +1,233 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Waves } from 'lucide-react';
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  CheckCircle2,
+  Compass,
+  ArrowRight,
+} from 'lucide-react';
 import { socialLinks } from '../../data/organization';
 import { ICON_MAP } from '../shared/SocialIcons';
 import { useLanguage } from '../../context/LanguageContext';
 import './Footer.css';
 
-const footerColumns = [
-  {
-    headingKey: 'footer.exploreHeading',
-    links: [
-      { labelKey: 'nav.exploreCoast', path: '/explore-the-coast' },
-      { labelKey: 'nav.oceanExperiences', path: '/experiences' },
-      { labelKey: 'nav.marineLife', path: '/marine-life' },
-      { label: 'Puntland', path: '/explore-the-coast/bosaso' },
-      { label: 'Jubaland', path: '/explore-the-coast/kismayo' },
-    ],
-  },
-  {
-    headingKey: 'footer.researchHeading',
-    links: [
-      { labelKey: 'footer.ourResearch', path: '/research' },
-      { labelKey: 'footer.projects', path: '/research/projects' },
-      { labelKey: 'footer.expeditions', path: '/research/expeditions' },
-      { labelKey: 'footer.publications', path: '/research/publications' },
-      { labelKey: 'footer.dataReports', path: '/research/data' },
-    ],
-  },
-  {
-    headingKey: 'footer.protectHeading',
-    links: [
-      { labelKey: 'nav.conservation', path: '/conservation' },
-      { labelKey: 'nav.communities', path: '/communities' },
-      { labelKey: 'nav.getInvolved', path: '/get-involved' },
-      { labelKey: 'footer.volunteer', path: '/get-involved/volunteer' },
-      { labelKey: 'footer.partnerWithUs', path: '/get-involved/partner' },
-    ],
-  },
-  {
-    headingKey: 'footer.orgHeading',
-    links: [
-      { labelKey: 'footer.aboutUs', path: '/about' },
-      { labelKey: 'nav.contact', path: '/contact' },
-      { labelKey: 'nav.news', path: '/news' },
-      { labelKey: 'footer.press', path: '/press' },
-      { labelKey: 'footer.privacyPolicy', path: '/privacy' },
-    ],
-  },
-];
-
-const footerSocialLinks = socialLinks.map((s) => ({ ...s, icon: ICON_MAP[s.icon] }));
-
 export default function Footer() {
   const { language, t } = useLanguage();
   const currentYear = new Date().getFullYear();
-  const localizedPath = (path) => `/${language}${path}`;
-  // The footer is always rendered as a dark, immersive closing section
-  // regardless of the active site theme, so it always uses the light logo.
-  const logoSrc = '/logo.png';
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
 
+  const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!email || !email.includes('@')) return;
+    setSubscribed(true);
+    setTimeout(() => {
+      setEmail('');
+      setSubscribed(false);
+    }, 4000);
+  };
+
+  const isSomali = language === 'so';
+
+  const footerSocials = socialLinks.map((s) => ({
+    ...s,
+    icon: ICON_MAP[s.icon] || Compass,
+  }));
+
+  const quickLinks = [
+    { label: isSomali ? 'Bogga Hore' : 'Home', path: '/' },
+    { label: isSomali ? 'Nagu Saabsan' : 'About Us', path: '/about' },
+    { label: isSomali ? 'Sahami Xeebaha' : 'Explore Coast', path: '/explore-the-coast' },
+    { label: isSomali ? 'Khibradaha Badda' : 'Ocean Experiences', path: '/experiences' },
+    { label: isSomali ? 'Nolosha Badda' : 'Marine Life', path: '/marine-life' },
+    { label: isSomali ? 'Cilmi-Baarista' : 'Research & Expeditions', path: '/research' },
+    { label: isSomali ? 'Ilaalinta Deegaanka' : 'Conservation', path: '/conservation' },
+    { label: isSomali ? 'Bulshooyinka Xeebaha' : 'Coastal Communities', path: '/communities' },
+  ];
+
+  const topDestinations = [
+    { label: isSomali ? 'Boosaaso (Puntland)' : 'Bosaso Port & Sanctuaries', path: '/explore-the-coast/bosaso' },
+    { label: isSomali ? 'Jasiiradaha Baajuun' : 'Bajuni Coral Archipelago', path: '/explore-the-coast/kismayo' },
+    { label: isSomali ? 'Raas Xaafuun' : 'Ras Hafun Peninsula', path: '/explore-the-coast/hafun' },
+    { label: isSomali ? 'Dooxada Eyl' : 'Eyl Ocean Cliffs & Cove', path: '/explore-the-coast/eyl' },
+    { label: isSomali ? 'Liido & Muqdisho' : 'Lido & Mogadishu Coast', path: '/explore-the-coast/mogadishu' },
+    { label: isSomali ? 'Seylac & Berbera' : 'Zeila & Gulf of Aden', path: '/explore-the-coast/zeila' },
+    { label: isSomali ? 'Baraawe' : 'Barawe Historic Seashore', path: '/explore-the-coast/barawe' },
+  ];
 
   return (
-    <footer className="footer" role="contentinfo">
-      {/* Wave divider top */}
-      <div className="footer__wave" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"
-            fill="#030D1A"
-          />
-        </svg>
-      </div>
+    <footer className="nature-footer" role="contentinfo" id="footer-section">
+      <div className="nature-footer__container">
+        {/* Top 4-Column Grid */}
+        <div className="nature-footer__grid">
+          {/* Column 1: Brand & Newsletter */}
+          <div className="nature-footer__col nature-footer__col--brand">
+            <Link to={localizedPath('/')} className="nature-footer__logo-link" aria-label="Blue Heaven Somalia">
+              <img
+                src="/logo.png"
+                alt="Blue Heaven Somalia"
+                className="nature-footer__logo-img"
+              />
+            </Link>
 
-      <div className="footer__body">
-        <div className="container">
-          {/* Top — Brand + Social */}
-          <div className="footer__top">
-            <div className="footer__brand">
-              <Link to={localizedPath('')} className="footer__logo" aria-label="Blue Heaven">
-                <img
-                  src={logoSrc}
-                  alt="Blue Heaven Somalia"
-                  className="footer__logo-img"
-                />
-              </Link>
-              <p className="footer__tagline">
-                {t('footer.tagline')}
-              </p>
+            <p className="nature-footer__tagline">
+              {isSomali
+                ? 'Sahami, dabbaaldeg, oo ilaali 3,330 km oo xeebaha quruxda badan ee Soomaaliya — biyo nadiif ah, noolaha badda, iyo dhaqanka qani ah ee bulshooyinka xeebaha.'
+                : "Discover, celebrate, and preserve Somalia's breathtaking 3,330 km coastline — pristine waters, thriving coral reefs, and vibrant maritime heritage."}
+            </p>
 
-              {/* Social Icons */}
-              <div className="footer__social">
-                {footerSocialLinks.map(({ label, href, icon: Icon }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="footer__social-link"
-                    aria-label={label}
-                    id={`social-${label.toLowerCase().replace('/', '-')}`}
-                  >
-                    <Icon />
-                  </a>
-                ))}
-              </div>
+            {/* Circular Social Buttons */}
+            <div className="nature-footer__social-row" aria-label="Social links">
+              {footerSocials.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="nature-footer__social-btn"
+                  aria-label={label}
+                  id={`footer-social-${label.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                >
+                  <Icon size={16} />
+                </a>
+              ))}
             </div>
 
-            {/* Nav Columns */}
-            <div className="footer__columns">
-              {footerColumns.map((col) => (
-                <div key={col.headingKey} className="footer__col">
-                  <h3 className="footer__col-heading">{t(col.headingKey)}</h3>
-                  <ul className="footer__col-list">
-                    {col.links.map((link) => (
-                      <li key={link.path}>
-                        <Link to={localizedPath(link.path)} className="footer__col-link">
-                          {link.labelKey ? t(link.labelKey) : link.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+            {/* Newsletter Input Box */}
+            <div className="nature-footer__newsletter">
+              <p className="nature-footer__newsletter-label">
+                {isSomali ? 'Ku biir wargeyska xeebaha' : 'Subscribe to Coastal Updates'}
+              </p>
+              <form onSubmit={handleSubscribe} className="nature-footer__newsletter-form">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={isSomali ? 'Gali email-kaaga...' : 'Enter your email...'}
+                  className="nature-footer__newsletter-input"
+                  required
+                  aria-label="Email subscription input"
+                />
+                <button
+                  type="submit"
+                  className="nature-footer__newsletter-btn"
+                  aria-label="Submit newsletter subscription"
+                >
+                  {subscribed ? <CheckCircle2 size={18} /> : (isSomali ? 'Ku biir' : 'Go')}
+                </button>
+              </form>
+              {subscribed && (
+                <span className="nature-footer__subscribed-msg">
+                  {isSomali ? 'Mahadsanid! Waad ku biirtay.' : 'Thank you for subscribing!'}
+                </span>
+              )}
             </div>
           </div>
 
-          {/* Bottom Bar */}
-          <div className="footer__bottom">
-            <p className="footer__copy">
-              {t('footer.copyright', currentYear)}
-            </p>
-            <p className="footer__mission">
-              {t('footer.mission')}
-            </p>
+          {/* Column 2: Quick Links */}
+          <div className="nature-footer__col">
+            <h3 className="nature-footer__heading">
+              {isSomali ? 'Xiriirrada Degdegga Ah' : 'Quick Links'}
+            </h3>
+            <ul className="nature-footer__list">
+              {quickLinks.map((item) => (
+                <li key={item.path}>
+                  <Link to={localizedPath(item.path)} className="nature-footer__link">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Top Destinations */}
+          <div className="nature-footer__col">
+            <h3 className="nature-footer__heading">
+              {isSomali ? 'Deegaannada Xeebaha' : 'Top Destinations'}
+            </h3>
+            <ul className="nature-footer__list">
+              {topDestinations.map((dest) => (
+                <li key={dest.path}>
+                  <Link to={localizedPath(dest.path)} className="nature-footer__link">
+                    {dest.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Contact & Support */}
+          <div className="nature-footer__col nature-footer__col--contact">
+            <h3 className="nature-footer__heading">
+              {isSomali ? 'Nala Soo Xiriir' : 'Contact Us'}
+            </h3>
+            <div className="nature-footer__contact-items">
+              <a href="tel:+252907790000" className="nature-footer__contact-link">
+                <span className="nature-footer__contact-icon">
+                  <Phone size={15} />
+                </span>
+                <span>+252 90 779 0000 / +252 61 500 0000</span>
+              </a>
+
+              <a href="mailto:contact@blueheavensomalia.com" className="nature-footer__contact-link">
+                <span className="nature-footer__contact-icon">
+                  <Mail size={15} />
+                </span>
+                <span>contact@blueheavensomalia.com</span>
+              </a>
+
+              <div className="nature-footer__contact-info">
+                <span className="nature-footer__contact-icon">
+                  <MapPin size={15} />
+                </span>
+                <span>Boosaaso Port, Puntland & Mogadishu Coast, Somalia</span>
+              </div>
+
+              <div className="nature-footer__contact-info">
+                <span className="nature-footer__contact-icon">
+                  <Clock size={15} />
+                </span>
+                <span>Maritime Field Operations: 24/7 Monitoring</span>
+              </div>
+            </div>
+
+            <div className="nature-footer__action-box">
+              <Link to={localizedPath('/explore-the-coast')} className="nature-footer__badge-pill">
+                <span>{isSomali ? 'Sahami Xeebaha 3,330 KM' : 'Explore 3,330 KM Coast'}</span>
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar: Copyright & Legal */}
+        <div className="nature-footer__bottom">
+          <p className="nature-footer__copyright">
+            © {currentYear} Blue Heaven Somalia. {isSomali ? 'Dhammaan xuquuqda waa la dhowray.' : 'All rights reserved.'} Somalia's Living Coastline.
+          </p>
+
+          <div className="nature-footer__legal-links">
+            <Link to={localizedPath('/privacy')} className="nature-footer__legal-link">
+              {isSomali ? 'Xogta Khaaska Ah' : 'Privacy Policy'}
+            </Link>
+            <span className="nature-footer__legal-sep">•</span>
+            <Link to={localizedPath('/terms')} className="nature-footer__legal-link">
+              {isSomali ? 'Shuruudaha Isticmaalka' : 'Terms of Service'}
+            </Link>
+            <span className="nature-footer__legal-sep">•</span>
+            <Link to={localizedPath('/research')} className="nature-footer__legal-link">
+              {isSomali ? 'Xogta Cilmi-baarista' : 'Maritime Guidelines'}
+            </Link>
+            <span className="nature-footer__legal-sep">•</span>
+            <Link to={localizedPath('/contact')} className="nature-footer__legal-link">
+              {isSomali ? 'Caawinaad' : 'Contact Support'}
+            </Link>
           </div>
         </div>
       </div>

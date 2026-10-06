@@ -25,7 +25,7 @@ export default function TourismGetInvolved() {
           </h2>
         </div>
 
-        <div className="research-intro__grid reveal" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <div className="research-intro__grid research-intro__grid--4 reveal">
           {pathDefs.map((p, i) => {
             const Icon = p.icon;
             return (

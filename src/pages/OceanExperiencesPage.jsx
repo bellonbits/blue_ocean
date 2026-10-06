@@ -8,6 +8,8 @@ import ExploreCTA from '../components/coast/ExploreCTA';
 import { getAllExperiences } from '../data/experiences';
 import { useLanguage } from '../context/LanguageContext';
 
+import '../styles/portalDesignSystem.css';
+
 export default function OceanExperiencesPage() {
   const [searchParams] = useSearchParams();
   const categoryParam = searchParams.get('category') || 'all';
@@ -20,26 +22,33 @@ export default function OceanExperiencesPage() {
   }, []);
 
   return (
-    <main id="main-content" aria-label="Ocean Experiences">
-      <ExperiencesHero />
-      <ExperienceCategories />
+    <div className="portal-page">
+      <main id="main-content" aria-label="Ocean Experiences">
+        {/* 1. Inset Rounded Hero */}
+        <ExperiencesHero />
 
-      <section className="section" style={{ background: 'var(--color-background)' }}>
-        <div className="container">
-          <div className="section-header centered reveal">
-            <span className="label-text">FULL DIRECTORY</span>
-            <div className="divider centered" />
-            <h2 className="section-heading">All Ocean Experiences</h2>
-            <p className="section-subheading" style={{ margin: '0 auto' }}>
-              Every activity currently in development along Somalia's 3,025 km coastline.
+        {/* 2. Experience Categories */}
+        <section className="portal-card-section" aria-label="Experience Categories">
+          <ExperienceCategories />
+        </section>
+
+        {/* 3. Full Directory */}
+        <section className="portal-card-section portal-card-section--tint" aria-label="Experience Directory">
+          <div className="portal-section-header">
+            <span className="portal-section-tag">FULL DIRECTORY</span>
+            <h2 className="portal-section-title">All Ocean Experiences</h2>
+            <p className="portal-section-subtitle">
+              Authentic coastal activities and marine expeditions along Somalia's 3,330 km coastline.
             </p>
           </div>
 
           <ExperienceGrid initialCategory={categoryParam} experiencesList={getAllExperiences(language)} />
-        </div>
-      </section>
+        </section>
 
-      <ExploreCTA />
-    </main>
+        {/* 4. Panoramic Sunset CTA */}
+        <ExploreCTA />
+      </main>
+    </div>
   );
 }
+

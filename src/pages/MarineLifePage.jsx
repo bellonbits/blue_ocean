@@ -11,6 +11,8 @@ import ExploreCTA from '../components/coast/ExploreCTA';
 import { getAllSpecies } from '../data/marineLife';
 import { useLanguage } from '../context/LanguageContext';
 
+import '../styles/portalDesignSystem.css';
+
 export default function MarineLifePage() {
   const { pathname } = useLocation();
   const { language } = useLanguage();
@@ -23,40 +25,48 @@ export default function MarineLifePage() {
   }, [pathname]);
 
   return (
-    <main id="main-content" className="marine-life-landing">
-      {/* 1. Hero */}
-      <MarineHero />
+    <div className="portal-page">
+      <main id="main-content" className="marine-life-landing">
+        {/* 1. Inset Rounded Hero */}
+        <MarineHero />
 
-      {/* 2. Featured Species Showcase */}
-      <FeaturedMarineLife />
+        {/* 2. Featured Species Showcase */}
+        <section className="portal-card-section" aria-label="Featured Species">
+          <FeaturedMarineLife />
+        </section>
 
-      {/* 3. Classification Categories */}
-      <MarineCategories />
+        {/* 3. Classification Categories */}
+        <section className="portal-card-section portal-card-section--tint" aria-label="Marine Categories">
+          <MarineCategories />
+        </section>
 
-      {/* 4. Dynamic Live Stats */}
-      <MarineStats />
+        {/* 4. Dynamic Live Stats */}
+        <section className="portal-card-section" aria-label="Marine Statistics">
+          <MarineStats />
+        </section>
 
-      {/* 5. Marine Ecosystems Foundation */}
-      <EcosystemsSection />
+        {/* 5. Marine Ecosystems Foundation */}
+        <section className="portal-card-section portal-card-section--tint" aria-label="Marine Ecosystems">
+          <EcosystemsSection />
+        </section>
 
-      {/* 6. Quick Field Guide Explorer */}
-      <section className="section" style={{ background: 'var(--color-background)', borderTop: '1px solid var(--color-border)' }}>
-        <div className="container">
-          <div className="section-header centered reveal">
-            <span className="label-text">FIELD GUIDE EXPLORER</span>
-            <div className="divider centered" />
-            <h2 className="section-heading">Search Somali Marine Species</h2>
-            <p className="section-subheading" style={{ margin: '0 auto' }}>
-              Search across common names, Somali vernacular, and scientific taxonomy.
+        {/* 6. Quick Field Guide Explorer */}
+        <section className="portal-card-section" aria-label="Field Guide Explorer">
+          <div className="portal-section-header">
+            <span className="portal-section-tag">FIELD GUIDE EXPLORER</span>
+            <h2 className="portal-section-title">Search Somali Marine Species</h2>
+            <p className="portal-section-subtitle">
+              Search across common names, Somali vernacular, and scientific taxonomy across 3,330 km of living coast.
             </p>
           </div>
 
           <SpeciesGrid speciesList={speciesList} showSearchHeader={true} />
-        </div>
-      </section>
+        </section>
 
-      {/* 7. CTA */}
-      <ExploreCTA />
-    </main>
+        {/* 7. CTA */}
+        <ExploreCTA />
+      </main>
+    </div>
   );
 }
+

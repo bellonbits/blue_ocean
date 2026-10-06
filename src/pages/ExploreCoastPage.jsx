@@ -9,6 +9,8 @@ import CoastMap from '../components/coast/CoastMap';
 import CoastStats from '../components/coast/CoastStats';
 import ExploreCTA from '../components/coast/ExploreCTA';
 
+import '../styles/portalDesignSystem.css';
+
 export default function ExploreCoastPage() {
   const [selectedRegion, setSelectedRegion] = useState('all');
   const [regions, setRegions] = useState([]);
@@ -38,28 +40,39 @@ export default function ExploreCoastPage() {
   };
 
   return (
-    <main id="main-content" aria-label="Explore Somalia's Coast">
-      {/* 1. Full-screen Cinematic Coast Hero */}
-      <CoastHero />
+    <div className="portal-page">
+      <main id="main-content" aria-label="Explore Somalia's Coast">
+        {/* 1. Inset Rounded Coast Hero */}
+        <CoastHero />
 
-      {/* 2. Three Regional Worlds */}
-      <RegionCards regions={regions} onSelectRegion={handleSelectRegion} />
+        {/* 2. Three Regional Worlds */}
+        <section className="portal-card-section" aria-label="Coastal Regions">
+          <RegionCards regions={regions} onSelectRegion={handleSelectRegion} />
+        </section>
 
-      {/* 3. Destination Catalog Grid with Filters */}
-      <DestinationGrid
-        destinations={destinations}
-        selectedRegion={selectedRegion}
-        onSelectRegion={handleSelectRegion}
-      />
+        {/* 3. Destination Catalog Grid with Filters */}
+        <section className="portal-card-section portal-card-section--tint" aria-label="Destinations">
+          <DestinationGrid
+            destinations={destinations}
+            selectedRegion={selectedRegion}
+            onSelectRegion={handleSelectRegion}
+          />
+        </section>
 
-      {/* 4. Interactive Cartographic Map */}
-      <CoastMap destinations={destinations} />
+        {/* 4. Interactive Cartographic Map */}
+        <section className="portal-card-section" aria-label="Coastal Map">
+          <CoastMap destinations={destinations} />
+        </section>
 
-      {/* 5. Coast Statistics */}
-      <CoastStats />
+        {/* 5. Coast Statistics */}
+        <section className="portal-card-section portal-card-section--tint" aria-label="Coast Stats">
+          <CoastStats />
+        </section>
 
-      {/* 6. Final Cinematic Next-Horizon CTA */}
-      <ExploreCTA />
-    </main>
+        {/* 6. Final Cinematic Next-Horizon CTA */}
+        <ExploreCTA />
+      </main>
+    </div>
   );
 }
+
