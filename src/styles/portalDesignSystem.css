@@ -1397,6 +1397,91 @@
 }
 
 @media (max-width: 768px) {
+  .portal-hero__inner {
+    padding: clamp(76px, 11vh, 92px) 16px 32px 16px !important;
+    min-height: auto !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .portal-hero__content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .portal-hero__badge {
+    font-size: 0.68rem !important;
+    letter-spacing: 0.08em !important;
+    padding: 5px 14px !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
+    margin-bottom: 14px !important;
+  }
+
+  .portal-hero__title {
+    font-size: clamp(2rem, 7.8vw, 2.75rem) !important;
+    line-height: 1.1 !important;
+    margin: 0 0 12px 0 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .portal-hero__subtitle {
+    font-size: clamp(0.86rem, 3.4vw, 0.95rem) !important;
+    line-height: 1.55 !important;
+    margin: 0 0 18px 0 !important;
+    max-width: 100% !important;
+    padding: 0 4px !important;
+  }
+
+  .portal-hero__search-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .portal-hero__search-form {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 4px 6px 4px 14px !important;
+    box-sizing: border-box !important;
+    gap: 8px !important;
+  }
+
+  .portal-hero__search-icon {
+    margin-right: 4px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .portal-hero__search-input {
+    flex: 1 !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    font-size: 0.88rem !important;
+  }
+
+  .portal-hero__search-btn {
+    padding: 9px 16px !important;
+    font-size: 0.82rem !important;
+    flex-shrink: 0 !important;
+    gap: 6px !important;
+  }
+
+  .portal-hero__tags {
+    gap: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .portal-hero__tag-btn {
+    font-size: 0.74rem !important;
+    padding: 5px 11px !important;
+  }
+
   .portal-highlights-grid,
   .portal-attractions-grid {
     grid-template-columns: 1fr;
@@ -1408,7 +1493,33 @@
   }
 
   .portal-card-section {
-    padding: var(--space-xl, 64px) var(--page-padding, clamp(16px, 4.5vw, 40px));
+    padding: clamp(48px, 8vw, 64px) var(--page-padding, clamp(16px, 4.5vw, 24px));
   }
 }
+
+/* Small screens (iPhone SE, 7, 8 <= 390px) */
+@media (max-width: 390px) {
+  .portal-hero__inner {
+    padding: clamp(68px, 9.5vh, 84px) 12px 24px 12px !important;
+  }
+
+  .portal-hero__search-form {
+    padding: 3px 4px 3px 12px !important;
+  }
+
+  .portal-hero__search-input {
+    font-size: 0.82rem !important;
+  }
+
+  .portal-hero__search-btn {
+    padding: 8px 12px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .portal-hero__tag-btn {
+    font-size: 0.70rem !important;
+    padding: 4px 9px !important;
+  }
+}
+
 

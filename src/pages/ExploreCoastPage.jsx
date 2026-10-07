@@ -273,14 +273,14 @@ export default function ExploreCoastPage() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={
                   isSomali
-                    ? 'Raadi Boosaaso, Baajuun, Xaafuun, ama Eyl...'
-                    : 'Search Bosaso, Bajuni, Hafun, or Eyl...'
+                    ? 'Raadi Boosaaso, Baajuun, Eyl...'
+                    : 'Search Bosaso, Bajuni, Hafun...'
                 }
                 className="explore-hero__search-input"
                 aria-label="Search destinations"
               />
               <button type="submit" className="explore-hero__search-btn">
-                <span>{isSomali ? 'Sahami' : 'Explore Coast'}</span>
+                <span>{isSomali ? 'Sahami' : 'Explore'}</span>
                 <ArrowRight size={14} />
               </button>
             </form>
