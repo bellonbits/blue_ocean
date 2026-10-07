@@ -1,11 +1,11 @@
 // =========================================================
 // Ocean Experiences Data Model & Discovery Library
-// Blue Heaven Somalia — Sprint 5: Ocean Experiences
+// Blue Ocean Somalia — Sprint 5: Ocean Experiences
 //
 // All experiences ship with status: 'coming-soon' at launch —
 // this is a discovery platform for future ocean activities,
 // not a live booking system. Update `status` per experience
-// as Blue Heaven operationalizes each activity.
+// as Blue Ocean operationalizes each activity.
 //
 // i18n note: each translatable record carries a `translations.so`
 // block with only the Somali overrides for that record (see
@@ -71,7 +71,7 @@ export const experienceCategories = [
     tagline: 'See the coast from the water.',
     description: 'Traditional dhow voyages and coastal cruises along Somalia’s harbors, headlands, and hidden coves.',
     icon: 'Ship',
-    image: '/exp_dhow_sailing.jpg',
+    image: '/images/img_12.png',
     translations: {
       so: {
         title: 'Dalxiisyada Doonta',
@@ -87,7 +87,7 @@ export const experienceCategories = [
     tagline: 'Discover life beneath the surface.',
     description: 'Shallow reef-top exploration above vibrant coral gardens and sheltered lagoons.',
     icon: 'Wind',
-    image: '/exp_coral_snorkeling.jpg',
+    image: '/images/img_07.png',
     translations: {
       so: {
         title: 'Dabbaasha Murjaanka',
@@ -103,7 +103,7 @@ export const experienceCategories = [
     tagline: 'Go deeper.',
     description: 'Scuba expeditions into largely unexplored reef drop-offs and deep pelagic corridors.',
     icon: 'Waves',
-    image: '/exp_scuba_diving.jpg',
+    image: '/images/img_02.png',
     translations: {
       so: {
         title: 'Dhex-quusidda',
@@ -119,7 +119,7 @@ export const experienceCategories = [
     tagline: 'Experience the traditions of the coast.',
     description: 'Traditional handline and reef fishing alongside veteran Somali fishing cooperatives.',
     icon: 'Fish',
-    image: '/marine_fish.jpg',
+    image: '/images/img_11.png',
     translations: {
       so: {
         title: 'Kalluumeysiga',
@@ -135,7 +135,7 @@ export const experienceCategories = [
     tagline: 'Find the islands beyond the shore.',
     description: 'Multi-day expeditions into remote archipelagos, atolls, and untouched sandbars.',
     icon: 'Globe',
-    image: '/jubaland.jpg',
+    image: '/images/img_05.png',
     translations: {
       so: {
         title: 'Sahaminta Jasiiradaha',
@@ -151,7 +151,7 @@ export const experienceCategories = [
     tagline: 'Witness giants of the deep.',
     description: 'Guided sightings of spinner dolphin pods and migrating humpback whales.',
     icon: 'Anchor',
-    image: '/marine_dolphins.jpg',
+    image: '/images/img_09.png',
     translations: {
       so: {
         title: 'Daawashada Dhurwaaga iyo Nibiriga',
@@ -167,7 +167,7 @@ export const experienceCategories = [
     tagline: 'Capture the unseen coast.',
     description: 'Guided underwater and aerial expeditions documenting Somalia’s marine frontier.',
     icon: 'Camera',
-    image: '/marine_coral.jpg',
+    image: '/images/img_07.png',
     translations: {
       so: {
         title: 'Sawir-qaadista Badda',
@@ -183,7 +183,7 @@ export const experienceCategories = [
     tagline: 'Walk the edge of the continent.',
     description: 'Cliffside and canyon treks along Somalia’s dramatic limestone and sandstone coastline.',
     icon: 'Mountain',
-    image: '/exp_coastal_cliff.jpg',
+    image: '/images/img_12.png',
     translations: {
       so: {
         title: 'Socodka Qarka Xeebta',
@@ -214,11 +214,11 @@ const rawExperiences = [
     duration: 'Full Day',
     difficulty: 'Easy — All Ages',
     bestSeason: 'October – April',
-    heroImage: '/exp_dhow_sailing.jpg',
+    heroImage: '/images/img_12.png',
     gallery: [
-      { url: '/exp_dhow_sailing.jpg', caption: 'Traditional dhow under sail off the Bosaso coastline.' },
+      { url: '/images/img_12.png', caption: 'Traditional dhow under sail off the Bosaso coastline.' },
       { url: '/bosaso2.jpg', caption: 'Bosaso harbor, home port for coastal dhow voyages.' },
-      { url: '/marine_dolphins.jpg', caption: 'Resident dolphin pods often accompany dhow crossings.' },
+      { url: '/images/img_09.png', caption: 'Resident dolphin pods often accompany dhow crossings.' },
     ],
     highlights: [
       'Sail aboard a handcrafted wooden dhow',
@@ -286,11 +286,11 @@ const rawExperiences = [
     duration: 'Half Day',
     difficulty: 'Easy — Beginner Friendly',
     bestSeason: 'November – March',
-    heroImage: '/exp_coral_snorkeling.jpg',
+    heroImage: '/images/img_07.png',
     gallery: [
-      { url: '/exp_coral_snorkeling.jpg', caption: 'Snorkeler above a shallow coral garden in the Bajuni Atolls.' },
-      { url: '/marine_coral.jpg', caption: 'Branching and table coral formations near the reef crest.' },
-      { url: '/jubaland.jpg', caption: 'The sheltered lagoons of the Jubaland archipelago.' },
+      { url: '/images/img_07.png', caption: 'Snorkeler above a shallow coral garden in the Bajuni Atolls.' },
+      { url: '/images/img_07.png', caption: 'Branching and table coral formations near the reef crest.' },
+      { url: '/images/img_05.png', caption: 'The sheltered lagoons of the Jubaland archipelago.' },
     ],
     highlights: [
       'Shallow, calm-water reef access',
@@ -351,18 +351,18 @@ const rawExperiences = [
     story: {
       whatItIs: 'A multi-day scuba expedition into deep reef walls and pelagic drop-offs, designed for certified divers seeking largely unsurveyed waters.',
       whereItHappens: 'The Guardafui Deep off the tip of the Horn of Africa, where the Somali Current upwelling draws nutrient-rich water — and the animals that follow it — close to shore.',
-      whatToExpect: 'Wall dives beside whale sharks and oceanic manta rays, with dive briefings led alongside Blue Heaven’s marine research teams.',
+      whatToExpect: 'Wall dives beside whale sharks and oceanic manta rays, with dive briefings led alongside Blue Ocean’s marine research teams.',
     },
     region: 'Puntland',
     location: 'Guardafui Deep',
     duration: '5 Days',
     difficulty: 'Advanced — Certified Divers',
     bestSeason: 'December – April',
-    heroImage: '/exp_scuba_diving.jpg',
+    heroImage: '/images/img_02.png',
     gallery: [
-      { url: '/exp_scuba_diving.jpg', caption: 'Divers along a pelagic drop-off in the Guardafui Channel.' },
-      { url: '/marine_sharks.jpg', caption: 'Whale sharks feeding in the seasonal upwelling zone.' },
-      { url: '/hafun2.jpg', caption: 'The Hafun Peninsula, gateway to the deep pelagic shelf.' },
+      { url: '/images/img_02.png', caption: 'Divers along a pelagic drop-off in the Guardafui Channel.' },
+      { url: '/images/img_11.png', caption: 'Whale sharks feeding in the seasonal upwelling zone.' },
+      { url: '/images/img_01.png', caption: 'The Hafun Peninsula, gateway to the deep pelagic shelf.' },
     ],
     highlights: [
       'Wall dives on unsurveyed reef drop-offs',
@@ -386,7 +386,7 @@ const rawExperiences = [
         story: {
           whatItIs: 'Safar quusid (scuba) oo dhowr maalmood ah oo loo maro darbiyada murjaanka qoto dheer iyo meelaha badda dheer, oo loogu talagalay quusayaasha shahaadada haysta ee raadinaya biyo aan weli si buuxda loo sahamin.',
           whereItHappens: 'Guardafui Deep-ka oo ku yaal dhamaadka Geeska Afrika, halkaas oo Qulqulka Badweynta Soomaaliya uu keenno biyo hodan ah oo nafaqo leh—iyo xayawaanka raaca—oo u soo dhawaanaya xeebta.',
-          whatToExpect: 'Quusid darbiyo ah oo la socda sharkiga nibiriga (whale shark) iyo raayada manta-ga badweynta, iyadoo casharrada quusidda la hagaayo kooxaha cilmi-baarista badweynta ee Blue Heaven.',
+          whatToExpect: 'Quusid darbiyo ah oo la socda sharkiga nibiriga (whale shark) iyo raayada manta-ga badweynta, iyadoo casharrada quusidda la hagaayo kooxaha cilmi-baarista badweynta ee Blue Ocean.',
         },
         region: 'Puntland',
         location: 'Guardafui Deep',
@@ -430,11 +430,11 @@ const rawExperiences = [
     duration: '2 Days',
     difficulty: 'Moderate',
     bestSeason: 'November – April',
-    heroImage: '/marine_fish.jpg',
+    heroImage: '/images/img_11.png',
     gallery: [
-      { url: '/marine_fish.jpg', caption: 'Yellowfin tuna landed using traditional handline methods.' },
-      { url: '/exp_dhow_sailing.jpg', caption: 'Fishing dhows departing at dawn from Bargaal.' },
-      { url: '/bargaal_main.jpg', caption: 'The Bargaal coastline, home to generations of artisanal fishermen.' },
+      { url: '/images/img_11.png', caption: 'Yellowfin tuna landed using traditional handline methods.' },
+      { url: '/images/img_12.png', caption: 'Fishing dhows departing at dawn from Bargaal.' },
+      { url: '/images/img_04.png', caption: 'The Bargaal coastline, home to generations of artisanal fishermen.' },
     ],
     highlights: [
       'Hands-on traditional handline fishing',
@@ -502,11 +502,11 @@ const rawExperiences = [
     duration: '4 Days',
     difficulty: 'Moderate — Adventure',
     bestSeason: 'October – March',
-    heroImage: '/jubaland.jpg',
+    heroImage: '/images/img_05.png',
     gallery: [
-      { url: '/jubaland.jpg', caption: 'Remote coral islands of the Bajuni Archipelago.' },
-      { url: '/marine_turtles.jpg', caption: 'Sea turtles nesting on undisturbed island beaches.' },
-      { url: '/marine_seagrass.jpg', caption: 'Sheltered seagrass lagoons between the islands.' },
+      { url: '/images/img_05.png', caption: 'Remote coral islands of the Bajuni Archipelago.' },
+      { url: '/images/img_10.png', caption: 'Sea turtles nesting on undisturbed island beaches.' },
+      { url: '/images/img_11.png', caption: 'Sheltered seagrass lagoons between the islands.' },
     ],
     highlights: [
       'Multi-day boat expedition through remote atolls',
@@ -574,11 +574,11 @@ const rawExperiences = [
     duration: 'Half Day',
     difficulty: 'Easy',
     bestSeason: 'October – May',
-    heroImage: '/marine_dolphins.jpg',
+    heroImage: '/images/img_09.png',
     gallery: [
-      { url: '/marine_dolphins.jpg', caption: 'Spinner dolphins riding the bow wake in the Gulf of Aden.' },
-      { url: '/exp_coastal_cliff.jpg', caption: 'Humpback whales breaching off the Bari coastal cliffs.' },
-      { url: '/somalia_coast.jpg', caption: 'Deep coastal waters along the migration corridor.' },
+      { url: '/images/img_09.png', caption: 'Spinner dolphins riding the bow wake in the Gulf of Aden.' },
+      { url: '/images/img_12.png', caption: 'Humpback whales breaching off the Bari coastal cliffs.' },
+      { url: '/images/image.png', caption: 'Deep coastal waters along the migration corridor.' },
     ],
     highlights: [
       'Resident spinner dolphin pods',
@@ -639,18 +639,18 @@ const rawExperiences = [
     story: {
       whatItIs: 'A guided expedition for underwater and coastal photographers, pairing camera time with marine research fieldwork.',
       whereItHappens: 'A rotating circuit across Somalia’s richest reef and coastline subjects, from Bajuni coral gardens to Qandala’s black coral drop-offs.',
-      whatToExpect: 'Structured shoots at reef sites and cleaning stations, with guidance on light, buoyancy, and approach — and the option to contribute images to Blue Heaven’s species photo-ID archives.',
+      whatToExpect: 'Structured shoots at reef sites and cleaning stations, with guidance on light, buoyancy, and approach — and the option to contribute images to Blue Ocean’s species photo-ID archives.',
     },
     region: 'Somalia',
     location: 'Somalia Seaboard',
     duration: '6 Days',
     difficulty: 'Moderate',
     bestSeason: 'All Seasons',
-    heroImage: '/marine_coral.jpg',
+    heroImage: '/images/img_07.png',
     gallery: [
-      { url: '/marine_coral.jpg', caption: 'Coral garden photography subjects in the Bajuni Archipelago.' },
-      { url: '/exp_scuba_diving.jpg', caption: 'Underwater photographers documenting a reef drop-off.' },
-      { url: '/marine_turtles.jpg', caption: 'Sea turtles are among the archipelago’s signature subjects.' },
+      { url: '/images/img_07.png', caption: 'Coral garden photography subjects in the Bajuni Archipelago.' },
+      { url: '/images/img_02.png', caption: 'Underwater photographers documenting a reef drop-off.' },
+      { url: '/images/img_10.png', caption: 'Sea turtles are among the archipelago’s signature subjects.' },
     ],
     highlights: [
       'Structured shoots at signature reef sites',
@@ -661,7 +661,7 @@ const rawExperiences = [
     destinationSlugs: ['kismayo', 'bajuni-islands', 'qandala'],
     marineSpeciesSlugs: ['acropora-coral', 'green-sea-turtle', 'manta-ray'],
     conservationThemes: [
-      'Images contribute to Blue Heaven’s photo-ID species databases',
+      'Images contribute to Blue Ocean’s photo-ID species databases',
       'No flash photography near nesting or resting marine life',
       'Shared work supports public ocean literacy campaigns',
     ],
@@ -674,7 +674,7 @@ const rawExperiences = [
         story: {
           whatItIs: 'Safar la hagayo oo loogu talagalay sawir-qaadayaasha badda hoosteeda iyo xeebta, kaas oo isku daraya waqtiga kamarada iyo shaqada cilmi-baarista badweynta.',
           whereItHappens: 'Wareeg is-badbadalaya oo ka baxsan xeebaha ugu hodansan ee Soomaaliya, laga bilaabo beeraha murjaanka Bajuni ilaa qarka murjaanka madow ee Qandala.',
-          whatToExpect: 'Sawir qaad oo si hab ahaan loo qaabeeyay oo ka dhaca goobaha reefka iyo saldhagaha nadaafadda, oo la siinayo talooyin ku saabsan iftiinka, dheelitirka biyaha, iyo habka loo dhawaado—iyadoo fursad la siinayo in sawirrada lagu darsado kaydka aqoonsiga noocyada ee Blue Heaven.',
+          whatToExpect: 'Sawir qaad oo si hab ahaan loo qaabeeyay oo ka dhaca goobaha reefka iyo saldhagaha nadaafadda, oo la siinayo talooyin ku saabsan iftiinka, dheelitirka biyaha, iyo habka loo dhawaado—iyadoo fursad la siinayo in sawirrada lagu darsado kaydka aqoonsiga noocyada ee Blue Ocean.',
         },
         region: 'Soomaaliya',
         location: 'Xeebta Soomaaliya',
@@ -693,7 +693,7 @@ const rawExperiences = [
           'Ku habboon sawir-qaadayaasha sare iyo kuwa badda hoosteeda',
         ],
         conservationThemes: [
-          'Sawirrada waxay gacan ka geystaan kaydadka aqoonsiga noocyada ee Blue Heaven',
+          'Sawirrada waxay gacan ka geystaan kaydadka aqoonsiga noocyada ee Blue Ocean',
           'Ma jiro sawir-iftiin (flash) oo u dhow xayawaanka ugxanaya ama nasanaya',
           'Shaqada la wadaagay waxay taageertaa ololayaasha aqoonta bulshada ee badweynta',
         ],
@@ -718,11 +718,11 @@ const rawExperiences = [
     duration: '3 Days',
     difficulty: 'Moderate — Fitness Required',
     bestSeason: 'October – April',
-    heroImage: '/exp_coastal_cliff.jpg',
+    heroImage: '/images/img_12.png',
     gallery: [
-      { url: '/exp_coastal_cliff.jpg', caption: 'Karkaar limestone cliffs meeting the Gulf of Aden.' },
-      { url: '/qandala_main.jpg', caption: 'Coastal bluffs near Qandala along the trekking route.' },
-      { url: '/bargaal_main.jpg', caption: 'Hidden coves accessible only by clifftop trail.' },
+      { url: '/images/img_12.png', caption: 'Karkaar limestone cliffs meeting the Gulf of Aden.' },
+      { url: '/images/img_04.png', caption: 'Coastal bluffs near Qandala along the trekking route.' },
+      { url: '/images/img_04.png', caption: 'Hidden coves accessible only by clifftop trail.' },
     ],
     highlights: [
       'Multi-day clifftop and canyon trekking',

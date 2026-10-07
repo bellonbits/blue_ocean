@@ -11,19 +11,19 @@ export default function RajaBentoGrid() {
   // Carousel slides with authentic Somali coastline photography
   const carouselSlides = [
     {
-      img: '/liido1.png',
+      img: '/images/img_08.png',
       title: isSomali
         ? 'Xeebaha Liido iyo Jasiira ee Muqdisho oo leh mowjado buluug ah'
         : 'Lido & Jazeera ocean breakers along the Banadir coast',
     },
     {
-      img: '/kismayo1.png',
+      img: '/images/img_05.png',
       title: isSomali
         ? 'Jasiiradaha Baajuun iyo biyaha nadiifka ah ee Jubada Hoose'
         : 'Pristine turquoise coral lagoons of the Bajuni Archipelago',
     },
     {
-      img: '/berbera1.png',
+      img: '/images/img_09.png',
       title: isSomali
         ? 'Reef-yada dhagaxeed iyo xeebta taariikhiga ah ee Berbera'
         : 'Ancient coral reefs and deep harbors of Berbera',
@@ -40,7 +40,7 @@ export default function RajaBentoGrid() {
       {/* Header Row */}
       <div className="raja-bento__header">
         <span className="raja-bento__eyebrow">
-          {isSomali ? 'Xeebaha Soomaaliya • Blue Heaven' : "Somalia's Coastline • Blue Heaven"}
+          {isSomali ? 'Xeebaha Soomaaliya • Blue Ocean' : "Somalia's Coastline • Blue Ocean"}
         </span>
         <h2 className="raja-bento__heading">
           {isSomali ? 'Quruxda Aan La Midka Ahayn Ee Xeebaha Soomaaliya' : "The Unmatched Beauty of Somalia's Coastline"}
@@ -87,7 +87,7 @@ export default function RajaBentoGrid() {
         {/* Card 2: Weather & Sea Conditions */}
         <div className="bento-card-weather">
           <img
-            src="/bosaso1.jpg"
+            src="/images/img_02.png"
             alt="Bosaso coastal waters"
             className="bento-card-weather__img"
             loading="lazy"
@@ -125,8 +125,8 @@ export default function RajaBentoGrid() {
 
           <div>
             <div className="bento-card-social__rating">
-              <Star size={24} className="bento-star-icon" fill="currentColor" />
-              <span className="bento-rating-val">4.9 ★</span>
+              <Star size={20} className="bento-star-icon" fill="currentColor" />
+              <span className="bento-rating-val">4.9 / 5.0</span>
             </div>
             <p className="bento-card-social__text">
               {isSomali

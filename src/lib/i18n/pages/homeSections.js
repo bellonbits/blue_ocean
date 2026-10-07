@@ -35,7 +35,7 @@ export default {
     researchPreview: {
       eyebrow: 'Scientific Research',
       heading: "Researching Somalia's Ocean",
-      subheading: "Blue Heaven conducts rigorous scientific research across Somalia's marine environments — generating baseline data to protect wildlife, support coastal communities, and inform environmental policy.",
+      subheading: "Blue Ocean conducts rigorous scientific research across Somalia's marine environments — generating baseline data to protect wildlife, support coastal communities, and inform environmental policy.",
       cta: 'Explore Our Research',
     },
     conservationPreview: {
@@ -51,7 +51,7 @@ export default {
     coastalCommunitiesPreview: {
       eyebrow: 'Coastal Communities',
       heading: 'People of the Coast',
-      subheading: "Blue Heaven is not just about the ocean — it's about the people who live by it. Somalia's coastal communities are at the heart of everything we do.",
+      subheading: "Blue Ocean is not just about the ocean — it's about the people who live by it. Somalia's coastal communities are at the heart of everything we do.",
       coastlineLabel: 'of Somali coastline',
     },
     newsPreview: {
@@ -89,7 +89,7 @@ export default {
     researchPreview: {
       eyebrow: 'Cilmi-baaris Sayniseed',
       heading: 'Cilmi-baaris ku Saabsan Badda Soomaaliya',
-      subheading: 'Blue Heaven waxay sameysaa cilmi-baaris sayniseed oo dhab ah oo ka dhacda deegaannada badeed ee Soomaaliya, iyadoo soo saareysa xog aasaasi ah si loo ilaaliyo xayawaanka, loo taageero bulshooyinka xeebaha, oo lagu wargeliyo siyaasadda deegaanka.',
+      subheading: 'Blue Ocean waxay sameysaa cilmi-baaris sayniseed oo dhab ah oo ka dhacda deegaannada badeed ee Soomaaliya, iyadoo soo saareysa xog aasaasi ah si loo ilaaliyo xayawaanka, loo taageero bulshooyinka xeebaha, oo lagu wargeliyo siyaasadda deegaanka.',
       cta: 'Sahamiso Cilmi-baaristayada',
     },
     conservationPreview: {
@@ -105,7 +105,7 @@ export default {
     coastalCommunitiesPreview: {
       eyebrow: 'Bulshooyinka Xeebaha',
       heading: 'Dadka Xeebaha',
-      subheading: 'Blue Heaven maahan oo keliya wax ku saabsan badda, waxaa kale oo ay ku saabsan tahay dadka ku nool xeebaheeda. Bulshooyinka xeebaha Soomaaliya waa qalbiga dhammaan waxa aan qabano.',
+      subheading: 'Blue Ocean maahan oo keliya wax ku saabsan badda, waxaa kale oo ay ku saabsan tahay dadka ku nool xeebaheeda. Bulshooyinka xeebaha Soomaaliya waa qalbiga dhammaan waxa aan qabano.',
       coastlineLabel: 'oo xeebaha Soomaaliya ah',
     },
     newsPreview: {

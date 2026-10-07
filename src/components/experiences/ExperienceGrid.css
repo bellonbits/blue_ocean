@@ -158,6 +158,28 @@
 
 @media (max-width: 640px) {
   .exp-grid__results {
-    grid-template-columns: minmax(0, 1fr);
+    display: flex !important;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    gap: 14px;
+    padding: 6px 16px 20px 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .exp-grid__results::-webkit-scrollbar {
+    display: none;
+  }
+
+  .exp-grid__results > * {
+    flex: 0 0 clamp(235px, 74vw, 280px) !important;
+    max-width: 285px;
+    scroll-snap-align: start;
   }
 }

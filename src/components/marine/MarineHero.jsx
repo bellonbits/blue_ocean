@@ -13,7 +13,7 @@ export default function MarineHero() {
       {/* Background Visual */}
       <div className="marine-hero__media" aria-hidden="true">
         <img
-          src="/marine_dolphins.jpg"
+          src="/images/img_09.png"
           alt="Dolphins in Somalia's coastal waters"
           className="marine-hero__img"
           loading="eager"

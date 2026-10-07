@@ -1,64 +1,58 @@
 import { useEffect } from 'react';
 import { useScrollReveal } from '../lib/hooks';
-import RajaNavbar from '../components/raja/RajaNavbar';
-import RajaHero from '../components/raja/RajaHero';
-import RajaFeaturedCards from '../components/raja/RajaFeaturedCards';
-import RajaBentoGrid from '../components/raja/RajaBentoGrid';
-import RajaBubbleCollage from '../components/raja/RajaBubbleCollage';
-import RajaDiscoverPlans from '../components/raja/RajaDiscoverPlans';
-import RajaBestPrice from '../components/raja/RajaBestPrice';
-import VisualDiaryGallery from '../components/gallery/VisualDiaryGallery';
-import '../components/raja/RajaExperience.css';
+import EditorialHero from '../components/editorial/EditorialHero';
+import TourismSection from '../components/editorial/TourismSection';
+import EditorialStatement from '../components/editorial/EditorialStatement';
+import EditorialDestinations from '../components/editorial/EditorialDestinations';
+import EditorialMission from '../components/editorial/EditorialMission';
+import EditorialMarineLife from '../components/editorial/EditorialMarineLife';
+import EditorialExperiences from '../components/editorial/EditorialExperiences';
+import EditorialResearch from '../components/editorial/EditorialResearch';
+import EditorialCoastlineMap from '../components/editorial/EditorialCoastlineMap';
+import EditorialCTA from '../components/editorial/EditorialCTA';
+import '../components/editorial/EditorialHome.css';
 
 export default function Home() {
-  // Activate scroll reveal
+  // Activate scroll animations & transitions
   useScrollReveal();
 
-  // Reset scroll on mount
+  // Reset scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleOpenMenu = () => {
-    window.dispatchEvent(new CustomEvent('open-main-nav'));
-  };
-
-  const handleScrollToPlans = () => {
-    const el = document.getElementById('discover-destination');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <div className="raja-page">
-      <main id="main-content" className="raja-canvas" aria-label="Blue Heaven Somalia Showcase">
-        {/* 1. Floating Pill Navbar */}
-        <RajaNavbar
-          onOpenMenu={handleOpenMenu}
-          onGetStarted={handleScrollToPlans}
-        />
+    <div className="editorial-home">
+      <main id="main-content" aria-label="Blue Ocean Somalia — Marine Tourism, Research & Conservation">
+        {/* 1. Hero: Full-Bleed Cinematic Photography */}
+        <EditorialHero />
 
-        {/* 2. Hero Section */}
-        <RajaHero onLetsGo={handleScrollToPlans} />
+        {/* 2. Coastal Tourism Section: 4 Featured Destinations matching reference layout */}
+        <TourismSection />
 
-        {/* 3. Four Cards Destination Showcase */}
-        <RajaFeaturedCards />
+        {/* 3. Introduction: 3,330 KM Coastline Narrative & Key Metrics */}
+        <EditorialStatement />
 
-        {/* 4. Bento Grid: The Unmatched Beauty of Somalia's Coastline */}
-        <RajaBentoGrid />
+        {/* 4. Purposeful Editorial Destination Cards: Hafun, Mogadishu, Ras Hafun, Kismayo */}
+        <EditorialDestinations />
 
-        {/* 5. 3D Coverflow Visual Diary Gallery */}
-        <VisualDiaryGallery />
+        {/* 4. Brand Mission & Four Pillars: Tourism, Research, Education, Conservation */}
+        <EditorialMission />
 
-        {/* 6. Celestial Bubble Collage: Visit Somalia with Us */}
-        <RajaBubbleCollage onBookTicket={handleScrollToPlans} />
+        {/* 5. The Living Ocean: Large Editorial Photography & Marine Megafauna */}
+        <EditorialMarineLife />
 
-        {/* 7. Discover Somalia's Marine Regions & Expeditions */}
-        <RajaDiscoverPlans />
+        {/* 6. Ocean Experiences: Diving, Dhow Voyages, Coastal Wilderness Trekking */}
+        <EditorialExperiences />
 
-        {/* 8. Preserving Somalia's Living Oceans: Multi-plane Composition */}
-        <RajaBestPrice />
+        {/* 7. Research & Conservation: Bathymetric Mapping, Anti-IUU & Marine Protected Areas */}
+        <EditorialResearch />
+
+        {/* 8. Signature Interactive Somali Coastline: Djibouti to Jubaland */}
+        <EditorialCoastlineMap />
+
+        {/* 9. Final CTA: "Explore what lies beyond the horizon." */}
+        <EditorialCTA />
       </main>
     </div>
   );

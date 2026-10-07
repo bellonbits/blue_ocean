@@ -24,7 +24,7 @@ async function request(path, options = {}) {
     // CORS) — distinct from a reachable backend returning an error
     // response, so callers can choose to fail over to Supabase only for
     // this class of failure rather than for e.g. a genuine 404.
-    const networkError = new Error(`Blue Heaven API unreachable: ${err.message}`);
+    const networkError = new Error(`Blue Ocean API unreachable: ${err.message}`);
     networkError.isNetworkError = true;
     throw networkError;
   }

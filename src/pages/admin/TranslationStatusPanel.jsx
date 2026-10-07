@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Check } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { adminListDestinations } from '../../lib/contentApi';
 
@@ -37,7 +38,7 @@ export default function TranslationStatusPanel() {
         <tbody>
           <tr>
             <td>Explore the Coast (Destinations)</td>
-            <td>✓</td>
+            <td><Check size={14} color="#0ea5e9" /></td>
             <td>
               {error ? '—' : destinations === null ? '…' : `${translatedCount}/${destinations.length}`}
             </td>
@@ -45,7 +46,7 @@ export default function TranslationStatusPanel() {
           {PENDING_RESOURCES.map((label) => (
             <tr key={label}>
               <td>{label}</td>
-              <td>✓</td>
+              <td><Check size={14} color="#0ea5e9" /></td>
               <td style={{ color: 'var(--admin-text-dim)' }}>Pending — not yet wired to translations</td>
             </tr>
           ))}

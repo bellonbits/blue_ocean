@@ -6,10 +6,10 @@ export default function RajaHero({ onLetsGo }) {
   const isSomali = language === 'so';
 
   return (
-    <section className="raja-hero" aria-label="Blue Heaven Somalia Coastline Hero">
+    <section className="raja-hero" aria-label="Blue Ocean Somalia Coastline Hero">
       {/* Background Photography: Authentic Somalia Coastline */}
       <img
-        src="/somalia_hero_coast.jpg"
+        src="/images/image.png"
         alt="Somalia coastline where dramatic limestone mountain ridges meet turquoise waters of the Gulf of Aden"
         className="raja-hero__bg"
         loading="eager"

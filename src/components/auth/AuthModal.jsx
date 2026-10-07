@@ -97,10 +97,10 @@ export default function AuthModal() {
         <div className="auth-modal__header">
           <div className="auth-modal__badge">
             <Waves size={14} className="auth-modal__badge-icon" />
-            <span>Blue Heaven Platform</span>
+            <span>Blue Ocean Platform</span>
           </div>
           <h2 className="auth-modal__title">
-            {authModalTab === 'login' ? 'Welcome Back' : 'Join Blue Heaven'}
+            {authModalTab === 'login' ? 'Welcome Back' : 'Join Blue Ocean'}
           </h2>
           <p className="auth-modal__subtitle">
             {authModalTab === 'login'

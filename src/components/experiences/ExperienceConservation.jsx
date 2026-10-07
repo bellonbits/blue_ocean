@@ -27,7 +27,7 @@ export default function ExperienceConservation({ experience }) {
 
             <div className="exp-con-sec__narrative-wrap">
               <p className="exp-con-sec__explanation">
-                Every Blue Heaven experience is designed around the health of the coastline that makes it possible.
+                Every Blue Ocean experience is designed around the health of the coastline that makes it possible.
                 Guides and operating partners for {experience.title} follow these principles:
               </p>
 

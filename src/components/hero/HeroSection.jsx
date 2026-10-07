@@ -18,8 +18,8 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="hero__bg">
         <img
-          src="/hero_ocean.jpg"
-          alt="Blue Heaven Somalia — Marine life and coastal waters"
+          src="/images/image.png"
+          alt="Blue Ocean Somalia — Marine life and coastal waters"
           className="hero__bg-img"
           loading="eager"
           fetchpriority="high"

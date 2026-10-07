@@ -1,9 +1,9 @@
 // =========================================================
 // Research & Scientific Discovery Data Model
-// Blue Heaven Somalia — Sprint 4: Research
+// Blue Ocean Somalia — Sprint 4: Research
 //
 // Research team & report content is intentionally institutional
-// (e.g. "Blue Heaven Fisheries Science Team") rather than named
+// (e.g. "Blue Ocean Fisheries Science Team") rather than named
 // individuals — no real researcher photos/bios exist yet. Reports
 // ship with status: 'coming-soon' since no publishable documents
 // exist yet — do not add live PDF links until real files exist.
@@ -50,7 +50,7 @@ export const researchAreas = [
     slug: 'marine-biodiversity',
     title: 'Marine Biodiversity',
     description: 'Cataloguing the full spectrum of marine life and uncharted species across Somali waters.',
-    image: '/marine_fish.jpg',
+    image: '/images/img_11.png',
     tag: 'Biodiversity',
     color: 'rgba(0,201,177,0.15)',
     borderColor: 'rgba(0,201,177,0.3)',
@@ -68,7 +68,7 @@ export const researchAreas = [
     slug: 'fisheries',
     title: 'Fisheries Science',
     description: 'Population dynamics, stock assessments, catch data, and sustainable marine harvest yields.',
-    image: '/marine_fish.jpg',
+    image: '/images/img_11.png',
     tag: 'Fisheries',
     color: 'rgba(99,102,241,0.15)',
     borderColor: 'rgba(99,102,241,0.3)',
@@ -86,7 +86,7 @@ export const researchAreas = [
     slug: 'coral-reefs',
     title: 'Coral Reef Health',
     description: 'Monitoring reef bleaching, thermal resilience, and coral regeneration under climate shifts.',
-    image: '/marine_coral.jpg',
+    image: '/images/img_07.png',
     tag: 'Coral Reefs',
     color: 'rgba(249,115,22,0.15)',
     borderColor: 'rgba(249,115,22,0.3)',
@@ -104,7 +104,7 @@ export const researchAreas = [
     slug: 'sharks-rays',
     title: 'Sharks & Rays',
     description: 'Population monitoring, migratory corridor mapping, and protection of apex predators.',
-    image: '/marine_sharks.jpg',
+    image: '/images/img_11.png',
     tag: 'Elasmobranchs',
     color: 'rgba(59,130,246,0.15)',
     borderColor: 'rgba(59,130,246,0.3)',
@@ -122,7 +122,7 @@ export const researchAreas = [
     slug: 'dolphins-whales',
     title: 'Dolphins & Whales',
     description: 'Acoustic monitoring, migration tracking, and population surveys of resident and migratory cetaceans.',
-    image: '/marine_dolphins.jpg',
+    image: '/images/img_09.png',
     tag: 'Cetaceans',
     color: 'rgba(2,204,254,0.15)',
     borderColor: 'rgba(2,204,254,0.3)',
@@ -140,7 +140,7 @@ export const researchAreas = [
     slug: 'sea-turtles',
     title: 'Sea Turtle Research',
     description: 'Nesting site telemetry, satellite tagging, and beach incubation recovery programs.',
-    image: '/marine_turtles.jpg',
+    image: '/images/img_10.png',
     tag: 'Sea Turtles',
     color: 'rgba(34,197,94,0.15)',
     borderColor: 'rgba(34,197,94,0.3)',
@@ -158,7 +158,7 @@ export const researchAreas = [
     slug: 'ocean-pollution',
     title: 'Ocean Pollution',
     description: 'Mapping microplastics, marine debris accumulation, and coastal pollutant hotspots.',
-    image: '/con_beach_cleanup.jpg',
+    image: '/images/img_01.png',
     tag: 'Pollution',
     color: 'rgba(239,68,68,0.15)',
     borderColor: 'rgba(239,68,68,0.3)',
@@ -176,7 +176,7 @@ export const researchAreas = [
     slug: 'water-quality',
     title: 'Water Quality',
     description: 'Salinity, dissolved oxygen, pH metrics, and ocean temperature sensing across the coast.',
-    image: '/somalia_coast.jpg',
+    image: '/images/image.png',
     tag: 'Oceanography',
     color: 'rgba(14,165,233,0.15)',
     borderColor: 'rgba(14,165,233,0.3)',
@@ -194,7 +194,7 @@ export const researchAreas = [
     slug: 'coastal-ecosystems',
     title: 'Coastal Ecosystems',
     description: 'Mangrove preservation, seagrass carbon sequestration, and estuarine wetland protection.',
-    image: '/marine_seagrass.jpg',
+    image: '/images/img_11.png',
     tag: 'Ecosystems',
     color: 'rgba(132,204,22,0.15)',
     borderColor: 'rgba(132,204,22,0.3)',
@@ -238,11 +238,11 @@ const rawProjects = [
     purpose: 'To establish a baseline population count and movement pattern for cetaceans along the northern Somali coast, informing safe-corridor and bycatch mitigation planning.',
     geographicScope: 'Gulf of Aden coastal corridor, from Bosaso to Qandala, extending to the Bajuni shallows.',
     expectedOutcomes: 'A verified population estimate, an acoustic detection archive, and a migratory corridor map to guide future marine protected area proposals.',
-    heroImage: '/marine_dolphins.jpg',
+    heroImage: '/images/img_09.png',
     gallery: [
-      { url: '/marine_dolphins.jpg', caption: 'Spinner dolphin pod recorded during a Gulf of Aden acoustic survey.' },
+      { url: '/images/img_09.png', caption: 'Spinner dolphin pod recorded during a Gulf of Aden acoustic survey.' },
       { url: '/bosaso2.jpg', caption: 'Bosaso harbor, the primary staging point for cetacean survey vessels.' },
-      { url: '/somalia_coast.jpg', caption: 'Coastal waters along the northern survey corridor.' },
+      { url: '/images/image.png', caption: 'Coastal waters along the northern survey corridor.' },
     ],
     objectives: [
       'Establish a baseline population estimate for resident dolphin pods in the Gulf of Aden corridor.',
@@ -252,8 +252,8 @@ const rawProjects = [
     ],
     methodology: ['acoustic-monitoring', 'photography', 'field-surveys', 'geographic-mapping'],
     findings: [
-      { title: 'Resident pod confirmed year-round', description: 'Acoustic and visual survey data confirm a resident bottlenose dolphin pod present in the Bosaso corridor across all four survey seasons to date.', source: 'Blue Heaven Cetacean Research Unit, 2024–2025 Field Seasons' },
-      { title: 'Seasonal spinner dolphin aggregations', description: 'Larger spinner dolphin aggregations were recorded between October and May, coinciding with the northeast monsoon period.', source: 'Blue Heaven Cetacean Research Unit, 2025 Season Summary' },
+      { title: 'Resident pod confirmed year-round', description: 'Acoustic and visual survey data confirm a resident bottlenose dolphin pod present in the Bosaso corridor across all four survey seasons to date.', source: 'Blue Ocean Cetacean Research Unit, 2024–2025 Field Seasons' },
+      { title: 'Seasonal spinner dolphin aggregations', description: 'Larger spinner dolphin aggregations were recorded between October and May, coinciding with the northeast monsoon period.', source: 'Blue Ocean Cetacean Research Unit, 2025 Season Summary' },
     ],
     speciesSlugs: ['bottlenose-dolphin'],
     destinationSlugs: ['bosaso', 'kismayo', 'qandala'],
@@ -270,9 +270,9 @@ const rawProjects = [
         geographicScope: 'Marinka xeebaha Gacanka Cadmeed, laga bilaabo Boosaaso ilaa Qandala, oo gaaraya biyaha gacanka hoose ee Baajuni.',
         expectedOutcomes: 'Tirakoob la xaqiijiyay, kaydka ogaanshaha dhawaaqa, iyo khariidad marinka u-guuritaanka si loo hagto soo jeedinta meelaha ilaalinta badda ee mustaqbalka.',
         gallery: [
-          { url: '/marine_dolphins.jpg', caption: 'Guuto dhurwaag ah oo la duubay intii lagu jiray sahan dhawaaq oo Gacanka Cadmeed ah.' },
+          { url: '/images/img_09.png', caption: 'Guuto dhurwaag ah oo la duubay intii lagu jiray sahan dhawaaq oo Gacanka Cadmeed ah.' },
           { url: '/bosaso2.jpg', caption: 'Deked Boosaaso, saldhigga ugu weyn ee maraakiibta sahanka cetaceans-ka.' },
-          { url: '/somalia_coast.jpg', caption: 'Biyaha xeebaha ee marinka sahanka woqooyi.' },
+          { url: '/images/image.png', caption: 'Biyaha xeebaha ee marinka sahanka woqooyi.' },
         ],
         objectives: [
           'In la sameeyo tirakoob aasaasi ah oo ku saabsan guutooyinka dhurwaagyada ku nool marinka Gacanka Cadmeed.',
@@ -281,8 +281,8 @@ const rawProjects = [
           'In la dhiso diiwaan sawir-aqoonsi ah oo ay ku jiraan xubnaha guutada ee si gaar ah loo aqoonsan karo.',
         ],
         findings: [
-          { title: 'La xaqiijiyay guuto joogto ah oo sanadka oo dhan jirta', description: 'Xogta sahanka dhawaaqa iyo aragtida ayaa xaqiijisay in guuto dhurwaag bottlenose ah oo joogto ah ay ku sugan tahay marinka Boosaaso xilliyada afarta sahan ee la sameeyay ilaa hadda.', source: 'Blue Heaven Cetacean Research Unit, 2024–2025 Field Seasons' },
-          { title: 'Isu-imaatinka xilliyeed ee dhurwaagyada spinner', description: 'Isu-imaatimo waaweyn oo dhurwaag spinner ah ayaa la diiwaan geliyay bishii Oktoobar ilaa Maajo, taasoo la mid ah xilliga dabaysha waqooyi-bari.', source: 'Blue Heaven Cetacean Research Unit, 2025 Season Summary' },
+          { title: 'La xaqiijiyay guuto joogto ah oo sanadka oo dhan jirta', description: 'Xogta sahanka dhawaaqa iyo aragtida ayaa xaqiijisay in guuto dhurwaag bottlenose ah oo joogto ah ay ku sugan tahay marinka Boosaaso xilliyada afarta sahan ee la sameeyay ilaa hadda.', source: 'Blue Ocean Cetacean Research Unit, 2024–2025 Field Seasons' },
+          { title: 'Isu-imaatinka xilliyeed ee dhurwaagyada spinner', description: 'Isu-imaatimo waaweyn oo dhurwaag spinner ah ayaa la diiwaan geliyay bishii Oktoobar ilaa Maajo, taasoo la mid ah xilliga dabaysha waqooyi-bari.', source: 'Blue Ocean Cetacean Research Unit, 2025 Season Summary' },
         ],
         conservationThemes: ['Wuxuu si toos ah u gelayaa hindisaha Marino Ammaan ah ee U-guuritaanka Xayawaanka Badda'],
       },
@@ -303,11 +303,11 @@ const rawProjects = [
     purpose: 'To document the timing and density of humpback whale migration through Somali waters using long-duration passive acoustic monitoring.',
     geographicScope: 'Eyl Trench and Guardafui Channel deep-water corridor.',
     expectedOutcomes: 'A seasonal acoustic activity calendar and a foundation dataset for future ship-strike risk modeling.',
-    heroImage: '/exp_coastal_cliff.jpg',
+    heroImage: '/images/img_12.png',
     gallery: [
-      { url: '/exp_coastal_cliff.jpg', caption: 'Bari coastal cliffs overlooking the deep-water humpback migration corridor.' },
-      { url: '/marine_dolphins.jpg', caption: 'Mixed cetacean pods recorded transiting the Guardafui Channel.' },
-      { url: '/eyl1.jpg', caption: 'Eyl, home port for hydrophone deployment and retrieval.' },
+      { url: '/images/img_12.png', caption: 'Bari coastal cliffs overlooking the deep-water humpback migration corridor.' },
+      { url: '/images/img_09.png', caption: 'Mixed cetacean pods recorded transiting the Guardafui Channel.' },
+      { url: '/images/img_03.png', caption: 'Eyl, home port for hydrophone deployment and retrieval.' },
     ],
     objectives: [
       'Deploy long-duration hydrophones across the Eyl Trench and Guardafui Channel.',
@@ -317,7 +317,7 @@ const rawProjects = [
     ],
     methodology: ['acoustic-monitoring', 'geographic-mapping'],
     findings: [
-      { title: 'Peak vocal activity in winter months', description: 'Hydrophone data show a marked increase in humpback whale vocal activity between December and February, consistent with the northern migration window.', source: 'Blue Heaven Cetacean Research Unit, 2025 Acoustic Summary' },
+      { title: 'Peak vocal activity in winter months', description: 'Hydrophone data show a marked increase in humpback whale vocal activity between December and February, consistent with the northern migration window.', source: 'Blue Ocean Cetacean Research Unit, 2025 Acoustic Summary' },
     ],
     speciesSlugs: ['humpback-whale'],
     destinationSlugs: ['eyl', 'bosaso', 'hafun'],
@@ -334,9 +334,9 @@ const rawProjects = [
         geographicScope: 'Marinka qoto-dheer ee Eyl Trench iyo Marinka Guardafui.',
         expectedOutcomes: 'Jadwal dhaqdhaqaaqa dhawaaqa xilliyeed ah iyo xog aasaasi ah oo loogu talagalay qiimaynta halista kubaneysiga markabka ee mustaqbalka.',
         gallery: [
-          { url: '/exp_coastal_cliff.jpg', caption: 'Dhaadhaca xeebaha Bari oo daaha ka qaadaya marinka u-guuritaanka nibiriga kubaneed ee qoto-dheer.' },
-          { url: '/marine_dolphins.jpg', caption: 'Guutooyin isku dhafan oo cetaceans ah oo la duubay iyagoo ka gudbaya Marinka Guardafui.' },
-          { url: '/eyl1.jpg', caption: 'Eyl, deked u ah dejinta iyo soo-celinta hydrophone-yada.' },
+          { url: '/images/img_12.png', caption: 'Dhaadhaca xeebaha Bari oo daaha ka qaadaya marinka u-guuritaanka nibiriga kubaneed ee qoto-dheer.' },
+          { url: '/images/img_09.png', caption: 'Guutooyin isku dhafan oo cetaceans ah oo la duubay iyagoo ka gudbaya Marinka Guardafui.' },
+          { url: '/images/img_03.png', caption: 'Eyl, deked u ah dejinta iyo soo-celinta hydrophone-yada.' },
         ],
         objectives: [
           'In la dejiyo hydrophone-yo mudo dheer socda oo ku fidsan Eyl Trench iyo Marinka Guardafui.',
@@ -345,7 +345,7 @@ const rawProjects = [
           'In la dhiso xog aasaasi ah oo loogu talagalay qiimaynta halista kubaneysiga markabka ee mustaqbalka.',
         ],
         findings: [
-          { title: 'Dhaqdhaqaaqa codka ugu sarreeya xilliga qabowga', description: 'Xogta hydrophone-ku waxay muujinaysaa kordhin muuqata oo dhaqdhaqaaqa codka nibiriga kubaneed ah oo dhex maray Diseembar iyo Febraayo, taasoo la mid ah xilliga u-guuritaanka waqooyi.', source: 'Blue Heaven Cetacean Research Unit, 2025 Acoustic Summary' },
+          { title: 'Dhaqdhaqaaqa codka ugu sarreeya xilliga qabowga', description: 'Xogta hydrophone-ku waxay muujinaysaa kordhin muuqata oo dhaqdhaqaaqa codka nibiriga kubaneed ah oo dhex maray Diseembar iyo Febraayo, taasoo la mid ah xilliga u-guuritaanka waqooyi.', source: 'Blue Ocean Cetacean Research Unit, 2025 Acoustic Summary' },
         ],
         conservationThemes: ['Wuxuu taageerayaa Nidaamka Talobixinta Isku-dhaca Nibiriga ee Jidka Badda'],
       },
@@ -366,11 +366,11 @@ const rawProjects = [
     purpose: 'To satellite-tag and photo-identify whale sharks in order to understand residency time and migratory connectivity across the western Indian Ocean.',
     geographicScope: 'Cap Guardafui and Ras Asir upwelling zones, extending along the Bari pelagic shelf.',
     expectedOutcomes: 'A regional migratory connectivity map and a growing photo-ID catalog shared with regional whale shark research networks.',
-    heroImage: '/marine_sharks.jpg',
+    heroImage: '/images/img_11.png',
     gallery: [
-      { url: '/marine_sharks.jpg', caption: 'Juvenile whale shark feeding near the surface off Cap Guardafui.' },
-      { url: '/exp_scuba_diving.jpg', caption: 'Research divers approaching a whale shark for photo-ID capture.' },
-      { url: '/bargaal_main.jpg', caption: 'Bargaal, a seasonal whale shark feeding aggregation site.' },
+      { url: '/images/img_11.png', caption: 'Juvenile whale shark feeding near the surface off Cap Guardafui.' },
+      { url: '/images/img_02.png', caption: 'Research divers approaching a whale shark for photo-ID capture.' },
+      { url: '/images/img_04.png', caption: 'Bargaal, a seasonal whale shark feeding aggregation site.' },
     ],
     objectives: [
       'Deploy satellite tags on whale sharks encountered in the Guardafui upwelling.',
@@ -380,8 +380,8 @@ const rawProjects = [
     ],
     methodology: ['photography', 'species-identification', 'geographic-mapping'],
     findings: [
-      { title: 'Multi-month residency confirmed', description: 'Tagged individuals showed residency periods of up to four months within the Guardafui upwelling zone before departing on longer pelagic transits.', source: 'Blue Heaven Elasmobranch Research Unit, 2024 Tagging Report' },
-      { title: 'Feeding aggregation peaks December–April', description: 'Sighting frequency data confirm the strongest feeding aggregations occur between December and April, aligned with peak plankton bloom.', source: 'Blue Heaven Elasmobranch Research Unit, 2024–2025 Season Summary' },
+      { title: 'Multi-month residency confirmed', description: 'Tagged individuals showed residency periods of up to four months within the Guardafui upwelling zone before departing on longer pelagic transits.', source: 'Blue Ocean Elasmobranch Research Unit, 2024 Tagging Report' },
+      { title: 'Feeding aggregation peaks December–April', description: 'Sighting frequency data confirm the strongest feeding aggregations occur between December and April, aligned with peak plankton bloom.', source: 'Blue Ocean Elasmobranch Research Unit, 2024–2025 Season Summary' },
     ],
     speciesSlugs: ['whale-shark'],
     destinationSlugs: ['bosaso', 'hafun', 'bargaal'],
@@ -398,9 +398,9 @@ const rawProjects = [
         geographicScope: 'Aagagga kacsanaanta Cap Guardafui iyo Ras Asir, oo fidsan ilaa buurta hoose ee badda ee Bari.',
         expectedOutcomes: 'Khariidad isku xirnaanta u-guuritaanka gobolka iyo diiwaan sawir-aqoonsi oo sii kordhaya oo lala wadaagayo shabakadaha cilmi-baarista sharka nibiriga ee gobolka.',
         gallery: [
-          { url: '/marine_sharks.jpg', caption: 'Sharka nibiriga oo yar oo wax ka quudinaya dushii biyaha ee Cap Guardafui agteeda.' },
-          { url: '/exp_scuba_diving.jpg', caption: 'Cilmi-baarayaal quusaya oo u soo dhawaanaya sharka nibiriga si loo qaado sawir-aqoonsi.' },
-          { url: '/bargaal_main.jpg', caption: 'Bargaal, goob xilliyeed oo isu-imaatin ah oo uu ku wax cunno sharka nibiriga.' },
+          { url: '/images/img_11.png', caption: 'Sharka nibiriga oo yar oo wax ka quudinaya dushii biyaha ee Cap Guardafui agteeda.' },
+          { url: '/images/img_02.png', caption: 'Cilmi-baarayaal quusaya oo u soo dhawaanaya sharka nibiriga si loo qaado sawir-aqoonsi.' },
+          { url: '/images/img_04.png', caption: 'Bargaal, goob xilliyeed oo isu-imaatin ah oo uu ku wax cunno sharka nibiriga.' },
         ],
         objectives: [
           'In lagu dejiyo calaamado dayax-gacmeed ah sharka nibiriga laga helo kacsanaanta Guardafui.',
@@ -409,8 +409,8 @@ const rawProjects = [
           'In xogta calaamadaynta lala wadaago shabakadaha cilmi-baarista sharka nibiriga ee gobolka.',
         ],
         findings: [
-          { title: 'La xaqiijiyay joogitaan dhawr bilood ah', description: 'Shakhsiyaadka la calaamadeeyay waxay muujiyeen muddo joogitaan ah oo gaaraysa afar bilood gudaha aagga kacsanaanta Guardafui ka hor intaanay ka bixin socdaal badweyn oo dheer.', source: 'Blue Heaven Elasmobranch Research Unit, 2024 Tagging Report' },
-          { title: 'Isu-imaatinka wax-cunista ayaa sare u kaca Diseembar–Abriil', description: 'Xogta soo-aragga ayaa xaqiijisay in isu-imaatimada ugu xoogga badan ay dhacaan Diseembar ilaa Abriil, taasoo la mid ah xilliga ugu sarreeya ee kobaca plankton-ka.', source: 'Blue Heaven Elasmobranch Research Unit, 2024–2025 Season Summary' },
+          { title: 'La xaqiijiyay joogitaan dhawr bilood ah', description: 'Shakhsiyaadka la calaamadeeyay waxay muujiyeen muddo joogitaan ah oo gaaraysa afar bilood gudaha aagga kacsanaanta Guardafui ka hor intaanay ka bixin socdaal badweyn oo dheer.', source: 'Blue Ocean Elasmobranch Research Unit, 2024 Tagging Report' },
+          { title: 'Isu-imaatinka wax-cunista ayaa sare u kaca Diseembar–Abriil', description: 'Xogta soo-aragga ayaa xaqiijisay in isu-imaatimada ugu xoogga badan ay dhacaan Diseembar ilaa Abriil, taasoo la mid ah xilliga ugu sarreeya ee kobaca plankton-ka.', source: 'Blue Ocean Elasmobranch Research Unit, 2024–2025 Season Summary' },
         ],
         conservationThemes: ['Wuxuu taageerayaa Hindisaha Ilaalinta Elasmobranch-ka ee Geeska Afrika'],
       },
@@ -431,11 +431,11 @@ const rawProjects = [
     purpose: 'To establish the first regional photo-ID registry of oceanic manta rays using their unique ventral spot patterns.',
     geographicScope: 'Bajuni Archipelago outer reef pinnacles and known cleaning station sites.',
     expectedOutcomes: 'A founding photo-ID database and a preliminary estimate of local manta ray population size.',
-    heroImage: '/exp_scuba_diving.jpg',
+    heroImage: '/images/img_02.png',
     gallery: [
-      { url: '/exp_scuba_diving.jpg', caption: 'Oceanic manta ray at a reef cleaning station in the Bajuni Archipelago.' },
-      { url: '/marine_coral.jpg', caption: 'Coral pinnacle drop-off identified as a candidate cleaning station site.' },
-      { url: '/jubaland.jpg', caption: 'Bajuni Archipelago waters targeted for the planned registry.' },
+      { url: '/images/img_02.png', caption: 'Oceanic manta ray at a reef cleaning station in the Bajuni Archipelago.' },
+      { url: '/images/img_07.png', caption: 'Coral pinnacle drop-off identified as a candidate cleaning station site.' },
+      { url: '/images/img_05.png', caption: 'Bajuni Archipelago waters targeted for the planned registry.' },
     ],
     objectives: [
       'Identify and map known manta ray cleaning station sites across the archipelago.',
@@ -460,9 +460,9 @@ const rawProjects = [
         geographicScope: 'Buuraha jiirifka ee gadaasha Baajuni iyo goobaha nadiifinta ee la yaqaan.',
         expectedOutcomes: 'Kayd sawir-aqoonsi oo aasaasi ah iyo qiyaas hordhac ah oo ku saabsan tirada raysaska manta ee maxalliga ah.',
         gallery: [
-          { url: '/exp_scuba_diving.jpg', caption: 'Rays manta oo badweyn ah oo ku sugan goob nadiifin oo jiirif ah oo ku taal Baajuni.' },
-          { url: '/marine_coral.jpg', caption: 'Buur jiirif ah oo la aqoonsaday inay tahay goob macangag ah oo nadiifin ah.' },
-          { url: '/jubaland.jpg', caption: 'Biyaha Baajuni ee bartilmaameedka diiwaanka qorshaysan.' },
+          { url: '/images/img_02.png', caption: 'Rays manta oo badweyn ah oo ku sugan goob nadiifin oo jiirif ah oo ku taal Baajuni.' },
+          { url: '/images/img_07.png', caption: 'Buur jiirif ah oo la aqoonsaday inay tahay goob macangag ah oo nadiifin ah.' },
+          { url: '/images/img_05.png', caption: 'Biyaha Baajuni ee bartilmaameedka diiwaanka qorshaysan.' },
         ],
         objectives: [
           'In la aqoonsado laguna khariidadeeyo goobaha nadiifinta raysaska manta ee ku fidsan gadaasha.',
@@ -489,11 +489,11 @@ const rawProjects = [
     purpose: 'To satellite-tag nesting females and monitor incubation outcomes across Somalia’s two most significant nesting rookeries.',
     geographicScope: 'Hafun Peninsula tombolo beaches and the Bajuni Archipelago nesting islands.',
     expectedOutcomes: 'A migratory route map linking foraging and nesting grounds, and a nest-success dataset to guide beach protection efforts.',
-    heroImage: '/marine_turtles.jpg',
+    heroImage: '/images/img_10.png',
     gallery: [
-      { url: '/marine_turtles.jpg', caption: 'Green sea turtle grazing on seagrass in Bajuni shallows.' },
-      { url: '/hafun2.jpg', caption: 'Hafun tombolo beach, one of the two rookeries monitored by the project.' },
-      { url: '/marine_seagrass.jpg', caption: 'Seagrass foraging habitat linked to nesting turtle movement.' },
+      { url: '/images/img_10.png', caption: 'Green sea turtle grazing on seagrass in Bajuni shallows.' },
+      { url: '/images/img_01.png', caption: 'Hafun tombolo beach, one of the two rookeries monitored by the project.' },
+      { url: '/images/img_11.png', caption: 'Seagrass foraging habitat linked to nesting turtle movement.' },
     ],
     objectives: [
       'Deploy satellite tags on nesting female green sea turtles.',
@@ -503,7 +503,7 @@ const rawProjects = [
     ],
     methodology: ['field-surveys', 'species-identification', 'geographic-mapping', 'community-knowledge'],
     findings: [
-      { title: 'Two-rookery migratory link confirmed', description: 'Satellite tracks confirm individual turtles moving between the Hafun and Bajuni rookeries within a single nesting season, suggesting a shared regional population.', source: 'Blue Heaven Sea Turtle Research Unit, 2025 Telemetry Report' },
+      { title: 'Two-rookery migratory link confirmed', description: 'Satellite tracks confirm individual turtles moving between the Hafun and Bajuni rookeries within a single nesting season, suggesting a shared regional population.', source: 'Blue Ocean Sea Turtle Research Unit, 2025 Telemetry Report' },
     ],
     speciesSlugs: ['green-sea-turtle', 'hawksbill-turtle'],
     destinationSlugs: ['hafun', 'kismayo', 'eyl'],
@@ -520,9 +520,9 @@ const rawProjects = [
         geographicScope: 'Xeebaha tombolo ee Cirbaha Hafun iyo jasiiradaha ugxanta ee Baajuni.',
         expectedOutcomes: 'Khariidad marino u-guuritaanka ah oo isku xirta meelaha daaqa iyo ugxanta, iyo xog guusha ugxanta ah oo hagta dadaallada ilaalinta xeebaha.',
         gallery: [
-          { url: '/marine_turtles.jpg', caption: 'Diin badda cagaaran ah oo daaqaya doogga badda ee biyaha hooseeya ee Baajuni.' },
-          { url: '/hafun2.jpg', caption: 'Xeebta tombolo ee Hafun, mid ka mid ah labada goob ee mashruucu la socdo.' },
-          { url: '/marine_seagrass.jpg', caption: 'Deegaanka doogga badda ee lala xiriiriyo dhaqdhaqaaqa diinka ugxanta.' },
+          { url: '/images/img_10.png', caption: 'Diin badda cagaaran ah oo daaqaya doogga badda ee biyaha hooseeya ee Baajuni.' },
+          { url: '/images/img_01.png', caption: 'Xeebta tombolo ee Hafun, mid ka mid ah labada goob ee mashruucu la socdo.' },
+          { url: '/images/img_11.png', caption: 'Deegaanka doogga badda ee lala xiriiriyo dhaqdhaqaaqa diinka ugxanta.' },
         ],
         objectives: [
           'In lagu dejiyo calaamado dayax-gacmeed ah dhaddigyada diinka badda cagaaran ee dhalan doona.',
@@ -531,7 +531,7 @@ const rawProjects = [
           'In la tababaro ilaaliyayaasha xeebaha ee bulshada hab-raacyada la socodka ugxanta.',
         ],
         findings: [
-          { title: 'La xaqiijiyay xiriirka u-guuritaanka labada goobood', description: 'Raadraacyada dayax-gacmeed waxay xaqiijinayaan in shakhsiyaad diin ah ay u dhaqaaqaan inta u dhaxaysa Hafun iyo Baajuni xilli ugxan hal ah gudahiis, taasoo soo jeedinaysa dad-weyne gobol oo la wadaago.', source: 'Blue Heaven Sea Turtle Research Unit, 2025 Telemetry Report' },
+          { title: 'La xaqiijiyay xiriirka u-guuritaanka labada goobood', description: 'Raadraacyada dayax-gacmeed waxay xaqiijinayaan in shakhsiyaad diin ah ay u dhaqaaqaan inta u dhaxaysa Hafun iyo Baajuni xilli ugxan hal ah gudahiis, taasoo soo jeedinaysa dad-weyne gobol oo la wadaago.', source: 'Blue Ocean Sea Turtle Research Unit, 2025 Telemetry Report' },
         ],
         conservationThemes: ['Wuxuu si toos ah u taageerayaa Barnaamijka Ilaalinta Ugxanta ee Ilaaliyayaasha Xeebaha Bulshada'],
       },
@@ -552,10 +552,10 @@ const rawProjects = [
     purpose: 'To provide the first published stock assessment for yellowfin tuna in Somali waters, supporting sustainable fisheries policy.',
     geographicScope: 'Somali Exclusive Economic Zone, with concentrated sampling along the Bari coast and Guardafui Channel.',
     expectedOutcomes: 'A published stock status report and a genetic reference dataset for future fisheries management decisions.',
-    heroImage: '/marine_fish.jpg',
+    heroImage: '/images/img_11.png',
     gallery: [
-      { url: '/marine_fish.jpg', caption: 'Yellowfin tuna landed for genetic and biometric sampling.' },
-      { url: '/exp_dhow_sailing.jpg', caption: 'Traditional handline fishing vessels that supported the sampling program.' },
+      { url: '/images/img_11.png', caption: 'Yellowfin tuna landed for genetic and biometric sampling.' },
+      { url: '/images/img_12.png', caption: 'Traditional handline fishing vessels that supported the sampling program.' },
       { url: '/bosaso2.jpg', caption: 'Bosaso fish market, a key sampling and data collection point.' },
     ],
     objectives: [
@@ -566,7 +566,7 @@ const rawProjects = [
     ],
     methodology: ['fisheries-data', 'species-identification', 'community-knowledge'],
     findings: [
-      { title: 'Stock within sustainable range', description: 'Biomass estimates place the Somali EEZ yellowfin tuna stock within a sustainable range as of the 2025 assessment, though monitoring is recommended given regional fishing pressure.', source: 'Blue Heaven Fisheries Science Team, Published Stock Assessment, 2025' },
+      { title: 'Stock within sustainable range', description: 'Biomass estimates place the Somali EEZ yellowfin tuna stock within a sustainable range as of the 2025 assessment, though monitoring is recommended given regional fishing pressure.', source: 'Blue Ocean Fisheries Science Team, Published Stock Assessment, 2025' },
     ],
     speciesSlugs: ['yellowfin-tuna'],
     destinationSlugs: ['bosaso', 'bargaal', 'kismayo'],
@@ -583,8 +583,8 @@ const rawProjects = [
         geographicScope: 'Xadka Dhaqaalaha Badweynta ee Soomaaliya, iyada oo tijaabo si xoogan loogu geeyay xeebta Bari iyo Marinka Guardafui.',
         expectedOutcomes: 'Warbixin xaalada kaydka oo la daabacay iyo xog hidde-side oo loogu talagalay go’aannada maaraynta kalluumeysiga ee mustaqbalka.',
         gallery: [
-          { url: '/marine_fish.jpg', caption: 'Tuna huruud ah oo la keenay si loo tijaabiyo hidde-side iyo qiyaasyo jir ahaaneed.' },
-          { url: '/exp_dhow_sailing.jpg', caption: 'Doonyaha kalluumeysiga dhaqameed ee gacanta lagu qabsado ee taageeray barnaamijka tijaabinta.' },
+          { url: '/images/img_11.png', caption: 'Tuna huruud ah oo la keenay si loo tijaabiyo hidde-side iyo qiyaasyo jir ahaaneed.' },
+          { url: '/images/img_12.png', caption: 'Doonyaha kalluumeysiga dhaqameed ee gacanta lagu qabsado ee taageeray barnaamijka tijaabinta.' },
           { url: '/bosaso2.jpg', caption: 'Suuqa kalluunka Boosaaso, goob muhiim ah oo tijaabo iyo ururinta xog lagu sameeyo.' },
         ],
         objectives: [
@@ -594,7 +594,7 @@ const rawProjects = [
           'In natiijooyinka la daabaco si loo wax ku baro siyaasadda xaddidaadda qabashada ee waara.',
         ],
         findings: [
-          { title: 'Kayd ku dhex jira heer waara', description: 'Qiyaasyada baayoomaska waxay dhigayaan kaydka tuna-ga huruudda ah ee EEZ Soomaaliya heer waara sida ay ahayd qiimaynta 2025, in kasta oo la soo jeedinayo in la sii socodsiiyo la socodka marka la eego cadaadiska kalluumeysiga gobolka.', source: 'Blue Heaven Fisheries Science Team, Published Stock Assessment, 2025' },
+          { title: 'Kayd ku dhex jira heer waara', description: 'Qiyaasyada baayoomaska waxay dhigayaan kaydka tuna-ga huruudda ah ee EEZ Soomaaliya heer waara sida ay ahayd qiimaynta 2025, in kasta oo la soo jeedinayo in la sii socodsiiyo la socodka marka la eego cadaadiska kalluumeysiga gobolka.', source: 'Blue Ocean Fisheries Science Team, Published Stock Assessment, 2025' },
         ],
         conservationThemes: ['Wuxuu saldhig u yahay Shahaadada Ganacsiga Cadaaladda ah ee Kalluumeysiga Gacanta ee Kalluumeysatada Soomaaliyeed'],
       },
@@ -615,11 +615,11 @@ const rawProjects = [
     purpose: 'To measure spiny lobster biomass and catch-per-unit-effort in order to recommend sustainable local harvest guidelines.',
     geographicScope: 'Rocky coastal escarpments of Eyl, Hafun, and Bargaal.',
     expectedOutcomes: 'A biomass baseline and catch-effort dataset used to establish seasonal closures and size limits.',
-    heroImage: '/exp_coastal_cliff.jpg',
+    heroImage: '/images/img_12.png',
     gallery: [
-      { url: '/exp_coastal_cliff.jpg', caption: 'Limestone escarpments where spiny lobster surveys were conducted.' },
-      { url: '/exp_scuba_diving.jpg', caption: 'Survey diver documenting lobster density in reef crevices.' },
-      { url: '/eyl1.jpg', caption: 'Eyl, a primary artisanal lobster landing site included in the study.' },
+      { url: '/images/img_12.png', caption: 'Limestone escarpments where spiny lobster surveys were conducted.' },
+      { url: '/images/img_02.png', caption: 'Survey diver documenting lobster density in reef crevices.' },
+      { url: '/images/img_03.png', caption: 'Eyl, a primary artisanal lobster landing site included in the study.' },
     ],
     objectives: [
       'Survey lobster density across representative escarpment transects.',
@@ -629,7 +629,7 @@ const rawProjects = [
     ],
     methodology: ['underwater-surveys', 'fisheries-data', 'community-knowledge'],
     findings: [
-      { title: 'Seasonal closure recommendation adopted', description: 'Study findings informed a community-adopted closed season for egg-bearing females, now observed by participating Puntland fishing cooperatives.', source: 'Blue Heaven Fisheries Science Team, Final Study Report, 2024' },
+      { title: 'Seasonal closure recommendation adopted', description: 'Study findings informed a community-adopted closed season for egg-bearing females, now observed by participating Puntland fishing cooperatives.', source: 'Blue Ocean Fisheries Science Team, Final Study Report, 2024' },
     ],
     speciesSlugs: ['spiny-lobster'],
     destinationSlugs: ['eyl', 'bargaal', 'hafun'],
@@ -646,9 +646,9 @@ const rawProjects = [
         geographicScope: 'Jiirarka xeebaha dhagaxa ah ee Eyl, Hafun, iyo Bargaal.',
         expectedOutcomes: 'Aasaas baayooma iyo xog dadaal-qabasho oo la isticmaalay si loo dejiyo xannibaadaha xilliyeed iyo xaddidaadda cabbirka.',
         gallery: [
-          { url: '/exp_coastal_cliff.jpg', caption: 'Jiirarka dhagaxa ah ee lagu sameeyay sahannada aargoosto-yaqaanka.' },
-          { url: '/exp_scuba_diving.jpg', caption: 'Quusaha sahanka oo diiwaan gelinaya cufnaanta aargoosto-yaqaanka ee jarjarka jiirifka.' },
-          { url: '/eyl1.jpg', caption: 'Eyl, goob koowaad oo lagu dejiyo aargoosto-yaqaanka dhaqameed oo ku jirtay daraasadda.' },
+          { url: '/images/img_12.png', caption: 'Jiirarka dhagaxa ah ee lagu sameeyay sahannada aargoosto-yaqaanka.' },
+          { url: '/images/img_02.png', caption: 'Quusaha sahanka oo diiwaan gelinaya cufnaanta aargoosto-yaqaanka ee jarjarka jiirifka.' },
+          { url: '/images/img_03.png', caption: 'Eyl, goob koowaad oo lagu dejiyo aargoosto-yaqaanka dhaqameed oo ku jirtay daraasadda.' },
         ],
         objectives: [
           'In la sahamiyo cufnaanta aargoosto-yaqaanka ee jiirarka matalaya.',
@@ -657,7 +657,7 @@ const rawProjects = [
           'In la soo jeediyo waqtiyada xannibaadda xilliyeed ee waara.',
         ],
         findings: [
-          { title: 'Talooyinka xannibaadda xilliyeed ayaa la aqbalay', description: 'Natiijooyinka daraasadda waxay wax ku baraan xannibaad xilliyeed oo bulshadu aqbashay oo loogu talagalay dhaddigyada sita ugxanta, oo hadda ay dhawraan iskaashatooyinka kalluumeysiga Puntland ee ka qaybqaataya.', source: 'Blue Heaven Fisheries Science Team, Final Study Report, 2024' },
+          { title: 'Talooyinka xannibaadda xilliyeed ayaa la aqbalay', description: 'Natiijooyinka daraasadda waxay wax ku baraan xannibaad xilliyeed oo bulshadu aqbashay oo loogu talagalay dhaddigyada sita ugxanta, oo hadda ay dhawraan iskaashatooyinka kalluumeysiga Puntland ee ka qaybqaataya.', source: 'Blue Ocean Fisheries Science Team, Final Study Report, 2024' },
         ],
         conservationThemes: ['Wuxuu aasaas u yahay Heshiiska Sii-deynta Dhaddigyada Ugxanta Sita & Xaddidaadda Cabbirka ee Bulshada'],
       },
@@ -678,11 +678,11 @@ const rawProjects = [
     purpose: 'To identify heat-resilient coral genotypes as a foundation for future assisted reef restoration efforts.',
     geographicScope: 'Bajuni Archipelago barrier reefs and Qandala patch reef systems.',
     expectedOutcomes: 'A genotype resilience map and a founding coral gene bank for future restoration nurseries.',
-    heroImage: '/marine_coral.jpg',
+    heroImage: '/images/img_07.png',
     gallery: [
-      { url: '/marine_coral.jpg', caption: 'Pristine table and branching coral garden in the Bajuni Archipelago.' },
-      { url: '/exp_coral_snorkeling.jpg', caption: 'Survey team sampling coral fragments for genetic analysis.' },
-      { url: '/qandala_main.jpg', caption: 'Qandala patch reefs included in the thermal resilience survey.' },
+      { url: '/images/img_07.png', caption: 'Pristine table and branching coral garden in the Bajuni Archipelago.' },
+      { url: '/images/img_07.png', caption: 'Survey team sampling coral fragments for genetic analysis.' },
+      { url: '/images/img_04.png', caption: 'Qandala patch reefs included in the thermal resilience survey.' },
     ],
     objectives: [
       'Sample coral fragments across Bajuni and Qandala reef sites for genetic analysis.',
@@ -692,7 +692,7 @@ const rawProjects = [
     ],
     methodology: ['underwater-surveys', 'species-identification', 'water-sampling', 'geographic-mapping'],
     findings: [
-      { title: 'Resilient genotype cluster identified', description: 'Preliminary genotyping identified a cluster of Acropora colonies in the Qandala patch reefs with elevated thermal tolerance relative to Bajuni samples.', source: 'Blue Heaven Coral Reef Research Unit, 2025 Interim Report' },
+      { title: 'Resilient genotype cluster identified', description: 'Preliminary genotyping identified a cluster of Acropora colonies in the Qandala patch reefs with elevated thermal tolerance relative to Bajuni samples.', source: 'Blue Ocean Coral Reef Research Unit, 2025 Interim Report' },
     ],
     speciesSlugs: ['acropora-coral'],
     destinationSlugs: ['kismayo', 'qandala', 'bosaso'],
@@ -709,9 +709,9 @@ const rawProjects = [
         geographicScope: 'Xeebaha jiirifka ee gadaasha Baajuni iyo nidaamyada jiirifka ee jaqta ee Qandala.',
         expectedOutcomes: 'Khariidad u-adkaysiga hidde-sida iyo kayd hidde-side jiirif ah oo aasaas u ah nurserida dib-u-soo-celinta ee mustaqbalka.',
         gallery: [
-          { url: '/marine_coral.jpg', caption: 'Beer jiirif oo miis ah iyo mid laamood leh oo nadiif ah oo ku yaal Baajuni.' },
-          { url: '/exp_coral_snorkeling.jpg', caption: 'Koox sahan ah oo qaadaya qaybo jiirif ah si loo falanqeeyo hidde-side.' },
-          { url: '/qandala_main.jpg', caption: 'Jiirarka jaqta ee Qandala ee ku jira sahanka u-adkaysiga kulaylka.' },
+          { url: '/images/img_07.png', caption: 'Beer jiirif oo miis ah iyo mid laamood leh oo nadiif ah oo ku yaal Baajuni.' },
+          { url: '/images/img_07.png', caption: 'Koox sahan ah oo qaadaya qaybo jiirif ah si loo falanqeeyo hidde-side.' },
+          { url: '/images/img_04.png', caption: 'Jiirarka jaqta ee Qandala ee ku jira sahanka u-adkaysiga kulaylka.' },
         ],
         objectives: [
           'In laga qaado qaybo jiirif ah goobaha Baajuni iyo Qandala si loo falanqeeyo hidde-side.',
@@ -720,7 +720,7 @@ const rawProjects = [
           'In la aasaaso kayd hidde-side oo loogu talagalay nurserida dib-u-celinta ee mustaqbalka.',
         ],
         findings: [
-          { title: 'La aqoonsaday koox hidde-side oo adkaysan', description: 'Hidde-sidaynta hordhaca ahi waxay aqoonsatay koox ka mid ah bulshooyinka Acropora ee jiirarka Qandala oo leh u-adkaysi kulayl oo sare marka loo eego muunadaha Baajuni.', source: 'Blue Heaven Coral Reef Research Unit, 2025 Interim Report' },
+          { title: 'La aqoonsaday koox hidde-side oo adkaysan', description: 'Hidde-sidaynta hordhaca ahi waxay aqoonsatay koox ka mid ah bulshooyinka Acropora ee jiirarka Qandala oo leh u-adkaysi kulayl oo sare marka loo eego muunadaha Baajuni.', source: 'Blue Ocean Coral Reef Research Unit, 2025 Interim Report' },
         ],
         conservationThemes: ['Wuxuu wax ku baraa Qaabdhismeedka Aagagga Ilaalinta Badda (MPA) Soomaaliyeed & Qeybinta Jiirifka'],
       },
@@ -741,11 +741,11 @@ const rawProjects = [
     purpose: 'To establish a verified blue carbon baseline for Somalia’s southern seagrass meadows.',
     geographicScope: 'Lower Juba Archipelago seagrass meadows, Kismayo Lagoon, and Hafun Bay.',
     expectedOutcomes: 'A published carbon sequestration estimate and a soil core reference dataset for future climate financing proposals.',
-    heroImage: '/marine_seagrass.jpg',
+    heroImage: '/images/img_11.png',
     gallery: [
-      { url: '/marine_seagrass.jpg', caption: 'Sub-tidal seagrass meadow sampled for the blue carbon audit.' },
-      { url: '/jubaland.jpg', caption: 'Lower Juba Archipelago, the primary study area.' },
-      { url: '/marine_turtles.jpg', caption: 'Green sea turtle foraging within the surveyed seagrass beds.' },
+      { url: '/images/img_11.png', caption: 'Sub-tidal seagrass meadow sampled for the blue carbon audit.' },
+      { url: '/images/img_05.png', caption: 'Lower Juba Archipelago, the primary study area.' },
+      { url: '/images/img_10.png', caption: 'Green sea turtle foraging within the surveyed seagrass beds.' },
     ],
     objectives: [
       'Extract sediment soil cores from representative seagrass meadow sites.',
@@ -770,9 +770,9 @@ const rawProjects = [
         geographicScope: 'Doogga badda ee Gadaasha Jubada Hoose, Buundada Kismaayo, iyo Bay Hafun.',
         expectedOutcomes: 'Qiyaas keydinta kaarboonka oo la daabacay iyo xog kolon ciid ah oo loogu talagalay soo jeedinta maalgelinta cimilada ee mustaqbalka.',
         gallery: [
-          { url: '/marine_seagrass.jpg', caption: 'Doog badeed oo hoosta biyaha ah oo la muunad qaaday baaritaanka kaarboonka buluuga.' },
-          { url: '/jubaland.jpg', caption: 'Gadaasha Jubada Hoose, aagga ugu weyn ee daraasadda.' },
-          { url: '/marine_turtles.jpg', caption: 'Diin badda cagaaran oo daaqaya gudaha beeraha doogga badda ee la sahamiyay.' },
+          { url: '/images/img_11.png', caption: 'Doog badeed oo hoosta biyaha ah oo la muunad qaaday baaritaanka kaarboonka buluuga.' },
+          { url: '/images/img_05.png', caption: 'Gadaasha Jubada Hoose, aagga ugu weyn ee daraasadda.' },
+          { url: '/images/img_10.png', caption: 'Diin badda cagaaran oo daaqaya gudaha beeraha doogga badda ee la sahamiyay.' },
         ],
         objectives: [
           'In laga soo saaro kolonyo ciid oo dhulka hoose ee goobaha doogga badda matalaya.',
@@ -799,11 +799,11 @@ const rawProjects = [
     purpose: 'To produce the first drone-based population estimate for dugongs in Somali waters, supporting habitat protection planning.',
     geographicScope: 'Sheltered seagrass channels and mangrove creeks of the Lower Juba and Bajuni Archipelago.',
     expectedOutcomes: 'A population estimate, distribution map, and habitat-use dataset to guide dugong protection zoning.',
-    heroImage: '/marine_seagrass.jpg',
+    heroImage: '/images/img_11.png',
     gallery: [
-      { url: '/marine_seagrass.jpg', caption: 'Dugong feeding trail visible in a shallow seagrass meadow.' },
-      { url: '/jubaland.jpg', caption: 'Sheltered mangrove creeks surveyed by drone transect.' },
-      { url: '/somalia_coast.jpg', caption: 'Southern coastal waters included in the survey extent.' },
+      { url: '/images/img_11.png', caption: 'Dugong feeding trail visible in a shallow seagrass meadow.' },
+      { url: '/images/img_05.png', caption: 'Sheltered mangrove creeks surveyed by drone transect.' },
+      { url: '/images/image.png', caption: 'Southern coastal waters included in the survey extent.' },
     ],
     objectives: [
       'Fly systematic drone transects across known dugong seagrass habitat.',
@@ -813,7 +813,7 @@ const rawProjects = [
     ],
     methodology: ['geographic-mapping', 'species-identification', 'community-knowledge'],
     findings: [
-      { title: 'Small resident population confirmed', description: 'Aerial survey data confirm a small, resident dugong population using the Bajuni seagrass channels year-round, among the last known strongholds in East Africa.', source: 'Blue Heaven Marine Biodiversity Unit, 2025 Drone Survey Report' },
+      { title: 'Small resident population confirmed', description: 'Aerial survey data confirm a small, resident dugong population using the Bajuni seagrass channels year-round, among the last known strongholds in East Africa.', source: 'Blue Ocean Marine Biodiversity Unit, 2025 Drone Survey Report' },
     ],
     speciesSlugs: ['dugong'],
     destinationSlugs: ['kismayo'],
@@ -830,9 +830,9 @@ const rawProjects = [
         geographicScope: 'Kanaalada doogga badda ee ilaashan iyo webiyada mangrove-ka ee Jubada Hoose iyo Gadaasha Baajuni.',
         expectedOutcomes: 'Qiyaas tiro, khariidad qaybin, iyo xog isticmaalka deegaanka oo hagta qeybinta ilaalinta dugongyada.',
         gallery: [
-          { url: '/marine_seagrass.jpg', caption: 'Raadka quudinta dugong oo ka muuqda doog badeed oo hoose.' },
-          { url: '/jubaland.jpg', caption: 'Webiyada mangrove-ka ee ilaashan ee lagu sahamiyay diron.' },
-          { url: '/somalia_coast.jpg', caption: 'Biyaha xeebaha koonfureed ee ku jira ballaarinta sahanka.' },
+          { url: '/images/img_11.png', caption: 'Raadka quudinta dugong oo ka muuqda doog badeed oo hoose.' },
+          { url: '/images/img_05.png', caption: 'Webiyada mangrove-ka ee ilaashan ee lagu sahamiyay diron.' },
+          { url: '/images/image.png', caption: 'Biyaha xeebaha koonfureed ee ku jira ballaarinta sahanka.' },
         ],
         objectives: [
           'In lagu duulo diron xariiqyo joogto ah oo ku saabsan deegaanka doogga badda ee dugongyadu yaqaanaan.',
@@ -841,7 +841,7 @@ const rawProjects = [
           'In la aqoonsado aagagga mudnaanta ilaalinta deegaanka dugongyada.',
         ],
         findings: [
-          { title: 'La xaqiijiyay dad-weyne yar oo joogto ah', description: 'Xogta sahanka hawada ayaa xaqiijinaysa dad-weyne dugong ah oo yar oo joogto ah kana isticmaalaya kanaalada doogga badda ee Baajuni sanadka oo dhan, oo ka mid ah kaladii ugu dambeeyay ee la yaqaan ee Bariga Afrika.', source: 'Blue Heaven Marine Biodiversity Unit, 2025 Drone Survey Report' },
+          { title: 'La xaqiijiyay dad-weyne yar oo joogto ah', description: 'Xogta sahanka hawada ayaa xaqiijinaysa dad-weyne dugong ah oo yar oo joogto ah kana isticmaalaya kanaalada doogga badda ee Baajuni sanadka oo dhan, oo ka mid ah kaladii ugu dambeeyay ee la yaqaan ee Bariga Afrika.', source: 'Blue Ocean Marine Biodiversity Unit, 2025 Drone Survey Report' },
         ],
         conservationThemes: ['Wuxuu taageerayaa Marinada Ilaalinta ee Aan Shabag-Toos Lahayn ee Sirenians-ka Soomaaliyeed'],
       },
@@ -862,11 +862,11 @@ const rawProjects = [
     purpose: 'To build the first debris density map for Somalia’s most heavily used public beaches, in partnership with local communities.',
     geographicScope: 'Kismayo shoreline and Liido Beach, Mogadishu.',
     expectedOutcomes: 'A debris density map and a community beach-monitoring protocol for ongoing tracking.',
-    heroImage: '/con_beach_cleanup.jpg',
+    heroImage: '/images/img_01.png',
     gallery: [
-      { url: '/con_beach_cleanup.jpg', caption: 'Community beach cleanup and debris sorting event.' },
-      { url: '/mogadishu_beach.jpg', caption: 'Liido Beach, one of two sites included in the debris survey.' },
-      { url: '/jubaland.jpg', caption: 'Kismayo coastline surveyed for debris density.' },
+      { url: '/images/img_01.png', caption: 'Community beach cleanup and debris sorting event.' },
+      { url: '/images/img_08.png', caption: 'Liido Beach, one of two sites included in the debris survey.' },
+      { url: '/images/img_05.png', caption: 'Kismayo coastline surveyed for debris density.' },
     ],
     objectives: [
       'Conduct standardized debris transect counts at both survey beaches.',
@@ -876,7 +876,7 @@ const rawProjects = [
     ],
     methodology: ['field-surveys', 'water-sampling', 'community-knowledge'],
     findings: [
-      { title: 'Land-based debris dominant', description: 'Debris composition surveys found land-based sources — packaging and household waste — to be the dominant contributor at both survey sites, ahead of fishing-gear debris.', source: 'Blue Heaven Pollution & Water Quality Team, 2025 Survey Summary' },
+      { title: 'Land-based debris dominant', description: 'Debris composition surveys found land-based sources — packaging and household waste — to be the dominant contributor at both survey sites, ahead of fishing-gear debris.', source: 'Blue Ocean Pollution & Water Quality Team, 2025 Survey Summary' },
     ],
     speciesSlugs: [],
     destinationSlugs: ['kismayo', 'liido-beach'],
@@ -893,9 +893,9 @@ const rawProjects = [
         geographicScope: 'Xeebta Kismaayo iyo Xeebta Liido, Muqdisho.',
         expectedOutcomes: 'Khariidad cufnaanta qashinka iyo hab-raac la socod bulsho oo joogto ah oo xeebaha.',
         gallery: [
-          { url: '/con_beach_cleanup.jpg', caption: 'Munaasabad nadiifinta xeebaha bulshada iyo kala saarista qashinka.' },
-          { url: '/mogadishu_beach.jpg', caption: 'Xeebta Liido, mid ka mid ah labada goob ee sahanka qashinka lagu sameeyay.' },
-          { url: '/jubaland.jpg', caption: 'Xeebta Kismaayo ee la sahamiyay cufnaanta qashinka.' },
+          { url: '/images/img_01.png', caption: 'Munaasabad nadiifinta xeebaha bulshada iyo kala saarista qashinka.' },
+          { url: '/images/img_08.png', caption: 'Xeebta Liido, mid ka mid ah labada goob ee sahanka qashinka lagu sameeyay.' },
+          { url: '/images/img_05.png', caption: 'Xeebta Kismaayo ee la sahamiyay cufnaanta qashinka.' },
         ],
         objectives: [
           'In la sameeyo tirakoobyo qashin oo caadi ah oo labada xeeb ee sahanka lagu sameeyo.',
@@ -904,7 +904,7 @@ const rawProjects = [
           'In la tababaro mutadawiciinta bulshada hab-raac la socod oo dib loo celin karo.',
         ],
         findings: [
-          { title: 'Qashinka dhulka ka yimid ayaa ugu badan', description: 'Sahannada qaybinta qashinka waxay heleen in ilaha dhulka ka yimid — baakadaha iyo qashinka guryaha — ay yihiin kuwa ugu waxqabadka badan ee labada goob, kuwaas oo ka horreeya qashinka qalabka kalluumeysiga.', source: 'Blue Heaven Pollution & Water Quality Team, 2025 Survey Summary' },
+          { title: 'Qashinka dhulka ka yimid ayaa ugu badan', description: 'Sahannada qaybinta qashinka waxay heleen in ilaha dhulka ka yimid — baakadaha iyo qashinka guryaha — ay yihiin kuwa ugu waxqabadka badan ee labada goob, kuwaas oo ka horreeya qashinka qalabka kalluumeysiga.', source: 'Blue Ocean Pollution & Water Quality Team, 2025 Survey Summary' },
         ],
         conservationThemes: ['Wuxuu si toos ah u helaa kheyraadka iskaashiga nadiifinta xeebaha ee bulshada'],
       },
@@ -925,11 +925,11 @@ const rawProjects = [
     purpose: 'To establish continuous baseline water quality monitoring for Somalia’s most heavily used urban coastline.',
     geographicScope: 'Mogadishu coastline, including Liido Beach and the central harbor waters.',
     expectedOutcomes: 'A continuously updated water quality baseline supporting public health guidance and fisheries monitoring.',
-    heroImage: '/mogadishu_beach.jpg',
+    heroImage: '/images/img_08.png',
     gallery: [
-      { url: '/mogadishu_beach.jpg', caption: 'Liido Beach, Mogadishu — the primary continuous monitoring site.' },
-      { url: '/somalia_coast.jpg', caption: 'Banaadir coastal waters included in the monitoring program.' },
-      { url: '/marine_fish.jpg', caption: 'Fish market catch data referenced alongside water quality trends.' },
+      { url: '/images/img_08.png', caption: 'Liido Beach, Mogadishu — the primary continuous monitoring site.' },
+      { url: '/images/image.png', caption: 'Banaadir coastal waters included in the monitoring program.' },
+      { url: '/images/img_11.png', caption: 'Fish market catch data referenced alongside water quality trends.' },
     ],
     objectives: [
       'Maintain continuous salinity, dissolved oxygen, and temperature sensing.',
@@ -942,7 +942,7 @@ const rawProjects = [
     speciesSlugs: [],
     destinationSlugs: ['mogadishu', 'liido-beach'],
     researchTeamSlug: 'pollution-water-quality-team',
-    conservationThemes: ['Informs Blue Heaven’s public coastal health guidance'],
+    conservationThemes: ['Informs Blue Ocean’s public coastal health guidance'],
     featured: false,
     translations: {
       so: {
@@ -954,9 +954,9 @@ const rawProjects = [
         geographicScope: 'Xeebta Muqdisho, oo ay ku jiraan Xeebta Liido iyo biyaha deked dhexe.',
         expectedOutcomes: 'Aasaas tayada biyaha oo si joogto ah loo cusboonaysiiyo oo taageeraya talobixinta caafimaadka bulshada iyo la socodka kalluumeysiga.',
         gallery: [
-          { url: '/mogadishu_beach.jpg', caption: 'Xeebta Liido, Muqdisho — goobta koowaad ee la socodka joogtada ah.' },
-          { url: '/somalia_coast.jpg', caption: 'Biyaha xeebaha Banaadir ee ku jira barnaamijka la socodka.' },
-          { url: '/marine_fish.jpg', caption: 'Xogta suuqa kalluunka oo lala barbardhigay isbedelka tayada biyaha.' },
+          { url: '/images/img_08.png', caption: 'Xeebta Liido, Muqdisho — goobta koowaad ee la socodka joogtada ah.' },
+          { url: '/images/image.png', caption: 'Biyaha xeebaha Banaadir ee ku jira barnaamijka la socodka.' },
+          { url: '/images/img_11.png', caption: 'Xogta suuqa kalluunka oo lala barbardhigay isbedelka tayada biyaha.' },
         ],
         objectives: [
           'In la sii wado dareemayaasha joogtada ah ee cusbada, ogsijiinta ku milmay, iyo heerkulka.',
@@ -964,7 +964,7 @@ const rawProjects = [
           'In la calaamadeeyo wax-ka-baxsan oo tilmaamaya wasakhowga ama daadinta biyaha.',
           'In natiijooyinka lala wadaago xiriirka caafimaadka bulshada iyo kalluumeysiga.',
         ],
-        conservationThemes: ['Wuxuu wax ku baraa hagitaanka caafimaadka xeebaha ee Blue Heaven bulshada'],
+        conservationThemes: ['Wuxuu wax ku baraa hagitaanka caafimaadka xeebaha ee Blue Ocean bulshada'],
       },
     },
   },
@@ -1179,7 +1179,7 @@ function resolveSpecies(slugs = []) {
     }));
 }
 
-const DEFAULT_TEAM_NAME = { en: 'Blue Heaven Research Team', so: 'Kooxda Cilmi-baarista Blue Heaven' };
+const DEFAULT_TEAM_NAME = { en: 'Blue Ocean Research Team', so: 'Kooxda Cilmi-baarista Blue Ocean' };
 const REPORT_TITLE_SUFFIX = { en: 'Progress Summary', so: 'Soo Koobka Horumarka' };
 
 // --- Language-aware builders ------------------------------------------

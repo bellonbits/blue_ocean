@@ -1,0 +1,1187 @@
+/* =========================================================
+   BLUE OCEAN — Explore Somalia's Coast
+   Luxury Marine & Conservation Editorial Style
+   Matches Homepage Aesthetic, Spacing, and Typography
+   ========================================================= */
+
+.explore-editorial-page {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--eo-sand-light, #faf8f5);
+  color: var(--eo-text-main, #071626);
+  font-family: var(--eo-font-sans, 'Inter', -apple-system, sans-serif);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   1. FULL-BLEED EDITORIAL HERO (NO FLOATING CARD BUBBLE)
+   ========================================================= */
+.explore-hero {
+  position: relative;
+  width: 100%;
+  min-height: clamp(380px, 48vh, 520px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(96px, 12vh, 128px) var(--page-padding, clamp(24px, 5vw, 80px)) clamp(36px, 4.5vh, 48px) var(--page-padding, clamp(24px, 5vw, 80px));
+  margin: 0;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.explore-hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 36%;
+  z-index: 1;
+  transform: scale(1.02);
+  transition: transform 14s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.explore-hero:hover .explore-hero__bg {
+  transform: scale(1.05);
+}
+
+.explore-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 13, 23, 0.55) 0%,
+    rgba(3, 13, 23, 0.25) 30%,
+    rgba(3, 13, 23, 0.65) 70%,
+    rgba(3, 13, 23, 0.94) 100%
+  );
+  pointer-events: none;
+}
+
+.explore-hero__content {
+  position: relative;
+  z-index: 3;
+  max-width: 840px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.explore-hero__meta {
+  margin-bottom: var(--space-md, 24px);
+}
+
+.explore-hero__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs, 8px);
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--eo-radius-pill, 9999px);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #e0f2fe;
+}
+
+.explore-hero__kicker svg {
+  color: var(--eo-turquoise-light, #38bdf8);
+}
+
+.explore-hero__title {
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2.4rem, 4.6vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
+}
+
+.explore-hero__title-italic {
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--eo-turquoise-light, #38bdf8);
+}
+
+.explore-hero__desc {
+  max-width: 620px;
+  font-size: clamp(0.95rem, 1.2vw, 1.12rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 20px 0;
+  font-weight: 400;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* Luxury Editorial Search Bar */
+.explore-hero__search-wrap {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 16px;
+}
+
+.explore-hero__search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: var(--eo-radius-pill, 9999px);
+  padding: 6px 8px 6px 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+}
+
+.explore-hero__search-form:focus-within {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), 0 0 0 2px rgba(56, 189, 248, 0.3);
+}
+
+.explore-hero__search-icon {
+  color: var(--eo-turquoise-light, #38bdf8);
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
+.explore-hero__search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.explore-hero__search-input::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.explore-hero__search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: #ffffff;
+  color: var(--eo-navy, #071626);
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: var(--eo-radius-pill, 9999px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.explore-hero__search-btn:hover {
+  background: var(--eo-turquoise, #0ea5e9);
+  color: #ffffff;
+}
+
+/* Quick Filter Tags */
+.explore-hero__tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-xs, 8px);
+}
+
+.explore-hero__tag-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--eo-radius-pill, 9999px);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.explore-hero__tag-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   2. CONSISTENT SECTION SYSTEM (120px VERTICAL PAUSES)
+   ========================================================= */
+.explore-section {
+  width: 100%;
+  padding: 120px var(--page-padding, clamp(24px, 5vw, 80px));
+  background: var(--eo-sand-light, #faf8f5);
+}
+
+.explore-section--tint {
+  background: #ffffff;
+  border-top: 1px solid var(--eo-card-border, rgba(7, 22, 38, 0.08));
+  border-bottom: 1px solid var(--eo-card-border, rgba(7, 22, 38, 0.08));
+}
+
+[data-theme="dark"] .explore-section--tint {
+  background: #081726;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.explore-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.explore-section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto var(--space-lg, 40px) auto;
+}
+
+.explore-section-header--left {
+  text-align: left;
+  margin-left: 0;
+}
+
+/* Eyebrows, Titles, Subtitles */
+.explore-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs, 8px);
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--eo-turquoise, #0ea5e9);
+  margin-bottom: var(--space-sm, 16px);
+}
+
+.explore-section-title {
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--eo-text-main, #071626);
+  margin: 0 0 var(--space-md, 24px) 0;
+}
+
+.explore-section-desc {
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--eo-text-muted, #52637a);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.explore-section-header--left .explore-section-desc {
+  margin: 0;
+}
+
+/* =========================================================
+   3. THREE INTERCONNECTED MARINE WORLDS (SPLIT GRID)
+   ========================================================= */
+.explore-about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--space-xl, 64px);
+  align-items: center;
+}
+
+.explore-about__body {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--eo-text-muted, #52637a);
+  margin: 0 0 var(--space-lg, 40px) 0;
+}
+
+.explore-about__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md, 24px);
+}
+
+.explore-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md, 24px);
+  padding: var(--space-md, 24px);
+  background: var(--eo-card-bg, #ffffff);
+  border: 1px solid var(--eo-card-border, rgba(7, 22, 38, 0.08));
+  border-radius: var(--eo-radius-md, 14px);
+  box-shadow: var(--eo-shadow-subtle, 0 4px 20px rgba(7, 22, 38, 0.04));
+  transition: all 0.25s ease;
+}
+
+.explore-feature-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--eo-shadow-card, 0 10px 30px rgba(7, 22, 38, 0.07));
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+.explore-feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(14, 165, 233, 0.08);
+  color: var(--eo-turquoise, #0ea5e9);
+  border: 1px solid rgba(14, 165, 233, 0.16);
+  flex-shrink: 0;
+}
+
+.explore-feature-title {
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--eo-text-main, #071626);
+  margin: 0 0 6px 0;
+}
+
+.explore-feature-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--eo-text-muted, #52637a);
+  margin: 0;
+}
+
+/* Map Card on the Right */
+.explore-map-card {
+  position: relative;
+  min-height: 480px;
+  border-radius: var(--eo-radius-lg, 18px);
+  overflow: hidden;
+  border: 1px solid var(--eo-card-border, rgba(7, 22, 38, 0.08));
+  box-shadow: var(--eo-shadow-card, 0 10px 30px rgba(7, 22, 38, 0.07));
+  background: var(--eo-navy, #071626);
+}
+
+.explore-map-img {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.explore-map-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(7, 22, 38, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-radius: var(--eo-radius-pill, 9999px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.explore-map-pin {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  color: var(--eo-navy, #071626);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: var(--eo-radius-pill, 9999px);
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 4;
+}
+
+.explore-map-pin:hover {
+  background: var(--eo-turquoise, #0ea5e9);
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.04);
+}
+
+.explore-map-pin--bosaso { top: 18%; left: 45%; }
+.explore-map-pin--hafun { top: 28%; right: 12%; }
+.explore-map-pin--eyl { top: 48%; right: 18%; }
+.explore-map-pin--mogadishu { bottom: 32%; left: 32%; }
+.explore-map-pin--bajuni { bottom: 12%; left: 24%; }
+
+/* =========================================================
+   4. PREMIER MARINE LANDSCAPES (3 CARDS)
+   ========================================================= */
+.explore-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md, 24px);
+}
+
+.explore-highlight-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--eo-card-bg, #ffffff);
+  border: 1px solid var(--eo-card-border, rgba(7, 22, 38, 0.08));
+  border-radius: var(--eo-radius-md, 14px);
+  overflow: hidden;
+  box-shadow: var(--eo-shadow-subtle, 0 4px 20px rgba(7, 22, 38, 0.04));
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.explore-highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--eo-shadow-card, 0 10px 30px rgba(7, 22, 38, 0.07));
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+.explore-highlight-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--eo-navy, #071626);
+}
+
+.explore-highlight-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.explore-highlight-card:hover .explore-highlight-card__img {
+  transform: scale(1.05);
+}
+
+.explore-highlight-card__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 4px 10px;
+  background: rgba(7, 22, 38, 0.75);
+  backdrop-filter: blur(8px);
+  color: var(--eo-turquoise-light, #38bdf8);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-radius: var(--eo-radius-pill, 9999px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.explore-highlight-card__body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.explore-highlight-card__meta {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--eo-turquoise, #0ea5e9);
+  margin-bottom: var(--space-xs, 8px);
+}
+
+.explore-highlight-card__title {
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--eo-text-main, #071626);
+  margin: 0 0 10px 0;
+}
+
+.explore-highlight-card__excerpt {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--eo-text-muted, #52637a);
+  margin: 0 0 20px 0;
+}
+
+.explore-highlight-card__link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--eo-turquoise, #0ea5e9);
+  text-decoration: none;
+  padding-top: var(--space-sm, 16px);
+  border-top: 1px solid var(--eo-card-border, rgba(7, 22, 38, 0.08));
+  transition: all 0.2s ease;
+}
+
+.explore-highlight-card__link:hover {
+  transform: translateX(3px);
+  color: var(--eo-navy, #071626);
+}
+
+/* =========================================================
+   5. PANORAMA SPOTLIGHT (CINEMATIC BANNER)
+   ========================================================= */
+.explore-panorama {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 40px var(--page-padding, clamp(24px, 5vw, 80px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explore-panorama__inner {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 480px;
+  border-radius: var(--eo-radius-lg, 24px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: clamp(28px, 4.5vw, 56px);
+  box-shadow: 0 16px 40px rgba(7, 22, 38, 0.08);
+  border: 1px solid rgba(7, 22, 38, 0.08);
+  background: #f1f5f9;
+}
+
+.explore-panorama__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 65% center;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+.explore-panorama__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.15) 35%,
+    transparent 65%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.explore-panorama__content {
+  position: relative;
+  z-index: 3;
+  max-width: 480px;
+  padding: clamp(26px, 3.5vw, 38px);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: var(--eo-radius-lg, 20px);
+  box-shadow: 0 20px 48px rgba(7, 22, 38, 0.12), 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.explore-panorama__content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 56px rgba(7, 22, 38, 0.16), 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.explore-panorama__tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--eo-turquoise, #0ea5e9);
+  width: fit-content;
+  margin: 0;
+}
+
+.explore-panorama__title {
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(1.8rem, 2.7vw, 2.35rem);
+  font-weight: 600;
+  color: var(--eo-navy, #071626);
+  margin: 0;
+  line-height: 1.18;
+}
+
+.explore-panorama__desc {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.explore-panorama__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: var(--eo-navy, #071626);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border-radius: var(--eo-radius-pill, 9999px);
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(7, 22, 38, 0.18);
+}
+
+.explore-panorama__link:hover {
+  background: var(--eo-turquoise, #0ea5e9);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(14, 165, 233, 0.35);
+}
+
+.explore-panorama__nav {
+  position: absolute;
+  right: clamp(24px, 4vw, 44px);
+  bottom: clamp(24px, 4vw, 36px);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.explore-panorama__nav-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 18px rgba(7, 22, 38, 0.08);
+}
+
+.explore-panorama__nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(7, 22, 38, 0.22);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.explore-panorama__nav-dot--active {
+  width: 22px;
+  border-radius: 9999px;
+  background: var(--eo-navy, #071626);
+}
+
+.explore-panorama__nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  color: var(--eo-navy, #071626);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(7, 22, 38, 0.12);
+  transition: all 0.2s ease;
+}
+
+.explore-panorama__nav-btn:hover {
+  background: var(--eo-navy, #071626);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(7, 22, 38, 0.25);
+}
+
+@media (max-width: 768px) {
+  .explore-panorama {
+    padding: 24px 16px;
+  }
+
+  .explore-panorama__inner {
+    min-height: 420px;
+    padding: 24px 20px 80px 20px;
+    border-radius: 16px;
+  }
+
+  .explore-panorama__content {
+    max-width: 100%;
+    padding: 24px 20px;
+  }
+
+  .explore-panorama__nav {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+/* =========================================================
+   6. ALL DESTINATIONS DIRECTORY (6 EDITORIAL CARDS)
+   ========================================================= */
+.explore-dest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md, 24px);
+  margin-bottom: var(--space-xl, 64px);
+}
+
+/* Luxury Destination Card: Full photo backdrop, min-height 420px, 28px insets */
+.explore-dest-card {
+  position: relative;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px; /* 28px insets matching homepage */
+  border-radius: var(--eo-radius-md, 14px);
+  overflow: hidden;
+  text-decoration: none;
+  color: #ffffff;
+  background: var(--eo-navy, #071626);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: var(--eo-shadow-card, 0 10px 30px rgba(7, 22, 38, 0.07));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
+}
+
+.explore-dest-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(7, 22, 38, 0.25);
+  border-color: rgba(14, 165, 233, 0.5);
+}
+
+.explore-dest-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.explore-dest-card:hover .explore-dest-card__img {
+  transform: scale(1.06);
+}
+
+.explore-dest-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 22, 38, 0.35) 0%,
+    rgba(7, 22, 38, 0.15) 35%,
+    rgba(7, 22, 38, 0.65) 65%,
+    rgba(7, 22, 38, 0.94) 100%
+  );
+  pointer-events: none;
+}
+
+.explore-dest-card__top {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.explore-dest-card__region {
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--eo-navy, #071626);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--eo-radius-pill, 9999px);
+}
+
+.explore-dest-card__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.explore-dest-card__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs, 8px);
+  margin-bottom: var(--space-xs, 8px);
+}
+
+.explore-dest-card__title {
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  transition: color 0.2s ease;
+}
+
+.explore-dest-card:hover .explore-dest-card__title {
+  color: var(--eo-turquoise-light, #38bdf8);
+}
+
+.explore-dest-card__arrow {
+  color: rgba(255, 255, 255, 0.75);
+  flex-shrink: 0;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.explore-dest-card:hover .explore-dest-card__arrow {
+  color: var(--eo-turquoise-light, #38bdf8);
+  transform: translateX(4px);
+}
+
+.explore-dest-card__desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  font-style: italic;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.explore-center-row {
+  display: flex;
+  justify-content: center;
+}
+
+/* =========================================================
+   7. MARITIME HARBORS & STATIONS
+   ========================================================= */
+.explore-harbors-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md, 24px);
+}
+
+.explore-harbor-card {
+  display: grid;
+  grid-template-columns: 240px 1fr auto;
+  gap: var(--space-md, 24px);
+  align-items: center;
+  background: var(--eo-card-bg, #ffffff);
+  border: 1px solid var(--eo-card-border, rgba(7, 22, 38, 0.08));
+  border-radius: var(--eo-radius-md, 14px);
+  padding: var(--space-md, 24px);
+  box-shadow: var(--eo-shadow-subtle, 0 4px 20px rgba(7, 22, 38, 0.04));
+  transition: all 0.25s ease;
+}
+
+.explore-harbor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--eo-shadow-card, 0 10px 30px rgba(7, 22, 38, 0.07));
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+.explore-harbor-card__media {
+  width: 100%;
+  height: 150px;
+  border-radius: var(--eo-radius-sm, 8px);
+  overflow: hidden;
+  background: var(--eo-navy, #071626);
+}
+
+.explore-harbor-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.explore-harbor-card__title {
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--eo-text-main, #071626);
+  margin: 0 0 8px 0;
+}
+
+.explore-harbor-card__desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--eo-text-muted, #52637a);
+  margin: 0 0 14px 0;
+}
+
+.explore-harbor-card__meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md, 24px);
+  flex-wrap: wrap;
+}
+
+.explore-harbor-card__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--eo-text-light, #8ea1b7);
+}
+
+.explore-harbor-card__meta-item svg {
+  color: var(--eo-turquoise, #0ea5e9);
+}
+
+.explore-harbor-card__side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-sm, 16px);
+}
+
+.explore-harbor-card__zone {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(14, 165, 233, 0.08);
+  color: var(--eo-turquoise, #0ea5e9);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-radius: var(--eo-radius-pill, 9999px);
+  border: 1px solid rgba(14, 165, 233, 0.16);
+}
+
+.explore-harbor-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--eo-navy, #071626);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: var(--eo-radius-pill, 9999px);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.explore-harbor-card__link:hover {
+  background: var(--eo-turquoise, #0ea5e9);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   8. VISUAL CHRONICLES MOSAIC (#ExploreSomaliaCoast)
+   ========================================================= */
+.explore-mosaic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md, 24px);
+  margin-bottom: var(--space-xl, 64px);
+}
+
+.explore-mosaic-item {
+  position: relative;
+  aspect-ratio: 4 / 3.2;
+  border-radius: var(--eo-radius-md, 14px);
+  overflow: hidden;
+  box-shadow: var(--eo-shadow-subtle, 0 4px 20px rgba(7, 22, 38, 0.04));
+  background: var(--eo-navy, #071626);
+}
+
+.explore-mosaic-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.explore-mosaic-item:hover img {
+  transform: scale(1.06);
+}
+
+/* =========================================================
+   9. EXPEDITION CTA (BEYOND THE HORIZON STYLE)
+   ========================================================= */
+.explore-cta {
+  position: relative;
+  width: 100%;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-3xl, 128px) var(--page-padding, clamp(24px, 5vw, 80px));
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.explore-cta__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+.explore-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 13, 23, 0.72) 0%,
+    rgba(3, 13, 23, 0.88) 50%,
+    rgba(3, 13, 23, 0.97) 100%
+  );
+  z-index: 2;
+}
+
+.explore-cta__content {
+  position: relative;
+  z-index: 3;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.explore-cta__title {
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin: 0 0 var(--space-md, 24px) 0;
+}
+
+.explore-cta__desc {
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 600px;
+  margin: 0 auto var(--space-lg, 40px) auto;
+}
+
+.explore-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  background: #ffffff;
+  color: var(--eo-navy, #071626);
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-size: 0.94rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: var(--eo-radius-pill, 9999px);
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+}
+
+.explore-cta__btn:hover {
+  background: var(--eo-turquoise, #0ea5e9);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(14, 165, 233, 0.4);
+}
+
+/* =========================================================
+   10. RESPONSIVE BREAKPOINTS
+   ========================================================= */
+@media (max-width: 1200px) {
+  .explore-highlights-grid,
+  .explore-dest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .explore-mosaic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .explore-about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg, 40px);
+  }
+
+  .explore-harbor-card {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-harbor-card__media {
+    height: 200px;
+  }
+
+  .explore-harbor-card__side {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .explore-highlights-grid,
+  .explore-dest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-section {
+    padding: var(--space-2xl, 96px) var(--page-padding, clamp(24px, 5vw, 80px));
+  }
+}

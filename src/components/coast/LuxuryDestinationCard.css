@@ -304,3 +304,52 @@
   box-shadow: 0 6px 24px rgba(2, 204, 254, 0.55);
   gap: 12px;
 }
+
+/* Compact dimensions on phone — easy to browse & scroll */
+@media (max-width: 768px) {
+  .lux-card {
+    height: 380px !important;
+    border-radius: 20px !important;
+  }
+
+  .lux-card__top {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+  }
+
+  .lux-card__specs-pill {
+    width: 74px;
+    padding: 6px 4px;
+    border-radius: 12px;
+    gap: 3px;
+  }
+
+  .lux-card__spec-val {
+    font-size: 0.78rem;
+  }
+
+  .lux-card__spec-lbl {
+    font-size: 0.54rem;
+  }
+
+  .lux-card__bottom {
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .lux-card__name {
+    font-size: 1.22rem !important;
+  }
+
+  .lux-card__desc {
+    font-size: 0.76rem !important;
+    -webkit-line-clamp: 2 !important;
+    line-height: 1.35 !important;
+  }
+
+  .lux-card__cta-btn {
+    padding: 8px 14px;
+    font-size: 0.78rem;
+  }
+}

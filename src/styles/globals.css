@@ -9,32 +9,32 @@
    1. CSS Custom Properties (Design Tokens)
    ========================================================= */
 :root {
-  /* Colors — Dark Theme (Default / Primary Experience) */
+  /* Colors — Light Theme (Default & Permanent) */
   --color-primary:         #0A2540;
   --color-primary-dark:    #061828;
-  --color-primary-light:   #1A3A5C;
-  --color-turquoise:       #00CFE8;
-  --color-turquoise-dark:  #009BB0;
-  --color-turquoise-light: #4DE2F2;
-  --color-background:      #06141C;
-  --color-surface:         #0B202B;
-  --color-surface-2:       #102B3A;
-  --color-surface-3:       #163749;
-  --color-text:            #FFFFFF;
-  --color-text-muted:      #9CB2BC;
-  --color-text-dim:        #5D7A88;
-  --color-border:          rgba(255, 255, 255, 0.12);
-  --color-border-bright:   rgba(0, 207, 232, 0.35);
+  --color-primary-light:   #EAF4F7;
+  --color-turquoise:       #007F99;
+  --color-turquoise-dark:  #006075;
+  --color-turquoise-light: #00A3C2;
+  --color-background:      #F5FAFC;
+  --color-surface:         #FFFFFF;
+  --color-surface-2:       #EAF2F6;
+  --color-surface-3:       #DDE9EF;
+  --color-text:            #071923;
+  --color-text-muted:      #526A75;
+  --color-text-dim:        #7C94A0;
+  --color-border:          #D7E5EA;
+  --color-border-bright:   rgba(0, 127, 153, 0.35);
   --color-success:         #22C55E;
   --color-warning:         #F59E0B;
   --color-error:           #EF4444;
 
   /* Gradients */
-  --gradient-hero:         linear-gradient(to bottom, rgba(6,20,28,0.2) 0%, rgba(6,20,28,0.6) 60%, rgba(6,20,28,0.98) 100%);
-  --gradient-card:         linear-gradient(to bottom, rgba(6,20,28,0.1) 0%, rgba(6,20,28,0.85) 100%);
-  --gradient-turquoise:    linear-gradient(135deg, #00CFE8 0%, #009BB0 100%);
-  --gradient-surface:      linear-gradient(135deg, #0B202B 0%, #102B3A 100%);
-  --gradient-glow:         radial-gradient(ellipse at center, rgba(0,207,232,0.15) 0%, transparent 70%);
+  --gradient-hero:         linear-gradient(to bottom, rgba(7,25,35,0.25) 0%, rgba(7,25,35,0.6) 60%, rgba(7,25,35,0.98) 100%);
+  --gradient-card:         linear-gradient(to bottom, rgba(245,250,252,0) 0%, rgba(245,250,252,0.95) 100%);
+  --gradient-turquoise:    linear-gradient(135deg, #007F99 0%, #005F73 100%);
+  --gradient-surface:      linear-gradient(135deg, #FFFFFF 0%, #F5FAFC 100%);
+  --gradient-glow:         radial-gradient(ellipse at center, rgba(0,127,153,0.12) 0%, transparent 70%);
 
   /* Typography */
   --font-display:   'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;

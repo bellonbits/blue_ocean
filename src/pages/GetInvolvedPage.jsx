@@ -8,12 +8,12 @@ export default function GetInvolvedPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Get Involved — Blue Heaven Somalia';
+    document.title = 'Get Involved — Blue Ocean Somalia';
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <main id="main-content" aria-label="Get Involved with Blue Heaven">
+    <main id="main-content" aria-label="Get Involved with Blue Ocean">
       <GetInvolvedHero />
       <GetInvolvedCTA />
       <ConservationImpact />

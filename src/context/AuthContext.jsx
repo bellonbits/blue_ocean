@@ -35,6 +35,14 @@ export function AuthProvider({ children }) {
     [savedItems]
   );
 
+  const logout = useCallback(() => {
+    setUser(null);
+    setToken(null);
+    setSavedItems([]);
+    localStorage.removeItem('blue_ocean_user');
+    localStorage.removeItem('blue_ocean_token');
+  }, []);
+
   const refreshSavedItems = useCallback(async (authToken) => {
     if (!authToken) {
       setSavedItems([]);
@@ -42,10 +50,20 @@ export function AuthProvider({ children }) {
     }
     try {
       setSavedItems(await listSavedItems(authToken));
-    } catch {
-      // Non-fatal — hearts just show as unsaved until the next refresh.
+    } catch (err) {
+      if (err?.status === 401 || err?.message?.includes('401')) {
+        logout();
+      }
     }
-  }, []);
+  }, [logout]);
+
+  useEffect(() => {
+    const handleUnauthorized = () => {
+      logout();
+    };
+    window.addEventListener('auth-unauthorized', handleUnauthorized);
+    return () => window.removeEventListener('auth-unauthorized', handleUnauthorized);
+  }, [logout]);
 
   useEffect(() => {
     refreshSavedItems(token);
@@ -159,12 +177,6 @@ export function AuthProvider({ children }) {
     }
   };
 
-  const logout = useCallback(() => {
-    setUser(null);
-    setToken(null);
-    localStorage.removeItem('blue_ocean_user');
-    localStorage.removeItem('blue_ocean_token');
-  }, []);
 
   const updateProfile = async (fullName, phone, avatarUrl) => {
     try {

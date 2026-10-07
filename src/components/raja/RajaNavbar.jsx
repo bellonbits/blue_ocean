@@ -1,21 +1,44 @@
 import { useState } from 'react';
-import { Menu, Search, X, Compass, Globe } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useLanguage } from '../../context/LanguageContext';
+import { Search, X, Globe, LayoutDashboard } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLanguage, stripLangPrefix } from '../../context/LanguageContext';
+import { useTheme } from '../../context/ThemeContext';
+import { useAuth } from '../../context/AuthContext';
+import { canManageAdmin } from '../../pages/admin/roles';
+
+export const RAJA_NAV_LINKS = [
+  { labelKey: 'nav.home', defaultLabel: 'Home', path: '/' },
+  { labelKey: 'nav.tourism', defaultLabel: 'Tourism', path: '/tourism' },
+  { labelKey: 'nav.exploreCoast', defaultLabel: 'Explore the Coast', path: '/explore-the-coast' },
+  { labelKey: 'nav.oceanExperiences', defaultLabel: 'Ocean Experiences', path: '/experiences' },
+  { labelKey: 'nav.marineLife', defaultLabel: 'Marine Life', path: '/marine-life' },
+  { labelKey: 'nav.research', defaultLabel: 'Research', path: '/research' },
+  { labelKey: 'nav.conservation', defaultLabel: 'Conservation', path: '/conservation' },
+  { labelKey: 'nav.communities', defaultLabel: 'Communities', path: '/communities' },
+  { labelKey: 'nav.news', defaultLabel: 'News', path: '/news' },
+  { labelKey: 'nav.about', defaultLabel: 'About', path: '/about' },
+  { labelKey: 'nav.contact', defaultLabel: 'Contact', path: '/contact' },
+];
 
 export default function RajaNavbar({ onOpenMenu, onGetStarted }) {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
+  const { isDark } = useTheme();
+  const { user, isAuthenticated } = useAuth();
+  const location = useLocation();
   const navigate = useNavigate();
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
   const isSomali = language === 'so';
+  const currentPath = stripLangPrefix(location.pathname);
 
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+  const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
+  const isActive = (path) =>
+    path === '/' ? (currentPath === '/' || currentPath === '') : currentPath.startsWith(path);
+
+  const getLabel = (link) => {
+    const val = t(link.labelKey);
+    return val && val !== link.labelKey ? val : link.defaultLabel;
   };
 
   const handleSearchSubmit = (e) => {
@@ -30,86 +53,42 @@ export default function RajaNavbar({ onOpenMenu, onGetStarted }) {
     setLanguage(language === 'so' ? 'en' : 'so');
   };
 
+  const dashboardHref = canManageAdmin(user) ? '/admin' : '/dashboard';
+
   return (
     <header className="raja-nav" role="navigation" aria-label="Main Navigation">
-      {/* Left Menu Button */}
-      <button
-        type="button"
-        className="raja-nav__menu-btn"
-        onClick={onOpenMenu}
-        aria-label={isSomali ? 'Fur Liiska' : 'Open Navigation Menu'}
-      >
-        <Menu size={18} />
-        <span>{isSomali ? 'Liiska' : 'Menu'}</span>
-      </button>
+      {/* Brand Logo on the left */}
+      <Link to={localizedPath('/')} className="raja-nav__brand" aria-label="Blue Ocean Home">
+        <img
+          src={isDark ? '/logo.png' : '/logo_sky_blue.png'}
+          alt="Blue Ocean Somalia"
+          className="raja-nav__brand-img"
+        />
+      </Link>
 
-      {/* Center Links - No Pricing */}
-      <nav className="raja-nav__nav">
+      {/* Center Nav Links */}
+      <nav className="raja-nav__nav" aria-label="Site menu">
         <ul className="raja-nav__links">
-          <li>
-            <button
-              type="button"
-              className="raja-nav__link"
-              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-              onClick={() => scrollTo('about-archipelago')}
-            >
-              {isSomali ? 'Ku Saabsan' : 'About'}
-            </button>
-          </li>
-          <li>
-            <button
-              type="button"
-              className="raja-nav__link"
-              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-              onClick={() => scrollTo('discover-destination')}
-            >
-              {isSomali ? 'Gobollada' : 'Regions'}
-            </button>
-          </li>
-          <li>
-            <Link to={`/${language}/research`} className="raja-nav__link">
-              {isSomali ? 'Cilmibaaris' : 'Research'}
-            </Link>
-          </li>
-          <li>
-            <Link to={`/${language}/contact`} className="raja-nav__link">
-              {isSomali ? 'Xiriir' : 'Contact'}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={`/${language}/explore-the-coast`}
-              className="raja-nav__link"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 5, color: '#0284c7', fontWeight: 600 }}
-            >
-              <Compass size={14} />
-              <span>{isSomali ? 'Sahami Xeebaha' : 'Explore Coast'}</span>
-            </Link>
-          </li>
+          {RAJA_NAV_LINKS.map((link) => (
+            <li key={link.path}>
+              <Link
+                to={localizedPath(link.path)}
+                className={`raja-nav__link ${isActive(link.path) ? 'raja-nav__link--active' : ''}`}
+              >
+                {getLabel(link)}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
 
-      {/* Right Actions: Language Switcher, Search & CTA */}
+      {/* Right Actions: Language Switcher, Search, Dashboard (if auth), & CTA */}
       <div className="raja-nav__actions">
         {/* Language Switcher Toggle */}
         <button
           type="button"
           onClick={toggleLanguage}
           className="raja-nav__lang-toggle"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 4,
-            padding: '4px 10px',
-            borderRadius: 9999,
-            border: '1px solid rgba(0, 0, 0, 0.12)',
-            background: 'rgba(255, 255, 255, 0.9)',
-            fontSize: '0.76rem',
-            fontWeight: 700,
-            color: '#0f172a',
-            cursor: 'pointer',
-            transition: 'all 0.2s ease',
-          }}
           title={isSomali ? 'Switch to English' : 'U beddel Af-Soomaali'}
           aria-label="Toggle language"
         >
@@ -118,20 +97,21 @@ export default function RajaNavbar({ onOpenMenu, onGetStarted }) {
         </button>
 
         {searchOpen ? (
-          <form onSubmit={handleSearchSubmit} style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#f1f5f9', padding: '4px 12px', borderRadius: 9999 }}>
+          <form onSubmit={handleSearchSubmit} className="raja-nav__search-form">
             <Search size={14} color="#64748b" />
             <input
               type="text"
               placeholder={isSomali ? 'Raadi xeebaha...' : 'Search coast...'}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              style={{ border: 'none', background: 'transparent', outline: 'none', fontSize: '0.84rem', width: 130 }}
+              className="raja-nav__search-input"
               autoFocus
             />
             <button
               type="button"
               onClick={() => setSearchOpen(false)}
-              style={{ border: 'none', background: 'none', cursor: 'pointer', padding: 2 }}
+              className="raja-nav__search-close"
+              aria-label="Close search"
             >
               <X size={14} />
             </button>
@@ -146,6 +126,17 @@ export default function RajaNavbar({ onOpenMenu, onGetStarted }) {
             <Search size={15} />
             <span>{isSomali ? 'Raadi' : 'Search'}</span>
           </button>
+        )}
+
+        {isAuthenticated && (
+          <Link
+            to={dashboardHref}
+            className="raja-nav__dashboard-btn"
+            title={canManageAdmin(user) ? 'Admin CMS' : 'My Dashboard'}
+          >
+            <LayoutDashboard size={14} />
+            <span>{canManageAdmin(user) ? 'Admin' : 'Dashboard'}</span>
+          </Link>
         )}
 
         <button

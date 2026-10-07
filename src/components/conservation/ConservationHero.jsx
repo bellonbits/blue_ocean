@@ -10,10 +10,10 @@ export default function ConservationHero() {
   const localizedPath = (path) => `/${language}${path}`;
 
   return (
-    <section className="exp-hero" aria-label="Blue Heaven Conservation">
+    <section className="exp-hero" aria-label="Blue Ocean Conservation">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/marine_turtles.jpg"
+          src="/images/img_10.png"
           alt="A green sea turtle swimming over a Somali reef"
           className="exp-hero__img"
         />

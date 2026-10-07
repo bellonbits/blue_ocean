@@ -25,7 +25,7 @@ export default function RajaBestPrice() {
           }}
         >
           <ShieldCheck size={16} />
-          <span>{isSomali ? 'Ilaalinta Badda • Blue Heaven' : 'Ocean Conservation • Blue Heaven'}</span>
+          <span>{isSomali ? 'Ilaalinta Badda • Blue Ocean' : 'Ocean Conservation • Blue Ocean'}</span>
         </span>
 
         <h2 className="raja-best-price__heading">
@@ -73,7 +73,7 @@ export default function RajaBestPrice() {
         {/* Base Large Rounded Image: Authentic Somalia Coastline */}
         <div className="raja-plane-base">
           <img
-            src="/somalia_hero_coast.jpg"
+            src="/images/image.png"
             alt="Somalia coastline and traditional wooden dhow"
             className="raja-plane-base__img"
             loading="lazy"
@@ -100,7 +100,7 @@ export default function RajaBestPrice() {
         {/* Top-Left Floating Card: Green Sea Turtle Conservation */}
         <div className="raja-plane-card-diver" title={isSomali ? 'Ilaalinta Qoolleyda Badda' : 'Green Sea Turtle Conservation'}>
           <img
-            src="/marine_turtles.jpg"
+            src="/images/img_10.png"
             alt="Endangered green sea turtle swimming over coral reef"
             className="raja-plane-card-diver__img"
             loading="lazy"

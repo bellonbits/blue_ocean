@@ -10,7 +10,7 @@ const LOGO_ASSETS = [
 
 export default function PressPage() {
   useEffect(() => {
-    document.title = 'Press — Blue Heaven Somalia';
+    document.title = 'Press — Blue Ocean Somalia';
     window.scrollTo(0, 0);
   }, []);
 
@@ -22,17 +22,17 @@ export default function PressPage() {
           <h1 className="static-page__title">Press Kit</h1>
           <p className="static-page__subtitle">
             Boilerplate, brand assets, and a direct line to the team for journalists and partners
-            covering Blue Heaven Somalia.
+            covering Blue Ocean Somalia.
           </p>
         </div>
 
         <div className="static-page__body">
-          <h2>About Blue Heaven Somalia</h2>
+          <h2>About Blue Ocean Somalia</h2>
           <p>{organization.mission.description}</p>
 
           <h2>Boilerplate</h2>
           <p>
-            <strong>{organization.name}</strong> — {organization.mission.statement} Blue Heaven
+            <strong>{organization.name}</strong> — {organization.mission.statement} Blue Ocean
             works across Somalia's coastline, from Puntland to Jubaland, combining marine research,
             conservation, and coastal community partnership.
           </p>
@@ -55,7 +55,7 @@ export default function PressPage() {
 
           <h2>Media Contact</h2>
           <p>
-            For interviews, quotes, or high-resolution imagery, reach the Blue Heaven team directly:
+            For interviews, quotes, or high-resolution imagery, reach the Blue Ocean team directly:
           </p>
           <p>
             <a

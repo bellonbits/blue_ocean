@@ -21,7 +21,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-bosaso',
         title: isSomali ? 'Boosaaso: Albaabka Gacanka Cadmeed' : 'Bosaso: Gulf of Aden Seaport & Shelf',
-        image: '/bosaso1.jpg',
+        image: '/images/img_02.png',
         slug: 'bosaso',
         zone: isSomali ? 'Gobolka Bari' : 'Bari Region, Puntland',
         rating: '4.9',
@@ -34,7 +34,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-hafun',
         title: isSomali ? 'Raas Xaafuun: Cirifka Bariga Afrika' : 'Ras Hafun: Africa’s Easternmost Horn',
-        image: '/hafun1.jpg',
+        image: '/images/img_01.png',
         slug: 'hafun',
         zone: isSomali ? 'Gacanka Xaafuun' : 'Hafun Peninsula',
         rating: '5.0',
@@ -47,7 +47,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-eyl',
         title: isSomali ? 'Dooxada Eyl: Badda & Buuraha Nugaal' : 'Eyl: Canyon Gorge & Historic Bay',
-        image: '/eyl1.jpg',
+        image: '/images/img_03.png',
         slug: 'eyl',
         zone: isSomali ? 'Gobolka Nugaal' : 'Nugaal Estuary',
         rating: '4.9',
@@ -62,7 +62,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-bajuni',
         title: isSomali ? 'Jasiiradaha Baajuun: Jannada Biyaha Buluugga' : 'Bajuni Archipelago: Turquoise Atolls',
-        image: '/kismayo1.png',
+        image: '/images/img_05.png',
         slug: 'bajuni-islands',
         zone: isSomali ? 'Jubada Hoose' : 'Lower Juba, Jubaland',
         rating: '5.0',
@@ -75,7 +75,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-kismayo',
         title: isSomali ? 'Xeebta Kismaayo & Gobweyn' : 'Kismayo & Gobweyn River Mouth',
-        image: '/kismayo2.png',
+        image: '/images/img_05.png',
         slug: 'kismayo',
         zone: isSomali ? 'Wabiga Jubba & Badda' : 'Juba River Estuary',
         rating: '4.8',
@@ -88,7 +88,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-kamboni',
         title: isSomali ? 'Raas Kamboni: Xadka Koonfureed' : 'Ras Kamboni: Southern Marine Sanctuary',
-        image: '/kamboni1.png',
+        image: '/images/img_10.png',
         slug: 'kamboni',
         zone: isSomali ? 'Koonfurta Fog' : 'Southern Border Coast',
         rating: '4.9',
@@ -103,7 +103,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-liido',
         title: isSomali ? 'Xeebaha Liido & Jasiira ee Banaadir' : 'Lido & Jazeera: Banadir Oceanfront',
-        image: '/liido1.png',
+        image: '/images/img_08.png',
         slug: 'liido-jazeera',
         zone: isSomali ? 'Muqdisho & Banaadir' : 'Mogadishu Coastal Zone',
         rating: '4.9',
@@ -129,7 +129,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-hobyo',
         title: isSomali ? 'Hobyo: Dekeddii Saldanadda Qadiimiga' : 'Hobyo: Sultanate Seaport & Central Sands',
-        image: '/hobyo1.png',
+        image: '/images/img_06.png',
         slug: 'hobyo',
         zone: isSomali ? 'Gobolka Mudug' : 'Mudug Central Coast',
         rating: '4.8',
@@ -144,7 +144,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-berbera',
         title: isSomali ? 'Berbera: Dekedda Gacanka Cadmeed' : 'Berbera: Historic Coral Gateway',
-        image: '/berbera1.png',
+        image: '/images/img_09.png',
         slug: 'berbera',
         zone: isSomali ? 'Gacanka Cadmeed' : 'Gulf of Aden Coast',
         rating: '4.9',
@@ -157,7 +157,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-zeila',
         title: isSomali ? 'Saylac & Jasiiradda Sa’ad ad-Din' : 'Zeila & Sa’ad ad-Din Archipelago',
-        image: '/zeila1.png',
+        image: '/images/img_09.png',
         slug: 'zeila',
         zone: isSomali ? 'Gobolka Awdal' : 'Awdal Island Archipelago',
         rating: '5.0',
@@ -195,7 +195,7 @@ export default function RajaDiscoverPlans() {
           </h2>
           <p className="raja-discover__subtext">
             {isSomali
-              ? 'Baro gobollada kala duwan ee xeebta 3,330 km, noolaha ku nool, iyo mashaariicda cilmibaarista ee Blue Heaven.'
+              ? 'Baro gobollada kala duwan ee xeebta 3,330 km, noolaha ku nool, iyo mashaariicda cilmibaarista ee Blue Ocean.'
               : "Explore the distinctive marine zones along Somalia's 3,330 km coastline, from coral atolls to deep pelagic trenches."}
           </p>
         </div>
@@ -217,82 +217,45 @@ export default function RajaDiscoverPlans() {
         </div>
       </div>
 
-      {/* Destination Cards Grid - No Pricing */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 20 }}>
+      {/* Destination Cards Track — Horizontally scrollable on mobile */}
+      <div className="raja-discover__cards-track">
         {currentItems.map((item) => (
           <div
             key={item.id}
-            style={{
-              background: 'var(--color-surface, #f8fafc)',
-              borderRadius: 24,
-              overflow: 'hidden',
-              border: '1px solid rgba(0, 0, 0, 0.08)',
-              display: 'flex',
-              flexDirection: 'column',
-              boxShadow: '0 8px 24px rgba(0,0,0,0.04)',
-              transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-            }}
-            className="raja-card"
+            className="raja-discover-card"
           >
-            <div style={{ position: 'relative', height: 210, overflow: 'hidden' }}>
+            <div className="raja-discover-card__thumb-wrap">
               <img
                 src={item.image}
                 alt={item.title}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                className="raja-discover-card__thumb"
                 loading="lazy"
               />
-              <span
-                style={{
-                  position: 'absolute',
-                  top: 14,
-                  right: 14,
-                  background: 'rgba(15, 23, 42, 0.75)',
-                  backdropFilter: 'blur(8px)',
-                  color: '#ffffff',
-                  fontSize: '0.74rem',
-                  fontWeight: 700,
-                  padding: '4px 12px',
-                  borderRadius: 9999,
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 4,
-                }}
-              >
+              <span className="raja-discover-card__location-badge">
                 <MapPin size={11} color="#38bdf8" />
                 <span>{item.zone}</span>
               </span>
             </div>
 
-            <div style={{ padding: '22px 20px', display: 'flex', flexDirection: 'column', flex: 1, gap: 12 }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 5, color: '#f59e0b', fontSize: '0.84rem', fontWeight: 700 }}>
+            <div className="raja-discover-card__body">
+              <div className="raja-discover-card__meta">
+                <div className="raja-discover-card__rating">
                   <Star size={14} fill="currentColor" />
                   <span>{item.rating}</span>
                 </div>
-                <span
-                  style={{
-                    fontSize: '0.74rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    color: '#0284c7',
-                    background: 'rgba(2, 132, 199, 0.1)',
-                    padding: '3px 8px',
-                    borderRadius: 6,
-                  }}
-                >
+                <span className="raja-discover-card__tag">
                   {isSomali ? 'Cilmibaaris' : 'Research Site'}
                 </span>
               </div>
 
-              <h4 style={{ fontFamily: "var(--font-editorial, 'Playfair Display', serif)", fontSize: '1.25rem', margin: 0, lineHeight: 1.3, color: '#0f172a' }}>
+              <h4 className="raja-discover-card__title">
                 {item.title}
               </h4>
 
-              <ul style={{ listStyle: 'none', padding: 0, margin: '6px 0', display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <ul className="raja-discover-card__features">
                 {item.features.map((feat, i) => (
-                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, fontSize: '0.82rem', color: '#475569', lineHeight: 1.4 }}>
-                    <Check size={14} color="#0284c7" style={{ marginTop: 2, flexShrink: 0 }} />
+                  <li key={i} className="raja-discover-card__feature-item">
+                    <Check size={14} color="#0284c7" className="raja-discover-card__check-icon" />
                     <span>{feat}</span>
                   </li>
                 ))}
@@ -300,22 +263,7 @@ export default function RajaDiscoverPlans() {
 
               <button
                 type="button"
-                style={{
-                  marginTop: 'auto',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: 8,
-                  padding: '11px 18px',
-                  borderRadius: 9999,
-                  background: '#090d16',
-                  color: '#ffffff',
-                  fontSize: '0.84rem',
-                  fontWeight: 600,
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'background 0.2s ease, transform 0.2s ease',
-                }}
+                className="raja-discover-card__btn"
                 onClick={() => navigate(`/${language}/explore-the-coast/${item.slug}`)}
               >
                 <span>{isSomali ? 'Sahami Goobtan' : 'Explore Destination'}</span>

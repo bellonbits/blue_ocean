@@ -5,7 +5,7 @@ import '../experiences/ExperienceCard.css';
 
 export default function ExpeditionCard({ expedition }) {
   const { language, t } = useLanguage();
-  const image = expedition.species[0]?.heroImage || '/exp_scuba_diving.jpg';
+  const image = expedition.species[0]?.heroImage || '/images/img_02.png';
 
   return (
     <article className="exp-card">

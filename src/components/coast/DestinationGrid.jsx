@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import LuxuryDestinationCard from './LuxuryDestinationCard';
 import FramerCarousel from '../ui/FramerCarousel';
-import { Search, MapPin, LayoutGrid, SlidersHorizontal, Sparkles } from 'lucide-react';
+import { Search, MapPin, LayoutGrid, SlidersHorizontal, Sparkles, X } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import './DestinationGrid.css';
 
@@ -104,7 +104,7 @@ export default function DestinationGrid({ destinations = [], selectedRegion, onS
                     className="dest-section__search-clear"
                     aria-label={t('exploreCoast.destinationGrid.searchClearAriaLabel')}
                   >
-                    ✕
+                    <X size={14} />
                   </button>
                 )}
               </div>

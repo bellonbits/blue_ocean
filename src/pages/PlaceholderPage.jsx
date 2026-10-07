@@ -2,13 +2,12 @@ import { Link } from 'react-router-dom';
 import { Waves, ArrowLeft } from 'lucide-react';
 import './Placeholder.css';
 
-export default function PlaceholderPage({ title, description, emoji = '🌊' }) {
+export default function PlaceholderPage({ title, description, icon: Icon = Waves }) {
   return (
     <main className="placeholder-page" aria-label={title}>
       <div className="placeholder-page__content">
-        <div className="placeholder-page__emoji" aria-hidden="true">{emoji}</div>
         <div className="placeholder-page__icon" aria-hidden="true">
-          <Waves size={32} strokeWidth={1.5} />
+          <Icon size={40} strokeWidth={1.5} color="#0ea5e9" />
         </div>
         <h1 className="placeholder-page__title">{title}</h1>
         <p className="placeholder-page__desc">{description}</p>

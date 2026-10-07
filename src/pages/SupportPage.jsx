@@ -18,7 +18,7 @@ export default function SupportPage() {
   const supportableProjects = getAllConservationProjects(language).filter((p) => (p.statusKey || p.status) !== 'Completed');
 
   useEffect(() => {
-    document.title = 'Support a Project — Blue Heaven Somalia';
+    document.title = 'Support a Project — Blue Ocean Somalia';
     window.scrollTo(0, 0);
   }, []);
 

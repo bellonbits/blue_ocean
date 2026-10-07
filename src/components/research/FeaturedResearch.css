@@ -151,6 +151,28 @@
 
 @media (max-width: 640px) {
   .featured-research__others {
-    grid-template-columns: minmax(0, 1fr);
+    display: flex !important;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    gap: 14px;
+    padding: 6px 16px 20px 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .featured-research__others::-webkit-scrollbar {
+    display: none;
+  }
+
+  .featured-research__others > * {
+    flex: 0 0 clamp(235px, 74vw, 280px) !important;
+    max-width: 285px;
+    scroll-snap-align: start;
   }
 }

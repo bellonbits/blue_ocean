@@ -42,6 +42,7 @@ export default function Footer() {
 
   const quickLinks = [
     { label: isSomali ? 'Bogga Hore' : 'Home', path: '/' },
+    { label: isSomali ? 'Dalxiiska Xeebaha' : 'Coastal Tourism', path: '/tourism' },
     { label: isSomali ? 'Nagu Saabsan' : 'About Us', path: '/about' },
     { label: isSomali ? 'Sahami Xeebaha' : 'Explore Coast', path: '/explore-the-coast' },
     { label: isSomali ? 'Khibradaha Badda' : 'Ocean Experiences', path: '/experiences' },
@@ -68,10 +69,10 @@ export default function Footer() {
         <div className="nature-footer__grid">
           {/* Column 1: Brand & Newsletter */}
           <div className="nature-footer__col nature-footer__col--brand">
-            <Link to={localizedPath('/')} className="nature-footer__logo-link" aria-label="Blue Heaven Somalia">
+            <Link to={localizedPath('/')} className="nature-footer__logo-link" aria-label="Blue Ocean Somalia">
               <img
                 src="/logo.png"
-                alt="Blue Heaven Somalia"
+                alt="Blue Ocean Somalia"
                 className="nature-footer__logo-img"
               />
             </Link>
@@ -175,11 +176,11 @@ export default function Footer() {
                 <span>+252 90 779 0000 / +252 61 500 0000</span>
               </a>
 
-              <a href="mailto:contact@blueheavensomalia.com" className="nature-footer__contact-link">
+              <a href="mailto:contact@blueoceansomalia.com" className="nature-footer__contact-link">
                 <span className="nature-footer__contact-icon">
                   <Mail size={15} />
                 </span>
-                <span>contact@blueheavensomalia.com</span>
+                <span>contact@blueoceansomalia.com</span>
               </a>
 
               <div className="nature-footer__contact-info">
@@ -209,7 +210,7 @@ export default function Footer() {
         {/* Bottom Bar: Copyright & Legal */}
         <div className="nature-footer__bottom">
           <p className="nature-footer__copyright">
-            © {currentYear} Blue Heaven Somalia. {isSomali ? 'Dhammaan xuquuqda waa la dhowray.' : 'All rights reserved.'} Somalia's Living Coastline.
+            © {currentYear} Blue Ocean Somalia. {isSomali ? 'Dhammaan xuquuqda waa la dhowray.' : 'All rights reserved.'} Somalia's Living Coastline.
           </p>
 
           <div className="nature-footer__legal-links">

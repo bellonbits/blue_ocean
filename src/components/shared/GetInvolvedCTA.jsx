@@ -10,7 +10,7 @@ const pathways = [
     taglineKey: 'volunteerTagline',
     ctaKey: 'volunteerCta',
     path: '/get-involved/volunteer',
-    image: '/con_youth_education.jpg',
+    image: '/images/img_08.png',
     icon: HandHeart,
   },
   {
@@ -19,7 +19,7 @@ const pathways = [
     taglineKey: 'partnerTagline',
     ctaKey: 'partnerCta',
     path: '/get-involved/partner',
-    image: '/exp_dhow_sailing.jpg',
+    image: '/images/img_12.png',
     icon: Handshake,
   },
   {
@@ -28,7 +28,7 @@ const pathways = [
     taglineKey: 'supportTagline',
     ctaKey: 'supportCta',
     path: '/get-involved/support',
-    image: '/con_beach_cleanup.jpg',
+    image: '/images/img_01.png',
     icon: HeartHandshake,
   },
 ];

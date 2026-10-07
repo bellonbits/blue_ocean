@@ -227,7 +227,28 @@
   }
 
   .dest-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-5);
+    display: flex !important;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    gap: 16px;
+    padding: 6px 16px 20px 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .dest-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dest-grid .lux-card {
+    flex: 0 0 clamp(240px, 74vw, 285px) !important;
+    max-width: 290px;
+    scroll-snap-align: start;
   }
 }

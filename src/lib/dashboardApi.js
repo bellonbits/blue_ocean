@@ -20,7 +20,12 @@ async function request(path, token, options = {}) {
   const data = await res.json().catch(() => null);
 
   if (!res.ok) {
-    throw new Error(data?.detail || `Request failed with status ${res.status}`);
+    if (res.status === 401 && typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('auth-unauthorized'));
+    }
+    const error = new Error(data?.detail || `Request failed with status ${res.status}`);
+    error.status = res.status;
+    throw error;
   }
 
   return data;

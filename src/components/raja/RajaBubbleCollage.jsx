@@ -5,67 +5,67 @@ import { useLanguage } from '../../context/LanguageContext';
 export default function RajaBubbleCollage({ onBookTicket }) {
   const { language } = useLanguage();
   const isSomali = language === 'so';
-  const [, setActiveBubble] = useState(null);
+  const [activeBubble, setActiveBubble] = useState(null);
 
   const bubbles = [
     {
       id: 'center',
       className: 'bubble-node bubble-center-hero',
-      image: '/somalia_hero_coast.jpg',
+      image: '/images/image.png',
       label: isSomali ? 'Xeebta Boosaaso & Dhowka' : 'Bosaso Coast & Dhow',
     },
     {
       id: 'fish',
       className: 'bubble-node bubble-boxfish',
-      image: '/marine_fish.jpg',
+      image: '/images/img_11.png',
       label: isSomali ? 'Kalluunka Jeedaalka & Tuna' : 'Yellowfin Tuna & Pelagic Fish',
     },
     {
       id: 'turtles',
       className: 'bubble-node bubble-swimmer',
-      image: '/marine_turtles.jpg',
+      image: '/images/img_10.png',
       label: isSomali ? 'Digaag-badeedka Cagaaran' : 'Green Sea Turtles',
     },
     {
       id: 'cliff',
       className: 'bubble-node bubble-cliff-left',
-      image: '/hafun1.jpg',
+      image: '/images/img_01.png',
       label: isSomali ? 'Cirifka Raas Xaafuun' : 'Ras Hafun Headlands',
     },
     {
       id: 'sharks',
       className: 'bubble-node bubble-motors',
-      image: '/marine_sharks.jpg',
+      image: '/images/img_11.png',
       label: isSomali ? 'Libax-badeedka Whale Shark' : 'Whale Sharks of Gulf of Aden',
     },
     {
       id: 'dolphins',
       className: 'bubble-node bubble-small-top',
-      image: '/marine_dolphins.jpg',
+      image: '/images/img_09.png',
       label: isSomali ? 'Delfiinnada Badda Soomaaliya' : 'Spinner Dolphins of Somali Coast',
     },
     {
       id: 'coral',
       className: 'bubble-node bubble-diver-far-right',
-      image: '/marine_coral.jpg',
+      image: '/images/img_07.png',
       label: isSomali ? 'Reef-yada Dhagaxeedka Nool' : 'Living Coral Reef Systems',
     },
     {
       id: 'bargaal',
       className: 'bubble-node bubble-islet-bottom',
-      image: '/bargaal_main.jpg',
+      image: '/images/img_04.png',
       label: isSomali ? 'Xeebta Baargaal ee Bari' : 'Bargaal Coastal Oasis',
     },
     {
       id: 'seagrass',
       className: 'bubble-node bubble-reef-tiny',
-      image: '/marine_seagrass.jpg',
+      image: '/images/img_11.png',
       label: isSomali ? 'Doogga Badda ee Nolosha' : 'Seagrass Beds & Nurseries',
     },
     {
       id: 'kismayo',
       className: 'bubble-node bubble-bottom-left-slice',
-      image: '/kismayo2.png',
+      image: '/images/img_05.png',
       label: isSomali ? 'Kanaalada Jubada Hoose' : 'Jubaland Coastal Channels',
     },
   ];
@@ -82,7 +82,7 @@ export default function RajaBubbleCollage({ onBookTicket }) {
         <p className="raja-bubble__subtext">
           {isSomali
             ? 'Nagu soo biir si aad u sahamiso quruxda dabiiciga ah ee xeebaha Soomaaliya iyo nolosha hodanka ah ee badda hoosteeda. Baro mashariicdayada cilmi-baarista iyo ilaalinta deegaanka badda.'
-            : "Join Blue Heaven to discover Somalia's untouched marine wilderness, vibrant coral habitats, and community-led ocean conservation along 3,330 km of coastline."}
+            : "Join Blue Ocean to discover Somalia's untouched marine wilderness, vibrant coral habitats, and community-led ocean conservation along 3,330 km of coastline."}
         </p>
 
         {/* Action Pills - No Pricing */}
@@ -116,6 +116,9 @@ export default function RajaBubbleCollage({ onBookTicket }) {
             onMouseEnter={() => setActiveBubble(b.label)}
             onMouseLeave={() => setActiveBubble(null)}
             onClick={onBookTicket}
+            role="button"
+            tabIndex={0}
+            aria-label={b.label}
           >
             <img
               src={b.image}
@@ -123,8 +126,18 @@ export default function RajaBubbleCollage({ onBookTicket }) {
               className="bubble-node__img"
               loading="lazy"
             />
+            <div className="bubble-node__badge">
+              <span>{b.label}</span>
+            </div>
           </div>
         ))}
+
+        {activeBubble && (
+          <div className="raja-bubble-active-pill" aria-live="polite">
+            <Compass size={14} style={{ color: '#0284c7' }} />
+            <span>{activeBubble}</span>
+          </div>
+        )}
       </div>
     </section>
   );

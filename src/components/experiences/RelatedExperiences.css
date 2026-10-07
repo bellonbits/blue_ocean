@@ -62,13 +62,37 @@
 
 @media (max-width: 640px) {
   .related-exp__grid {
-    grid-template-columns: minmax(0, 1fr);
+    display: flex !important;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    gap: 14px;
+    padding: 6px 16px 20px 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
+
+  .related-exp__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .related-exp__item {
+    flex: 0 0 clamp(235px, 74vw, 280px) !important;
+    max-width: 285px;
+    scroll-snap-align: start;
+  }
+
   .related-exp__header {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-4);
   }
+
   .related-exp__btn {
     width: 100%;
     justify-content: center;

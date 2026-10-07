@@ -10,7 +10,7 @@ export default function PublicationsPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    document.title = 'Publications — Blue Heaven Somalia';
+    document.title = 'Publications — Blue Ocean Somalia';
     window.scrollTo(0, 0);
   }, []);
 
@@ -31,7 +31,7 @@ export default function PublicationsPage() {
           <span className="label-text">Research</span>
           <h1 className="static-page__title">Publications</h1>
           <p className="static-page__subtitle">
-            Research findings Blue Heaven has published from work along Somalia's coast.
+            Research findings Blue Ocean has published from work along Somalia's coast.
           </p>
         </div>
 

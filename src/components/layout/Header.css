@@ -1,828 +1,585 @@
 /* =========================================================
-   Header & Navigation Styles
+   BLUE OCEAN — Luxury Travel Minimal Header (Matching Attachment)
+   Wordmark: blue__ocean
+   Links: about · explore · destinations
+   Language: en - so
+   Action: Circular frosted glass search button
    ========================================================= */
 
-.header {
+.travel-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  z-index: var(--z-nav);
-  height: var(--header-height);
+  height: 76px;
+  z-index: 100;
   display: flex;
   align-items: center;
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-bottom: none;
-  transition: background var(--transition-slow), backdrop-filter var(--transition-slow),
-              box-shadow var(--transition-slow), border-color var(--transition-slow);
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease,
+              backdrop-filter 0.3s ease;
 }
 
-.header--home-hidden {
-  display: none !important;
+/* 1. Transparent State (Frosted glass blur directly overlaying hero image) */
+.travel-header--transparent {
+  background: rgba(7, 22, 38, 0.35);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* Over a hero photo the header always gets the same dark glass treatment
-   regardless of site theme — a hero image is rarely pure white, so this
-   follows the near-universal "dark glass + white text over a photo"
-   convention rather than switching to a bright, low-contrast light-theme
-   glass just because the rest of the site is in light mode. Previously
-   this was fully transparent with no blur at all, which is what read as
-   "too transparent" — hero text and the logo had nothing separating them
-   from the header's own text. */
-.header:not(.header--scrolled) {
-  background: rgba(9, 26, 36, 0.55) !important;
-  backdrop-filter: blur(22px) saturate(190%) !important;
-  -webkit-backdrop-filter: blur(22px) saturate(190%) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+/* 2. Scrolled State (Frosted glass blur with deep marine backdrop) */
+.travel-header--scrolled {
+  background: rgba(7, 22, 38, 0.82);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.22);
 }
 
-/* Scrolled header — true glassmorphism: translucent enough that blurred
-   content is still visible moving behind it (the "glass" read), with a
-   light-catching top inset highlight and a hairline border for edge
-   definition so it doesn't just dissolve into similarly-toned content. */
-.header--scrolled {
-  background: rgba(9, 26, 36, 0.55) !important;
-  backdrop-filter: blur(22px) saturate(190%);
-  -webkit-backdrop-filter: blur(22px) saturate(190%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.07);
-}
-
-/* Light theme header when scrolled — same glass recipe, tuned so the
-   pane still reads clearly against an equally light page (a plain low-
-   opacity white tint alone disappears into white content). */
-[data-theme="light"] .header--scrolled {
-  /* A faint brand-cyan wash rather than plain white — pure white glass
-     over an equally near-white page has almost no visible presence. */
-  background: rgba(223, 243, 248, 0.72) !important;
-  backdrop-filter: blur(22px) saturate(190%) !important;
-  -webkit-backdrop-filter: blur(22px) saturate(190%) !important;
-  border-bottom: 1px solid rgba(7, 25, 35, 0.12) !important;
-  box-shadow: 0 8px 28px rgba(7, 25, 35, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-}
-
-/* Nav links when header is transparent (over hero) — always crisp white */
-.header:not(.header--scrolled) .header__nav-link {
-  color: #FFFFFF !important;
-  background: transparent !important;
-  font-weight: 600;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-.header:not(.header--scrolled) .header__nav-link:hover {
-  color: #02CCFE !important;
-  background: rgba(255, 255, 255, 0.08) !important;
-}
-
-.header:not(.header--scrolled) .header__nav-link--active {
-  color: #02CCFE !important;
-  background: transparent !important;
-}
-
-.header:not(.header--scrolled) .header__nav-link--active::after {
-  background: #02CCFE;
-  box-shadow: 0 0 10px rgba(2, 204, 254, 0.8);
-  transform: scaleX(1);
-}
-
-/* Nav links when scrolled in light theme — deep navy professional text */
-[data-theme="light"] .header--scrolled .header__nav-link {
-  color: #071923;
-  font-weight: 600;
-}
-
-[data-theme="light"] .header--scrolled .header__nav-link:hover {
-  color: #007F99;
-  background: rgba(255, 255, 255, 0.3);
-}
-
-[data-theme="light"] .header--scrolled .header__nav-link--active {
-  color: #007F99;
-  font-weight: 700;
-}
-
-[data-theme="light"] .header--scrolled .header__nav-link--active::after {
-  background: #02CCFE;
-  box-shadow: none;
-  transform: scaleX(1);
-}
-
-
-
-
-.header__inner {
-  display: flex;
-  align-items: center;
-  gap: var(--space-8);
+/* Inner Container */
+.travel-header__inner {
+  max-width: 1540px;
+  margin: 0 auto;
   width: 100%;
-}
-
-/* Overrides the shared .container class's max-width (1320px, sized for
-   page content) — the logo + 11 nav links + language/theme/auth controls
-   need ~1665px to render on one line without overlap, so the narrower
-   cap was causing content to overflow the (centered) box invisibly at
-   most viewport widths. The extra `.header` ancestor is there purely to
-   out-specificity `.container` (same single-class specificity otherwise,
-   so the winner depended on CSS source order rather than intent). */
-.header .header__inner {
-  max-width: 1700px;
-}
-
-/* --- Logo --- */
-.header__logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  flex-shrink: 0;
-  transition: opacity var(--transition-base), transform var(--transition-base);
-}
-
-.header__logo:hover {
-  opacity: 0.9;
-  transform: scale(1.02);
-}
-
-.header__logo-img {
-  height: 58px;
-  width: auto;
-  max-width: 220px;
-  object-fit: contain;
-  display: block;
-  filter: none !important;
-}
-
-
-/* --- Desktop Navigation --- */
-.header__nav {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.header__nav-list {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  flex-wrap: nowrap;
-}
-
-.header__nav-link {
-  display: block;
-  padding: 0.4rem 0.65rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--color-text-muted);
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-  letter-spacing: 0.01em;
-  transition: color var(--transition-base), background var(--transition-base);
-  white-space: nowrap;
-  position: relative;
-}
-
-.header__nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 0.65rem;
-  right: 0.65rem;
-  height: 2px;
-  background: var(--color-turquoise);
-  border-radius: var(--radius-full);
-  transform: scaleX(0);
-  transition: transform var(--transition-base);
-}
-
-.header__nav-link:hover {
-  color: var(--color-text);
-  background: rgba(255,255,255,0.05);
-}
-
-.header__nav-link:hover::after,
-.header__nav-link--active::after {
-  transform: scaleX(1);
-}
-
-.header__nav-link--active {
-  color: var(--color-turquoise);
-}
-
-/* --- Actions --- */
-.header__actions {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-/* --- Theme Toggle --- */
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  flex-shrink: 0;
-}
-
-.theme-toggle__track {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  width: 48px;
-  height: 26px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid var(--color-border-bright);
-  border-radius: var(--radius-full);
-  transition: background var(--transition-slow), border-color var(--transition-slow);
-  padding: 2px;
-}
-
-.theme-toggle__track:hover {
-  background: rgba(0,201,177,0.12);
-  border-color: var(--color-turquoise);
-}
-
-.theme-toggle__thumb {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--gradient-turquoise);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #030D1A;
-  transition: transform var(--transition-slow), background var(--transition-slow);
-  transform: translateX(0);
-  flex-shrink: 0;
-}
-
-/* When light theme is active, slide thumb to the right */
-[data-theme="light"] .theme-toggle__thumb {
-  transform: translateX(22px);
-  background: linear-gradient(135deg, #FFB830 0%, #FF8C00 100%);
-  color: #fff;
-}
-
-[data-theme="light"] .theme-toggle__track {
-  background: rgba(0, 100, 80, 0.1);
-  border-color: rgba(0, 143, 128, 0.35);
-}
-
-/* --- Language Switcher --- */
-.lang-switch {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  gap: 2px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(0, 207, 232, 0.35);
-  border-radius: var(--radius-full);
-  padding: 2px;
-}
-
-.lang-switch__option {
-  border: none;
-  background: none;
-  cursor: pointer;
-  padding: 3px 8px;
-  border-radius: var(--radius-full);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--color-text-muted);
-  transition: color var(--transition-slow), background var(--transition-slow);
-}
-
-.lang-switch__option:hover {
-  color: var(--color-text);
-}
-
-.lang-switch__option--active {
-  color: #030D1A;
-  background: linear-gradient(135deg, #00CFE8 0%, #009BB0 100%);
-}
-
-[data-theme="light"] .lang-switch__option--active {
-  color: #FFFFFF;
-}
-
-.mobile-menu__header-actions .lang-switch {
-  margin-right: var(--space-2);
-}
-
-
-/* --- Hamburger --- */
-.header__hamburger {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
-  color: var(--color-text);
-  background: rgba(255,255,255,0.06);
-  border: 1px solid var(--color-border);
-  transition: background var(--transition-base), color var(--transition-base);
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-/* Always visible on transparent header (dark hero background) — solid
-   fill (not just a faint tint) so the icon reads clearly against any
-   hero photo, bright or dark, rather than relying on low-opacity
-   contrast against unknown background content. */
-.header:not(.header--scrolled) .header__hamburger {
-  color: #FFFFFF;
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(3, 13, 26, 0.55);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-}
-
-.header__hamburger:hover {
-  background: rgba(0,201,177,0.1);
-  color: var(--color-turquoise);
-  border-color: var(--color-border-bright);
-}
-
-/* Light mode scrolled hamburger */
-[data-theme="light"] .header--scrolled .header__hamburger {
-  color: var(--color-text-muted);
-  border-color: var(--color-border);
-  background: rgba(9, 30, 51, 0.05);
-}
-
-/* =========================================================
-   Mobile Menu
-   ========================================================= */
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: min(380px, 100vw);
-  z-index: calc(var(--z-nav) + 1);
-  transform: translateX(100%);
-  transition: transform var(--transition-slower), visibility var(--transition-slower);
-  pointer-events: none;
-  visibility: hidden;
-}
-
-.mobile-menu--open {
-  transform: translateX(0);
-  pointer-events: all;
-  visibility: visible;
-}
-
-.mobile-menu__inner {
-  height: 100%;
-  background: var(--color-surface);
-  border-left: 1px solid var(--color-border);
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-6);
-  overflow-y: auto;
-  position: relative;
-}
-
-.mobile-menu__header {
+  padding: 0 clamp(20px, 4.5vw, 64px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-10);
-  padding-bottom: var(--space-6);
-  border-bottom: 1px solid var(--color-border);
+  gap: 24px;
 }
 
-.mobile-menu__header-actions {
-  display: flex;
+/* --- Blue Heaven Brand Logo --- */
+.travel-header__brand {
+  display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  text-decoration: none;
+  flex-shrink: 0;
+  outline: none;
+  padding: 4px 0;
 }
 
-
-.mobile-menu__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.mobile-menu__item {
-  animation: slideLeftFade 0.4s cubic-bezier(0.16,1,0.3,1) both;
-}
-
-.mobile-menu__link {
+.travel-header__brand-logo {
+  height: clamp(34px, 4.4vh, 42px);
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
   display: block;
-  padding: var(--space-3) var(--space-4);
-  font-size: var(--text-base);
-  font-weight: 500;
-  color: var(--color-text-muted);
-  text-decoration: none;
-  border-radius: var(--radius-md);
-  transition: all var(--transition-base);
-  border: 1px solid transparent;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.25s ease,
+              opacity 0.2s ease;
 }
 
-.mobile-menu__link:hover {
-  color: var(--color-text);
-  background: rgba(255,255,255,0.05);
-  border-color: var(--color-border);
-  padding-left: var(--space-6);
+.travel-header__brand:hover .travel-header__brand-logo {
+  transform: scale(1.05);
+  filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.5));
 }
 
-.mobile-menu__link--active {
-  color: var(--color-turquoise);
-  background: rgba(0,201,177,0.08);
-  border-color: rgba(0,201,177,0.15);
-}
-
-.mobile-menu__cta {
-  padding-top: var(--space-6);
-  margin-top: var(--space-4);
-  border-top: 1px solid var(--color-border);
-}
-
-.mobile-menu__wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, transparent, rgba(0,201,177,0.04));
-  pointer-events: none;
-}
-
-.mobile-menu__backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(3,13,26,0.7);
-  backdrop-filter: blur(4px);
-  z-index: var(--z-nav);
-  animation: fadeIn 0.25s ease both;
-}
-
-/* =========================================================
-   Auth Button Group (unauthenticated)
-   ========================================================= */
-.header__auth-group {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-/* Make ghost/primary smaller in header context */
-.header__auth-login-btn,
-.header__auth-register-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0.38rem 0.9rem;
-  font-size: 0.8rem;
+.travel-header__brand-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.15rem;
   font-weight: 600;
-  border-radius: var(--radius-md);
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all var(--transition-base);
-  text-decoration: none;
-}
-
-.header__auth-login-btn {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.25);
-  color: rgba(255,255,255,0.9);
-}
-.header__auth-login-btn:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.45);
-  color: #fff;
-}
-
-/* On scrolled header in dark mode */
-.header--scrolled .header__auth-login-btn {
-  border-color: var(--color-border-bright);
-  color: var(--color-text-muted);
-}
-.header--scrolled .header__auth-login-btn:hover {
-  background: rgba(255,255,255,0.06);
-  color: var(--color-text);
-}
-
-/* Light mode scrolled */
-[data-theme="light"] .header--scrolled .header__auth-login-btn {
-  border-color: rgba(0,127,153,0.4);
-  color: #1e3a4c;
-}
-[data-theme="light"] .header--scrolled .header__auth-login-btn:hover {
-  background: rgba(0,127,153,0.08);
-  color: #0066a3;
-}
-
-.header__auth-register-btn {
-  background: linear-gradient(135deg, #02CCFE 0%, #0099cc 100%);
-  border: 1px solid transparent;
-  color: #031422;
-  box-shadow: 0 4px 14px rgba(2,204,254,0.35);
-}
-.header__auth-register-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(2,204,254,0.5);
-}
-[data-theme="light"] .header__auth-register-btn {
-  background: linear-gradient(135deg, #0099cc 0%, #007faa 100%);
+  letter-spacing: 0.04em;
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(0,127,153,0.3);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-/* When over a transparent hero the login btn needs white styling */
-.header:not(.header--scrolled) .header__auth-login-btn {
-  border-color: rgba(255,255,255,0.35);
-  color: rgba(255,255,255,0.95);
+.travel-header__brand:hover .travel-header__brand-text {
+  opacity: 0.85;
 }
 
-/* =========================================================
-   User Menu (authenticated)
-   ========================================================= */
-.header__user-menu {
-  position: relative;
-}
-
-.header__user-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: 5px 10px 5px 5px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid var(--color-border-bright);
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  transition: all var(--transition-base);
-  color: var(--color-text);
-}
-
-.header__user-btn:hover {
-  background: rgba(2,204,254,0.1);
-  border-color: rgba(2,204,254,0.4);
-}
-
-[data-theme="light"] .header--scrolled .header__user-btn {
-  background: rgba(0,127,153,0.07);
-  border-color: rgba(0,127,153,0.3);
-  color: #1e3a4c;
-}
-
-/* User chip when header is transparent (over hero) — always crisp white, like the nav links */
-.header:not(.header--scrolled) .header__user-btn {
-  color: #FFFFFF !important;
-}
-
-.header:not(.header--scrolled) .header__user-name {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
-
-.header__user-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #02CCFE 0%, #0088bb 100%);
-  color: #031422;
-  font-size: 0.78rem;
-  font-weight: 700;
+/* --- Desktop Nav Links (All tabs & pages) --- */
+.travel-header__nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 }
 
-.header__user-avatar--img {
-  object-fit: cover;
-  background: var(--color-surface-2);
+.travel-header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.4vw, 22px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.header__user-name {
-  font-size: 0.82rem;
-  font-weight: 600;
-  max-width: 100px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.travel-header__nav-item {
+  position: relative;
+}
+
+.travel-header__nav-link {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.82rem, 0.92vw, 0.88rem);
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  transition: color 0.2s ease, opacity 0.2s ease;
+  position: relative;
+  padding: 6px 0;
   white-space: nowrap;
 }
 
-.header__user-chevron {
-  transition: transform var(--transition-base);
-  color: var(--color-text-muted);
-  flex-shrink: 0;
-}
-.header__user-chevron--open {
-  transform: rotate(180deg);
+.travel-header__nav-link:hover {
+  color: #ffffff;
 }
 
-/* Dropdown panel */
-.header__user-dropdown {
+.travel-header__nav-link--active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.travel-header__nav-link--active::after {
+  content: '';
   position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  min-width: 230px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-bright);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(2,204,254,0.08);
-  padding: var(--space-2);
-  z-index: 200;
-  animation: dropdownFadeIn 0.18s ease forwards;
-}
-
-@keyframes dropdownFadeIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-[data-theme="light"] .header__user-dropdown {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 2px;
   background: #ffffff;
-  border-color: rgba(0,127,153,0.22);
-  box-shadow: 0 12px 32px rgba(10,37,64,0.18);
+  border-radius: 2px;
 }
 
-.header__user-dropdown-info {
-  padding: var(--space-3) var(--space-3) var(--space-2);
-}
-.header__user-dropdown-name {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 2px;
-}
-.header__user-dropdown-email {
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
-  word-break: break-all;
-  margin-bottom: var(--space-2);
-}
-.header__user-dropdown-role {
-  font-size: 0.7rem;
-}
-
-.header__user-dropdown-divider {
-  height: 1px;
-  background: var(--color-border);
-  margin: var(--space-2) 0;
-}
-
-.header__user-dropdown-item {
+/* --- Right Actions ('en - so', Circular Glass Search & Profile) --- */
+.travel-header__actions {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  width: 100%;
-  padding: var(--space-2) var(--space-3);
-  border-radius: var(--radius-md);
+  gap: clamp(12px, 1.8vw, 20px);
+}
+
+/* Language toggle matching attachment's 'en - pt' */
+.travel-header__lang-toggle {
+  background: transparent;
   border: none;
-  background: none;
+  padding: 6px 4px;
   cursor: pointer;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.travel-header__lang-toggle:hover {
+  color: #ffffff;
+}
+
+.travel-header__lang-code {
+  transition: color 0.2s ease;
+}
+
+.travel-header__lang-code--active {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.travel-header__lang-sep {
+  opacity: 0.45;
+  margin: 0 2px;
+}
+
+/* Circular Frosted Glass Button (Search, Theme, User) */
+.travel-header__circle-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  flex-shrink: 0;
+}
+
+.travel-header__circle-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: scale(1.06);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.travel-header__circle-btn:active {
+  transform: scale(0.96);
+}
+
+.travel-header__avatar {
   font-size: 0.85rem;
-  color: var(--color-text-muted);
-  transition: all var(--transition-base);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* User Menu Dropdown */
+.travel-header__user-wrap {
+  position: relative;
+}
+
+.travel-header__dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 240px;
+  background: rgba(7, 22, 38, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  z-index: 105;
+  animation: dropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.travel-header__dropdown-info {
+  margin-bottom: 10px;
+}
+
+.travel-header__dropdown-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.travel-header__dropdown-email {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 6px;
+  word-break: break-all;
+}
+
+.travel-header__dropdown-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
+}
+
+.travel-header__dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  width: 100%;
+  cursor: pointer;
   text-align: left;
+  transition: background 0.15s ease, color 0.15s ease;
 }
-.header__user-dropdown-item:hover {
-  background: rgba(255,255,255,0.05);
-  color: var(--color-text);
+
+.travel-header__dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
-[data-theme="light"] .header__user-dropdown-item:hover {
-  background: #f1f5f9;
-  color: #1e3a4c;
-}
-.header__user-dropdown-item--logout {
+
+.travel-header__dropdown-item--logout:hover {
+  background: rgba(239, 68, 68, 0.18);
   color: #f87171;
 }
-.header__user-dropdown-item--logout:hover {
-  background: rgba(248,113,113,0.1);
-  color: #ef4444;
-}
-[data-theme="light"] .header__user-dropdown-item--logout {
-  color: #dc2626;
-}
-[data-theme="light"] .header__user-dropdown-item--logout:hover {
-  background: #fee2e2;
+
+/* Mobile Hamburger Toggle */
+.travel-header__hamburger-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 6px;
+  cursor: pointer;
+  outline: none;
 }
 
 /* =========================================================
-   Mobile Menu — User Card & CTA Group
+   SEARCH MODAL
    ========================================================= */
-.mobile-menu__user-card {
+.travel-search-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
   display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  background: rgba(2,204,254,0.07);
-  border: 1px solid rgba(2,204,254,0.18);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3) var(--space-4);
-  margin-bottom: var(--space-6);
-}
-[data-theme="light"] .mobile-menu__user-card {
-  background: #e0f7fa;
-  border-color: #00acc1;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: clamp(80px, 14vh, 120px);
 }
 
-.mobile-menu__user-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  font-size: 1rem;
+.travel-search-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 13, 23, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.travel-search-modal__card {
+  position: relative;
+  z-index: 2;
+  width: min(640px, 92vw);
+  background: rgba(12, 32, 53, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  animation: searchCardPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes searchCardPop {
+  from { opacity: 0; transform: scale(0.96) translateY(-10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.travel-search-modal__top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.travel-search-modal__icon {
+  color: #38bdf8;
   flex-shrink: 0;
 }
 
-.mobile-menu__user-details {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-.mobile-menu__user-name {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--color-text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.mobile-menu__user-email {
-  font-size: 0.76rem;
-  color: var(--color-text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.travel-search-modal__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  color: #ffffff;
 }
 
-.mobile-menu__cta-group {
+.travel-search-modal__input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.travel-search-modal__close-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 4px;
+  cursor: pointer;
+}
+
+.travel-search-modal__close-btn:hover {
+  color: #ffffff;
+}
+
+.travel-search-modal__body {
+  padding: 16px 20px 24px 20px;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.travel-search-modal__heading {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 12px;
+}
+
+.travel-search-modal__list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding-top: var(--space-6);
-  margin-top: auto;
-  border-top: 1px solid var(--color-border);
+  gap: 6px;
+}
+
+.travel-search-modal__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s ease;
+}
+
+.travel-search-modal__item:hover {
+  background: rgba(14, 165, 233, 0.16);
+  border-color: rgba(56, 189, 248, 0.35);
+  transform: translateX(4px);
+}
+
+.travel-search-modal__pin {
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.travel-search-modal__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.travel-search-modal__title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.travel-search-modal__region {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.travel-search-modal__arrow {
+  color: rgba(255, 255, 255, 0.3);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.travel-search-modal__item:hover .travel-search-modal__arrow {
+  color: #38bdf8;
+  transform: translateX(3px);
+}
+
+.travel-search-modal__empty {
+  padding: 24px 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
 }
 
 /* =========================================================
-   Responsive
+   MOBILE DRAWER
    ========================================================= */
-@media (max-width: 1180px) {
-  .header__nav-link {
-    font-size: 0.75rem;
-    padding: 0.35rem 0.5rem;
-  }
-
-  .header__actions {
-    gap: var(--space-2);
-  }
-
-  /* The pill styling on .lang-switch (added for visual consistency with
-     the theme toggle) costs more width than the old text-only switcher —
-     claw it back here, the one zone (960-1180px) tight enough for 11
-     nav links + actions to actually run out of room. */
-  .lang-switch {
-    padding: 1px;
-    gap: 1px;
-  }
-
-  .lang-switch__option {
-    padding: 2px 5px;
-    font-size: 0.68rem;
-  }
+.travel-mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: flex;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* The desktop row (logo + 11 nav links + language/theme/auth controls)
-   needs ~1665px of unbroken width even with .header__inner's widened
-   max-width (see above) — common laptop widths (1366-1536px) are well
-   under that, so they get the mobile nav instead of a squeezed or
-   overflowing desktop row. */
-@media (max-width: 1700px) {
-  .header__nav,
-  .header__actions {
+.travel-mobile-drawer--open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.travel-mobile-drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+}
+
+.travel-mobile-drawer__panel {
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
+  width: min(320px, 86vw);
+  height: 100%;
+  background: #030d17;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.travel-mobile-drawer--open .travel-mobile-drawer__panel {
+  transform: translateX(0);
+}
+
+.travel-mobile-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.travel-mobile-drawer__close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.travel-mobile-drawer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.travel-mobile-drawer__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.travel-mobile-drawer__link:hover,
+.travel-mobile-drawer__link--active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.travel-mobile-drawer__arrow {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.travel-mobile-drawer__footer {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.travel-mobile-drawer__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1040px) {
+  .travel-header__nav {
     display: none;
   }
-
-  .header__hamburger {
-    display: flex;
-    margin-left: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .mobile-menu {
-    width: 100vw;
+  .travel-header__hamburger-btn {
+    display: inline-flex;
   }
 }

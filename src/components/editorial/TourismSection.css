@@ -1,0 +1,195 @@
+/* =========================================================
+   COASTAL TOURISM SECTION
+   Clean, luminous luxury cards matching reference design
+   ========================================================= */
+
+.tourism-section {
+  position: relative;
+  background: #ffffff;
+  color: #0c1a29;
+  padding: clamp(64px, 8vh, 96px) 0 clamp(48px, 6vh, 80px);
+  border-bottom: 1px solid rgba(12, 26, 41, 0.06);
+}
+
+.tourism-section__container {
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4.5vw, 64px);
+}
+
+/* Header */
+.tourism-section__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: clamp(36px, 4.5vw, 48px);
+  flex-wrap: wrap;
+}
+
+.tourism-section__title-group {
+  max-width: 680px;
+}
+
+.tourism-section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--eo-font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0284c7;
+  margin-bottom: 8px;
+}
+
+.tourism-section__eyebrow-icon {
+  color: #0284c7;
+}
+
+.tourism-section__title {
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #0c1a29;
+  line-height: 1.12;
+  margin: 0 0 10px 0;
+}
+
+.tourism-section__subtitle {
+  font-family: var(--eo-font-sans, -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0;
+}
+
+.tourism-section__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: #f1f5f9;
+  border: 1px solid rgba(12, 26, 41, 0.08);
+  border-radius: 100px;
+  color: #0c1a29;
+  font-family: var(--eo-font-sans, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.tourism-section__view-all:hover {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+/* 4-Card Responsive Grid */
+.tourism-section__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(18px, 2.2vw, 28px);
+}
+
+@media (max-width: 1100px) {
+  .tourism-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tourism-section__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Card */
+.tourism-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease;
+}
+
+.tourism-card:hover {
+  transform: translateY(-4px);
+}
+
+.tourism-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #e2e8f0;
+  box-shadow: 0 4px 16px rgba(12, 26, 41, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.tourism-card:hover .tourism-card__media {
+  box-shadow: 0 12px 32px rgba(12, 26, 41, 0.12);
+}
+
+.tourism-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tourism-card:hover .tourism-card__img {
+  transform: scale(1.06);
+}
+
+.tourism-card__tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(3, 13, 23, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-family: var(--eo-font-sans, sans-serif);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 11px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tourism-card__content {
+  padding: 16px 4px 4px;
+}
+
+.tourism-card__title {
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(1.35rem, 1.6vw, 1.6rem);
+  font-weight: 700;
+  color: #0c1a29;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+}
+
+.tourism-card:hover .tourism-card__title {
+  color: #0284c7;
+}
+
+.tourism-card__desc {
+  font-family: var(--eo-font-sans, -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.88rem;
+  line-height: 1.52;
+  color: #64748b;
+  margin: 0;
+}

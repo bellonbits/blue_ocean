@@ -17,6 +17,7 @@ import {
   Camera,
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import CoverFlowGallery from '../components/gallery/CoverFlowGallery';
 import '../styles/portalDesignSystem.css';
 
 export default function TourismPage() {
@@ -27,42 +28,89 @@ export default function TourismPage() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
-  const [featuredIndex, setFeaturedIndex] = useState(0);
 
   useEffect(() => {
     document.title = isSomali
-      ? 'Dalxiiska Xeebaha Soomaaliya — Blue Heaven'
-      : 'Coastal Tourism — Blue Heaven Somalia';
+      ? 'Dalxiiska Xeebaha Soomaaliya — Blue Ocean'
+      : 'Coastal Tourism — Blue Ocean Somalia';
     window.scrollTo(0, 0);
   }, [isSomali]);
 
   const featuredHavens = [
     {
-      tag: isSomali ? 'DEEGAAN GAAR AH' : 'FEATURED HAVEN',
-      title: isSomali ? 'Dooxada Eyl & Dhagaxyada Badda' : 'Dooxada Eyl & The Historic Ocean Cliffs',
+      id: 'eyl',
+      tag: isSomali ? 'NUGAAL' : '1918',
+      year: isSomali ? 'NUGAAL' : '1918',
+      title: isSomali ? 'Dooxada Eyl & Dhagaxyada Badda' : 'Dooxada Eyl Gorge & Springs',
+      subtitle: isSomali ? 'Dooxada Qadiimiga ah ee Eyl' : 'Historic Limestone Canyon Sanctuary',
       desc: isSomali
         ? 'Halka ilaha biyaha macaan ay kaga soo daraan badda buluugga ah ee Badweynta Hindiya, oo leh daaradaha qadiimiga ah.'
-        : 'Where crystal freshwater springs cascade through dramatic limestone gorges directly into the cobalt Indian Ocean.',
+        : 'Where crystal freshwater springs cascade through sheer limestone canyon gorges directly into the cobalt swells of the Indian Ocean.',
       link: '/explore-the-coast/eyl',
-      image: '/eyl1.jpg',
+      image: '/images/img_03.png',
+      avatar: '/images/img_03.png',
+      author: isSomali ? 'Dooxada Eyl' : 'Dooxada Eyl Haven',
+      authorMeta: isSomali ? 'Xeebta Nugaal • Badweynta Hindiya' : 'Nugaal Coast, Indian Ocean • 07°58′N 49°49′E',
     },
     {
-      tag: isSomali ? 'XEERTA BARAKAYSAN' : 'PRISTINE ATOLL',
-      title: isSomali ? 'Jasiiradaha Baajuun & Dhagaxleyda' : 'Bajuni Archipelago Coral Atolls',
-      desc: isSomali
-        ? 'Jasiirado qadiimi ah oo leh biyaha ugu nadiifsan, doonyaha dhowka ee dhaqanka, iyo qoolleyda cagaaran ee badda.'
-        : 'Secluded coral islands, crystal turquoise lagoons, and traditional Somali dhow maritime voyages.',
-      link: '/explore-the-coast/kismayo',
-      image: '/kismayo1.png',
-    },
-    {
-      tag: isSomali ? 'GEESKA AFRIKA' : 'HORN OF AFRICA',
-      title: isSomali ? 'Raas Xaafuun — Barta Bariga Afrika' : 'Ras Hafun — Easternmost Tip of Africa',
+      id: 'hafun',
+      tag: isSomali ? 'BARI' : 'BARI',
+      year: isSomali ? 'BARI' : 'BARI',
+      title: isSomali ? 'Raas Xaafuun — Barta Bariga Afrika' : 'Ras Hafun Continental Headlands',
+      subtitle: isSomali ? 'Cirifka Bari ee Qaaradda Afrika' : 'Africa’s Easternmost Point & Ocean Swells',
       desc: isSomali
         ? 'Gacanka caanka ah ee ku yaal geeska ugu fog ee bariga qaaradda Afrika, halkaas oo ay isku galaan labada badood.'
         : "Africa's easternmost continental peninsula where monsoon sea breezes connect Africa, Arabia, and Asia.",
       link: '/explore-the-coast/hafun',
-      image: '/hafun1.jpg',
+      image: '/images/img_01.png',
+      avatar: '/images/img_01.png',
+      author: isSomali ? 'Raas Xaafuun' : 'Ras Hafun Headlands',
+      authorMeta: isSomali ? 'Geeska Afrika • Badweynta Hindiya' : 'Horn of Africa Continental Shelf • 10°25′N 51°16′E',
+    },
+    {
+      id: 'bajuni',
+      tag: isSomali ? 'JUBALAND' : 'JUBALAND',
+      year: isSomali ? 'JUBALAND' : 'JUBALAND',
+      title: isSomali ? 'Jasiiradaha Baajuun & Dhagaxleyda' : 'Bajuni Coral Atoll Archipelago',
+      subtitle: isSomali ? 'Jasiiradaha Koonfureed ee Badda' : 'Swahili-Somali Seafaring & Living Reefs',
+      desc: isSomali
+        ? 'Jasiirado qadiimi ah oo leh biyaha ugu nadiifsan, doonyaha dhowka ee dhaqanka, iyo qoolleyda cagaaran ee badda.'
+        : 'Secluded coral islands, crystal turquoise lagoons, traditional Somali dhow maritime voyages, and turtle hatcheries.',
+      link: '/explore-the-coast/kismayo',
+      image: '/images/img_05.png',
+      avatar: '/images/img_05.png',
+      author: isSomali ? 'Jasiiradaha Baajuun' : 'Bajuni Archipelago',
+      authorMeta: isSomali ? 'Xeebta Kismaayo • Badweynta Hindiya' : 'Kismayo Coastal District • 00°21′S 42°32′E',
+    },
+    {
+      id: 'bosaso',
+      tag: isSomali ? 'GACANKA' : 'GULF',
+      year: isSomali ? 'GACANKA' : 'GULF',
+      title: isSomali ? 'Xeebaha & Buuraha Boosaaso' : 'Bosaso Coral Coves & Seaport',
+      subtitle: isSomali ? 'Dekedda Ganacsiga ee Gacanka Cadmeed' : 'Gulf of Aden Marine Outpost & Whale Sharks',
+      desc: isSomali
+        ? 'Biyo deggan oo ku habboon dabaasha, dalxiiska doonyaha, iyo daawashada noolaha badda ee Gacanka Cadmeed.'
+        : 'Calm turquoise waters, seasonal whale shark watching, artisanal dhows, and scenic boat expeditions along the Gulf of Aden.',
+      link: '/explore-the-coast/bosaso',
+      image: '/images/img_02.png',
+      avatar: '/images/img_02.png',
+      author: isSomali ? 'Boosaaso' : 'Bosaso Marine Haven',
+      authorMeta: isSomali ? 'Gacanka Cadmeed • Puntland' : 'Gulf of Aden Pelagic Waters • 11°17′N 49°11′E',
+    },
+    {
+      id: 'lido',
+      tag: isSomali ? 'BANAADIR' : 'BANADIR',
+      year: isSomali ? 'BANAADIR' : 'BANADIR',
+      title: isSomali ? 'Xeebta Liido & Muqdisho' : 'Lido Ocean Horizon & Corniche',
+      subtitle: isSomali ? 'Xeebta Caanka ah ee Caasimadda' : 'Banadir Seashore Promenade & Coral Reefs',
+      desc: isSomali
+        ? 'Xeebta caanka ah ee dalka, makhaayadaha badda, iyo qorrax-u-dhaca cajiibka ah ee Badweynta Hindiya.'
+        : 'Somalias iconic vibrant promenade, fresh coastal seafood, warm surf, and golden sunset horizons over the Indian Ocean.',
+      link: '/explore-the-coast/mogadishu',
+      image: '/images/image.png',
+      avatar: '/images/image.png',
+      author: isSomali ? 'Xeebta Liido' : 'Banadir Seashore',
+      authorMeta: isSomali ? 'Muqdisho • Badweynta Hindiya' : 'Mogadishu Coastal Haven • 02°02′N 45°21′E',
     },
   ];
 
@@ -73,7 +121,7 @@ export default function TourismPage() {
       desc: isSomali
         ? 'Biyo deggan oo ku habboon dabaasha, dalxiiska doonyaha, iyo daawashada noolaha badda ee Gacanka Cadmeed.'
         : 'Calm turquoise waters, seasonal whale shark watching, and scenic boat expeditions along the Gulf of Aden.',
-      image: '/bosaso1.jpg',
+      image: '/images/img_02.png',
       link: '/explore-the-coast/bosaso',
     },
     {
@@ -82,7 +130,7 @@ export default function TourismPage() {
       desc: isSomali
         ? 'Jasiirado qurux badan, carwooyinka dhagaxleyda badda, iyo xeebaha cad ee aan cidina dhibin.'
         : 'Untouched white sands, protected green turtle sanctuaries, and ancestral Swahili-Somali island villages.',
-      image: '/kismayo1.png',
+      image: '/images/img_05.png',
       link: '/explore-the-coast/kismayo',
     },
     {
@@ -91,7 +139,7 @@ export default function TourismPage() {
       desc: isSomali
         ? 'Dhul qadiimi ah oo taariikhi ah, buuro dhaadheer oo badda dhex maquura, iyo kalluumeysi dabiici ah.'
         : 'Dramatic cliffs dropping into deep cobalt seas, historical trade ruins, and pristine coastal ecosystems.',
-      image: '/hafun1.jpg',
+      image: '/images/img_01.png',
       link: '/explore-the-coast/hafun',
     },
     {
@@ -100,7 +148,7 @@ export default function TourismPage() {
       desc: isSomali
         ? 'Dooxo qurxoon oo webi iyo bad isku furan yihiin, qalcadihii taariikhiga ahaa ee Sayidka, iyo xeeb deggan.'
         : 'Historic coastal fortresses, dramatic canyons, and natural ocean pools with lush palm groves.',
-      image: '/eyl1.jpg',
+      image: '/images/img_03.png',
       link: '/explore-the-coast/eyl',
     },
     {
@@ -109,7 +157,7 @@ export default function TourismPage() {
       desc: isSomali
         ? 'Xeebta caanka ah ee dalka, makhaayadaha badda, iyo qorrax-u-dhaca cajiibka ah ee Badweynta Hindiya.'
         : 'Somalias iconic vibrant promenade, fresh coastal seafood, warm surf, and golden sunset horizons.',
-      image: '/somalia_coast.jpg',
+      image: '/images/image.png',
       link: '/explore-the-coast/mogadishu',
     },
     {
@@ -118,7 +166,7 @@ export default function TourismPage() {
       desc: isSomali
         ? 'Jasiiradaha Saacaddiin iyo Ceebaad, biyo gacameed gacale ah, iyo hugaamo badda oo aan caadi ahayn.'
         : 'Sa’ad ad-Din coral islands, ancient seafaring ruins, and emerald marine flats rich in sea birds and corals.',
-      image: '/marine_coral.jpg',
+      image: '/images/img_07.png',
       link: '/explore-the-coast/zeila',
     },
   ];
@@ -131,7 +179,7 @@ export default function TourismPage() {
       excerpt: isSomali
         ? 'Dadaallo lagu ballaarinayo hugaanta badda iyo ilaalinta noocyada dhifka ah ee ku nool Gacanka Cadmeed.'
         : 'Community-led coral restoration safeguarding critical nursery habitats and seasonal whale shark migrations.',
-      image: '/bosaso1.jpg',
+      image: '/images/img_02.png',
       link: '/conservation',
     },
     {
@@ -141,7 +189,7 @@ export default function TourismPage() {
       excerpt: isSomali
         ? 'Diiwaangelinta qoolleyda badda, kaymaha mangrove-ka, iyo kalluunka qaniga ah ee xeebaha koonfureed.'
         : 'Comprehensive scientific documentation of sea turtle nesting grounds and pristine southern mangrove estuaries.',
-      image: '/kismayo1.png',
+      image: '/images/img_05.png',
       link: '/research',
     },
     {
@@ -151,7 +199,7 @@ export default function TourismPage() {
       excerpt: isSomali
         ? 'Sahaminta barta ugu bariyesa qaaradda Afrika oo kumanaan sano xarun u ahayd ganacsiga badda caalamiga ah.'
         : 'Tracing ancient spice and incense trade routes on the continent’s easternmost windswept peninsula.',
-      image: '/hafun1.jpg',
+      image: '/images/img_01.png',
       link: '/explore-the-coast/hafun',
     },
   ];
@@ -166,7 +214,7 @@ export default function TourismPage() {
       location: isSomali ? 'Saldhigga Boosaaso' : 'Bosaso Maritime Station',
       status: isSomali ? 'Hawlgal Furan' : 'Active Fieldwork',
       code: 'BS-01',
-      image: '/bosaso_whale_shark.jpg',
+      image: '/images/img_02.png',
       link: '/research/projects',
     },
     {
@@ -178,7 +226,7 @@ export default function TourismPage() {
       location: isSomali ? 'Jasiiradaha Baajuun & Kismaayo' : 'Bajuni Islands & Kismayo',
       status: isSomali ? 'Bulshadu Ilaaliso' : 'Community Protected',
       code: 'BJ-04',
-      image: '/marine_turtles.jpg',
+      image: '/images/img_10.png',
       link: '/conservation/projects',
     },
     {
@@ -190,7 +238,7 @@ export default function TourismPage() {
       location: isSomali ? 'Xeebaha Soomaaliya oo dhan' : 'Somalia Coastline Wide',
       status: isSomali ? 'Tabarruc Furan' : 'Volunteer Open',
       code: 'CR-09',
-      image: '/marine_coral.jpg',
+      image: '/images/img_07.png',
       link: '/get-involved',
     },
   ];
@@ -201,23 +249,13 @@ export default function TourismPage() {
     navigate(localizedPath(`/explore-the-coast?q=${encodeURIComponent(searchQuery)}`));
   };
 
-  const nextFeatured = () => {
-    setFeaturedIndex((prev) => (prev + 1) % featuredHavens.length);
-  };
-
-  const prevFeatured = () => {
-    setFeaturedIndex((prev) => (prev - 1 + featuredHavens.length) % featuredHavens.length);
-  };
-
-  const currentFeatured = featuredHavens[featuredIndex];
-
   return (
     <div className="portal-page">
       {/* 1. Inset Rounded Hero Banner */}
       <section className="portal-hero" aria-label="Somalia Coastal Tourism Hero">
         <div className="portal-hero__inner">
           <img
-            src="/somalia_hero_coast.jpg"
+            src="/images/image.png"
             alt="Somalia's breathtaking 3,330 km coastline"
             className="portal-hero__bg"
           />
@@ -226,11 +264,21 @@ export default function TourismPage() {
           <div className="portal-hero__content">
             <div className="portal-hero__badge">
               <Compass size={14} />
-              <span>{isSomali ? "3,330 KM XEEB LAGU WAREEGAY" : "SOMALIA'S COASTLINE • 3,330 KM"}</span>
+              <span>{isSomali ? "3,330 KM XEEB LAGU WAREEGAY" : "SOMALIA'S COASTLINE · 3,330 KM"}</span>
             </div>
 
             <h1 className="portal-hero__title">
-              {isSomali ? 'Sahami Dalxiiska Xeebaha Soomaaliya' : 'Discover Blue Heaven Somalia'}
+              {isSomali ? (
+                <>
+                  Sahami Dalxiiska <br />
+                  <span className="editorial-hero__title-italic">Xeebaha Soomaaliya.</span>
+                </>
+              ) : (
+                <>
+                  Discover Somalia's <br />
+                  <span className="editorial-hero__title-italic">Living Ocean.</span>
+                </>
+              )}
             </h1>
 
             <p className="portal-hero__subtitle">
@@ -242,7 +290,7 @@ export default function TourismPage() {
             {/* Search Pill Widget */}
             <div className="portal-hero__search-wrap">
               <form onSubmit={handleSearch} className="portal-hero__search-form">
-                <Search size={18} color="#2e7d32" />
+                <Search size={18} className="portal-hero__search-icon" />
                 <input
                   type="text"
                   value={searchQuery}
@@ -304,13 +352,13 @@ export default function TourismPage() {
         </div>
       </section>
 
-      {/* 2. About Blue Heaven (2-Column Card Section) */}
-      <section className="portal-card-section" aria-label="About Blue Heaven Tourism">
+      {/* 2. About Blue Ocean (2-Column Card Section) */}
+      <section className="portal-card-section" aria-label="About Blue Ocean Tourism">
         <div className="portal-about-grid">
-          {/* Left: Narrative + 3 Bullet Points with Circular Green Icons */}
+          {/* Left: Narrative + 3 Bullet Points with Circular Icons */}
           <div className="portal-about__narrative">
             <span className="portal-section-tag">
-              {isSomali ? 'NAGU SAABSAN' : 'ABOUT BLUE HEAVEN'}
+              {isSomali ? 'NAGU SAABSAN' : 'ABOUT BLUE OCEAN'}
             </span>
             <h2 className="portal-section-title">
               {isSomali
@@ -320,7 +368,7 @@ export default function TourismPage() {
             <p className="portal-about__body">
               {isSomali
                 ? 'Soomaaliya waxay leedahay 3,330 km oo xeeb ah oo isugu jirta Gacanka Cadmeed iyo Badweynta Hindiya. Waa dhul hodan ku ah noolaha badda, dhagaxleyda qadiimiga ah, iyo magaalooyinka taariikhiga ah ee kumanaanka sano ahaa albaabbada ganacsiga caalamka.'
-                : 'With 3,330 kilometres of ocean front meeting the Indian Ocean and the Gulf of Aden, Somalia holds mainland Africa’s longest and most biodiverse coastline. Blue Heaven is dedicated to ethical coastal exploration, marine science, and protecting our marine paradise.'}
+                : 'With 3,330 kilometres of ocean front meeting the Indian Ocean and the Gulf of Aden, Somalia holds mainland Africa’s longest and most biodiverse coastline. Blue Ocean is dedicated to ethical coastal exploration, marine science, and protecting our marine paradise.'}
             </p>
 
             <div className="portal-about__features">
@@ -377,12 +425,12 @@ export default function TourismPage() {
           {/* Right: Stylized Interactive Coastal Map Card */}
           <div className="portal-about__map-card">
             <img
-              src="/somalia_coast.jpg"
+              src="/images/image.png"
               alt="Stylized map view of Somalia coastline"
               className="portal-about__map-img"
             />
             <div className="portal-about__map-badge">
-              <MapPin size={14} color="#2e7d32" />
+              <MapPin size={14} color="#38bdf8" />
               <span>{isSomali ? 'Goobaha Ugu Muhiimsan' : 'Premier Marine Hubs'}</span>
             </div>
 
@@ -390,35 +438,35 @@ export default function TourismPage() {
               to={localizedPath('/explore-the-coast/bosaso')}
               className="portal-about__map-pin portal-about__map-pin--bosaso"
             >
-              <span>⚓ Boosaaso</span>
+              <span>Boosaaso</span>
             </Link>
 
             <Link
               to={localizedPath('/explore-the-coast/hafun')}
               className="portal-about__map-pin portal-about__map-pin--hafun"
             >
-              <span>🌊 Raas Xaafuun</span>
+              <span>Raas Xaafuun</span>
             </Link>
 
             <Link
               to={localizedPath('/explore-the-coast/eyl')}
               className="portal-about__map-pin portal-about__map-pin--eyl"
             >
-              <span>🏖️ Dooxada Eyl</span>
+              <span>Dooxada Eyl</span>
             </Link>
 
             <Link
               to={localizedPath('/explore-the-coast/mogadishu')}
               className="portal-about__map-pin portal-about__map-pin--mogadishu"
             >
-              <span>🏙️ Muqdisho</span>
+              <span>Muqdisho</span>
             </Link>
 
             <Link
               to={localizedPath('/explore-the-coast/kismayo')}
               className="portal-about__map-pin portal-about__map-pin--bajuni"
             >
-              <span>🏝️ Baajuun</span>
+              <span>Baajuun</span>
             </Link>
           </div>
         </div>
@@ -461,47 +509,16 @@ export default function TourismPage() {
         </div>
       </section>
 
-      {/* 4. Featured Panorama Card with Floating White Card */}
-      <section className="portal-panorama" aria-label="Featured Coastal Haven Panorama">
-        <div className="portal-panorama__inner">
-          <img
-            src={currentFeatured.image}
-            alt={currentFeatured.title}
-            className="portal-panorama__img"
-          />
-
-          {/* Floating White Card */}
-          <div className="portal-panorama__card">
-            <span className="portal-panorama__card-tag">{currentFeatured.tag}</span>
-            <h3 className="portal-panorama__card-title">{currentFeatured.title}</h3>
-            <p className="portal-panorama__card-desc">{currentFeatured.desc}</p>
-            <Link to={localizedPath(currentFeatured.link)} className="portal-panorama__card-link">
-              <span>{isSomali ? 'Sahami Deegaanka' : 'Explore Location'}</span>
-              <ArrowRight size={15} />
-            </Link>
-          </div>
-
-          {/* Navigation Arrows */}
-          <div className="portal-panorama__nav">
-            <button
-              type="button"
-              onClick={prevFeatured}
-              className="portal-panorama__nav-btn"
-              aria-label="Previous destination"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              type="button"
-              onClick={nextFeatured}
-              className="portal-panorama__nav-btn"
-              aria-label="Next destination"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* 4. 3D Cover Flow Gallery (Exact match to reference design on white background) */}
+      <CoverFlowGallery
+        items={featuredHavens}
+        eyebrow={isSomali ? 'SAWIRRADA CAANKA AH' : 'DESTINATION MASTERPIECES'}
+        title={isSomali ? 'Xulashada Sawirrada Xeebaha Soomaaliya' : 'Featured Coastal Havens'}
+        subtitle={isSomali
+          ? 'Ku arag bilicda 3,330 km oo xeebta Soomaaliya ah muraayadda sawir-qaadayaasha caalamiga ah.'
+          : 'Experience 3,330 km of living Somali coastline through our immersive 3D visual collection.'}
+        whiteBackground={true}
+      />
 
       {/* 5. Top Attractions (6-Card Grid: 2 rows of 3) */}
       <section className="portal-card-section" aria-label="Top Coastal Attractions">
@@ -580,11 +597,11 @@ export default function TourismPage() {
                 <p className="portal-event-card__desc">{exp.desc}</p>
                 <div className="portal-event-card__meta-row">
                   <span className="portal-event-card__meta-item">
-                    <Calendar size={14} color="#2e7d32" />
+                    <Calendar size={14} color="#0ea5e9" />
                     <span>{exp.date}</span>
                   </span>
                   <span className="portal-event-card__meta-item">
-                    <MapPin size={14} color="#2e7d32" />
+                    <MapPin size={14} color="#0ea5e9" />
                     <span>{exp.location}</span>
                   </span>
                 </div>
@@ -629,16 +646,16 @@ export default function TourismPage() {
         {/* 4-Image Asymmetrical Mosaic */}
         <div className="portal-diaries-grid">
           <div className="portal-diary-item">
-            <img src="/somalia_hero_coast.jpg" alt="Aerial view of Somali coastline" />
+            <img src="/images/image.png" alt="Aerial view of Somali coastline" />
           </div>
           <div className="portal-diary-item">
-            <img src="/bosaso1.jpg" alt="Clear turquoise coastal waters in Bosaso" />
+            <img src="/images/img_02.png" alt="Clear turquoise coastal waters in Bosaso" />
           </div>
           <div className="portal-diary-item">
-            <img src="/hafun1.jpg" alt="Ras Hafun dramatic cliffs and ocean" />
+            <img src="/images/img_01.png" alt="Ras Hafun dramatic cliffs and ocean" />
           </div>
           <div className="portal-diary-item">
-            <img src="/kismayo1.png" alt="Bajuni islands coastal boat" />
+            <img src="/images/img_05.png" alt="Bajuni islands coastal boat" />
           </div>
         </div>
 
@@ -654,7 +671,7 @@ export default function TourismPage() {
       <section className="portal-cta" aria-label="Call to Action">
         <div className="portal-cta__inner">
           <img
-            src="/somalia_hero_coast.jpg"
+            src="/images/image.png"
             alt="Warm sunset over Somalia coastline"
             className="portal-cta__bg"
           />
@@ -664,7 +681,7 @@ export default function TourismPage() {
             <h2 className="portal-cta__title">
               {isSomali
                 ? 'Diyaar Ma U Tahay Sahaminta Badda Soomaaliya?'
-                : 'Ready to Discover Blue Heaven Somalia?'}
+                : 'Ready to Discover Blue Ocean Somalia?'}
             </h2>
             <p className="portal-cta__subtitle">
               {isSomali

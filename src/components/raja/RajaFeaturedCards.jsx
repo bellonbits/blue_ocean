@@ -12,7 +12,7 @@ export default function RajaFeaturedCards({ onSelectCard }) {
       desc: isSomali
         ? 'Albaabka Gacanka Cadmeed oo buuraha Karkaar ay badda buluugga ah ku darsamaan.'
         : 'Where rugged volcanic ridges meet the deep pelagic waters of the Gulf of Aden.',
-      image: '/bosaso1.jpg',
+      image: '/images/img_02.png',
       slug: 'bosaso',
     },
     {
@@ -21,7 +21,7 @@ export default function RajaFeaturedCards({ onSelectCard }) {
       desc: isSomali
         ? 'Jasiirado qurux badan oo leh biyo saafi ah, reef-yo dhagaxeed iyo xeebo cadcad.'
         : 'Pristine coral archipelago with turquoise lagoons, white sandbars and mangroves.',
-      image: '/kismayo1.png',
+      image: '/images/img_05.png',
       slug: 'bajuni-islands',
     },
     {
@@ -30,7 +30,7 @@ export default function RajaFeaturedCards({ onSelectCard }) {
       desc: isSomali
         ? 'Cirifka ugu bari ee qaaradda Afrika, buuro dhaadheer iyo marin qadiimi ah.'
         : "Africa's easternmost horn with dramatic sandstone headlands and ancient trade routes.",
-      image: '/hafun1.jpg',
+      image: '/images/img_01.png',
       slug: 'hafun',
     },
     {
@@ -39,7 +39,7 @@ export default function RajaFeaturedCards({ onSelectCard }) {
       desc: isSomali
         ? 'Dooxo cajiib ah oo dhex marta buuro dhaadheer kuna darsanta Badweynta Hindiya.'
         : 'A breathtaking canyon gorge meeting the open Indian Ocean and historic fortifications.',
-      image: '/eyl1.jpg',
+      image: '/images/img_03.png',
       slug: 'eyl',
     },
   ];

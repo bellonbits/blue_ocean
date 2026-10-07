@@ -12,7 +12,7 @@ export default {
         badge: 'CONSERVATION',
         heading: 'Protect what lies',
         headingAccent: 'beneath the surface.',
-        subtext: 'From marine wildlife and habitats to sustainable coastal communities, discover how Blue Heaven is working toward a healthier Somali coast.',
+        subtext: 'From marine wildlife and habitats to sustainable coastal communities, discover how Blue Ocean is working toward a healthier Somali coast.',
         ctaExplore: 'Explore Conservation',
         ctaGetInvolved: 'Get Involved',
         pillProjects: 'Conservation Projects',
@@ -49,7 +49,7 @@ export default {
           },
           {
             title: 'Research-driven conservation',
-            text: "Every initiative here is built directly on Blue Heaven's own field research — not assumption.",
+            text: "Every initiative here is built directly on Blue Ocean's own field research — not assumption.",
           },
         ],
       },
@@ -73,7 +73,7 @@ export default {
       impact: {
         label: 'OUR IMPACT',
         heading: 'The scale of the work',
-        subheading: "Figures computed directly from Blue Heaven's published conservation projects — not estimates.",
+        subheading: "Figures computed directly from Blue Ocean's published conservation projects — not estimates.",
         statProjects: 'Conservation Projects',
         statActive: 'Active Initiatives',
         statLocations: 'Locations',
@@ -100,7 +100,7 @@ export default {
         badge: 'ILAALINTA',
         heading: 'Ilaali waxa ku hoos jira',
         headingAccent: 'dusha badda.',
-        subtext: 'Laga bilaabo duurjoogta iyo deegaannada badda ilaa bulshooyinka xeebaha ee waara, ogow sida Blue Heaven ugu shaqeynayso xeeb Soomaaliyeed oo caafimaad qabta.',
+        subtext: 'Laga bilaabo duurjoogta iyo deegaannada badda ilaa bulshooyinka xeebaha ee waara, ogow sida Blue Ocean ugu shaqeynayso xeeb Soomaaliyeed oo caafimaad qabta.',
         ctaExplore: 'Sahamiso Ilaalinta',
         ctaGetInvolved: 'Ka Qeyb Qaado',
         pillProjects: 'Mashaariic Ilaalin',
@@ -137,7 +137,7 @@ export default {
           },
           {
             title: 'Ilaalinta ku salaysan cilmi-baaris',
-            text: "Hindise kastaa halkan waxa uu si toos ah ugu dhisan yahay cilmi-baarista goobta ee Blue Heaven, ma aha malo.",
+            text: "Hindise kastaa halkan waxa uu si toos ah ugu dhisan yahay cilmi-baarista goobta ee Blue Ocean, ma aha malo.",
           },
         ],
       },
@@ -161,7 +161,7 @@ export default {
       impact: {
         label: 'SAAMEYNTEENNA',
         heading: 'Baaxadda shaqada',
-        subheading: "Tirooyinka waxaa si toos ah looga xisaabiyay mashaariicda ilaalinta ee Blue Heaven daabacday, mana aha qiyaas.",
+        subheading: "Tirooyinka waxaa si toos ah looga xisaabiyay mashaariicda ilaalinta ee Blue Ocean daabacday, mana aha qiyaas.",
         statProjects: 'Mashaariic Ilaalin',
         statActive: 'Hindisayaal Firfircoon',
         statLocations: 'Goobo',
