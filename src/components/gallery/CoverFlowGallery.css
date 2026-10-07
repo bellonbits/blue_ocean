@@ -395,6 +395,10 @@
   color: #0f172a;
 }
 
+.cflow-card-tap-hint {
+  display: none;
+}
+
 /* --------------------------------------------------------------------------
    BOTTOM CONTROLLER PILL CAPSULE (Claude Monet Style)
    -------------------------------------------------------------------------- */
@@ -479,76 +483,7 @@
   line-height: 1.2;
 }
 
-/* --------------------------------------------------------------------------
-   RESPONSIVENESS (Tablet & Mobile)
-   -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .cflow-card--left-1 {
-    transform: translateX(-210px) translateZ(-35px) rotateY(28deg) scale(0.9);
-  }
-  .cflow-card--right-1 {
-    transform: translateX(210px) translateZ(-35px) rotateY(-28deg) scale(0.9);
-  }
-  .cflow-card--left-2 {
-    transform: translateX(-380px) translateZ(-110px) rotateY(42deg) scale(0.75);
-  }
-  .cflow-card--right-2 {
-    transform: translateX(380px) translateZ(-110px) rotateY(-42deg) scale(0.75);
-  }
-}
-
-@media (max-width: 768px) {
-  .cflow-floating-actions {
-    display: none;
-  }
-
-  .cflow-stage {
-    height: 480px;
-  }
-
-  .cflow-card {
-    width: 300px;
-    height: 440px;
-    border-radius: 24px;
-  }
-
-  .cflow-card--center {
-    transform: translateX(0px) translateZ(40px) scale(1.02);
-  }
-
-  .cflow-card--left-1 {
-    transform: translateX(-140px) translateZ(-20px) rotateY(24deg) scale(0.85);
-  }
-
-  .cflow-card--right-1 {
-    transform: translateX(140px) translateZ(-20px) rotateY(-24deg) scale(0.85);
-  }
-
-  .cflow-card--left-2,
-  .cflow-card--right-2 {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .cflow-controller-capsule {
-    gap: 10px;
-    padding: 6px 14px;
-    max-width: 92vw;
-  }
-
-  .cflow-ctrl-avatar {
-    width: 36px;
-    height: 36px;
-  }
-
-  .cflow-ctrl-name {
-    font-size: 0.85rem;
-  }
-
-  .cflow-ctrl-sub {
-    font-size: 0.72rem;
-  }
-}
+/* (Responsive rules moved to comprehensive section at bottom) */
 
 /* --------------------------------------------------------------------------
    FULLSCREEN GALLERY LIGHTBOX MODAL
@@ -614,9 +549,41 @@
   border-radius: 9999px;
 }
 
+.cflow-lightbox-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cflow-lightbox-action-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  outline: none;
+}
+
+.cflow-lightbox-action-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.08);
+}
+
+.cflow-lightbox-action-btn--liked {
+  background: rgba(244, 63, 94, 0.25);
+  border-color: rgba(244, 63, 94, 0.6);
+}
+
 .cflow-lightbox-close {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -768,4 +735,354 @@
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.88);
   margin: 4px 0 0 0;
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (Tablet, Mobile & Small Phones)
+   ========================================================================== */
+
+/* TABLET (<= 1024px) */
+@media (max-width: 1024px) {
+  .cflow-stage {
+    height: clamp(440px, 46vw, 520px);
+  }
+
+  .cflow-card {
+    width: clamp(300px, 34vw, 380px);
+    height: clamp(420px, 44vw, 500px);
+  }
+
+  .cflow-card--left-1 {
+    transform: translateX(-190px) translateZ(-35px) rotateY(26deg) scale(0.9);
+  }
+
+  .cflow-card--right-1 {
+    transform: translateX(190px) translateZ(-35px) rotateY(-26deg) scale(0.9);
+  }
+
+  .cflow-card--left-2 {
+    transform: translateX(-340px) translateZ(-110px) rotateY(38deg) scale(0.76);
+  }
+
+  .cflow-card--right-2 {
+    transform: translateX(340px) translateZ(-110px) rotateY(-38deg) scale(0.76);
+  }
+}
+
+/* MOBILE DEVICES (<= 768px) */
+@media (max-width: 768px) {
+  .cflow-section {
+    padding: clamp(32px, 6vw, 48px) 0 clamp(24px, 5vw, 36px) 0;
+  }
+
+  .cflow-header {
+    margin-bottom: 20px;
+    padding: 0 16px;
+    gap: 8px;
+  }
+
+  .cflow-eyebrow {
+    font-size: 0.68rem;
+    padding: 3px 12px;
+  }
+
+  .cflow-title {
+    font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+  }
+
+  .cflow-subtitle {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  /* 3D Stage Wrapper - smooth horizontal touch swipe */
+  .cflow-stage-wrapper {
+    touch-action: pan-y;
+    padding: 6px 0;
+  }
+
+  /* Drop floating side action buttons on mobile - avoids blocking the screen */
+  .cflow-floating-actions {
+    display: none !important;
+  }
+
+  .cflow-stage {
+    height: clamp(390px, 58vh, 460px);
+  }
+
+  /* Focal Mobile Card */
+  .cflow-card {
+    width: clamp(280px, 82vw, 350px);
+    height: clamp(370px, 54vh, 430px);
+    border-radius: 24px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+  }
+
+  /* Center Card: Crisp & Prominent */
+  .cflow-card--center {
+    transform: translateX(0px) translateZ(30px) scale(1);
+    opacity: 1;
+    z-index: 10;
+  }
+
+  /* Left/Right Peeking Hints (16deg subtle rotation, zero horizontal scrollbar) */
+  .cflow-card--left-1 {
+    transform: translateX(-56%) translateZ(-35px) rotateY(16deg) scale(0.86);
+    opacity: 0.35;
+    z-index: 5;
+    pointer-events: auto;
+  }
+
+  .cflow-card--right-1 {
+    transform: translateX(56%) translateZ(-35px) rotateY(-16deg) scale(0.86);
+    opacity: 0.35;
+    z-index: 5;
+    pointer-events: auto;
+  }
+
+  /* Drop outer cards completely to keep mobile GPU performant */
+  .cflow-card--left-2,
+  .cflow-card--right-2 {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* Zoom badge on top right: compact and touch-accessible */
+  .cflow-card-zoom-badge {
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Sleek, Unobstructed Card Overlay */
+  .cflow-card-overlay {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    padding: 12px 14px;
+    border-radius: 18px;
+    background: rgba(15, 23, 42, 0.74);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .cflow-card-overlay-header {
+    gap: 8px;
+  }
+
+  .cflow-card-title {
+    font-size: 1.05rem;
+    line-height: 1.25;
+  }
+
+  .cflow-card-year {
+    font-size: 0.70rem;
+    padding: 2px 8px;
+  }
+
+  .cflow-card-author {
+    font-size: 0.76rem;
+    margin-top: 2px;
+  }
+
+  /* HIDE the 3-line descriptive paragraph on mobile card: Leaves 80%+ of photo visible! */
+  .cflow-card-desc {
+    display: none !important;
+  }
+
+  /* HIDE duplicate desktop action buttons row on the card itself */
+  .cflow-card-actions-row {
+    display: none !important;
+  }
+
+  /* Show sleek Tap Hint */
+  .cflow-card-tap-hint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #38bdf8;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    letter-spacing: 0.02em;
+  }
+
+  /* Bottom Controller Capsule: Thumb-Friendly & Compact */
+  .cflow-controller-wrap {
+    margin-top: 18px;
+  }
+
+  .cflow-controller-capsule {
+    gap: 10px;
+    padding: 6px 14px;
+    max-width: min(340px, calc(100vw - 32px));
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  }
+
+  .cflow-ctrl-btn {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+  }
+
+  .cflow-ctrl-meta {
+    gap: 10px;
+    padding: 0 4px;
+    max-width: 170px;
+    overflow: hidden;
+  }
+
+  .cflow-ctrl-avatar {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  .cflow-ctrl-name {
+    font-size: 0.84rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cflow-ctrl-sub {
+    font-size: 0.70rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+  }
+
+  /* Fullscreen Lightbox Mobile Polish */
+  .cflow-lightbox {
+    padding: max(16px, env(safe-area-inset-top)) 14px max(16px, env(safe-area-inset-bottom)) 14px;
+  }
+
+  .cflow-lightbox-counter {
+    padding: 4px 12px;
+    font-size: 0.80rem;
+    gap: 8px;
+  }
+
+  .cflow-lightbox-tag-pill {
+    font-size: 0.65rem;
+    padding: 2px 7px;
+  }
+
+  .cflow-lightbox-top-actions {
+    gap: 8px;
+  }
+
+  .cflow-lightbox-action-btn,
+  .cflow-lightbox-close {
+    width: 38px;
+    height: 38px;
+  }
+
+  .cflow-lightbox-body {
+    padding: 10px 0;
+    touch-action: pan-y;
+  }
+
+  .cflow-lightbox-media-wrap {
+    max-width: 96vw;
+    max-height: 58vh;
+  }
+
+  .cflow-lightbox-img {
+    max-height: 58vh;
+    border-radius: 16px;
+  }
+
+  .cflow-lightbox-nav-btn {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .cflow-lightbox-nav-btn--prev {
+    left: 6px;
+  }
+
+  .cflow-lightbox-nav-btn--next {
+    right: 6px;
+  }
+
+  .cflow-lightbox-caption-card {
+    padding: 12px 16px;
+    border-radius: 18px;
+    gap: 3px;
+    max-height: 26vh;
+    overflow-y: auto;
+  }
+
+  .cflow-lightbox-caption-title {
+    font-size: 1.12rem;
+  }
+
+  .cflow-lightbox-caption-year {
+    font-size: 0.78rem;
+  }
+
+  .cflow-lightbox-caption-sub {
+    font-size: 0.76rem;
+  }
+
+  .cflow-lightbox-caption-desc {
+    font-size: 0.76rem;
+    line-height: 1.5;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* SMALL PHONES (<= 480px: iPhone SE, Android compacts) */
+@media (max-width: 480px) {
+  .cflow-stage {
+    height: 380px;
+  }
+
+  .cflow-card {
+    width: 86vw;
+    height: 350px;
+  }
+
+  .cflow-card--left-1 {
+    transform: translateX(-60%) translateZ(-40px) rotateY(12deg) scale(0.84);
+    opacity: 0.28;
+  }
+
+  .cflow-card--right-1 {
+    transform: translateX(60%) translateZ(-40px) rotateY(-12deg) scale(0.84);
+    opacity: 0.28;
+  }
+
+  .cflow-controller-capsule {
+    padding: 5px 12px;
+    max-width: calc(100vw - 24px);
+  }
+
+  .cflow-ctrl-meta {
+    max-width: 135px;
+  }
+
+  /* In small phones lightbox: hide side chevrons completely so photo is 100% full-screen; users swipe naturally */
+  .cflow-lightbox-nav-btn {
+    display: none !important;
+  }
+
+  .cflow-lightbox-media-wrap {
+    max-height: 54vh;
+  }
+
+  .cflow-lightbox-img {
+    max-height: 54vh;
+  }
 }

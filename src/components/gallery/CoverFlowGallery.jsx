@@ -199,9 +199,22 @@ export default function CoverFlowGallery({
   const handleTouchEnd = (e) => {
     if (touchStartX.current === null) return;
     const diff = touchStartX.current - e.changedTouches[0].clientX;
-    if (diff > 40) handleNext();
-    if (diff < -40) handlePrev();
+    if (diff > 35) handleNext();
+    if (diff < -35) handlePrev();
     touchStartX.current = null;
+  };
+
+  // Touch Swipe for Mobile Fullscreen Lightbox
+  const lightboxTouchStartX = useRef(null);
+  const handleLightboxTouchStart = (e) => {
+    lightboxTouchStartX.current = e.touches[0].clientX;
+  };
+  const handleLightboxTouchEnd = (e) => {
+    if (lightboxTouchStartX.current === null) return;
+    const diff = lightboxTouchStartX.current - e.changedTouches[0].clientX;
+    if (diff > 35) handleLightboxNext();
+    if (diff < -35) handleLightboxPrev();
+    lightboxTouchStartX.current = null;
   };
 
   const activeItem = galleryItems[activeIndex] || galleryItems[0];
@@ -331,6 +344,12 @@ export default function CoverFlowGallery({
 
                   <p className="cflow-card-desc">{item.desc || item.description}</p>
 
+                  {/* Mobile Tap to View Hint (Hidden on Desktop) */}
+                  <div className="cflow-card-tap-hint">
+                    <span>{isSomali ? 'Taabo si aad u weynayso' : 'Tap to expand full photo'}</span>
+                    <ZoomIn size={13} />
+                  </div>
+
                   <div className="cflow-card-actions-row">
                     <button
                       type="button"
@@ -425,18 +444,45 @@ export default function CoverFlowGallery({
               <span className="cflow-lightbox-tag-pill">{lightboxItem.tag || lightboxItem.year || 'SANCTUARY'}</span>
             </div>
 
-            <button
-              type="button"
-              className="cflow-lightbox-close"
-              onClick={() => setLightboxIndex(null)}
-              aria-label="Close photo preview"
-            >
-              <X size={22} />
-            </button>
+            <div className="cflow-lightbox-top-actions">
+              <button
+                type="button"
+                className={`cflow-lightbox-action-btn ${isLiked ? 'cflow-lightbox-action-btn--liked' : ''}`}
+                onClick={handleToggleLike}
+                aria-label={isLiked ? 'Unlike photo' : 'Like photo'}
+                title={`${likeCount} Likes`}
+              >
+                <Heart size={18} fill={isLiked ? '#f43f5e' : 'none'} color={isLiked ? '#f43f5e' : '#ffffff'} />
+              </button>
+
+              <button
+                type="button"
+                className="cflow-lightbox-action-btn"
+                onClick={handleShare}
+                aria-label="Share photo"
+                title={copied ? 'Link Copied!' : 'Share'}
+              >
+                <Share2 size={18} color="#ffffff" />
+              </button>
+
+              <button
+                type="button"
+                className="cflow-lightbox-close"
+                onClick={() => setLightboxIndex(null)}
+                aria-label="Close photo preview"
+              >
+                <X size={22} />
+              </button>
+            </div>
           </div>
 
           {/* Center Stage with Image & Navigation Chevrons */}
-          <div className="cflow-lightbox-body" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="cflow-lightbox-body"
+            onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleLightboxTouchStart}
+            onTouchEnd={handleLightboxTouchEnd}
+          >
             {/* Previous Chevron */}
             <button
               type="button"
