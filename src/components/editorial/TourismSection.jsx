@@ -1,7 +1,9 @@
-import { ArrowRight, Compass } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { ArrowRight, Compass, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import './TourismSection.css';
+
 
 export const TOURISM_DESTINATIONS = [
   {
@@ -54,6 +56,36 @@ export default function TourismSection() {
   const { language } = useLanguage();
   const isSomali = language === 'so';
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
+  const gridRef = useRef(null);
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  // Sync active dot on mobile horizontal scroll
+  const handleScroll = () => {
+    if (!gridRef.current) return;
+    const scrollLeft = gridRef.current.scrollLeft;
+    const card = gridRef.current.firstElementChild;
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 16;
+    const newIdx = Math.round(scrollLeft / cardWidth);
+    setActiveIdx(Math.min(Math.max(newIdx, 0), TOURISM_DESTINATIONS.length - 1));
+  };
+
+  const scrollCard = (dir) => {
+    if (!gridRef.current) return;
+    const card = gridRef.current.firstElementChild;
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 16;
+    gridRef.current.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+  };
+
+  const scrollToCard = (idx) => {
+    if (!gridRef.current) return;
+    const card = gridRef.current.firstElementChild;
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 16;
+    gridRef.current.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+    setActiveIdx(idx);
+  };
 
   return (
     <section id="tourism-section" className="tourism-section" aria-label="Coastal Tourism Destinations">
@@ -84,8 +116,12 @@ export default function TourismSection() {
           </Link>
         </div>
 
-        {/* 4 Destinations Cards Grid (matching reference design) */}
-        <div className="tourism-section__grid">
+        {/* 4 Destinations Cards Grid (responsive swipeable deck on mobile) */}
+        <div
+          className="tourism-section__grid"
+          ref={gridRef}
+          onScroll={handleScroll}
+        >
           {TOURISM_DESTINATIONS.map((dest) => (
             <Link
               key={dest.id}
@@ -115,7 +151,43 @@ export default function TourismSection() {
             </Link>
           ))}
         </div>
+
+        {/* Mobile Interactive Carousel Controller (Arrows + Animated Dots) */}
+        <div className="tourism-section__mobile-nav" aria-label="Destination slides">
+          <button
+            type="button"
+            className="tourism-section__nav-btn"
+            onClick={() => scrollCard(-1)}
+            disabled={activeIdx === 0}
+            aria-label="Previous destination"
+          >
+            <ChevronLeft size={18} />
+          </button>
+
+          <div className="tourism-section__dots">
+            {TOURISM_DESTINATIONS.map((dest, i) => (
+              <button
+                key={dest.id}
+                type="button"
+                className={`tourism-section__dot ${i === activeIdx ? 'tourism-section__dot--active' : ''}`}
+                onClick={() => scrollToCard(i)}
+                aria-label={`Go to ${isSomali ? dest.titleSo : dest.titleEn}`}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            className="tourism-section__nav-btn"
+            onClick={() => scrollCard(1)}
+            disabled={activeIdx === TOURISM_DESTINATIONS.length - 1}
+            aria-label="Next destination"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
       </div>
     </section>
   );
 }
+

@@ -577,9 +577,66 @@
 /* Responsive Breakpoints */
 @media (max-width: 1040px) {
   .travel-header__nav {
-    display: none;
+    display: none !important;
   }
   .travel-header__hamburger-btn {
-    display: inline-flex;
+    display: inline-flex !important;
   }
 }
+
+@media (max-width: 768px) {
+  .travel-header {
+    height: 64px;
+  }
+
+  .travel-header__inner {
+    padding: 0 clamp(14px, 4vw, 20px);
+    gap: 12px;
+  }
+
+  .travel-header__brand-logo {
+    height: 30px;
+    max-width: 115px;
+  }
+
+  .travel-header__actions {
+    gap: 8px;
+  }
+
+  .travel-header__circle-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .travel-header__lang-toggle {
+    font-size: 0.82rem;
+    padding: 4px;
+  }
+
+  .travel-header__hamburger-btn {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 390px) {
+  .travel-header__inner {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .travel-header__brand-logo {
+    height: 28px;
+    max-width: 100px;
+  }
+
+  .travel-header__circle-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .travel-header__lang-toggle {
+    font-size: 0.78rem;
+    padding: 2px;
+  }
+}
+

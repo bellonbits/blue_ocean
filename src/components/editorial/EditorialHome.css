@@ -785,6 +785,25 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .travel-hero__stepper {
+    display: none !important;
+  }
+
+  .travel-hero__place-clip {
+    display: none !important;
+  }
+
+  .travel-hero__main {
+    grid-template-columns: 1fr;
+  }
+
+  .travel-hero__cards-pane {
+    grid-column: 1 / -1;
+  }
+}
+
+
 @media (max-width: 768px) {
   .travel-hero {
     min-height: auto !important;

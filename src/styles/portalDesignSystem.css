@@ -1402,7 +1402,13 @@
     grid-template-columns: 1fr;
   }
 
+  .portal-diaries-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .portal-card-section {
-    padding: var(--space-xl, 64px) var(--page-padding, clamp(24px, 5vw, 80px));
+    padding: var(--space-xl, 64px) var(--page-padding, clamp(16px, 4.5vw, 40px));
   }
 }
+

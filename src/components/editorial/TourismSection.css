@@ -90,23 +90,20 @@
   transform: translateX(3px);
 }
 
-/* 4-Card Responsive Grid */
+/* 4-Card Responsive Grid (Desktop) */
 .tourism-section__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(18px, 2.2vw, 28px);
 }
 
+.tourism-section__mobile-nav {
+  display: none;
+}
+
 @media (max-width: 1100px) {
   .tourism-section__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-}
-
-@media (max-width: 600px) {
-  .tourism-section__grid {
-    grid-template-columns: 1fr;
     gap: 24px;
   }
 }
@@ -155,17 +152,18 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(3, 13, 23, 0.55);
+  background: rgba(3, 13, 23, 0.65);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: #ffffff;
   font-family: var(--eo-font-sans, sans-serif);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  padding: 4px 11px;
+  padding: 4px 12px;
   border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  white-space: nowrap;
 }
 
 .tourism-card__content {
@@ -193,3 +191,139 @@
   color: #64748b;
   margin: 0;
 }
+
+/* Mobile Responsive Optimization (iPhone 7 Plus, modern smartphones <= 768px) */
+@media (max-width: 768px) {
+  .tourism-section {
+    padding: clamp(40px, 6vw, 60px) 0 clamp(36px, 5vw, 48px);
+  }
+
+  .tourism-section__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .tourism-section__title {
+    font-size: clamp(1.85rem, 6.8vw, 2.4rem);
+    line-height: 1.15;
+  }
+
+  .tourism-section__subtitle {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .tourism-section__view-all {
+    display: inline-flex;
+    padding: 10px 22px;
+    font-size: 0.84rem;
+  }
+
+  /* Horizontal swipeable luxury deck */
+  .tourism-section__grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 16px !important;
+    margin: 0 calc(-1 * clamp(16px, 4.5vw, 24px)) !important;
+    padding: 4px clamp(16px, 4.5vw, 24px) 16px clamp(16px, 4.5vw, 24px) !important;
+    scrollbar-width: none !important;
+  }
+
+  .tourism-section__grid::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .tourism-card {
+    width: clamp(260px, 78vw, 310px) !important;
+    min-width: clamp(260px, 78vw, 310px) !important;
+    max-width: clamp(260px, 78vw, 310px) !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: start !important;
+  }
+
+  .tourism-card__media {
+    aspect-ratio: 16 / 11;
+    border-radius: 18px;
+  }
+
+  .tourism-card__title {
+    font-size: 1.35rem;
+  }
+
+  .tourism-card__desc {
+    font-size: 0.84rem;
+    line-height: 1.48;
+  }
+
+  /* Mobile Interactive Carousel Controller */
+  .tourism-section__mobile-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    margin-top: 14px !important;
+    width: 100% !important;
+  }
+
+  .tourism-section__nav-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: 1px solid rgba(12, 26, 41, 0.12);
+    color: #0c1a29;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(12, 26, 41, 0.06);
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .tourism-section__nav-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .tourism-section__dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tourism-section__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: rgba(12, 26, 41, 0.2);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .tourism-section__dot--active {
+    width: 24px;
+    background: #0284c7;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.35);
+  }
+}
+
+/* Small screens (iPhone SE, 7, 8 <= 375px) */
+@media (max-width: 375px) {
+  .tourism-card {
+    width: 250px !important;
+    min-width: 250px !important;
+    max-width: 250px !important;
+  }
+
+  .tourism-card__title {
+    font-size: 1.25rem;
+  }
+}
+
