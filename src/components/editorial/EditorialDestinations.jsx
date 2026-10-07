@@ -1,4 +1,5 @@
-import { ArrowRight } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -54,6 +55,37 @@ export default function EditorialDestinations() {
   const isSomali = language === 'so';
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
+  const gridRef = useRef(null);
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  // Sync active dot on scroll
+  const handleScroll = () => {
+    if (!gridRef.current) return;
+    const scrollLeft = gridRef.current.scrollLeft;
+    const card = gridRef.current.firstElementChild;
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 16;
+    const newIdx = Math.round(scrollLeft / cardWidth);
+    setActiveIdx(Math.min(Math.max(newIdx, 0), DESTINATIONS.length - 1));
+  };
+
+  const scrollCard = (dir) => {
+    if (!gridRef.current) return;
+    const card = gridRef.current.firstElementChild;
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 16;
+    gridRef.current.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+  };
+
+  const scrollToCard = (idx) => {
+    if (!gridRef.current) return;
+    const card = gridRef.current.firstElementChild;
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 16;
+    gridRef.current.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+    setActiveIdx(idx);
+  };
+
   return (
     <section id="editorial-destinations" className="editorial-destinations" aria-label="Featured Coastal Destinations">
       <div className="editorial-destinations__container">
@@ -80,8 +112,12 @@ export default function EditorialDestinations() {
           </Link>
         </div>
 
-        {/* 4 Purposeful Editorial Destination Cards: min-height 420px, 28px inset */}
-        <div className="editorial-destinations__grid">
+        {/* 4 Purposeful Editorial Destination Cards */}
+        <div
+          className="editorial-destinations__grid"
+          ref={gridRef}
+          onScroll={handleScroll}
+        >
           {DESTINATIONS.map((dest) => (
             <Link
               key={dest.num}
@@ -96,7 +132,7 @@ export default function EditorialDestinations() {
               />
               <div className="editorial-dest-card__overlay" />
 
-              {/* Top metadata tags: 28px inset */}
+              {/* Top metadata tags */}
               <div className="editorial-dest-card__top">
                 <span className="editorial-dest-card__badge">{dest.num}</span>
                 <span className="editorial-dest-card__region">
@@ -104,7 +140,7 @@ export default function EditorialDestinations() {
                 </span>
               </div>
 
-              {/* Bottom Editorial Caption: 28px inset */}
+              {/* Bottom Editorial Caption */}
               <div className="editorial-dest-card__content">
                 <div className="editorial-dest-card__title-row">
                   <h3 className="editorial-dest-card__title">
@@ -118,6 +154,41 @@ export default function EditorialDestinations() {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Mobile Interactive Carousel Controller (Arrows + Animated Dots) */}
+        <div className="editorial-destinations__mobile-nav" aria-label="Destinations carousel navigation">
+          <button
+            type="button"
+            className="editorial-destinations__nav-btn"
+            onClick={() => scrollCard(-1)}
+            disabled={activeIdx === 0}
+            aria-label="Previous destination"
+          >
+            <ChevronLeft size={18} />
+          </button>
+
+          <div className="editorial-destinations__dots">
+            {DESTINATIONS.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                className={`editorial-destinations__dot ${idx === activeIdx ? 'editorial-destinations__dot--active' : ''}`}
+                onClick={() => scrollToCard(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            className="editorial-destinations__nav-btn"
+            onClick={() => scrollCard(1)}
+            disabled={activeIdx === DESTINATIONS.length - 1}
+            aria-label="Next destination"
+          >
+            <ChevronRight size={18} />
+          </button>
         </div>
       </div>
     </section>
