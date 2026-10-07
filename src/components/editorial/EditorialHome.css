@@ -836,24 +836,24 @@
   }
 
   .travel-hero__title {
-    font-size: clamp(2.4rem, 8.5vw, 3.4rem) !important;
-    line-height: 1.05 !important;
-    letter-spacing: 0.04em !important;
+    font-size: clamp(2rem, 7.6vw, 3.2rem) !important;
+    line-height: 1.06 !important;
+    letter-spacing: 0.03em !important;
     white-space: normal !important;
     word-break: normal !important;
-    overflow-wrap: normal !important;
-    margin: 0 0 12px 0 !important;
+    overflow-wrap: break-word !important;
+    margin: 0 0 10px 0 !important;
     text-shadow: 0 3px 18px rgba(0, 0, 0, 0.6) !important;
   }
 
   .travel-hero__title--long {
-    font-size: clamp(1.9rem, 7vw, 2.5rem) !important;
+    font-size: clamp(1.65rem, 6.2vw, 2.3rem) !important;
   }
 
   .travel-hero__desc {
-    font-size: clamp(0.90rem, 3.6vw, 1rem) !important;
-    line-height: 1.6 !important;
-    margin: 0 0 18px 0 !important;
+    font-size: clamp(0.88rem, 3.4vw, 0.98rem) !important;
+    line-height: 1.55 !important;
+    margin: 0 0 16px 0 !important;
     max-width: 100% !important;
     color: rgba(255, 255, 255, 0.92) !important;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
@@ -864,8 +864,8 @@
   }
 
   .travel-hero__explore-btn {
-    padding: 11px 26px !important;
-    font-size: 0.90rem !important;
+    padding: 10px 24px !important;
+    font-size: 0.88rem !important;
   }
 
   /* RESET grid-column on cards-pane so it cleanly flows below the story */
@@ -879,9 +879,9 @@
   .travel-hero__cards-deck {
     display: flex !important;
     align-items: center !important;
-    gap: 16px !important;
+    gap: 14px !important;
     width: 100% !important;
-    padding: 6px 2px 14px 2px !important;
+    padding: 4px 2px 14px 2px !important;
     overflow-x: auto !important;
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
@@ -889,11 +889,11 @@
 
   .travel-card {
     scroll-snap-align: start !important;
-    width: clamp(235px, 70vw, 275px) !important;
-    height: clamp(320px, 46vh, 360px) !important;
-    border-radius: 22px !important;
+    width: clamp(225px, 68vw, 265px) !important;
+    height: clamp(290px, 42vh, 340px) !important;
+    border-radius: 20px !important;
     border: 1px solid rgba(255, 255, 255, 0.35) !important;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35) !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35) !important;
     opacity: 1 !important;
     flex-shrink: 0 !important;
   }
@@ -912,12 +912,51 @@
   }
 
   .travel-hero__arrow-btn {
-    width: 40px !important;
-    height: 40px !important;
+    width: 38px !important;
+    height: 38px !important;
   }
 
   .travel-hero__bottom-bar {
     display: none !important;
+  }
+}
+
+/* Specific tuning for iPhone 7 Plus / 8 Plus (414px) and modern 390px-430px viewports */
+@media (max-width: 430px) {
+  .travel-hero {
+    padding-top: clamp(68px, 9.5vh, 84px) !important;
+    padding-bottom: 28px !important;
+  }
+
+  .travel-hero__main {
+    padding: 0 16px !important;
+    gap: 16px !important;
+  }
+
+  .travel-hero__title {
+    font-size: clamp(1.9rem, 7.5vw, 2.6rem) !important;
+  }
+
+  .travel-hero__desc {
+    font-size: 0.88rem !important;
+    margin: 0 0 14px 0 !important;
+  }
+
+  .travel-card {
+    width: clamp(220px, 66vw, 255px) !important;
+    height: clamp(280px, 39vh, 325px) !important;
+  }
+}
+
+/* Small screens: iPhone SE / 7 / 8 (<= 375px) */
+@media (max-width: 375px) {
+  .travel-hero__title {
+    font-size: clamp(1.7rem, 7vw, 2.1rem) !important;
+  }
+
+  .travel-card {
+    width: 215px !important;
+    height: 275px !important;
   }
 }
 
@@ -2383,5 +2422,51 @@
 
   .editorial-hero__scroll-indicator {
     display: none;
+  }
+}
+
+/* Specific mobile sizing for iPhone 7 Plus / 8 Plus (414px) and modern 390px-430px */
+@media (max-width: 430px) {
+  .editorial-destinations {
+    padding: clamp(40px, 7vw, 56px) var(--page-padding) !important;
+  }
+
+  .editorial-dest-card {
+    width: clamp(250px, 74vw, 290px) !important;
+    min-width: clamp(250px, 74vw, 290px) !important;
+    max-width: clamp(250px, 74vw, 290px) !important;
+    height: clamp(340px, 48vh, 390px) !important;
+    min-height: clamp(340px, 48vh, 390px) !important;
+    padding: 18px !important;
+    border-radius: 20px !important;
+  }
+
+  .editorial-dest-card__title {
+    font-size: 1.35rem !important;
+  }
+
+  .editorial-dest-card__desc {
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .editorial-destinations__mobile-nav {
+    margin-top: 14px !important;
+  }
+}
+
+/* iPhone SE / 7 / 8 / 6s (<= 375px) */
+@media (max-width: 375px) {
+  .editorial-dest-card {
+    width: 240px !important;
+    min-width: 240px !important;
+    max-width: 240px !important;
+    height: 330px !important;
+    min-height: 330px !important;
+    padding: 16px !important;
+  }
+
+  .editorial-dest-card__title {
+    font-size: 1.25rem !important;
   }
 }
