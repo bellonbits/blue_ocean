@@ -130,7 +130,8 @@
   height: 100%;
   border: none;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
+  background: #000000;
 }
 
 /* --------------------------------------------------------------------------
@@ -457,7 +458,7 @@
 
   /* Taller stage + controls sit BELOW the video so nothing covers it */
   .vplayer-screen {
-    aspect-ratio: 4 / 3.4;
+    aspect-ratio: 4 / 3;
     border-radius: 16px;
     overflow: visible;
     background: transparent;
