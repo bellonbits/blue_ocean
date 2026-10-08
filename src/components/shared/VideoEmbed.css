@@ -452,18 +452,60 @@
 @media (max-width: 640px) {
   .vplayer-card {
     border-radius: 20px;
-    padding: 12px 12px 18px 12px;
+    padding: 8px 8px 18px 8px;
   }
 
+  /* Taller stage + controls sit BELOW the video so nothing covers it */
   .vplayer-screen {
+    aspect-ratio: 4 / 3.4;
     border-radius: 16px;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+    margin-bottom: 70px;
+  }
+
+  .vplayer-poster-wrap,
+  .vplayer-iframe,
+  .vplayer-html-video {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000000;
+  }
+
+  .vplayer-poster-wrap {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   }
 
   .vplayer-ctrl-pill {
-    bottom: 12px;
-    left: 12px;
-    gap: 8px;
-    padding: 4px 12px 4px 8px;
+    top: calc(100% + 12px);
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 10px;
+    padding: 6px 16px 6px 12px;
+    background: #f1f5f9;
+    box-shadow: 0 4px 14px rgba(7, 22, 38, 0.1);
+    border-color: rgba(7, 22, 38, 0.06);
+  }
+
+  /* Fullscreen keeps the classic overlay */
+  .vplayer-screen:fullscreen,
+  .vplayer-screen:-webkit-full-screen {
+    aspect-ratio: auto;
+    margin-bottom: 0;
+    overflow: hidden;
+    background: #000000;
+    border-radius: 0;
+  }
+
+  .vplayer-screen:fullscreen .vplayer-ctrl-pill,
+  .vplayer-screen:-webkit-full-screen .vplayer-ctrl-pill {
+    top: auto;
+    bottom: 20px;
+    left: 20px;
+    transform: none;
+    background: rgba(255, 255, 255, 0.88);
   }
 
   .vplayer-ctrl-time-wrap {
@@ -471,6 +513,11 @@
   }
 
   .vplayer-ctrl-play {
+    width: 42px;
+    height: 42px;
+  }
+
+  .vplayer-ctrl-btn {
     width: 34px;
     height: 34px;
   }
