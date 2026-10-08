@@ -83,13 +83,13 @@ export default function CoastalCommunities() {
           <div className="communities__image reveal">
             <div className="communities__image-stack">
               <img
-                src="/puntland.jpg"
+                src="/puntland.webp"
                 alt="Puntland fishing coast community"
                 className="communities__img communities__img--main"
                 loading="lazy"
               />
               <img
-                src="/jubaland.jpg"
+                src="/jubaland.webp"
                 alt="Jubaland coastal community"
                 className="communities__img communities__img--secondary"
                 loading="lazy"

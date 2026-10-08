@@ -7,7 +7,7 @@
     "communitySlug": "bosaso-fishing-cooperative",
     "location": "Bosaso, Bari Region",
     "region": "Puntland",
-    "featuredImage": "/bosaso1.jpg",
+    "featuredImage": "/bosaso1.webp",
     "author": "Somalia Blue Heaven Coastal Communities Team",
     "date": "2025",
     "storyContent": [
@@ -30,7 +30,7 @@
         "slug": "yellowfin-tuna",
         "commonName": "Yellowfin Tuna",
         "scientificName": "Thunnus albacares",
-        "heroImage": "/exp_coral_snorkeling.jpg",
+        "heroImage": "/exp_coral_snorkeling.webp",
         "category": "Fish"
       }
     ]
@@ -43,7 +43,7 @@
     "communitySlug": "eyl-traditional-knowledge-keepers",
     "location": "Eyl, Bari Region",
     "region": "Puntland",
-    "featuredImage": "/eyl1.jpg",
+    "featuredImage": "/eyl1.webp",
     "author": "Somalia Blue Heaven Coastal Communities Team",
     "date": "2024",
     "storyContent": [
@@ -65,7 +65,7 @@
         "slug": "spiny-lobster",
         "commonName": "Somali Spiny Lobster",
         "scientificName": "Panulirus homarus",
-        "heroImage": "/exp_coastal_cliff.jpg",
+        "heroImage": "/exp_coastal_cliff.webp",
         "category": "Crustaceans"
       }
     ]
@@ -78,7 +78,7 @@
     "communitySlug": "hafun-youth-beach-guardians",
     "location": "Hafun, Bari Region",
     "region": "Puntland",
-    "featuredImage": "/hafun1.jpg",
+    "featuredImage": "/hafun1.webp",
     "author": "Somalia Blue Heaven Coastal Communities Team",
     "date": "2025",
     "storyContent": [
@@ -102,7 +102,7 @@
         "slug": "green-sea-turtle",
         "commonName": "Green Sea Turtle",
         "scientificName": "Chelonia mydas",
-        "heroImage": "/marine_turtles.jpg",
+        "heroImage": "/marine_turtles.webp",
         "category": "Sea Turtles"
       },
       {
@@ -110,7 +110,7 @@
         "slug": "hawksbill-turtle",
         "commonName": "Hawksbill Sea Turtle",
         "scientificName": "Eretmochelys imbricata",
-        "heroImage": "/marine_turtles.jpg",
+        "heroImage": "/marine_turtles.webp",
         "category": "Sea Turtles"
       }
     ]
@@ -123,7 +123,7 @@
     "communitySlug": "mogadishu-coastal-business-alliance",
     "location": "Mogadishu, Banaadir",
     "region": "Somalia",
-    "featuredImage": "/mogadishu_beach.jpg",
+    "featuredImage": "/mogadishu_beach.webp",
     "author": "Somalia Blue Heaven Coastal Communities Team",
     "date": "2025",
     "storyContent": [
@@ -148,7 +148,7 @@
     "communitySlug": "kismayo-womens-fish-processing",
     "location": "Kismayo, Lower Juba",
     "region": "Jubaland",
-    "featuredImage": "/jubaland.jpg",
+    "featuredImage": "/jubaland.webp",
     "author": "Somalia Blue Heaven Coastal Communities Team",
     "date": "2024",
     "storyContent": [
@@ -170,7 +170,7 @@
         "slug": "dugong",
         "commonName": "Dugong (Sea Cow)",
         "scientificName": "Dugong dugon",
-        "heroImage": "/marine_seagrass.jpg",
+        "heroImage": "/marine_seagrass.webp",
         "category": "Dolphins & Whales"
       }
     ]

@@ -26,7 +26,7 @@
         "slug": "whale-shark",
         "commonName": "Whale Shark",
         "scientificName": "Rhincodon typus",
-        "heroImage": "/marine_sharks.jpg",
+        "heroImage": "/marine_sharks.webp",
         "category": "Sharks & Rays"
       }
     ]
@@ -58,7 +58,7 @@
         "slug": "acropora-coral",
         "commonName": "Staghorn & Table Coral",
         "scientificName": "Acropora muricata",
-        "heroImage": "/marine_coral.jpg",
+        "heroImage": "/marine_coral.webp",
         "category": "Coral Reefs"
       }
     ]
@@ -91,7 +91,7 @@
         "slug": "green-sea-turtle",
         "commonName": "Green Sea Turtle",
         "scientificName": "Chelonia mydas",
-        "heroImage": "/marine_turtles.jpg",
+        "heroImage": "/marine_turtles.webp",
         "category": "Sea Turtles"
       },
       {
@@ -99,7 +99,7 @@
         "slug": "hawksbill-turtle",
         "commonName": "Hawksbill Sea Turtle",
         "scientificName": "Eretmochelys imbricata",
-        "heroImage": "/marine_turtles.jpg",
+        "heroImage": "/marine_turtles.webp",
         "category": "Sea Turtles"
       }
     ]
@@ -132,7 +132,7 @@
         "slug": "bottlenose-dolphin",
         "commonName": "Bottlenose Dolphin",
         "scientificName": "Tursiops truncatus",
-        "heroImage": "/marine_dolphins.jpg",
+        "heroImage": "/marine_dolphins.webp",
         "category": "Dolphins & Whales"
       },
       {
@@ -140,7 +140,7 @@
         "slug": "humpback-whale",
         "commonName": "Humpback Whale",
         "scientificName": "Megaptera novaeangliae",
-        "heroImage": "/exp_coastal_cliff.jpg",
+        "heroImage": "/exp_coastal_cliff.webp",
         "category": "Dolphins & Whales"
       }
     ]

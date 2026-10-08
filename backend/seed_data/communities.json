@@ -6,7 +6,7 @@
     "category": "fishermen",
     "location": "Bosaso, Bari Region",
     "region": "Puntland",
-    "heroImage": "/bosaso1.jpg",
+    "heroImage": "/bosaso1.webp",
     "description": "A cooperative of artisanal handline fishing crews operating out of Bosaso harbor, working Gulf of Aden waters for yellowfin tuna and kingfish.",
     "livelihoods": [
       "Artisanal handline fishing",
@@ -20,15 +20,15 @@
     ],
     "gallery": [
       {
-        "url": "/bosaso1.jpg",
+        "url": "/bosaso1.webp",
         "caption": "Handline vessels docked in Bosaso harbor."
       },
       {
-        "url": "/bosaso2.jpg",
+        "url": "/bosaso2.webp",
         "caption": "Bosaso's coastal fish market."
       },
       {
-        "url": "/exp_dhow_sailing.jpg",
+        "url": "/exp_dhow_sailing.webp",
         "caption": "A traditional dhow under sail off the Bari coast."
       }
     ]
@@ -40,7 +40,7 @@
     "category": "traditional-knowledge",
     "location": "Eyl, Bari Region",
     "region": "Puntland",
-    "heroImage": "/eyl1.jpg",
+    "heroImage": "/eyl1.webp",
     "description": "Multi-generational fishing families along the Eyl escarpments whose knowledge of lobster behavior, breeding cycles, and seasonal patterns predates any formal survey.",
     "livelihoods": [
       "Spiny lobster harvesting",
@@ -53,15 +53,15 @@
     ],
     "gallery": [
       {
-        "url": "/eyl1.jpg",
+        "url": "/eyl1.webp",
         "caption": "Eyl's escarpment coastline, the primary lobster fishing ground."
       },
       {
-        "url": "/eyl2.jpg",
+        "url": "/eyl2.webp",
         "caption": "Traditional fishing boats at rest in Eyl."
       },
       {
-        "url": "/eyl3.jpg",
+        "url": "/eyl3.webp",
         "caption": "The rocky Bari escarpments where lobster surveys were conducted."
       }
     ]
@@ -73,7 +73,7 @@
     "category": "women",
     "location": "Kismayo, Lower Juba",
     "region": "Jubaland",
-    "heroImage": "/jubaland.jpg",
+    "heroImage": "/jubaland.webp",
     "description": "A women-led collective processing and selling fish catch from Kismayo's landing sites, turning what was once discarded by-catch into a stable source of household income.",
     "livelihoods": [
       "Fish processing and drying",
@@ -87,15 +87,15 @@
     ],
     "gallery": [
       {
-        "url": "/jubaland.jpg",
+        "url": "/jubaland.webp",
         "caption": "Kismayo's coastal waters and landing sites."
       },
       {
-        "url": "/marine_fish.jpg",
+        "url": "/marine_fish.webp",
         "caption": "Fresh catch ready for processing."
       },
       {
-        "url": "/marine_seagrass.jpg",
+        "url": "/marine_seagrass.webp",
         "caption": "Seagrass channels near the collective's working waters."
       }
     ]
@@ -107,7 +107,7 @@
     "category": "youth",
     "location": "Hafun, Bari Region",
     "region": "Puntland",
-    "heroImage": "/hafun1.jpg",
+    "heroImage": "/hafun1.webp",
     "description": "A trained network of young residents monitoring sea turtle nesting beaches around the Hafun Peninsula through the full nesting season.",
     "livelihoods": [
       "Seasonal beach guardian stipends",
@@ -121,15 +121,15 @@
     ],
     "gallery": [
       {
-        "url": "/hafun1.jpg",
+        "url": "/hafun1.webp",
         "caption": "The Hafun Peninsula coastline."
       },
       {
-        "url": "/hafun2.jpg",
+        "url": "/hafun2.webp",
         "caption": "Hafun tombolo beach, one of the monitored nesting rookeries."
       },
       {
-        "url": "/marine_turtles.jpg",
+        "url": "/marine_turtles.webp",
         "caption": "A green sea turtle in the waters off Hafun."
       }
     ]
@@ -141,7 +141,7 @@
     "category": "coastal-business",
     "location": "Mogadishu, Banaadir",
     "region": "Somalia",
-    "heroImage": "/mogadishu_beach.jpg",
+    "heroImage": "/mogadishu_beach.webp",
     "description": "Beachfront restaurants, cafes, and tour operators along Liido Beach who jointly fund and staff the quarterly cleanup calendar for Mogadishu's most visited shoreline.",
     "livelihoods": [
       "Beachfront hospitality and tourism",
@@ -154,15 +154,15 @@
     ],
     "gallery": [
       {
-        "url": "/mogadishu_beach.jpg",
+        "url": "/mogadishu_beach.webp",
         "caption": "Liido Beach, Mogadishu's most visited shoreline."
       },
       {
-        "url": "/con_beach_cleanup.jpg",
+        "url": "/con_beach_cleanup.webp",
         "caption": "A quarterly community cleanup event."
       },
       {
-        "url": "/somalia_coast.jpg",
+        "url": "/somalia_coast.webp",
         "caption": "Banaadir's coastal waters."
       }
     ]

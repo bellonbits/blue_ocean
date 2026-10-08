@@ -16,7 +16,7 @@ export default function CoastHero() {
       {/* Background Image with dark ocean gradient */}
       <div className="coast-hero__bg">
         <img
-          src="/mogadishu_beach.jpg"
+          src="/mogadishu_beach.webp"
           alt="Scenic landscape of Somalia's coastline"
           className="coast-hero__bg-img"
           loading="eager"

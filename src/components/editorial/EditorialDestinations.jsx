@@ -13,7 +13,7 @@ const DESTINATIONS = [
     regionSo: 'Puntland',
     descEn: 'Where desert meets the Indian Ocean.',
     descSo: 'Halkay saxaraha iyo Badweynta Hindiya isaga darsamaan.',
-    image: '/images/img_01.png',
+    image: '/images/img_01.webp',
   },
   {
     num: '02',
@@ -24,7 +24,7 @@ const DESTINATIONS = [
     regionSo: 'Banaadir',
     descEn: 'Coastal life, culture and history.',
     descSo: 'Nolosha xeebta, hidaha iyo taariikhda qadiimiga ah.',
-    image: '/images/img_08.png',
+    image: '/images/img_08.webp',
   },
   {
     num: '03',
@@ -35,7 +35,7 @@ const DESTINATIONS = [
     regionSo: 'Puntland',
     descEn: "One of Africa's most extraordinary coastal landscapes.",
     descSo: 'Mid ka mid ah muuqaallada xeebaha ugu yaabka badan Afrika.',
-    image: '/images/img_04.png',
+    image: '/images/img_04.webp',
   },
   {
     num: '04',
@@ -46,7 +46,7 @@ const DESTINATIONS = [
     regionSo: 'Jubaland',
     descEn: 'Where forest, ocean and wildlife meet.',
     descSo: 'Halkay kaymaha, badweynta iyo duurjoogtu isaga darsamaan.',
-    image: '/images/img_05.png',
+    image: '/images/img_05.webp',
   },
 ];
 

@@ -21,7 +21,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-bosaso',
         title: isSomali ? 'Boosaaso: Albaabka Gacanka Cadmeed' : 'Bosaso: Gulf of Aden Seaport & Shelf',
-        image: '/images/img_02.png',
+        image: '/images/img_02.webp',
         slug: 'bosaso',
         zone: isSomali ? 'Gobolka Bari' : 'Bari Region, Puntland',
         rating: '4.9',
@@ -34,7 +34,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-hafun',
         title: isSomali ? 'Raas Xaafuun: Cirifka Bariga Afrika' : 'Ras Hafun: Africa’s Easternmost Horn',
-        image: '/images/img_01.png',
+        image: '/images/img_01.webp',
         slug: 'hafun',
         zone: isSomali ? 'Gacanka Xaafuun' : 'Hafun Peninsula',
         rating: '5.0',
@@ -47,7 +47,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-eyl',
         title: isSomali ? 'Dooxada Eyl: Badda & Buuraha Nugaal' : 'Eyl: Canyon Gorge & Historic Bay',
-        image: '/images/img_03.png',
+        image: '/images/img_03.webp',
         slug: 'eyl',
         zone: isSomali ? 'Gobolka Nugaal' : 'Nugaal Estuary',
         rating: '4.9',
@@ -62,7 +62,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-bajuni',
         title: isSomali ? 'Jasiiradaha Baajuun: Jannada Biyaha Buluugga' : 'Bajuni Archipelago: Turquoise Atolls',
-        image: '/images/img_05.png',
+        image: '/images/img_05.webp',
         slug: 'bajuni-islands',
         zone: isSomali ? 'Jubada Hoose' : 'Lower Juba, Jubaland',
         rating: '5.0',
@@ -75,7 +75,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-kismayo',
         title: isSomali ? 'Xeebta Kismaayo & Gobweyn' : 'Kismayo & Gobweyn River Mouth',
-        image: '/images/img_05.png',
+        image: '/images/img_05.webp',
         slug: 'kismayo',
         zone: isSomali ? 'Wabiga Jubba & Badda' : 'Juba River Estuary',
         rating: '4.8',
@@ -88,7 +88,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-kamboni',
         title: isSomali ? 'Raas Kamboni: Xadka Koonfureed' : 'Ras Kamboni: Southern Marine Sanctuary',
-        image: '/images/img_10.png',
+        image: '/images/img_10.webp',
         slug: 'kamboni',
         zone: isSomali ? 'Koonfurta Fog' : 'Southern Border Coast',
         rating: '4.9',
@@ -103,7 +103,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-liido',
         title: isSomali ? 'Xeebaha Liido & Jasiira ee Banaadir' : 'Lido & Jazeera: Banadir Oceanfront',
-        image: '/images/img_08.png',
+        image: '/images/img_08.webp',
         slug: 'liido-jazeera',
         zone: isSomali ? 'Muqdisho & Banaadir' : 'Mogadishu Coastal Zone',
         rating: '4.9',
@@ -116,7 +116,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-barawe',
         title: isSomali ? 'Baraawe: Magaalo-Xeebedda Qadiimiga ah' : 'Barawe: Ancient Swahili-Somali Port',
-        image: '/barawe1.png',
+        image: '/barawe1.webp',
         slug: 'barawe',
         zone: isSomali ? 'Shabeellaha Hoose' : 'Lower Shabelle Coast',
         rating: '4.8',
@@ -129,7 +129,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-hobyo',
         title: isSomali ? 'Hobyo: Dekeddii Saldanadda Qadiimiga' : 'Hobyo: Sultanate Seaport & Central Sands',
-        image: '/images/img_06.png',
+        image: '/images/img_06.webp',
         slug: 'hobyo',
         zone: isSomali ? 'Gobolka Mudug' : 'Mudug Central Coast',
         rating: '4.8',
@@ -144,7 +144,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-berbera',
         title: isSomali ? 'Berbera: Dekedda Gacanka Cadmeed' : 'Berbera: Historic Coral Gateway',
-        image: '/images/img_09.png',
+        image: '/images/img_09.webp',
         slug: 'berbera',
         zone: isSomali ? 'Gacanka Cadmeed' : 'Gulf of Aden Coast',
         rating: '4.9',
@@ -157,7 +157,7 @@ export default function RajaDiscoverPlans() {
       {
         id: 'dest-zeila',
         title: isSomali ? 'Saylac & Jasiiradda Sa’ad ad-Din' : 'Zeila & Sa’ad ad-Din Archipelago',
-        image: '/images/img_09.png',
+        image: '/images/img_09.webp',
         slug: 'zeila',
         zone: isSomali ? 'Gobolka Awdal' : 'Awdal Island Archipelago',
         rating: '5.0',

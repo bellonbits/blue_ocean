@@ -7,7 +7,7 @@ export default function GetInvolvedHero() {
     <section className="exp-hero" aria-label="Get Involved with Somalia Blue Heaven">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/exp_scuba_diving.jpg"
+          src="/exp_scuba_diving.webp"
           alt="A volunteer diver surveying a Somali reef"
           className="exp-hero__img"
         />

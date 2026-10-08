@@ -10,7 +10,7 @@ export default function ContactHero() {
     <section className="exp-hero" aria-label="Contact Somalia Blue Heaven" style={{ minHeight: '60vh' }}>
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/exp_coastal_cliff.jpg"
+          src="/exp_coastal_cliff.webp"
           alt="Coastal cliffs along the Somali Bari coast"
           className="exp-hero__img"
         />

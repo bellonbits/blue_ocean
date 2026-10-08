@@ -19,18 +19,18 @@
       "vessel-strikes",
       "bycatch"
     ],
-    "heroImage": "/marine_dolphins.jpg",
+    "heroImage": "/marine_dolphins.webp",
     "gallery": [
       {
-        "url": "/marine_dolphins.jpg",
+        "url": "/marine_dolphins.webp",
         "caption": "A resident dolphin pod in the Gulf of Aden corridor."
       },
       {
-        "url": "/bosaso2.jpg",
+        "url": "/bosaso2.webp",
         "caption": "Bosaso harbor, a key vessel-traffic zone along the corridor."
       },
       {
-        "url": "/exp_coastal_cliff.jpg",
+        "url": "/exp_coastal_cliff.webp",
         "caption": "Coastal waters along the proposed corridor route."
       }
     ],
@@ -101,7 +101,7 @@
         "slug": "bottlenose-dolphin",
         "commonName": "Bottlenose Dolphin",
         "scientificName": "Tursiops truncatus",
-        "heroImage": "/marine_dolphins.jpg",
+        "heroImage": "/marine_dolphins.webp",
         "category": "Dolphins & Whales"
       },
       {
@@ -109,7 +109,7 @@
         "slug": "humpback-whale",
         "commonName": "Humpback Whale",
         "scientificName": "Megaptera novaeangliae",
-        "heroImage": "/exp_coastal_cliff.jpg",
+        "heroImage": "/exp_coastal_cliff.webp",
         "category": "Dolphins & Whales"
       }
     ],
@@ -120,7 +120,7 @@
         "title": "Somali Cetacean Acoustic & Population Survey",
         "areaName": "Dolphins & Whales",
         "status": "Active",
-        "heroImage": "/marine_dolphins.jpg",
+        "heroImage": "/marine_dolphins.webp",
         "summary": "Mapping the life beneath Somalia’s coastal waters — tracking resident dolphin pods along the Gulf of Aden corridor."
       },
       {
@@ -129,7 +129,7 @@
         "title": "Somali Deep Hydrophone Acoustic Corridor Mapping",
         "areaName": "Dolphins & Whales",
         "status": "Active",
-        "heroImage": "/exp_coastal_cliff.jpg",
+        "heroImage": "/exp_coastal_cliff.webp",
         "summary": "Passive acoustic monitoring of humpback whale song along the deep-water Eyl Trench and Guardafui Channel migration corridor."
       }
     ],
@@ -140,7 +140,7 @@
         "name": "Bosaso Fishing Cooperative",
         "category": "fishermen",
         "location": "Bosaso, Bari Region",
-        "heroImage": "/bosaso1.jpg"
+        "heroImage": "/bosaso1.webp"
       }
     ],
     "issues": [
@@ -176,18 +176,18 @@
       "wildlife-trade",
       "bycatch"
     ],
-    "heroImage": "/marine_sharks.jpg",
+    "heroImage": "/marine_sharks.webp",
     "gallery": [
       {
-        "url": "/marine_sharks.jpg",
+        "url": "/marine_sharks.webp",
         "caption": "A whale shark feeding near the surface off Cap Guardafui."
       },
       {
-        "url": "/exp_scuba_diving.jpg",
+        "url": "/exp_scuba_diving.webp",
         "caption": "Research divers conducting a photo-ID approach."
       },
       {
-        "url": "/bargaal_main.jpg",
+        "url": "/bargaal_main.webp",
         "caption": "Bargaal, a seasonal whale shark feeding aggregation site."
       }
     ],
@@ -243,7 +243,7 @@
         "slug": "whale-shark",
         "commonName": "Whale Shark",
         "scientificName": "Rhincodon typus",
-        "heroImage": "/marine_sharks.jpg",
+        "heroImage": "/marine_sharks.webp",
         "category": "Sharks & Rays"
       }
     ],
@@ -254,7 +254,7 @@
         "title": "Bari Coast Whale Shark Acoustic & Tagging Study",
         "areaName": "Sharks & Rays",
         "status": "Active",
-        "heroImage": "/marine_sharks.jpg",
+        "heroImage": "/marine_sharks.webp",
         "summary": "Satellite tagging and photo-ID tracking of whale sharks feeding along the seasonal Guardafui upwelling."
       }
     ],
@@ -291,18 +291,18 @@
     "issueSlugs": [
       "wildlife-trade"
     ],
-    "heroImage": "/exp_scuba_diving.jpg",
+    "heroImage": "/exp_scuba_diving.webp",
     "gallery": [
       {
-        "url": "/exp_scuba_diving.jpg",
+        "url": "/exp_scuba_diving.webp",
         "caption": "A research diver approaching a manta ray for photo-ID capture."
       },
       {
-        "url": "/marine_coral.jpg",
+        "url": "/marine_coral.webp",
         "caption": "A reef pinnacle identified as a candidate cleaning station."
       },
       {
-        "url": "/jubaland.jpg",
+        "url": "/jubaland.webp",
         "caption": "Bajuni Archipelago waters covered by the planned registry."
       }
     ],
@@ -358,7 +358,7 @@
         "slug": "manta-ray",
         "commonName": "Oceanic Manta Ray",
         "scientificName": "Mobula birostris",
-        "heroImage": "/exp_scuba_diving.jpg",
+        "heroImage": "/exp_scuba_diving.webp",
         "category": "Sharks & Rays"
       }
     ],
@@ -369,7 +369,7 @@
         "title": "Somali Manta Ray Photo-ID Database & Cleaning Station Registry",
         "areaName": "Sharks & Rays",
         "status": "Planned",
-        "heroImage": "/exp_scuba_diving.jpg",
+        "heroImage": "/exp_scuba_diving.webp",
         "summary": "A planned photo-identification registry of oceanic manta rays and their reef cleaning stations across the Bajuni Archipelago."
       }
     ],
@@ -402,18 +402,18 @@
       "bycatch",
       "habitat-degradation"
     ],
-    "heroImage": "/marine_seagrass.jpg",
+    "heroImage": "/marine_seagrass.webp",
     "gallery": [
       {
-        "url": "/marine_seagrass.jpg",
+        "url": "/marine_seagrass.webp",
         "caption": "A dugong feeding trail visible in a shallow seagrass meadow."
       },
       {
-        "url": "/jubaland.jpg",
+        "url": "/jubaland.webp",
         "caption": "Sheltered mangrove creeks included in the proposed corridor."
       },
       {
-        "url": "/somalia_coast.jpg",
+        "url": "/somalia_coast.webp",
         "caption": "Southern coastal waters within the survey extent."
       }
     ],
@@ -447,7 +447,7 @@
         "slug": "dugong",
         "commonName": "Dugong (Sea Cow)",
         "scientificName": "Dugong dugon",
-        "heroImage": "/marine_seagrass.jpg",
+        "heroImage": "/marine_seagrass.webp",
         "category": "Dolphins & Whales"
       }
     ],
@@ -458,7 +458,7 @@
         "title": "Bajuni Archipelago Dugong Drone Acoustic & Population Survey",
         "areaName": "Marine Biodiversity",
         "status": "Active",
-        "heroImage": "/marine_seagrass.jpg",
+        "heroImage": "/marine_seagrass.webp",
         "summary": "Drone-based aerial survey estimating dugong population size and distribution across the Bajuni seagrass channels."
       }
     ],
@@ -496,18 +496,18 @@
       "habitat-degradation",
       "climate-warming"
     ],
-    "heroImage": "/marine_coral.jpg",
+    "heroImage": "/marine_coral.webp",
     "gallery": [
       {
-        "url": "/marine_coral.jpg",
+        "url": "/marine_coral.webp",
         "caption": "A coral garden in the Bajuni Archipelago."
       },
       {
-        "url": "/exp_coral_snorkeling.jpg",
+        "url": "/exp_coral_snorkeling.webp",
         "caption": "Survey team sampling coral fragments for genetic analysis."
       },
       {
-        "url": "/qandala_main.jpg",
+        "url": "/qandala_main.webp",
         "caption": "Qandala patch reefs included in the zoning proposal."
       }
     ],
@@ -563,7 +563,7 @@
         "slug": "acropora-coral",
         "commonName": "Staghorn & Table Coral",
         "scientificName": "Acropora muricata",
-        "heroImage": "/marine_coral.jpg",
+        "heroImage": "/marine_coral.webp",
         "category": "Coral Reefs"
       }
     ],
@@ -574,7 +574,7 @@
         "title": "Thermal Resilience & Coral Genotyping in the Horn of Africa",
         "areaName": "Coral Reef Health",
         "status": "Active",
-        "heroImage": "/marine_coral.jpg",
+        "heroImage": "/marine_coral.webp",
         "summary": "Genotyping and thermal-tolerance survey of Acropora coral colonies across the Bajuni and Qandala reef systems."
       }
     ],
@@ -611,18 +611,18 @@
     "issueSlugs": [
       "habitat-degradation"
     ],
-    "heroImage": "/marine_seagrass.jpg",
+    "heroImage": "/marine_seagrass.webp",
     "gallery": [
       {
-        "url": "/marine_seagrass.jpg",
+        "url": "/marine_seagrass.webp",
         "caption": "Sub-tidal seagrass meadow sampled for the blue carbon audit."
       },
       {
-        "url": "/jubaland.jpg",
+        "url": "/jubaland.webp",
         "caption": "Lower Juba Archipelago, the primary study area."
       },
       {
-        "url": "/marine_turtles.jpg",
+        "url": "/marine_turtles.webp",
         "caption": "A green sea turtle foraging within the surveyed meadow."
       }
     ],
@@ -668,7 +668,7 @@
         "slug": "ribbon-seagrass",
         "commonName": "Ribbon Seagrass",
         "scientificName": "Cymodocea serrulata",
-        "heroImage": "/marine_seagrass.jpg",
+        "heroImage": "/marine_seagrass.webp",
         "category": "Seagrass"
       },
       {
@@ -676,7 +676,7 @@
         "slug": "dugong",
         "commonName": "Dugong (Sea Cow)",
         "scientificName": "Dugong dugon",
-        "heroImage": "/marine_seagrass.jpg",
+        "heroImage": "/marine_seagrass.webp",
         "category": "Dolphins & Whales"
       }
     ],
@@ -687,7 +687,7 @@
         "title": "Somali Southern Coast Blue Carbon Sequestration & Soil Core Audit",
         "areaName": "Coastal Ecosystems",
         "status": "Active",
-        "heroImage": "/marine_seagrass.jpg",
+        "heroImage": "/marine_seagrass.webp",
         "summary": "Measuring carbon sequestration in seagrass meadows across the Lower Juba Archipelago as a blue carbon baseline."
       }
     ],
@@ -719,18 +719,18 @@
     "issueSlugs": [
       "unsustainable-fishing"
     ],
-    "heroImage": "/exp_dhow_sailing.jpg",
+    "heroImage": "/exp_dhow_sailing.webp",
     "gallery": [
       {
-        "url": "/exp_dhow_sailing.jpg",
+        "url": "/exp_dhow_sailing.webp",
         "caption": "Traditional handline fishing vessels in the certification pathway."
       },
       {
-        "url": "/marine_fish.jpg",
+        "url": "/marine_fish.webp",
         "caption": "Yellowfin tuna landed for biometric sampling."
       },
       {
-        "url": "/bosaso2.jpg",
+        "url": "/bosaso2.webp",
         "caption": "Bosaso fish market, a key landing and certification checkpoint."
       }
     ],
@@ -788,7 +788,7 @@
         "slug": "yellowfin-tuna",
         "commonName": "Yellowfin Tuna",
         "scientificName": "Thunnus albacares",
-        "heroImage": "/exp_coral_snorkeling.jpg",
+        "heroImage": "/exp_coral_snorkeling.webp",
         "category": "Fish"
       }
     ],
@@ -799,7 +799,7 @@
         "title": "Somali EEZ Pelagic Tuna Stock Assessment & Genetic Mapping",
         "areaName": "Fisheries Science",
         "status": "Published",
-        "heroImage": "/marine_fish.jpg",
+        "heroImage": "/marine_fish.webp",
         "summary": "A completed stock assessment and genetic mapping study of yellowfin tuna across Somalia’s Exclusive Economic Zone."
       }
     ],
@@ -810,7 +810,7 @@
         "name": "Bosaso Fishing Cooperative",
         "category": "fishermen",
         "location": "Bosaso, Bari Region",
-        "heroImage": "/bosaso1.jpg"
+        "heroImage": "/bosaso1.webp"
       }
     ],
     "issues": [
@@ -840,18 +840,18 @@
     "issueSlugs": [
       "unsustainable-fishing"
     ],
-    "heroImage": "/exp_coastal_cliff.jpg",
+    "heroImage": "/exp_coastal_cliff.webp",
     "gallery": [
       {
-        "url": "/exp_coastal_cliff.jpg",
+        "url": "/exp_coastal_cliff.webp",
         "caption": "Limestone escarpments where the lobster study was conducted."
       },
       {
-        "url": "/eyl1.jpg",
+        "url": "/eyl1.webp",
         "caption": "Eyl, a primary artisanal lobster landing site."
       },
       {
-        "url": "/exp_scuba_diving.jpg",
+        "url": "/exp_scuba_diving.webp",
         "caption": "Survey diver documenting lobster density in reef crevices."
       }
     ],
@@ -909,7 +909,7 @@
         "slug": "spiny-lobster",
         "commonName": "Somali Spiny Lobster",
         "scientificName": "Panulirus homarus",
-        "heroImage": "/exp_coastal_cliff.jpg",
+        "heroImage": "/exp_coastal_cliff.webp",
         "category": "Crustaceans"
       }
     ],
@@ -920,7 +920,7 @@
         "title": "Horn of Africa Spiny Lobster Biomass & Catch-Per-Unit-Effort Study",
         "areaName": "Fisheries Science",
         "status": "Completed",
-        "heroImage": "/exp_coastal_cliff.jpg",
+        "heroImage": "/exp_coastal_cliff.webp",
         "summary": "A completed biomass and catch-effort study of spiny lobster fisheries across the Eyl and Hafun escarpments."
       }
     ],
@@ -931,7 +931,7 @@
         "name": "Eyl Traditional Knowledge Keepers",
         "category": "traditional-knowledge",
         "location": "Eyl, Bari Region",
-        "heroImage": "/eyl1.jpg"
+        "heroImage": "/eyl1.webp"
       }
     ],
     "issues": [
@@ -962,18 +962,18 @@
       "plastic-pollution",
       "water-quality"
     ],
-    "heroImage": "/con_beach_cleanup.jpg",
+    "heroImage": "/con_beach_cleanup.webp",
     "gallery": [
       {
-        "url": "/con_beach_cleanup.jpg",
+        "url": "/con_beach_cleanup.webp",
         "caption": "Community debris sorting during a beach survey."
       },
       {
-        "url": "/mogadishu_beach.jpg",
+        "url": "/mogadishu_beach.webp",
         "caption": "Liido Beach, one of two sites in the debris survey."
       },
       {
-        "url": "/jubaland.jpg",
+        "url": "/jubaland.webp",
         "caption": "Kismayo coastline surveyed for debris density."
       }
     ],
@@ -1018,7 +1018,7 @@
         "title": "Southern Coast Marine Debris & Microplastics Mapping",
         "areaName": "Ocean Pollution",
         "status": "Active",
-        "heroImage": "/con_beach_cleanup.jpg",
+        "heroImage": "/con_beach_cleanup.webp",
         "summary": "Community-partnered mapping of marine debris and microplastic contamination along Kismayo and Liido Beach."
       }
     ],
@@ -1055,18 +1055,18 @@
     "issueSlugs": [
       "plastic-pollution"
     ],
-    "heroImage": "/con_beach_cleanup.jpg",
+    "heroImage": "/con_beach_cleanup.webp",
     "gallery": [
       {
-        "url": "/con_beach_cleanup.jpg",
+        "url": "/con_beach_cleanup.webp",
         "caption": "Volunteers sorting collected debris by category."
       },
       {
-        "url": "/mogadishu_beach.jpg",
+        "url": "/mogadishu_beach.webp",
         "caption": "Liido Beach, a recurring cleanup site."
       },
       {
-        "url": "/jubaland.jpg",
+        "url": "/jubaland.webp",
         "caption": "Kismayo shoreline, the network's southern site."
       }
     ],
@@ -1113,7 +1113,7 @@
         "title": "Southern Coast Marine Debris & Microplastics Mapping",
         "areaName": "Ocean Pollution",
         "status": "Active",
-        "heroImage": "/con_beach_cleanup.jpg",
+        "heroImage": "/con_beach_cleanup.webp",
         "summary": "Community-partnered mapping of marine debris and microplastic contamination along Kismayo and Liido Beach."
       }
     ],
@@ -1124,7 +1124,7 @@
         "name": "Mogadishu Coastal Business Alliance",
         "category": "coastal-business",
         "location": "Mogadishu, Banaadir",
-        "heroImage": "/mogadishu_beach.jpg"
+        "heroImage": "/mogadishu_beach.webp"
       }
     ],
     "issues": [
@@ -1155,18 +1155,18 @@
       "water-quality",
       "low-awareness"
     ],
-    "heroImage": "/con_youth_education.jpg",
+    "heroImage": "/con_youth_education.webp",
     "gallery": [
       {
-        "url": "/con_youth_education.jpg",
+        "url": "/con_youth_education.webp",
         "caption": "A coastal ocean-literacy session with local students."
       },
       {
-        "url": "/mogadishu_beach.jpg",
+        "url": "/mogadishu_beach.webp",
         "caption": "Liido Beach, the primary continuous monitoring site."
       },
       {
-        "url": "/somalia_coast.jpg",
+        "url": "/somalia_coast.webp",
         "caption": "Banaadir coastal waters covered by the guidance program."
       }
     ],
@@ -1214,7 +1214,7 @@
         "title": "Banaadir Coastal Water Quality & Oceanographic Monitoring",
         "areaName": "Water Quality",
         "status": "Active",
-        "heroImage": "/mogadishu_beach.jpg",
+        "heroImage": "/mogadishu_beach.webp",
         "summary": "Continuous monitoring of salinity, dissolved oxygen, and temperature along Mogadishu’s urban coastline."
       }
     ],
@@ -1225,7 +1225,7 @@
         "name": "Mogadishu Coastal Business Alliance",
         "category": "coastal-business",
         "location": "Mogadishu, Banaadir",
-        "heroImage": "/mogadishu_beach.jpg"
+        "heroImage": "/mogadishu_beach.webp"
       },
       {
         "id": "hafun-youth-beach-guardians",
@@ -1233,7 +1233,7 @@
         "name": "Hafun Youth Beach Guardians",
         "category": "youth",
         "location": "Hafun, Bari Region",
-        "heroImage": "/hafun1.jpg"
+        "heroImage": "/hafun1.webp"
       }
     ],
     "issues": [
@@ -1269,18 +1269,18 @@
       "wildlife-trade",
       "habitat-degradation"
     ],
-    "heroImage": "/marine_turtles.jpg",
+    "heroImage": "/marine_turtles.webp",
     "gallery": [
       {
-        "url": "/marine_turtles.jpg",
+        "url": "/marine_turtles.webp",
         "caption": "A green sea turtle grazing on seagrass in the Bajuni shallows."
       },
       {
-        "url": "/hafun2.jpg",
+        "url": "/hafun2.webp",
         "caption": "Hafun tombolo beach, one of two rookeries monitored by guardians."
       },
       {
-        "url": "/con_youth_education.jpg",
+        "url": "/con_youth_education.webp",
         "caption": "Beach guardian training session."
       }
     ],
@@ -1339,7 +1339,7 @@
         "slug": "green-sea-turtle",
         "commonName": "Green Sea Turtle",
         "scientificName": "Chelonia mydas",
-        "heroImage": "/marine_turtles.jpg",
+        "heroImage": "/marine_turtles.webp",
         "category": "Sea Turtles"
       },
       {
@@ -1347,7 +1347,7 @@
         "slug": "hawksbill-turtle",
         "commonName": "Hawksbill Sea Turtle",
         "scientificName": "Eretmochelys imbricata",
-        "heroImage": "/marine_turtles.jpg",
+        "heroImage": "/marine_turtles.webp",
         "category": "Sea Turtles"
       }
     ],
@@ -1358,7 +1358,7 @@
         "title": "Indian Ocean Sea Turtle Satellite Telemetry & Nest Monitoring",
         "areaName": "Sea Turtle Research",
         "status": "Active",
-        "heroImage": "/marine_turtles.jpg",
+        "heroImage": "/marine_turtles.webp",
         "summary": "Satellite tracking and nest monitoring of green sea turtles across the Hafun and Bajuni nesting rookeries."
       }
     ],
@@ -1369,7 +1369,7 @@
         "name": "Hafun Youth Beach Guardians",
         "category": "youth",
         "location": "Hafun, Bari Region",
-        "heroImage": "/hafun1.jpg"
+        "heroImage": "/hafun1.webp"
       }
     ],
     "issues": [

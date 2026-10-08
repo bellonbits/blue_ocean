@@ -17,18 +17,18 @@
     "duration": "Full Day",
     "difficulty": "Easy — All Ages",
     "bestSeason": "October – April",
-    "heroImage": "/exp_dhow_sailing.jpg",
+    "heroImage": "/exp_dhow_sailing.webp",
     "gallery": [
       {
-        "url": "/exp_dhow_sailing.jpg",
+        "url": "/exp_dhow_sailing.webp",
         "caption": "Traditional dhow under sail off the Bosaso coastline."
       },
       {
-        "url": "/bosaso2.jpg",
+        "url": "/bosaso2.webp",
         "caption": "Bosaso harbor, home port for coastal dhow voyages."
       },
       {
-        "url": "/marine_dolphins.jpg",
+        "url": "/marine_dolphins.webp",
         "caption": "Resident dolphin pods often accompany dhow crossings."
       }
     ],
@@ -61,7 +61,7 @@
         "name": "Bosaso",
         "region": "Puntland",
         "tagline": "Where the rugged Karkaar mountains meet the deep waters of the Gulf of Aden.",
-        "heroImage": "/bosaso2.jpg"
+        "heroImage": "/bosaso2.webp"
       },
       {
         "id": "kismayo",
@@ -69,7 +69,7 @@
         "name": "Kismayo",
         "region": "Jubaland",
         "tagline": "Southern Somalia’s premier ocean city, surrounded by white sand beaches and mangrove estuaries.",
-        "heroImage": "/jubaland.jpg"
+        "heroImage": "/jubaland.webp"
       },
       {
         "id": "mogadishu",
@@ -77,7 +77,7 @@
         "name": "Mogadishu",
         "region": "Somalia",
         "tagline": "The historic White Pearl of the Indian Ocean, alive with vibrant coastal life.",
-        "heroImage": "/mogadishu_beach.jpg"
+        "heroImage": "/mogadishu_beach.webp"
       }
     ],
     "marineSpecies": [
@@ -86,7 +86,7 @@
         "slug": "bottlenose-dolphin",
         "commonName": "Bottlenose Dolphin",
         "scientificName": "Tursiops truncatus",
-        "heroImage": "/marine_dolphins.jpg",
+        "heroImage": "/marine_dolphins.webp",
         "category": "Dolphins & Whales",
         "conservationStatus": "Least Concern"
       },
@@ -95,7 +95,7 @@
         "slug": "yellowfin-tuna",
         "commonName": "Yellowfin Tuna",
         "scientificName": "Thunnus albacares",
-        "heroImage": "/exp_coral_snorkeling.jpg",
+        "heroImage": "/exp_coral_snorkeling.webp",
         "category": "Fish",
         "conservationStatus": "Near Threatened"
       }
@@ -139,18 +139,18 @@
     "duration": "Half Day",
     "difficulty": "Easy — Beginner Friendly",
     "bestSeason": "November – March",
-    "heroImage": "/exp_coral_snorkeling.jpg",
+    "heroImage": "/exp_coral_snorkeling.webp",
     "gallery": [
       {
-        "url": "/exp_coral_snorkeling.jpg",
+        "url": "/exp_coral_snorkeling.webp",
         "caption": "Snorkeler above a shallow coral garden in the Bajuni Atolls."
       },
       {
-        "url": "/marine_coral.jpg",
+        "url": "/marine_coral.webp",
         "caption": "Branching and table coral formations near the reef crest."
       },
       {
-        "url": "/jubaland.jpg",
+        "url": "/jubaland.webp",
         "caption": "The sheltered lagoons of the Jubaland archipelago."
       }
     ],
@@ -192,7 +192,7 @@
         "name": "Kismayo",
         "region": "Jubaland",
         "tagline": "Southern Somalia’s premier ocean city, surrounded by white sand beaches and mangrove estuaries.",
-        "heroImage": "/jubaland.jpg"
+        "heroImage": "/jubaland.webp"
       },
       {
         "id": "qandala",
@@ -200,7 +200,7 @@
         "name": "Qandala",
         "region": "Puntland",
         "tagline": "A natural mountain cove renowned for frankincense exports and natural thermal springs.",
-        "heroImage": "/qandala_main.jpg"
+        "heroImage": "/qandala_main.webp"
       }
     ],
     "marineSpecies": [
@@ -209,7 +209,7 @@
         "slug": "acropora-coral",
         "commonName": "Staghorn & Table Coral",
         "scientificName": "Acropora muricata",
-        "heroImage": "/marine_coral.jpg",
+        "heroImage": "/marine_coral.webp",
         "category": "Coral Reefs",
         "conservationStatus": "Vulnerable"
       },
@@ -218,7 +218,7 @@
         "slug": "giant-clam",
         "commonName": "Fluted Giant Clam",
         "scientificName": "Tridacna squamosa",
-        "heroImage": "/marine_coral.jpg",
+        "heroImage": "/marine_coral.webp",
         "category": "Other Marine Life",
         "conservationStatus": "Vulnerable"
       },
@@ -227,7 +227,7 @@
         "slug": "hawksbill-turtle",
         "commonName": "Hawksbill Sea Turtle",
         "scientificName": "Eretmochelys imbricata",
-        "heroImage": "/marine_turtles.jpg",
+        "heroImage": "/marine_turtles.webp",
         "category": "Sea Turtles",
         "conservationStatus": "Critically Endangered"
       }
@@ -271,18 +271,18 @@
     "duration": "5 Days",
     "difficulty": "Advanced — Certified Divers",
     "bestSeason": "December – April",
-    "heroImage": "/exp_scuba_diving.jpg",
+    "heroImage": "/exp_scuba_diving.webp",
     "gallery": [
       {
-        "url": "/exp_scuba_diving.jpg",
+        "url": "/exp_scuba_diving.webp",
         "caption": "Divers along a pelagic drop-off in the Guardafui Channel."
       },
       {
-        "url": "/marine_sharks.jpg",
+        "url": "/marine_sharks.webp",
         "caption": "Whale sharks feeding in the seasonal upwelling zone."
       },
       {
-        "url": "/hafun2.jpg",
+        "url": "/hafun2.webp",
         "caption": "The Hafun Peninsula, gateway to the deep pelagic shelf."
       }
     ],
@@ -315,7 +315,7 @@
         "name": "Bosaso",
         "region": "Puntland",
         "tagline": "Where the rugged Karkaar mountains meet the deep waters of the Gulf of Aden.",
-        "heroImage": "/bosaso2.jpg"
+        "heroImage": "/bosaso2.webp"
       },
       {
         "id": "hafun",
@@ -323,7 +323,7 @@
         "name": "Hafun",
         "region": "Puntland",
         "tagline": "The easternmost projection of the African continent jutting 40 km into the Indian Ocean.",
-        "heroImage": "/hafun2.jpg"
+        "heroImage": "/hafun2.webp"
       },
       {
         "id": "bargaal",
@@ -331,7 +331,7 @@
         "name": "Bargaal",
         "region": "Puntland",
         "tagline": "A lush date palm oasis set against ancient coral terraces and cobalt seas.",
-        "heroImage": "/bargaal_main.jpg"
+        "heroImage": "/bargaal_main.webp"
       }
     ],
     "marineSpecies": [
@@ -340,7 +340,7 @@
         "slug": "whale-shark",
         "commonName": "Whale Shark",
         "scientificName": "Rhincodon typus",
-        "heroImage": "/marine_sharks.jpg",
+        "heroImage": "/marine_sharks.webp",
         "category": "Sharks & Rays",
         "conservationStatus": "Endangered"
       },
@@ -349,7 +349,7 @@
         "slug": "manta-ray",
         "commonName": "Oceanic Manta Ray",
         "scientificName": "Mobula birostris",
-        "heroImage": "/exp_scuba_diving.jpg",
+        "heroImage": "/exp_scuba_diving.webp",
         "category": "Sharks & Rays",
         "conservationStatus": "Endangered"
       }
@@ -393,18 +393,18 @@
     "duration": "2 Days",
     "difficulty": "Moderate",
     "bestSeason": "November – April",
-    "heroImage": "/marine_fish.jpg",
+    "heroImage": "/marine_fish.webp",
     "gallery": [
       {
-        "url": "/marine_fish.jpg",
+        "url": "/marine_fish.webp",
         "caption": "Yellowfin tuna landed using traditional handline methods."
       },
       {
-        "url": "/exp_dhow_sailing.jpg",
+        "url": "/exp_dhow_sailing.webp",
         "caption": "Fishing dhows departing at dawn from Bargaal."
       },
       {
-        "url": "/bargaal_main.jpg",
+        "url": "/bargaal_main.webp",
         "caption": "The Bargaal coastline, home to generations of artisanal fishermen."
       }
     ],
@@ -437,7 +437,7 @@
         "name": "Bargaal",
         "region": "Puntland",
         "tagline": "A lush date palm oasis set against ancient coral terraces and cobalt seas.",
-        "heroImage": "/bargaal_main.jpg"
+        "heroImage": "/bargaal_main.webp"
       },
       {
         "id": "eyl",
@@ -445,7 +445,7 @@
         "name": "Eyl",
         "region": "Puntland",
         "tagline": "A breathtaking valley gorge cutting through high plateaus to meet the open Indian Ocean.",
-        "heroImage": "/eyl1.jpg"
+        "heroImage": "/eyl1.webp"
       },
       {
         "id": "bosaso",
@@ -453,7 +453,7 @@
         "name": "Bosaso",
         "region": "Puntland",
         "tagline": "Where the rugged Karkaar mountains meet the deep waters of the Gulf of Aden.",
-        "heroImage": "/bosaso2.jpg"
+        "heroImage": "/bosaso2.webp"
       }
     ],
     "marineSpecies": [
@@ -462,7 +462,7 @@
         "slug": "yellowfin-tuna",
         "commonName": "Yellowfin Tuna",
         "scientificName": "Thunnus albacares",
-        "heroImage": "/exp_coral_snorkeling.jpg",
+        "heroImage": "/exp_coral_snorkeling.webp",
         "category": "Fish",
         "conservationStatus": "Near Threatened"
       },
@@ -471,7 +471,7 @@
         "slug": "spiny-lobster",
         "commonName": "Somali Spiny Lobster",
         "scientificName": "Panulirus homarus",
-        "heroImage": "/exp_coastal_cliff.jpg",
+        "heroImage": "/exp_coastal_cliff.webp",
         "category": "Crustaceans",
         "conservationStatus": "Least Concern"
       }
@@ -509,18 +509,18 @@
     "duration": "4 Days",
     "difficulty": "Moderate — Adventure",
     "bestSeason": "October – March",
-    "heroImage": "/jubaland.jpg",
+    "heroImage": "/jubaland.webp",
     "gallery": [
       {
-        "url": "/jubaland.jpg",
+        "url": "/jubaland.webp",
         "caption": "Remote coral islands of the Bajuni Archipelago."
       },
       {
-        "url": "/marine_turtles.jpg",
+        "url": "/marine_turtles.webp",
         "caption": "Sea turtles nesting on undisturbed island beaches."
       },
       {
-        "url": "/marine_seagrass.jpg",
+        "url": "/marine_seagrass.webp",
         "caption": "Sheltered seagrass lagoons between the islands."
       }
     ],
@@ -561,7 +561,7 @@
         "name": "Kismayo",
         "region": "Jubaland",
         "tagline": "Southern Somalia’s premier ocean city, surrounded by white sand beaches and mangrove estuaries.",
-        "heroImage": "/jubaland.jpg"
+        "heroImage": "/jubaland.webp"
       },
       {
         "id": "ras-kamboni",
@@ -578,7 +578,7 @@
         "slug": "dugong",
         "commonName": "Dugong (Sea Cow)",
         "scientificName": "Dugong dugon",
-        "heroImage": "/marine_seagrass.jpg",
+        "heroImage": "/marine_seagrass.webp",
         "category": "Dolphins & Whales",
         "conservationStatus": "Vulnerable"
       },
@@ -587,7 +587,7 @@
         "slug": "green-sea-turtle",
         "commonName": "Green Sea Turtle",
         "scientificName": "Chelonia mydas",
-        "heroImage": "/marine_turtles.jpg",
+        "heroImage": "/marine_turtles.webp",
         "category": "Sea Turtles",
         "conservationStatus": "Endangered"
       }
@@ -625,18 +625,18 @@
     "duration": "Half Day",
     "difficulty": "Easy",
     "bestSeason": "October – May",
-    "heroImage": "/marine_dolphins.jpg",
+    "heroImage": "/marine_dolphins.webp",
     "gallery": [
       {
-        "url": "/marine_dolphins.jpg",
+        "url": "/marine_dolphins.webp",
         "caption": "Spinner dolphins riding the bow wake in the Gulf of Aden."
       },
       {
-        "url": "/exp_coastal_cliff.jpg",
+        "url": "/exp_coastal_cliff.webp",
         "caption": "Humpback whales breaching off the Bari coastal cliffs."
       },
       {
-        "url": "/somalia_coast.jpg",
+        "url": "/somalia_coast.webp",
         "caption": "Deep coastal waters along the migration corridor."
       }
     ],
@@ -669,7 +669,7 @@
         "name": "Bosaso",
         "region": "Puntland",
         "tagline": "Where the rugged Karkaar mountains meet the deep waters of the Gulf of Aden.",
-        "heroImage": "/bosaso2.jpg"
+        "heroImage": "/bosaso2.webp"
       },
       {
         "id": "eyl",
@@ -677,7 +677,7 @@
         "name": "Eyl",
         "region": "Puntland",
         "tagline": "A breathtaking valley gorge cutting through high plateaus to meet the open Indian Ocean.",
-        "heroImage": "/eyl1.jpg"
+        "heroImage": "/eyl1.webp"
       },
       {
         "id": "hafun",
@@ -685,7 +685,7 @@
         "name": "Hafun",
         "region": "Puntland",
         "tagline": "The easternmost projection of the African continent jutting 40 km into the Indian Ocean.",
-        "heroImage": "/hafun2.jpg"
+        "heroImage": "/hafun2.webp"
       }
     ],
     "marineSpecies": [
@@ -694,7 +694,7 @@
         "slug": "bottlenose-dolphin",
         "commonName": "Bottlenose Dolphin",
         "scientificName": "Tursiops truncatus",
-        "heroImage": "/marine_dolphins.jpg",
+        "heroImage": "/marine_dolphins.webp",
         "category": "Dolphins & Whales",
         "conservationStatus": "Least Concern"
       },
@@ -703,7 +703,7 @@
         "slug": "humpback-whale",
         "commonName": "Humpback Whale",
         "scientificName": "Megaptera novaeangliae",
-        "heroImage": "/exp_coastal_cliff.jpg",
+        "heroImage": "/exp_coastal_cliff.webp",
         "category": "Dolphins & Whales",
         "conservationStatus": "Least Concern"
       }
@@ -747,18 +747,18 @@
     "duration": "6 Days",
     "difficulty": "Moderate",
     "bestSeason": "All Seasons",
-    "heroImage": "/marine_coral.jpg",
+    "heroImage": "/marine_coral.webp",
     "gallery": [
       {
-        "url": "/marine_coral.jpg",
+        "url": "/marine_coral.webp",
         "caption": "Coral garden photography subjects in the Bajuni Archipelago."
       },
       {
-        "url": "/exp_scuba_diving.jpg",
+        "url": "/exp_scuba_diving.webp",
         "caption": "Underwater photographers documenting a reef drop-off."
       },
       {
-        "url": "/marine_turtles.jpg",
+        "url": "/marine_turtles.webp",
         "caption": "Sea turtles are among the archipelago’s signature subjects."
       }
     ],
@@ -792,7 +792,7 @@
         "name": "Kismayo",
         "region": "Jubaland",
         "tagline": "Southern Somalia’s premier ocean city, surrounded by white sand beaches and mangrove estuaries.",
-        "heroImage": "/jubaland.jpg"
+        "heroImage": "/jubaland.webp"
       },
       {
         "id": "bajuni-islands",
@@ -808,7 +808,7 @@
         "name": "Qandala",
         "region": "Puntland",
         "tagline": "A natural mountain cove renowned for frankincense exports and natural thermal springs.",
-        "heroImage": "/qandala_main.jpg"
+        "heroImage": "/qandala_main.webp"
       }
     ],
     "marineSpecies": [
@@ -817,7 +817,7 @@
         "slug": "acropora-coral",
         "commonName": "Staghorn & Table Coral",
         "scientificName": "Acropora muricata",
-        "heroImage": "/marine_coral.jpg",
+        "heroImage": "/marine_coral.webp",
         "category": "Coral Reefs",
         "conservationStatus": "Vulnerable"
       },
@@ -826,7 +826,7 @@
         "slug": "green-sea-turtle",
         "commonName": "Green Sea Turtle",
         "scientificName": "Chelonia mydas",
-        "heroImage": "/marine_turtles.jpg",
+        "heroImage": "/marine_turtles.webp",
         "category": "Sea Turtles",
         "conservationStatus": "Endangered"
       },
@@ -835,7 +835,7 @@
         "slug": "manta-ray",
         "commonName": "Oceanic Manta Ray",
         "scientificName": "Mobula birostris",
-        "heroImage": "/exp_scuba_diving.jpg",
+        "heroImage": "/exp_scuba_diving.webp",
         "category": "Sharks & Rays",
         "conservationStatus": "Endangered"
       }
@@ -879,18 +879,18 @@
     "duration": "3 Days",
     "difficulty": "Moderate — Fitness Required",
     "bestSeason": "October – April",
-    "heroImage": "/exp_coastal_cliff.jpg",
+    "heroImage": "/exp_coastal_cliff.webp",
     "gallery": [
       {
-        "url": "/exp_coastal_cliff.jpg",
+        "url": "/exp_coastal_cliff.webp",
         "caption": "Karkaar limestone cliffs meeting the Gulf of Aden."
       },
       {
-        "url": "/qandala_main.jpg",
+        "url": "/qandala_main.webp",
         "caption": "Coastal bluffs near Qandala along the trekking route."
       },
       {
-        "url": "/bargaal_main.jpg",
+        "url": "/bargaal_main.webp",
         "caption": "Hidden coves accessible only by clifftop trail."
       }
     ],
@@ -923,7 +923,7 @@
         "name": "Bargaal",
         "region": "Puntland",
         "tagline": "A lush date palm oasis set against ancient coral terraces and cobalt seas.",
-        "heroImage": "/bargaal_main.jpg"
+        "heroImage": "/bargaal_main.webp"
       },
       {
         "id": "qandala",
@@ -931,7 +931,7 @@
         "name": "Qandala",
         "region": "Puntland",
         "tagline": "A natural mountain cove renowned for frankincense exports and natural thermal springs.",
-        "heroImage": "/qandala_main.jpg"
+        "heroImage": "/qandala_main.webp"
       },
       {
         "id": "hafun",
@@ -939,7 +939,7 @@
         "name": "Hafun",
         "region": "Puntland",
         "tagline": "The easternmost projection of the African continent jutting 40 km into the Indian Ocean.",
-        "heroImage": "/hafun2.jpg"
+        "heroImage": "/hafun2.webp"
       }
     ],
     "marineSpecies": [
@@ -948,7 +948,7 @@
         "slug": "spiny-lobster",
         "commonName": "Somali Spiny Lobster",
         "scientificName": "Panulirus homarus",
-        "heroImage": "/exp_coastal_cliff.jpg",
+        "heroImage": "/exp_coastal_cliff.webp",
         "category": "Crustaceans",
         "conservationStatus": "Least Concern"
       },
@@ -957,7 +957,7 @@
         "slug": "hawksbill-turtle",
         "commonName": "Hawksbill Sea Turtle",
         "scientificName": "Eretmochelys imbricata",
-        "heroImage": "/marine_turtles.jpg",
+        "heroImage": "/marine_turtles.webp",
         "category": "Sea Turtles",
         "conservationStatus": "Critically Endangered"
       }

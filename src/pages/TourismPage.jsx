@@ -47,8 +47,8 @@ export default function TourismPage() {
         ? 'Halka ilaha biyaha macaan ay kaga soo daraan badda buluugga ah ee Badweynta Hindiya, oo leh daaradaha qadiimiga ah.'
         : 'Where crystal freshwater springs cascade through sheer limestone canyon gorges directly into the cobalt swells of the Indian Ocean.',
       link: '/explore-the-coast/eyl',
-      image: '/images/img_03.png',
-      avatar: '/images/img_03.png',
+      image: '/images/img_03.webp',
+      avatar: '/images/img_03.webp',
       author: isSomali ? 'Dooxada Eyl' : 'Dooxada Eyl Haven',
       authorMeta: isSomali ? 'Xeebta Nugaal • Badweynta Hindiya' : 'Nugaal Coast, Indian Ocean • 07°58′N 49°49′E',
     },
@@ -62,8 +62,8 @@ export default function TourismPage() {
         ? 'Gacanka caanka ah ee ku yaal geeska ugu fog ee bariga qaaradda Afrika, halkaas oo ay isku galaan labada badood.'
         : "Africa's easternmost continental peninsula where monsoon sea breezes connect Africa, Arabia, and Asia.",
       link: '/explore-the-coast/hafun',
-      image: '/images/img_01.png',
-      avatar: '/images/img_01.png',
+      image: '/images/img_01.webp',
+      avatar: '/images/img_01.webp',
       author: isSomali ? 'Raas Xaafuun' : 'Ras Hafun Headlands',
       authorMeta: isSomali ? 'Geeska Afrika • Badweynta Hindiya' : 'Horn of Africa Continental Shelf • 10°25′N 51°16′E',
     },
@@ -77,8 +77,8 @@ export default function TourismPage() {
         ? 'Jasiirado qadiimi ah oo leh biyaha ugu nadiifsan, doonyaha dhowka ee dhaqanka, iyo qoolleyda cagaaran ee badda.'
         : 'Secluded coral islands, crystal turquoise lagoons, traditional Somali dhow maritime voyages, and turtle hatcheries.',
       link: '/explore-the-coast/kismayo',
-      image: '/images/img_05.png',
-      avatar: '/images/img_05.png',
+      image: '/images/img_05.webp',
+      avatar: '/images/img_05.webp',
       author: isSomali ? 'Jasiiradaha Baajuun' : 'Bajuni Archipelago',
       authorMeta: isSomali ? 'Xeebta Kismaayo • Badweynta Hindiya' : 'Kismayo Coastal District • 00°21′S 42°32′E',
     },
@@ -92,8 +92,8 @@ export default function TourismPage() {
         ? 'Biyo deggan oo ku habboon dabaasha, dalxiiska doonyaha, iyo daawashada noolaha badda ee Gacanka Cadmeed.'
         : 'Calm turquoise waters, seasonal whale shark watching, artisanal dhows, and scenic boat expeditions along the Gulf of Aden.',
       link: '/explore-the-coast/bosaso',
-      image: '/images/img_02.png',
-      avatar: '/images/img_02.png',
+      image: '/images/img_02.webp',
+      avatar: '/images/img_02.webp',
       author: isSomali ? 'Boosaaso' : 'Bosaso Marine Haven',
       authorMeta: isSomali ? 'Gacanka Cadmeed • Puntland' : 'Gulf of Aden Pelagic Waters • 11°17′N 49°11′E',
     },
@@ -107,8 +107,8 @@ export default function TourismPage() {
         ? 'Xeebta caanka ah ee dalka, makhaayadaha badda, iyo qorrax-u-dhaca cajiibka ah ee Badweynta Hindiya.'
         : 'Somalias iconic vibrant promenade, fresh coastal seafood, warm surf, and golden sunset horizons over the Indian Ocean.',
       link: '/explore-the-coast/mogadishu',
-      image: '/images/image.png',
-      avatar: '/images/image.png',
+      image: '/images/image.webp',
+      avatar: '/images/image.webp',
       author: isSomali ? 'Xeebta Liido' : 'Banadir Seashore',
       authorMeta: isSomali ? 'Muqdisho • Badweynta Hindiya' : 'Mogadishu Coastal Haven • 02°02′N 45°21′E',
     },
@@ -121,7 +121,7 @@ export default function TourismPage() {
       desc: isSomali
         ? 'Biyo deggan oo ku habboon dabaasha, dalxiiska doonyaha, iyo daawashada noolaha badda ee Gacanka Cadmeed.'
         : 'Calm turquoise waters, seasonal whale shark watching, and scenic boat expeditions along the Gulf of Aden.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/explore-the-coast/bosaso',
     },
     {
@@ -130,7 +130,7 @@ export default function TourismPage() {
       desc: isSomali
         ? 'Jasiirado qurux badan, carwooyinka dhagaxleyda badda, iyo xeebaha cad ee aan cidina dhibin.'
         : 'Untouched white sands, protected green turtle sanctuaries, and ancestral Swahili-Somali island villages.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/explore-the-coast/kismayo',
     },
     {
@@ -139,7 +139,7 @@ export default function TourismPage() {
       desc: isSomali
         ? 'Dhul qadiimi ah oo taariikhi ah, buuro dhaadheer oo badda dhex maquura, iyo kalluumeysi dabiici ah.'
         : 'Dramatic cliffs dropping into deep cobalt seas, historical trade ruins, and pristine coastal ecosystems.',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/explore-the-coast/hafun',
     },
     {
@@ -148,7 +148,7 @@ export default function TourismPage() {
       desc: isSomali
         ? 'Dooxo qurxoon oo webi iyo bad isku furan yihiin, qalcadihii taariikhiga ahaa ee Sayidka, iyo xeeb deggan.'
         : 'Historic coastal fortresses, dramatic canyons, and natural ocean pools with lush palm groves.',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
       link: '/explore-the-coast/eyl',
     },
     {
@@ -157,7 +157,7 @@ export default function TourismPage() {
       desc: isSomali
         ? 'Xeebta caanka ah ee dalka, makhaayadaha badda, iyo qorrax-u-dhaca cajiibka ah ee Badweynta Hindiya.'
         : 'Somalias iconic vibrant promenade, fresh coastal seafood, warm surf, and golden sunset horizons.',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       link: '/explore-the-coast/mogadishu',
     },
     {
@@ -166,7 +166,7 @@ export default function TourismPage() {
       desc: isSomali
         ? 'Jasiiradaha Saacaddiin iyo Ceebaad, biyo gacameed gacale ah, iyo hugaamo badda oo aan caadi ahayn.'
         : 'Sa’ad ad-Din coral islands, ancient seafaring ruins, and emerald marine flats rich in sea birds and corals.',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/explore-the-coast/zeila',
     },
   ];
@@ -179,7 +179,7 @@ export default function TourismPage() {
       excerpt: isSomali
         ? 'Dadaallo lagu ballaarinayo hugaanta badda iyo ilaalinta noocyada dhifka ah ee ku nool Gacanka Cadmeed.'
         : 'Community-led coral restoration safeguarding critical nursery habitats and seasonal whale shark migrations.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/conservation',
     },
     {
@@ -189,7 +189,7 @@ export default function TourismPage() {
       excerpt: isSomali
         ? 'Diiwaangelinta qoolleyda badda, kaymaha mangrove-ka, iyo kalluunka qaniga ah ee xeebaha koonfureed.'
         : 'Comprehensive scientific documentation of sea turtle nesting grounds and pristine southern mangrove estuaries.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/research',
     },
     {
@@ -199,7 +199,7 @@ export default function TourismPage() {
       excerpt: isSomali
         ? 'Sahaminta barta ugu bariyesa qaaradda Afrika oo kumanaan sano xarun u ahayd ganacsiga badda caalamiga ah.'
         : 'Tracing ancient spice and incense trade routes on the continent’s easternmost windswept peninsula.',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/explore-the-coast/hafun',
     },
   ];
@@ -214,7 +214,7 @@ export default function TourismPage() {
       location: isSomali ? 'Saldhigga Boosaaso' : 'Bosaso Maritime Station',
       status: isSomali ? 'Hawlgal Furan' : 'Active Fieldwork',
       code: 'BS-01',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/research/projects',
     },
     {
@@ -226,7 +226,7 @@ export default function TourismPage() {
       location: isSomali ? 'Jasiiradaha Baajuun & Kismaayo' : 'Bajuni Islands & Kismayo',
       status: isSomali ? 'Bulshadu Ilaaliso' : 'Community Protected',
       code: 'BJ-04',
-      image: '/images/img_10.png',
+      image: '/images/img_10.webp',
       link: '/conservation/projects',
     },
     {
@@ -238,7 +238,7 @@ export default function TourismPage() {
       location: isSomali ? 'Xeebaha Soomaaliya oo dhan' : 'Somalia Coastline Wide',
       status: isSomali ? 'Tabarruc Furan' : 'Volunteer Open',
       code: 'CR-09',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/get-involved',
     },
   ];
@@ -255,7 +255,7 @@ export default function TourismPage() {
       <section className="portal-hero" aria-label="Somalia Coastal Tourism Hero">
         <div className="portal-hero__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Somalia's breathtaking 3,330 km coastline"
             className="portal-hero__bg"
           />
@@ -425,7 +425,7 @@ export default function TourismPage() {
           {/* Right: Stylized Interactive Coastal Map Card */}
           <div className="portal-about__map-card">
             <img
-              src="/images/image.png"
+              src="/images/image.webp"
               alt="Stylized map view of Somalia coastline"
               className="portal-about__map-img"
             />
@@ -646,16 +646,16 @@ export default function TourismPage() {
         {/* 4-Image Asymmetrical Mosaic */}
         <div className="portal-diaries-grid">
           <div className="portal-diary-item">
-            <img src="/images/image.png" alt="Aerial view of Somali coastline" />
+            <img src="/images/image.webp" alt="Aerial view of Somali coastline" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_02.png" alt="Clear turquoise coastal waters in Bosaso" />
+            <img src="/images/img_02.webp" alt="Clear turquoise coastal waters in Bosaso" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_01.png" alt="Ras Hafun dramatic cliffs and ocean" />
+            <img src="/images/img_01.webp" alt="Ras Hafun dramatic cliffs and ocean" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_05.png" alt="Bajuni islands coastal boat" />
+            <img src="/images/img_05.webp" alt="Bajuni islands coastal boat" />
           </div>
         </div>
 
@@ -671,7 +671,7 @@ export default function TourismPage() {
       <section className="portal-cta" aria-label="Call to Action">
         <div className="portal-cta__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Warm sunset over Somalia coastline"
             className="portal-cta__bg"
           />

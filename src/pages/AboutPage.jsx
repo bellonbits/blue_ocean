@@ -51,7 +51,7 @@ export default function AboutPage() {
         ? 'Xarunta ugu weyn ee Somalia Blue Heaven ee ku taal Gacanka Cadmeed, oo leh shaybaarro casri ah oo lagu baaro noolaha badda, tayada biyaha, iyo socdaalka libaax-badeedka.'
         : 'Northern headquarters anchoring Gulf of Aden acoustic telemetry, coral nursery tanks, water quality monitoring, and pelagic shark research.',
       link: '/explore-the-coast/bosaso',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
     },
     {
       tag: isSomali ? 'SALDHIGGA CIRIFKA BARIGA' : 'EASTERN CONTINENTAL OUTPOST',
@@ -62,7 +62,7 @@ export default function AboutPage() {
         ? 'Goobta ugu fog bariga qaaradda Afrika oo loo adeegsado la socodka nibiriyada waaweyn (Humpback Whales) iyo ilaalinta ukun-dhigashada qoolleyda badda.'
         : 'Strategic field post tracking deep Indian Ocean whale migration corridors and green turtle nesting populations across Africa’s easternmost tombolo.',
       link: '/explore-the-coast/hafun',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
     },
     {
       tag: isSomali ? 'XARUNTA SOOMALIA KOONFURTA' : 'SOUTHERN ATOLL STATION',
@@ -73,7 +73,7 @@ export default function AboutPage() {
         ? 'Saldhig u heellan dhowridda cawsduurka badda (seagrass), dugongs-ka dhifka ah, iyo wada-shaqeynta doonyaha shiraaca ee dhaqanka.'
         : 'Southern field station safeguarding critical blue carbon mangrove estuaries, dugong grazing pastures, and traditional dhow seafaring communities.',
       link: '/explore-the-coast/kismayo',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
     },
   ];
 
@@ -84,7 +84,7 @@ export default function AboutPage() {
       desc: isSomali
         ? 'Dabagalka, diiwaangelinta sawirrada, iyo ilaalinta libaax-badeedyada iyo noocyada kala duwan ee shark-ka ee Gacanka Cadmeed.'
         : 'Non-invasive acoustic telemetry, photo-ID cataloging, and migration tracking for whale sharks and oceanic pelagic species.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/research',
     },
     {
@@ -93,7 +93,7 @@ export default function AboutPage() {
       desc: isSomali
         ? 'Daraasadda adkeysiga shacaabka ee heerkulka biyaha iyo dib-u-beeridda dhagaxleyda xannaanada lagu koriyay.'
         : 'Mapping thermal tolerance thresholds, operating fragmentation nurseries, and restoring damaged coral barrier reefs.',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/conservation',
     },
     {
@@ -102,7 +102,7 @@ export default function AboutPage() {
       desc: isSomali
         ? 'Dhegeysiga dhawaqa nibiriyada (Humpback Whales) iyo dabagalka marinnada ay maraan geeska Afrika xilliyada qabowga.'
         : 'Hydrophone arrays recording humpback whale song, dolphin pods, and evaluating anthropogenic marine noise pollution.',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/research',
     },
     {
@@ -111,7 +111,7 @@ export default function AboutPage() {
       desc: isSomali
         ? 'Ilaalinta kaymaha difaaca xeebaha, cabbirka kaydinta kaarboonka, iyo badbaadada noocyada dugongs ee halista ku jira.'
         : 'Measuring blue carbon sequestered in southern estuaries, planting shoreline mangroves, and monitoring dugong habitats.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/conservation',
     },
     {
@@ -120,7 +120,7 @@ export default function AboutPage() {
       desc: isSomali
         ? 'Xoojinta kalluumeysatada gacanta, yareynta qasaaraha kalluunka, iyo joojinta shabaakadaha waxyeelada geysta.'
         : 'Empowering artisanal handline fleets with fair-trade standards, solar-drying tech, and participatory marine governance.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/communities',
     },
     {
@@ -129,7 +129,7 @@ export default function AboutPage() {
       desc: isSomali
         ? 'Tababaridda ardayda jaamacadaha Soomaaliya, barnaamijyada dugsiyada, iyo dhiirrigelinta jiilka mustaqbalka ee saynisyahannada.'
         : 'Field internships for Somali marine biology students, ocean literacy for schools, and community diver training.',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       link: '/about',
     },
   ];
@@ -142,7 +142,7 @@ export default function AboutPage() {
       excerpt: isSomali
         ? 'Mustaqbal ay badda Soomaaliya lagu fahmo saynis ahaan, lagu ilaaliyo caddaymo dhab ah, oo bulshooyinka xeebuhu si siman uga faa\'iidaystaan.'
         : 'A future where marine research is routine, conservation decisions are backed by rigorous science, and coastal communities flourish.',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       link: '/about',
     },
     {
@@ -152,7 +152,7 @@ export default function AboutPage() {
       excerpt: isSomali
         ? 'Dhisidda kaydka cilmi-baarista badda ee ugu weyn gobolka, si dalku u yeesho awood buuxda oo uu ku maareeyo 3,330 km oo xeeb ah.'
         : 'Generating primary datasets on fish stocks, coral bleaching resilience, and offshore currents to inform sovereign maritime policy.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/research',
     },
     {
@@ -162,7 +162,7 @@ export default function AboutPage() {
       excerpt: isSomali
         ? 'Ku xiridda saynisyahannada Soomaaliyeed shabakadaha caalamiga ah ee daraaseeya cimilada, badda, iyo badbaadada noolaha.'
         : 'Collaborating with regional institutions to ensure Somalia’s waters are integrated into broader climate and biodiversity agendas.',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/conservation',
     },
   ];
@@ -177,7 +177,7 @@ export default function AboutPage() {
       location: isSomali ? 'Boosaaso, Muqdisho & Kismaayo' : 'Bosaso, Mogadishu & Kismayo',
       status: isSomali ? 'Heshiis Qaran' : 'National Accord',
       code: 'ACCORD-01',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/conservation',
     },
     {
@@ -189,7 +189,7 @@ export default function AboutPage() {
       location: isSomali ? 'Jaamacadaha Dalka' : 'Somali Universities Network',
       status: isSomali ? 'Waxbarasho Furan' : 'Fellowship Open',
       code: 'FELLOW-03',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       link: '/research',
     },
     {
@@ -201,7 +201,7 @@ export default function AboutPage() {
       location: isSomali ? 'Biyaha Dhaqaalaha ee Soomaaliya' : 'Somali EEZ Territorial Waters',
       status: isSomali ? 'Kormeer Joogto ah' : 'Active Radar Patrol',
       code: 'RADAR-09',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/conservation',
     },
   ];
@@ -235,7 +235,7 @@ export default function AboutPage() {
       <section className="portal-hero" aria-label="About Somalia Blue Heaven Hero">
         <div className="portal-hero__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Pristine Somalia coastal horizon meeting the ocean"
             className="portal-hero__bg"
           />
@@ -388,7 +388,7 @@ export default function AboutPage() {
           {/* Right: Stylized Interactive Coastal Map Card */}
           <div className="portal-about__map-card">
             <img
-              src="/images/image.png"
+              src="/images/image.webp"
               alt="Somalia Blue Heaven field stations along Somalia coastline"
               className="portal-about__map-img"
             />
@@ -646,16 +646,16 @@ export default function AboutPage() {
         {/* 4-Image Asymmetrical Mosaic */}
         <div className="portal-diaries-grid">
           <div className="portal-diary-item">
-            <img src="/images/image.png" alt="Aerial coastal panorama of Somalia" />
+            <img src="/images/image.webp" alt="Aerial coastal panorama of Somalia" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_02.png" alt="Bosaso marine research harbor" />
+            <img src="/images/img_02.webp" alt="Bosaso marine research harbor" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_01.png" alt="Ras Hafun oceanic station cliffs" />
+            <img src="/images/img_01.webp" alt="Ras Hafun oceanic station cliffs" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_05.png" alt="Bajuni islands research dhow voyage" />
+            <img src="/images/img_05.webp" alt="Bajuni islands research dhow voyage" />
           </div>
         </div>
 
@@ -671,7 +671,7 @@ export default function AboutPage() {
       <section className="portal-cta" aria-label="Partner with Us">
         <div className="portal-cta__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Warm sunset over Somalia ocean coast"
             className="portal-cta__bg"
           />

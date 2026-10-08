@@ -52,7 +52,7 @@ export default function NewsPage() {
         ? 'Kooxda cilmi-baarista ee Somalia Blue Heaven ayaa xaqiijisay libaax-badeed weyn oo ku dabaalanayay biyaha Gacanka Cadmeed, taasoo muujinaysa caafimaadka noolaha badda ee deegaanka.'
         : 'Researchers from the Elasmobranch Unit logged a juvenile whale shark surface-feeding off Puntland — the first confirmed sighting in over a decade.',
       link: '/news/whale-shark-puntland',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
     },
     {
       tag: isSomali ? 'CILMI-BAARIS CUSUB' : 'RESEARCH UPDATE',
@@ -63,7 +63,7 @@ export default function NewsPage() {
         ? 'Khariidaynta dhulka ballaaran ee cawsduurka badda ee jasiiradaha koonfureed oo lagu ogaaday inay yihiin meelaha ugu muhiimsan ee keydiya kaarboonka Bariga Afrika.'
         : 'Mapping expedition reveals pristine seagrass beds across southern atolls acting as vital carbon sinks and shelters for dugongs and green turtles.',
       link: '/news',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
     },
     {
       tag: isSomali ? 'HESHIIS MARITIME' : 'CONSERVATION ACCORD',
@@ -74,7 +74,7 @@ export default function NewsPage() {
         ? 'Kulan ay yeesheen kalluumeysatada, odayaasha dhaqanka, iyo saynisyahannada oo lagu ansixiyay aag la ilaaliyo oo loogu talagalay nibiriyada iyo qoolleyda.'
         : 'Coastal elders and researchers agree on seasonal protective corridors for migrating humpback whales and green turtles off Africa’s eastern tip.',
       link: '/news',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
     },
   ];
 
@@ -89,7 +89,7 @@ export default function NewsPage() {
         : 'Acoustic tagging and non-invasive photo-ID tracking reveal northern Somalia as a critical seasonal nursery.',
       time: isSomali ? '4 daqiiqo' : '4 min read',
       date: 'Aug 22, 2026',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/news/whale-shark-puntland',
     },
     {
@@ -102,7 +102,7 @@ export default function NewsPage() {
         : 'Thermal tolerance assays confirm Gulf of Aden reefs demonstrate unique evolutionary resistance to marine heatwaves.',
       time: isSomali ? '6 daqiiqo' : '6 min read',
       date: 'Jul 15, 2026',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/news',
     },
     {
@@ -115,7 +115,7 @@ export default function NewsPage() {
         : 'Community-scale solar drying infrastructure slashes post-harvest fish loss by 40% across southern landing sites.',
       time: isSomali ? '5 daqiiqo' : '5 min read',
       date: 'Jun 28, 2026',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/news',
     },
     {
@@ -128,7 +128,7 @@ export default function NewsPage() {
         : 'Midnight ranger vigils ensure endangered green turtle nests escape feral predators and reach the open Indian Ocean.',
       time: isSomali ? '4 daqiiqo' : '4 min read',
       date: 'May 19, 2026',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/news',
     },
     {
@@ -141,7 +141,7 @@ export default function NewsPage() {
         : 'Historic coastal fortresses, mineral river cascades, and pristine palm lagoons open for regulated ecotourism.',
       time: isSomali ? '5 daqiiqo' : '5 min read',
       date: 'Apr 11, 2026',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
       link: '/news',
     },
     {
@@ -154,7 +154,7 @@ export default function NewsPage() {
         : 'Automated dark-vessel detection logs unauthorized industrial trawlers violating artisanal nearshore fishing zones.',
       time: isSomali ? '7 daqiiqo' : '7 min read',
       date: 'Mar 03, 2026',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       link: '/news',
     },
   ];
@@ -167,7 +167,7 @@ export default function NewsPage() {
       excerpt: isSomali
         ? 'Sawirro rasmi ah oo laga qaaday libaax-badeed 9-mitir ah oo ku quudanayay dusha biyaha ee Gacanka Cadmeed.'
         : 'Photographic evidence and spot-pattern logs confirm seasonal feeding aggregations returning to the northern coast.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/news/whale-shark-puntland',
     },
     {
@@ -177,7 +177,7 @@ export default function NewsPage() {
       excerpt: isSomali
         ? 'Xarunta daryeelka shacaabka ee Boosaaso oo si guul leh u dhex gelisay dhagaxleyda noocyada adkeysiga u leh kuleylka.'
         : 'Community divers complete transplanting nursery-grown Acropora coral fragments along degraded barrier reef sectors.',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/conservation',
     },
     {
@@ -187,7 +187,7 @@ export default function NewsPage() {
       excerpt: isSomali
         ? 'Xog ururin muujisay in kaymaha mangrove-ka Soomaaliya ay ka mid yihiin kuwa ugu caafimaadka badan gobolka Bariga Afrika.'
         : 'Baseline carbon density measurements reveal dense southern mangrove estuaries storing immense blue carbon reservoirs.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/research',
     },
   ];
@@ -202,7 +202,7 @@ export default function NewsPage() {
       location: isSomali ? 'Boosaaso, Puntland' : 'Bosaso Marine HQ',
       status: isSomali ? 'Bayaan Rasmi ah' : 'Official Release',
       code: 'PR-2026-08',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/news',
     },
     {
@@ -214,7 +214,7 @@ export default function NewsPage() {
       location: isSomali ? 'Dhammaan Xeebaha' : 'Somalia Coastline Wide',
       status: isSomali ? 'Warbixin Saynis' : 'Scientific Bulletin',
       code: 'SCI-2026-03',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/research',
     },
     {
@@ -226,7 +226,7 @@ export default function NewsPage() {
       location: isSomali ? 'Geeska Afrika' : 'EEZ Radar Operations',
       status: isSomali ? 'Diiwaan Baaris' : 'Surveillance Log',
       code: 'IUU-2026-02',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       link: '/conservation',
     },
   ];
@@ -253,7 +253,7 @@ export default function NewsPage() {
       <section className="portal-hero" aria-label="Somali Ocean News Hero">
         <div className="portal-hero__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Somali ocean horizon and breaking waves"
             className="portal-hero__bg"
           />
@@ -406,7 +406,7 @@ export default function NewsPage() {
           {/* Right: Stylized Interactive Coastal Map Card */}
           <div className="portal-about__map-card">
             <img
-              src="/images/image.png"
+              src="/images/image.webp"
               alt="Somalia coastal reporting stations map"
               className="portal-about__map-img"
             />
@@ -658,16 +658,16 @@ export default function NewsPage() {
         {/* 4-Image Asymmetrical Mosaic */}
         <div className="portal-diaries-grid">
           <div className="portal-diary-item">
-            <img src="/images/img_02.png" alt="Whale shark documented in northern Somali waters" />
+            <img src="/images/img_02.webp" alt="Whale shark documented in northern Somali waters" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_07.png" alt="Living coral reef in Gulf of Aden" />
+            <img src="/images/img_07.webp" alt="Living coral reef in Gulf of Aden" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_01.png" alt="Ras Hafun tombolo marine field site" />
+            <img src="/images/img_01.webp" alt="Ras Hafun tombolo marine field site" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_05.png" alt="Bajuni islands coastal boat expedition" />
+            <img src="/images/img_05.webp" alt="Bajuni islands coastal boat expedition" />
           </div>
         </div>
 
@@ -683,7 +683,7 @@ export default function NewsPage() {
       <section className="portal-cta" aria-label="Stay Connected">
         <div className="portal-cta__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Somali coastal sunset horizon"
             className="portal-cta__bg"
           />

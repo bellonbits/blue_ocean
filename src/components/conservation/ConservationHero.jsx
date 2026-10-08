@@ -13,7 +13,7 @@ export default function ConservationHero() {
     <section className="exp-hero" aria-label="Somalia Blue Heaven Conservation">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/images/img_10.png"
+          src="/images/img_10.webp"
           alt="A green sea turtle swimming over a Somali reef"
           className="exp-hero__img"
         />

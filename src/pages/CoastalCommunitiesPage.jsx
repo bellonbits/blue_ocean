@@ -46,7 +46,7 @@ export default function CoastalCommunitiesPage() {
         ? 'Kooxo farsamo yaqaanno ah oo ku shaqeeya doonyaha gacanta lagu sameeyo, iyagoo ilaalinaya xeerarka kalluumaysiga ee soo jireenka ah ee Gacanka Cadmeed.'
         : 'Generational artisanal handline crews and master dhow shipwrights operating from northern Somalia’s busiest historical maritime gateway.',
       link: '/explore-the-coast/bosaso',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
     },
     {
       tag: isSomali ? 'IILAHADA JASIIRADAHA' : 'ISLAND STEWARDS',
@@ -55,7 +55,7 @@ export default function CoastalCommunitiesPage() {
         ? 'Qoysaska ku nool jasiiradaha fog ee koonfurta oo qarniyo badan noolaa iyagoo dhowraya dhagaxleyda badda iyo goobaha ay ku dhashaan qoolleydu.'
         : 'Ancestral Swahili-Somali seafaring communities safeguarding remote coral lagoons, dugong pastures, and endangered green turtle rookeries.',
       link: '/explore-the-coast/kismayo',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
     },
     {
       tag: isSomali ? 'DHALLINYARADA XEEBTA' : 'YOUTH RANGERS',
@@ -64,7 +64,7 @@ export default function CoastalCommunitiesPage() {
         ? 'Dhallinyaro tababaran oo habeennadii ilaaliya xeebaha tombolo-ga ee Cirifka Xaafuun si ay uga badbaadiyaan ukunta qoolleyda halista.'
         : 'Local community youth conducting seasonal night beach patrols to ensure safe hatching and sea migration for endangered sea turtles on Africa’s eastern tip.',
       link: '/explore-the-coast/hafun',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
     },
   ];
 
@@ -75,7 +75,7 @@ export default function CoastalCommunitiesPage() {
       desc: isSomali
         ? 'Kalluumeysato dhaqameed adeegsata doonyaha yaryar oo si toos ah ula shaqeysa kormeerka libaax-badeedka iyo ilaalinta noolaha badda.'
         : 'Over 140 handline crews operating with fair-trade standards while reporting dolphin, whale shark, and pelagic species movements.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/explore-the-coast/bosaso',
     },
     {
@@ -84,7 +84,7 @@ export default function CoastalCommunitiesPage() {
       desc: isSomali
         ? 'Khabiirrada doonyaha shiraaca, ilaalinta cawsduurka badda (seagrass), iyo xannaanada qoolleyda badda ee dhulka fog.'
         : 'Generational ocean navigators preserving ancient dhow sailing lore, seagrass meadows, and turtle conservation across coral archipelagos.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/explore-the-coast/kismayo',
     },
     {
@@ -93,7 +93,7 @@ export default function CoastalCommunitiesPage() {
       desc: isSomali
         ? 'Shabakad dhallinyaro ah oo kormeerta xeebaha ugu waaweyn ee qoolleydu ku ugxanto, barayana ardayda deegaanka ilaalinta badda.'
         : 'Youth network monitoring turtle nesting beaches, protecting coastal dunes, and delivering ocean education workshops in schools.',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/explore-the-coast/hafun',
     },
     {
@@ -102,7 +102,7 @@ export default function CoastalCommunitiesPage() {
       desc: isSomali
         ? 'Farsamo-yaqaannada doonyaha qadiimiga ah ee dooxada Eyl, halkaas oo biyaha macaan iyo badweyntu isaga daraan.'
         : 'Keepers of ancient Indian Ocean trade memories, coastal gorge fishing traditions, and traditional timber watercraft fabrication.',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
       link: '/explore-the-coast/eyl',
     },
     {
@@ -111,7 +111,7 @@ export default function CoastalCommunitiesPage() {
       desc: isSomali
         ? 'Urur haween hoggaaminayaan oo beddelay qashinka kalluunka dakhli qoys, barayana bulshada nadaafadda iyo xisaabinta wax-soo-saarka.'
         : 'Women-led collective processing artisanal catch, eliminating post-harvest waste, and funding children’s schooling through sustainable trade.',
-      image: '/images/img_12.png',
+      image: '/images/img_12.webp',
       link: '/explore-the-coast/kismayo',
     },
     {
@@ -120,7 +120,7 @@ export default function CoastalCommunitiesPage() {
       desc: isSomali
         ? 'Ganacsatada iyo dhalinyarada Liido oo si wadajir ah u maalgeliya nadaafadda xeebta, badbaadada dabaasha, iyo wacyiga badda.'
         : 'Beachfront cafes, local youth, and recreational clubs funding quarterly sand cleanups and marine litter monitoring along Mogadishu’s iconic shore.',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       link: '/explore-the-coast/mogadishu',
     },
   ];
@@ -133,7 +133,7 @@ export default function CoastalCommunitiesPage() {
       excerpt: isSomali
         ? 'Diiwaangelinta aqoonta qotada dheer ee odayaasha badda ee ku saabsan xilliyada dabaysha (Gu, Dayr, Xagaa) iyo marinnada kalluunka.'
         : 'Preserving centuried celestial navigation techniques and seasonal monsoon tidal observations passed down through oral maritime traditions.',
-      image: '/images/img_12.png',
+      image: '/images/img_12.webp',
       link: '/communities',
     },
     {
@@ -143,7 +143,7 @@ export default function CoastalCommunitiesPage() {
       excerpt: isSomali
         ? 'Dhallinyarada deegaanka oo habeenkii ilaalisa xeebaha ciidda cad si qoolleyda dhasha ay si nabad ah ugu gaaraan mowjadaha badda.'
         : 'Local youth volunteering under the starlight to shepherd thousands of green and hawksbill turtle hatchlings into the open Indian Ocean.',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/conservation',
     },
     {
@@ -153,7 +153,7 @@ export default function CoastalCommunitiesPage() {
       excerpt: isSomali
         ? 'Nidaam cusub oo u oggolaanaya kalluumeysatada in aysan adeegsan shabaakado wax burburiya, iyadoo la dhowrayo hugaanta dhagaxleyda.'
         : 'Pioneering non-destructive hook-and-line harvesting protecting seafloor corals while delivering premium fresh catch to local markets.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/research',
     },
   ];
@@ -168,7 +168,7 @@ export default function CoastalCommunitiesPage() {
       location: isSomali ? 'Xeebaha Baajuun & Eyl' : 'Bajuni Islands & Eyl Gorge',
       status: isSomali ? 'Sheeko Dhaqameed' : 'Elder Archive',
       code: 'ORAL-01',
-      image: '/images/img_12.png',
+      image: '/images/img_12.webp',
       link: '/communities',
     },
     {
@@ -180,7 +180,7 @@ export default function CoastalCommunitiesPage() {
       location: isSomali ? 'Raas Xaafuun, Bari' : 'Ras Hafun, Bari Region',
       status: isSomali ? 'Hawlgal Toos ah' : 'Active Patrol',
       code: 'PATROL-04',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/conservation',
     },
     {
@@ -192,7 +192,7 @@ export default function CoastalCommunitiesPage() {
       location: isSomali ? 'Kismaayo, Jubada Hoose' : 'Kismayo, Lower Juba',
       status: isSomali ? 'Guul Bulsho' : 'Community Win',
       code: 'COOP-07',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/communities',
     },
   ];
@@ -226,7 +226,7 @@ export default function CoastalCommunitiesPage() {
       <section className="portal-hero" aria-label="Somali Coastal Communities Hero">
         <div className="portal-hero__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Somalia coastal community settlements and azure seas"
             className="portal-hero__bg"
           />
@@ -386,7 +386,7 @@ export default function CoastalCommunitiesPage() {
           {/* Right: Stylized Interactive Coastal Map Card */}
           <div className="portal-about__map-card">
             <img
-              src="/images/image.png"
+              src="/images/image.webp"
               alt="Coastal communities map across Somalia"
               className="portal-about__map-img"
             />
@@ -644,16 +644,16 @@ export default function CoastalCommunitiesPage() {
         {/* 4-Image Asymmetrical Mosaic */}
         <div className="portal-diaries-grid">
           <div className="portal-diary-item">
-            <img src="/exp_dhow_sailing.jpg" alt="Traditional Somali dhow under sail along the coast" />
+            <img src="/exp_dhow_sailing.webp" alt="Traditional Somali dhow under sail along the coast" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_02.png" alt="Bosaso harbor artisanal fishing vessels" />
+            <img src="/images/img_02.webp" alt="Bosaso harbor artisanal fishing vessels" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_01.png" alt="Ras Hafun tombolo beach community patrol grounds" />
+            <img src="/images/img_01.webp" alt="Ras Hafun tombolo beach community patrol grounds" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_05.png" alt="Bajuni islands coastal boat and pristine waters" />
+            <img src="/images/img_05.webp" alt="Bajuni islands coastal boat and pristine waters" />
           </div>
         </div>
 
@@ -669,7 +669,7 @@ export default function CoastalCommunitiesPage() {
       <section className="portal-cta" aria-label="Support Coastal Communities">
         <div className="portal-cta__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Golden sunset over the Somali coastline"
             className="portal-cta__bg"
           />

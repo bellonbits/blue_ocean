@@ -13,7 +13,7 @@ export default function ResearchHero() {
     <section className="exp-hero" aria-label="Somalia Blue Heaven Research">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/images/img_07.png"
+          src="/images/img_07.webp"
           alt="Coral reef ecosystem studied by Somalia Blue Heaven's research teams"
           className="exp-hero__img"
         />

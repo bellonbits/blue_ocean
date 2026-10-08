@@ -18,7 +18,7 @@ const COASTLINE_SEGMENTS = [
     towns: ['Zeila (Saylac)', 'Aibat Island', 'Lughaya'],
     species: ['Hawksbill Turtle', 'Dugong', 'Fringing Corals'],
     conservation: 'Zeila Marine Sanctuary Initiative',
-    image: '/images/img_09.png',
+    image: '/images/img_09.webp',
   },
   {
     id: 'somaliland',
@@ -34,7 +34,7 @@ const COASTLINE_SEGMENTS = [
     towns: ['Berbera', 'Maydh', 'Xiis', 'Bullaxaar'],
     species: ['Yellowfin Tuna', 'Spinner Dolphin', 'Pelagic Rays'],
     conservation: 'Berbera Coastal Habitat Reserve',
-    image: '/images/img_03.png',
+    image: '/images/img_03.webp',
   },
   {
     id: 'puntland',
@@ -50,7 +50,7 @@ const COASTLINE_SEGMENTS = [
     towns: ['Ras Hafun', 'Bosaso', 'Bargaal', 'Eyl', 'Qandala'],
     species: ['Whale Shark', 'Hammerhead Shark', 'Green Sea Turtle'],
     conservation: 'Hafun Marine Sanctuary & Eyl Canyon MPA',
-    image: '/images/img_01.png',
+    image: '/images/img_01.webp',
   },
   {
     id: 'galmudug',
@@ -66,7 +66,7 @@ const COASTLINE_SEGMENTS = [
     towns: ['Hobyo', 'Harardhere', 'Ceeldheer'],
     species: ['Spiny Lobster', 'Sailfish', 'Sperm Whale'],
     conservation: 'Hobyo Artisanal Co-management Zone',
-    image: '/images/img_06.png',
+    image: '/images/img_06.webp',
   },
   {
     id: 'hirshabelle',
@@ -82,7 +82,7 @@ const COASTLINE_SEGMENTS = [
     towns: ['Warsheikh', 'Cadale', 'Mareegh'],
     species: ['Giant Trevally', 'Barracuda', 'Bridled Tern'],
     conservation: 'Warsheikh Fishermen Cooperative',
-    image: '/images/img_12.png',
+    image: '/images/img_12.webp',
   },
   {
     id: 'benadir',
@@ -98,7 +98,7 @@ const COASTLINE_SEGMENTS = [
     towns: ['Mogadishu', 'Jazeera Beach', 'Lido Beach'],
     species: ['Bottlenose Dolphin', 'Blacktip Reef Shark', 'Parrotfish'],
     conservation: 'Jazeera Marine Education Center',
-    image: '/images/img_08.png',
+    image: '/images/img_08.webp',
   },
   {
     id: 'jubaland',
@@ -114,7 +114,7 @@ const COASTLINE_SEGMENTS = [
     towns: ['Kismayo', 'Baraawe', 'Bajuni Islands', 'Kamboni'],
     species: ['Dugong', 'Humpback Whale', 'Manta Ray'],
     conservation: 'Bajuni Marine National Park Proposal',
-    image: '/images/img_05.png',
+    image: '/images/img_05.webp',
   },
 ];
 

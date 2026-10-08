@@ -12,7 +12,7 @@ export default function EditorialCTA() {
       {/* Background Image with Dark Navy Editorial Overlay */}
       <div className="editorial-cta__bg-wrap">
         <img
-          src="/images/image.png"
+          src="/images/image.webp"
           alt="Somali coast horizon"
           className="editorial-cta__bg"
           loading="lazy"

@@ -13,7 +13,7 @@ export default function CommunitiesHero() {
     <section className="exp-hero" aria-label="Somalia Blue Heaven Coastal Communities">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/con_beach_cleanup.jpg"
+          src="/con_beach_cleanup.webp"
           alt="A coastal community taking part in a beach cleanup"
           className="exp-hero__img"
         />

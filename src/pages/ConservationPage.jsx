@@ -44,7 +44,7 @@ export default function ConservationPage() {
         ? 'Aagagga shacaabka ee la dhowro oo ay bulshadu maamusho si loo badbaadiyo qoolleyda badda, kaymaha mangrove-ka, iyo taranka kalluunka.'
         : 'Community-enforced marine reserve safeguarding coral atolls, mangrove carbon sinks, and endangered sea turtle nesting dunes.',
       link: '/conservation/projects',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
     },
     {
       tag: isSomali ? 'KA HORTAGGA IUU' : 'ANTI-IUU PATROL',
@@ -53,7 +53,7 @@ export default function ConservationPage() {
         ? 'Dabagalka dayax-gacmeedka ee lagu difaaco kalluumeysatada deegaanka loogana hortago maraakiibta shisheeye ee waxyeelleeya shacaabka.'
         : 'Protecting traditional artisanal fishing rights and marine biodiversity using satellite AIS and community coastal radar.',
       link: '/conservation/projects',
-      image: '/images/image.png',
+      image: '/images/image.webp',
     },
     {
       tag: isSomali ? 'DIB U BEERIDDA' : 'REEF RESTORATION',
@@ -62,7 +62,7 @@ export default function ConservationPage() {
         ? 'Dhalinyarada xeebaha oo beera shacaabka cusub si loo soo celiyo deegaankii kalluunka loona xoojiyo adkaysiga badda.'
         : 'Youth-driven active coral propagation and underwater nursery tables accelerating reef regeneration off northern shores.',
       link: '/conservation/projects',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
     },
   ];
 
@@ -73,7 +73,7 @@ export default function ConservationPage() {
       desc: isSomali
         ? 'Ilaalinta ukunta iyo daadgureynta dhalinyarada qoolleyda badda si nabad ah.'
         : 'Night patrols guarding mother turtles and returning hatchlings safely to sea.',
-      image: '/images/img_10.png',
+      image: '/images/img_10.webp',
       code: 'CON-01',
       link: '/conservation/projects',
     },
@@ -83,7 +83,7 @@ export default function ConservationPage() {
       desc: isSomali
         ? 'Dib u beerista dhirta badda si looga hortago nabaad-guurka xeebaha loona kaydiyo kaarboonka.'
         : 'Restoring critical estuarine buffer zones and rich fish nursery grounds.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       code: 'CON-02',
       link: '/conservation/projects',
     },
@@ -93,7 +93,7 @@ export default function ConservationPage() {
       desc: isSomali
         ? 'Kala soo bixidda shabakadaha dilaaga ah ee badda si loo badbaadiyo noolaha badda.'
         : 'Retrieving discarded commercial fishing nets from shallow reefs and rocky headlands.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       code: 'CON-03',
       link: '/conservation/projects',
     },
@@ -103,7 +103,7 @@ export default function ConservationPage() {
       desc: isSomali
         ? 'Taageeridda qoysaska kalluumeysatada iyo isticmaalka qalabka badda ee sharciga ah.'
         : 'Equipping traditional fishing crews with sustainable gear and fair cold-storage.',
-      image: '/images/img_11.png',
+      image: '/images/img_11.webp',
       code: 'CON-04',
       link: '/conservation/projects',
     },
@@ -113,7 +113,7 @@ export default function ConservationPage() {
       desc: isSomali
         ? 'Beeridda qaybo shacaab ah oo u adkaysta kulaylka badda si loogu beero reefs-ka.'
         : 'Cultivating climate-resilient coral fragments for transplantation onto damaged reefs.',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       code: 'CON-05',
       link: '/conservation/projects',
     },
@@ -123,7 +123,7 @@ export default function ConservationPage() {
       desc: isSomali
         ? 'Tababbarka dhalinyarada deegaanka ee xagga quusitaanka, kormeerka, iyo daryeelka badda.'
         : 'Training the next generation of Somali marine rangers, scuba divers, and ecotourism guides.',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
       code: 'CON-06',
       link: '/conservation/projects',
     },
@@ -137,7 +137,7 @@ export default function ConservationPage() {
       excerpt: isSomali
         ? 'Aagag badda ah oo laga mamnuucay jilaabashada burburka keenta si noolaha badda uu u tarmo.'
         : 'Designated no-take replenishment zones allowing reef fish biomass to recover exponentially.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/conservation',
     },
     {
@@ -147,7 +147,7 @@ export default function ConservationPage() {
       excerpt: isSomali
         ? 'Kaymo dabiici ah oo ka hortagaya duufaannada iyo hirarka xooggan ee Badweynta Hindiya.'
         : 'Natural green infrastructure absorbing storm surges while locking away carbon in estuarine muds.',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/conservation',
     },
     {
@@ -157,7 +157,7 @@ export default function ConservationPage() {
       excerpt: isSomali
         ? 'Difaacidda kheyraadka dabiiciga ah ee Soomaaliya iyadoo la kaashanayo bulshooyinka xeebaha.'
         : 'Real-time alert systems stopping industrial bottom trawlers from devastating nearshore nursery reefs.',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/communities',
     },
   ];
@@ -172,7 +172,7 @@ export default function ConservationPage() {
       location: isSomali ? 'Jubaland Coast' : 'Jubaland Marine Zone',
       status: isSomali ? 'Dhowran' : 'Enforced',
       code: 'MPA-01',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/conservation',
     },
     {
@@ -184,7 +184,7 @@ export default function ConservationPage() {
       location: isSomali ? 'Puntland Coast' : 'Puntland Marine Zone',
       status: isSomali ? 'Beerid' : 'Nursery Active',
       code: 'CRF-03',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/conservation',
     },
     {
@@ -196,7 +196,7 @@ export default function ConservationPage() {
       location: isSomali ? 'Xeebaha Koonfurta' : 'Southern Sandy Beaches',
       status: isSomali ? 'Guul' : '88% Hatch Rate',
       code: 'TUR-12',
-      image: '/images/img_10.png',
+      image: '/images/img_10.webp',
       link: '/conservation',
     },
   ];
@@ -226,7 +226,7 @@ export default function ConservationPage() {
       <section className="portal-hero" aria-label="Marine Conservation Hero">
         <div className="portal-hero__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Somalia marine conservation and protected waters"
             className="portal-hero__bg"
           />
@@ -362,7 +362,7 @@ export default function ConservationPage() {
           {/* Right: Map card highlighting marine reserves */}
           <div className="portal-about__map-card">
             <img
-              src="/images/image.png"
+              src="/images/image.webp"
               alt="Marine reserves map of Somalia"
               className="portal-about__map-img"
             />
@@ -594,16 +594,16 @@ export default function ConservationPage() {
 
         <div className="portal-diaries-grid">
           <div className="portal-diary-item">
-            <img src="/images/img_10.png" alt="Sea turtle hatchling" />
+            <img src="/images/img_10.webp" alt="Sea turtle hatchling" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_05.png" alt="Bajuni mangroves and dhow" />
+            <img src="/images/img_05.webp" alt="Bajuni mangroves and dhow" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_07.png" alt="Healthy coral garden" />
+            <img src="/images/img_07.webp" alt="Healthy coral garden" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_02.png" alt="Bosaso pristine shoreline" />
+            <img src="/images/img_02.webp" alt="Bosaso pristine shoreline" />
           </div>
         </div>
 
@@ -619,7 +619,7 @@ export default function ConservationPage() {
       <section className="portal-cta" aria-label="Conservation CTA">
         <div className="portal-cta__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Sunset over Somalia coastline"
             className="portal-cta__bg"
           />

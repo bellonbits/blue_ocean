@@ -9,7 +9,7 @@ export default function RajaHero({ onLetsGo }) {
     <section className="raja-hero" aria-label="Somalia Blue Heaven Coastline Hero">
       {/* Background Photography: Authentic Somalia Coastline */}
       <img
-        src="/images/image.png"
+        src="/images/image.webp"
         alt="Somalia coastline where dramatic limestone mountain ridges meet turquoise waters of the Gulf of Aden"
         className="raja-hero__bg"
         loading="eager"

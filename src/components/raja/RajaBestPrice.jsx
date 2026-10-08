@@ -73,7 +73,7 @@ export default function RajaBestPrice() {
         {/* Base Large Rounded Image: Authentic Somalia Coastline */}
         <div className="raja-plane-base">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Somalia coastline and traditional wooden dhow"
             className="raja-plane-base__img"
             loading="lazy"
@@ -100,7 +100,7 @@ export default function RajaBestPrice() {
         {/* Top-Left Floating Card: Green Sea Turtle Conservation */}
         <div className="raja-plane-card-diver" title={isSomali ? 'Ilaalinta Qoolleyda Badda' : 'Green Sea Turtle Conservation'}>
           <img
-            src="/images/img_10.png"
+            src="/images/img_10.webp"
             alt="Endangered green sea turtle swimming over coral reef"
             className="raja-plane-card-diver__img"
             loading="lazy"
@@ -110,7 +110,7 @@ export default function RajaBestPrice() {
         {/* Bottom-Right Floating Card: Traditional Dhow Sailing */}
         <div className="raja-plane-card-jetski" title={isSomali ? 'Socdaalka Dhowka ee Xeebta' : 'Traditional Somali Dhow Navigation'}>
           <img
-            src="/exp_dhow_sailing.jpg"
+            src="/exp_dhow_sailing.webp"
             alt="Traditional Somali dhow sailing across the turquoise sea"
             className="raja-plane-card-jetski__img"
             loading="lazy"

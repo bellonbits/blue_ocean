@@ -43,7 +43,7 @@ export default function MarineLifePage() {
         ? 'Kalluunka ugu weyn dunida oo si xilliyeed ah u soo booqda biyaha diirran ee Gacanka Cadmeed ee Boosaaso si uu u helo nafaqada plankton-ka.'
         : 'The largest living fish species, gracefully migrating through the upwelling plankton-rich waters off Bosaso along the Gulf of Aden.',
       link: '/marine-life/whale-shark',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
     },
     {
       tag: isSomali ? 'QOOLLEYDA BADDA' : 'ANCIENT REPTILES',
@@ -52,7 +52,7 @@ export default function MarineLifePage() {
         ? 'Qoolleyda qadiimiga ah ee ku ukun-dhigata xeebaha cad-cad ee jasiiradaha Baajuun iyo Koonfurta Soomaaliya, oo si dhow loo ilaaliyo.'
         : 'Crucial southern nesting populations that return to the remote white sand dunes of the Bajuni Archipelago year after year.',
       link: '/marine-life/green-sea-turtle',
-      image: '/images/img_10.png',
+      image: '/images/img_10.webp',
     },
     {
       tag: isSomali ? 'DHAGAXLEYDA BADDA' : 'CORAL ARCHITECTURE',
@@ -61,7 +61,7 @@ export default function MarineLifePage() {
         ? 'Kaymaha biyaha hoostooda ee guryaha u ah in ka badan 800 nooc oo kalluunka badda ah iyo noolaha yaryar ee Badweynta Hindiya.'
         : 'Living limestone architecture harboring nursery grounds for hundreds of reef fish species, moray eels, and crustaceans.',
       link: '/marine-life/coral-reefs',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
     },
   ];
 
@@ -72,7 +72,7 @@ export default function MarineLifePage() {
       desc: isSomali
         ? 'Xayawaan nabdoon oo dhererkiisu gaaro ilaa 12 mitir, kuna nool Gacanka Cadmeed.'
         : 'Gentle filter-feeders measuring up to 12 metres, migrating along northern waters.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       status: 'ENDANGERED',
       link: '/marine-life/species',
     },
@@ -82,7 +82,7 @@ export default function MarineLifePage() {
       desc: isSomali
         ? 'Ku nool daaqsinada cawska badda ee Baajuun iyo meelaha ukunta lagu aaso.'
         : 'Vital grazers of shallow seagrass meadows across the southern Bajuni atolls.',
-      image: '/images/img_10.png',
+      image: '/images/img_10.webp',
       status: 'PROTECTED',
       link: '/marine-life/species',
     },
@@ -92,7 +92,7 @@ export default function MarineLifePage() {
       desc: isSomali
         ? 'Kalluun degdeg badan oo kormeera caafimaadka shacaabka badda ee gacanka.'
         : 'Agile shallow-water patrollers essential for balancing reef fish ecosystems.',
-      image: '/images/img_11.png',
+      image: '/images/img_11.webp',
       status: 'VULNERABLE',
       link: '/marine-life/species',
     },
@@ -102,7 +102,7 @@ export default function MarineLifePage() {
       desc: isSomali
         ? 'Kalluunka dheereeya ee marinka Badweynta Hindiya oo leh qiimo sare.'
         : 'High-speed open ocean predators navigating offshore Somali upwelling currents.',
-      image: '/images/img_11.png',
+      image: '/images/img_11.webp',
       status: 'NATIVE',
       link: '/marine-life/species',
     },
@@ -112,7 +112,7 @@ export default function MarineLifePage() {
       desc: isSomali
         ? 'Guryaha dabiiciga ah ee kordhiya taranka kalluunka kana hortaga hirarka badda.'
         : 'Resilient coral formations buffering coastlines from erosion and providing fish nurseries.',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       status: 'CRITICAL',
       link: '/marine-life/species',
     },
@@ -122,7 +122,7 @@ export default function MarineLifePage() {
       desc: isSomali
         ? 'Naasleyda caqliga badan ee badda oo lagu arko xeebaha Puntland iyo Banaadir.'
         : 'Acrobatic pods patrolling coastal bays alongside seasonal humpback whale pods.',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       status: 'PROTECTED',
       link: '/marine-life/species',
     },
@@ -136,7 +136,7 @@ export default function MarineLifePage() {
       excerpt: isSomali
         ? 'Diiwaanka casriga ah ee noolaha badda Soomaaliya oo ay ku jiraan magacyada af-Soomaaliga iyo cilmiga.'
         : 'Comprehensive scientific library uniting Somali vernacular names and taxonomic classifications.',
-      image: '/images/img_11.png',
+      image: '/images/img_11.webp',
       link: '/marine-life/species',
     },
     {
@@ -146,7 +146,7 @@ export default function MarineLifePage() {
       excerpt: isSomali
         ? 'Barnaamijyo ay bulshadu hoggaaminayso oo badbaadiya boqolaal qoolleydii badda ee Baajuun.'
         : 'Community-led night patrols guarding nesting mothers and guiding hatchlings safely to sea.',
-      image: '/images/img_10.png',
+      image: '/images/img_10.webp',
       link: '/conservation',
     },
     {
@@ -156,7 +156,7 @@ export default function MarineLifePage() {
       excerpt: isSomali
         ? 'Isticmaalka sawirrada iyo calaamadaha casriga ah si loo fahmo socdaalka libaax-badeedka.'
         : 'Tracking regional connectivity and feeding patterns in collaboration with international oceanographers.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/research',
     },
   ];
@@ -171,7 +171,7 @@ export default function MarineLifePage() {
       location: isSomali ? 'Boosaaso, Puntland' : 'Bosaso Station, Puntland',
       status: isSomali ? 'Socda' : 'Active Fieldwork',
       code: 'BIO-01',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/research',
     },
     {
@@ -183,7 +183,7 @@ export default function MarineLifePage() {
       location: isSomali ? 'Jasiiradaha Baajuun' : 'Bajuni Archipelago',
       status: isSomali ? 'Ilaashan' : 'Protected',
       code: 'TUR-04',
-      image: '/images/img_10.png',
+      image: '/images/img_10.webp',
       link: '/conservation',
     },
     {
@@ -195,7 +195,7 @@ export default function MarineLifePage() {
       location: isSomali ? 'Seylac & Boosaaso' : 'Zeila & Bosaso Reeftops',
       status: isSomali ? 'Daraasad' : 'Research',
       code: 'COR-09',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/research',
     },
   ];
@@ -222,7 +222,7 @@ export default function MarineLifePage() {
       <section className="portal-hero" aria-label="Marine Life Hero">
         <div className="portal-hero__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Somalia living marine ecosystems"
             className="portal-hero__bg"
           />
@@ -368,7 +368,7 @@ export default function MarineLifePage() {
           {/* Right: Map card highlighting marine habitat zones */}
           <div className="portal-about__map-card">
             <img
-              src="/images/image.png"
+              src="/images/image.webp"
               alt="Marine habitat zones of Somalia"
               className="portal-about__map-img"
             />
@@ -600,16 +600,16 @@ export default function MarineLifePage() {
 
         <div className="portal-diaries-grid">
           <div className="portal-diary-item">
-            <img src="/images/img_02.png" alt="Whale shark swimming" />
+            <img src="/images/img_02.webp" alt="Whale shark swimming" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_10.png" alt="Green sea turtle swimming" />
+            <img src="/images/img_10.webp" alt="Green sea turtle swimming" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_07.png" alt="Coral reef underwater" />
+            <img src="/images/img_07.webp" alt="Coral reef underwater" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_11.png" alt="Blacktip reef shark" />
+            <img src="/images/img_11.webp" alt="Blacktip reef shark" />
           </div>
         </div>
 
@@ -625,7 +625,7 @@ export default function MarineLifePage() {
       <section className="portal-cta" aria-label="Marine Life CTA">
         <div className="portal-cta__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Sunset over Somalia coastline"
             className="portal-cta__bg"
           />

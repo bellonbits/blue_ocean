@@ -11,11 +11,11 @@
     "tagline": "Where the rugged Karkaar mountains meet the deep waters of the Gulf of Aden.",
     "shortDescription": "Somalia’s principal northern seaport, framed by dramatic volcanic ridges, deep pelagic upwelling zones, and active artisan tuna fishing fleets.",
     "fullDescription": "Bosaso is the dynamic commercial gateway of northern Somalia, positioned where the stark limestone cliffs of the Karkaar mountain chain plunge directly into the cobalt depths of the Gulf of Aden.\n\nBecause the continental shelf drops rapidly just off the coast, Bosaso is uniquely situated near deep pelagic waters where powerful nutrient-rich seasonal upwellings nourish immense schools of yellowfin tuna, kingfish, and migrating whale sharks.\n\nAlong the shoreline, traditional wooden dhow builders continue heritage crafts that have linked the Horn of Africa to the Arabian Peninsula and Indian subcontinent for millennia. Somalia Blue Heaven’s research teams operate coastal monitoring stations here tracking fisheries health and marine mammal migrations along the Aden channel.",
-    "heroImage": "/bosaso2.jpg",
+    "heroImage": "/bosaso2.webp",
     "gallery": [
-      "/bosaso2.jpg",
-      "/bosaso1.jpg",
-      "/bosaso3.jpg"
+      "/bosaso2.webp",
+      "/bosaso1.webp",
+      "/bosaso3.webp"
     ],
     "coordinates": {
       "lat": 11.2842,
@@ -35,21 +35,21 @@
         "id": "whale-shark",
         "name": "Whale Shark",
         "scientificName": "Rhincodon typus",
-        "image": "/marine_sharks.jpg",
+        "image": "/marine_sharks.webp",
         "description": "World’s largest fish, frequently feeding on seasonal plankton blooms off the Bosaso shelf."
       },
       {
         "id": "spinner-dolphin",
         "name": "Spinner Dolphin",
         "scientificName": "Stenella longirostris",
-        "image": "/marine_dolphins.jpg",
+        "image": "/marine_dolphins.webp",
         "description": "Resident pods numbering in the hundreds navigate the coastal Aden currents daily."
       },
       {
         "id": "yellowfin-tuna",
         "name": "Yellowfin Tuna",
         "scientificName": "Thunnus albacares",
-        "image": "/marine_fish.jpg",
+        "image": "/marine_fish.webp",
         "description": "Key pelagic species vital to local sustainable artisanal fisheries and ocean food webs."
       }
     ],
@@ -100,11 +100,11 @@
     "tagline": "A breathtaking valley gorge cutting through high plateaus to meet the open Indian Ocean.",
     "shortDescription": "An ancient coastal haven set within the dramatic Nugaal Gorge, renowned for dramatic sandstone cliffs, seasonal freshwater lagoons, and pristine offshore lobster fisheries.",
     "fullDescription": "Tucked into a dramatic fissure in the Somali plateau where the seasonal Nugaal River meets the Indian Ocean, Eyl is one of the most visually stunning natural amphitheaters on the African continent.\n\nThe town is split between Badey (the coastal fishing settlement on the beach) and Daawad (the historic upper town nestled beneath towering cliffs). Stone fortifications built over a century ago overlook a protected bay that has provided shelter to Indian Ocean navigators for generations.\n\nThe surrounding waters are celebrated for productive nearshore ecosystems, including rocky sub-tidal reefs that support healthy populations of spiny lobsters, green turtles, and seasonal migrations of humpback whales heading north through the Somali Current.",
-    "heroImage": "/eyl1.jpg",
+    "heroImage": "/eyl1.webp",
     "gallery": [
-      "/eyl1.jpg",
-      "/eyl3.jpg",
-      "/eyl2.jpg"
+      "/eyl1.webp",
+      "/eyl3.webp",
+      "/eyl2.webp"
     ],
     "coordinates": {
       "lat": 7.9803,
@@ -124,14 +124,14 @@
         "id": "green-turtle",
         "name": "Green Sea Turtle",
         "scientificName": "Chelonia mydas",
-        "image": "/marine_turtles.jpg",
+        "image": "/marine_turtles.webp",
         "description": "Grazes on rich algae and seagrass beds sheltering in Eyl’s rocky coves."
       },
       {
         "id": "spiny-lobster",
         "name": "Painted Spiny Lobster",
         "scientificName": "Panulirus versicolor",
-        "image": "/marine_coral.jpg",
+        "image": "/marine_coral.webp",
         "description": "Thrives in the crevices of Eyl’s submerged coastal canyon walls."
       }
     ],
@@ -170,11 +170,11 @@
     "tagline": "The easternmost projection of the African continent jutting 40 km into the Indian Ocean.",
     "shortDescription": "Ras Hafun is a world-famous geographic marvel connected to mainland Africa by a sweeping sand spit tombolo, home to the ancient trade port of Opone.",
     "fullDescription": "Ras Hafun stands as the true eastern extremity of the African continent. This dramatic hammerhead-shaped peninsula is connected to the mainland by a 20-kilometre-long sand tombolo, flanked by sheltered lagoons on one side and the tempestuous open Indian Ocean on the other.\n\nIdentified by historians as the ancient trading emporium of 'Opone' documented in the 1st-century Periplus of the Erythraean Sea, Hafun has welcomed merchant vessels trading frankincense, spices, and pearls for over two thousand years.\n\nOceanographically, Hafun is ground zero for the intense Somali Current upwelling during the southwest monsoon, driving cold, nutrient-packed waters from the abyssal ocean to the sunlit surface and sparking one of the most explosive seasonal marine food chains on Earth.",
-    "heroImage": "/hafun2.jpg",
+    "heroImage": "/hafun2.webp",
     "gallery": [
-      "/hafun2.jpg",
-      "/hafun1.jpg",
-      "/hafun3.jpg"
+      "/hafun2.webp",
+      "/hafun1.webp",
+      "/hafun3.webp"
     ],
     "coordinates": {
       "lat": 10.4222,
@@ -194,14 +194,14 @@
         "id": "humpback-whale",
         "name": "Humpback Whale",
         "scientificName": "Megaptera novaeangliae",
-        "image": "/marine_dolphins.jpg",
+        "image": "/marine_dolphins.webp",
         "description": "Uses the deep waters off Ras Hafun as a migratory highway across the Arabian Sea."
       },
       {
         "id": "manta-ray",
         "name": "Oceanic Manta Ray",
         "scientificName": "Mobula birostris",
-        "image": "/marine_sharks.jpg",
+        "image": "/marine_sharks.webp",
         "description": "Feeds along the intense upwelling currents flanking the peninsula."
       }
     ],
@@ -240,11 +240,11 @@
     "tagline": "A lush date palm oasis set against ancient coral terraces and cobalt seas.",
     "shortDescription": "Historically the seasonal capital of the Majeerteen Sultanate, Bargaal combines verdant date groves with crystal-clear coastal waters rich in pelagic fish.",
     "fullDescription": "Set near the tip of the Horn of Africa, Bargaal is famous for its coastal date palm oases fed by freshwater springs emerging right at the base of the mountains.\n\nDuring the 19th century, Bargaal served as a prominent maritime capital, with fortified stone watchtowers still standing sentinel along the beaches. Today, its waters are pristine and largely untouched by heavy industry, offering crystal-clear visibility and vibrant nearshore rocky reefs.\n\nSomalia Blue Heaven works with local elders and fishing cooperatives in Bargaal to document traditional marine territorial rights and protect juvenile fish nurseries in coastal shallows.",
-    "heroImage": "/bargaal_main.jpg",
+    "heroImage": "/bargaal_main.webp",
     "gallery": [
-      "/bargaal_main.jpg",
-      "/bargaal_1.jpg",
-      "/bargaal_2.jpg"
+      "/bargaal_main.webp",
+      "/bargaal_1.webp",
+      "/bargaal_2.webp"
     ],
     "coordinates": {
       "lat": 11.2833,
@@ -264,7 +264,7 @@
         "id": "hawksbill-turtle",
         "name": "Hawksbill Turtle",
         "scientificName": "Eretmochelys imbricata",
-        "image": "/marine_turtles.jpg",
+        "image": "/marine_turtles.webp",
         "description": "Critically endangered species frequenting Bargaal’s sponge-rich rocky reef shelves."
       }
     ],
@@ -297,12 +297,12 @@
     "tagline": "A natural mountain cove renowned for frankincense exports and natural thermal springs.",
     "shortDescription": "Nestled between steep mountain bluffs along the Gulf of Aden, Qandala is a historic harbor town famed for frankincense commerce and thermal coastal springs.",
     "fullDescription": "Qandala is situated on a sheltered cove along the Gulf of Aden coast, backed directly by the rugged frankincense-producing highland valleys of Mount Cal Madow.\n\nThe town possesses a unique microclimate and geothermal coastal springs that bubble up near the tide line. Historically an ancient port known in classical antiquity, Qandala remains an important hub for small-boat artisanal fishermen targeting snapper, grouper, and king mackerel.\n\nThe underwater topography features dramatic drop-offs with black coral formations, underwater caves, and deep-water gorgonian sea fans.",
-    "heroImage": "/qandala_main.jpg",
+    "heroImage": "/qandala_main.webp",
     "gallery": [
-      "/qandala_main.jpg",
-      "/qandala_1.jpg",
-      "/qandala_2.jpg",
-      "/qandala2.jpeg"
+      "/qandala_main.webp",
+      "/qandala_1.webp",
+      "/qandala_2.webp",
+      "/qandala2.webp"
     ],
     "coordinates": {
       "lat": 11.4719,
@@ -322,7 +322,7 @@
         "id": "black-coral",
         "name": "Gorgonian & Black Coral",
         "scientificName": "Antipatharia",
-        "image": "/marine_coral.jpg",
+        "image": "/marine_coral.webp",
         "description": "Ancient deep-water coral fans thriving in the shadowed drop-offs of the Aden basin."
       }
     ],
@@ -355,11 +355,11 @@
     "tagline": "A working fishing town on Puntland's rugged eastern shoulder, where dhows still put out before dawn.",
     "shortDescription": "A small coastal community on the Bari region shoreline between Xaafuun and Bargaal, built around artisanal fishing and a stretch of rocky, current-swept coastline.",
     "fullDescription": "Hurdiya sits along one of the most exposed and least-developed stretches of Puntland's eastern coast, where the seabed drops quickly into cold, nutrient-rich water pushed north by the Somali Current. The town's economy has long been built around artisanal fishing — small crews working hand lines and traps for reef fish, lobster, and pelagic species from open wooden dhows.\n\nUnlike the more sheltered anchorages further south, Hurdiya's coastline is rocky and current-swept, which has kept large-scale development away but made it a productive ground for the fishing families who know its waters. Somalia Blue Heaven is working to document this coastline in more detail — its reef structure, the species that depend on it, and the fishing practices of the community itself — as part of a broader effort to understand and protect Puntland's less-studied eastern shore.",
-    "heroImage": "/hafun1.jpg",
+    "heroImage": "/hafun1.webp",
     "gallery": [
-      "/hafun1.jpg",
-      "/hafun2.jpg",
-      "/hafun3.jpg"
+      "/hafun1.webp",
+      "/hafun2.webp",
+      "/hafun3.webp"
     ],
     "coordinates": {
       "lat": 10.53,
@@ -379,14 +379,14 @@
         "id": "spiny-lobster-hurdiya",
         "name": "Painted Spiny Lobster",
         "scientificName": "Panulirus versicolor",
-        "image": "/marine_coral.jpg",
+        "image": "/marine_coral.webp",
         "description": "A mainstay of Hurdiya's artisanal fishery, sheltering in the rocky crevices along the headland."
       },
       {
         "id": "reef-fish-hurdiya",
         "name": "Reef & Pelagic Fish",
         "scientificName": "Various species",
-        "image": "/marine_fish.jpg",
+        "image": "/marine_fish.webp",
         "description": "Snapper, grouper, and seasonal pelagics drawn to the nutrient-rich, current-swept water offshore."
       }
     ],
@@ -419,11 +419,11 @@
     "tagline": "A centuries-old Gulf of Aden trading port framed by white sand beaches and a living coral coastline.",
     "shortDescription": "Somaliland’s principal seaport and oldest continuously used harbor on the Horn of Africa, backed by red volcanic hills and fringed by shallow coral reef flats.",
     "fullDescription": "Berbera has served as a crossroads of Red Sea and Indian Ocean trade for well over a thousand years, its natural deepwater harbor sheltering merchant dhows long before the modern port was built.\n\nBehind the town, the arid Golis mountain range rises sharply from the coastal plain, giving way to a shoreline of pale sand beaches and warm, shallow reef flats that stay calm for much of the year. Traditional fishing communities still work these waters daily for reef fish, shark, and seasonal pelagics.\n\nSomalia Blue Heaven is beginning baseline surveys of Berbera’s nearshore reef flats and lagoon systems, an area of the Gulf of Aden that remains comparatively under-documented despite its long human history.",
-    "heroImage": "/berbera1.png",
+    "heroImage": "/berbera1.webp",
     "gallery": [
-      "/berbera1.png",
-      "/berbera2.png",
-      "/berbera3.png"
+      "/berbera1.webp",
+      "/berbera2.webp",
+      "/berbera3.webp"
     ],
     "coordinates": {
       "lat": 10.4396,
@@ -443,14 +443,14 @@
         "id": "berbera-reef-fish",
         "name": "Reef & Pelagic Fish",
         "scientificName": "Various species",
-        "image": "/marine_fish.jpg",
+        "image": "/marine_fish.webp",
         "description": "Snapper, grouper, and seasonal pelagics support Berbera’s daily artisanal landings."
       },
       {
         "id": "berbera-green-turtle",
         "name": "Green Sea Turtle",
         "scientificName": "Chelonia mydas",
-        "image": "/marine_turtles.jpg",
+        "image": "/marine_turtles.webp",
         "description": "Forages the seagrass beds within Berbera’s sheltered coastal lagoon."
       }
     ],
@@ -489,11 +489,11 @@
     "tagline": "A once-great Red Sea port, its coral-stone ruins standing quiet above the tide.",
     "shortDescription": "One of the oldest ports on the Horn of Africa coast, Zeila (Saylac) blends crumbling coral-stone architecture with calm, shallow turquoise flats and scattered offshore islets.",
     "fullDescription": "Zeila, also known as Saylac, was for centuries one of the most important trading ports on the Gulf of Aden, linking the Ethiopian highlands to Arabia, Persia, and India. Its harbor has since silted and quieted, leaving behind weathered coral-stone mosques, merchant houses, and city walls standing above the shoreline.\n\nThe waters offshore are shallow and calm for much of the year, sheltered by a scatter of low sandy islets, and support seasonal artisanal fishing much as they have for generations.\n\nSomalia Blue Heaven views Zeila as a priority site for documenting how a historic Gulf of Aden port town's marine life and fishing practices have shifted over time, alongside the town's largely unrestored maritime heritage.",
-    "heroImage": "/zeila1.png",
+    "heroImage": "/zeila1.webp",
     "gallery": [
-      "/zeila1.png",
-      "/zeila2.png",
-      "/zeila3.png"
+      "/zeila1.webp",
+      "/zeila2.webp",
+      "/zeila3.webp"
     ],
     "coordinates": {
       "lat": 11.3572,
@@ -512,7 +512,7 @@
         "id": "zeila-reef-fish",
         "name": "Shallow-Flat Reef Fish",
         "scientificName": "Various species",
-        "image": "/marine_coral.jpg",
+        "image": "/marine_coral.webp",
         "description": "Small reef and flat-dwelling species shelter among Zeila’s scattered coral outcrops."
       }
     ],
@@ -545,12 +545,12 @@
     "tagline": "Southern Somalia’s premier ocean city, surrounded by white sand beaches and mangrove estuaries.",
     "shortDescription": "The vibrant coastal capital of Jubaland, featuring a natural deep-water bay, rich mangrove ecosystems near the Jubba River, and the gateway to the Bajuni Archipelago.",
     "fullDescription": "Kismayo is the economic and cultural heart of southern Somalia, blessed with an extraordinary natural harbor protected by a chain of nearshore barrier islands and headlands.\n\nLocated just south of where the fertile Jubba River empties into the Indian Ocean, Kismayo’s coastal waters are fed by nutrient-dense estuarine outflows that nourish immense mangrove forests, productive crustacean habitats, and vital nursery grounds for reef fish.\n\nThe beaches of Kismayo—stretching unbroken for tens of kilometers with powdery white sand—represent some of the finest natural coastlines in Eastern Africa. Somalia Blue Heaven conducts regular community beach cleanups, youth ocean education classes, and mangrove reforestation projects here.",
-    "heroImage": "/kismayo1.png",
+    "heroImage": "/kismayo1.webp",
     "gallery": [
-      "/kismayo1.png",
-      "/kismayo2.png",
-      "/kismayo3.png",
-      "/kismayo4.png"
+      "/kismayo1.webp",
+      "/kismayo2.webp",
+      "/kismayo3.webp",
+      "/kismayo4.webp"
     ],
     "coordinates": {
       "lat": -0.3582,
@@ -570,21 +570,21 @@
         "id": "dugong",
         "name": "Dugong (Sea Cow)",
         "scientificName": "Dugong dugon",
-        "image": "/marine_dolphins.jpg",
+        "image": "/marine_dolphins.webp",
         "description": "Rare and endangered herbivorous marine mammal grazing in Jubaland seagrass meadows."
       },
       {
         "id": "green-sea-turtle",
         "name": "Green Sea Turtle",
         "scientificName": "Chelonia mydas",
-        "image": "/marine_turtles.jpg",
+        "image": "/marine_turtles.webp",
         "description": "Regularly nests on the quiet sandy outer beaches flanking Kismayo."
       },
       {
         "id": "mud-crab",
         "name": "Giant Mangrove Crab",
         "scientificName": "Scylla serrata",
-        "image": "/marine_coral.jpg",
+        "image": "/marine_coral.webp",
         "description": "Keystone species in the Jubba River delta mangrove forest systems."
       }
     ],
@@ -639,7 +639,7 @@
     "gallery": [
       "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=800&q=80",
-      "/marine_sharks.jpg"
+      "/marine_sharks.webp"
     ],
     "coordinates": {
       "lat": -0.85,
@@ -659,21 +659,21 @@
         "id": "dugong-bajuni",
         "name": "Dugong",
         "scientificName": "Dugong dugon",
-        "image": "/marine_dolphins.jpg",
+        "image": "/marine_dolphins.webp",
         "description": "Inhabits the calm, shallow seagrass banks between the islands."
       },
       {
         "id": "reef-shark",
         "name": "Whitetip Reef Shark",
         "scientificName": "Triaenodon obesus",
-        "image": "/marine_sharks.jpg",
+        "image": "/marine_sharks.webp",
         "description": "Patrols the outer coral walls and drop-offs along the barrier reef."
       },
       {
         "id": "staghorn-coral",
         "name": "Staghorn Coral",
         "scientificName": "Acropora cervicornis",
-        "image": "/marine_coral.jpg",
+        "image": "/marine_coral.webp",
         "description": "Forms massive, vibrant underwater forests across the archipelago lagoons."
       }
     ],
@@ -724,11 +724,11 @@
     "tagline": "Somalia’s southernmost coastal headland, where the wilderness reaches the surf.",
     "shortDescription": "A remote, wild coastal point at Somalia’s southern border, characterized by virgin beaches, dense coastal bush, and undisturbed sea turtle breeding grounds.",
     "fullDescription": "Ras Kamboni marks the southernmost point of Somalia’s 3,025 km coastline. This remote headland is a true frontier wilderness where coastal thicket forests merge with pristine windswept dunes and dramatic coral headlands.\n\nBecause human activity is minimal here, Ras Kamboni’s beaches serve as vital, undisturbed nesting grounds for green and olive ridley sea turtles. The surrounding ocean waters support dense coral reefs that link seamlessly into the Lamu marine conservation corridors across the border.\n\nSomalia Blue Heaven is actively working with regional rangers and community representatives to designate key stretches of Ras Kamboni as protected marine sanctuaries.",
-    "heroImage": "/kamboni1.png",
+    "heroImage": "/kamboni1.webp",
     "gallery": [
-      "/kamboni1.png",
-      "/kamboni2.png",
-      "/kamboni3.png"
+      "/kamboni1.webp",
+      "/kamboni2.webp",
+      "/kamboni3.webp"
     ],
     "coordinates": {
       "lat": -1.6406,
@@ -747,7 +747,7 @@
         "id": "olive-ridley",
         "name": "Olive Ridley Turtle",
         "scientificName": "Lepidochelys olivacea",
-        "image": "/marine_turtles.jpg",
+        "image": "/marine_turtles.webp",
         "description": "Utilizes the dark, undisturbed sandy beaches for synchronized egg laying."
       }
     ],
@@ -780,11 +780,11 @@
     "tagline": "The historic White Pearl of the Indian Ocean, alive with vibrant coastal life.",
     "shortDescription": "Somalia’s legendary capital city, home to centuries-old Hamar Weyne coral-stone architecture, vibrant fish markets, and iconic Indian Ocean beachfronts.",
     "fullDescription": "Known for centuries as the 'White Pearl of the Indian Ocean', Mogadishu is a historic maritime metropolis whose destiny has always been defined by the sea.\n\nFrom the medieval minarets and coral-rag stone buildings of the ancient Hamar Weyne and Shangani districts to the bustling morning landings at the central fish market, ocean culture permeates every corner of the city.\n\nThe coastal shelf off Mogadishu supports rich pelagic fisheries including king mackerel, sailfish, and skipjack tuna. Today, Mogadishu’s shoreline is undergoing a vibrant revival, with coastal cafes, watersports enthusiasts, and ocean research institutes taking root.",
-    "heroImage": "/mogadishu1.png",
+    "heroImage": "/mogadishu1.webp",
     "gallery": [
-      "/mogadishu1.png",
-      "/mogadishu2.png",
-      "/mogadishu3.png"
+      "/mogadishu1.webp",
+      "/mogadishu2.webp",
+      "/mogadishu3.webp"
     ],
     "coordinates": {
       "lat": 2.0469,
@@ -804,14 +804,14 @@
         "id": "sailfish",
         "name": "Indo-Pacific Sailfish",
         "scientificName": "Istiophorus platypterus",
-        "image": "/marine_fish.jpg",
+        "image": "/marine_fish.webp",
         "description": "Fast pelagic hunter frequently spotted by offshore artisanal fishermen."
       },
       {
         "id": "bottlenose-dolphin",
         "name": "Indo-Pacific Bottlenose Dolphin",
         "scientificName": "Tursiops aduncus",
-        "image": "/marine_dolphins.jpg",
+        "image": "/marine_dolphins.webp",
         "description": "Regularly seen breaching near Mogadishu harbor breakwaters."
       }
     ],
@@ -856,12 +856,12 @@
     "tagline": "Somalia’s most famous shoreline, alive with evening strolls, swimming, and ocean breeze.",
     "shortDescription": "The beating heart of Mogadishu’s coastal recreation, featuring kilometers of golden sands, oceanfront dining, swimming, and vibrant community life.",
     "fullDescription": "Liido Beach is more than just a stretch of sand—it is the living symbol of Somalia’s resilience and deep affection for the ocean.\n\nEvery weekend, thousands of families, students, entrepreneurs, and athletes gather on Liido’s expansive shoreline to swim in the warm Indian Ocean surf, play beach football, enjoy fresh seafood at oceanfront cafes, and watch the sun dip below the horizon.\n\nThe beach is protected by a series of nearshore sandbanks and submerged coral outcrops that create safe swimming conditions inside the surf zone. Somalia Blue Heaven conducts regular youth ocean literacy campaigns and community beach stewardship events right here.",
-    "heroImage": "/liido1.png",
+    "heroImage": "/liido1.webp",
     "gallery": [
-      "/liido1.png",
-      "/liido2.png",
-      "/liido3.png",
-      "/liido4.png"
+      "/liido1.webp",
+      "/liido2.webp",
+      "/liido3.webp",
+      "/liido4.webp"
     ],
     "coordinates": {
       "lat": 2.0538,
@@ -881,7 +881,7 @@
         "id": "flying-fish",
         "name": "Tropical Flying Fish",
         "scientificName": "Exocoetidae",
-        "image": "/marine_fish.jpg",
+        "image": "/marine_fish.webp",
         "description": "Often seen gliding across the surface waters just beyond the Liido surf line."
       }
     ],
@@ -920,11 +920,11 @@
     "tagline": "A scenic offshore island, tranquil coral lagoon, and traditional salt farming coastline.",
     "shortDescription": "Famous for its picturesque offshore island, pristine coral barrier lagoon, fresh seafood shacks, and historic natural salt production pans.",
     "fullDescription": "Located just a short drive south of Mogadishu, Jazeera is a tranquil coastal escape characterized by a dramatic offshore coral island that sits just 500 meters from the mainland beach.\n\nAt low tide, calm shallow lagoons form behind the reef crest, providing an exceptional natural nursery for juvenile fish, octopus, and sea anemones. Traditional dhow boats ferry visitors across the tranquil channel to explore the rocky island and its sea caves.\n\nInland from the beach, extensive traditional solar salt evaporation pans have operated sustainably for decades, producing sea salt through the natural evaporation of Indian Ocean brine.",
-    "heroImage": "/jazeera1.png",
+    "heroImage": "/jazeera1.webp",
     "gallery": [
-      "/jazeera1.png",
-      "/jazeera2.png",
-      "/jazeera3.png"
+      "/jazeera1.webp",
+      "/jazeera2.webp",
+      "/jazeera3.webp"
     ],
     "coordinates": {
       "lat": 1.9547,
@@ -944,7 +944,7 @@
         "id": "reef-octopus",
         "name": "Day Octopus",
         "scientificName": "Octopus cyanea",
-        "image": "/marine_coral.jpg",
+        "image": "/marine_coral.webp",
         "description": "Highly intelligent camouflage master inhabiting Jazeera’s tidal rock pools."
       }
     ],
@@ -983,11 +983,11 @@
     "tagline": "An ancient ocean trading town of whitewashed coral architecture and soaring sand dunes.",
     "shortDescription": "One of the oldest maritime settlements on the Swahili Coast, Marka is famed for its distinctive white coral buildings, sweeping orange sand dunes, and artisan weaving.",
     "fullDescription": "Marka is an ancient port town steeped in centuries of Indian Ocean trade. Founded over a thousand years ago, the city was a vital center of the Ajuran Sultanate and a celebrated port of call for merchant vessels from Oman, Yemen, India, and China.\n\nThe town’s architecture is renowned for its whitewashed coral-stone buildings with ornate carved wooden doors, arched alleys, and tranquil interior courtyards. Directly behind the city, massive orange-gold sand dunes rise dramatically, creating a striking contrast against the turquoise Indian Ocean.\n\nMarka’s fishermen operate from open sandy beaches, braving the powerful ocean breakers in agile fiberglass boats to harvest kingfish, tuna, and snappers from the fertile Shabelle coastal banks.",
-    "heroImage": "/marka1.png",
+    "heroImage": "/marka1.webp",
     "gallery": [
-      "/marka1.png",
-      "/marka2.png",
-      "/marka3.png"
+      "/marka1.webp",
+      "/marka2.webp",
+      "/marka3.webp"
     ],
     "coordinates": {
       "lat": 1.7159,
@@ -1007,7 +1007,7 @@
         "id": "king-mackerel",
         "name": "King Mackerel",
         "scientificName": "Scomberomorus commerson",
-        "image": "/marine_fish.jpg",
+        "image": "/marine_fish.webp",
         "description": "Fast predatory fish abundant in the offshore waters of Lower Shabelle."
       }
     ],
@@ -1046,11 +1046,11 @@
     "tagline": "A jewel of the Swahili Coast, rich in maritime heritage, coral architecture, and coastal reefs.",
     "shortDescription": "A historic walled port town known for its unique Bravanese culture, coral-stone towers, offshore barrier reefs, and renowned seafaring traditions.",
     "fullDescription": "Barawe (Brava) is one of the most culturally unique and historically significant coastal towns in the Horn of Africa. Established in the 10th century, it became a key port in the medieval Swahili trading network that linked East Africa to Persia and Arabia.\n\nThe town is home to the Bravanese people, who speak Chimwiini (a distinct Swahili dialect) and maintain famous crafts including hand-woven cotton textiles and the iconic 'Kofia Barawa' embroidered caps.\n\nBarawe is protected by offshore coral reefs and barrier islands that provide calm anchorage for fishing boats. The surrounding marine ecosystems support rich coral gardens, sea turtle foraging areas, and abundant reef fish.",
-    "heroImage": "/barawe1.png",
+    "heroImage": "/barawe1.webp",
     "gallery": [
-      "/barawe1.png",
-      "/barawe2.png",
-      "/barawe3.png"
+      "/barawe1.webp",
+      "/barawe2.webp",
+      "/barawe3.webp"
     ],
     "coordinates": {
       "lat": 1.1133,
@@ -1069,7 +1069,7 @@
         "id": "parrotfish",
         "name": "Bicolor Parrotfish",
         "scientificName": "Cetoscarus bicolor",
-        "image": "/marine_coral.jpg",
+        "image": "/marine_coral.webp",
         "description": "Crucial reef herbivore maintaining the health of Barawe’s coral flats."
       }
     ],
@@ -1102,11 +1102,11 @@
     "tagline": "The historic wind-swept harbor of central Somalia, famous for ancient trade and seasonal upwelling.",
     "shortDescription": "Historically the seat of the Sultanate of Hobyo, this central coastline is characterized by vast dunes, strong seasonal upwelling, and bountiful pelagic fisheries.",
     "fullDescription": "Hobyo ('Here is water') is an ancient coastal town in the Mudug region of central Somalia, strategically positioned midway along Somalia’s vast coastline.\n\nFounded as an essential freshwater replenishment port for Indian Ocean trading dhows traveling between the Persian Gulf and East Africa, Hobyo later became the capital of the historic Sultanate of Hobyo in the late 19th century.\n\nOceanographically, Hobyo sits at the epicenter of the Great Whirl and the powerful Somali Current upwelling system. In the summer months, cold, nutrient-rich deep water surges toward the coast, creating one of the highest concentrations of ocean biomass and pelagic fish in the Indian Ocean.",
-    "heroImage": "/hobyo1.png",
+    "heroImage": "/hobyo1.webp",
     "gallery": [
-      "/hobyo1.png",
-      "/hobyo2.png",
-      "/hobyo3.png"
+      "/hobyo1.webp",
+      "/hobyo2.webp",
+      "/hobyo3.webp"
     ],
     "coordinates": {
       "lat": 5.3503,
@@ -1125,7 +1125,7 @@
         "id": "spanish-mackerel",
         "name": "Narrow-barred Spanish Mackerel",
         "scientificName": "Scomberomorus commerson",
-        "image": "/marine_fish.jpg",
+        "image": "/marine_fish.webp",
         "description": "Apex pelagic predator dominating the upwelling waters off Mudug."
       }
     ],

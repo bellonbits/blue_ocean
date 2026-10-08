@@ -6,7 +6,7 @@ import { uploadMedia, mediaUrl } from '../../../lib/contentApi';
 // Single-image counterpart to GalleryManager, for fields like hero_image —
 // upload a file (goes through the Media Library API, same as the gallery
 // widget) or fall back to pasting a URL by hand, since older content still
-// points at plain static paths (e.g. /somalia_coast.jpg) that never went
+// points at plain static paths (e.g. /somalia_coast.webp) that never went
 // through an upload.
 export default function ImagePicker({ value, onChange }) {
   const { token } = useAuth();

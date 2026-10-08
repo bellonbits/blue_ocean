@@ -64,7 +64,7 @@ export default function ContactPage() {
         ? 'Xarunta ugu weyn ee Somalia Blue Heaven ee Puntland oo ay ku yaallaan shaybaarrada badda, xannaanada shacaabka, iyo xafiiska maamulka sare.'
         : 'Northern operational base managing Gulf of Aden telemetry arrays, wet laboratories, dive operations, and community fisheries coordination.',
       link: '/explore-the-coast/bosaso',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
     },
     {
       tag: isSomali ? 'XAFIISKA BANAADIR' : 'CENTRAL LIAISON OFFICE',
@@ -73,7 +73,7 @@ export default function ContactPage() {
         ? 'Xafiiska xiriirka jaamacadaha, wacyigelinta bulshada, kormeerka nadaafadda Xeebta Liido, iyo wada-shaqeynta dowladda.'
         : 'Central hub for academic university fellowships, ocean literacy programs, Liido beach debris tracking, and inter-agency maritime accords.',
       link: '/explore-the-coast/mogadishu',
-      image: '/images/image.png',
+      image: '/images/image.webp',
     },
     {
       tag: isSomali ? 'SALDHIGGA KOONFURTA' : 'SOUTHERN EXPEDITIONS BASE',
@@ -82,7 +82,7 @@ export default function ContactPage() {
         ? 'Saldhigga laga maamulo ilaalinta jasiiradaha Baajuun, kormeerka qoolleyda badda, iyo kaymaha mangrove-ka ee Jubaland.'
         : 'Expedition launchpad coordinating Bajuni island field vessels, green turtle nesting sanctuaries, and mangrove blue carbon mapping.',
       link: '/explore-the-coast/kismayo',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
     },
   ];
 
@@ -94,7 +94,7 @@ export default function ContactPage() {
       excerpt: isSomali
         ? 'Shaybaarka ugu weyn ee baara tayada biyaha, noolaha badda, iyo socdaalka libaax-badeedka. Furfuran Sabti ilaa Khamiis.'
         : 'Equipped with marine microbiology labs, acoustic tag tracking gear, and maritime expedition craft. Open Sat–Thu 8:00 AM – 5:00 PM.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/explore-the-coast/bosaso',
     },
     {
@@ -104,7 +104,7 @@ export default function ContactPage() {
       excerpt: isSomali
         ? 'Xarunta xiriirka daneeyayaasha caalamiga ah, tababarrada ardayda badda, iyo qabanqaabada nadaafadda xeebaha.'
         : 'Coordinating university marine biology internships, public beach conservation, and government partnerships.',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       link: '/explore-the-coast/mogadishu',
     },
     {
@@ -114,7 +114,7 @@ export default function ContactPage() {
       excerpt: isSomali
         ? 'Saldhigga u heellan hawlgallada doonyaha shiraaca, ilaalinta cawsduurka badda, iyo kormeerka qoolleyda.'
         : 'Staging ground for island scientific patrols, traditional dhow research surveys, and mangrove nurseries.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/explore-the-coast/kismayo',
     },
   ];
@@ -126,7 +126,7 @@ export default function ContactPage() {
       desc: isSomali
         ? 'U helitaanka xogta xannaanada shacaabka, heerkulka biyaha, telemetry-ga noolaha badda, ama wada-qorista cilmi-baarista.'
         : 'Peer-reviewed telemetry datasets, collaborative survey requests, and academic institution partnerships.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/research',
     },
     {
@@ -135,7 +135,7 @@ export default function ContactPage() {
       desc: isSomali
         ? 'Taageerada qalabka kalluumaysiga gacanta, farsamada qallajinta cadceedda, iyo barnaamijyada haweenka xeebaha.'
         : 'Fair-trade handline certification, solar curing infrastructure, and women-led seafood value co-ops.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/communities',
     },
     {
@@ -144,7 +144,7 @@ export default function ContactPage() {
       desc: isSomali
         ? 'Hagidda dalxiiska anshaxa leh ee Boosaaso, Raas Xaafuun, Dooxada Eyl, iyo Jasiiradaha Baajuun iyadoo aan dabeecadda la dhibin.'
         : 'Guidance for respectful coastal travel, cultural dhow sailing charters, and scientific ecotourism.',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
       link: '/explore-the-coast',
     },
     {
@@ -153,7 +153,7 @@ export default function ContactPage() {
       desc: isSomali
         ? 'Fursadaha tababarka duurjoogta iyo shaybaarka ee ardayda badda ee dhigata jaamacadaha Soomaaliya.'
         : 'Practical field attachments for emerging Somali marine scientists, oceanographers, and geographers.',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/about',
     },
     {
@@ -162,7 +162,7 @@ export default function ContactPage() {
       desc: isSomali
         ? 'Caawinta kooxaha filimada badda, saxafiyiinta deegaanka, iyo sawir-qaadayaasha doonaya inay qoraan quruxda xeebta.'
         : 'Permits, logistical marine craft support, and local guiding for marine documentaries and conservation journalism.',
-      image: '/images/img_12.png',
+      image: '/images/img_12.webp',
       link: '/news',
     },
     {
@@ -171,7 +171,7 @@ export default function ContactPage() {
       desc: isSomali
         ? 'Ku biirista hawlgallada habeenkii ee badbaadinta ukunta qoolleyda, nadaafadda xeebaha, iyo beeridda mangrove-ka.'
         : 'Joining seasonal sea turtle night vigils, plastic cleanups, and mangrove planting campaigns.',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/conservation',
     },
   ];
@@ -186,7 +186,7 @@ export default function ContactPage() {
       location: isSomali ? 'Dhammaan Xeebaha Soomaaliya' : 'All Regional Stations',
       status: isSomali ? 'Gurmad Toos ah' : 'Emergency Unit',
       code: 'RESCUE-24',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/contact',
     },
     {
@@ -198,7 +198,7 @@ export default function ContactPage() {
       location: isSomali ? 'Xarunta Boosaaso' : 'Surveillance Operations',
       status: isSomali ? 'Diiwaan Sharci' : 'Incident Log',
       code: 'IUU-REPORT',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       link: '/conservation',
     },
   ];
@@ -244,7 +244,7 @@ export default function ContactPage() {
       <section className="portal-hero" aria-label="Contact Somalia Blue Heaven Hero">
         <div className="portal-hero__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Somalia coastline connecting sea and land"
             className="portal-hero__bg"
           />
@@ -792,16 +792,16 @@ export default function ContactPage() {
         {/* 4-Image Asymmetrical Mosaic */}
         <div className="portal-diaries-grid">
           <div className="portal-diary-item">
-            <img src="/images/img_02.png" alt="Bosaso harbor operations station" />
+            <img src="/images/img_02.webp" alt="Bosaso harbor operations station" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_01.png" alt="Ras Hafun monitoring outpost" />
+            <img src="/images/img_01.webp" alt="Ras Hafun monitoring outpost" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_05.png" alt="Bajuni islands coastal vessel" />
+            <img src="/images/img_05.webp" alt="Bajuni islands coastal vessel" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/image.png" alt="Somalia azure coastal waters" />
+            <img src="/images/image.webp" alt="Somalia azure coastal waters" />
           </div>
         </div>
 
@@ -817,7 +817,7 @@ export default function ContactPage() {
       <section className="portal-cta" aria-label="Ready to Connect">
         <div className="portal-cta__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Sunset over the Somali coast"
             className="portal-cta__bg"
           />

@@ -17,7 +17,7 @@ import './VideoEmbed.css';
 const DEFAULT_COASTAL_SERIES = [
   {
     url: '/bosaso_harbor.mp4',
-    thumbnail: '/bosaso_harbor_thumb.jpg',
+    thumbnail: '/bosaso_harbor_thumb.webp',
     title: 'Bosaso Deep Water Harbor & Marine Outpost',
     description: 'Northern commercial shipping terminal and marine research sanctuary anchoring the Gulf of Aden acoustic telemetry array.',
     views: '786,374',
@@ -27,7 +27,7 @@ const DEFAULT_COASTAL_SERIES = [
   },
   {
     url: '/bosaso_coastal_life.mp4',
-    thumbnail: '/bosaso_life_thumb.jpg',
+    thumbnail: '/bosaso_life_thumb.webp',
     title: 'Gulf of Aden Artisanal Dhow Seafaring & Coral Coves',
     description: 'Traditional Swahili-Somali wooden dhow fleets navigating dawn sea breezes past living barrier reefs and turquoise lagoons.',
     views: '542,190',
@@ -37,7 +37,7 @@ const DEFAULT_COASTAL_SERIES = [
   },
   {
     url: '/1005.mp4',
-    thumbnail: '/bosaso_beach_thumb.jpg',
+    thumbnail: '/bosaso_beach_thumb.webp',
     title: 'Ras Hafun Continental Tombolo & Whale Migration Corridor',
     description: 'Africa’s easternmost headland where towering limestone bluffs plunge into cobalt oceanic waters and green turtle hatcheries.',
     views: '1,240,650',
@@ -47,7 +47,7 @@ const DEFAULT_COASTAL_SERIES = [
   },
   {
     url: '/1002(1).mp4',
-    thumbnail: '/1002-Cover.jpg',
+    thumbnail: '/1002-Cover.webp',
     title: 'Bajuni Coral Atoll Archipelago & Turquoise Estuaries',
     description: 'An untouched southern island constellation safeguarding critical blue carbon mangrove forests and rare marine habitats.',
     views: '934,810',
@@ -108,7 +108,7 @@ export default function VideoEmbed({
     activeVideo?.cover_image ||
     activeVideo?.video_thumbnail ||
     thumbnail ||
-    '/images/img_02.png';
+    '/images/img_02.webp';
   const activeTitle =
     activeVideo?.title ||
     activeVideo?.video_title ||

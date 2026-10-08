@@ -2,7 +2,7 @@
 Uploaded media assets (images) for the admin CMS.
 
 Every content model built in B3-B9 stores images as plain string paths
-(e.g. `/marine_sharks.jpg`) pointing at the frontend's own `public/`
+(e.g. `/marine_sharks.webp`) pointing at the frontend's own `public/`
 folder — real site photography that already exists as static assets and
 isn't touched by this table. `Media` is the storage layer for *new*
 uploads made through the admin API going forward: content editors

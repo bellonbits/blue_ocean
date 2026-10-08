@@ -4,7 +4,7 @@
     "slug": "dolphins-whales",
     "title": "Dolphins & Whales",
     "description": "Resident spinner dolphins, migratory humpback whales, and elusive blue whales patrolling deep pelagic upwellings.",
-    "image": "/marine_dolphins.jpg",
+    "image": "/marine_dolphins.webp",
     "count": 14,
     "countLabel": "14+ Documented Species",
     "group": "Cetaceans"
@@ -14,7 +14,7 @@
     "slug": "sharks-rays",
     "title": "Sharks & Rays",
     "description": "Gentle oceanic whale sharks, reef apex predators, and majestic pelagic manta rays congregating in nutrient-rich channels.",
-    "image": "/marine_sharks.jpg",
+    "image": "/marine_sharks.webp",
     "count": 28,
     "countLabel": "28+ Documented Species",
     "group": "Elasmobranchs"
@@ -24,7 +24,7 @@
     "slug": "sea-turtles",
     "title": "Sea Turtles",
     "description": "Green turtles, hawksbills, loggerheads, and olive ridleys utilizing ancient nesting beaches across Hafun and Bajuni.",
-    "image": "/marine_turtles.jpg",
+    "image": "/marine_turtles.webp",
     "count": 5,
     "countLabel": "5 Documented Species",
     "group": "Marine Reptiles"
@@ -34,7 +34,7 @@
     "slug": "fish",
     "title": "Fish",
     "description": "Vibrant reef dwellers, schooling pelagic tuna, sailfish, and giant groupers thriving in Africa’s richest maritime upwellings.",
-    "image": "/exp_coral_snorkeling.jpg",
+    "image": "/exp_coral_snorkeling.webp",
     "count": 420,
     "countLabel": "420+ Documented Species",
     "group": "Actinopterygii"
@@ -44,7 +44,7 @@
     "slug": "coral-reefs",
     "title": "Coral Reefs",
     "description": "Thriving brain corals, tabular acropora, and massive coral gardens sheltering over 80% of coastal biodiversity.",
-    "image": "/marine_coral.jpg",
+    "image": "/marine_coral.webp",
     "count": 180,
     "countLabel": "180+ Coral Types",
     "group": "Cnidarians"
@@ -54,7 +54,7 @@
     "slug": "seagrass",
     "title": "Seagrass",
     "description": "Expansive underwater meadows acting as critical blue carbon sinks and crucial foraging grounds for dugongs and green turtles.",
-    "image": "/marine_seagrass.jpg",
+    "image": "/marine_seagrass.webp",
     "count": 12,
     "countLabel": "12 Seagrass Types",
     "group": "Marine Angiosperms"
@@ -64,7 +64,7 @@
     "slug": "crustaceans",
     "title": "Crustaceans",
     "description": "Spiny lobsters, deep-water crabs, ghost crabs, and cleaner shrimp forming vital foundations of the benthic food web.",
-    "image": "/exp_scuba_diving.jpg",
+    "image": "/exp_scuba_diving.webp",
     "count": 85,
     "countLabel": "85+ Documented Species",
     "group": "Crustacea"
@@ -74,7 +74,7 @@
     "slug": "other",
     "title": "Other Marine Life",
     "description": "Echinoderms, cephalopods, sea cucumbers, giant clams, and pelagic jellyfish populating the Somali continental shelf.",
-    "image": "/exp_dhow_sailing.jpg",
+    "image": "/exp_dhow_sailing.webp",
     "count": 65,
     "countLabel": "65+ Documented Species",
     "group": "Invertebrates"

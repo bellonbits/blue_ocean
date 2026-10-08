@@ -9,7 +9,7 @@ export default function IllegalFishingHero() {
     <section className="exp-hero" aria-label="Illegal Fishing — Somalia Blue Heaven Conservation">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/images/img_11.png"
+          src="/images/img_11.webp"
           alt="Reef fish in Somali coastal waters"
           className="exp-hero__img"
         />

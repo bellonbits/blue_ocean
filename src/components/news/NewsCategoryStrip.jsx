@@ -13,12 +13,12 @@ const ICONS = {
 };
 
 const IMAGES = {
-  'marine-life': '/images/img_10.png',
-  research: '/images/img_02.png',
-  tourism: '/images/img_05.png',
-  conservation: '/images/img_07.png',
-  'coastal-communities': '/images/image.png',
-  'ocean-news': '/images/image.png',
+  'marine-life': '/images/img_10.webp',
+  research: '/images/img_02.webp',
+  tourism: '/images/img_05.webp',
+  conservation: '/images/img_07.webp',
+  'coastal-communities': '/images/image.webp',
+  'ocean-news': '/images/image.webp',
 };
 
 export default function NewsCategoryStrip() {

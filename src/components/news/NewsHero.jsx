@@ -12,7 +12,7 @@ export default function NewsHero() {
     <section className="exp-hero" aria-label="Somalia Blue Heaven News & Discoveries">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/bargaal_main.jpg"
+          src="/bargaal_main.webp"
           alt="Coastal town along Somalia's northern shore"
           className="exp-hero__img"
         />

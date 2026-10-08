@@ -11,7 +11,7 @@ export default function AboutHero() {
     <section className="exp-hero" aria-label="About Somalia Blue Heaven">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/MOGADISHUBEACH%20LEDE.jpg"
+          src="/MOGADISHUBEACH%20LEDE.webp"
           alt="Mogadishu's coast, home to Somalia Blue Heaven's headquarters"
           className="exp-hero__img"
         />

@@ -42,8 +42,8 @@ export default function VisualDiaryGallery({ title, subtitle }) {
         desc: isSomali
           ? 'Halka ilaha biyaha macaan ay kaga soo daraan badda buluugga ah ee Badweynta Hindiya.'
           : 'Breathtaking freshwater springs cascade through sheer limestone canyon gorges directly into the cobalt swells of the Indian Ocean.',
-        image: '/images/img_03.png',
-        avatar: '/images/img_03.png',
+        image: '/images/img_03.webp',
+        avatar: '/images/img_03.webp',
         author: isSomali ? 'Dooxada Eyl' : 'Dooxada Eyl Sanctuary',
         authorMeta: 'Nugaal Valley, Indian Ocean Coast • 07°58′N 49°49′E',
       },
@@ -56,8 +56,8 @@ export default function VisualDiaryGallery({ title, subtitle }) {
         desc: isSomali
           ? 'Dhul qadiimi ah oo taariikhi ah, buuro dhaadheer oo badda dhex maquura.'
           : 'Towering continental sandstone cliffs plunge into deep oceanic trenches where centuries of monsoonal spice trading routes converge.',
-        image: '/images/img_01.png',
-        avatar: '/images/img_01.png',
+        image: '/images/img_01.webp',
+        avatar: '/images/img_01.webp',
         author: isSomali ? 'Raas Xaafuun' : 'Ras Hafun Headlands',
         authorMeta: 'Horn of Africa Continental Shelf • 10°25′N 51°16′E',
       },
@@ -70,8 +70,8 @@ export default function VisualDiaryGallery({ title, subtitle }) {
         desc: isSomali
           ? 'Jasiirado qadiimi ah oo leh biyaha ugu nadiifsan iyo doonyaha dhowka.'
           : 'An untouched constellation of coral atolls, turquoise lagoons, traditional Swahili-Somali dhow vessels, and green turtle hatcheries.',
-        image: '/images/img_05.png',
-        avatar: '/images/img_05.png',
+        image: '/images/img_05.webp',
+        avatar: '/images/img_05.webp',
         author: isSomali ? 'Jasiiradaha Baajuun' : 'Bajuni Archipelago',
         authorMeta: 'Kismayo Coastal District • 00°21′S 42°32′E',
       },
@@ -84,8 +84,8 @@ export default function VisualDiaryGallery({ title, subtitle }) {
         desc: isSomali
           ? 'Biyo deggan oo ku habboon dabaasha iyo daawashada noolaha badda.'
           : 'Where rugged volcanic ridges meet the deep pelagic waters of the Gulf of Aden, sheltering artisanal fleets and whale sharks.',
-        image: '/images/img_02.png',
-        avatar: '/images/img_02.png',
+        image: '/images/img_02.webp',
+        avatar: '/images/img_02.webp',
         author: isSomali ? 'Boosaaso' : 'Gulf of Aden Sanctuary',
         authorMeta: 'Bari Commercial Seaport • 11°17′N 49°11′E',
       },
@@ -98,8 +98,8 @@ export default function VisualDiaryGallery({ title, subtitle }) {
         desc: isSomali
           ? 'Xeebta caanka ah ee dalka, makhaayadaha badda, iyo qorrax-u-dhaca cajiibka ah.'
           : 'Somalia’s iconic golden coastline where warm ocean breezes, vibrant coastal dining, and historic coral-stone promenades greet the open sea.',
-        image: '/images/image.png',
-        avatar: '/images/image.png',
+        image: '/images/image.webp',
+        avatar: '/images/image.webp',
         author: isSomali ? 'Xeebta Liido' : 'Banadir Seashore',
         authorMeta: 'Mogadishu Coastal Haven • 02°02′N 45°21′E',
       },

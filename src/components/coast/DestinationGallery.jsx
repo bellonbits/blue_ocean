@@ -8,10 +8,10 @@ export default function DestinationGallery({ destination }) {
     ? destination.gallery
     : [
         destination.heroImage,
-        '/bosaso_beach_thumb.jpg',
-        '/bosaso_1005_thumb.jpg',
-        '/images/img_02.png',
-        '/bosaso_harbor_thumb.jpg',
+        '/bosaso_beach_thumb.webp',
+        '/bosaso_1005_thumb.webp',
+        '/images/img_02.webp',
+        '/bosaso_harbor_thumb.webp',
       ];
 
   // Prepare standard 5 items matching user reference Cover Flow
@@ -25,7 +25,7 @@ export default function DestinationGallery({ destination }) {
       desc:
         destination.description ||
         `Sunlit turquoise waters and rolling surf along the pristine shores of ${destination.name}.`,
-      image: rawImages[1] || rawImages[0] || '/bosaso_1005_thumb.jpg',
+      image: rawImages[1] || rawImages[0] || '/bosaso_1005_thumb.webp',
       avatar: destination.heroImage || rawImages[0],
       author: destination.name,
       authorMeta: `${destination.region || 'Somali Coastline'} • 3,330 KM Sanctuary`,
@@ -39,7 +39,7 @@ export default function DestinationGallery({ destination }) {
       year: 'COAST',
       desc:
         'Dramatic panoramic vistas overlooking untouched barrier reefs, calm lagoons, and vibrant marine biodiversity.',
-      image: rawImages[2] || rawImages[0] || '/images/image.png',
+      image: rawImages[2] || rawImages[0] || '/images/image.webp',
       avatar: destination.heroImage || rawImages[0],
       author: destination.name,
       authorMeta: `${destination.region || 'Somali Coastline'} • Living Coral Atolls`,
@@ -53,7 +53,7 @@ export default function DestinationGallery({ destination }) {
       year: 'PELAGIC',
       desc:
         'Deep cobalt blue marine channel sheltering rich pelagic fish populations and seasonal whale shark migrations.',
-      image: rawImages[0] || destination.heroImage || '/gallery_center_lake.jpg',
+      image: rawImages[0] || destination.heroImage || '/gallery_center_lake.webp',
       avatar: destination.heroImage || rawImages[0],
       author: destination.name,
       authorMeta: `${destination.region || 'Somali Coastline'} • Marine Reserve`,
@@ -67,7 +67,7 @@ export default function DestinationGallery({ destination }) {
       year: 'MARITIME',
       desc:
         'Centuries of Swahili-Somali maritime culture where handcrafted wooden dhows sail across turquoise morning breezes.',
-      image: rawImages[3] || rawImages[1] || '/images/img_02.png',
+      image: rawImages[3] || rawImages[1] || '/images/img_02.webp',
       avatar: destination.heroImage || rawImages[0],
       author: destination.name,
       authorMeta: `${destination.region || 'Somali Coastline'} • Seafaring Haven`,
@@ -81,7 +81,7 @@ export default function DestinationGallery({ destination }) {
       year: 'HORIZON',
       desc:
         'Where sheer coastal sandstone headlands meet the uninterrupted Indian Ocean and Gulf of Aden horizons.',
-      image: rawImages[4] || rawImages[2] || '/images/img_05.png',
+      image: rawImages[4] || rawImages[2] || '/images/img_05.webp',
       avatar: destination.heroImage || rawImages[0],
       author: destination.name,
       authorMeta: `${destination.region || 'Somali Coastline'} • Headlands`,

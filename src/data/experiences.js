@@ -71,7 +71,7 @@ export const experienceCategories = [
     tagline: 'See the coast from the water.',
     description: 'Traditional dhow voyages and coastal cruises along Somalia’s harbors, headlands, and hidden coves.',
     icon: 'Ship',
-    image: '/images/img_12.png',
+    image: '/images/img_12.webp',
     translations: {
       so: {
         title: 'Dalxiisyada Doonta',
@@ -87,7 +87,7 @@ export const experienceCategories = [
     tagline: 'Discover life beneath the surface.',
     description: 'Shallow reef-top exploration above vibrant coral gardens and sheltered lagoons.',
     icon: 'Wind',
-    image: '/images/img_07.png',
+    image: '/images/img_07.webp',
     translations: {
       so: {
         title: 'Dabbaasha Murjaanka',
@@ -103,7 +103,7 @@ export const experienceCategories = [
     tagline: 'Go deeper.',
     description: 'Scuba expeditions into largely unexplored reef drop-offs and deep pelagic corridors.',
     icon: 'Waves',
-    image: '/images/img_02.png',
+    image: '/images/img_02.webp',
     translations: {
       so: {
         title: 'Dhex-quusidda',
@@ -119,7 +119,7 @@ export const experienceCategories = [
     tagline: 'Experience the traditions of the coast.',
     description: 'Traditional handline and reef fishing alongside veteran Somali fishing cooperatives.',
     icon: 'Fish',
-    image: '/images/img_11.png',
+    image: '/images/img_11.webp',
     translations: {
       so: {
         title: 'Kalluumeysiga',
@@ -135,7 +135,7 @@ export const experienceCategories = [
     tagline: 'Find the islands beyond the shore.',
     description: 'Multi-day expeditions into remote archipelagos, atolls, and untouched sandbars.',
     icon: 'Globe',
-    image: '/images/img_05.png',
+    image: '/images/img_05.webp',
     translations: {
       so: {
         title: 'Sahaminta Jasiiradaha',
@@ -151,7 +151,7 @@ export const experienceCategories = [
     tagline: 'Witness giants of the deep.',
     description: 'Guided sightings of spinner dolphin pods and migrating humpback whales.',
     icon: 'Anchor',
-    image: '/images/img_09.png',
+    image: '/images/img_09.webp',
     translations: {
       so: {
         title: 'Daawashada Dhurwaaga iyo Nibiriga',
@@ -167,7 +167,7 @@ export const experienceCategories = [
     tagline: 'Capture the unseen coast.',
     description: 'Guided underwater and aerial expeditions documenting Somalia’s marine frontier.',
     icon: 'Camera',
-    image: '/images/img_07.png',
+    image: '/images/img_07.webp',
     translations: {
       so: {
         title: 'Sawir-qaadista Badda',
@@ -183,7 +183,7 @@ export const experienceCategories = [
     tagline: 'Walk the edge of the continent.',
     description: 'Cliffside and canyon treks along Somalia’s dramatic limestone and sandstone coastline.',
     icon: 'Mountain',
-    image: '/images/img_12.png',
+    image: '/images/img_12.webp',
     translations: {
       so: {
         title: 'Socodka Qarka Xeebta',
@@ -214,11 +214,11 @@ const rawExperiences = [
     duration: 'Full Day',
     difficulty: 'Easy — All Ages',
     bestSeason: 'October – April',
-    heroImage: '/images/img_12.png',
+    heroImage: '/images/img_12.webp',
     gallery: [
-      { url: '/images/img_12.png', caption: 'Traditional dhow under sail off the Bosaso coastline.' },
-      { url: '/bosaso2.jpg', caption: 'Bosaso harbor, home port for coastal dhow voyages.' },
-      { url: '/images/img_09.png', caption: 'Resident dolphin pods often accompany dhow crossings.' },
+      { url: '/images/img_12.webp', caption: 'Traditional dhow under sail off the Bosaso coastline.' },
+      { url: '/bosaso2.webp', caption: 'Bosaso harbor, home port for coastal dhow voyages.' },
+      { url: '/images/img_09.webp', caption: 'Resident dolphin pods often accompany dhow crossings.' },
     ],
     highlights: [
       'Sail aboard a handcrafted wooden dhow',
@@ -286,11 +286,11 @@ const rawExperiences = [
     duration: 'Half Day',
     difficulty: 'Easy — Beginner Friendly',
     bestSeason: 'November – March',
-    heroImage: '/images/img_07.png',
+    heroImage: '/images/img_07.webp',
     gallery: [
-      { url: '/images/img_07.png', caption: 'Snorkeler above a shallow coral garden in the Bajuni Atolls.' },
-      { url: '/images/img_07.png', caption: 'Branching and table coral formations near the reef crest.' },
-      { url: '/images/img_05.png', caption: 'The sheltered lagoons of the Jubaland archipelago.' },
+      { url: '/images/img_07.webp', caption: 'Snorkeler above a shallow coral garden in the Bajuni Atolls.' },
+      { url: '/images/img_07.webp', caption: 'Branching and table coral formations near the reef crest.' },
+      { url: '/images/img_05.webp', caption: 'The sheltered lagoons of the Jubaland archipelago.' },
     ],
     highlights: [
       'Shallow, calm-water reef access',
@@ -358,11 +358,11 @@ const rawExperiences = [
     duration: '5 Days',
     difficulty: 'Advanced — Certified Divers',
     bestSeason: 'December – April',
-    heroImage: '/images/img_02.png',
+    heroImage: '/images/img_02.webp',
     gallery: [
-      { url: '/images/img_02.png', caption: 'Divers along a pelagic drop-off in the Guardafui Channel.' },
-      { url: '/images/img_11.png', caption: 'Whale sharks feeding in the seasonal upwelling zone.' },
-      { url: '/images/img_01.png', caption: 'The Hafun Peninsula, gateway to the deep pelagic shelf.' },
+      { url: '/images/img_02.webp', caption: 'Divers along a pelagic drop-off in the Guardafui Channel.' },
+      { url: '/images/img_11.webp', caption: 'Whale sharks feeding in the seasonal upwelling zone.' },
+      { url: '/images/img_01.webp', caption: 'The Hafun Peninsula, gateway to the deep pelagic shelf.' },
     ],
     highlights: [
       'Wall dives on unsurveyed reef drop-offs',
@@ -430,11 +430,11 @@ const rawExperiences = [
     duration: '2 Days',
     difficulty: 'Moderate',
     bestSeason: 'November – April',
-    heroImage: '/images/img_11.png',
+    heroImage: '/images/img_11.webp',
     gallery: [
-      { url: '/images/img_11.png', caption: 'Yellowfin tuna landed using traditional handline methods.' },
-      { url: '/images/img_12.png', caption: 'Fishing dhows departing at dawn from Bargaal.' },
-      { url: '/images/img_04.png', caption: 'The Bargaal coastline, home to generations of artisanal fishermen.' },
+      { url: '/images/img_11.webp', caption: 'Yellowfin tuna landed using traditional handline methods.' },
+      { url: '/images/img_12.webp', caption: 'Fishing dhows departing at dawn from Bargaal.' },
+      { url: '/images/img_04.webp', caption: 'The Bargaal coastline, home to generations of artisanal fishermen.' },
     ],
     highlights: [
       'Hands-on traditional handline fishing',
@@ -502,11 +502,11 @@ const rawExperiences = [
     duration: '4 Days',
     difficulty: 'Moderate — Adventure',
     bestSeason: 'October – March',
-    heroImage: '/images/img_05.png',
+    heroImage: '/images/img_05.webp',
     gallery: [
-      { url: '/images/img_05.png', caption: 'Remote coral islands of the Bajuni Archipelago.' },
-      { url: '/images/img_10.png', caption: 'Sea turtles nesting on undisturbed island beaches.' },
-      { url: '/images/img_11.png', caption: 'Sheltered seagrass lagoons between the islands.' },
+      { url: '/images/img_05.webp', caption: 'Remote coral islands of the Bajuni Archipelago.' },
+      { url: '/images/img_10.webp', caption: 'Sea turtles nesting on undisturbed island beaches.' },
+      { url: '/images/img_11.webp', caption: 'Sheltered seagrass lagoons between the islands.' },
     ],
     highlights: [
       'Multi-day boat expedition through remote atolls',
@@ -574,11 +574,11 @@ const rawExperiences = [
     duration: 'Half Day',
     difficulty: 'Easy',
     bestSeason: 'October – May',
-    heroImage: '/images/img_09.png',
+    heroImage: '/images/img_09.webp',
     gallery: [
-      { url: '/images/img_09.png', caption: 'Spinner dolphins riding the bow wake in the Gulf of Aden.' },
-      { url: '/images/img_12.png', caption: 'Humpback whales breaching off the Bari coastal cliffs.' },
-      { url: '/images/image.png', caption: 'Deep coastal waters along the migration corridor.' },
+      { url: '/images/img_09.webp', caption: 'Spinner dolphins riding the bow wake in the Gulf of Aden.' },
+      { url: '/images/img_12.webp', caption: 'Humpback whales breaching off the Bari coastal cliffs.' },
+      { url: '/images/image.webp', caption: 'Deep coastal waters along the migration corridor.' },
     ],
     highlights: [
       'Resident spinner dolphin pods',
@@ -646,11 +646,11 @@ const rawExperiences = [
     duration: '6 Days',
     difficulty: 'Moderate',
     bestSeason: 'All Seasons',
-    heroImage: '/images/img_07.png',
+    heroImage: '/images/img_07.webp',
     gallery: [
-      { url: '/images/img_07.png', caption: 'Coral garden photography subjects in the Bajuni Archipelago.' },
-      { url: '/images/img_02.png', caption: 'Underwater photographers documenting a reef drop-off.' },
-      { url: '/images/img_10.png', caption: 'Sea turtles are among the archipelago’s signature subjects.' },
+      { url: '/images/img_07.webp', caption: 'Coral garden photography subjects in the Bajuni Archipelago.' },
+      { url: '/images/img_02.webp', caption: 'Underwater photographers documenting a reef drop-off.' },
+      { url: '/images/img_10.webp', caption: 'Sea turtles are among the archipelago’s signature subjects.' },
     ],
     highlights: [
       'Structured shoots at signature reef sites',
@@ -718,11 +718,11 @@ const rawExperiences = [
     duration: '3 Days',
     difficulty: 'Moderate — Fitness Required',
     bestSeason: 'October – April',
-    heroImage: '/images/img_12.png',
+    heroImage: '/images/img_12.webp',
     gallery: [
-      { url: '/images/img_12.png', caption: 'Karkaar limestone cliffs meeting the Gulf of Aden.' },
-      { url: '/images/img_04.png', caption: 'Coastal bluffs near Qandala along the trekking route.' },
-      { url: '/images/img_04.png', caption: 'Hidden coves accessible only by clifftop trail.' },
+      { url: '/images/img_12.webp', caption: 'Karkaar limestone cliffs meeting the Gulf of Aden.' },
+      { url: '/images/img_04.webp', caption: 'Coastal bluffs near Qandala along the trekking route.' },
+      { url: '/images/img_04.webp', caption: 'Hidden coves accessible only by clifftop trail.' },
     ],
     highlights: [
       'Multi-day clifftop and canyon trekking',

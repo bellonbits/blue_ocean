@@ -10,7 +10,7 @@ export default function TourismHero() {
   return (
     <section className="exp-hero" aria-label="Tourism — Somalia Blue Heaven">
       <div className="exp-hero__media" aria-hidden="true">
-        <img src="/images/image.png" alt="Somalia's coastline meeting the Indian Ocean" className="exp-hero__img" />
+        <img src="/images/image.webp" alt="Somalia's coastline meeting the Indian Ocean" className="exp-hero__img" />
         <div className="exp-hero__overlay" />
         <div className="exp-hero__gradient" />
       </div>

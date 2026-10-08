@@ -42,7 +42,7 @@ export default function ExploreCoastPage() {
         ? 'Barta ugu bariyesa qaaradda Afrika, halkaas oo ay isku galaan Badweynta Hindiya iyo Gacanka Cadmeed oo leh buuro dhaadheer.'
         : "Africa's easternmost continental point, where sheer limestone cliffs plunge into cobalt ocean waters under ancient monsoon skies.",
       link: '/explore-the-coast/hafun',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
     },
     {
       tag: isSomali ? 'DEKEDDA & XEEBAHA' : 'PORT & SANCTUARY',
@@ -51,7 +51,7 @@ export default function ExploreCoastPage() {
         ? 'Dekedda ganacsiga qadiimiga ah oo leh xeebo cad-cad, biyo deggan, iyo marinka socdaalka libaax-badeedka badda.'
         : 'A historic Gulf of Aden trading hub blessed with calm turquoise waters, coastal palm groves, and seasonal whale shark migrations.',
       link: '/explore-the-coast/bosaso',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
     },
     {
       tag: isSomali ? 'JASIIRADAHA KOONFURTA' : 'SOUTHERN ATOLLS',
@@ -60,7 +60,7 @@ export default function ExploreCoastPage() {
         ? 'Jasiirado qadiimi ah oo leh biyaha ugu nadiifsan, doonyaha dhowka ee dhaqanka, iyo goobaha ukun-dhigashada qoolleyda badda.'
         : 'An untouched constellation of coral atolls, turquoise lagoons, traditional Swahili-Somali dhow vessels, and green turtle hatcheries.',
       link: '/explore-the-coast/kismayo',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
     },
   ];
 
@@ -71,7 +71,7 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Xeebta caanka ah ee Gacanka Cadmeed oo leh biyo diirran, buuro dhaadheer, iyo kalluumeysi dabiici ah.'
         : 'Where dramatic Karkaar mountains meet calm Gulf waters, rich in marine life and ancient seafaring heritage.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/explore-the-coast/bosaso',
     },
     {
@@ -80,7 +80,7 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Jasiirado carwo ah oo ku yaal Badweynta Hindiya, oo leh biyo buluug ah iyo noocyo dhif ah oo shacaab ah.'
         : 'Pristine islands ringed by living barrier reefs, crystal lagoons, and centuries of dhow maritime traditions.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/explore-the-coast/kismayo',
     },
     {
@@ -89,7 +89,7 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Dhul taariikhi ah oo Geeska Afrika ku yaal, buuro shacaab ah oo dhererkoodu gaarayo badda gudaheeda.'
         : "Africa's easternmost headland, towering limestone bluffs, wild oceanic swells, and ancient spice trading ruins.",
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/explore-the-coast/hafun',
     },
     {
@@ -98,7 +98,7 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Dooxo dabiici ah oo webi biyaha macaan iyo baddu isku galaan, qalcadihii Daraawiishta, iyo xeeb deggan.'
         : 'A breathtaking coastal canyon where freshwater streams spill directly into the turquoise Indian Ocean.',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
       link: '/explore-the-coast/eyl',
     },
     {
@@ -107,7 +107,7 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Xeebta ugu caansan dalka oo leh makhaayado badda, qorrax-u-dhaca cajiibka ah, iyo dadweyne farxad leh.'
         : 'Iconic open ocean promenade, warm rolling surf, bustling seaside culture, and golden evening light.',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       link: '/explore-the-coast/mogadishu',
     },
     {
@@ -116,7 +116,7 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Jasiiradaha Saacaddiin, biyo gacameed gacale ah, iyo hugaamo badda oo kumanaan sano jirtey.'
         : 'Shallow emerald marine flats, Sa’ad ad-Din island coral sanctuaries, and ancient seafaring trading routes.',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/explore-the-coast/zeila',
     },
   ];
@@ -129,7 +129,7 @@ export default function ExploreCoastPage() {
       excerpt: isSomali
         ? 'Buuraha dhaadheer ee Karkaar oo badda ku darsama, biyo mool ah oo ay dhex maraan noocyada waaweyn ee badda.'
         : 'Rugged coastal mountain ranges meeting deep oceanic waters, famous for calm coves and seasonal whale sharks.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/explore-the-coast/bosaso',
     },
     {
@@ -139,7 +139,7 @@ export default function ExploreCoastPage() {
       excerpt: isSomali
         ? 'Silsilad jasiirado ah oo leh carwooyinka shacaabka, kaymaha mangrove-ka, iyo xeebaha cad ee aan la taaban.'
         : 'A protected archipelago of coral cays, dense mangrove forests, and crucial green sea turtle nesting grounds.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/explore-the-coast/kismayo',
     },
     {
@@ -149,7 +149,7 @@ export default function ExploreCoastPage() {
       excerpt: isSomali
         ? 'Dhul qadiimi ah oo Geeska Afrika ku yaal, qalcado taariikhi ah, iyo buuro dabiici ah oo badda dhexdeeda ah.'
         : 'Ancient maritime crossroads where freshwater springs, deep sea canyons, and historic stone fortresses convene.',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
       link: '/explore-the-coast/hafun',
     },
   ];
@@ -164,7 +164,7 @@ export default function ExploreCoastPage() {
       location: isSomali ? 'Gacanka Cadmeed (11.28° N, 49.18° E)' : 'Gulf of Aden (11.28° N, 49.18° E)',
       status: isSomali ? 'Deggan' : 'Active Port',
       code: 'BS-01',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/explore-the-coast/bosaso',
     },
     {
@@ -176,7 +176,7 @@ export default function ExploreCoastPage() {
       location: isSomali ? 'Badweynta Hindiya (-0.36° S, 42.54° E)' : 'Indian Ocean (-0.36° S, 42.54° E)',
       status: isSomali ? 'Ilaalin Buuxda' : 'Protected',
       code: 'BJ-04',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/explore-the-coast/kismayo',
     },
     {
@@ -188,7 +188,7 @@ export default function ExploreCoastPage() {
       location: isSomali ? 'Badweynta Hindiya (7.98° N, 49.82° E)' : 'Indian Ocean (7.98° N, 49.82° E)',
       status: isSomali ? 'Dabiici Ah' : 'Natural Cove',
       code: 'EY-07',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
       link: '/explore-the-coast/eyl',
     },
   ];
@@ -228,7 +228,7 @@ export default function ExploreCoastPage() {
       {/* 1. Full-Bleed Editorial Hero (Seamless, No Inset Card) */}
       <section className="explore-hero" aria-label="Explore Somalia Coast Hero">
         <img
-          src="/images/image.png"
+          src="/images/image.webp"
           alt="Somalia 3,330 KM pristine coastline"
           className="explore-hero__bg"
           loading="eager"
@@ -382,7 +382,7 @@ export default function ExploreCoastPage() {
             {/* Right: Stylized Interactive Coastal Map Card */}
             <div className="explore-map-card">
               <img
-                src="/images/image.png"
+                src="/images/image.webp"
                 alt="Stylized map of Somalia coastline"
                 className="explore-map-img"
               />
@@ -666,16 +666,16 @@ export default function ExploreCoastPage() {
 
           <div className="explore-mosaic-grid">
             <div className="explore-mosaic-item">
-              <img src="/images/image.png" alt="Somalia coastline aerial" />
+              <img src="/images/image.webp" alt="Somalia coastline aerial" />
             </div>
             <div className="explore-mosaic-item">
-              <img src="/images/img_02.png" alt="Bosaso turquoise waters" />
+              <img src="/images/img_02.webp" alt="Bosaso turquoise waters" />
             </div>
             <div className="explore-mosaic-item">
-              <img src="/images/img_01.png" alt="Ras Hafun cliffs" />
+              <img src="/images/img_01.webp" alt="Ras Hafun cliffs" />
             </div>
             <div className="explore-mosaic-item">
-              <img src="/images/img_05.png" alt="Bajuni islands boat" />
+              <img src="/images/img_05.webp" alt="Bajuni islands boat" />
             </div>
           </div>
 
@@ -691,7 +691,7 @@ export default function ExploreCoastPage() {
       {/* 8. Final Expedition CTA Banner */}
       <section className="explore-cta" aria-label="Explore Coast CTA">
         <img
-          src="/images/image.png"
+          src="/images/image.webp"
           alt="Sunset over Somalia coastline"
           className="explore-cta__bg"
         />

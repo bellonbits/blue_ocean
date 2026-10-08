@@ -30,7 +30,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Deep Water Commercial Gateway',
       tag: 'GULF',
       year: '1918',
-      image: '/bosaso_harbor_thumb.jpg',
+      image: '/bosaso_harbor_thumb.webp',
       desc: 'Northern commercial shipping terminal and marine research sanctuary anchoring the Gulf of Aden acoustic array.',
     },
     {
@@ -38,7 +38,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Puntland White Sand Dunes',
       tag: 'SURF',
       year: 'COAST',
-      image: '/bosaso_1005_thumb.jpg',
+      image: '/bosaso_1005_thumb.webp',
       desc: 'Sunlit turquoise waters and gentle rolling breakers stretching along the pristine outer beaches of Bosaso.',
     },
     {
@@ -46,7 +46,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Calm Gulf of Aden Coast',
       tag: 'BEACH',
       year: 'PELAGIC',
-      image: '/bosaso_beach_thumb.jpg',
+      image: '/bosaso_beach_thumb.webp',
       desc: 'Clear turquoise shallows where local dhow sailors and coastal communities gather during calm morning sea breezes.',
     },
     {
@@ -54,7 +54,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Heritage Maritime Culture',
       tag: 'HERITAGE',
       year: 'MARITIME',
-      image: '/bosaso_life_thumb.jpg',
+      image: '/bosaso_life_thumb.webp',
       desc: 'Traditional handcrafted wooden dhows setting sail past living fringing reefs into the nutrient-rich Aden channel.',
     },
     {
@@ -62,7 +62,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Volcanic Ridges Meeting Sea',
       tag: 'CLIFFS',
       year: 'KHOOR',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       desc: 'Dramatic coastal topography where jagged limestone and volcanic escarpments plunge directly into deep pelagic waters.',
     },
   ],
@@ -72,7 +72,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Freshwater Springs Meeting Sea',
       tag: 'NUGAAL',
       year: '1918',
-      image: '/eyl1.jpg',
+      image: '/eyl1.webp',
       desc: 'Where crystalline freshwater springs cascade through sheer limestone canyon gorges directly into the cobalt swells of the Indian Ocean.',
     },
     {
@@ -80,7 +80,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Sayid Fort Coastal Bluff',
       tag: 'HERITAGE',
       year: '1905',
-      image: '/eyl2.jpg',
+      image: '/eyl2.webp',
       desc: 'Centuries-old stone battlements guarding the maritime entrance to the natural freshwater canyon of Eyl.',
     },
     {
@@ -88,7 +88,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Artisanal Seafaring Haven',
       tag: 'SANCTUARY',
       year: 'COAST',
-      image: '/eyl3.jpg',
+      image: '/eyl3.webp',
       desc: 'Traditional fishing boats sheltered in calm turquoise shallows between limestone bluffs.',
     },
     {
@@ -96,7 +96,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Indian Ocean Swell Line',
       tag: 'CLIFFS',
       year: 'SWELL',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
       desc: 'Dramatic headland overlooks offering sweeping views across the untouched Somali Indian Ocean horizon.',
     },
     {
@@ -104,7 +104,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Lush Riparian Greenery',
       tag: 'OASIS',
       year: 'ESTUARY',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       desc: 'Lush date palms and emerald pools thriving within the dramatic sheltered microclimate of Eyl gorge.',
     },
   ],
@@ -114,7 +114,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Easternmost Point of Africa',
       tag: 'BARI',
       year: '1918',
-      image: '/hafun1.jpg',
+      image: '/hafun1.webp',
       desc: 'Africa’s easternmost continental peninsula where sheer sandstone bluffs drop into wild oceanic swells.',
     },
     {
@@ -122,7 +122,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Maritime Spice Route Ruins',
       tag: 'ANCIENT',
       year: 'OPONE',
-      image: '/hafun2.jpg',
+      image: '/hafun2.webp',
       desc: 'Natural sand tombolo connecting the massive peninsula to the mainland, host to millennia of Greco-Roman maritime trade.',
     },
     {
@@ -130,7 +130,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Deep Water Upwelling Channel',
       tag: 'PELAGIC',
       year: 'SWELLS',
-      image: '/hafun3.jpg',
+      image: '/hafun3.webp',
       desc: 'Unbroken oceanic swells generated across thousands of miles of open Indian Ocean breaking on white sand bars.',
     },
     {
@@ -138,7 +138,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Sheer Limestone Escarpment',
       tag: 'CLIFFS',
       year: 'HORN',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       desc: 'Vast sedimentary terraces carved by centuries of southwest monsoon wind patterns.',
     },
     {
@@ -146,7 +146,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Pristine Tidal Wetlands',
       tag: 'LAGOON',
       year: 'TIDAL',
-      image: '/images/img_04.png',
+      image: '/images/img_04.webp',
       desc: 'Extensive mineral-rich coastal lagoons supporting migratory pelicans, flamingos, and green sea turtles.',
     },
   ],
@@ -156,7 +156,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Jubaland Southern Shore',
       tag: 'JUBALAND',
       year: '1918',
-      image: '/kismayo1.png',
+      image: '/kismayo1.webp',
       desc: 'Pristine white sandy expanses and turquoise shallows along the fertile southern Jubaland shoreline.',
     },
     {
@@ -164,7 +164,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Swahili-Somali Port Ruins',
       tag: 'HERITAGE',
       year: 'COAST',
-      image: '/kismayo2.png',
+      image: '/kismayo2.webp',
       desc: 'Sheltered island channels facilitating peaceful anchorage for traditional deep-water trading dhows.',
     },
     {
@@ -172,7 +172,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Mangrove Marine Nursery',
       tag: 'ESTUARY',
       year: 'MANGROVE',
-      image: '/kismayo3.png',
+      image: '/kismayo3.webp',
       desc: 'Where the nutrient-laden waters of the Juba River meet the coral reefs of the Indian Ocean.',
     },
     {
@@ -180,7 +180,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Living Coral Biodiversity',
       tag: 'CORAL',
       year: 'REEF',
-      image: '/kismayo4.png',
+      image: '/kismayo4.webp',
       desc: 'Vibrant hard and soft coral colonies supporting dolphins, dugongs, and five species of sea turtles.',
     },
     {
@@ -188,7 +188,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Protected Tidal Habitats',
       tag: 'NURSERY',
       year: 'HABITAT',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       desc: 'Lush coastal mangrove forests forming natural barriers against ocean storms while nurturing juvenile fish.',
     },
   ],
@@ -198,7 +198,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Untouched Island Constellation',
       tag: 'ATOLL',
       year: '1918',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       desc: 'Crystal turquoise lagoons ringed by pristine sandbars, living barrier reefs, and historic stone ruins.',
     },
     {
@@ -206,7 +206,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Emerald Shallows & Coral Heads',
       tag: 'CHULA',
       year: 'ISLAND',
-      image: '/kismayo1.png',
+      image: '/kismayo1.webp',
       desc: 'Sheltered atoll waters where green sea turtles graze on expansive seagrass meadows.',
     },
     {
@@ -214,7 +214,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Centuries of Seafaring',
       tag: 'DHOW',
       year: 'SAILING',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       desc: 'Artisanal wooden vessels gliding effortlessly between coral passages under white canvas sails.',
     },
     {
@@ -222,7 +222,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Blue Carbon Ecological Haven',
       tag: 'MANGROVE',
       year: 'SANCTUARY',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       desc: 'Extensive tidal waterways teeming with juvenile barracuda, snappers, and rare coastal avifauna.',
     },
     {
@@ -230,7 +230,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Historic Pillar Tombs',
       tag: 'HERITAGE',
       year: 'SWAHILI',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       desc: 'Ancient carved coral architecture standing in silent testament to maritime civilizations.',
     },
   ],
@@ -240,7 +240,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Gulf of Aden Strategic Port',
       tag: 'GULF',
       year: '1918',
-      image: '/berbera1.png',
+      image: '/berbera1.webp',
       desc: 'Historic maritime port known for calm natural deep-water anchorage and ancient seafaring trade.',
     },
     {
@@ -248,7 +248,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Pristine Turquoise Shore',
       tag: 'BATHELA',
       year: 'BEACH',
-      image: '/berbera2.png',
+      image: '/berbera2.webp',
       desc: 'Expansive golden-white sands bathed in calm Gulf of Aden waters, ideal for coastal swimming.',
     },
     {
@@ -256,7 +256,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Ottoman-Somali Architecture',
       tag: 'HERITAGE',
       year: 'HISTORIC',
-      image: '/berbera3.png',
+      image: '/berbera3.webp',
       desc: 'Streets lined with carved wooden shutters, limestone masonry, and centuries of maritime trading history.',
     },
     {
@@ -264,7 +264,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Coastal Monitoring Array',
       tag: 'RESEARCH',
       year: 'ARRAY',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       desc: 'Marine biology field stations recording seasonal whale shark and dolphin pods.',
     },
     {
@@ -272,7 +272,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Warm Evening Horizons',
       tag: 'HORIZON',
       year: 'GULF',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       desc: 'Dazzling sunset reflections across the tranquil surface of northern Somali waters.',
     },
   ],
@@ -282,7 +282,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Banadir Vibrant Coastline',
       tag: 'BANADIR',
       year: '1918',
-      image: '/liido1.png',
+      image: '/liido1.webp',
       desc: 'Somalia’s iconic seaside boulevard where community life, fresh coastal cuisine, and ocean surf unite.',
     },
     {
@@ -290,7 +290,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Warm Turquoise Surf',
       tag: 'SURF',
       year: 'OCEAN',
-      image: '/liido2.png',
+      image: '/liido2.webp',
       desc: 'Gentle oceanic swell lines washing over fine golden sands under bright equatorial sunshine.',
     },
     {
@@ -298,7 +298,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Coral Stone & Modern Cafes',
       tag: 'PROMENADE',
       year: 'HORIZON',
-      image: '/liido3.png',
+      image: '/liido3.webp',
       desc: 'Bustling coastal esplanades offering panoramic views across the Mogadishu shoreline.',
     },
     {
@@ -306,7 +306,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Gathering Place of Mogadishu',
       tag: 'COMMUNITY',
       year: 'EVENING',
-      image: '/liido4.png',
+      image: '/liido4.webp',
       desc: 'Warm ocean breezes welcoming thousands of families and swimmers at sunset.',
     },
     {
@@ -314,7 +314,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Reef Flats Outside Breakers',
       tag: 'REEF',
       year: 'MARINE',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       desc: 'Living reef flats providing natural wave attenuation and sheltering coastal fish.',
     },
   ],
@@ -324,7 +324,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Historic Pearl of the Indian Ocean',
       tag: 'BANADIR',
       year: '1918',
-      image: '/mogadishu1.png',
+      image: '/mogadishu1.webp',
       desc: 'Centuries of white coral-stone minarets and coastal promenades overlooking the Indian Ocean.',
     },
     {
@@ -332,7 +332,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Ancient Seafaring Anchorage',
       tag: 'PORT',
       year: 'DHOW',
-      image: '/mogadishu2.png',
+      image: '/mogadishu2.webp',
       desc: 'The historic port where merchant fleets from Arabia, Persia, and India traded frankincense and textiles.',
     },
     {
@@ -340,7 +340,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Southern Mogadishu Coral Coves',
       tag: 'JAZEERA',
       year: 'LAGOON',
-      image: '/mogadishu3.png',
+      image: '/mogadishu3.webp',
       desc: 'Calm turquoise coves sheltered by offshore coral outcrops just south of the capital.',
     },
     {
@@ -348,7 +348,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Golden Sands & Surf',
       tag: 'LIDO',
       year: 'SURF',
-      image: '/mogadishu_beach.jpg',
+      image: '/mogadishu_beach.webp',
       desc: 'Warm turquoise waters and endless sands framing Somalia’s legendary coastline.',
     },
     {
@@ -356,7 +356,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Southern Heritage Coast',
       tag: 'HERITAGE',
       year: 'OCEAN',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       desc: 'Where ancient Swahili-Somali coastal architecture meets pristine ocean reefs.',
     },
   ],
@@ -366,7 +366,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Centuries-Old Coastal Stone City',
       tag: 'BARAWE',
       year: '1918',
-      image: '/barawe1.png',
+      image: '/barawe1.webp',
       desc: 'Carved coral-rag houses and winding alleys built by generations of seafaring Bravanese merchants.',
     },
     {
@@ -374,7 +374,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Towering Southern Sand Formations',
       tag: 'DUNES',
       year: 'COAST',
-      image: '/barawe2.png',
+      image: '/barawe2.webp',
       desc: 'Magnificent golden sand dunes rolling down into warm turquoise Indian Ocean breakers.',
     },
     {
@@ -382,7 +382,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Traditional Southern Seafaring',
       tag: 'MARITIME',
       year: 'PORT',
-      image: '/barawe3.png',
+      image: '/barawe3.webp',
       desc: 'Artisanal tuna and kingfish fishermen bringing in their daily catch on historic wooden dhows.',
     },
     {
@@ -390,7 +390,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Living Barrier Reef Line',
       tag: 'CORAL',
       year: 'REEF',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       desc: 'Protected coral lagoons shielding the ancient city from heavy open-ocean swells.',
     },
     {
@@ -398,7 +398,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Maritime Defense Heritage',
       tag: 'HERITAGE',
       year: 'WATCHTOWER',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       desc: 'Ancient lookout towers situated on promontories along the southern Somali coast.',
     },
   ],
@@ -408,7 +408,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Coastal Spring Estuary',
       tag: 'BARGAAL',
       year: '1918',
-      image: '/bargaal_1.jpg',
+      image: '/bargaal_1.webp',
       desc: 'Vast groves of freshwater-fed date palms meeting the turquoise shores of the northern Guardafui coast.',
     },
     {
@@ -416,7 +416,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Deep Water Seafaring Haven',
       tag: 'CLIFFS',
       year: 'ANCHOR',
-      image: '/bargaal_2.jpg',
+      image: '/bargaal_2.webp',
       desc: 'Sheltered oceanic anchorages historically used by frankincense trade fleets under the Bari Sultanate.',
     },
     {
@@ -424,7 +424,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Where Gulf Meets Ocean',
       tag: 'BARI',
       year: 'COAST',
-      image: '/bargaal_main.jpg',
+      image: '/bargaal_main.webp',
       desc: 'Wild, windswept promontories where nutrient-rich pelagic currents nourish marine life.',
     },
     {
@@ -432,7 +432,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Deep Pelagic Marine Highway',
       tag: 'PELAGIC',
       year: 'CHANNEL',
-      image: '/images/img_04.png',
+      image: '/images/img_04.webp',
       desc: 'Powerful ocean currents linking the Horn of Africa to the Arabian Sea.',
     },
     {
@@ -440,7 +440,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Traditional Artisanal Fishery',
       tag: 'HERITAGE',
       year: 'DHOW',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       desc: 'Centuries of sustainable artisanal tuna fishing practiced along pristine limestone shores.',
     },
   ],
@@ -450,7 +450,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Limestone Canyon Meeting Gulf',
       tag: 'QANDALA',
       year: '1918',
-      image: '/qandala_1.jpg',
+      image: '/qandala_1.webp',
       desc: 'Stunning rocky fjord-like gorge where freshwater runoffs meet the calm turquoise waters of the Gulf of Aden.',
     },
     {
@@ -458,7 +458,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Ancient Spice & Resin Gateway',
       tag: 'INCENSE',
       year: 'HERITAGE',
-      image: '/qandala_2.jpg',
+      image: '/qandala_2.webp',
       desc: 'Natural harbor historically world-renowned for harvesting and exporting the finest Maydi frankincense.',
     },
     {
@@ -466,7 +466,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Towering Mountain Headlands',
       tag: 'KARKAAR',
       year: 'CLIFFS',
-      image: '/qandala_main.jpg',
+      image: '/qandala_main.webp',
       desc: 'Where towering limestone escarpments plunge directly into cobalt waters rich in coral biodiversity.',
     },
     {
@@ -474,7 +474,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Artisanal Seafaring Haven',
       tag: 'GULF',
       year: 'SHALLOWS',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       desc: 'Pristine coastal lagoons with crystal clarity, ideal for marine research and coastal observation.',
     },
     {
@@ -482,7 +482,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Sheltered Date Groves',
       tag: 'OASIS',
       year: 'NATURE',
-      image: '/images/img_04.png',
+      image: '/images/img_04.webp',
       desc: 'Emerald palm oases nestled directly at the foot of dramatic coastal canyons.',
     },
   ],
@@ -492,7 +492,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Ancient Trading Archipelago',
       tag: 'ZEILA',
       year: '1918',
-      image: '/zeila1.png',
+      image: '/zeila1.webp',
       desc: 'Untouched island constellation boasting shallow turquoise reefs, mangrove channels, and pelagic bird colonies.',
     },
     {
@@ -500,7 +500,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'First-Century Seafaring Crossroads',
       tag: 'HERITAGE',
       year: 'ANCIENT',
-      image: '/zeila2.png',
+      image: '/zeila2.webp',
       desc: 'Historic coral-stone ruins dating back to the medieval Adal Sultanate and ancient incense trade.',
     },
     {
@@ -508,7 +508,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Tidal Lagoon & Seagrass',
       tag: 'LAGOON',
       year: 'MARINE',
-      image: '/zeila3.png',
+      image: '/zeila3.webp',
       desc: 'Vast shallow sandbars and crystalline waters sheltering feeding dugongs and sea turtles.',
     },
     {
@@ -516,7 +516,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Tidal Nursery Channels',
       tag: 'MANGROVE',
       year: 'ECOLOGY',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       desc: 'Dense coastal mangrove forests stabilizing the shoreline and providing sanctuary for marine wildlife.',
     },
     {
@@ -524,7 +524,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Red Sea & Gulf Convergence',
       tag: 'RED SEA',
       year: 'PORT',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       desc: 'Calm sheltered waters where traditional wooden sailing dhows rest during low tide.',
     },
   ],
@@ -534,7 +534,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Galmudug Central Coastline',
       tag: 'HOBYO',
       year: '1918',
-      image: '/hobyo1.png',
+      image: '/hobyo1.webp',
       desc: 'Sweeping coastal headlands and pristine turquoise surf along Somalia’s central Indian Ocean littoral.',
     },
     {
@@ -542,7 +542,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Unbroken Oceanic Breakers',
       tag: 'SURF',
       year: 'COAST',
-      image: '/hobyo2.png',
+      image: '/hobyo2.webp',
       desc: 'Endless rolling waves and golden sand dunes untouched by modern development.',
     },
     {
@@ -550,7 +550,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Hobyo Sultanate Seaport',
       tag: 'HERITAGE',
       year: 'SULTANATE',
-      image: '/hobyo3.png',
+      image: '/hobyo3.webp',
       desc: 'Historic port that served as the commercial and cultural capital of the 19th-century Hobyo Sultanate.',
     },
     {
@@ -558,7 +558,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Deep Marine Horizons',
       tag: 'OCEAN',
       year: 'PELAGIC',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
       desc: 'Vast uninterrupted swells sweeping across thousands of miles of cobalt Indian Ocean waters.',
     },
     {
@@ -566,7 +566,7 @@ const DESTINATION_PHOTO_PRESETS = {
       subtitle: 'Coastal Wilderness Dunes',
       tag: 'DUNES',
       year: 'WILDERNESS',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       desc: 'Pristine wind-sculpted sand dunes meeting clear turquoise coastal waters.',
     },
   ],
@@ -598,15 +598,15 @@ function getDestinationGalleryItems(dest, isSomali) {
     ...(dest.gallery || []),
     ...(dest.galleryImages || []),
     dest.heroImage,
-    '/images/img_02.png',
-    '/images/img_01.png',
-    '/images/img_05.png',
-    '/images/image.png',
+    '/images/img_02.webp',
+    '/images/img_01.webp',
+    '/images/img_05.webp',
+    '/images/image.webp',
   ].filter(Boolean);
 
   const uniqueImages = Array.from(new Set(rawList));
   while (uniqueImages.length < 5) {
-    uniqueImages.push('/images/img_02.png', '/images/img_01.png', '/images/img_05.png');
+    uniqueImages.push('/images/img_02.webp', '/images/img_01.webp', '/images/img_05.webp');
   }
 
   const aspects = [
@@ -691,7 +691,7 @@ export default function DestinationDetailPage() {
           marineSpecies: bridge.marineSpecies || [],
           researchProjects: bridge.researchProjects || [],
           experiences: bridge.experiences || [],
-          galleryImages: bridge.galleryImages || [d.heroImage, '/images/img_02.png', '/images/image.png'],
+          galleryImages: bridge.galleryImages || [d.heroImage, '/images/img_02.webp', '/images/image.webp'],
         });
       })
       .catch(() => {
@@ -741,7 +741,7 @@ export default function DestinationDetailPage() {
       <section className="portal-hero portal-hero--destination" aria-label={`Destination: ${destination.name}`}>
         <div className="portal-hero__inner">
           <img
-            src={destination.heroImage || '/images/image.png'}
+            src={destination.heroImage || '/images/image.webp'}
             alt={destination.name}
             className="portal-hero__bg"
           />
@@ -846,7 +846,7 @@ export default function DestinationDetailPage() {
           {/* Right: Map card highlighting this destination */}
           <div className="portal-about__map-card">
             <img
-              src={destination.heroImage || '/images/image.png'}
+              src={destination.heroImage || '/images/image.webp'}
               alt={`${destination.name} coastline view`}
               className="portal-about__map-img"
             />
@@ -926,7 +926,7 @@ export default function DestinationDetailPage() {
             {destination.marineSpecies.slice(0, 3).map((sp, i) => (
               <article key={i} className="portal-attraction-card">
                 <div className="portal-attraction-card__media">
-                  <img src={sp.image || '/images/img_11.png'} alt={sp.name} className="portal-attraction-card__img" />
+                  <img src={sp.image || '/images/img_11.webp'} alt={sp.name} className="portal-attraction-card__img" />
                   <span className="portal-highlight-card__badge" style={{ position: 'absolute', top: 12, left: 12 }}>
                     {sp.status || 'PROTECTED'}
                   </span>
@@ -963,7 +963,7 @@ export default function DestinationDetailPage() {
             {related.map((rel, idx) => (
               <article key={idx} className="portal-highlight-card">
                 <div className="portal-highlight-card__img-wrap">
-                  <img src={rel.heroImage || '/images/image.png'} alt={rel.name} className="portal-highlight-card__img" />
+                  <img src={rel.heroImage || '/images/image.webp'} alt={rel.name} className="portal-highlight-card__img" />
                   <span className="portal-highlight-card__badge">{rel.region}</span>
                 </div>
                 <div className="portal-highlight-card__body">
@@ -984,7 +984,7 @@ export default function DestinationDetailPage() {
       <section className="portal-cta" aria-label="Destination Detail CTA">
         <div className="portal-cta__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Warm sunset over Somalia coastline"
             className="portal-cta__bg"
           />

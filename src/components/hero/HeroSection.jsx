@@ -18,7 +18,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="hero__bg">
         <img
-          src="/images/image.png"
+          src="/images/image.webp"
           alt="Somalia Blue Heaven — Marine life and coastal waters"
           className="hero__bg-img"
           loading="eager"

@@ -14,7 +14,7 @@ export default function ExperiencesHero() {
     <section className="exp-hero" aria-label="Ocean Experiences">
       <div className="exp-hero__media" aria-hidden="true">
         <img
-          src="/exp_dhow_sailing.jpg"
+          src="/exp_dhow_sailing.webp"
           alt="Traditional dhow sailing off Somalia's coast"
           className="exp-hero__img"
           loading="eager"

@@ -44,7 +44,7 @@ export default function ResearchPage() {
         ? 'Xarunta ugu weyn ee kormeerta heerkulka biyaha, plankton-ka, iyo socdaalka libaax-badeedka Gacanka Cadmeed iyadoo la adeegsanayo qalab casri ah.'
         : 'Continuous oceanographic monitoring tracking upwelling nutrient pulses, acoustic whale shark corridors, and temperature loggers.',
       link: '/research/projects',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
     },
     {
       tag: isSomali ? 'BLUE CARBON' : 'MANGROVE & REEF LAB',
@@ -53,7 +53,7 @@ export default function ResearchPage() {
         ? 'Daraasaadka kaydinta kaarboonka ee dhirta badda, ilaalinta qoolleyda, iyo shacaabka koonfureed ee Badweynta Hindiya.'
         : 'Quantifying carbon sequestration in southern coastal estuaries while guarding essential green turtle breeding lagoons.',
       link: '/research/projects',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
     },
     {
       tag: isSomali ? 'BARIGA AFRIKA' : 'UPWELLING OBSERVATORY',
@@ -62,7 +62,7 @@ export default function ResearchPage() {
         ? 'Baaritaanka wareegga biyaha moolka ah ee ka soo kaca badweynta xilliga dabaysha monsoon-ka iyo saamaynta ay ku leeyihiin kalluunka.'
         : 'Documenting the world-renowned Somali Current upwelling that nourishes one of the most productive marine zones on Earth.',
       link: '/research/projects',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
     },
   ];
 
@@ -73,7 +73,7 @@ export default function ResearchPage() {
       desc: isSomali
         ? 'Calaamadeynta sawirrada iyo calaamadaha acoustic-ka si loo fahmo socdaalka xilliyeed.'
         : 'High-precision acoustic hydrophone monitoring mapping seasonal migratory routes.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       code: 'PROJ-01',
       link: '/research/projects',
     },
@@ -83,7 +83,7 @@ export default function ResearchPage() {
       desc: isSomali
         ? 'Daraasaad lagu ogaanayo noocyada shacaabka ee u adkeysan kara isbeddelka cimilada.'
         : 'Identifying heat-resilient coral genotypes thriving in variable Gulf of Aden waters.',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       code: 'PROJ-02',
       link: '/research/projects',
     },
@@ -93,7 +93,7 @@ export default function ResearchPage() {
       desc: isSomali
         ? 'Qiyaasidda kaydinta kaarboonka ee kaymaha biyaha cusbada leh ee koonfurta Soomaaliya.'
         : 'Comprehensive biomass and soil carbon core assessments along pristine mangrove shores.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       code: 'PROJ-03',
       link: '/research/projects',
     },
@@ -103,7 +103,7 @@ export default function ResearchPage() {
       desc: isSomali
         ? 'Wada-shaqeyn lala yeesho kalluumeysatada si loo xaqiijiyo badbaadada taranka kalluunka.'
         : 'Community-partnered logbook and catch monitoring to ensure long-term stock sustainability.',
-      image: '/images/img_11.png',
+      image: '/images/img_11.webp',
       code: 'PROJ-04',
       link: '/research/projects',
     },
@@ -113,7 +113,7 @@ export default function ResearchPage() {
       desc: isSomali
         ? 'Kormeerka hirarka badda iyo nabaad-guurka xeebaha iyadoo la adeegsanayo sawirrada dayax-gacmeedka.'
         : 'Satellite radar mapping tracking shoreline sediment drift across 3,330 km of coast.',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
       code: 'PROJ-05',
       link: '/research/projects',
     },
@@ -123,7 +123,7 @@ export default function ResearchPage() {
       desc: isSomali
         ? 'Kormeerka joogtada ah ee nadaafadda biyaha iyo baaritaanka wasakhda badda dhex marta.'
         : 'Establishing baseline water purity measurements along remote coastal stations.',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       code: 'PROJ-06',
       link: '/research/projects',
     },
@@ -137,7 +137,7 @@ export default function ResearchPage() {
       excerpt: isSomali
         ? 'Dhammaan xogaha heerkulka biyaha, tayada shacaabka, iyo socdaalka noolaha waa kuwo furan.'
         : 'Publishing transparent environmental datasets to empower Somali students and international researchers.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/research',
     },
     {
@@ -147,7 +147,7 @@ export default function ResearchPage() {
       excerpt: isSomali
         ? 'Qalabka biyaha hoostooda ee duuba dhawaaqa hoonbarka, xuudka, iyo libaax-badeedka badda.'
         : 'Automated sensor arrays logging ocean temperature, salinity, and marine mammal vocalizations.',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/research',
     },
     {
@@ -157,7 +157,7 @@ export default function ResearchPage() {
       excerpt: isSomali
         ? 'Kalluumeysatada deegaanka oo gacan ka geysanaya diiwaangelinta xaaladaha badda iyo noocyada dhifka ah.'
         : 'Pairing modern satellite science with generations of indigenous navigation and marine knowledge.',
-      image: '/images/img_01.png',
+      image: '/images/img_01.webp',
       link: '/communities',
     },
   ];
@@ -172,7 +172,7 @@ export default function ResearchPage() {
       location: isSomali ? 'Dhammaan Saldhigyada' : 'Coastwide Stations',
       status: isSomali ? 'Diyaar Ah' : 'Open Access',
       code: 'REP-26',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/research',
     },
     {
@@ -184,7 +184,7 @@ export default function ResearchPage() {
       location: isSomali ? 'Raas Xaafuun & Eyl' : 'Hafun & Eyl Corridors',
       status: isSomali ? 'Socda' : 'In Progress',
       code: 'MAM-02',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       link: '/research',
     },
     {
@@ -196,7 +196,7 @@ export default function ResearchPage() {
       location: isSomali ? 'Gacanka Cadmeed' : 'Gulf of Aden Nursery',
       status: isSomali ? 'Tijaabo' : 'Pilot Trial',
       code: 'RES-08',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/research',
     },
   ];
@@ -226,7 +226,7 @@ export default function ResearchPage() {
       <section className="portal-hero" aria-label="Marine Research Hero">
         <div className="portal-hero__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Marine research along Somalia coastline"
             className="portal-hero__bg"
           />
@@ -362,7 +362,7 @@ export default function ResearchPage() {
           {/* Right: Map card highlighting research stations */}
           <div className="portal-about__map-card">
             <img
-              src="/images/image.png"
+              src="/images/image.webp"
               alt="Research stations across Somalia"
               className="portal-about__map-img"
             />
@@ -601,16 +601,16 @@ export default function ResearchPage() {
 
         <div className="portal-diaries-grid">
           <div className="portal-diary-item">
-            <img src="/images/img_02.png" alt="Bosaso research station waters" />
+            <img src="/images/img_02.webp" alt="Bosaso research station waters" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_07.png" alt="Coral reef survey" />
+            <img src="/images/img_07.webp" alt="Coral reef survey" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_02.png" alt="Whale shark tagging" />
+            <img src="/images/img_02.webp" alt="Whale shark tagging" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/image.png" alt="Coastline aerial research" />
+            <img src="/images/image.webp" alt="Coastline aerial research" />
           </div>
         </div>
 
@@ -626,7 +626,7 @@ export default function ResearchPage() {
       <section className="portal-cta" aria-label="Research CTA">
         <div className="portal-cta__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Sunset over Somalia coastline"
             className="portal-cta__bg"
           />

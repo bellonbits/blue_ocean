@@ -29,7 +29,7 @@ export const articleSource = {
 export const figureCredits = [
   {
     id: 'physiographic-map',
-    image: '/research/fig-somalia-physiographic-map.jpg',
+    image: '/research/fig-somalia-physiographic-map.webp',
     figureLabel: 'Fig. 1',
     caption:
       'Somalia\'s coast and its main physiographic features — Pliocene–Quaternary sedimentary cover, the Somali Current and Arabian Sea Large Marine Ecosystems, and the January and July Somali Current gyres.',
@@ -37,7 +37,7 @@ export const figureCredits = [
   },
   {
     id: 'bajuni-barrier-island',
-    image: '/research/fig-bajuni-barrier-island-profile.jpg',
+    image: '/research/fig-bajuni-barrier-island-profile.webp',
     figureLabel: 'Fig. 9',
     caption:
       'The Bajuni barrier island system from Burgao to Kisimayo, with schematic ecological profiles through the Ilisi Island fringing reef and the Fuma Island sandy tail.',
@@ -45,7 +45,7 @@ export const figureCredits = [
   },
   {
     id: 'shallow-water-habitats',
-    image: '/research/fig-shallow-water-habitats.jpg',
+    image: '/research/fig-shallow-water-habitats.webp',
     figureLabel: 'Fig. 11',
     caption:
       'Main shallow-water marine and coastal habitats documented along the southern coast: a Cuvumbi Island Acropora reef flat, the Lac Badana outlet at low tide, a mangal stand near Yamani, and sand-tail habitat at Fuma Island and Lac Anole.',

@@ -43,7 +43,7 @@ export default function OceanExperiencesPage() {
         ? 'Safarka doonyaha dhowka ee qadiimiga ah ee dhex mara jasiiradaha Baajuun, biyaha buluugga ah, iyo carwooyinka shacaabka.'
         : 'Sail traditional handcrafted wooden dhows through the pristine coral atolls and turquoise lagoons of southern Somalia.',
       link: '/explore-the-coast/kismayo',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
     },
     {
       tag: isSomali ? 'NOOLAHA BADDA' : 'WILDLIFE SAFARI',
@@ -52,7 +52,7 @@ export default function OceanExperiencesPage() {
         ? 'Dabaasha agagaarka libaax-badeedka xilliga socdaalka ee biyaha deggan ee Gacanka Cadmeed iyadoo la raacayo shuruucda ilaalinta.'
         : 'Ethical, non-invasive snorkeling alongside gentle migrating whale sharks in the nutrient-rich coastal waters of Bosaso.',
       link: '/explore-the-coast/bosaso',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
     },
     {
       tag: isSomali ? 'BUURAHA & BADDA' : 'COASTAL TREK',
@@ -61,7 +61,7 @@ export default function OceanExperiencesPage() {
         ? 'Lugaynta dooxada dabiiciga ah halka ay ku kulmaan ilaha biyaha macaan iyo baddu, oo ay ku yaallaan daarado qadiimi ah.'
         : 'Trek dramatic limestone canyons and palm groves where crystal freshwater waterfalls cascade directly into the Indian Ocean.',
       link: '/explore-the-coast/eyl',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
     },
   ];
 
@@ -72,7 +72,7 @@ export default function OceanExperiencesPage() {
       desc: isSomali
         ? 'Sahami jasiirado carwo ah, biyo nadiif ah, iyo doonyaha shiraaca ee taariikhiga ah.'
         : 'Glide across mirror-still turquoise waters aboard traditional Swahili-Somali lateen-rigged dhows.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/explore-the-coast/kismayo',
     },
     {
@@ -81,7 +81,7 @@ export default function OceanExperiencesPage() {
       desc: isSomali
         ? 'La dabaalo xayawaanka ugu weyn badda oo si deggan u dhex mushaaxaya biyaha Boosaaso.'
         : 'Join certified marine rangers for ethical observation of seasonal migratory whale sharks.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/explore-the-coast/bosaso',
     },
     {
@@ -90,7 +90,7 @@ export default function OceanExperiencesPage() {
       desc: isSomali
         ? 'Ka qayb gal ilaalinta habeenkii ee qoolleyda cagaaran ee ukunta ku dhigta xeebaha Koonfurta.'
         : 'Participate in community-led conservation monitoring endangered green turtles along remote sands.',
-      image: '/images/img_10.png',
+      image: '/images/img_10.webp',
       link: '/conservation',
     },
     {
@@ -99,7 +99,7 @@ export default function OceanExperiencesPage() {
       desc: isSomali
         ? 'Lug dabiici ah oo dhex marta dooxada webiga iyo badda, qalcadihii hore, iyo beero timireed.'
         : 'Explore freshwater spring pools, sheer coastal cliffs, and hundred-year-old stone fortresses.',
-      image: '/images/img_03.png',
+      image: '/images/img_03.webp',
       link: '/explore-the-coast/eyl',
     },
     {
@@ -108,7 +108,7 @@ export default function OceanExperiencesPage() {
       desc: isSomali
         ? 'Kayak-gareynta biyaha diirran ee Muqdisho iyo daawashada qorrax-u-dhaca Badweynta Hindiya.'
         : 'Sunset ocean kayaking and vibrant coastal culture along Somalia’s iconic capital beachfront.',
-      image: '/images/image.png',
+      image: '/images/image.webp',
       link: '/explore-the-coast/mogadishu',
     },
     {
@@ -117,7 +117,7 @@ export default function OceanExperiencesPage() {
       desc: isSomali
         ? 'Daawashada hugaanta shacaabka ee biyaha gacanka iyo noocyada kalluunka ee kala duwan.'
         : 'Snorkel across shallow emerald flats and historical island ruins in the ancient Gulf of Aden.',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/explore-the-coast/zeila',
     },
   ];
@@ -130,7 +130,7 @@ export default function OceanExperiencesPage() {
       excerpt: isSomali
         ? 'Dhammaan safarrada badda waxaa hoggaamiya khubaro iyo kalluumeysato yaqaanna dabaysha iyo xeebaha.'
         : 'All expeditions are accompanied by seasoned local fishermen and trained marine conservation rangers.',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/explore-the-coast',
     },
     {
@@ -140,7 +140,7 @@ export default function OceanExperiencesPage() {
       excerpt: isSomali
         ? 'Kuma taabano shacaabka, mana carqaladayno xayawaanka badda. Waxaan dhowrnaa nolosha dabiiciga ah.'
         : 'Strict minimum-distance guidelines protecting coral reefs, turtle nesting dunes, and whale sharks.',
-      image: '/images/img_10.png',
+      image: '/images/img_10.webp',
       link: '/conservation',
     },
     {
@@ -150,7 +150,7 @@ export default function OceanExperiencesPage() {
       excerpt: isSomali
         ? 'Ka baro sida awoowayaashu u isticmaali jireen xiddigaha iyo dabaysha monsoon-ka socdaalka badda.'
         : 'Learn traditional celestial navigation, monsoon wind patterns, and the art of coastal storytelling.',
-      image: '/images/img_05.png',
+      image: '/images/img_05.webp',
       link: '/communities',
     },
   ];
@@ -165,7 +165,7 @@ export default function OceanExperiencesPage() {
       location: isSomali ? 'Dhammaan Xeebaha' : 'Coastline Wide',
       status: isSomali ? 'Qasab Ah' : 'Required',
       code: 'ETH-01',
-      image: '/images/img_07.png',
+      image: '/images/img_07.webp',
       link: '/conservation',
     },
     {
@@ -177,7 +177,7 @@ export default function OceanExperiencesPage() {
       location: isSomali ? 'Boosaaso & Gacanka' : 'Bosaso & Gulf',
       status: isSomali ? 'Ilaalin' : 'Protected',
       code: 'WS-02',
-      image: '/images/img_02.png',
+      image: '/images/img_02.webp',
       link: '/research',
     },
     {
@@ -189,7 +189,7 @@ export default function OceanExperiencesPage() {
       location: isSomali ? 'Jasiiradaha Baajuun' : 'Bajuni Atolls',
       status: isSomali ? 'Tabarruc' : 'Patrol',
       code: 'TT-03',
-      image: '/images/img_10.png',
+      image: '/images/img_10.webp',
       link: '/conservation',
     },
   ];
@@ -219,7 +219,7 @@ export default function OceanExperiencesPage() {
       <section className="portal-hero" aria-label="Ocean Experiences Hero">
         <div className="portal-hero__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Ocean adventures along Somalia's coast"
             className="portal-hero__bg"
           />
@@ -365,7 +365,7 @@ export default function OceanExperiencesPage() {
           {/* Right: Map card highlighting experience hubs */}
           <div className="portal-about__map-card">
             <img
-              src="/images/image.png"
+              src="/images/image.webp"
               alt="Coastal adventure hubs across Somalia"
               className="portal-about__map-img"
             />
@@ -601,16 +601,16 @@ export default function OceanExperiencesPage() {
 
         <div className="portal-diaries-grid">
           <div className="portal-diary-item">
-            <img src="/images/image.png" alt="Somali ocean horizon" />
+            <img src="/images/image.webp" alt="Somali ocean horizon" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_05.png" alt="Bajuni dhow sailing" />
+            <img src="/images/img_05.webp" alt="Bajuni dhow sailing" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_02.png" alt="Bosaso coastline" />
+            <img src="/images/img_02.webp" alt="Bosaso coastline" />
           </div>
           <div className="portal-diary-item">
-            <img src="/images/img_03.png" alt="Eyl coastal waterfall" />
+            <img src="/images/img_03.webp" alt="Eyl coastal waterfall" />
           </div>
         </div>
 
@@ -626,7 +626,7 @@ export default function OceanExperiencesPage() {
       <section className="portal-cta" aria-label="Experiences CTA">
         <div className="portal-cta__inner">
           <img
-            src="/images/image.png"
+            src="/images/image.webp"
             alt="Sunset over Somalia coastline"
             className="portal-cta__bg"
           />

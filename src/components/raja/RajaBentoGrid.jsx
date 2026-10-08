@@ -11,19 +11,19 @@ export default function RajaBentoGrid() {
   // Carousel slides with authentic Somali coastline photography
   const carouselSlides = [
     {
-      img: '/images/img_08.png',
+      img: '/images/img_08.webp',
       title: isSomali
         ? 'Xeebaha Liido iyo Jasiira ee Muqdisho oo leh mowjado buluug ah'
         : 'Lido & Jazeera ocean breakers along the Banadir coast',
     },
     {
-      img: '/images/img_05.png',
+      img: '/images/img_05.webp',
       title: isSomali
         ? 'Jasiiradaha Baajuun iyo biyaha nadiifka ah ee Jubada Hoose'
         : 'Pristine turquoise coral lagoons of the Bajuni Archipelago',
     },
     {
-      img: '/images/img_09.png',
+      img: '/images/img_09.webp',
       title: isSomali
         ? 'Reef-yada dhagaxeed iyo xeebta taariikhiga ah ee Berbera'
         : 'Ancient coral reefs and deep harbors of Berbera',
@@ -87,7 +87,7 @@ export default function RajaBentoGrid() {
         {/* Card 2: Weather & Sea Conditions */}
         <div className="bento-card-weather">
           <img
-            src="/images/img_02.png"
+            src="/images/img_02.webp"
             alt="Bosaso coastal waters"
             className="bento-card-weather__img"
             loading="lazy"
