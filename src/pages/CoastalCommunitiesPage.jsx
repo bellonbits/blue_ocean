@@ -33,8 +33,8 @@ export default function CoastalCommunitiesPage() {
 
   useEffect(() => {
     document.title = isSomali
-      ? 'Bulshooyinka Xeebaha & Dhaxalka Badda — Blue Ocean Somalia'
-      : 'Coastal Communities & Living Heritage — Blue Ocean Somalia';
+      ? 'Bulshooyinka Xeebaha & Dhaxalka Badda — Somalia Blue Heaven'
+      : 'Coastal Communities & Living Heritage — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, [isSomali]);
 
@@ -328,8 +328,8 @@ export default function CoastalCommunitiesPage() {
             </h2>
             <p className="portal-about__body">
               {isSomali
-                ? 'Bulshooyinka xeebaha Soomaaliya ma aha oo kaliya dad ku nool cidhifka biyaha — waa dadka kumanaanka sano dhowrayay deegaanka, baranayay socodka dabaylaha iyo xiddigaha, oo noloshoodu ku tiirsan tahay badweynta. Blue Ocean waxay aaminsan tahay in badbaadada badda ay ka bilaabato xoojinta dadkeeda.'
-                : 'Somalia’s coastal communities are not merely shoreline residents — they are generational ocean guardians. For centuries, their artisanal knowledge of monsoon currents, reef nurseries, and ethical catch practices preserved our waters. Blue Ocean partners directly with coastal families to ensure conservation empowers local livelihoods.'}
+                ? 'Bulshooyinka xeebaha Soomaaliya ma aha oo kaliya dad ku nool cidhifka biyaha — waa dadka kumanaanka sano dhowrayay deegaanka, baranayay socodka dabaylaha iyo xiddigaha, oo noloshoodu ku tiirsan tahay badweynta. Somalia Blue Heaven waxay aaminsan tahay in badbaadada badda ay ka bilaabato xoojinta dadkeeda.'
+                : 'Somalia’s coastal communities are not merely shoreline residents — they are generational ocean guardians. For centuries, their artisanal knowledge of monsoon currents, reef nurseries, and ethical catch practices preserved our waters. Somalia Blue Heaven partners directly with coastal families to ensure conservation empowers local livelihoods.'}
             </p>
 
             <div className="portal-about__features">
@@ -444,7 +444,7 @@ export default function CoastalCommunitiesPage() {
           </h2>
           <p className="portal-section-subtitle">
             {isSomali
-              ? 'Wada-shaqeynta dhabta ah ee u dhaxeysa saynisyahannada Blue Ocean iyo bulshooyinka maxalliga ah.'
+              ? 'Wada-shaqeynta dhabta ah ee u dhaxeysa saynisyahannada Somalia Blue Heaven iyo bulshooyinka maxalliga ah.'
               : 'Direct collaborative programs joining marine scientific expertise with deep generational community wisdom.'}
           </p>
         </div>

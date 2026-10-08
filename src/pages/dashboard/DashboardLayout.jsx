@@ -78,7 +78,7 @@ export default function DashboardLayout() {
       <aside className="user-dash__sidebar">
         <Link to="/dashboard" className="user-dash__brand" onClick={closeMobile}>
           <Waves size={20} color="#0ea5e9" />
-          <span>Blue Ocean</span>
+          <span>Somalia Blue Heaven</span>
         </Link>
 
         <nav className="user-dash__nav" aria-label="Dashboard navigation">
@@ -88,7 +88,7 @@ export default function DashboardLayout() {
           </NavLink>
 
           {renderGroup('Explore', EXPLORE_LINKS)}
-          {renderGroup('My Blue Ocean', MY_OCEAN_LINKS)}
+          {renderGroup('My Somalia Blue Heaven', MY_OCEAN_LINKS)}
           {renderGroup('Engagement', ENGAGEMENT_LINKS)}
           {renderGroup('Account', ACCOUNT_LINKS)}
         </nav>

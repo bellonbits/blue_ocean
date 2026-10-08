@@ -9,7 +9,7 @@ export default function ResearchStatisticsPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Coastal & Marine Statistics — Blue Ocean Somalia';
+    document.title = 'Coastal & Marine Statistics — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, []);
 

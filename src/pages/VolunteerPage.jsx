@@ -30,7 +30,7 @@ export default function VolunteerPage() {
   const { token } = useAuth();
 
   useEffect(() => {
-    document.title = 'Volunteer — Blue Ocean Somalia';
+    document.title = 'Volunteer — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, []);
 

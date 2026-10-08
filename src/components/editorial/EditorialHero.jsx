@@ -341,7 +341,7 @@ export default function EditorialHero() {
   const visibleDestinations = destinations.slice(cardOffset).concat(destinations.slice(0, cardOffset));
 
   return (
-    <section className="travel-hero" aria-label="Blue Ocean Coastal Regions">
+    <section className="travel-hero" aria-label="Somalia Blue Heaven Coastal Regions">
       {/* Full-Bleed Panoramic Background Image */}
       <div className="travel-hero__bg-wrap">
         <img

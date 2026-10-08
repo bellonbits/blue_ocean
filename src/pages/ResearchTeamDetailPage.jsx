@@ -20,7 +20,7 @@ export default function ResearchTeamDetailPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = team ? `${team.name} — Blue Ocean Research Team` : 'Team Not Found — Blue Ocean Somalia';
+    document.title = team ? `${team.name} — Somalia Blue Heaven Research Team` : 'Team Not Found — Somalia Blue Heaven';
   }, [team]);
 
   if (!team) {

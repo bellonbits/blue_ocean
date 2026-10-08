@@ -36,8 +36,8 @@ export default function ResearchProjectDetailPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = project
-      ? `${project.title} — Blue Ocean Research`
-      : 'Research Project Not Found — Blue Ocean Somalia';
+      ? `${project.title} — Somalia Blue Heaven Research`
+      : 'Research Project Not Found — Somalia Blue Heaven';
   }, [project]);
 
   if (!project) {

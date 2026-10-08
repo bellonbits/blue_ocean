@@ -29,8 +29,8 @@ export default function ExploreCoastPage() {
 
   useEffect(() => {
     document.title = isSomali
-      ? 'Sahami Xeebaha Soomaaliya (3,330 KM) — Blue Ocean'
-      : "Explore Somalia's Coast (3,330 KM) — Blue Ocean";
+      ? 'Sahami Xeebaha Soomaaliya (3,330 KM) — Somalia Blue Heaven'
+      : "Explore Somalia's Coast (3,330 KM) — Somalia Blue Heaven";
     window.scrollTo(0, 0);
   }, [isSomali]);
 

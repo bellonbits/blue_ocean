@@ -195,7 +195,7 @@ export default function RajaDiscoverPlans() {
           </h2>
           <p className="raja-discover__subtext">
             {isSomali
-              ? 'Baro gobollada kala duwan ee xeebta 3,330 km, noolaha ku nool, iyo mashaariicda cilmibaarista ee Blue Ocean.'
+              ? 'Baro gobollada kala duwan ee xeebta 3,330 km, noolaha ku nool, iyo mashaariicda cilmibaarista ee Somalia Blue Heaven.'
               : "Explore the distinctive marine zones along Somalia's 3,330 km coastline, from coral atolls to deep pelagic trenches."}
           </p>
         </div>

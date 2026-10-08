@@ -34,8 +34,8 @@ export default function AboutPage() {
 
   useEffect(() => {
     document.title = isSomali
-      ? 'Ku Saabsan Blue Ocean Somalia — Ilaalinta Badda'
-      : 'About Blue Ocean Somalia — Marine Heritage & Conservation';
+      ? 'Ku Saabsan Somalia Blue Heaven — Ilaalinta Badda'
+      : 'About Somalia Blue Heaven — Marine Heritage & Conservation';
     window.scrollTo(0, 0);
   }, [isSomali]);
 
@@ -48,7 +48,7 @@ export default function AboutPage() {
         ? 'Xarunta Sayniska Badda ee Boosaaso'
         : 'Bosaso Marine Research & Oceanography Lab',
       desc: isSomali
-        ? 'Xarunta ugu weyn ee Blue Ocean ee ku taal Gacanka Cadmeed, oo leh shaybaarro casri ah oo lagu baaro noolaha badda, tayada biyaha, iyo socdaalka libaax-badeedka.'
+        ? 'Xarunta ugu weyn ee Somalia Blue Heaven ee ku taal Gacanka Cadmeed, oo leh shaybaarro casri ah oo lagu baaro noolaha badda, tayada biyaha, iyo socdaalka libaax-badeedka.'
         : 'Northern headquarters anchoring Gulf of Aden acoustic telemetry, coral nursery tanks, water quality monitoring, and pelagic shark research.',
       link: '/explore-the-coast/bosaso',
       image: '/images/img_02.png',
@@ -138,7 +138,7 @@ export default function AboutPage() {
     {
       badge: isSomali ? 'ARAGTIDAYADA' : 'OUR VISION',
       title: isSomali ? 'Bad Soomaaliyeed oo Caafimaad Qabta' : 'A Living Ocean Valued & Protected',
-      meta: isSomali ? 'Dadaalka 2026-2035 • Soomaaliya' : '10-Year Framework • Blue Ocean',
+      meta: isSomali ? 'Dadaalka 2026-2035 • Soomaaliya' : '10-Year Framework • Somalia Blue Heaven',
       excerpt: isSomali
         ? 'Mustaqbal ay badda Soomaaliya lagu fahmo saynis ahaan, lagu ilaaliyo caddaymo dhab ah, oo bulshooyinka xeebuhu si siman uga faa\'iidaystaan.'
         : 'A future where marine research is routine, conservation decisions are backed by rigorous science, and coastal communities flourish.',
@@ -171,7 +171,7 @@ export default function AboutPage() {
     {
       title: isSomali ? 'Heshiiska Qaran ee Ilaalinta Marinnada Badda' : 'National Somali Marine Sanctuary & Corridor Framework',
       desc: isSomali
-        ? 'Heshiis wadajir ah oo dhexmaray maamulada gobollada xeebaha, odayaasha kalluumeysatada, iyo Blue Ocean si loo sugo goobaha taranka noolaha.'
+        ? 'Heshiis wadajir ah oo dhexmaray maamulada gobollada xeebaha, odayaasha kalluumeysatada, iyo Somalia Blue Heaven si loo sugo goobaha taranka noolaha.'
         : 'Multi-regional consensus safeguarding seasonal whale shark feeding zones and turtle nesting beaches across 3,330 km.',
       date: isSomali ? 'Heshiis Firfircoon 2026' : 'Active Framework 2026',
       location: isSomali ? 'Boosaaso, Muqdisho & Kismaayo' : 'Bosaso, Mogadishu & Kismayo',
@@ -232,7 +232,7 @@ export default function AboutPage() {
   return (
     <div className="portal-page">
       {/* 1. Inset Rounded Hero Banner */}
-      <section className="portal-hero" aria-label="About Blue Ocean Hero">
+      <section className="portal-hero" aria-label="About Somalia Blue Heaven Hero">
         <div className="portal-hero__inner">
           <img
             src="/images/image.png"
@@ -244,7 +244,7 @@ export default function AboutPage() {
           <div className="portal-hero__content">
             <div className="portal-hero__badge">
               <Compass size={14} />
-              <span>{isSomali ? "HAY'ADDA BLUE OCEAN SOMALIA" : "BLUE OCEAN SOMALIA"}</span>
+              <span>{isSomali ? "HAY'ADDA SOMALIA BLUE HEAVEN" : "SOMALIA BLUE HEAVEN"}</span>
             </div>
 
             <h1 className="portal-hero__title">
@@ -330,8 +330,8 @@ export default function AboutPage() {
             </h2>
             <p className="portal-about__body">
               {isSomali
-                ? 'Blue Ocean waxay ka bilaabatay hal fiiro oo cad: Soomaaliya waxay leedahay xeebta ugu dheer Afrika dhulka weyn — 3,330 kilomitir — waxayna ka mid tahay kuwa ugu yar ee cilmi-ahaan loo baaray. Tobanaan sano oo xasilooni la\'aan ah ka dib, waxaan dhisnay hay\'ad u heellan sayniska badda, sahaminta anshaxa leh, iyo ilaalinta deegaanka iyadoo la kaashanayo bulshooyinka maxalliga ah.'
-                : 'Blue Ocean was born from a fundamental imperative: mainland Africa’s longest coastline (3,330 km) was also its least scientifically documented. Where past decades saw void and conflict narratives, we saw living coral reefs, migratory superhighways for whales and sharks, and deep maritime heritage that deserved rigorous protection.'}
+                ? 'Somalia Blue Heaven waxay ka bilaabatay hal fiiro oo cad: Soomaaliya waxay leedahay xeebta ugu dheer Afrika dhulka weyn — 3,330 kilomitir — waxayna ka mid tahay kuwa ugu yar ee cilmi-ahaan loo baaray. Tobanaan sano oo xasilooni la\'aan ah ka dib, waxaan dhisnay hay\'ad u heellan sayniska badda, sahaminta anshaxa leh, iyo ilaalinta deegaanka iyadoo la kaashanayo bulshooyinka maxalliga ah.'
+                : 'Somalia Blue Heaven was born from a fundamental imperative: mainland Africa’s longest coastline (3,330 km) was also its least scientifically documented. Where past decades saw void and conflict narratives, we saw living coral reefs, migratory superhighways for whales and sharks, and deep maritime heritage that deserved rigorous protection.'}
             </p>
 
             <div className="portal-about__features">
@@ -389,7 +389,7 @@ export default function AboutPage() {
           <div className="portal-about__map-card">
             <img
               src="/images/image.png"
-              alt="Blue Ocean field stations along Somalia coastline"
+              alt="Somalia Blue Heaven field stations along Somalia coastline"
               className="portal-about__map-img"
             />
             <div className="portal-about__map-badge">
@@ -446,7 +446,7 @@ export default function AboutPage() {
           </h2>
           <p className="portal-section-subtitle">
             {isSomali
-              ? 'Xeerarka iyo mabaadi’da hagaya shaqada Blue Ocean ee maalinlaha ah.'
+              ? 'Xeerarka iyo mabaadi’da hagaya shaqada Somalia Blue Heaven ee maalinlaha ah.'
               : 'The core values guiding every expedition, research publication, and community collaboration.'}
           </p>
         </div>
@@ -533,7 +533,7 @@ export default function AboutPage() {
             {isSomali ? 'QAYBAHA HAWLGALKA' : 'OPERATIONAL UNITS'}
           </span>
           <h2 className="portal-section-title">
-            {isSomali ? 'Kooxaha Cilmi-baarista & Sayniska' : "Blue Ocean’s Specialized Field Divisions"}
+            {isSomali ? 'Kooxaha Cilmi-baarista & Sayniska' : "Somalia Blue Heaven's Specialized Field Divisions"}
           </h2>
           <p className="portal-section-subtitle">
             {isSomali
@@ -662,7 +662,7 @@ export default function AboutPage() {
         <div className="portal-center-btn-row">
           <Link to={localizedPath('/contact')} className="portal-btn-primary">
             <Sparkles size={16} />
-            <span>{isSomali ? 'Nala Soo Xiriir' : 'Connect with Blue Ocean'}</span>
+            <span>{isSomali ? 'Nala Soo Xiriir' : 'Connect with Somalia Blue Heaven'}</span>
           </Link>
         </div>
       </section>
@@ -689,7 +689,7 @@ export default function AboutPage() {
                 : 'Whether as a researcher, student, community leader, or institutional partner, our doors are open to collaborate.'}
             </p>
             <Link to={localizedPath('/contact')} className="portal-btn-primary">
-              <span>{isSomali ? 'Nala Soo Xiriir Hadda' : 'Partner with Blue Ocean'}</span>
+              <span>{isSomali ? 'Nala Soo Xiriir Hadda' : 'Partner with Somalia Blue Heaven'}</span>
               <ArrowRight size={16} />
             </Link>
           </div>

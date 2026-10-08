@@ -31,8 +31,8 @@ export default function ConservationPage() {
 
   useEffect(() => {
     document.title = isSomali
-      ? 'Ilaalinta Deegaanka Badda Soomaaliya — Blue Ocean Conservation'
-      : 'Marine Conservation & Sanctuaries — Blue Ocean Somalia';
+      ? 'Ilaalinta Deegaanka Badda Soomaaliya — Somalia Blue Heaven Conservation'
+      : 'Marine Conservation & Sanctuaries — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, [isSomali]);
 
@@ -304,8 +304,8 @@ export default function ConservationPage() {
             </h2>
             <p className="portal-about__body">
               {isSomali
-                ? 'Kheyraadka badda Soomaaliya wuxuu u baahan yahay ilaalinta dhabta ah ee dadka deegaanka. Blue Ocean waxay la shaqaysaa kalluumeysatada dhaqanka iyo dhalinyarada si loo dhiso aagagga badda ee la dhowro loona joojiyo jilaabashada sharci-darrada ah.'
-                : 'Centuries of indigenous maritime stewardship prove that conservation succeeds when local fishing families lead. Blue Ocean partners directly with coastal communities to enforce no-take replenishment zones, deploy anti-trawler radar, and restore vital nursery habitats.'}
+                ? 'Kheyraadka badda Soomaaliya wuxuu u baahan yahay ilaalinta dhabta ah ee dadka deegaanka. Somalia Blue Heaven waxay la shaqaysaa kalluumeysatada dhaqanka iyo dhalinyarada si loo dhiso aagagga badda ee la dhowro loona joojiyo jilaabashada sharci-darrada ah.'
+                : 'Centuries of indigenous maritime stewardship prove that conservation succeeds when local fishing families lead. Somalia Blue Heaven partners directly with coastal communities to enforce no-take replenishment zones, deploy anti-trawler radar, and restore vital nursery habitats.'}
             </p>
 
             <div className="portal-about__features">

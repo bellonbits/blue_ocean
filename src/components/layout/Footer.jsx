@@ -69,10 +69,10 @@ export default function Footer() {
         <div className="nature-footer__grid">
           {/* Column 1: Brand & Newsletter */}
           <div className="nature-footer__col nature-footer__col--brand">
-            <Link to={localizedPath('/')} className="nature-footer__logo-link" aria-label="Blue Ocean Somalia">
+            <Link to={localizedPath('/')} className="nature-footer__logo-link" aria-label="Somalia Blue Heaven">
               <img
-                src="/logo.png"
-                alt="Blue Ocean Somalia"
+                src="/Somalia Blue Heaven Wave Logo.png"
+                alt="Somalia Blue Heaven"
                 className="nature-footer__logo-img"
               />
             </Link>
@@ -210,7 +210,7 @@ export default function Footer() {
         {/* Bottom Bar: Copyright & Legal */}
         <div className="nature-footer__bottom">
           <p className="nature-footer__copyright">
-            © {currentYear} Blue Ocean Somalia. {isSomali ? 'Dhammaan xuquuqda waa la dhowray.' : 'All rights reserved.'} Somalia's Living Coastline.
+            © {currentYear} Somalia Blue Heaven. {isSomali ? 'Dhammaan xuquuqda waa la dhowray.' : 'All rights reserved.'} Somalia's Living Coastline.
           </p>
 
           <div className="nature-footer__legal-links">

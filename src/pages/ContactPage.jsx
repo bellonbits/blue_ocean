@@ -51,8 +51,8 @@ export default function ContactPage() {
 
   useEffect(() => {
     document.title = isSomali
-      ? 'Nala Soo Xiriir — Blue Ocean Somalia'
-      : 'Contact Maritime Operations — Blue Ocean Somalia';
+      ? 'Nala Soo Xiriir — Somalia Blue Heaven'
+      : 'Contact Maritime Operations — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, [isSomali]);
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
       tag: isSomali ? 'XARUNTA GUUD' : 'NORTHERN HEADQUARTERS',
       title: isSomali ? 'Xarunta Boosaaso ee Gacanka Cadmeed' : 'Bosaso Primary Marine Research Center',
       desc: isSomali
-        ? 'Xarunta ugu weyn ee Blue Ocean ee Puntland oo ay ku yaallaan shaybaarrada badda, xannaanada shacaabka, iyo xafiiska maamulka sare.'
+        ? 'Xarunta ugu weyn ee Somalia Blue Heaven ee Puntland oo ay ku yaallaan shaybaarrada badda, xannaanada shacaabka, iyo xafiiska maamulka sare.'
         : 'Northern operational base managing Gulf of Aden telemetry arrays, wet laboratories, dive operations, and community fisheries coordination.',
       link: '/explore-the-coast/bosaso',
       image: '/images/img_02.png',
@@ -241,7 +241,7 @@ export default function ContactPage() {
   return (
     <div className="portal-page">
       {/* 1. Inset Rounded Hero Banner */}
-      <section className="portal-hero" aria-label="Contact Blue Ocean Hero">
+      <section className="portal-hero" aria-label="Contact Somalia Blue Heaven Hero">
         <div className="portal-hero__inner">
           <img
             src="/images/image.png"
@@ -257,7 +257,7 @@ export default function ContactPage() {
             </div>
 
             <h1 className="portal-hero__title">
-              {isSomali ? 'Nala Soo Xiriir — Xafiisyada Blue Ocean.' : 'Connect with Blue Ocean Somalia.'}
+              {isSomali ? 'Nala Soo Xiriir — Xafiisyada Somalia Blue Heaven.' : 'Connect with Somalia Blue Heaven.'}
             </h1>
 
             <p className="portal-hero__subtitle">
@@ -434,8 +434,8 @@ export default function ContactPage() {
                 </h4>
                 <p style={{ color: '#556c5e', fontSize: '0.92rem', maxWidth: 360, margin: '0 auto 20px auto', lineHeight: 1.6 }}>
                   {isSomali
-                    ? 'Waad ku mahadsan tahay nala soo xiriirkaaga. Kooxda Blue Ocean waxay kula soo xiriiri doontaa sida ugu dhakhsaha badan.'
-                    : 'Thank you for connecting with Blue Ocean Somalia. Our marine operations team will review your message and reply promptly.'}
+                    ? 'Waad ku mahadsan tahay nala soo xiriirkaaga. Kooxda Somalia Blue Heaven waxay kula soo xiriiri doontaa sida ugu dhakhsaha badan.'
+                    : 'Thank you for connecting with Somalia Blue Heaven. Our marine operations team will review your message and reply promptly.'}
                 </p>
                 <button
                   type="button"
@@ -686,7 +686,7 @@ export default function ContactPage() {
             {isSomali ? 'WADA-SHAQEYNTA' : 'PARTNERSHIPS'}
           </span>
           <h2 className="portal-section-title">
-            {isSomali ? 'Sida Loola Shaqeeyo Blue Ocean' : 'Ways to Collaborate & Engage'}
+            {isSomali ? 'Sida Loola Shaqeeyo Somalia Blue Heaven' : 'Ways to Collaborate & Engage'}
           </h2>
           <p className="portal-section-subtitle">
             {isSomali

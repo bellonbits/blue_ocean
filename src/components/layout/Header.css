@@ -1,5 +1,5 @@
 /* =========================================================
-   BLUE OCEAN — Luxury Travel Minimal Header (Matching Attachment)
+   SOMALIA BLUE HEAVEN — Luxury Travel Minimal Header (Matching Attachment)
    Wordmark: blue__ocean
    Links: about · explore · destinations
    Language: en - so
@@ -53,7 +53,7 @@
   gap: 24px;
 }
 
-/* --- Blue Heaven Brand Logo --- */
+/* --- Somalia Blue Heaven Brand Logo --- */
 .travel-header__brand {
   display: inline-flex;
   align-items: center;
@@ -64,9 +64,9 @@
 }
 
 .travel-header__brand-logo {
-  height: clamp(34px, 4.4vh, 42px);
+  height: clamp(38px, 4.8vh, 48px);
   width: auto;
-  max-width: 140px;
+  max-width: 165px;
   object-fit: contain;
   display: block;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
@@ -595,8 +595,8 @@
   }
 
   .travel-header__brand-logo {
-    height: 30px;
-    max-width: 115px;
+    height: 35px;
+    max-width: 130px;
   }
 
   .travel-header__actions {
@@ -625,8 +625,8 @@
   }
 
   .travel-header__brand-logo {
-    height: 28px;
-    max-width: 100px;
+    height: 31px;
+    max-width: 115px;
   }
 
   .travel-header__circle-btn {

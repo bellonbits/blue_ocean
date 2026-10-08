@@ -34,8 +34,8 @@ export default function NewsPage() {
 
   useEffect(() => {
     document.title = isSomali
-      ? 'Wararka & Sahaminta Badda Soomaaliya — Blue Ocean Somalia'
-      : 'News & Maritime Dispatches — Blue Ocean Somalia';
+      ? 'Wararka & Sahaminta Badda Soomaaliya — Somalia Blue Heaven'
+      : 'News & Maritime Dispatches — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, [isSomali]);
 
@@ -49,7 +49,7 @@ export default function NewsPage() {
         ? 'Aragti Naadir Ah: Libaax-Badeed 9-Mitir ah oo lagu arkay Boosaaso'
         : 'Rare 9-Metre Whale Shark Sighting Documented Off Bosaso',
       desc: isSomali
-        ? 'Kooxda cilmi-baarista ee Blue Ocean ayaa xaqiijisay libaax-badeed weyn oo ku dabaalanayay biyaha Gacanka Cadmeed, taasoo muujinaysa caafimaadka noolaha badda ee deegaanka.'
+        ? 'Kooxda cilmi-baarista ee Somalia Blue Heaven ayaa xaqiijisay libaax-badeed weyn oo ku dabaalanayay biyaha Gacanka Cadmeed, taasoo muujinaysa caafimaadka noolaha badda ee deegaanka.'
         : 'Researchers from the Elasmobranch Unit logged a juvenile whale shark surface-feeding off Puntland — the first confirmed sighting in over a decade.',
       link: '/news/whale-shark-puntland',
       image: '/images/img_02.png',
@@ -196,7 +196,7 @@ export default function NewsPage() {
     {
       title: isSomali ? 'War-saxaafadeed: Aagga La Ilaaliyo ee Gacanka Cadmeed' : 'Press Release: Gulf of Aden Marine Protected Haven Established',
       desc: isSomali
-        ? 'Blue Ocean Somalia waxay si rasmi ah u shaacisay ballaarinta aagagga kormeerka sayniska ee xeebaha Boosaaso iyo Raas Caseyr.'
+        ? 'Somalia Blue Heaven waxay si rasmi ah u shaacisay ballaarinta aagagga kormeerka sayniska ee xeebaha Boosaaso iyo Raas Caseyr.'
         : 'Formal establishment of science-backed seasonal no-take zones protecting whale shark corridors and breeding grouper aggregations.',
       date: isSomali ? 'Sebtembar 2026' : 'September 2026',
       location: isSomali ? 'Boosaaso, Puntland' : 'Bosaso Marine HQ',
@@ -348,8 +348,8 @@ export default function NewsPage() {
             </h2>
             <p className="portal-about__body">
               {isSomali
-                ? 'Blue Ocean waxay si joogto ah u daabacdaa xogaha dhabta ah ee laga helo xeebaha dalka — heerkulka biyaha, socdaalka libaax-badeedka, xaaladda dhagaxleyda badda, iyo guulaha ilaalinta deegaanka. Ma jiro meel kale oo laga helo xog qoto dheer oo ku saabsan badda Soomaaliya.'
-                : 'Decades of scientific isolation left Somalia’s waters largely undocumented in global journals. Blue Ocean produces sovereign, peer-reviewed, and community-verified dispatches to illuminate our living ocean with unmatched depth and integrity.'}
+                ? 'Somalia Blue Heaven waxay si joogto ah u daabacdaa xogaha dhabta ah ee laga helo xeebaha dalka — heerkulka biyaha, socdaalka libaax-badeedka, xaaladda dhagaxleyda badda, iyo guulaha ilaalinta deegaanka. Ma jiro meel kale oo laga helo xog qoto dheer oo ku saabsan badda Soomaaliya.'
+                : 'Decades of scientific isolation left Somalia’s waters largely undocumented in global journals. Somalia Blue Heaven produces sovereign, peer-reviewed, and community-verified dispatches to illuminate our living ocean with unmatched depth and integrity.'}
             </p>
 
             <div className="portal-about__features">

@@ -30,8 +30,8 @@ export default function OceanExperiencesPage() {
 
   useEffect(() => {
     document.title = isSomali
-      ? 'Khibradaha Badda Soomaaliya — Blue Ocean'
-      : 'Ocean Experiences — Blue Ocean Somalia';
+      ? 'Khibradaha Badda Soomaaliya — Somalia Blue Heaven'
+      : 'Ocean Experiences — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, [isSomali]);
 

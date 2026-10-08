@@ -82,7 +82,7 @@ export default function RajaBubbleCollage({ onBookTicket }) {
         <p className="raja-bubble__subtext">
           {isSomali
             ? 'Nagu soo biir si aad u sahamiso quruxda dabiiciga ah ee xeebaha Soomaaliya iyo nolosha hodanka ah ee badda hoosteeda. Baro mashariicdayada cilmi-baarista iyo ilaalinta deegaanka badda.'
-            : "Join Blue Ocean to discover Somalia's untouched marine wilderness, vibrant coral habitats, and community-led ocean conservation along 3,330 km of coastline."}
+            : "Join Somalia Blue Heaven to discover Somalia's untouched marine wilderness, vibrant coral habitats, and community-led ocean conservation along 3,330 km of coastline."}
         </p>
 
         {/* Action Pills - No Pricing */}

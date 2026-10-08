@@ -37,7 +37,7 @@ const ALL_DRAWER_LINKS = [
   { path: '/marine-life', labelEn: 'Marine Life', labelSo: 'Noolaha Badda' },
   { path: '/research', labelEn: 'Research & Conservation', labelSo: 'Cilmi-Baaris & Ilaalin' },
   { path: '/communities', labelEn: 'Coastal Communities', labelSo: 'Bulshooyinka Xeebta' },
-  { path: '/about', labelEn: 'About Blue Ocean', labelSo: 'Nagu Saabsan' },
+  { path: '/about', labelEn: 'About Somalia Blue Heaven', labelSo: 'Nagu Saabsan' },
   { path: '/contact', labelEn: 'Contact', labelSo: 'Xiriir' },
 ];
 
@@ -155,15 +155,15 @@ export default function Header() {
         role="banner"
       >
         <div className="travel-header__inner">
-          {/* Blue Heaven Brand Logo */}
+          {/* Somalia Blue Heaven Brand Logo */}
           <Link
             to={localizedPath('/')}
             className="travel-header__brand"
-            aria-label="Blue Heaven Home"
+            aria-label="Somalia Blue Heaven Home"
           >
             <img
-              src="/logo.png"
-              alt="Blue Heaven"
+              src="/Somalia Blue Heaven Wave Logo.png"
+              alt="Somalia Blue Heaven"
               className="travel-header__brand-logo"
             />
           </Link>
@@ -298,7 +298,7 @@ export default function Header() {
 
       {/* Frosted Glass Search Modal */}
       {searchOpen && (
-        <div className="travel-search-modal" role="dialog" aria-modal="true" aria-label="Search Blue Ocean">
+        <div className="travel-search-modal" role="dialog" aria-modal="true" aria-label="Search Somalia Blue Heaven">
           <div className="travel-search-modal__backdrop" onClick={() => setSearchOpen(false)} />
           <div className="travel-search-modal__card">
             <div className="travel-search-modal__top">
@@ -367,11 +367,11 @@ export default function Header() {
               to={localizedPath('/')}
               className="travel-header__brand"
               onClick={() => setMobileOpen(false)}
-              aria-label="Blue Heaven Home"
+              aria-label="Somalia Blue Heaven Home"
             >
               <img
-                src="/logo.png"
-                alt="Blue Heaven"
+                src="/Somalia Blue Heaven Wave Logo.png"
+                alt="Somalia Blue Heaven"
                 className="travel-header__brand-logo"
               />
             </Link>

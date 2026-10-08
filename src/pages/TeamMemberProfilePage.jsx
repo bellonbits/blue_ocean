@@ -29,7 +29,7 @@ export default function TeamMemberProfilePage() {
       .then(async (m) => {
         if (cancelled) return;
         setMember(m);
-        document.title = `${m.name} — Blue Ocean Somalia`;
+        document.title = `${m.name} — Somalia Blue Heaven`;
 
         // Related Stories: published news articles that reference any of
         // this person's research/conservation projects — a real

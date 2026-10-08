@@ -40,7 +40,7 @@ export default function RajaBentoGrid() {
       {/* Header Row */}
       <div className="raja-bento__header">
         <span className="raja-bento__eyebrow">
-          {isSomali ? 'Xeebaha Soomaaliya • Blue Ocean' : "Somalia's Coastline • Blue Ocean"}
+          {isSomali ? 'Xeebaha Soomaaliya • Somalia Blue Heaven' : "Somalia's Coastline • Somalia Blue Heaven"}
         </span>
         <h2 className="raja-bento__heading">
           {isSomali ? 'Quruxda Aan La Midka Ahayn Ee Xeebaha Soomaaliya' : "The Unmatched Beauty of Somalia's Coastline"}

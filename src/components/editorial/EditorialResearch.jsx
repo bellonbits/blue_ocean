@@ -28,8 +28,8 @@ export default function EditorialResearch() {
           <div className="editorial-research__intro-right">
             <p className="editorial-research__lead-text">
               {isSomali
-                ? "Blue Ocean waxay iskaashi la leedahay jaamacadaha maxalliga ah, cilmi-baarayaasha caalamiga ah iyo kalluumeysatada xeebaha si loo ururiyo xog sax ah oo ku saabsan biyaha Soomaaliya loona ilaaliyo kheyraadka badda."
-                : "Blue Ocean partners with Somali universities, international marine scientists and coastal cooperatives to gather baseline ecological data, combat illegal foreign fishing, and establish community-led marine protected areas across 3,330 km of open water."}
+                ? "Somalia Blue Heaven waxay iskaashi la leedahay jaamacadaha maxalliga ah, cilmi-baarayaasha caalamiga ah iyo kalluumeysatada xeebaha si loo ururiyo xog sax ah oo ku saabsan biyaha Soomaaliya loona ilaaliyo kheyraadka badda."
+                : "Somalia Blue Heaven partners with Somali universities, international marine scientists and coastal cooperatives to gather baseline ecological data, combat illegal foreign fishing, and establish community-led marine protected areas across 3,330 km of open water."}
             </p>
             <div className="editorial-research__intro-links">
               <Link to={localizedPath('/research')} className="editorial-btn-dark">

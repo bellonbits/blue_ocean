@@ -30,8 +30,8 @@ export default function MarineLifePage() {
 
   useEffect(() => {
     document.title = isSomali
-      ? 'Nolosha Badda Soomaaliya — Blue Ocean Field Guide'
-      : 'Marine Life of Somalia — Blue Ocean Field Guide';
+      ? 'Nolosha Badda Soomaaliya — Somalia Blue Heaven Field Guide'
+      : 'Marine Life of Somalia — Somalia Blue Heaven Field Guide';
     window.scrollTo(0, 0);
   }, [isSomali]);
 
@@ -311,7 +311,7 @@ export default function MarineLifePage() {
             <p className="portal-about__body">
               {isSomali
                 ? 'Badda Soomaaliya waxay leedahay mid ka mid ah nidaamyada dabiiciga ah ee ugu hodansan adduunka sababtoo ah biyaha nafaqada leh ee Gacanka Cadmeed iyo carwooyinka shacaabka ee Badweynta Hindiya. Waxaan dhowrnaa noolahaas dhifka ah ee taariikhiga ah.'
-                : 'Where cold, nutrient-rich upwelling currents from the Somali Current meet warm equatorial coral reefs, a unique convergence occurs. Blue Ocean documents, catalogs, and safeguards these extraordinary marine populations alongside local maritime communities.'}
+                : 'Where cold, nutrient-rich upwelling currents from the Somali Current meet warm equatorial coral reefs, a unique convergence occurs. Somalia Blue Heaven documents, catalogs, and safeguards these extraordinary marine populations alongside local maritime communities.'}
             </p>
 
             <div className="portal-about__features">
@@ -490,7 +490,7 @@ export default function MarineLifePage() {
           <p className="portal-section-subtitle">
             {isSomali
               ? 'Xogta noocyada ugu caansan ee ku nool biyaha Soomaaliya oo leh heerka badbaadadooda.'
-              : 'Browse verified marine species documented by Blue Ocean scientists and local rangers.'}
+              : 'Browse verified marine species documented by Somalia Blue Heaven scientists and local rangers.'}
           </p>
         </div>
 

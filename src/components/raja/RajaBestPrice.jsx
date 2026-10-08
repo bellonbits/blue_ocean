@@ -25,7 +25,7 @@ export default function RajaBestPrice() {
           }}
         >
           <ShieldCheck size={16} />
-          <span>{isSomali ? 'Ilaalinta Badda • Blue Ocean' : 'Ocean Conservation • Blue Ocean'}</span>
+          <span>{isSomali ? 'Ilaalinta Badda • Somalia Blue Heaven' : 'Ocean Conservation • Somalia Blue Heaven'}</span>
         </span>
 
         <h2 className="raja-best-price__heading">

@@ -14,7 +14,7 @@ export default function ConservationProjectsPage() {
   useScrollReveal();
 
   useEffect(() => {
-    document.title = 'Conservation Projects — Blue Ocean Somalia';
+    document.title = 'Conservation Projects — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, []);
 

@@ -1,5 +1,5 @@
 ================================================================================
-BLUE HEAVEN — DEPLOYMENT STATUS & WHAT WAS DONE TODAY
+SOMALIA BLUE HEAVEN — DEPLOYMENT STATUS & WHAT WAS DONE TODAY
 2026-09-02
 ================================================================================
 
@@ -94,7 +94,7 @@ Once a backend URL exists and is reachable, tell Claude and the rest
 (env var in Vercel, verifying the live site) can be wired up in minutes.
 
 ================================================================================
-PART 2 — WHAT WAS DONE TODAY ON BLUE HEAVEN
+PART 2 — WHAT WAS DONE TODAY ON SOMALIA BLUE HEAVEN
 ================================================================================
 
 CHAT ASSISTANT
@@ -188,10 +188,10 @@ NOT DONE — FEATURES
   in the admin (the database relation exists, just isn't in the form),
   no available-spaces field, no price field, and no Apply/Join flow or
   application-review admin screen at all.
-- "Latest from Blue Heaven" homepage section — doesn't exist yet.
+- "Latest from Somalia Blue Heaven" homepage section — doesn't exist yet.
 - Social media links (Instagram, TikTok, Facebook, YouTube, LinkedIn, X)
   point to placeholder URLs (instagram.com, facebook.com, etc.), not
-  Blue Heaven's real accounts. No admin settings panel to manage them —
+  Somalia Blue Heaven's real accounts. No admin settings panel to manage them —
   currently hardcoded in the frontend.
 - Bajuni Islands destination still uses a stock photo — no real photos
   were supplied for it in today's batch.

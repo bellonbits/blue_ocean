@@ -21,8 +21,8 @@ export default function ArticleDetailPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = article
-      ? `${article.title} — Blue Ocean Somalia`
-      : 'Story Not Found — Blue Ocean Somalia';
+      ? `${article.title} — Somalia Blue Heaven`
+      : 'Story Not Found — Somalia Blue Heaven';
   }, [article]);
 
   if (!article) {

@@ -47,7 +47,7 @@ export default function EditorialMission() {
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
   return (
-    <section id="editorial-mission" className="editorial-mission" aria-label="Blue Ocean Mission & Four Pillars">
+    <section id="editorial-mission" className="editorial-mission" aria-label="Somalia Blue Heaven Mission & Four Pillars">
       <div className="editorial-mission__container">
         {/* Editorial Mission Statement */}
         <div className="editorial-mission__header">
@@ -69,8 +69,8 @@ export default function EditorialMission() {
           </h2>
           <p className="editorial-mission__desc">
             {isSomali
-              ? 'Blue Ocean waxay dadka ku xirtaa xeebaha cajiibka ah ee Soomaaliya iyada oo loo marayo dalxiis mas’uul ah, cilmi-baaris badeed, waxbarashada dhalinyarada iyo dhowridda kheyraadka noolaha.'
-              : "Blue Ocean connects people with Somalia's extraordinary coastline through responsible travel, scientific marine research, ocean education and habitat conservation."}
+              ? 'Somalia Blue Heaven waxay dadka ku xirtaa xeebaha cajiibka ah ee Soomaaliya iyada oo loo marayo dalxiis mas’uul ah, cilmi-baaris badeed, waxbarashada dhalinyarada iyo dhowridda kheyraadka noolaha.'
+              : "Somalia Blue Heaven connects people with Somalia's extraordinary coastline through responsible travel, scientific marine research, ocean education and habitat conservation."}
           </p>
         </div>
 

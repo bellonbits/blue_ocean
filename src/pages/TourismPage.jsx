@@ -31,8 +31,8 @@ export default function TourismPage() {
 
   useEffect(() => {
     document.title = isSomali
-      ? 'Dalxiiska Xeebaha Soomaaliya — Blue Ocean'
-      : 'Coastal Tourism — Blue Ocean Somalia';
+      ? 'Dalxiiska Xeebaha Soomaaliya — Somalia Blue Heaven'
+      : 'Coastal Tourism — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, [isSomali]);
 
@@ -352,13 +352,13 @@ export default function TourismPage() {
         </div>
       </section>
 
-      {/* 2. About Blue Ocean (2-Column Card Section) */}
-      <section className="portal-card-section" aria-label="About Blue Ocean Tourism">
+      {/* 2. About Somalia Blue Heaven (2-Column Card Section) */}
+      <section className="portal-card-section" aria-label="About Somalia Blue Heaven Tourism">
         <div className="portal-about-grid">
           {/* Left: Narrative + 3 Bullet Points with Circular Icons */}
           <div className="portal-about__narrative">
             <span className="portal-section-tag">
-              {isSomali ? 'NAGU SAABSAN' : 'ABOUT BLUE OCEAN'}
+              {isSomali ? 'NAGU SAABSAN' : 'ABOUT SOMALIA BLUE HEAVEN'}
             </span>
             <h2 className="portal-section-title">
               {isSomali
@@ -368,7 +368,7 @@ export default function TourismPage() {
             <p className="portal-about__body">
               {isSomali
                 ? 'Soomaaliya waxay leedahay 3,330 km oo xeeb ah oo isugu jirta Gacanka Cadmeed iyo Badweynta Hindiya. Waa dhul hodan ku ah noolaha badda, dhagaxleyda qadiimiga ah, iyo magaalooyinka taariikhiga ah ee kumanaanka sano ahaa albaabbada ganacsiga caalamka.'
-                : 'With 3,330 kilometres of ocean front meeting the Indian Ocean and the Gulf of Aden, Somalia holds mainland Africa’s longest and most biodiverse coastline. Blue Ocean is dedicated to ethical coastal exploration, marine science, and protecting our marine paradise.'}
+                : 'With 3,330 kilometres of ocean front meeting the Indian Ocean and the Gulf of Aden, Somalia holds mainland Africa’s longest and most biodiverse coastline. Somalia Blue Heaven is dedicated to ethical coastal exploration, marine science, and protecting our marine paradise.'}
             </p>
 
             <div className="portal-about__features">
@@ -681,7 +681,7 @@ export default function TourismPage() {
             <h2 className="portal-cta__title">
               {isSomali
                 ? 'Diyaar Ma U Tahay Sahaminta Badda Soomaaliya?'
-                : 'Ready to Discover Blue Ocean Somalia?'}
+                : 'Ready to Discover Somalia Blue Heaven?'}
             </h2>
             <p className="portal-cta__subtitle">
               {isSomali

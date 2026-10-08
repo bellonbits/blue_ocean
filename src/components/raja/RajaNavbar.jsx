@@ -58,10 +58,10 @@ export default function RajaNavbar({ onOpenMenu, onGetStarted }) {
   return (
     <header className="raja-nav" role="navigation" aria-label="Main Navigation">
       {/* Brand Logo on the left */}
-      <Link to={localizedPath('/')} className="raja-nav__brand" aria-label="Blue Ocean Home">
+      <Link to={localizedPath('/')} className="raja-nav__brand" aria-label="Somalia Blue Heaven Home">
         <img
-          src={isDark ? '/logo.png' : '/logo_sky_blue.png'}
-          alt="Blue Ocean Somalia"
+          src="/Somalia Blue Heaven Wave Logo.png"
+          alt="Somalia Blue Heaven"
           className="raja-nav__brand-img"
         />
       </Link>

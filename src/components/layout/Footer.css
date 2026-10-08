@@ -53,9 +53,9 @@
 }
 
 .nature-footer__logo-img {
-  height: 52px;
+  height: clamp(56px, 6.5vh, 68px);
   width: auto;
-  max-width: 220px;
+  max-width: 250px;
   object-fit: contain;
 }
 

@@ -42,8 +42,8 @@ export default function EditorialCTA() {
 
         <p className="editorial-cta__desc">
           {isSomali
-            ? 'Haddii aad doonayso safar cilmi-baaris, quusidda reef-ka aan la taaban, ama taageeridda ilaalinta noolaha badda—safarkaaga Blue Ocean halkan buu ka bilaabmayaa.'
-            : 'Whether joining a scientific marine survey, diving untouched coral atolls, or partnering on coastal conservation stewardship—your journey with Blue Ocean begins here.'}
+            ? 'Haddii aad doonayso safar cilmi-baaris, quusidda reef-ka aan la taaban, ama taageeridda ilaalinta noolaha badda—safarkaaga Somalia Blue Heaven halkan buu ka bilaabmayaa.'
+            : 'Whether joining a scientific marine survey, diving untouched coral atolls, or partnering on coastal conservation stewardship—your journey with Somalia Blue Heaven begins here.'}
         </p>
 
         <div className="editorial-cta__actions">

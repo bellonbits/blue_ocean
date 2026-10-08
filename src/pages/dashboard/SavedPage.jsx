@@ -57,7 +57,7 @@ export default function SavedPage() {
   const [destinationsBySlug, setDestinationsBySlug] = useState(new Map());
 
   useEffect(() => {
-    document.title = 'Saved — Blue Ocean Somalia';
+    document.title = 'Saved — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, []);
 

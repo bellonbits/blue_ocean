@@ -4,13 +4,13 @@ import { organization, contactDetails } from '../data/organization';
 import './StaticContentPage.css';
 
 const LOGO_ASSETS = [
-  { label: 'Logo — Light background', file: '/logo_sky_blue.png', preview: '#F5FAFC' },
-  { label: 'Logo — Dark background', file: '/logo.png', preview: '#06141C' },
+  { label: 'Somalia Blue Heaven — White (Dark Backgrounds)', file: '/Somalia Blue Heaven Wave Logo White.png', preview: '#06141C' },
+  { label: 'Somalia Blue Heaven — Blue (Light Backgrounds)', file: '/Somalia Blue Heaven Wave Logo Blue.png', preview: '#F5FAFC' },
 ];
 
 export default function PressPage() {
   useEffect(() => {
-    document.title = 'Press — Blue Ocean Somalia';
+    document.title = 'Press — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, []);
 
@@ -22,17 +22,17 @@ export default function PressPage() {
           <h1 className="static-page__title">Press Kit</h1>
           <p className="static-page__subtitle">
             Boilerplate, brand assets, and a direct line to the team for journalists and partners
-            covering Blue Ocean Somalia.
+            covering Somalia Blue Heaven.
           </p>
         </div>
 
         <div className="static-page__body">
-          <h2>About Blue Ocean Somalia</h2>
+          <h2>About Somalia Blue Heaven</h2>
           <p>{organization.mission.description}</p>
 
           <h2>Boilerplate</h2>
           <p>
-            <strong>{organization.name}</strong> — {organization.mission.statement} Blue Ocean
+            <strong>{organization.name}</strong> — {organization.mission.statement} Somalia Blue Heaven
             works across Somalia's coastline, from Puntland to Jubaland, combining marine research,
             conservation, and coastal community partnership.
           </p>
@@ -55,7 +55,7 @@ export default function PressPage() {
 
           <h2>Media Contact</h2>
           <p>
-            For interviews, quotes, or high-resolution imagery, reach the Blue Ocean team directly:
+            For interviews, quotes, or high-resolution imagery, reach the Somalia Blue Heaven team directly:
           </p>
           <p>
             <a

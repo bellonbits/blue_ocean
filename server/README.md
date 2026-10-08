@@ -1,4 +1,4 @@
-# Blue Heaven Chat Proxy
+# Somalia Blue Heaven Chat Proxy
 
 A minimal Express server that keeps your `GROQ_API_KEY` out of the browser.
 The frontend chat widget talks to this server; this server talks to Groq.

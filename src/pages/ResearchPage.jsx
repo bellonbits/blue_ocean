@@ -31,8 +31,8 @@ export default function ResearchPage() {
 
   useEffect(() => {
     document.title = isSomali
-      ? 'Cilmi-Baarista Badda Soomaaliya — Blue Ocean Research'
-      : 'Scientific Research & Living Observatories — Blue Ocean Somalia';
+      ? 'Cilmi-Baarista Badda Soomaaliya — Somalia Blue Heaven Research'
+      : 'Scientific Research & Living Observatories — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, [isSomali]);
 
@@ -304,7 +304,7 @@ export default function ResearchPage() {
             </h2>
             <p className="portal-about__body">
               {isSomali
-                ? 'Blue Ocean waxay horumarinaysaa sayniska badda Soomaaliya iyadoo la adeegsanayo qalab casri ah, cilmi-baarayaal Soomaaliyeed, iyo wada-shaqeyn lala leeyahay jaamacadaha caalamka. Waxaan ururinaa xogta dhabta ah ee lagu difaacayo 3,330 km oo xeeb ah.'
+                ? 'Somalia Blue Heaven waxay horumarinaysaa sayniska badda Soomaaliya iyadoo la adeegsanayo qalab casri ah, cilmi-baarayaal Soomaaliyeed, iyo wada-shaqeyn lala leeyahay jaamacadaha caalamka. Waxaan ururinaa xogta dhabta ah ee lagu difaacayo 3,330 km oo xeeb ah.'
                 : 'Rigorous empirical observation forms the bedrock of marine protection. By pairing remote-sensing satellite radar with coastal acoustic hydrophones and community catch monitoring, we deliver actionable oceanographic data across the Somali coastline.'}
             </p>
 
@@ -543,7 +543,7 @@ export default function ResearchPage() {
           </h2>
           <p className="portal-section-subtitle">
             {isSomali
-              ? 'Xogaha rasmiga ah ee ay soo saareen khubarada badda ee Blue Ocean.'
+              ? 'Xogaha rasmiga ah ee ay soo saareen khubarada badda ee Somalia Blue Heaven.'
               : 'Open-access oceanographic monographs, field checklists, and annual health reviews.'}
           </p>
         </div>

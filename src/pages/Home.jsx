@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <div className="editorial-home">
-      <main id="main-content" aria-label="Blue Ocean Somalia — Marine Tourism, Research & Conservation">
+      <main id="main-content" aria-label="Somalia Blue Heaven — Marine Tourism, Research & Conservation">
         {/* 1. Hero: Full-Bleed Cinematic Photography */}
         <EditorialHero />
 
