@@ -29,7 +29,7 @@ export const destinationVideosStatic = {
     videoSource: "Community Submission",
     videos: [
       {
-        url: "/bosaso/1005.mp4",
+        url: "/1005.mp4",
         thumbnail: "/bosaso_beach_thumb.webp",
         title: "Bosaso Beach & Turquoise Waters",
         description: "Community-submitted footage of a busy day at a Bosaso beach, showing the coastline and turquoise waters where locals gather.",
