@@ -7,35 +7,9 @@ import {
   Maximize,
   Heart,
   Search,
-  Film,
-  Sparkles,
 } from 'lucide-react';
-import { getVideoEmbedUrl, isDirectVideoFile } from '../../lib/video';
+import { getVideoEmbedUrl, isDirectVideoFile, getVideoThumbnail } from '../../lib/video';
 import './VideoEmbed.css';
-
-// Default rich coastal documentary footage if not enough clips provided
-const DEFAULT_COASTAL_SERIES = [
-  {
-    url: '/1005.mp4',
-    thumbnail: '/bosaso_beach_thumb.webp',
-    title: 'Ras Hafun Continental Tombolo & Whale Migration Corridor',
-    description: 'Africa’s easternmost headland where towering limestone bluffs plunge into cobalt oceanic waters and green turtle hatcheries.',
-    views: '1,240,650',
-    likes: '2.1M',
-    duration: '04:12 / 05:00',
-    progress: 80,
-  },
-  {
-    url: '/1002(1).mp4',
-    thumbnail: '/1002-Cover.webp',
-    title: 'Bajuni Coral Atoll Archipelago & Turquoise Estuaries',
-    description: 'An untouched southern island constellation safeguarding critical blue carbon mangrove forests and rare marine habitats.',
-    views: '934,810',
-    likes: '1.6M',
-    duration: '03:15 / 04:10',
-    progress: 55,
-  },
-];
 
 export default function VideoEmbed({
   url,
@@ -46,7 +20,7 @@ export default function VideoEmbed({
   videoDescription,
   videoSource,
 }) {
-  // Normalize passed videos
+  // Normalize passed videos - only include videos associated with this entity
   const userVideos = Array.isArray(videos) && videos.length > 0
     ? videos.filter((v) => v && (v.url || v.video_url))
     : url
@@ -61,46 +35,41 @@ export default function VideoEmbed({
       ]
       : [];
 
-  // Combine user videos with default coastal series to ensure at least 4 items for the following row
   const combinedList = [...userVideos];
-  DEFAULT_COASTAL_SERIES.forEach((def) => {
-    if (!combinedList.some((v) => (v.url || v.video_url) === def.url)) {
-      combinedList.push(def);
-    }
-  });
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(1300000);
   const [searchQuery, setSearchQuery] = useState('');
-  const [currentTimeStr, setCurrentTimeStr] = useState('03:28');
-  const [durationStr, setDurationStr] = useState('04:23');
-  const [progressPercent, setProgressPercent] = useState(65);
+  const [currentTimeStr, setCurrentTimeStr] = useState('00:00');
+  const [durationStr, setDurationStr] = useState('00:00');
+  const [progressPercent, setProgressPercent] = useState(0);
 
   const videoRef = useRef(null);
   const screenRef = useRef(null);
 
   const activeVideo = combinedList[activeIndex] || combinedList[0];
   const activeUrl = activeVideo?.url || activeVideo?.video_url;
+  const ytThumb = activeUrl ? getVideoThumbnail(activeUrl) : null;
   const activeThumbnail =
     activeVideo?.thumbnail ||
     activeVideo?.cover_image ||
     activeVideo?.video_thumbnail ||
     thumbnail ||
-    '/images/img_02.webp';
+    ytThumb ||
+    null;
   const activeTitle =
     activeVideo?.title ||
     activeVideo?.video_title ||
     videoTitle ||
     title ||
-    'Coastal Marine Expedition';
+    'Coastal Video';
   const activeDescription =
     activeVideo?.description ||
     activeVideo?.video_description ||
     videoDescription ||
-    'High-definition coastal documentary chronicle documenting marine sanctuaries, pelagic research, and coral ecology.';
-  const activeViews = activeVideo?.views || '786,374';
+    '';
+  const activeViews = activeVideo?.views || '12.4K';
   const activeLikes = isLiked ? '1.4M' : (activeVideo?.likes || '1.3M');
 
   const embedUrl = activeUrl ? getVideoEmbedUrl(activeUrl) : null;
@@ -118,6 +87,8 @@ export default function VideoEmbed({
     }
     if (activeVideo?.progress != null) {
       setProgressPercent(activeVideo.progress);
+    } else {
+      setProgressPercent(0);
     }
   }, [activeIndex]);
 
@@ -137,11 +108,13 @@ export default function VideoEmbed({
 
   const handleSkipNext = (e) => {
     e?.stopPropagation();
+    if (combinedList.length <= 1) return;
     setActiveIndex((prev) => (prev + 1) % combinedList.length);
   };
 
   const handleSkipPrev = (e) => {
     e?.stopPropagation();
+    if (combinedList.length <= 1) return;
     setActiveIndex((prev) => (prev - 1 + combinedList.length) % combinedList.length);
   };
 
@@ -183,20 +156,24 @@ export default function VideoEmbed({
     return itemTitle.includes(q) || itemDesc.includes(q);
   });
 
+  if (combinedList.length === 0) return null;
+
   return (
     <div className="vplayer-container" aria-label="Modern Video Player">
-      {/* 1. Top Search Bar Pill ("What are you looking for?") */}
-      <div className="vplayer-search-bar">
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="What are you looking for?"
-          className="vplayer-search-input"
-          aria-label="Search coastal footage"
-        />
-        <Search size={18} className="vplayer-search-icon" />
-      </div>
+      {/* 1. Top Search Bar Pill (only when multiple videos exist) */}
+      {combinedList.length > 1 && (
+        <div className="vplayer-search-bar">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="What are you looking for?"
+            className="vplayer-search-input"
+            aria-label="Search videos"
+          />
+          <Search size={18} className="vplayer-search-icon" />
+        </div>
+      )}
 
       {/* 2. Main Video Showcase Card */}
       <div className="vplayer-card">
@@ -235,7 +212,7 @@ export default function VideoEmbed({
             <video
               ref={videoRef}
               src={activeUrl}
-              poster={activeThumbnail}
+              poster={activeThumbnail || undefined}
               className="vplayer-html-video"
               onTimeUpdate={handleTimeUpdate}
               controls={false}
@@ -246,15 +223,17 @@ export default function VideoEmbed({
 
           {/* Floating Frosted Glass Controller Capsule on Bottom-Left */}
           <div className="vplayer-ctrl-pill" onClick={(e) => e.stopPropagation()}>
-            {/* Skip Back */}
-            <button
-              type="button"
-              className="vplayer-ctrl-btn"
-              onClick={handleSkipPrev}
-              aria-label="Previous video"
-            >
-              <SkipBack size={15} />
-            </button>
+            {/* Skip Back (only when multiple videos) */}
+            {combinedList.length > 1 && (
+              <button
+                type="button"
+                className="vplayer-ctrl-btn"
+                onClick={handleSkipPrev}
+                aria-label="Previous video"
+              >
+                <SkipBack size={15} />
+              </button>
+            )}
 
             {/* Play/Pause Button (Accent Round Button) */}
             <button
@@ -270,28 +249,32 @@ export default function VideoEmbed({
               )}
             </button>
 
-            {/* Skip Forward */}
-            <button
-              type="button"
-              className="vplayer-ctrl-btn"
-              onClick={handleSkipNext}
-              aria-label="Next video"
-            >
-              <SkipForward size={15} />
-            </button>
+            {/* Skip Forward (only when multiple videos) */}
+            {combinedList.length > 1 && (
+              <button
+                type="button"
+                className="vplayer-ctrl-btn"
+                onClick={handleSkipNext}
+                aria-label="Next video"
+              >
+                <SkipForward size={15} />
+              </button>
+            )}
 
-            {/* Scrubber Progress & Timestamps */}
-            <div className="vplayer-ctrl-time-wrap">
-              <span className="vplayer-ctrl-time">
-                {currentTimeStr}/{durationStr}
-              </span>
-              <div className="vplayer-ctrl-progress-bar">
-                <div
-                  className="vplayer-ctrl-progress-fill"
-                  style={{ width: `${progressPercent}%` }}
-                />
+            {/* Scrubber Progress & Timestamps (only for direct video files) */}
+            {isFile && (
+              <div className="vplayer-ctrl-time-wrap">
+                <span className="vplayer-ctrl-time">
+                  {currentTimeStr}/{durationStr}
+                </span>
+                <div className="vplayer-ctrl-progress-bar">
+                  <div
+                    className="vplayer-ctrl-progress-fill"
+                    style={{ width: `${progressPercent}%` }}
+                  />
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Maximize Fullscreen */}
             <button
@@ -327,66 +310,77 @@ export default function VideoEmbed({
             </button>
           </div>
 
-          <p className="vplayer-description">{activeDescription}</p>
+          {activeDescription && (
+            <p className="vplayer-description">{activeDescription}</p>
+          )}
         </div>
       </div>
 
-      {/* 3. "Following" Row of Video Thumbnail Cards */}
-      <div className="vplayer-following-section">
-        <div className="vplayer-following-header">
-          <div className="vplayer-following-icon-wrap">
-            <Play size={14} fill="currentColor" />
+      {/* 3. "Following" Row of Video Thumbnail Cards (only if multiple associated videos) */}
+      {combinedList.length > 1 && displayFollowing.length > 0 && (
+        <div className="vplayer-following-section">
+          <div className="vplayer-following-header">
+            <div className="vplayer-following-icon-wrap">
+              <Play size={14} fill="currentColor" />
+            </div>
+            <span className="vplayer-following-title">Following</span>
           </div>
-          <span className="vplayer-following-title">Following</span>
-        </div>
 
-        <div className="vplayer-following-row">
-          {displayFollowing.slice(0, 4).map((item, idx) => {
-            const isCurrent = (item.url || item.video_url) === activeUrl;
-            const itemThumb =
-              item.thumbnail ||
-              item.cover_image ||
-              item.video_thumbnail ||
-              DEFAULT_COASTAL_SERIES[idx % DEFAULT_COASTAL_SERIES.length].thumbnail;
+          <div className="vplayer-following-row">
+            {displayFollowing.slice(0, 4).map((item, idx) => {
+              const itemUrl = item.url || item.video_url;
+              const isCurrent = itemUrl === activeUrl;
+              const itemThumb =
+                item.thumbnail ||
+                item.cover_image ||
+                item.video_thumbnail ||
+                (itemUrl ? getVideoThumbnail(itemUrl) : null) ||
+                activeThumbnail;
 
-            return (
-              <div
-                key={idx}
-                className={`vplayer-thumb-card ${isCurrent ? 'vplayer-thumb-card--active' : ''}`}
-                onClick={() => {
-                  const globalIdx = combinedList.findIndex(
-                    (v) => (v.url || v.video_url) === (item.url || item.video_url)
-                  );
-                  setActiveIndex(globalIdx >= 0 ? globalIdx : idx);
-                  setIsPlaying(true);
-                }}
-                role="button"
-                tabIndex={0}
-                aria-label={`Select video: ${item.title}`}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setActiveIndex(idx);
+              return (
+                <div
+                  key={idx}
+                  className={`vplayer-thumb-card ${isCurrent ? 'vplayer-thumb-card--active' : ''}`}
+                  onClick={() => {
+                    const globalIdx = combinedList.findIndex(
+                      (v) => (v.url || v.video_url) === itemUrl
+                    );
+                    setActiveIndex(globalIdx >= 0 ? globalIdx : idx);
                     setIsPlaying(true);
-                  }
-                }}
-              >
-                <img
-                  src={itemThumb}
-                  alt={item.title || `Video ${idx + 1}`}
-                  className="vplayer-thumb-img"
-                  loading="lazy"
-                />
-                <div className="vplayer-thumb-overlay">
-                  <div className="vplayer-thumb-play-circle">
-                    <Play size={12} fill="currentColor" />
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Select video: ${item.title || item.video_title || `Video ${idx + 1}`}`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      const globalIdx = combinedList.findIndex(
+                        (v) => (v.url || v.video_url) === itemUrl
+                      );
+                      setActiveIndex(globalIdx >= 0 ? globalIdx : idx);
+                      setIsPlaying(true);
+                    }
+                  }}
+                >
+                  {itemThumb && (
+                    <img
+                      src={itemThumb}
+                      alt={item.title || item.video_title || `Video ${idx + 1}`}
+                      className="vplayer-thumb-img"
+                      loading="lazy"
+                    />
+                  )}
+                  <div className="vplayer-thumb-overlay">
+                    <div className="vplayer-thumb-play-circle">
+                      <Play size={12} fill="currentColor" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
