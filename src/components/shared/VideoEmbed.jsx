@@ -16,26 +16,6 @@ import './VideoEmbed.css';
 // Default rich coastal documentary footage if not enough clips provided
 const DEFAULT_COASTAL_SERIES = [
   {
-    url: '/bosaso_harbor.mp4',
-    thumbnail: '/bosaso_harbor_thumb.webp',
-    title: 'Bosaso Deep Water Harbor & Marine Outpost',
-    description: 'Northern commercial shipping terminal and marine research sanctuary anchoring the Gulf of Aden acoustic telemetry array.',
-    views: '786,374',
-    likes: '1.3M',
-    duration: '03:28 / 04:23',
-    progress: 72,
-  },
-  {
-    url: '/bosaso_coastal_life.mp4',
-    thumbnail: '/bosaso_life_thumb.webp',
-    title: 'Gulf of Aden Artisanal Dhow Seafaring & Coral Coves',
-    description: 'Traditional Swahili-Somali wooden dhow fleets navigating dawn sea breezes past living barrier reefs and turquoise lagoons.',
-    views: '542,190',
-    likes: '890K',
-    duration: '02:45 / 03:50',
-    progress: 45,
-  },
-  {
     url: '/1005.mp4',
     thumbnail: '/bosaso_beach_thumb.webp',
     title: 'Ras Hafun Continental Tombolo & Whale Migration Corridor',
@@ -70,7 +50,7 @@ export default function VideoEmbed({
   const userVideos = Array.isArray(videos) && videos.length > 0
     ? videos.filter((v) => v && (v.url || v.video_url))
     : url
-    ? [
+      ? [
         {
           url,
           thumbnail: thumbnail || null,
@@ -79,7 +59,7 @@ export default function VideoEmbed({
           source: videoSource || null,
         },
       ]
-    : [];
+      : [];
 
   // Combine user videos with default coastal series to ensure at least 4 items for the following row
   const combinedList = [...userVideos];
@@ -150,7 +130,7 @@ export default function VideoEmbed({
     } else {
       setIsPlaying(true);
       if (isFile && videoRef.current) {
-        videoRef.current.play().catch(() => {});
+        videoRef.current.play().catch(() => { });
       }
     }
   };
@@ -169,9 +149,9 @@ export default function VideoEmbed({
     e?.stopPropagation();
     if (!screenRef.current) return;
     if (!document.fullscreenElement) {
-      screenRef.current.requestFullscreen?.().catch(() => {});
+      screenRef.current.requestFullscreen?.().catch(() => { });
     } else {
-      document.exitFullscreen?.().catch(() => {});
+      document.exitFullscreen?.().catch(() => { });
     }
   };
 
