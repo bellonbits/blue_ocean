@@ -364,7 +364,7 @@
 }
 
 .travel-hero__place-text {
-  font-family: var(--eo-font-serif, 'Inter', sans-serif);
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
   font-size: clamp(1.8rem, 3.2vw, 2.6rem);
   font-weight: 700;
   letter-spacing: 0.12em;

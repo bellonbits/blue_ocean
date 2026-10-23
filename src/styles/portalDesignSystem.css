@@ -37,8 +37,8 @@
   --eo-radius-lg: 18px;
   --eo-radius-pill: 9999px;
 
-  /* Typography — Unified Modern Clean Typeface across Website */
-  --eo-font-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Typography — Signature Editorial Serif for Headings & Clean Inter for Body */
+  --eo-font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
   --eo-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Shadows */
@@ -170,12 +170,12 @@
 }
 
 .portal-hero__title {
-  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
   font-size: clamp(2.4rem, 4.6vw, 3.8rem);
-  font-weight: 800;
+  font-weight: 500;
   color: #ffffff;
   line-height: 1.08;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   margin: 0 0 16px 0;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
 }
@@ -375,12 +375,12 @@
 }
 
 .portal-section-title {
-  font-family: var(--eo-font-sans, 'Inter', sans-serif);
-  font-size: clamp(2rem, 3.6vw, 3rem);
-  font-weight: 750;
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+  font-weight: 500;
   color: var(--eo-text-main, #071626);
   line-height: 1.15;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.015em;
   margin: 0 0 var(--space-md, 24px) 0;
 }
 
@@ -471,9 +471,9 @@
 }
 
 .portal-about__feature-title {
-  font-family: var(--eo-font-sans, 'Inter', sans-serif);
-  font-size: 1.18rem;
-  font-weight: 700;
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 600;
   color: var(--eo-text-main, #071626);
   margin: 0;
 }
@@ -656,9 +656,9 @@
 }
 
 .portal-highlight-card__title {
-  font-family: var(--eo-font-sans, 'Inter', sans-serif);
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.45rem;
+  font-weight: 600;
   color: var(--eo-text-main, #071626);
   line-height: 1.25;
   margin: 0 0 10px 0;
@@ -786,9 +786,9 @@
 }
 
 .portal-panorama__card-title {
-  font-family: var(--eo-font-sans, 'Inter', sans-serif);
-  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
-  font-weight: 700;
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(1.8rem, 2.7vw, 2.35rem);
+  font-weight: 600;
   color: var(--eo-navy, #071626);
   margin: 0;
   line-height: 1.18;
@@ -1002,9 +1002,9 @@
 }
 
 .portal-attraction-card__title {
-  font-family: var(--eo-font-sans, 'Inter', sans-serif);
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.45rem;
+  font-weight: 600;
   color: var(--eo-text-main, #071626);
   line-height: 1.25;
   margin: 0 0 10px 0;
@@ -1157,9 +1157,9 @@
 }
 
 .portal-event-card__title {
-  font-family: var(--eo-font-sans, 'Inter', sans-serif);
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.45rem;
+  font-weight: 600;
   color: var(--eo-text-main, #071626);
   line-height: 1.25;
   margin: 0;
@@ -1342,13 +1342,13 @@
 }
 
 .portal-cta__title {
-  font-family: var(--eo-font-sans, 'Inter', sans-serif);
-  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
-  font-weight: 800;
+  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+  font-weight: 500;
   color: #ffffff;
   margin: 0 0 var(--space-md, 24px) 0;
   line-height: 1.1;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.015em;
 }
 
 .portal-cta__subtitle {
