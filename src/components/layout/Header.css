@@ -739,8 +739,133 @@
   color: #0284c7;
 }
 
+/* Mobile Drawer Auth & Profile */
+.travel-mobile-drawer__auth {
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.travel-mobile-drawer__auth-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.travel-mobile-drawer__login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
+}
+
+.travel-mobile-drawer__login-btn:hover {
+  background: #0369a1;
+}
+
+.travel-mobile-drawer__signup-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #0284c7;
+  border: 1.5px solid #0284c7;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.travel-mobile-drawer__signup-btn:hover {
+  background: #f0f9ff;
+}
+
+.travel-mobile-drawer__user-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.travel-mobile-drawer__user-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.travel-mobile-drawer__user-meta {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.travel-mobile-drawer__user-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.travel-mobile-drawer__user-email {
+  font-size: 0.75rem;
+  color: #64748b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.travel-mobile-drawer__user-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 8px;
+}
+
+.travel-mobile-drawer__user-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  font-size: 0.84rem;
+  color: #334155;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.travel-mobile-drawer__user-link:hover {
+  background: #f1f5f9;
+  color: #0284c7;
+}
+
+.travel-mobile-drawer__user-link--logout {
+  color: #dc2626;
+}
+
+.travel-mobile-drawer__user-link--logout:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
 .travel-mobile-drawer__footer {
-  padding-top: 20px;
+  padding-top: 16px;
   border-top: 1px solid #e2e8f0;
 }
 
@@ -748,6 +873,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.travel-mobile-drawer__lang-label {
+  font-size: 0.82rem;
+  color: #64748b;
+  font-weight: 500;
 }
 
 /* Responsive Breakpoints */
@@ -760,49 +891,62 @@
   }
 }
 
+@media (max-width: 900px) {
+  /* Prevent top bar overcrowding and text wrapping */
+  .travel-header__auth-group {
+    display: none !important;
+  }
+}
+
 @media (max-width: 768px) {
   .travel-header {
     height: 64px;
   }
 
   .travel-header__inner {
-    padding: 0 clamp(14px, 4vw, 20px);
-    gap: 12px;
+    padding: 0 16px;
+    gap: 8px;
+    justify-content: space-between;
   }
 
   .travel-header__brand-logo {
-    height: 35px;
-    max-width: 135px;
+    height: 34px;
+    max-width: 130px;
+    object-fit: contain;
   }
 
   .travel-header__actions {
-    gap: 8px;
+    gap: 6px;
+    flex-shrink: 0;
   }
 
   .travel-header__circle-btn {
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
   }
 
   .travel-header__lang-toggle {
     font-size: 0.82rem;
-    padding: 4px;
+    padding: 4px 6px;
   }
 
   .travel-header__hamburger-btn {
-    padding: 5px;
+    padding: 6px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 380px) {
   .travel-header__inner {
     padding: 0 12px;
-    gap: 8px;
+    gap: 6px;
   }
 
   .travel-header__brand-logo {
-    height: 31px;
-    max-width: 115px;
+    height: 30px;
+    max-width: 110px;
   }
 
   .travel-header__circle-btn {
@@ -812,6 +956,10 @@
 
   .travel-header__lang-toggle {
     font-size: 0.78rem;
-    padding: 2px;
+    padding: 2px 4px;
+  }
+
+  .travel-mobile-drawer__auth-buttons {
+    grid-template-columns: 1fr;
   }
 }

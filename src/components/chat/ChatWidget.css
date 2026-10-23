@@ -225,6 +225,12 @@
     right: var(--space-4);
     left: var(--space-4);
     align-items: stretch;
+    pointer-events: none;
+  }
+
+  .chat-widget__panel,
+  .chat-widget__fab {
+    pointer-events: auto;
   }
 
   .chat-widget__panel {

@@ -545,6 +545,74 @@ export default function Header() {
             </button>
           </div>
 
+          {/* Mobile Drawer Auth Section */}
+          <div className="travel-mobile-drawer__auth">
+            {isAuthenticated ? (
+              <div className="travel-mobile-drawer__user-card">
+                <div className="travel-mobile-drawer__user-header">
+                  <div className="travel-header__avatar">{userInitial}</div>
+                  <div className="travel-mobile-drawer__user-meta">
+                    <span className="travel-mobile-drawer__user-name">{user.full_name || 'Explorer'}</span>
+                    <span className="travel-mobile-drawer__user-email">{user.email}</span>
+                  </div>
+                </div>
+                <div className="travel-mobile-drawer__user-actions">
+                  <Link
+                    to="/profile"
+                    className="travel-mobile-drawer__user-link"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <UserCircle size={15} />
+                    <span>{t('auth.myProfile')}</span>
+                  </Link>
+                  <Link
+                    to={dashboardHref}
+                    className="travel-mobile-drawer__user-link"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <LayoutDashboard size={15} />
+                    <span>{t('auth.dashboard')}</span>
+                  </Link>
+                  <button
+                    type="button"
+                    className="travel-mobile-drawer__user-link travel-mobile-drawer__user-link--logout"
+                    onClick={() => {
+                      logout();
+                      setMobileOpen(false);
+                    }}
+                  >
+                    <LogOut size={15} />
+                    <span>{t('auth.logOut')}</span>
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <div className="travel-mobile-drawer__auth-buttons">
+                <button
+                  type="button"
+                  className="travel-mobile-drawer__login-btn"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    openAuthModal('login');
+                  }}
+                >
+                  <LogIn size={15} />
+                  <span>{isSomali ? 'Gal Akoonka' : 'Log in'}</span>
+                </button>
+                <button
+                  type="button"
+                  className="travel-mobile-drawer__signup-btn"
+                  onClick={() => {
+                    setMobileOpen(false);
+                    openAuthModal('register');
+                  }}
+                >
+                  <span>{isSomali ? 'Is-diiwaangeli' : 'Sign up'}</span>
+                </button>
+              </div>
+            )}
+          </div>
+
           <nav className="travel-mobile-drawer__nav">
             {ALL_DRAWER_LINKS.map((link) => (
               <Link
@@ -561,14 +629,17 @@ export default function Header() {
 
           <div className="travel-mobile-drawer__footer">
             <div className="travel-mobile-drawer__row">
+              <span className="travel-mobile-drawer__lang-label">
+                {isSomali ? 'Dooro Luqadda:' : 'Choose Language:'}
+              </span>
               <button
                 type="button"
                 className="travel-header__lang-toggle"
                 onClick={toggleLanguage}
               >
-                <span className={language === 'en' ? 'travel-header__lang-code--active' : ''}>en</span>
-                <span> - </span>
-                <span className={language === 'so' ? 'travel-header__lang-code--active' : ''}>so</span>
+                <span className={language === 'en' ? 'travel-header__lang-code--active' : ''}>English</span>
+                <span className="travel-header__lang-sep"> / </span>
+                <span className={language === 'so' ? 'travel-header__lang-code--active' : ''}>Soomaali</span>
               </button>
             </div>
           </div>
