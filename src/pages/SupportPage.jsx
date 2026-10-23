@@ -15,24 +15,27 @@ export default function SupportPage() {
   useScrollReveal();
   const { token } = useAuth();
   const { language } = useLanguage();
+  const isSomali = language === 'so';
   const supportableProjects = getAllConservationProjects(language).filter((p) => (p.statusKey || p.status) !== 'Completed');
 
   useEffect(() => {
-    document.title = 'Support a Project — Somalia Blue Heaven';
+    document.title = isSomali
+      ? 'Taageer Mashruuc — Somalia Blue Heaven'
+      : 'Support a Project — Somalia Blue Heaven';
     window.scrollTo(0, 0);
-  }, []);
+  }, [isSomali]);
 
   const fields = [
     {
       name: 'project',
-      label: 'Project (optional)',
+      label: isSomali ? 'Mashruuca (ikhtiyaari)' : 'Project (optional)',
       type: 'select',
-      placeholder: 'Support a specific project, or leave general',
+      placeholder: isSomali ? 'Dooro mashruuc aad taageerayso' : 'Support a specific project, or leave general',
       options: supportableProjects.map((p) => p.title),
     },
-    { name: 'name', label: 'Name', type: 'text', required: true, placeholder: 'Your full name' },
-    { name: 'email', label: 'Email', type: 'email', required: true, placeholder: 'you@example.com' },
-    { name: 'message', label: 'Message', type: 'textarea', required: true, placeholder: 'Tell us how you would like to support this work.', fullWidth: true },
+    { name: 'name', label: isSomali ? 'Magacaaga' : 'Name', type: 'text', required: true, placeholder: isSomali ? 'Magacaaga oo buuxa' : 'Your full name' },
+    { name: 'email', label: isSomali ? 'Iimaylkaaga' : 'Email', type: 'email', required: true, placeholder: 'you@example.com' },
+    { name: 'message', label: isSomali ? 'Farriintaada' : 'Message', type: 'textarea', required: true, placeholder: isSomali ? 'Noo sheeg sida aad u doonayso inaad u taageerto shaqadan.' : 'Tell us how you would like to support this work.', fullWidth: true },
   ];
 
   return (
@@ -40,18 +43,21 @@ export default function SupportPage() {
       <section className="species-dir-hero">
         <div className="container">
           <div className="species-dir-hero__breadcrumb">
-            <Link to="/get-involved" className="species-dir-hero__crumb-link">
+            <Link to={`/${language}/get-involved`} className="species-dir-hero__crumb-link">
               <ArrowLeft size={14} />
-              <span>Get Involved</span>
+              <span>{isSomali ? 'Dib ugu Noqo Ka Qayb Qaado' : 'Get Involved'}</span>
             </Link>
           </div>
 
-          <span className="label-text">SUPPORT A PROJECT</span>
+          <span className="label-text">{isSomali ? 'TAAGEER MASHRUUC' : 'SUPPORT A PROJECT'}</span>
           <div className="divider" />
-          <h1 className="species-dir-hero__title">Help advance ocean research and conservation.</h1>
+          <h1 className="species-dir-hero__title">
+            {isSomali ? 'Gacan ka gee horumarinta cilmi-baarista iyo ilaalinta badda.' : 'Help advance ocean research and conservation.'}
+          </h1>
           <p className="species-dir-hero__desc">
-            Every active and planned conservation project below can use support — from funding to in-kind resources
-            and expertise. Let us know how you'd like to help, and our team will follow up.
+            {isSomali
+              ? 'Mashruuc kasta oo ilaalinta badda ah ee hoos ku xusan wuxuu u baahan yahay taageero — laga bilaabo qalabka cilmi-baarista ilaa barnaamijyada bulshada.'
+              : 'Every active and planned conservation project below can use support — from funding to in-kind resources and expertise. Click Learn More on any project to explore its full scope, or let us know how you would like to help.'}
           </p>
         </div>
       </section>
@@ -61,8 +67,9 @@ export default function SupportPage() {
           <div className="exp-grid__notice" style={{ marginBottom: 'var(--space-8)' }}>
             <HeartHandshake size={16} />
             <span>
-              This is currently an enquiry form, not a payment or donation flow. Submitting your interest starts a
-              conversation with our team about how to support the work below.
+              {isSomali
+                ? 'Kani waa foomka xiisaha iyo wada-xaajoodka taageerada, ma aha lacag-bixin toos ah. Fariintaada ka dib kooxdayadu waxay kula soo xiriiri doontaa faahfaahin.'
+                : 'This is an enquiry desk connecting supporters directly to our marine initiatives. Learn more about each project below or submit your interest.'}
             </span>
           </div>
 
@@ -74,26 +81,27 @@ export default function SupportPage() {
 
           <div style={{ maxWidth: '760px', margin: '0 auto' }}>
             <div className="section-header reveal" style={{ marginBottom: 'var(--space-6)' }}>
-              <span className="label-text">Express Interest</span>
+              <span className="label-text">{isSomali ? 'Muuji Xiisahaaga' : 'Express Interest'}</span>
               <div className="divider" />
-              <h2 className="section-heading">What support enables</h2>
+              <h2 className="section-heading">{isSomali ? 'Waxa Taageeradu Suurtageliso' : 'What support enables'}</h2>
               <p className="section-subheading">
-                Support can mean funding field equipment, covering community program costs, or contributing
-                expertise directly. Tell us what you have in mind.
+                {isSomali
+                  ? 'Taageeradu waxay ka dhigan tahay maalgelinta qalabka goobta, kharashaadka bulshada, ama bixinta khibrad toos ah.'
+                  : 'Support can mean funding field equipment, covering community program costs, or contributing expertise directly. Tell us what you have in mind.'}
               </p>
             </div>
 
             <EnquiryForm
               formId="support-form"
               fields={fields}
-              submitLabel="Submit Interest"
-              successMessage="Thanks for your interest in supporting this work — our team will follow up with next steps."
+              submitLabel={isSomali ? 'Dir Xiisahaaga' : 'Submit Interest'}
+              successMessage={isSomali ? 'Waad ku mahadsan tahay xiisahaaga taageero — kooxdayadu waxay kula soo xiriiri doontaa tallaabooyinka xiga.' : 'Thanks for your interest in supporting this work — our team will follow up with next steps.'}
               onSubmit={(values) => submitApplication('support', values, token)}
             />
 
             <p style={{ marginTop: 'var(--space-6)', textAlign: 'center' }}>
-              <Link to="/conservation/projects" style={{ color: 'var(--color-turquoise)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                <span>Browse all conservation projects</span>
+              <Link to={`/${language}/conservation/projects`} style={{ color: 'var(--color-turquoise)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <span>{isSomali ? 'Dhammaan mashaariicda ilaalinta' : 'Browse all conservation projects'}</span>
                 <ArrowRight size={14} />
               </Link>
             </p>

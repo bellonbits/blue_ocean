@@ -11,12 +11,14 @@ const STATUS_COLORS = {
 };
 
 export default function ConservationProjectCard({ project, priority = false }) {
-  const { t } = useLanguage();
+  const { language } = useLanguage();
+  const isSomali = language === 'so';
   const statusColor = STATUS_COLORS[project.statusKey || project.status] || STATUS_COLORS.Active;
+  const projectUrl = `/${language}/conservation/projects/${project.slug}`;
 
   return (
     <article className="exp-card">
-      <Link to={`/conservation/projects/${project.slug}`} className="exp-card__link" aria-label={`View ${project.title}`}>
+      <Link to={projectUrl} className="exp-card__link" aria-label={`View ${project.title}`}>
         <div className="exp-card__media-wrap">
           <img
             src={project.heroImage}
@@ -52,7 +54,7 @@ export default function ConservationProjectCard({ project, priority = false }) {
 
           <div className="exp-card__footer">
             <span className="exp-card__cta">
-              <span>{t('conservation.card.exploreCta')}</span>
+              <span>{isSomali ? 'Faahfaahin' : 'Learn More'}</span>
               <ArrowRight size={14} className="exp-card__cta-arrow" />
             </span>
           </div>

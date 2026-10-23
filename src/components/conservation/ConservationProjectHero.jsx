@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Activity, Layers } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import '../experiences/ExperienceHero.css';
 
 const STATUS_COLORS = {
@@ -11,6 +12,8 @@ const STATUS_COLORS = {
 };
 
 export default function ConservationProjectHero({ project }) {
+  const { language } = useLanguage();
+  const isSomali = language === 'so';
   const statusColor = STATUS_COLORS[project.status] || STATUS_COLORS.Active;
 
   return (
@@ -28,7 +31,9 @@ export default function ConservationProjectHero({ project }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link to="/conservation/projects" className="exp-detail-hero__crumb-link">Conservation Projects</Link>
+          <Link to={`/${language}/conservation/projects`} className="exp-detail-hero__crumb-link">
+            {isSomali ? 'Mashaariicda Ilaalinta' : 'Conservation Projects'}
+          </Link>
           <span className="exp-detail-hero__crumb-sep">/</span>
           <span className="exp-detail-hero__crumb-current">{project.title}</span>
         </motion.div>

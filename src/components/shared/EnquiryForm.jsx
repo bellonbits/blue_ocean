@@ -23,6 +23,15 @@ export default function EnquiryForm({
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const errorRef = useRef(null);
 
+  // Sync default values when fields prop changes with new defaults
+  useEffect(() => {
+    fields.forEach((f) => {
+      if (f.defaultValue !== undefined && f.defaultValue !== '') {
+        setValues((v) => ({ ...v, [f.name]: f.defaultValue }));
+      }
+    });
+  }, [fields]);
+
   // A failed submission is easy to miss if it lands below the fold on a
   // long form — pull it into view so "did that actually send?" never
   // goes unanswered.

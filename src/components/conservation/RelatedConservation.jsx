@@ -27,7 +27,7 @@ export default function RelatedConservation({ currentSlug }) {
           </div>
 
           <div className="related-exp__header-right">
-            <Link to="/conservation/projects" className="related-exp__btn">
+            <Link to={`/${language}/conservation/projects`} className="related-exp__btn">
               <span>View All Projects</span>
               <ArrowRight size={16} />
             </Link>

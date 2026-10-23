@@ -39,7 +39,7 @@ export default function ConservationProjectDetailPage() {
             The conservation project you are looking for is not currently published. Explore our full conservation
             directory.
           </p>
-          <Link to="/conservation/projects" className="btn btn-primary" style={{ marginTop: 'var(--space-2)' }}>
+          <Link to={`/${language}/conservation/projects`} className="btn btn-primary" style={{ marginTop: 'var(--space-2)' }}>
             <ArrowLeft size={16} />
             <span>Return to Conservation Projects</span>
           </Link>
