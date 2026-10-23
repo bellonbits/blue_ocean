@@ -46,7 +46,7 @@
 }
 
 /* ---------------------------------------------------------
-   ONE SINGLE HIGH-DEFINITION BACKGROUND IMAGE
+   ONE SINGLE HIGH-DEFINITION BACKGROUND IMAGE (NO ZOOM, 100% NATURAL FIT)
    --------------------------------------------------------- */
 .modern-hero-bg {
   position: absolute;
@@ -54,40 +54,40 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 38%;
+  object-position: center 42%;
   z-index: 1;
   pointer-events: none;
-  transform: scale(1.02);
-  transition: transform 8s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: none !important;
+  transition: none !important;
 }
 
 .modern-hero-banner:hover .modern-hero-bg {
-  transform: scale(1.05);
+  transform: none !important;
 }
 
-/* Directional Gradient for 100% Left Text Legibility */
+/* Darken Effect Completely Removed — Image is 100% Bright & Natural */
 .modern-hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(
-    90deg,
-    rgba(6, 20, 36, 0.88) 0%,
-    rgba(6, 20, 36, 0.72) 42%,
-    rgba(6, 20, 36, 0.32) 70%,
-    rgba(6, 20, 36, 0.08) 100%
-  );
-  pointer-events: none;
+  display: none !important;
 }
 
 /* ---------------------------------------------------------
-   LEFT HERO CONTENT (Bold White Title + Blue Accent + Pill CTA)
+   LEFT HERO CONTENT — ELEGANT GLASSMORPHIZED CARD
+   Words float on a frosted glass surface over the bright photo
    --------------------------------------------------------- */
 .modern-hero-left {
   position: relative;
   z-index: 3;
-  max-width: clamp(380px, 50vw, 680px);
-  padding: clamp(36px, 5vw, 64px) clamp(28px, 4.5vw, 64px);
+  max-width: clamp(380px, 48vw, 620px);
+  margin-left: clamp(24px, 4vw, 56px);
+  margin-top: clamp(20px, 3vw, 36px);
+  margin-bottom: clamp(20px, 3vw, 36px);
+  padding: clamp(32px, 3.8vw, 44px) clamp(28px, 3.6vw, 42px);
+  background: rgba(7, 22, 38, 0.52);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: clamp(22px, 2.4vw, 32px);
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -124,17 +124,17 @@
 /* Main Bold Headline matching reference and site editorial font */
 .modern-hero-title {
   font-family: var(--eo-font-serif, 'Cormorant Garamond', 'Playfair Display', Georgia, serif);
-  font-size: clamp(38px, 4.8vw, 68px);
+  font-size: clamp(32px, 4.2vw, 56px);
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.05;
+  line-height: 1.08;
   letter-spacing: -0.015em;
-  margin: 0 0 18px 0;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  margin: 0 0 16px 0;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
 }
 
 .modern-hero-title-highlight {
-  color: #0284c7;
+  color: #38bdf8;
   display: inline;
 }
 
@@ -382,14 +382,15 @@
 
   .modern-hero-left {
     max-width: 100%;
-    padding: 36px 24px 20px;
+    margin: 24px 18px 16px;
+    padding: 28px 22px;
   }
 
   .modern-hero-cutout {
     position: relative;
     max-width: 100%;
     border-radius: 0;
-    margin-top: 20px;
+    margin-top: 16px;
   }
 
   .modern-hero-scoop-top,
@@ -411,8 +412,14 @@
     border-radius: 20px;
   }
 
+  .modern-hero-left {
+    margin: 16px 10px 12px;
+    padding: 22px 16px;
+    border-radius: 20px;
+  }
+
   .modern-hero-title {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .modern-cutout-subcard {
