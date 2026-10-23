@@ -64,22 +64,28 @@
   top: clamp(10px, 3vw, 30px);
   left: clamp(-30px, -1vw, 10px);
   width: clamp(340px, 32vw, 540px);
-  opacity: 0.12;
+  opacity: 0.10;
   mix-blend-mode: multiply;
-  filter: contrast(110%);
+  filter: contrast(105%);
   user-select: none;
   pointer-events: none;
+  /* Seamless radial falloff eliminates any possible bounding edges */
+  -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 50%, #000 30%, transparent 92%);
+  mask-image: radial-gradient(ellipse 65% 55% at 50% 50%, #000 30%, transparent 92%);
 }
 
 .hero-vector-seagulls {
   position: absolute;
-  top: clamp(30px, 4vw, 55px);
-  left: clamp(22%, 28%, 35%);
-  width: clamp(160px, 16vw, 260px);
-  opacity: 0.22;
+  top: clamp(24px, 3.2vw, 44px);
+  left: clamp(28%, 34%, 42%);
+  width: clamp(160px, 15vw, 240px);
+  opacity: 0.38;
   mix-blend-mode: multiply;
   user-select: none;
   pointer-events: none;
+  /* Soft organic edge falloff */
+  -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 50%, #000 50%, transparent 95%);
+  mask-image: radial-gradient(ellipse 70% 65% at 50% 50%, #000 50%, transparent 95%);
 }
 
 /* Floating Breaching Whale Feature Badge */
@@ -90,27 +96,27 @@
   margin-bottom: 14px;
   cursor: pointer;
   align-self: flex-start;
-  padding: 4px 14px 4px 6px;
-  background: rgba(240, 249, 255, 0.85);
-  border: 1px solid rgba(186, 230, 253, 0.85);
+  padding: 4px 14px 4px 8px;
+  background: #ffffff;
+  border: 1px solid #e0f2fe;
   border-radius: 9999px;
   box-shadow: 0 2px 10px rgba(2, 132, 199, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-vector-whale-wrap:hover {
   background: #ffffff;
   border-color: #0284c7;
-  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.2);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.18);
 }
 
 .hero-vector-whale-breach {
-  width: 56px;
-  height: 38px;
+  width: 48px;
+  height: 34px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 6px rgba(2, 132, 199, 0.25));
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 75%, transparent 100%);
 }
 
 .hero-vector-tag {
@@ -157,7 +163,9 @@
   width: 52px;
   height: 36px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
 }
 
 .hero-vector-spout-wrap {
@@ -170,8 +178,10 @@
   width: 84px;
   height: 48px;
   object-fit: contain;
-  opacity: 0.85;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.06));
+  opacity: 0.82;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
