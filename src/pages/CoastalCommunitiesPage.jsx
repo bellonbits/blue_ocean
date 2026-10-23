@@ -20,6 +20,7 @@ import {
   Award,
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import PageHero from '../components/editorial/PageHero';
 import '../styles/portalDesignSystem.css';
 
 export default function CoastalCommunitiesPage() {
@@ -222,96 +223,34 @@ export default function CoastalCommunitiesPage() {
 
   return (
     <div className="portal-page">
-      {/* 1. Inset Rounded Hero Banner */}
-      <section className="portal-hero" aria-label="Somali Coastal Communities Hero">
-        <div className="portal-hero__inner">
-          <img
-            src="/images/image.webp"
-            alt="Somalia coastal community settlements and azure seas"
-            className="portal-hero__bg"
-          />
-          <div className="portal-hero__overlay" />
-
-          <div className="portal-hero__content">
-            <div className="portal-hero__badge">
-              <Compass size={14} />
-              <span>{isSomali ? '3,330 KM OO XEEB AH • BULSHOOYINKA XEEBAHA' : '3,330 KM LIVING COASTLINE • MARITIME GUARDIANS'}</span>
-            </div>
-
-            <h1 className="portal-hero__title">
-              {isSomali ? 'Bulshooyinka Xeebaha & Dhaxalka Badda.' : 'Coastal Communities & Living Heritage.'}
-            </h1>
-
-            <p className="portal-hero__subtitle">
-              {isSomali
-                ? 'Baro sheekooyinka, dhaqanka, iyo doorka muhiimka ah ee kalluumeysatada gacanta, odayaasha badda, iyo dhalinyarada ilaaliya xeebaha Soomaaliya.'
-                : 'The living heart of our coastline: artisanal fishing families, generational boatbuilders, elder sea navigators, and youth stewards protecting Somalia’s marine paradise.'}
-            </p>
-
-            {/* Search Pill Widget */}
-            <div className="portal-hero__search-wrap">
-              <form onSubmit={handleSearch} className="portal-hero__search-form">
-                <Search size={18} color="#0ea5e9" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={
-                    isSomali
-                      ? 'Raadi bulsho, marso, ama farsamo xeebed...'
-                      : 'Search communities, fishing guilds, or coastal heritage...'
-                  }
-                  className="portal-hero__search-input"
-                  aria-label="Search communities"
-                />
-                <button type="submit" className="portal-hero__search-btn">
-                  <span>{isSomali ? 'Raadi' : 'Explore'}</span>
-                  <ArrowRight size={14} />
-                </button>
-              </form>
-            </div>
-
-            {/* Quick Filter Badges */}
-            <div className="portal-hero__tags">
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast/bosaso'))}
-                className="portal-hero__tag-btn"
-              >
-                Kalluumeysatada Boosaaso
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast/kismayo'))}
-                className="portal-hero__tag-btn"
-              >
-                Jasiiradaha Baajuun
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast/hafun'))}
-                className="portal-hero__tag-btn"
-              >
-                Dhallinyarada Xaafuun
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast/eyl'))}
-                className="portal-hero__tag-btn"
-              >
-                Odayaasha Eyl
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast/mogadishu'))}
-                className="portal-hero__tag-btn"
-              >
-                Xeebta Liido
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. Page Hero: Single Hero Background and Glassmorphic Left Card */}
+      <PageHero
+        pageId="communities"
+        image="/images/img_01.webp"
+        titleTop={isSomali ? 'Dhaxalka & Nolosha' : 'Living Heritage & Voices'}
+        titleHighlight={isSomali ? 'Bulshooyinka Xeebaha' : 'Of Coastal Communities'}
+        titleBottom={isSomali ? 'ee Soomaaliya' : 'Across 3,330 KM'}
+        desc={
+          isSomali
+            ? 'Baro sheekooyinka, dhaqanka, iyo doorka muhiimka ah ee kalluumeysatada gacanta, odayaasha badda, iyo dhalinyarada ilaaliya xeebaha Soomaaliya.'
+            : 'The living heart of our coastline: artisanal fishing families, generational boatbuilders, elder sea navigators, and youth stewards protecting Somalia’s marine paradise.'
+        }
+        primaryCta={{
+          label: isSomali ? 'Sahami Bulshooyinka' : 'Explore Coastal Collectives',
+          path: '#coastal-directory',
+          icon: <ArrowRight size={17} />,
+        }}
+        cutout={{
+          title: isSomali ? 'Shabakadda Kalluumaysatada' : 'Artisanal Fishing Guilds',
+          path: '#coastal-directory',
+          thumbnails: ['/images/img_01.webp', '/images/img_02.webp', '/images/img_05.webp'],
+          info: isSomali
+            ? 'Ururada kalluumeysatada gacanta ee Boosaaso, Liido, Eyl, iyo Jasiiradaha Baajuun.'
+            : 'Artisanal Fishing Collectives in Bosaso, Liido, Eyl, and the Bajuni Coral Atolls.',
+          rating: '18',
+          tagline: isSomali ? 'Degmooyinka Badda' : 'Maritime Districts Connected',
+        }}
+      />
 
       {/* 2. About Coastal Communities (2-Column Card Section) */}
       <section className="portal-card-section" aria-label="About Coastal Communities">
@@ -525,7 +464,11 @@ export default function CoastalCommunitiesPage() {
       </section>
 
       {/* 5. Communities Directory (6-Card Grid: 2 rows of 3) */}
-      <section className="portal-card-section" aria-label="Communities Directory">
+      <section
+        id="coastal-directory"
+        className="portal-card-section"
+        aria-label="Communities Directory"
+      >
         <div className="portal-section-header">
           <span className="portal-section-tag">
             {isSomali ? 'DIIWAANKA BULSHOOYINKA' : 'COASTAL DIRECTORY'}

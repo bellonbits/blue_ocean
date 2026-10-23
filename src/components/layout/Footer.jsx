@@ -43,13 +43,16 @@ export default function Footer() {
   const quickLinks = [
     { label: isSomali ? 'Bogga Hore' : 'Home', path: '/' },
     { label: isSomali ? 'Dalxiiska Xeebaha' : 'Coastal Tourism', path: '/tourism' },
-    { label: isSomali ? 'Nagu Saabsan' : 'About Us', path: '/about' },
     { label: isSomali ? 'Sahami Xeebaha' : 'Explore Coast', path: '/explore-the-coast' },
     { label: isSomali ? 'Khibradaha Badda' : 'Ocean Experiences', path: '/experiences' },
     { label: isSomali ? 'Nolosha Badda' : 'Marine Life', path: '/marine-life' },
     { label: isSomali ? 'Cilmi-Baarista' : 'Research & Expeditions', path: '/research' },
-    { label: isSomali ? 'Ilaalinta Deegaanka' : 'Conservation', path: '/conservation' },
+    { label: isSomali ? 'Ilaalinta Deegaanka' : 'Conservation & Sanctuaries', path: '/conservation' },
     { label: isSomali ? 'Bulshooyinka Xeebaha' : 'Coastal Communities', path: '/communities' },
+    { label: isSomali ? 'Wararka Xeebaha' : 'Field Dispatches & News', path: '/news' },
+    { label: isSomali ? 'Ka Qayb Qaado' : 'Get Involved & Volunteer', path: '/get-involved' },
+    { label: isSomali ? 'Nagu Saabsan' : 'About Us', path: '/about' },
+    { label: isSomali ? 'Nala Soo Xiriir' : 'Contact Operations', path: '/contact' },
   ];
 
   const topDestinations = [

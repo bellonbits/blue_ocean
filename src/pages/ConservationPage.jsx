@@ -18,6 +18,7 @@ import {
   TreePine,
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import PageHero from '../components/editorial/PageHero';
 import '../styles/portalDesignSystem.css';
 
 export default function ConservationPage() {
@@ -222,73 +223,34 @@ export default function ConservationPage() {
 
   return (
     <div className="portal-page">
-      {/* 1. Inset Rounded Hero Banner */}
-      <section className="portal-hero" aria-label="Marine Conservation Hero">
-        <div className="portal-hero__inner">
-          <img
-            src="/images/image.webp"
-            alt="Somalia marine conservation and protected waters"
-            className="portal-hero__bg"
-          />
-          <div className="portal-hero__overlay" />
-
-          <div className="portal-hero__content">
-            <div className="portal-hero__badge">
-              <ShieldCheck size={14} />
-              <span>{isSomali ? 'ILAALINTA DEEGAANKA • 3,330 KM' : 'OCEAN CONSERVATION • 3,330 KM'}</span>
-            </div>
-
-            <h1 className="portal-hero__title">
-              {isSomali ? 'Ilaalinta Deegaanka Badda Soomaaliya.' : 'Marine Conservation & Habitat Defense.'}
-            </h1>
-
-            <p className="portal-hero__subtitle">
-              {isSomali
-                ? 'Difaacidda 3,330 km oo xeeb ah iyadoo la adeegsanayo aagag la dhowro, la dagaallanka kalluumeysiga sharci-darrada ah, iyo soo celinta shacaabka.'
-                : 'Guarding 3,330 km of living coastline through indigenous community marine reserves, anti-poaching radar, and habitat restoration.'}
-            </p>
-
-            {/* Inset Search Widget */}
-            <div className="portal-hero__search-wrap">
-              <form onSubmit={handleSearch} className="portal-hero__search-form">
-                <Search size={18} color="#0ea5e9" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={
-                    isSomali
-                      ? 'Raadi barnaamij, shacaab, qoolley, ama mangrove...'
-                      : 'Search programs, sanctuaries, turtles, or reefs...'
-                  }
-                  className="portal-hero__search-input"
-                  aria-label="Search conservation programs"
-                />
-                <button type="submit" className="portal-hero__search-btn">
-                  <span>{isSomali ? 'Raadi' : 'Explore Action'}</span>
-                  <ArrowRight size={14} />
-                </button>
-              </form>
-            </div>
-
-            {/* Quick Filter Tags */}
-            <div className="portal-hero__tags">
-              <Link to={localizedPath('/conservation/projects')} className="portal-hero__tag-btn">
-                {isSomali ? 'Aagagga La Dhowro' : 'Marine Sanctuaries'}
-              </Link>
-              <Link to={localizedPath('/explore-the-coast/kismayo')} className="portal-hero__tag-btn">
-                {isSomali ? 'Qoolleyda Baajuun' : 'Turtle Sanctuaries'}
-              </Link>
-              <Link to={localizedPath('/explore-the-coast/bosaso')} className="portal-hero__tag-btn">
-                {isSomali ? 'Shacaabka Boosaaso' : 'Coral Nurseries'}
-              </Link>
-              <Link to={localizedPath('/get-involved')} className="portal-hero__tag-btn">
-                {isSomali ? 'Ku Biir Hawsha' : 'Take Action'}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. Page Hero: Single Hero Background and Glassmorphic Left Card */}
+      <PageHero
+        pageId="conservation"
+        image="/images/img_05.webp"
+        titleTop={isSomali ? 'Ilaalinta & Dhowridda' : 'Sovereign Marine'}
+        titleHighlight={isSomali ? 'Deegaanka Badda' : 'Conservation & MPAs'}
+        titleBottom={isSomali ? 'ee Soomaaliya' : 'Across 3,330 KM'}
+        desc={
+          isSomali
+            ? 'Difaacidda 3,330 km oo xeeb ah iyadoo la adeegsanayo aagag la dhowro, la dagaallanka kalluumeysiga sharci-darrada ah, iyo soo celinta shacaabka.'
+            : 'Guarding 3,330 km of living coastline through indigenous community marine reserves, anti-poaching radar, and habitat restoration.'
+        }
+        primaryCta={{
+          label: isSomali ? 'Mashaariicda Ilaalinta' : 'Explore Conservation Projects',
+          path: '#conservation-programs',
+          icon: <ArrowRight size={17} />,
+        }}
+        cutout={{
+          title: isSomali ? 'Aagagga Badda ee La Dhowro' : 'Marine Protected Reserves',
+          path: '#conservation-programs',
+          thumbnails: ['/images/img_05.webp', '/images/img_07.webp', '/images/img_10.webp'],
+          info: isSomali
+            ? 'Kaymaha mangrove-ka ee Baajuun, xannaanada shacaabka Boosaaso, iyo ilaalinta ukunta qoolleyda.'
+            : 'Bajuni Mangrove Carbon Sinks, Bosaso Coral Nurseries, and Green Turtle Nesting Dunes.',
+          rating: '3,330 KM',
+          tagline: isSomali ? 'Xeebaha La Dhowro' : 'Community Marine Reserves',
+        }}
+      />
 
       {/* 2. 2-Column About Conservation */}
       <section className="portal-card-section" aria-label="Conservation Mission Overview">
@@ -473,7 +435,11 @@ export default function ConservationPage() {
       </section>
 
       {/* 5. 6-Card Conservation Programs Grid (2x3) */}
-      <section className="portal-card-section" aria-label="Conservation Programs Directory">
+      <section
+        id="conservation-programs"
+        className="portal-card-section"
+        aria-label="Conservation Programs Directory"
+      >
         <div className="portal-section-header">
           <span className="portal-section-tag">
             {isSomali ? 'HAWLGALLADA DEEGAANKA' : 'ACTION DIRECTORY'}

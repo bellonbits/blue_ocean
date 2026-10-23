@@ -26,6 +26,7 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 import { submitContactMessage } from '../lib/dashboardApi';
 import { useAuth } from '../context/AuthContext';
+import PageHero from '../components/editorial/PageHero';
 import '../styles/portalDesignSystem.css';
 
 export default function ContactPage() {
@@ -240,92 +241,41 @@ export default function ContactPage() {
 
   return (
     <div className="portal-page">
-      {/* 1. Inset Rounded Hero Banner */}
-      <section className="portal-hero" aria-label="Contact Somalia Blue Heaven Hero">
-        <div className="portal-hero__inner">
-          <img
-            src="/images/image.webp"
-            alt="Somalia coastline connecting sea and land"
-            className="portal-hero__bg"
-          />
-          <div className="portal-hero__overlay" />
-
-          <div className="portal-hero__content">
-            <div className="portal-hero__badge">
-              <Compass size={14} />
-              <span>{isSomali ? 'XARUMAHA & XIRIIRKA GUUD' : 'MARITIME HEADQUARTERS & CONTACT'}</span>
-            </div>
-
-            <h1 className="portal-hero__title">
-              {isSomali ? 'Nala Soo Xiriir — Xafiisyada Somalia Blue Heaven.' : 'Connect with Somalia Blue Heaven.'}
-            </h1>
-
-            <p className="portal-hero__subtitle">
-              {isSomali
-                ? 'Xafiisyadayada Boosaaso, Muqdisho, iyo Kismaayo waxay diyaar u yihiin su’aalaha cilmi-baarista, dalxiiska, iyo iskaashiga bulshada.'
-                : 'Connect directly with our marine research stations, expedition advisors, coastal rangers, and sovereign partnership teams.'}
-            </p>
-
-            {/* Search Pill Widget */}
-            <div className="portal-hero__search-wrap">
-              <form onSubmit={handleSearch} className="portal-hero__search-form">
-                <Search size={18} color="#0ea5e9" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={
-                    isSomali
-                      ? 'Raadi xafiis, taleefan, ama mawduuc...'
-                      : 'Search field stations, contacts, or inquiries...'
-                  }
-                  className="portal-hero__search-input"
-                  aria-label="Search contacts"
-                />
-                <button type="submit" className="portal-hero__search-btn">
-                  <span>{isSomali ? 'Raadi' : 'Search'}</span>
-                  <ArrowRight size={14} />
-                </button>
-              </form>
-            </div>
-
-            {/* Quick Filter Badges */}
-            <div className="portal-hero__tags">
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast/bosaso'))}
-                className="portal-hero__tag-btn"
-              >
-                Boosaaso Marine HQ
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast/mogadishu'))}
-                className="portal-hero__tag-btn"
-              >
-                Muqdisho Liaison
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast/kismayo'))}
-                className="portal-hero__tag-btn"
-              >
-                Kismaayo Station
-              </button>
-              <a
-                href="mailto:info@blueoceansomalia.com"
-                className="portal-hero__tag-btn"
-                style={{ textDecoration: 'none' }}
-              >
-                info@blueoceansomalia.com
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. Page Hero with Single Hero Background and Left Glassmorphism Card */}
+      <PageHero
+        pageId="contact"
+        image="/images/image.webp"
+        titleTop={isSomali ? 'Nala Soo Xiriir' : 'Connect with'}
+        titleHighlight={isSomali ? 'Hawlgallada Badda' : 'Maritime Operations'}
+        titleBottom={isSomali ? '• Xafiisyada Xeebaha' : '• Coastal Stations'}
+        desc={
+          isSomali
+            ? 'Xafiisyadayada Boosaaso, Muqdisho, iyo Kismaayo waxay diyaar u yihiin su’aalaha cilmi-baarista, dalxiiska, iyo iskaashiga bulshada.'
+            : 'Connect directly with our marine research stations, expedition advisors, coastal rangers, and sovereign partnership teams.'
+        }
+        primaryCta={{
+          label: isSomali ? 'Dir Farriin Toos Ah' : 'Send Direct Inquiry',
+          path: '#contact-form',
+          icon: <ArrowRight size={17} />,
+        }}
+        cutout={{
+          title: isSomali ? 'Saldhigyada Joogtada Ah' : 'Active Coastal Stations',
+          path: '#coastal-stations',
+          thumbnails: ['/images/img_02.webp', '/images/image.webp', '/images/img_05.webp'],
+          info: isSomali
+            ? 'Saldhigyada cilmi-baarista badda ee Boosaaso, Muqdisho, iyo Kismaayo ee kormeera 3,330 km.'
+            : 'Permanent Marine Stations in Bosaso, Mogadishu, and Kismayo Monitoring 3,330 KM of Living Coastline.',
+          rating: '24/7',
+          tagline: isSomali ? 'Gurmad & Kormeer Joogto Ah' : 'Live Ocean Monitoring & Direct Desks',
+        }}
+      />
 
       {/* 2. Contact Hub: Direct Details & Interactive Inquiry Form (2-Column Card Section) */}
-      <section className="portal-card-section" aria-label="Contact Information and Inquiry Form">
+      <section
+        id="contact-form"
+        className="portal-card-section"
+        aria-label="Contact Information and Inquiry Form"
+      >
         <div className="portal-about-grid">
           {/* Left Column: Direct Operations Details */}
           <div className="portal-about__narrative">
@@ -356,7 +306,7 @@ export default function ContactPage() {
                     <a href="mailto:info@blueoceansomalia.com" style={{ color: '#0284c7', fontWeight: 600, textDecoration: 'none', display: 'block' }}>
                       info@blueoceansomalia.com
                     </a>
-                    <a href="mailto:research@blueoceansomalia.com" style={{ color: '#556c5e', textDecoration: 'none', display: 'block', fontSize: '0.88rem' }}>
+                    <a href="mailto:research@blueoceansomalia.com" style={{ color: '#64748b', textDecoration: 'none', display: 'block', fontSize: '0.88rem' }}>
                       research@blueoceansomalia.com
                     </a>
                   </p>
@@ -375,7 +325,7 @@ export default function ContactPage() {
                     <a href="tel:+252907790000" style={{ color: '#0284c7', fontWeight: 600, textDecoration: 'none' }}>
                       +252 90 779 0000
                     </a>
-                    <span style={{ display: 'block', fontSize: '0.85rem', color: '#556c5e' }}>
+                    <span style={{ display: 'block', fontSize: '0.85rem', color: '#64748b' }}>
                       {isSomali ? 'Sabti – Khamiis: 8:00 AM – 5:00 PM (EAT)' : 'Saturday – Thursday: 8:00 AM – 5:00 PM EAT'}
                     </span>
                   </p>
@@ -390,7 +340,7 @@ export default function ContactPage() {
                   <h3 className="portal-about__feature-title">
                     {isSomali ? 'Goobaha Xafiisyada Rasmiga ah' : 'Physical Field Stations'}
                   </h3>
-                  <p className="portal-about__feature-desc" style={{ marginTop: 4, lineHeight: 1.5 }}>
+                  <p className="portal-about__feature-desc" style={{ marginTop: 4, lineHeight: 1.5, color: '#334155' }}>
                     <strong>Boosaaso HQ:</strong> Gulf of Aden Coastal Road, Bari Region<br />
                     <strong>Muqdisho Liaison:</strong> Liido Seashore Drive, Banaadir<br />
                     <strong>Kismaayo Station:</strong> Port Promenade, Lower Juba
@@ -400,24 +350,24 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Right Column: Clean, Rounded Inquiry Form Container */}
+          {/* Right Column: Clean, Modern Inquiry Form Container */}
           <div
             style={{
               background: '#ffffff',
-              border: '1px solid rgba(26, 42, 34, 0.08)',
+              border: '1px solid #e2e8f0',
               borderRadius: '24px',
               padding: '36px 32px',
-              boxShadow: '0 8px 30px rgba(18, 38, 28, 0.05)',
+              boxShadow: '0 12px 36px rgba(15, 23, 42, 0.05)',
             }}
           >
             <div style={{ marginBottom: 24 }}>
               <span className="portal-section-tag" style={{ marginBottom: 8 }}>
                 {isSomali ? 'FOOMKA XIRIIRKA' : 'INQUIRY FORM'}
               </span>
-              <h3 style={{ fontFamily: 'Inter, -apple-system, sans-serif', fontSize: '1.5rem', fontWeight: 700, color: '#122119', margin: '4px 0 8px 0' }}>
+              <h3 style={{ fontFamily: 'Inter, -apple-system, sans-serif', fontSize: '1.5rem', fontWeight: 700, color: '#071626', margin: '4px 0 8px 0' }}>
                 {isSomali ? 'Fariin Noo Soo Dir' : 'Send an Official Message'}
               </h3>
-              <p style={{ fontSize: '0.88rem', color: '#688274', margin: 0 }}>
+              <p style={{ fontSize: '0.88rem', color: '#64748b', margin: 0 }}>
                 {isSomali
                   ? 'Fadlan buuxi faahfaahintaada, kooxdayaduna waxay kugu soo jawaabi doontaa 24 saac gudahood.'
                   : 'Complete this form to reach our marine scientists, expedition planners, or community liaisons.'}
@@ -426,13 +376,13 @@ export default function ContactPage() {
 
             {formStatus === 'success' ? (
               <div style={{ textAlign: 'center', padding: '40px 20px' }}>
-                <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'rgba(14, 165, 233, 0.12)', color: '#0284c7', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto' }}>
+                <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'rgba(2, 132, 199, 0.1)', color: '#0284c7', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto' }}>
                   <CheckCircle2 size={32} />
                 </div>
-                <h4 style={{ fontFamily: 'Inter, -apple-system, sans-serif', fontSize: '1.3rem', fontWeight: 700, color: '#122119', marginBottom: 8 }}>
+                <h4 style={{ fontFamily: 'Inter, -apple-system, sans-serif', fontSize: '1.3rem', fontWeight: 700, color: '#071626', marginBottom: 8 }}>
                   {isSomali ? 'Fariintaadu Way Nasoo Gaartay' : 'Message Successfully Received'}
                 </h4>
-                <p style={{ color: '#556c5e', fontSize: '0.92rem', maxWidth: 360, margin: '0 auto 20px auto', lineHeight: 1.6 }}>
+                <p style={{ color: '#475569', fontSize: '0.92rem', maxWidth: 360, margin: '0 auto 20px auto', lineHeight: 1.6 }}>
                   {isSomali
                     ? 'Waad ku mahadsan tahay nala soo xiriirkaaga. Kooxda Somalia Blue Heaven waxay kula soo xiriiri doontaa sida ugu dhakhsaha badan.'
                     : 'Thank you for connecting with Somalia Blue Heaven. Our marine operations team will review your message and reply promptly.'}
@@ -452,7 +402,7 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, color: '#1a2a22', marginBottom: 6 }}>
+                  <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 600, color: '#0f172a', marginBottom: 6 }}>
                     {isSomali ? 'Magacaaga oo Buuxa *' : 'Full Name *'}
                   </label>
                   <input
@@ -464,20 +414,21 @@ export default function ContactPage() {
                     placeholder={isSomali ? 'Tusaale: Axmed Cali Maxamed' : 'e.g. Dr. Ahmed Ali'}
                     style={{
                       width: '100%',
-                      padding: '12px 14px',
-                      background: '#f8faf9',
-                      border: '1.5px solid #dbe3de',
+                      padding: '13px 16px',
+                      background: '#f8fafc',
+                      border: '1.5px solid #e2e8f0',
                       borderRadius: '12px',
                       fontSize: '0.92rem',
-                      color: '#122119',
+                      color: '#0f172a',
                       boxSizing: 'border-box',
+                      outline: 'none',
                     }}
                   />
                 </div>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16 }}>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, color: '#1a2a22', marginBottom: 6 }}>
+                    <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 600, color: '#0f172a', marginBottom: 6 }}>
                       {isSomali ? 'Iimaylkaaga *' : 'Email Address *'}
                     </label>
                     <input
@@ -489,18 +440,19 @@ export default function ContactPage() {
                       placeholder="name@organization.com"
                       style={{
                         width: '100%',
-                        padding: '12px 14px',
-                        background: '#f8faf9',
-                        border: '1.5px solid #dbe3de',
+                        padding: '13px 16px',
+                        background: '#f8fafc',
+                        border: '1.5px solid #e2e8f0',
                         borderRadius: '12px',
                         fontSize: '0.92rem',
-                        color: '#122119',
+                        color: '#0f172a',
                         boxSizing: 'border-box',
+                        outline: 'none',
                       }}
                     />
                   </div>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, color: '#1a2a22', marginBottom: 6 }}>
+                    <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 600, color: '#0f172a', marginBottom: 6 }}>
                       {isSomali ? 'Taleefan / WhatsApp' : 'Phone / WhatsApp'}
                     </label>
                     <input
@@ -511,20 +463,21 @@ export default function ContactPage() {
                       placeholder="+252 90..."
                       style={{
                         width: '100%',
-                        padding: '12px 14px',
-                        background: '#f8faf9',
-                        border: '1.5px solid #dbe3de',
+                        padding: '13px 16px',
+                        background: '#f8fafc',
+                        border: '1.5px solid #e2e8f0',
                         borderRadius: '12px',
                         fontSize: '0.92rem',
-                        color: '#122119',
+                        color: '#0f172a',
                         boxSizing: 'border-box',
+                        outline: 'none',
                       }}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, color: '#1a2a22', marginBottom: 6 }}>
+                  <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 600, color: '#0f172a', marginBottom: 6 }}>
                     {isSomali ? 'Mawduuca Fariinta *' : 'Subject / Inquired Department *'}
                   </label>
                   <select
@@ -533,13 +486,14 @@ export default function ContactPage() {
                     onChange={handleFormChange}
                     style={{
                       width: '100%',
-                      padding: '12px 14px',
-                      background: '#f8faf9',
-                      border: '1.5px solid #dbe3de',
+                      padding: '13px 16px',
+                      background: '#f8fafc',
+                      border: '1.5px solid #e2e8f0',
                       borderRadius: '12px',
                       fontSize: '0.92rem',
-                      color: '#122119',
+                      color: '#0f172a',
                       boxSizing: 'border-box',
+                      outline: 'none',
                     }}
                   >
                     <option value="General Inquiry">{isSomali ? "Su'aalo Guud (General)" : "General Inquiry"}</option>
@@ -553,7 +507,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, color: '#1a2a22', marginBottom: 6 }}>
+                  <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 600, color: '#0f172a', marginBottom: 6 }}>
                     {isSomali ? 'Fariintaada *' : 'Your Message *'}
                   </label>
                   <textarea
@@ -569,14 +523,15 @@ export default function ContactPage() {
                     }
                     style={{
                       width: '100%',
-                      padding: '12px 14px',
-                      background: '#f8faf9',
-                      border: '1.5px solid #dbe3de',
+                      padding: '13px 16px',
+                      background: '#f8fafc',
+                      border: '1.5px solid #e2e8f0',
                       borderRadius: '12px',
                       fontSize: '0.92rem',
-                      color: '#122119',
+                      color: '#0f172a',
                       boxSizing: 'border-box',
                       resize: 'vertical',
+                      outline: 'none',
                     }}
                   />
                 </div>
@@ -585,7 +540,19 @@ export default function ContactPage() {
                   type="submit"
                   disabled={formStatus === 'submitting'}
                   className="portal-btn-primary"
-                  style={{ width: '100%', justifyContent: 'center', marginTop: 4 }}
+                  style={{
+                    width: '100%',
+                    justifyContent: 'center',
+                    marginTop: 6,
+                    background: '#0284c7',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '9999px',
+                    padding: '13px 24px',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 14px rgba(2, 132, 199, 0.25)',
+                  }}
                 >
                   <Send size={15} />
                   <span>
@@ -601,7 +568,11 @@ export default function ContactPage() {
       </section>
 
       {/* 3. Primary Field Stations Highlights (3-Card Rounded Container) */}
-      <section className="portal-card-section portal-card-section--tint" aria-label="Field Stations Highlights">
+      <section
+        id="coastal-stations"
+        className="portal-card-section portal-card-section--tint"
+        aria-label="Field Stations Highlights"
+      >
         <div className="portal-section-header">
           <span className="portal-section-tag">
             {isSomali ? 'SALDHIGYADA SAYNISKA' : 'FIELD NETWORK'}

@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getAllArticles, getFeaturedArticle } from '../data/news';
+import PageHero from '../components/editorial/PageHero';
 import '../styles/portalDesignSystem.css';
 
 export default function NewsPage() {
@@ -249,89 +250,34 @@ export default function NewsPage() {
 
   return (
     <div className="portal-page">
-      {/* 1. Inset Rounded Hero Banner */}
-      <section className="portal-hero" aria-label="Somali Ocean News Hero">
-        <div className="portal-hero__inner">
-          <img
-            src="/images/image.webp"
-            alt="Somali ocean horizon and breaking waves"
-            className="portal-hero__bg"
-          />
-          <div className="portal-hero__overlay" />
-
-          <div className="portal-hero__content">
-            <div className="portal-hero__badge">
-              <Radio size={14} />
-              <span>{isSomali ? 'WARAR & SHAACIN CUSUB EE BADDA' : 'ORIGINAL FIELD REPORTING • MARITIME NEWS'}</span>
-            </div>
-
-            <h1 className="portal-hero__title">
-              {isSomali ? 'Wararka & Sahaminta Badda Soomaaliya.' : 'Dispatches from Africa’s Longest Coastline.'}
-            </h1>
-
-            <p className="portal-hero__subtitle">
-              {isSomali
-                ? 'Warbixinno toos ah, cilmi-baaris cusub, iyo guulaha ilaalinta deegaanka ee ka soo kordhay 3,330 km oo xeeb nool ah.'
-                : 'Direct field reporting, marine biodiversity discoveries, conservation milestones, and community stories from across Somalia.'}
-            </p>
-
-            {/* Search Pill Widget */}
-            <div className="portal-hero__search-wrap">
-              <form onSubmit={handleSearch} className="portal-hero__search-form">
-                <Search size={18} color="#0ea5e9" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={
-                    isSomali
-                      ? 'Raadi maqaal, noole badda, ama goob...'
-                      : 'Search articles, discoveries, or field reports...'
-                  }
-                  className="portal-hero__search-input"
-                  aria-label="Search articles"
-                />
-                <button type="submit" className="portal-hero__search-btn">
-                  <span>{isSomali ? 'Raadi' : 'Search News'}</span>
-                  <ArrowRight size={14} />
-                </button>
-              </form>
-            </div>
-
-            {/* Quick Filter Badges */}
-            <div className="portal-hero__tags">
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/news/articles?category=marine-life'))}
-                className="portal-hero__tag-btn"
-              >
-                {isSomali ? 'Noolaha Badda' : 'Marine Life'}
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/news/articles?category=research'))}
-                className="portal-hero__tag-btn"
-              >
-                {isSomali ? 'Cilmi-baaris' : 'Research'}
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/news/articles?category=conservation'))}
-                className="portal-hero__tag-btn"
-              >
-                {isSomali ? 'Ilaalinta Deegaanka' : 'Conservation'}
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/news/articles?category=coastal-communities'))}
-                className="portal-hero__tag-btn"
-              >
-                {isSomali ? 'Bulshooyinka Xeebaha' : 'Communities'}
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. Page Hero: Single Hero Background and Glassmorphic Left Card */}
+      <PageHero
+        pageId="news"
+        image="/images/img_02.webp"
+        titleTop={isSomali ? 'Wararka & Xogaha' : 'Field Dispatches &'}
+        titleHighlight={isSomali ? 'Diiwaanka Xeebaha' : 'Coastal News'}
+        titleBottom={isSomali ? 'ee Soomaaliya' : 'From The Ocean'}
+        desc={
+          isSomali
+            ? 'Warbixinno toos ah, cilmi-baaris cusub, iyo guulaha ilaalinta deegaanka ee ka soo kordhay 3,330 km oo xeeb nool ah.'
+            : 'Direct field reporting, marine biodiversity discoveries, conservation milestones, and community stories from across Somalia.'
+        }
+        primaryCta={{
+          label: isSomali ? 'Akhri Wararkii Ugu Dambeeyay' : 'Read Latest Dispatches',
+          path: '#news-feed',
+          icon: <ArrowRight size={17} />,
+        }}
+        cutout={{
+          title: isSomali ? 'Diiwaanka Sahaminta' : 'Frontline Ocean Logs',
+          path: '#news-feed',
+          thumbnails: ['/images/img_02.webp', '/images/img_05.webp', '/images/img_07.webp'],
+          info: isSomali
+            ? 'Xogaha tooska ah ee ka imaanaya kooxaha sahaminta iyo cilmi-baarayaasha badda.'
+            : 'Field reporting and marine expedition journals across the Horn of Africa.',
+          rating: 'Live',
+          tagline: isSomali ? 'Kormeer Joogto Ah' : 'Active Maritime Field Reporting',
+        }}
+      />
 
       {/* 2. About Marine Journalism (2-Column Card Section) */}
       <section className="portal-card-section" aria-label="About Marine Journalism">
@@ -533,7 +479,11 @@ export default function NewsPage() {
       </section>
 
       {/* 5. Articles Directory (6-Card Grid: 2 rows of 3) */}
-      <section className="portal-card-section" aria-label="Articles Directory">
+      <section
+        id="news-feed"
+        className="portal-card-section"
+        aria-label="Articles Directory"
+      >
         <div className="portal-section-header">
           <span className="portal-section-tag">
             {isSomali ? 'MAQAALLADA CUSUB' : 'LATEST ARTICLES'}

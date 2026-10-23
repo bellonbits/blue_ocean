@@ -26,6 +26,39 @@ export const MAIN_NAV_LINKS = [
   { path: '/marine-life', labelEn: 'Marine Life', labelSo: 'Noolaha Badda' },
   { path: '/research', labelEn: 'Research', labelSo: 'Cilmi-Baaris' },
   { path: '/about', labelEn: 'About', labelSo: 'Nagu Saabsan' },
+  { path: '/contact', labelEn: 'Contact', labelSo: 'Xiriir' },
+];
+
+// Uncovered initiative & community pages accessible via the desktop dropdown
+export const MORE_NAV_LINKS = [
+  {
+    path: '/conservation',
+    labelEn: 'Conservation',
+    labelSo: 'Ilaalinta Deegaanka',
+    descEn: 'Marine sanctuaries, turtle patrols & coral restoration',
+    descSo: 'Dhowridda badda, qoolleyda & beeridda shacaabka',
+  },
+  {
+    path: '/communities',
+    labelEn: 'Coastal Communities',
+    labelSo: 'Bulshooyinka Xeebaha',
+    descEn: 'Artisanal fishers, maritime traditions & living culture',
+    descSo: 'Kalluumaysatada, dhaqanka badda & hidaha qani ah',
+  },
+  {
+    path: '/news',
+    labelEn: 'Field Dispatches & News',
+    labelSo: 'Wararka Xeebaha',
+    descEn: 'Frontline expedition dispatches, science logs & stories',
+    descSo: 'Xogaha sahaminta, warbixinno saynis & diiwaanno',
+  },
+  {
+    path: '/get-involved',
+    labelEn: 'Get Involved',
+    labelSo: 'Ka Qayb Qaado',
+    descEn: 'Volunteer, partner & support Africa’s longest coastline',
+    descSo: 'Tabarruc, iskaashi & taageero ilaalinta badda',
+  },
 ];
 
 // All drawer links for mobile
@@ -35,10 +68,13 @@ const ALL_DRAWER_LINKS = [
   { path: '/explore-the-coast', labelEn: 'Explore the Coast', labelSo: 'Sahmi Xeebta' },
   { path: '/experiences', labelEn: 'Ocean Experiences', labelSo: 'Khibradaha Badda' },
   { path: '/marine-life', labelEn: 'Marine Life', labelSo: 'Noolaha Badda' },
-  { path: '/research', labelEn: 'Research & Conservation', labelSo: 'Cilmi-Baaris & Ilaalin' },
-  { path: '/communities', labelEn: 'Coastal Communities', labelSo: 'Bulshooyinka Xeebta' },
+  { path: '/research', labelEn: 'Research & Expeditions', labelSo: 'Cilmi-Baaris & Sahamin' },
+  { path: '/conservation', labelEn: 'Marine Conservation & MPAs', labelSo: 'Ilaalinta Deegaanka Badda' },
+  { path: '/communities', labelEn: 'Coastal Communities', labelSo: 'Bulshooyinka Xeebaha' },
+  { path: '/news', labelEn: 'Field Dispatches & News', labelSo: 'Wararka & Xogaha Xeebaha' },
+  { path: '/get-involved', labelEn: 'Get Involved & Volunteer', labelSo: 'Ka Qayb Qaado & Tabarruc' },
   { path: '/about', labelEn: 'About Somalia Blue Heaven', labelSo: 'Nagu Saabsan' },
-  { path: '/contact', labelEn: 'Contact', labelSo: 'Xiriir' },
+  { path: '/contact', labelEn: 'Contact Operations', labelSo: 'Nala Soo Xiriir' },
 ];
 
 // Quick destinations for search modal
@@ -62,10 +98,12 @@ export default function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const headerRef = useRef(null);
   const userDropdownRef = useRef(null);
+  const moreDropdownRef = useRef(null);
   const searchInputRef = useRef(null);
   const { user, isAuthenticated, logout, openAuthModal } = useAuth();
   const { language, setLanguage, t } = useLanguage();
@@ -84,6 +122,7 @@ export default function Header() {
   useEffect(() => {
     setMobileOpen(false);
     setUserDropdownOpen(false);
+    setMoreDropdownOpen(false);
     setSearchOpen(false);
   }, [location.pathname]);
 
@@ -100,10 +139,14 @@ export default function Header() {
       if (userDropdownRef.current && !userDropdownRef.current.contains(e.target)) {
         setUserDropdownOpen(false);
       }
+      if (moreDropdownRef.current && !moreDropdownRef.current.contains(e.target)) {
+        setMoreDropdownOpen(false);
+      }
     };
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         setUserDropdownOpen(false);
+        setMoreDropdownOpen(false);
         setSearchOpen(false);
       }
     };
@@ -183,6 +226,68 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
+
+              {/* Uncovered Initiatives Dropdown (Conservation, Communities, News, Get Involved) */}
+              <li
+                className="travel-header__nav-item travel-header__nav-item--more"
+                ref={moreDropdownRef}
+                onMouseEnter={() => setMoreDropdownOpen(true)}
+                onMouseLeave={() => setMoreDropdownOpen(false)}
+              >
+                <button
+                  type="button"
+                  className={`travel-header__nav-link travel-header__more-btn ${
+                    MORE_NAV_LINKS.some((m) => currentPath.startsWith(m.path))
+                      ? 'travel-header__nav-link--active'
+                      : ''
+                  }`}
+                  onClick={() => setMoreDropdownOpen((prev) => !prev)}
+                  aria-expanded={moreDropdownOpen}
+                  aria-haspopup="true"
+                  aria-label="More initiatives and programs"
+                >
+                  <span>{isSomali ? 'Barnaamijyo' : 'Initiatives'}</span>
+                  <ChevronDown
+                    size={14}
+                    className={`travel-header__more-chevron ${
+                      moreDropdownOpen ? 'travel-header__more-chevron--open' : ''
+                    }`}
+                  />
+                </button>
+
+                {moreDropdownOpen && (
+                  <div className="travel-header__more-dropdown" role="menu">
+                    <div className="travel-header__more-header">
+                      <span className="travel-header__more-title">
+                        {isSomali ? 'Barnaamijyada & Bulshada' : 'Marine Initiatives & Culture'}
+                      </span>
+                    </div>
+                    <div className="travel-header__more-grid">
+                      {MORE_NAV_LINKS.map((item) => (
+                        <Link
+                          key={item.path}
+                          to={localizedPath(item.path)}
+                          className={`travel-header__more-item ${
+                            currentPath.startsWith(item.path) ? 'travel-header__more-item--active' : ''
+                          }`}
+                          onClick={() => setMoreDropdownOpen(false)}
+                          role="menuitem"
+                        >
+                          <div className="travel-header__more-item-content">
+                            <span className="travel-header__more-item-label">
+                              {isSomali ? item.labelSo : item.labelEn}
+                            </span>
+                            <span className="travel-header__more-item-desc">
+                              {isSomali ? item.descSo : item.descEn}
+                            </span>
+                          </div>
+                          <ArrowRight size={14} className="travel-header__more-item-arrow" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </li>
             </ul>
           </nav>
 
