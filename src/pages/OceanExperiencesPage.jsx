@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import {
   Compass,
   Search,
@@ -17,16 +17,36 @@ import {
   Anchor,
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import PageHero from '../components/editorial/PageHero';
 import '../styles/portalDesignSystem.css';
 
 export default function OceanExperiencesPage() {
   const { language } = useLanguage();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const isSomali = language === 'so';
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
-  const [searchQuery, setSearchQuery] = useState('');
+  const queryParam = searchParams.get('q') || '';
+  const [searchQuery, setSearchQuery] = useState(queryParam);
   const [featuredIndex, setFeaturedIndex] = useState(0);
+  const [savedExperiences, setSavedExperiences] = useState({});
+
+  useEffect(() => {
+    const q = searchParams.get('q');
+    if (q !== null && q !== undefined) {
+      setSearchQuery(q);
+    }
+  }, [searchParams]);
+
+  const toggleSave = (e, title) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSavedExperiences((prev) => ({
+      ...prev,
+      [title]: !prev[title],
+    }));
+  };
 
   useEffect(() => {
     document.title = isSomali
@@ -213,85 +233,129 @@ export default function OceanExperiencesPage() {
 
   const currentFeatured = featuredExperiences[featuredIndex];
 
+  const EXPERIENCES_HERO_SPOTS = [
+    {
+      id: 'scuba',
+      tag: isSomali ? 'QUUSIN' : 'SCUBA',
+      year: isSomali ? 'SHACAAB' : 'BARRIER REEF',
+      title: isSomali ? 'Quusidda Shacaabka & Biyaha Hoose' : 'Pristine Barrier Reef Deep Scuba',
+      subtitle: isSomali ? 'Dhagaxleyda Badda ee 25m+' : 'Pristine Coral Drop-offs & 30m Visibility',
+      desc: isSomali
+        ? 'Ku quuso godadka shacaabka ee aan waligood la taaban, halkaas oo ay ku nool yihiin kalluunka dhalaalaya iyo noolaha badda.'
+        : 'Descend along untouched outer drop-offs with 30m visibility, swimming among manta rays and pristine coral sea fans.',
+      link: '/experiences',
+      image: '/exp_scuba_diving.webp',
+      avatar: '/exp_scuba_diving.webp',
+      author: isSomali ? 'Xeebaha Kismaayo & Baajuun' : 'Bajuni Outer Coral Shelf',
+      authorMeta: isSomali ? 'Ilaalinta Shacaabka • 1°10′S 41°50′E' : 'Southern Indian Ocean Shelf • 1°10′S 41°50′E',
+    },
+    {
+      id: 'sailing',
+      tag: isSomali ? 'SHIRAAC' : 'DHOW SAILING',
+      year: isSomali ? 'DHAQAN' : 'MARITIME',
+      title: isSomali ? 'Doonyaha Shiraaca ee Baajuun' : 'Traditional Somali Dhow Sailing',
+      subtitle: isSomali ? 'Socdaalka Qadiimiga ah ee Badda' : 'Ancient Swahili-Somali Wind Navigation',
+      desc: isSomali
+        ? 'Raac doonyaha gacanta lagu qoray ee shiraaca ku socda, adigoo maraya marin-badeedyada iyo jasiiradaha quruxda badan.'
+        : 'Harness the timeless monsoon breezes aboard handcrafted wooden dhows across sheltered turquoise channels.',
+      link: '/explore-the-coast/kismayo',
+      image: '/exp_dhow_sailing.webp',
+      avatar: '/exp_dhow_sailing.webp',
+      author: isSomali ? 'Jasiiradaha Baajuun' : 'Bajuni Archipelago Fishermen',
+      authorMeta: isSomali ? 'Hiddaha Badda Soomaaliyeed' : 'Living Somali Seafaring Guild • Kismayo',
+    },
+    {
+      id: 'snorkeling',
+      tag: isSomali ? 'DABAAL' : 'SNORKELING',
+      year: isSomali ? 'SHACAAB' : 'ATOLL',
+      title: isSomali ? 'Dabaasha Shacaabka ee Biyo-gacmeedka' : 'Virgin Coral Lagoon Snorkeling',
+      subtitle: isSomali ? 'Qoolleyda & Kalluunka Midabbada leh' : 'Hawksbill Turtles & Rainbow Coral Gardens',
+      desc: isSomali
+        ? 'Biyo qabow oo nadiif ah oo ay ku nool yihiin qoolleyda badda, shacaabka cas, iyo boqolaal nooc oo kalluunka badda ah.'
+        : 'Drift gracefully over shallow crystalline lagoons teaming with hawksbill turtles, giant clams, and clownfish.',
+      link: '/marine-life',
+      image: '/exp_coral_snorkeling.webp',
+      avatar: '/exp_coral_snorkeling.webp',
+      author: isSomali ? 'Jasiiradda Jaziira & Baajuun' : 'Jazira & Bajuni Atoll Coves',
+      authorMeta: isSomali ? 'Biyaha Ilaashan • Badda Hindiya' : 'Calm Protected Lagoons • Indian Ocean',
+    },
+    {
+      id: 'cliff',
+      tag: isSomali ? 'SOCODLOR' : 'CLIFF TREK',
+      year: isSomali ? 'XAARAF' : 'HEADLANDS',
+      title: isSomali ? 'Buuraha & Jiirarka Raas Xaafuun' : 'Ras Hafun Coastal Cliff Expeditions',
+      subtitle: isSomali ? 'Barta Bariga Qaaradda Afrika' : 'Africa’s Easternmost Ocean Pinnacles',
+      desc: isSomali
+        ? 'Dusha sare ee buuraha dhagaxa ah ee eegaya mowjadaha waaweyn ee Badweynta Hindiya iyo dabaysha xooggan ee badweynta.'
+        : 'Trek towering ocean cliffs carved by thousands of years of oceanic surf at the true continental edge of Africa.',
+      link: '/explore-the-coast/hafun',
+      image: '/exp_coastal_cliff.webp',
+      avatar: '/exp_coastal_cliff.webp',
+      author: isSomali ? 'Raas Xaafuun' : 'Ras Hafun Peninsula Trails',
+      authorMeta: isSomali ? 'Cirifka Bari ee Afrika • Puntland' : 'Continental Edge • 10°25′N 51°16′E',
+    },
+    {
+      id: 'surf',
+      tag: isSomali ? 'HIRARKA' : 'SURF & SPORT',
+      year: isSomali ? 'CIYAARO' : 'OCEAN WAVE',
+      title: isSomali ? 'Hirarka & Ciyaaraha Badda ee Liido' : 'Indian Ocean Swell Surfing & Water Sports',
+      subtitle: isSomali ? 'Xeebta Muqdisho & Badweynta' : 'Equatorial Breaks & Warm Coastal Currents',
+      desc: isSomali
+        ? 'Ku raaxayso orodka hirarka badda, mootooyinka biyaha, iyo tamashlaha dusha sare ee biyaha diirran ee xeebta.'
+        : 'Ride consistent Indian Ocean right-hand points and warm beach breaks along the vibrant shores of southern Somalia.',
+      link: '/explore-the-coast/mogadishu',
+      image: '/raja_jetski_action.webp',
+      avatar: '/raja_jetski_action.webp',
+      author: isSomali ? 'Xeebta Liido' : 'Lido Ocean Surf Club',
+      authorMeta: isSomali ? 'Banaadir • Badweynta Hindiya' : 'Banadir Seaboard • 2°02′N 45°21′E',
+    },
+    {
+      id: 'islands',
+      tag: isSomali ? 'SOCDAAL' : 'EXPEDITION',
+      year: isSomali ? 'JASIIRADO' : 'ATOLLS',
+      title: isSomali ? 'Socdaalka Jasiiradaha fog ee Koonfurta' : 'Southern Coral Atoll Archipelago Cruises',
+      subtitle: isSomali ? 'Biyaha Nadiifka ah ee Baajuun' : 'Remote Outer Islands & Turtle Sandspits',
+      desc: isSomali
+        ? 'Safarro dhowr maalmood ah oo lagu maro jasiirado qarsoon, carwooyin ciid cad ah, iyo xeebo aan dadku ku badnayn.'
+        : 'Multi-day remote camping expeditions discovering isolated sandspits, untouched lagoons, and wild sea turtle nesting coves.',
+      link: '/explore-the-coast/kismayo',
+      image: '/images/img_10.webp',
+      avatar: '/images/img_10.webp',
+      author: isSomali ? 'Baajuun Expedition' : 'Kismayo Coastal Guides',
+      authorMeta: isSomali ? 'Ilaalinta Deegaanka Badda' : 'Eco-Certified Wilderness Guides',
+    },
+  ];
+
   return (
     <div className="portal-page">
-      {/* 1. Inset Rounded Hero Banner */}
-      <section className="portal-hero" aria-label="Ocean Experiences Hero">
-        <div className="portal-hero__inner">
-          <img
-            src="/images/image.webp"
-            alt="Ocean adventures along Somalia's coast"
-            className="portal-hero__bg"
-          />
-          <div className="portal-hero__overlay" />
-
-          <div className="portal-hero__content">
-            <div className="portal-hero__badge">
-              <Compass size={14} />
-              <span>{isSomali ? 'KHIBRADAHA BADDA · 3,330 KM' : 'OCEAN EXPERIENCES · 3,330 KM'}</span>
-            </div>
-
-            <h1 className="portal-hero__title">
-              {isSomali ? (
-                <>
-                  Khibradaha Badda <br />
-                  <span className="editorial-hero__title-italic">ee Soomaaliya.</span>
-                </>
-              ) : (
-                <>
-                  Ocean Experiences & <br />
-                  <span className="editorial-hero__title-italic">Expeditions.</span>
-                </>
-              )}
-            </h1>
-
-            <p className="portal-hero__subtitle">
-              {isSomali
-                ? 'Safarka doonyaha shiraaca ee dhowka, dabaasha libaax-badeedka, iyo ilaalinta qoolleyda badda ee xeebaha 3,330 km.'
-                : 'Authentic coastal adventures, traditional dhow sailing, and ethical marine wildlife encounters along Africa’s longest coastline.'}
-            </p>
-
-            {/* Inset Search Widget */}
-            <div className="portal-hero__search-wrap">
-              <form onSubmit={handleSearch} className="portal-hero__search-form">
-                <Search size={18} className="portal-hero__search-icon" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={
-                    isSomali
-                      ? 'Raadi doon, libaax-badeed, quusin, ama buuro...'
-                      : 'Search sailing, whale sharks, diving, or hiking...'
-                  }
-                  className="portal-hero__search-input"
-                  aria-label="Search ocean experiences"
-                />
-                <button type="submit" className="portal-hero__search-btn">
-                  <span>{isSomali ? 'Raadi' : 'Explore Experiences'}</span>
-                  <ArrowRight size={14} />
-                </button>
-              </form>
-            </div>
-
-            {/* Quick Filter Tags */}
-            <div className="portal-hero__tags">
-              <Link to={localizedPath('/explore-the-coast/kismayo')} className="portal-hero__tag-btn">
-                {isSomali ? 'Doonyaha Baajuun' : 'Bajuni Dhow Sailing'}
-              </Link>
-              <Link to={localizedPath('/explore-the-coast/bosaso')} className="portal-hero__tag-btn">
-                {isSomali ? 'Libaax-Badeedka' : 'Whale Shark Encounter'}
-              </Link>
-              <Link to={localizedPath('/explore-the-coast/eyl')} className="portal-hero__tag-btn">
-                {isSomali ? 'Dooxada Eyl Hike' : 'Eyl Waterfall Trek'}
-              </Link>
-              <Link to={localizedPath('/explore-the-coast/mogadishu')} className="portal-hero__tag-btn">
-                {isSomali ? 'Xeebta Liido' : 'Lido Ocean Surf'}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
+      <PageHero
+        pageId="experiences"
+        image="/exp_dhow_sailing.webp"
+        titleTop={isSomali ? 'La Noolow' : 'Live Authentic'}
+        titleHighlight={isSomali ? 'Khibradaha' : 'Experiences'}
+        titleBottom={isSomali ? 'Badda Soomaaliya' : 'With Every Voyage'}
+        desc={
+          isSomali
+            ? 'Safarka doonyaha shiraaca ee dhaqanka, quusidda shacaabka nadiifka ah, iyo dabaasha libaax-badeedka ee 3,330 km ee Soomaaliya.'
+            : 'Traditional Somali dhow sailing, pristine coral reef scuba diving, and ethical wildlife expeditions along Africa’s longest coast.'
+        }
+        primaryCta={{
+          label: isSomali ? 'Sahami Khibradaha' : 'Book Expeditions',
+          path: '#all-experiences',
+          icon: <ArrowRight size={17} />,
+        }}
+        cutout={{
+          title: isSomali ? 'Socdaallada Maanta Furan' : "Explore Today's Expeditions",
+          path: '#all-experiences',
+          thumbnails: ['/exp_scuba_diving.webp', '/exp_coral_snorkeling.webp', '/exp_coastal_cliff.webp'],
+          info: isSomali
+            ? 'Hagayaal maxalli ah oo shahaado haysta, qalabka quusidda, iyo qorshayaal gaar ah oo loogu talagalay badda.'
+            : 'Certified Local Captains, Scuba Instructors, And Ethical Marine Wildlife Guides To Tailor Your Journey.',
+          rating: '5.0',
+          tagline: isSomali ? '100% Hagayaal Maxalli ah' : '100% Certified Local Guides',
+        }}
+      />
 
       {/* 2. 2-Column About Experiences */}
       <section className="portal-card-section" aria-label="Experiences Overview">
@@ -483,7 +547,7 @@ export default function OceanExperiencesPage() {
       </section>
 
       {/* 5. 6-Card Experiences Grid (2x3) */}
-      <section className="portal-card-section" aria-label="Experiences Directory">
+      <section id="all-experiences" className="portal-card-section" aria-label="Experiences Directory">
         <div className="portal-section-header">
           <span className="portal-section-tag">
             {isSomali ? 'DHAMMAAN KHIBRADAHA' : 'EXPERIENCES CATALOG'}
@@ -498,17 +562,53 @@ export default function OceanExperiencesPage() {
           </p>
         </div>
 
+        {searchQuery && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px' }}>
+            <span style={{ fontSize: '0.85rem', color: '#0284c7', fontWeight: 600 }}>
+              {isSomali ? 'Natiijada' : 'Results for'}: "{searchQuery}"
+            </span>
+            <button
+              type="button"
+              onClick={() => setSearchQuery('')}
+              style={{
+                background: '#e0f2fe',
+                color: '#0284c7',
+                border: 'none',
+                borderRadius: '12px',
+                padding: '2px 10px',
+                fontSize: '0.75rem',
+                cursor: 'pointer',
+                fontWeight: 600,
+              }}
+            >
+              {isSomali ? 'Dib u celi' : 'Clear filter'}
+            </button>
+          </div>
+        )}
+
         <div className="portal-attractions-grid">
-          {experiences.map((exp, i) => (
+          {(searchQuery
+            ? experiences.filter((exp) =>
+                exp.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                exp.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                exp.desc.toLowerCase().includes(searchQuery.toLowerCase())
+              )
+            : experiences
+          ).map((exp, i) => (
             <article key={i} className="portal-attraction-card">
               <div className="portal-attraction-card__media">
                 <img src={exp.image} alt={exp.title} className="portal-attraction-card__img" />
                 <button
                   type="button"
                   className="portal-attraction-card__badge-round"
-                  aria-label="Bookmark experience"
+                  aria-label={`Bookmark ${exp.title}`}
+                  onClick={(e) => toggleSave(e, exp.title)}
                 >
-                  <Heart size={16} />
+                  <Heart
+                    size={16}
+                    fill={savedExperiences[exp.title] ? '#ef4444' : 'none'}
+                    color={savedExperiences[exp.title] ? '#ef4444' : '#64748b'}
+                  />
                 </button>
               </div>
               <div className="portal-attraction-card__content">

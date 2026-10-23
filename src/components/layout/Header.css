@@ -1,9 +1,10 @@
 /* =========================================================
-   SOMALIA BLUE HEAVEN — Luxury Travel Minimal Header (Matching Attachment)
-   Wordmark: blue__ocean
-   Links: about · explore · destinations
-   Language: en - so
-   Action: Circular frosted glass search button
+   SOMALIA BLUE HEAVEN — Luxury Travel Minimal Header
+   Theme: Pure White & Ocean Blue (#ffffff / #0284c7)
+   - Background: White (both transparent-top & scrolled states)
+   - Brand: Somalia Blue Heaven Blue Logo
+   - Typography: Unified Inter
+   - Controls: Sleek en-so switch & circular frosted search button
    ========================================================= */
 
 .travel-header {
@@ -18,27 +19,75 @@
   align-items: center;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s ease,
-              box-shadow 0.3s ease,
-              backdrop-filter 0.3s ease;
+  transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
 }
 
-/* 1. Transparent State (Frosted glass blur directly overlaying hero image) */
+/* 1. Header Top State (Luminous clean white with subtle glass effect) */
 .travel-header--transparent {
-  background: rgba(7, 22, 38, 0.35);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.03);
 }
 
-/* 2. Scrolled State (Frosted glass blur with deep marine backdrop) */
+/* 2. Header Scrolled State (Solid pure white with delicate shadow) */
 .travel-header--scrolled {
-  background: rgba(7, 22, 38, 0.82);
+  background: #ffffff;
   backdrop-filter: blur(24px) saturate(190%);
   -webkit-backdrop-filter: blur(24px) saturate(190%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.22);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.06);
+}
+
+/* Auth Buttons Group (Blue and White) */
+.travel-header__auth-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.travel-header__signup-btn {
+  background: none;
+  border: none;
+  color: #1e293b;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  padding: 6px 6px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: color 0.2s ease;
+}
+
+.travel-header__signup-btn:hover {
+  color: #0284c7;
+}
+
+.travel-header__login-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28);
+  transition: all 0.2s ease;
+}
+
+.travel-header__login-btn:hover {
+  background: #0369a1;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4);
 }
 
 /* Inner Container */
@@ -66,34 +115,18 @@
 .travel-header__brand-logo {
   height: clamp(38px, 4.8vh, 48px);
   width: auto;
-  max-width: 165px;
+  max-width: 175px;
   object-fit: contain;
   display: block;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.25s ease,
               opacity 0.2s ease;
 }
 
 .travel-header__brand:hover .travel-header__brand-logo {
-  transform: scale(1.05);
-  filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.5));
+  transform: scale(1.04);
 }
 
-.travel-header__brand-text {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.travel-header__brand:hover .travel-header__brand-text {
-  opacity: 0.85;
-}
-
-/* --- Desktop Nav Links (All tabs & pages) --- */
+/* --- Desktop Nav Links (High contrast on white header) --- */
 .travel-header__nav {
   display: flex;
   align-items: center;
@@ -103,7 +136,7 @@
 .travel-header__nav-list {
   display: flex;
   align-items: center;
-  gap: clamp(10px, 1.4vw, 22px);
+  gap: clamp(10px, 1.4vw, 24px);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -119,21 +152,20 @@
   font-weight: 500;
   letter-spacing: 0.015em;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
-  transition: color 0.2s ease, opacity 0.2s ease;
+  color: #334155;
+  transition: color 0.2s ease;
   position: relative;
-  padding: 6px 0;
+  padding: 8px 0;
   white-space: nowrap;
 }
 
 .travel-header__nav-link:hover {
-  color: #ffffff;
+  color: #0284c7;
 }
 
 .travel-header__nav-link--active {
-  color: #ffffff;
-  font-weight: 600;
+  color: #0284c7;
+  font-weight: 650;
 }
 
 .travel-header__nav-link--active::after {
@@ -142,26 +174,26 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 14px;
-  height: 2px;
-  background: #ffffff;
-  border-radius: 2px;
+  width: 16px;
+  height: 2.5px;
+  background: #0284c7;
+  border-radius: 999px;
 }
 
-/* --- Right Actions ('en - so', Circular Glass Search & Profile) --- */
+/* --- Right Actions ('en - so', Circular Search & Profile) --- */
 .travel-header__actions {
   display: flex;
   align-items: center;
   gap: clamp(12px, 1.8vw, 20px);
 }
 
-/* Language toggle matching attachment's 'en - pt' */
+/* Language toggle: clean dark slate with blue active */
 .travel-header__lang-toggle {
   background: transparent;
   border: none;
   padding: 6px 4px;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.65);
+  color: #64748b;
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 0.88rem;
   font-weight: 500;
@@ -173,7 +205,7 @@
 }
 
 .travel-header__lang-toggle:hover {
-  color: #ffffff;
+  color: #0284c7;
 }
 
 .travel-header__lang-code {
@@ -181,16 +213,17 @@
 }
 
 .travel-header__lang-code--active {
-  color: #ffffff;
+  color: #0284c7;
   font-weight: 700;
 }
 
 .travel-header__lang-sep {
   opacity: 0.45;
   margin: 0 2px;
+  color: #94a3b8;
 }
 
-/* Circular Frosted Glass Button (Search, Theme, User) */
+/* Circular Frosted Search Button on White Header */
 .travel-header__circle-btn {
   width: 38px;
   height: 38px;
@@ -198,23 +231,22 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #ffffff;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #0284c7;
   cursor: pointer;
   outline: none;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   flex-shrink: 0;
 }
 
 .travel-header__circle-btn:hover {
-  background: rgba(255, 255, 255, 0.28);
-  border-color: rgba(255, 255, 255, 0.45);
+  background: #e0f2fe;
+  border-color: #bae6fd;
+  color: #0369a1;
   transform: scale(1.06);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.22);
 }
 
 .travel-header__circle-btn:active {
@@ -224,7 +256,7 @@
 .travel-header__avatar {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #0284c7;
 }
 
 /* User Menu Dropdown */
@@ -237,13 +269,11 @@
   top: calc(100% + 12px);
   right: 0;
   width: 240px;
-  background: rgba(7, 22, 38, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   padding: 14px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
   z-index: 105;
   animation: dropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -260,19 +290,19 @@
 .travel-header__dropdown-name {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .travel-header__dropdown-email {
   font-size: 0.76rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: #64748b;
   margin-bottom: 6px;
   word-break: break-all;
 }
 
 .travel-header__dropdown-divider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #e2e8f0;
   margin: 8px 0;
 }
 
@@ -282,7 +312,7 @@
   gap: 10px;
   padding: 8px 10px;
   font-size: 0.84rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: #334155;
   text-decoration: none;
   border-radius: 8px;
   background: transparent;
@@ -294,13 +324,13 @@
 }
 
 .travel-header__dropdown-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: #f1f5f9;
+  color: #0284c7;
 }
 
 .travel-header__dropdown-item--logout:hover {
-  background: rgba(239, 68, 68, 0.18);
-  color: #f87171;
+  background: #fee2e2;
+  color: #dc2626;
 }
 
 /* Mobile Hamburger Toggle */
@@ -308,7 +338,7 @@
   display: none;
   background: transparent;
   border: none;
-  color: #ffffff;
+  color: #0f172a;
   padding: 6px;
   cursor: pointer;
   outline: none;
@@ -330,7 +360,7 @@
 .travel-search-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(3, 13, 23, 0.82);
+  background: rgba(15, 23, 42, 0.65);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
@@ -339,12 +369,10 @@
   position: relative;
   z-index: 2;
   width: min(640px, 92vw);
-  background: rgba(12, 32, 53, 0.95);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 18px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
   overflow: hidden;
   animation: searchCardPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -359,11 +387,11 @@
   align-items: center;
   gap: 12px;
   padding: 16px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .travel-search-modal__icon {
-  color: #38bdf8;
+  color: #0284c7;
   flex-shrink: 0;
 }
 
@@ -374,23 +402,24 @@
   outline: none;
   font-family: 'Inter', sans-serif;
   font-size: 1.05rem;
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .travel-search-modal__input::placeholder {
-  color: rgba(255, 255, 255, 0.45);
+  color: #94a3b8;
 }
 
 .travel-search-modal__close-btn {
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.6);
+  color: #64748b;
   padding: 4px;
   cursor: pointer;
+  transition: color 0.15s ease;
 }
 
 .travel-search-modal__close-btn:hover {
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .travel-search-modal__body {
@@ -404,7 +433,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: #64748b;
   margin-bottom: 12px;
 }
 
@@ -419,23 +448,23 @@
   align-items: center;
   gap: 12px;
   padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
   border-radius: 10px;
-  color: #ffffff;
+  color: #0f172a;
   cursor: pointer;
   text-align: left;
   transition: all 0.18s ease;
 }
 
 .travel-search-modal__item:hover {
-  background: rgba(14, 165, 233, 0.16);
-  border-color: rgba(56, 189, 248, 0.35);
+  background: #f0f9ff;
+  border-color: #bae6fd;
   transform: translateX(4px);
 }
 
 .travel-search-modal__pin {
-  color: #38bdf8;
+  color: #0284c7;
   flex-shrink: 0;
 }
 
@@ -448,33 +477,33 @@
 .travel-search-modal__title {
   font-size: 0.92rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .travel-search-modal__region {
   font-size: 0.74rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: #64748b;
 }
 
 .travel-search-modal__arrow {
-  color: rgba(255, 255, 255, 0.3);
+  color: #94a3b8;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .travel-search-modal__item:hover .travel-search-modal__arrow {
-  color: #38bdf8;
+  color: #0284c7;
   transform: translateX(3px);
 }
 
 .travel-search-modal__empty {
   padding: 24px 0;
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: #64748b;
   font-size: 0.9rem;
 }
 
 /* =========================================================
-   MOBILE DRAWER
+   MOBILE DRAWER (White & Blue luxury theme)
    ========================================================= */
 .travel-mobile-drawer {
   position: fixed;
@@ -494,7 +523,7 @@
 .travel-mobile-drawer__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(15, 23, 42, 0.5);
   backdrop-filter: blur(8px);
 }
 
@@ -504,13 +533,14 @@
   margin-left: auto;
   width: min(320px, 86vw);
   height: 100%;
-  background: #030d17;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border-left: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
   padding: 24px 20px;
   transform: translateX(100%);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.08);
 }
 
 .travel-mobile-drawer--open .travel-mobile-drawer__panel {
@@ -527,7 +557,7 @@
 .travel-mobile-drawer__close {
   background: transparent;
   border: none;
-  color: #ffffff;
+  color: #0f172a;
   padding: 6px;
   cursor: pointer;
 }
@@ -546,7 +576,7 @@
   justify-content: space-between;
   padding: 10px 12px;
   border-radius: 8px;
-  color: rgba(255, 255, 255, 0.85);
+  color: #334155;
   text-decoration: none;
   font-size: 0.94rem;
   font-weight: 500;
@@ -555,17 +585,23 @@
 
 .travel-mobile-drawer__link:hover,
 .travel-mobile-drawer__link--active {
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
+  background: #f0f9ff;
+  color: #0284c7;
+  font-weight: 600;
 }
 
 .travel-mobile-drawer__arrow {
-  color: rgba(255, 255, 255, 0.4);
+  color: #94a3b8;
+}
+
+.travel-mobile-drawer__link:hover .travel-mobile-drawer__arrow,
+.travel-mobile-drawer__link--active .travel-mobile-drawer__arrow {
+  color: #0284c7;
 }
 
 .travel-mobile-drawer__footer {
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #e2e8f0;
 }
 
 .travel-mobile-drawer__row {
@@ -596,7 +632,7 @@
 
   .travel-header__brand-logo {
     height: 35px;
-    max-width: 130px;
+    max-width: 135px;
   }
 
   .travel-header__actions {
@@ -639,4 +675,3 @@
     padding: 2px;
   }
 }
-

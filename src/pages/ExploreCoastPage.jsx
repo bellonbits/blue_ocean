@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import {
   Compass,
   Search,
@@ -13,19 +13,184 @@ import {
   Calendar,
   Sparkles,
   Camera,
+  Star,
+  Heart,
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import PageHero from '../components/editorial/PageHero';
 import '../components/editorial/EditorialHome.css';
 import '../styles/ExploreCoastEditorial.css';
+
+export const EXPLORE_COAST_HERO_SPOTS = [
+  {
+    id: 'eyl-ocean-canyon',
+    image: '/eyl3.webp',
+    alt: 'Dooxada Eyl breathtaking ocean gorge, vertical sea cliffs, and Indian Ocean surge',
+  },
+  {
+    id: 'hafun-sandstone-headlands',
+    image: '/Somalia,_Puntland,_Bari,_Bargal_(01).webp',
+    alt: 'Ras Hafun and Bargaal dramatic sandstone headlands meeting the cobalt ocean',
+  },
+  {
+    id: 'bosaso-shelf-citadel',
+    image: '/WebsiteImagery_1920x1080_SisterCities_BosasoSomalia-mtime20180108165841_2021-11-01-121110_grsn_91852798b59be8b28fc00edfe4aec23a.webp',
+    alt: 'Bosaso deep gulf shelf, historical maritime tower and artisanal dhow harbor',
+  },
+  {
+    id: 'eyl-freshwater-springs',
+    image: '/eyl1.webp',
+    alt: 'Eyl coastal oasis springs flowing through limestone canyons into the ocean',
+  },
+  {
+    id: 'eastern-horn-headland',
+    image: '/hafun2.webp',
+    alt: 'Africa’s easternmost continental headlands and turquoise breakers',
+  },
+  {
+    id: 'ocean-surf-canyons',
+    image: '/images/img_07.webp',
+    alt: 'Rolling azure surf crashing against Somali coastal peaks',
+  },
+];
+
+const COASTAL_TOURS_LIST = [
+  {
+    id: 'hafun',
+    title: 'Ras Hafun Peninsula',
+    region: 'Puntland Coast',
+    category: 'Coastal Cliffs',
+    rating: '4.9',
+    image: '/Somalia,_Puntland,_Bari,_Bargal_(01).webp',
+    path: '/explore-the-coast/hafun',
+  },
+  {
+    id: 'bajuni',
+    title: 'Bajuni Coral Atolls',
+    region: 'Jubaland Coast',
+    category: 'Coral Reefs',
+    rating: '5.0',
+    image: '/kismayo1.webp',
+    path: '/explore-the-coast/kismayo',
+  },
+  {
+    id: 'bosaso',
+    title: 'Bosaso Deep Gulf Shelf',
+    region: 'Gulf of Aden',
+    category: 'Whale Sharks',
+    rating: '4.9',
+    image: '/WebsiteImagery_1920x1080_SisterCities_BosasoSomalia-mtime20180108165841_2021-11-01-121110_grsn_91852798b59be8b28fc00edfe4aec23a.webp',
+    path: '/explore-the-coast/bosaso',
+  },
+  {
+    id: 'eyl',
+    title: 'Dooxada Eyl Gorge',
+    region: 'Nugaal Coast',
+    category: 'Ocean Canyon',
+    rating: '4.8',
+    image: '/eyl3.webp',
+    path: '/explore-the-coast/eyl',
+  },
+  {
+    id: 'liido',
+    title: 'Liido Historic Seashore',
+    region: 'Benadir Coast',
+    category: 'Coastal Cliffs',
+    rating: '4.7',
+    image: '/liido1.webp',
+    path: '/explore-the-coast/mogadishu',
+  },
+  {
+    id: 'zeila',
+    title: 'Zeila Coral Archipelago',
+    region: 'Somaliland Coast',
+    category: 'Ancient Ports',
+    rating: '4.9',
+    image: '/zeila1.webp',
+    path: '/explore-the-coast/zeila',
+  },
+  {
+    id: 'hobyo',
+    title: 'Hobyo Ocean Frontier',
+    region: 'Galmudug Coast',
+    category: 'Dunes & Surf',
+    rating: '4.8',
+    image: '/hobyo1.webp',
+    path: '/explore-the-coast/hobyo',
+  },
+  {
+    id: 'jazeera',
+    title: 'Jazira Coral Lagoon',
+    region: 'Benadir Shallows',
+    category: 'Coral Reefs',
+    rating: '5.0',
+    image: '/jazeera1.webp',
+    path: '/explore-the-coast/mogadishu',
+  },
+];
 
 export default function ExploreCoastPage() {
   const { language } = useLanguage();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const isSomali = language === 'so';
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
-  const [searchQuery, setSearchQuery] = useState('');
+  const initialQuery = searchParams.get('q') || '';
+  const initialCategory = searchParams.get('category') || 'All';
+
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [featuredIndex, setFeaturedIndex] = useState(0);
+  const [tourStartIndex, setTourStartIndex] = useState(0);
+  const [tourCategory, setTourCategory] = useState(initialCategory);
+  const [savedTourCards, setSavedTourCards] = useState({});
+
+  useEffect(() => {
+    const q = searchParams.get('q');
+    if (q !== null && q !== undefined) {
+      setSearchQuery(q);
+    }
+    const cat = searchParams.get('category');
+    if (cat) {
+      setTourCategory(cat);
+    }
+  }, [searchParams]);
+
+  const cleanQuery = searchQuery.trim().toLowerCase();
+  const filteredTourCards = COASTAL_TOURS_LIST.filter((tour) => {
+    const matchesCategory = tourCategory === 'All' || tour.category.toLowerCase() === tourCategory.toLowerCase();
+    const matchesQuery = !cleanQuery ||
+      tour.title.toLowerCase().includes(cleanQuery) ||
+      tour.region.toLowerCase().includes(cleanQuery) ||
+      tour.category.toLowerCase().includes(cleanQuery);
+    return matchesCategory && matchesQuery;
+  });
+
+  const cardsToDisplay = filteredTourCards.length > 0 ? filteredTourCards : COASTAL_TOURS_LIST;
+  const visibleTourCards = [];
+  const totalTourCards = cardsToDisplay.length;
+  const count = Math.min(4, totalTourCards);
+  for (let i = 0; i < count; i++) {
+    const idx = (tourStartIndex + i) % totalTourCards;
+    visibleTourCards.push(cardsToDisplay[idx]);
+  }
+
+  const handleTourPrev = () => {
+    setTourStartIndex((prev) => (prev > 0 ? prev - 1 : totalTourCards - 1));
+  };
+
+  const handleTourNext = () => {
+    setTourStartIndex((prev) => (prev + 1) % totalTourCards);
+  };
+
+  const toggleSaveTour = (e, tourId) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSavedTourCards((prev) => ({
+      ...prev,
+      [tourId]: !prev[tourId],
+    }));
+  };
 
   useEffect(() => {
     document.title = isSomali
@@ -225,84 +390,161 @@ export default function ExploreCoastPage() {
 
   return (
     <div className="explore-editorial-page">
-      {/* 1. Full-Bleed Editorial Hero (Seamless, No Inset Card) */}
-      <section className="explore-hero" aria-label="Explore Somalia Coast Hero">
-        <img
-          src="/images/image.webp"
-          alt="Somalia 3,330 KM pristine coastline"
-          className="explore-hero__bg"
-          loading="eager"
-        />
-        <div className="explore-hero__overlay" />
+      {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
+      <PageHero
+        pageId="explore_coast"
+        image="/eyl3.webp"
+        titleTop={isSomali ? 'Sahami 3,330 KM' : 'Explore 3,330 KM'}
+        titleHighlight={isSomali ? 'Xeebaha' : 'Coastline'}
+        titleBottom={isSomali ? 'ee Geeska Afrika' : 'From Zeila To Kamboni'}
+        desc={
+          isSomali
+            ? 'Safarka xeebta ugu dheer qaaradda Afrika — dooxooyinka badda, buuraha dhagaxa ah, iyo jasiiradaha shacaabka ee aan waligood la taaban.'
+            : 'Traverse the longest continental coastline in Africa — dramatic sea canyons, ancient headlands, and turquoise coral atolls.'
+        }
+        primaryCta={{
+          label: isSomali ? 'Khariidadda Xeebaha' : 'Explore Coastline',
+          path: '#coastline-timeline',
+          icon: <ArrowRight size={17} />,
+        }}
+        cutout={{
+          title: isSomali ? 'Kala Soco Deegaannada Xeebta' : "Explore Somalia's Havens",
+          path: '#coastline-timeline',
+          thumbnails: ['/eyl1.webp', '/hafun2.webp', '/kismayo2.webp'],
+          info: isSomali
+            ? 'Kala baro 18 degmo oo xeeb ah, marin-badeedyada qadiimiga ah, iyo xogaha GPS-ka ee deegaan walba.'
+            : 'Discover 18 Maritime Districts, Historical Ancient Ports, And Natural Sea Gorges Across The Coast.',
+          rating: '3,330',
+          tagline: isSomali ? 'KM oo Xeeb Nool ah' : 'KM Africa’s Longest Coastline',
+        }}
+      />
 
-        <div className="explore-hero__content">
-          <div className="explore-hero__meta">
-            <span className="explore-hero__kicker">
-              <Compass size={14} />
-              <span>{isSomali ? '3,330 KM XEEB NOOL AH' : "SOMALIA'S COASTLINE · 3,330 KM"}</span>
-            </span>
-          </div>
+      {/* 1.5. Featured Coastal Tours & Destination Cards (Relocated from Hero) */}
+      <section id="coastline-timeline" className="explore-tours-showcase" aria-label="Featured Coastal Tours">
+        <div className="explore-tours-showcase__inner">
+          <div className="explore-tours-showcase__header">
+            <div>
+              <h2 className="explore-tours-showcase__title">
+                {isSomali ? 'Dalxiisyada Xeebaha ee Ugu Caansan' : 'Featured Coastal Destinations'}
+              </h2>
+              <p className="explore-tours-showcase__subtitle">
+                {isSomali
+                  ? 'Sahami meelaha ugu quruxda badan 3,330 KM ee xeebta Soomaaliya oo leh shacaab iyo buuro dabiici ah.'
+                  : 'Browse top-rated destinations across 3,330 km of pristine turquoise atolls, sea canyons, and historic ports.'}
+              </p>
+            </div>
 
-          <h1 className="explore-hero__title">
-            {isSomali ? (
-              <>
-                Sahami Xeebaha <br />
-                <span className="explore-hero__title-italic">Badda Soomaaliya.</span>
-              </>
-            ) : (
-              <>
-                Explore Somalia's <br />
-                <span className="explore-hero__title-italic">Pristine Coast.</span>
-              </>
-            )}
-          </h1>
-
-          <p className="explore-hero__desc">
-            {isSomali
-              ? 'Laga bilaabo buuraha dhaadheer ee Gacanka Cadmeed ilaa carwooyinka shacaabka ee Badweynta Hindiya — sahami xeebta ugu dheer qaaradda Afrika.'
-              : 'From the dramatic sea cliffs of the Gulf of Aden to the crystal turquoise coral atolls of the Indian Ocean — discover the longest coastline on mainland Africa.'}
-          </p>
-
-          {/* Luxury Editorial Search Bar */}
-          <div className="explore-hero__search-wrap">
-            <form onSubmit={handleSearch} className="explore-hero__search-form">
-              <Search size={18} className="explore-hero__search-icon" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={
-                  isSomali
-                    ? 'Raadi Boosaaso, Baajuun, Eyl...'
-                    : 'Search Bosaso, Bajuni, Hafun...'
-                }
-                className="explore-hero__search-input"
-                aria-label="Search destinations"
-              />
-              <button type="submit" className="explore-hero__search-btn">
-                <span>{isSomali ? 'Sahami' : 'Explore'}</span>
-                <ArrowRight size={14} />
+            <div className="explore-tours-showcase__ctrls">
+              <button
+                type="button"
+                onClick={handleTourPrev}
+                className="explore-tours-showcase__arrow"
+                aria-label="Previous tours"
+              >
+                <ChevronLeft size={20} />
               </button>
-            </form>
+              <button
+                type="button"
+                onClick={handleTourNext}
+                className="explore-tours-showcase__arrow"
+                aria-label="Next tours"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
           </div>
 
-          {/* Quick Filter Tags */}
-          <div className="explore-hero__tags">
-            <Link to={localizedPath('/explore-the-coast/bosaso')} className="explore-hero__tag-btn">
-              Boosaaso (Puntland)
-            </Link>
-            <Link to={localizedPath('/explore-the-coast/kismayo')} className="explore-hero__tag-btn">
-              Jasiiradaha Baajuun
-            </Link>
-            <Link to={localizedPath('/explore-the-coast/hafun')} className="explore-hero__tag-btn">
-              Raas Xaafuun
-            </Link>
-            <Link to={localizedPath('/explore-the-coast/eyl')} className="explore-hero__tag-btn">
-              Dooxada Eyl
-            </Link>
-            <Link to={localizedPath('/explore-the-coast/mogadishu')} className="explore-hero__tag-btn">
-              Xeebta Liido
-            </Link>
+          {/* Category Filter Chips */}
+          <div className="explore-tours-showcase__categories">
+            {['All', 'Coral Reefs', 'Coastal Cliffs', 'Ocean Canyon', 'Ancient Ports', 'Dunes & Surf', 'Whale Sharks'].map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => {
+                  setTourCategory(cat);
+                  setTourStartIndex(0);
+                }}
+                className={`explore-tours-showcase__chip ${tourCategory === cat ? 'explore-tours-showcase__chip--active' : ''}`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Active Filter or Search pill with Clear button */}
+          {(searchQuery || tourCategory !== 'All') && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+              <span style={{ fontSize: '0.85rem', color: '#0284c7', fontWeight: 600 }}>
+                {searchQuery ? `${isSomali ? 'Natiijada' : 'Results for'}: "${searchQuery}"` : `${isSomali ? 'Qaybta' : 'Category'}: ${tourCategory}`}
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery('');
+                  setTourCategory('All');
+                  setTourStartIndex(0);
+                }}
+                style={{
+                  background: '#e0f2fe',
+                  color: '#0284c7',
+                  border: 'none',
+                  borderRadius: '12px',
+                  padding: '2px 10px',
+                  fontSize: '0.75rem',
+                  cursor: 'pointer',
+                  fontWeight: 600,
+                }}
+              >
+                {isSomali ? 'Dib u celi' : 'Clear filter'}
+              </button>
+            </div>
+          )}
+
+          {/* 4 Cards Grid */}
+          <div className="explore-tours-cards-grid">
+            {visibleTourCards.map((tour) => {
+              const isSaved = !!savedTourCards[tour.id];
+              return (
+                <Link
+                  key={tour.id}
+                  to={localizedPath(tour.path)}
+                  className="explore-tour-card"
+                >
+                  <img
+                    src={tour.image}
+                    alt={tour.title}
+                    className="explore-tour-card__img"
+                    loading="lazy"
+                  />
+                  <div className="explore-tour-card__rating">
+                    <Star size={12} className="explore-tour-card__star" />
+                    <span>{tour.rating}</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    className={`explore-tour-card__heart-btn ${isSaved ? 'explore-tour-card__heart-btn--saved' : ''}`}
+                    onClick={(e) => toggleSaveTour(e, tour.id)}
+                    aria-label={`Save ${tour.title}`}
+                  >
+                    <Heart
+                      size={16}
+                      fill={isSaved ? '#ef4444' : 'none'}
+                      color={isSaved ? '#ef4444' : '#64748b'}
+                    />
+                  </button>
+
+                  <div className="explore-tour-card__overlay">
+                    <span className="explore-tour-card__area">{tour.region}</span>
+                    <h3 className="explore-tour-card__title">{tour.title}</h3>
+                    <div className="explore-tour-card__action">
+                      <span>{isSomali ? 'Sahmi Safarka' : 'Explore Tour'}</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -527,7 +769,7 @@ export default function ExploreCoastPage() {
       </section>
 
       {/* 5. Destination Catalog (6 Editorial Cards, 120px Pause) */}
-      <section className="explore-section" aria-label="All Destinations Catalog">
+      <section id="all-destinations" className="explore-section" aria-label="All Destinations Catalog">
         <div className="explore-container">
           <div className="explore-section-header">
             <span className="explore-eyebrow">

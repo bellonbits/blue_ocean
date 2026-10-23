@@ -16,7 +16,7 @@
   --color-turquoise:       #007F99;
   --color-turquoise-dark:  #006075;
   --color-turquoise-light: #00A3C2;
-  --color-background:      #F5FAFC;
+  --color-background:      #FFFFFF;
   --color-surface:         #FFFFFF;
   --color-surface-2:       #EAF2F6;
   --color-surface-3:       #DDE9EF;
@@ -33,14 +33,14 @@
   --gradient-hero:         linear-gradient(to bottom, rgba(7,25,35,0.25) 0%, rgba(7,25,35,0.6) 60%, rgba(7,25,35,0.98) 100%);
   --gradient-card:         linear-gradient(to bottom, rgba(245,250,252,0) 0%, rgba(245,250,252,0.95) 100%);
   --gradient-turquoise:    linear-gradient(135deg, #007F99 0%, #005F73 100%);
-  --gradient-surface:      linear-gradient(135deg, #FFFFFF 0%, #F5FAFC 100%);
-  --gradient-glow:         radial-gradient(ellipse at center, rgba(0,127,153,0.12) 0%, transparent 70%);
+  --gradient-surface:      linear-gradient(135deg, #FFFFFF 0%, #FFFFFF 100%);
+  --gradient-glow:         none;
 
-  /* Typography */
-  --font-display:   'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-body:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-editorial: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  --font-modern:    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography — Unified Modern Clean Typeface across Website */
+  --font-display:   'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-editorial: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-modern:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Font Sizes */
   --text-xs:   0.75rem;    /* 12px */
@@ -110,7 +110,7 @@
   --container-pad: clamp(1rem, 4vw, 2rem);
   --header-height: 90px;
 
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 /* =========================================================
@@ -121,71 +121,71 @@
   --color-primary:         #0A2540;
   --color-primary-dark:    #061828;
   --color-primary-light:   #EAF4F7;
-  --color-turquoise:       #007F99;
-  --color-turquoise-dark:  #006075;
-  --color-turquoise-light: #00A3C2;
-  --color-background:      #F5FAFC;
+  --color-turquoise:       #0284C7;
+  --color-turquoise-dark:  #0369A1;
+  --color-turquoise-light: #38BDF8;
+  --color-background:      #FFFFFF;
   --color-surface:         #FFFFFF;
-  --color-surface-2:       #EAF2F6;
-  --color-surface-3:       #DDE9EF;
+  --color-surface-2:       #FFFFFF;
+  --color-surface-3:       #F8FAFC;
   --color-text:            #071923;
   --color-text-muted:      #526A75;
   --color-text-dim:        #7C94A0;
-  --color-border:          #D7E5EA;
-  --color-border-bright:   rgba(0, 127, 153, 0.35);
+  --color-border:          #E2E8F0;
+  --color-border-bright:   rgba(2, 132, 199, 0.35);
 
-  --gradient-hero:         linear-gradient(to bottom, rgba(7,25,35,0.25) 0%, rgba(7,25,35,0.6) 60%, rgba(7,25,35,0.98) 100%);
-  --gradient-card:         linear-gradient(to bottom, rgba(245,250,252,0) 0%, rgba(245,250,252,0.95) 100%);
-  --gradient-turquoise:    linear-gradient(135deg, #007F99 0%, #005F73 100%);
-  --gradient-surface:      linear-gradient(135deg, #FFFFFF 0%, #F5FAFC 100%);
-  --gradient-glow:         radial-gradient(ellipse at center, rgba(0,127,153,0.12) 0%, transparent 70%);
+  --gradient-hero:         none;
+  --gradient-card:         none;
+  --gradient-turquoise:    linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  --gradient-surface:      linear-gradient(135deg, #FFFFFF 0%, #FFFFFF 100%);
+  --gradient-glow:         none;
 
   --shadow-sm:  0 1px 3px rgba(7,25,35,0.06);
   --shadow-md:  0 4px 16px rgba(7,25,35,0.08);
   --shadow-lg:  0 8px 32px rgba(7,25,35,0.12);
   --shadow-xl:  0 16px 64px rgba(7,25,35,0.16);
-  --shadow-glow: 0 0 30px rgba(0,127,153,0.15);
-  --shadow-glow-sm: 0 0 15px rgba(0,127,153,0.1);
+  --shadow-glow: none;
+  --shadow-glow-sm: none;
 }
 
 /* =========================================================
-   Section-Level Theme Overrides
+   Section-Level Theme Overrides — Strictly Pure White
    ========================================================= */
 
-/* Explicit Dark Section Variant (e.g. Hero, Marine Life, Maps, Stats, Footer) */
+/* Explicit Dark Section Variant (Remapped to Crisp White) */
 .theme-section-dark,
 [data-section-theme="dark"] {
-  --color-background:      #06141C;
-  --color-surface:         #0B202B;
-  --color-surface-2:       #102B3A;
-  --color-surface-3:       #163749;
-  --color-text:            #FFFFFF;
-  --color-text-muted:      #9CB2BC;
-  --color-text-dim:        #5D7A88;
-  --color-border:          rgba(255, 255, 255, 0.12);
-  --color-border-bright:   rgba(0, 207, 232, 0.35);
-  --color-turquoise:       #00CFE8;
-  --color-turquoise-dark:  #009BB0;
-  --color-turquoise-light: #4DE2F2;
+  --color-background:      #FFFFFF;
+  --color-surface:         #FFFFFF;
+  --color-surface-2:       #FFFFFF;
+  --color-surface-3:       #F8FAFC;
+  --color-text:            #071923;
+  --color-text-muted:      #526A75;
+  --color-text-dim:        #7C94A0;
+  --color-border:          #E2E8F0;
+  --color-border-bright:   rgba(2, 132, 199, 0.35);
+  --color-turquoise:       #0284C7;
+  --color-turquoise-dark:  #0369A1;
+  --color-turquoise-light: #38BDF8;
   color: var(--color-text);
   background-color: var(--color-background);
 }
 
-/* Explicit Light Section Variant (e.g. Research, News, Articles, Species Details) */
+/* Explicit Light Section Variant (Pure White) */
 .theme-section-light,
 [data-section-theme="light"] {
-  --color-background:      #F5FAFC;
+  --color-background:      #FFFFFF;
   --color-surface:         #FFFFFF;
-  --color-surface-2:       #EAF2F6;
-  --color-surface-3:       #DDE9EF;
+  --color-surface-2:       #FFFFFF;
+  --color-surface-3:       #F8FAFC;
   --color-text:            #071923;
   --color-text-muted:      #526A75;
   --color-text-dim:        #7C94A0;
-  --color-border:          #D7E5EA;
-  --color-border-bright:   rgba(0, 127, 153, 0.35);
-  --color-turquoise:       #007F99;
-  --color-turquoise-dark:  #006075;
-  --color-turquoise-light: #00A3C2;
+  --color-border:          #E2E8F0;
+  --color-border-bright:   rgba(2, 132, 199, 0.35);
+  --color-turquoise:       #0284C7;
+  --color-turquoise-dark:  #0369A1;
+  --color-turquoise-light: #38BDF8;
   color: var(--color-text);
   background-color: var(--color-background);
 }
@@ -389,6 +389,7 @@ input, textarea, select {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
   line-height: 1.2;
   font-weight: 700;
 }

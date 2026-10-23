@@ -414,7 +414,7 @@ export default function ContactPage() {
               <span className="portal-section-tag" style={{ marginBottom: 8 }}>
                 {isSomali ? 'FOOMKA XIRIIRKA' : 'INQUIRY FORM'}
               </span>
-              <h3 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: '1.5rem', color: '#122119', margin: '4px 0 8px 0' }}>
+              <h3 style={{ fontFamily: 'Inter, -apple-system, sans-serif', fontSize: '1.5rem', fontWeight: 700, color: '#122119', margin: '4px 0 8px 0' }}>
                 {isSomali ? 'Fariin Noo Soo Dir' : 'Send an Official Message'}
               </h3>
               <p style={{ fontSize: '0.88rem', color: '#688274', margin: 0 }}>
@@ -429,7 +429,7 @@ export default function ContactPage() {
                 <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'rgba(14, 165, 233, 0.12)', color: '#0284c7', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px auto' }}>
                   <CheckCircle2 size={32} />
                 </div>
-                <h4 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: '1.3rem', color: '#122119', marginBottom: 8 }}>
+                <h4 style={{ fontFamily: 'Inter, -apple-system, sans-serif', fontSize: '1.3rem', fontWeight: 700, color: '#122119', marginBottom: 8 }}>
                   {isSomali ? 'Fariintaadu Way Nasoo Gaartay' : 'Message Successfully Received'}
                 </h4>
                 <p style={{ color: '#556c5e', fontSize: '0.92rem', maxWidth: 360, margin: '0 auto 20px auto', lineHeight: 1.6 }}>

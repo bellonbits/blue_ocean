@@ -74,14 +74,24 @@ import NativeAppGate from './onboarding/NativeAppGate';
 import './styles/globals.css';
 import { useScrollReveal } from './lib/hooks';
 
-// Scroll to top and trigger scroll reveal on route change
+// Scroll to top or anchor target and trigger scroll reveal on route change
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useScrollReveal();
 
   useEffect(() => {
+    if (hash) {
+      const targetId = hash.replace('#', '');
+      const el = document.getElementById(targetId);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 120);
+        return;
+      }
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 }

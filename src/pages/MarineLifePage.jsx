@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import {
   Compass,
   Search,
@@ -17,16 +17,36 @@ import {
   Layers,
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import PageHero from '../components/editorial/PageHero';
 import '../styles/portalDesignSystem.css';
 
 export default function MarineLifePage() {
   const { language } = useLanguage();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const isSomali = language === 'so';
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
-  const [searchQuery, setSearchQuery] = useState('');
+  const queryParam = searchParams.get('q') || '';
+  const [searchQuery, setSearchQuery] = useState(queryParam);
   const [featuredIndex, setFeaturedIndex] = useState(0);
+  const [savedSpecies, setSavedSpecies] = useState({});
+
+  useEffect(() => {
+    const q = searchParams.get('q');
+    if (q !== null && q !== undefined) {
+      setSearchQuery(q);
+    }
+  }, [searchParams]);
+
+  const toggleSave = (e, title) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSavedSpecies((prev) => ({
+      ...prev,
+      [title]: !prev[title],
+    }));
+  };
 
   useEffect(() => {
     document.title = isSomali
@@ -216,85 +236,129 @@ export default function MarineLifePage() {
 
   const currentFeatured = featuredSpecies[featuredIndex];
 
+  const MARINE_LIFE_HERO_SPOTS = [
+    {
+      id: 'turtles',
+      tag: isSomali ? 'QOOLLEY' : 'SEA TURTLES',
+      year: isSomali ? 'ILAALIN' : 'ENDANGERED',
+      title: isSomali ? 'Qoolleyda Badda ee Cagaaran' : 'Green & Hawksbill Sea Turtles',
+      subtitle: isSomali ? 'Chelonia mydas & Eretmochelys' : 'Virgin Coral Atolls & Nesting Beaches',
+      desc: isSomali
+        ? 'Xeebaha Baajuun iyo jasiiradaha koonfureed waxay hoy u yihiin kumanaan qoolley oo badda ku nool oo ku tarma ciidda cad.'
+        : 'Somalia’s tranquil barrier islands shelter critical nesting and foraging grounds for globally endangered green and hawksbill sea turtles.',
+      link: '/marine-life/species',
+      image: '/marine_turtles.webp',
+      avatar: '/marine_turtles.webp',
+      author: isSomali ? 'Jasiiradaha Baajuun' : 'Bajuni Turtle Sanctuary',
+      authorMeta: isSomali ? 'Ilaalinta Caalamiga ah • IUCN Red List' : 'IUCN Red List Protected • 1,200+ Nests Tracked',
+    },
+    {
+      id: 'dolphins',
+      tag: isSomali ? 'HOONBAR' : 'DOLPHINS',
+      year: isSomali ? 'GACANKA' : 'PELAGIC',
+      title: isSomali ? 'Hoonbarka Badda ee Baallayda ah' : 'Spinner & Bottlenose Dolphins',
+      subtitle: isSomali ? 'Stenella longirostris' : 'Playful Pods Across the Somali Current',
+      desc: isSomali
+        ? 'Boqolaal hoonbar ah oo si wadajir ah u boodboodaya biyaha badweynta, iyagoo raacaya qulqulka biyaha nafaqada leh.'
+        : 'Pods of hundreds of spinner dolphins inhabit the nutrient-rich upwelling waters of the Horn of Africa and Gulf of Aden.',
+      link: '/marine-life/species',
+      image: '/marine_dolphins.webp',
+      avatar: '/marine_dolphins.webp',
+      author: isSomali ? 'Gacanka Cadmeed & Badweynta' : 'Somali Pelagic Highway',
+      authorMeta: isSomali ? 'Socdaalka Badda • Xilli Walba' : 'Pelagic Highway • Year-Round Resident Pods',
+    },
+    {
+      id: 'sharks',
+      tag: isSomali ? 'LIBAAX-BADEED' : 'WHALE SHARKS',
+      year: isSomali ? 'BOOSAASO' : 'GULF OF ADEN',
+      title: isSomali ? 'Libaax-Badeedka Weyn ee Boosaaso' : 'Gentle Giant Whale Sharks',
+      subtitle: isSomali ? 'Rhincodon typus' : 'World’s Largest Living Fish Migrations',
+      desc: isSomali
+        ? 'Kalluunka ugu weyn caalamka oo si nabad ah ugu dabaasha biyaha deggan ee Boosaaso si uu u cuno plankton-ka hodanka ah.'
+        : 'Reaching up to 12 meters, these gentle pelagic giants aggregate seasonally in the plankton-rich waters off Bosaso and Zeila.',
+      link: '/marine-life/species',
+      image: '/marine_sharks.webp',
+      avatar: '/marine_sharks.webp',
+      author: isSomali ? 'Xeebta Boosaaso' : 'Bosaso Deep Shelf',
+      authorMeta: isSomali ? 'Gacanka Cadmeed • Nafaqada Badda' : 'Gulf of Aden Upwelling • Filter Feeders',
+    },
+    {
+      id: 'coral',
+      tag: isSomali ? 'SHACAAB' : 'CORAL REEFS',
+      year: isSomali ? 'NOOLOY' : 'BIODIVERSITY',
+      title: isSomali ? 'Shacaabka Biyaha Hoose ee Nool' : 'Living Coral Reefs & Barrier Atolls',
+      subtitle: isSomali ? 'Acropora & Porites Gardens' : 'Thermally Resilient Red Sea & Somali Reefs',
+      desc: isSomali
+        ? 'Beero shacaab ah oo midabbo badan leh oo u adkaysta kulaylka badda, hoyna u ah kumanaan nooc oo noolaha badda ah.'
+        : 'Remarkably resilient coral reefs thriving in warm waters, providing essential nursery habitat for hundreds of reef fish species.',
+      link: '/marine-life/species',
+      image: '/marine_coral.webp',
+      avatar: '/marine_coral.webp',
+      author: isSomali ? 'Dhagaxleyda Baajuun' : 'Bajuni Reef System',
+      authorMeta: isSomali ? 'Deegaanka Shacaabka ee 3,330 KM' : 'Reef Biodiversity Hotspot • 300+ Corals',
+    },
+    {
+      id: 'seagrass',
+      tag: isSomali ? 'DAAQA BADDA' : 'SEAGRASS',
+      year: isSomali ? 'KAARBOON' : 'BLUE CARBON',
+      title: isSomali ? 'Daaqa Badda & Doofaarka Badda (Dugong)' : 'Seagrass Meadows & Dugong Sanctuaries',
+      subtitle: isSomali ? 'Halodule & Thalassia Ecosystems' : 'Essential Blue Carbon Coastal Nurseries',
+      desc: isSomali
+        ? 'Meelo ballaaran oo cawska badda ah oo qabta kaarboonka, ilaalina siiya dugong-yada dhifka ah iyo kalluunka yaryar.'
+        : 'Expansive intertidal seagrass meadows absorbing massive quantities of carbon while sustaining rare dugong populations.',
+      link: '/marine-life/species',
+      image: '/marine_seagrass.webp',
+      avatar: '/marine_seagrass.webp',
+      author: isSomali ? 'Xeebaha Koonfureed' : 'Southern Sheltered Inlets',
+      authorMeta: isSomali ? 'Kaydka Kaarboonka Buluugga ah' : 'Critical Nursery & Blue Carbon Sink',
+    },
+    {
+      id: 'boxfish',
+      tag: isSomali ? 'KALLUUN' : 'REEF FISH',
+      year: isSomali ? 'MIDABBO' : 'ENDEMIC',
+      title: isSomali ? 'Kalluunka Shacaabka ee Midabbada Badan' : 'Tropical Reef Fish Biodiversity',
+      subtitle: isSomali ? 'Ostraciidae & Chaetodontidae' : 'Endemic Species of the Western Indian Ocean',
+      desc: isSomali
+        ? 'Kumanaan nooc oo kalluun dhalaalaya ah oo ku dhex nool dhagaxleyda iyo godadka badda ee Soomaaliya.'
+        : 'From ornate boxfish to vibrant butterflyfish, Somalia’s reef biomes exhibit high endemism and marine vibrancy.',
+      link: '/marine-life/species',
+      image: '/raja_boxfish.webp',
+      avatar: '/raja_boxfish.webp',
+      author: isSomali ? 'Xeebaha Shacaabka' : 'Horn of Africa Reefs',
+      authorMeta: isSomali ? '1,200+ Nooc oo Noolaha Badda ah' : '1,200+ Documented Marine Species',
+    },
+  ];
+
   return (
     <div className="portal-page">
-      {/* 1. Inset Rounded Hero Banner */}
-      <section className="portal-hero" aria-label="Marine Life Hero">
-        <div className="portal-hero__inner">
-          <img
-            src="/images/image.webp"
-            alt="Somalia living marine ecosystems"
-            className="portal-hero__bg"
-          />
-          <div className="portal-hero__overlay" />
-
-          <div className="portal-hero__content">
-            <div className="portal-hero__badge">
-              <Fish size={14} />
-              <span>{isSomali ? 'NOLOSHA BADDA · 1,200+ NOOC' : 'MARINE LIFE · 1,200+ SPECIES'}</span>
-            </div>
-
-            <h1 className="portal-hero__title">
-              {isSomali ? (
-                <>
-                  Noolaha Badda <br />
-                  <span className="editorial-hero__title-italic">ee Soomaaliya.</span>
-                </>
-              ) : (
-                <>
-                  Living Seas & <br />
-                  <span className="editorial-hero__title-italic">Marine Life of Somalia.</span>
-                </>
-              )}
-            </h1>
-
-            <p className="portal-hero__subtitle">
-              {isSomali
-                ? 'Diiwaanka cilmiyeed iyo ilaalinta noolaha badda ee 3,330 km — libaax-badeedyada, qoolleyda badda, iyo shacaabka hodanka ah.'
-                : 'Scientific field guide and conservation atlas for over 1,200 species thriving across Africa’s longest marine coastline.'}
-            </p>
-
-            {/* Inset Search Widget */}
-            <div className="portal-hero__search-wrap">
-              <form onSubmit={handleSearch} className="portal-hero__search-form">
-                <Search size={18} className="portal-hero__search-icon" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={
-                    isSomali
-                      ? 'Raadi libaax-badeed, qoolley, shacaab, ama kalluun...'
-                      : 'Search whale shark, turtle, coral, or fish...'
-                  }
-                  className="portal-hero__search-input"
-                  aria-label="Search marine species"
-                />
-                <button type="submit" className="portal-hero__search-btn">
-                  <span>{isSomali ? 'Raadi' : 'Search Species'}</span>
-                  <ArrowRight size={14} />
-                </button>
-              </form>
-            </div>
-
-            {/* Quick Filter Tags */}
-            <div className="portal-hero__tags">
-              <Link to={localizedPath('/marine-life/species')} className="portal-hero__tag-btn">
-                {isSomali ? 'Libaax-Badeed' : 'Whale Sharks'}
-              </Link>
-              <Link to={localizedPath('/marine-life/species')} className="portal-hero__tag-btn">
-                {isSomali ? 'Qoolleyda Badda' : 'Sea Turtles'}
-              </Link>
-              <Link to={localizedPath('/marine-life/species')} className="portal-hero__tag-btn">
-                {isSomali ? 'Shacaabka Badda' : 'Coral Reefs'}
-              </Link>
-              <Link to={localizedPath('/marine-life/species')} className="portal-hero__tag-btn">
-                {isSomali ? 'Hoonbarka & Xuudka' : 'Dolphins & Whales'}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
+      <PageHero
+        pageId="marine_life"
+        image="/marine_turtles.webp"
+        titleTop={isSomali ? 'Baro Noolaha' : 'Encounter Rare'}
+        titleHighlight={isSomali ? 'Badda' : 'Marine Life'}
+        titleBottom={isSomali ? 'ee Soomaaliya' : 'In Living Seas'}
+        desc={
+          isSomali
+            ? 'Diiwaanka cilmiyeed iyo ilaalinta noolaha badda ee 3,330 km — libaax-badeedyada, qoolleyda badda, iyo shacaabka hodanka ah.'
+            : 'Scientific field guide and conservation atlas for over 1,200 documented marine species thriving across Africa’s longest coastline.'
+        }
+        primaryCta={{
+          label: isSomali ? 'Diiwaanka Noolaha' : 'Explore Marine Life',
+          path: '#all-species',
+          icon: <ArrowRight size={17} />,
+        }}
+        cutout={{
+          title: isSomali ? 'Raadi 1,200+ Nooc oo Noolaha Badda' : "Explore 1,200+ Marine Species",
+          path: '#all-species',
+          thumbnails: ['/marine_dolphins.webp', '/marine_sharks.webp', '/marine_coral.webp'],
+          info: isSomali
+            ? 'Kala garo libaax-badeedyada, qoolleyda dabar-go’a ku dhow, iyo shacaabka u adkaysta kulaylka badda.'
+            : 'Whale Sharks, Endangered Sea Turtles, Spinner Dolphins, And Thermally Resilient Coral Gardens.',
+          rating: '1,200+',
+          tagline: isSomali ? 'Nooc oo Noolaha Badda ah' : 'Documented Marine Species',
+        }}
+      />
 
       {/* 2. 2-Column About Marine Life */}
       <section className="portal-card-section" aria-label="Marine Biodiversity Overview">
@@ -479,7 +543,7 @@ export default function MarineLifePage() {
       </section>
 
       {/* 5. 6-Card Species Directory Grid (2x3) */}
-      <section className="portal-card-section" aria-label="Species Directory">
+      <section id="all-species" className="portal-card-section" aria-label="Species Directory">
         <div className="portal-section-header">
           <span className="portal-section-tag">
             {isSomali ? 'DIIWAANKA NOOLAHA' : 'SPECIES DIRECTORY'}
@@ -494,8 +558,39 @@ export default function MarineLifePage() {
           </p>
         </div>
 
+        {searchQuery && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px' }}>
+            <span style={{ fontSize: '0.85rem', color: '#0284c7', fontWeight: 600 }}>
+              {isSomali ? 'Natiijada' : 'Results for'}: "{searchQuery}"
+            </span>
+            <button
+              type="button"
+              onClick={() => setSearchQuery('')}
+              style={{
+                background: '#e0f2fe',
+                color: '#0284c7',
+                border: 'none',
+                borderRadius: '12px',
+                padding: '2px 10px',
+                fontSize: '0.75rem',
+                cursor: 'pointer',
+                fontWeight: 600,
+              }}
+            >
+              {isSomali ? 'Dib u celi' : 'Clear filter'}
+            </button>
+          </div>
+        )}
+
         <div className="portal-attractions-grid">
-          {speciesList.map((sp, i) => (
+          {(searchQuery
+            ? speciesList.filter((sp) =>
+                sp.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                sp.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                sp.desc.toLowerCase().includes(searchQuery.toLowerCase())
+              )
+            : speciesList
+          ).map((sp, i) => (
             <article key={i} className="portal-attraction-card">
               <div className="portal-attraction-card__media">
                 <img src={sp.image} alt={sp.title} className="portal-attraction-card__img" />
@@ -505,9 +600,14 @@ export default function MarineLifePage() {
                 <button
                   type="button"
                   className="portal-attraction-card__badge-round"
-                  aria-label="Bookmark species"
+                  aria-label={`Bookmark ${sp.title}`}
+                  onClick={(e) => toggleSave(e, sp.title)}
                 >
-                  <Heart size={16} />
+                  <Heart
+                    size={16}
+                    fill={savedSpecies[sp.title] ? '#ef4444' : 'none'}
+                    color={savedSpecies[sp.title] ? '#ef4444' : '#64748b'}
+                  />
                 </button>
               </div>
               <div className="portal-attraction-card__content">

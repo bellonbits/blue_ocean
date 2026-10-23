@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import {
   Compass,
   Search,
@@ -18,16 +18,36 @@ import {
   Activity,
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import PageHero from '../components/editorial/PageHero';
 import '../styles/portalDesignSystem.css';
 
 export default function ResearchPage() {
   const { language } = useLanguage();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const isSomali = language === 'so';
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
-  const [searchQuery, setSearchQuery] = useState('');
+  const queryParam = searchParams.get('q') || '';
+  const [searchQuery, setSearchQuery] = useState(queryParam);
   const [featuredIndex, setFeaturedIndex] = useState(0);
+  const [savedProjects, setSavedProjects] = useState({});
+
+  useEffect(() => {
+    const q = searchParams.get('q');
+    if (q !== null && q !== undefined) {
+      setSearchQuery(q);
+    }
+  }, [searchParams]);
+
+  const toggleSave = (e, title) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSavedProjects((prev) => ({
+      ...prev,
+      [title]: !prev[title],
+    }));
+  };
 
   useEffect(() => {
     document.title = isSomali
@@ -220,75 +240,129 @@ export default function ResearchPage() {
 
   const currentFeatured = featuredStations[featuredIndex];
 
+  const RESEARCH_HERO_SPOTS = [
+    {
+      id: 'bathymetry',
+      tag: isSomali ? 'KHARIIDAD' : 'BATHYMETRY',
+      year: isSomali ? 'QOTO-DHEER' : 'OCEAN SHELF',
+      title: isSomali ? 'Khariidadda Qoto-dheerida Badda Soomaaliya' : 'Somali Basin Physiographic Ocean Map',
+      subtitle: isSomali ? 'Daraasadda Qaab-dhismeedka Badda' : 'Continental Shelf Break & Upwelling Channels',
+      desc: isSomali
+        ? 'Daraasadda cilmiyeed ee qaab-dhismeedka qoto-dheer ee Badweynta Hindiya iyo marin-badeedyada qabow ee upwelling-ka.'
+        : 'High-resolution bathymetric mapping revealing deep-sea submarine trenches, continental shelves, and monsoon upwelling conduits.',
+      link: '/research',
+      image: '/research/fig-somalia-physiographic-map.webp',
+      avatar: '/research/fig-somalia-physiographic-map.webp',
+      author: isSomali ? 'Saldhigga Sayniska ee Badda' : 'Somalia Marine Science Unit',
+      authorMeta: isSomali ? 'Xogta Juqraafiga Badda • 4,000m+ Qoto' : 'Oceanographic Survey • Depth Gradients to 4,000m+',
+    },
+    {
+      id: 'habitats',
+      tag: isSomali ? 'DEEGAAN' : 'REMOTE SENSING',
+      year: isSomali ? 'DAYAX-GACMEED' : 'HABITATS',
+      title: isSomali ? 'Daraasadda Deegaannada Gacanka & Badda' : 'Shallow Water Habitat Satellite Atlas',
+      subtitle: isSomali ? 'Shacaabka, Ciidda & Daaqa Badda' : 'Multi-Spectral Spaceborne Reef Mapping',
+      desc: isSomali
+        ? 'Adeegsiga xogaha dayax-gacmeedka iyo baaritaannada goobta si loo sawiro xaaladda shacaabka iyo deegaannada badda.'
+        : 'Classifying intertidal sand flats, living coral fringing reefs, and dense seagrass beds using calibrated multi-spectral satellite imagery.',
+      link: '/research',
+      image: '/research/fig-shallow-water-habitats.webp',
+      avatar: '/research/fig-shallow-water-habitats.webp',
+      author: isSomali ? 'Xarunta Dayax-gacmeedka Badda' : 'Coastal Geospatial Laboratory',
+      authorMeta: isSomali ? '3,330 KM oo Xog Juqraafi ah' : '3,330 KM Continental Coastline Habitat Grid',
+    },
+    {
+      id: 'barrier',
+      tag: isSomali ? 'JASIIRADO' : 'GEOMORPHOLOGY',
+      year: isSomali ? 'BAAJUUN' : 'BARRIER ISLANDS',
+      title: isSomali ? 'Qaab-dhismeedka Jasiiradaha Baajuun' : 'Bajuni Barrier Island Profile Study',
+      subtitle: isSomali ? 'Difaaca Xeebta & Mowjadaha Badda' : 'Sediment Dynamics & Dune Morphodynamics',
+      desc: isSomali
+        ? 'Baaritaanka sida jasiiradaha dabiiciga ah ee Baajuun ay xeebta uga difaacaan duufaannada iyo mowjadaha badweynta.'
+        : 'Investigating how ancient fossilized dune ridges and living coral barriers protect southern Somalia’s mainland coastline.',
+      link: '/research',
+      image: '/research/fig-bajuni-barrier-island-profile.webp',
+      avatar: '/research/fig-bajuni-barrier-island-profile.webp',
+      author: isSomali ? 'Kismayo Research Station' : 'Southern Shelf Marine Lab',
+      authorMeta: isSomali ? 'Difaaca Dabiiciga ah ee Xeebaha' : 'Coastal Wave Attenuation & Sediment Dynamics',
+    },
+    {
+      id: 'monitoring',
+      tag: isSomali ? 'KORMEER' : 'FIELD SCIENCE',
+      year: isSomali ? 'TAYADA' : 'WATER QUALITY',
+      title: isSomali ? 'Kormeerka Tayada Biyaha & Sayniska' : 'Marine Water Chemistry & In-Situ Sampling',
+      subtitle: isSomali ? 'Heerkulka, Cusbada & Noolaha' : 'Continuous Physical Oceanography Telemetry',
+      desc: isSomali
+        ? 'Ururinta xogta heerkulka biyaha, heerka milixda, iyo noolaha microscopic-ka ah ee aasaaska u ah silsiladda cuntada badda.'
+        : 'In-situ acoustic dataloggers and water sampling tracking temperature, salinity, pH, and planktonic biomass year-round.',
+      link: '/research',
+      image: '/con_beach_cleanup.webp',
+      avatar: '/con_beach_cleanup.webp',
+      author: isSomali ? 'Kooxda Baarayaasha Badda' : 'Field Oceanography Operations',
+      authorMeta: isSomali ? 'Saldhigyada Xeebta Soomaaliya' : 'All-Weather Coastal Data Loggers',
+    },
+    {
+      id: 'upwelling',
+      tag: isSomali ? 'UPWELLING' : 'PHYSICAL OCEAN',
+      year: isSomali ? 'NAFAQO' : 'PRODUCTIVITY',
+      title: isSomali ? 'Nidaamka Upwelling ee Badda Soomaaliya' : 'The Great Somali Upwelling Phenomenon',
+      subtitle: isSomali ? 'Dabaylaha Monsoon-ka & Nafaqada Badda' : 'Southwest Monsoon Nutrient Surges',
+      desc: isSomali
+        ? 'Daraasadda qulqulka biyaha qabow ee hoose ee keena nafaqada sare, taas oo ka dhigta badda Soomaaliya mid ka mid ah kuwa ugu hodansan.'
+        : 'One of the most energetic ocean upwelling regimes on Earth, generating exceptional primary pelagic productivity every monsoon.',
+      link: '/research',
+      image: '/somalia_coast.webp',
+      avatar: '/somalia_coast.webp',
+      author: isSomali ? 'Xarunta Boosaaso & Xaafuun' : 'Bosaso & Hafun Marine Labs',
+      authorMeta: isSomali ? 'Nidaamka Nafaqada ee Badweynta Hindiya' : 'Physical Oceanography & Carbon Sequestration',
+    },
+    {
+      id: 'fieldwork',
+      tag: isSomali ? 'HAY’AD' : 'OBSERVATORIES',
+      year: isSomali ? 'XOGTA' : 'DATA REPOSITORY',
+      title: isSomali ? 'Saldhigyada Kormeerka & Xogta Furan' : 'Living Coastal Observatories & Open Data',
+      subtitle: isSomali ? 'Sayniska loo Adeegsado Danta Dadweynaha' : 'Empowering Sovereign Ocean Governance',
+      desc: isSomali
+        ? 'Saldhigyo casri ah oo kormeera xeebaha dalka oo dhan, xogaha oo dhan oo loo furay ardayda iyo cilmi-baarayaasha.'
+        : 'Open-access oceanographic platforms providing Somali institutions and international researchers with reliable marine datasets.',
+      link: '/research',
+      image: '/images/img_07.webp',
+      avatar: '/images/img_07.webp',
+      author: isSomali ? 'Somalia Blue Heaven Research' : 'Somalia Marine Data Archive',
+      authorMeta: isSomali ? 'Sayniska Xorta ah ee Soomaaliya' : 'Open Science for Coastal Communities',
+    },
+  ];
+
   return (
     <div className="portal-page">
-      {/* 1. Inset Rounded Hero Banner */}
-      <section className="portal-hero" aria-label="Marine Research Hero">
-        <div className="portal-hero__inner">
-          <img
-            src="/images/image.webp"
-            alt="Marine research along Somalia coastline"
-            className="portal-hero__bg"
-          />
-          <div className="portal-hero__overlay" />
-
-          <div className="portal-hero__content">
-            <div className="portal-hero__badge">
-              <Microscope size={14} />
-              <span>{isSomali ? 'CILMI-BAARISTA BADDA • 3,330 KM' : 'MARINE SCIENCE & RESEARCH • 3,330 KM'}</span>
-            </div>
-
-            <h1 className="portal-hero__title">
-              {isSomali ? 'Cilmi-Baarista & Xarumaha Badda.' : 'Scientific Research & Ocean Observatories.'}
-            </h1>
-
-            <p className="portal-hero__subtitle">
-              {isSomali
-                ? 'Daraasaadka cilmiyeed ee badda, dhowridda shacaabka, iyo xogaha xaqiiqda ah ee lagu ilaalinayo xeebta ugu dheer qaaradda Afrika.'
-                : 'Pioneering scientific oceanography, coral resilience tracking, and marine telemetry across Africa’s longest coastline.'}
-            </p>
-
-            {/* Inset Search Widget */}
-            <div className="portal-hero__search-wrap">
-              <form onSubmit={handleSearch} className="portal-hero__search-form">
-                <Search size={18} color="#0ea5e9" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={
-                    isSomali
-                      ? 'Raadi mashruuc, shacaab, libaax-badeed, ama xog...'
-                      : 'Search projects, coral data, tagging, or stations...'
-                  }
-                  className="portal-hero__search-input"
-                  aria-label="Search research projects"
-                />
-                <button type="submit" className="portal-hero__search-btn">
-                  <span>{isSomali ? 'Raadi' : 'Explore Science'}</span>
-                  <ArrowRight size={14} />
-                </button>
-              </form>
-            </div>
-
-            {/* Quick Filter Tags */}
-            <div className="portal-hero__tags">
-              <Link to={localizedPath('/research/projects')} className="portal-hero__tag-btn">
-                {isSomali ? 'Mashaariicda Socota' : 'Active Projects'}
-              </Link>
-              <Link to={localizedPath('/explore-the-coast/bosaso')} className="portal-hero__tag-btn">
-                {isSomali ? 'Saldhigga Boosaaso' : 'Bosaso Ocean Lab'}
-              </Link>
-              <Link to={localizedPath('/explore-the-coast/kismayo')} className="portal-hero__tag-btn">
-                {isSomali ? 'Kaymaha Baajuun' : 'Bajuni Mangrove Study'}
-              </Link>
-              <Link to={localizedPath('/explore-the-coast/hafun')} className="portal-hero__tag-btn">
-                {isSomali ? 'Hirarka Xaafuun' : 'Hafun Upwelling'}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
+      <PageHero
+        pageId="research"
+        image="/somalia_coast.webp"
+        titleTop={isSomali ? 'Hormuudka' : 'Pioneering Deep'}
+        titleHighlight={isSomali ? 'Sayniska' : 'Marine Science'}
+        titleBottom={isSomali ? 'Badda & Telemetry' : '& Ocean Telemetry'}
+        desc={
+          isSomali
+            ? 'Daraasaadka cilmiyeed ee badda, khariidaynta gunta badda, iyo xogaha xaqiiqda ah ee lagu ilaalinayo xeebta ugu dheer qaaradda Afrika.'
+            : 'Open-access oceanographic datasets, high-resolution bathymetric surveys, and coral resilience tracking across 3,330 km.'
+        }
+        primaryCta={{
+          label: isSomali ? 'Sahami Sayniska' : 'Explore Research',
+          path: '#all-projects',
+          icon: <ArrowRight size={17} />,
+        }}
+        cutout={{
+          title: isSomali ? 'Mashaariicda Sayniska ee Socda' : "Active Science Projects",
+          path: '#all-projects',
+          thumbnails: ['/research/fig-somalia-physiographic-map.webp', '/research/fig-shallow-water-habitats.webp', '/con_beach_cleanup.webp'],
+          info: isSomali
+            ? 'Xogaha bathymetry-ga, dayax-gacmeedka shacaabka, iyo kormeerka xaaladaha badda ee 18 saldhig.'
+            : 'Autonomous Ocean Dataloggers, Bathymetry Surveys, And Spaceborne Habitat Mapping Across 18 Stations.',
+          rating: '18 Labs',
+          tagline: isSomali ? 'Xog Badda oo Furan' : 'Open Marine Data Repositories',
+        }}
+      />
 
       {/* 2. 2-Column About Marine Research */}
       <section className="portal-card-section" aria-label="Research Overview">
@@ -480,7 +554,7 @@ export default function ResearchPage() {
       </section>
 
       {/* 5. 6-Card Research Projects Grid (2x3) */}
-      <section className="portal-card-section" aria-label="Research Projects Directory">
+      <section id="all-projects" className="portal-card-section" aria-label="Research Projects Directory">
         <div className="portal-section-header">
           <span className="portal-section-tag">
             {isSomali ? 'MASHAARIICDA CILMIYEED' : 'RESEARCH PORTFOLIO'}
@@ -495,8 +569,39 @@ export default function ResearchPage() {
           </p>
         </div>
 
+        {searchQuery && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px' }}>
+            <span style={{ fontSize: '0.85rem', color: '#0284c7', fontWeight: 600 }}>
+              {isSomali ? 'Natiijada' : 'Results for'}: "{searchQuery}"
+            </span>
+            <button
+              type="button"
+              onClick={() => setSearchQuery('')}
+              style={{
+                background: '#e0f2fe',
+                color: '#0284c7',
+                border: 'none',
+                borderRadius: '12px',
+                padding: '2px 10px',
+                fontSize: '0.75rem',
+                cursor: 'pointer',
+                fontWeight: 600,
+              }}
+            >
+              {isSomali ? 'Dib u celi' : 'Clear filter'}
+            </button>
+          </div>
+        )}
+
         <div className="portal-attractions-grid">
-          {projects.map((proj, i) => (
+          {(searchQuery
+            ? projects.filter((proj) =>
+                proj.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                proj.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                proj.desc.toLowerCase().includes(searchQuery.toLowerCase())
+              )
+            : projects
+          ).map((proj, i) => (
             <article key={i} className="portal-attraction-card">
               <div className="portal-attraction-card__media">
                 <img src={proj.image} alt={proj.title} className="portal-attraction-card__img" />
@@ -506,9 +611,14 @@ export default function ResearchPage() {
                 <button
                   type="button"
                   className="portal-attraction-card__badge-round"
-                  aria-label="Bookmark project"
+                  aria-label={`Bookmark ${proj.title}`}
+                  onClick={(e) => toggleSave(e, proj.title)}
                 >
-                  <Heart size={16} />
+                  <Heart
+                    size={16}
+                    fill={savedProjects[proj.title] ? '#ef4444' : 'none'}
+                    color={savedProjects[proj.title] ? '#ef4444' : '#64748b'}
+                  />
                 </button>
               </div>
               <div className="portal-attraction-card__content">

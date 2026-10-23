@@ -9,7 +9,7 @@
   max-width: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--eo-sand-light, #faf8f5);
+  background-color: var(--eo-sand-light, #ffffff);
   color: var(--eo-text-main, #071626);
   font-family: var(--eo-font-sans, 'Inter', -apple-system, sans-serif);
   overflow-x: hidden;
@@ -101,20 +101,20 @@
 }
 
 .explore-hero__title {
-  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
   font-size: clamp(2.4rem, 4.6vw, 3.8rem);
-  font-weight: 500;
+  font-weight: 800;
   line-height: 1.08;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   color: #ffffff;
   margin: 0 0 16px 0;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
 }
 
 .explore-hero__title-italic {
-  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-style: normal;
+  font-weight: 700;
   color: var(--eo-turquoise-light, #38bdf8);
 }
 
@@ -242,7 +242,7 @@
 .explore-section {
   width: 100%;
   padding: 120px var(--page-padding, clamp(24px, 5vw, 80px));
-  background: var(--eo-sand-light, #faf8f5);
+  background: var(--eo-sand-light, #ffffff);
 }
 
 .explore-section--tint {
@@ -252,8 +252,8 @@
 }
 
 [data-theme="dark"] .explore-section--tint {
-  background: #081726;
-  border-color: rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border-color: rgba(7, 22, 38, 0.08);
 }
 
 .explore-container {
@@ -288,11 +288,11 @@
 }
 
 .explore-section-title {
-  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
-  font-size: clamp(2.3rem, 4.2vw, 3.6rem);
-  font-weight: 500;
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 750;
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.025em;
   color: var(--eo-text-main, #071626);
   margin: 0 0 var(--space-md, 24px) 0;
 }
@@ -364,9 +364,9 @@
 }
 
 .explore-feature-title {
-  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
   line-height: 1.25;
   color: var(--eo-text-main, #071626);
   margin: 0 0 6px 0;
@@ -526,9 +526,9 @@
 }
 
 .explore-highlight-card__title {
-  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
-  font-size: 1.45rem;
-  font-weight: 600;
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
   line-height: 1.25;
   color: var(--eo-text-main, #071626);
   margin: 0 0 10px 0;
@@ -647,9 +647,9 @@
 }
 
 .explore-panorama__title {
-  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
-  font-size: clamp(1.8rem, 2.7vw, 2.35rem);
-  font-weight: 600;
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 700;
   color: var(--eo-navy, #071626);
   margin: 0;
   line-height: 1.18;
@@ -871,9 +871,9 @@
 }
 
 .explore-dest-card__title {
-  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
   line-height: 1.2;
   margin: 0;
   color: #ffffff;
@@ -953,9 +953,9 @@
 }
 
 .explore-harbor-card__title {
-  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
-  font-size: 1.45rem;
-  font-weight: 600;
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
   line-height: 1.25;
   color: var(--eo-text-main, #071626);
   margin: 0 0 8px 0;
@@ -1105,11 +1105,11 @@
 }
 
 .explore-cta__title {
-  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
-  font-size: clamp(2.8rem, 5.2vw, 4.4rem);
-  font-weight: 500;
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.025em;
   color: #ffffff;
   margin: 0 0 var(--space-md, 24px) 0;
 }
@@ -1313,5 +1313,244 @@
     padding: 4px 9px !important;
   }
 }
+
+/* =========================================================
+   FEATURED COASTAL TOURS & ROTATING CARDS (EXPLORE THE COAST)
+   ========================================================= */
+.explore-tours-showcase {
+  padding: clamp(48px, 6vw, 72px) var(--page-padding, clamp(24px, 5vw, 80px));
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.explore-tours-showcase__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.explore-tours-showcase__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.explore-tours-showcase__title {
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 850;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.02em;
+}
+
+.explore-tours-showcase__subtitle {
+  font-size: 15px;
+  color: #64748b;
+  margin: 0;
+}
+
+.explore-tours-showcase__ctrls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.explore-tours-showcase__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.explore-tours-showcase__arrow:hover {
+  border-color: #00a86b;
+  color: #00a86b;
+  transform: scale(1.08);
+}
+
+.explore-tours-showcase__categories {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.explore-tours-showcase__chip {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.explore-tours-showcase__chip:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.explore-tours-showcase__chip--active {
+  background: #00a86b;
+  border-color: #00a86b;
+  color: #ffffff;
+}
+
+.explore-tours-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.explore-tour-card {
+  position: relative;
+  height: 290px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0f172a;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  border: 2px solid transparent;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.explore-tour-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.22);
+}
+
+.explore-tour-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.explore-tour-card:hover .explore-tour-card__img {
+  transform: scale(1.07);
+}
+
+.explore-tour-card__rating {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.explore-tour-card__star {
+  color: #fbbf24;
+  fill: #fbbf24;
+}
+
+.explore-tour-card__heart-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.2s ease;
+  color: #64748b;
+}
+
+.explore-tour-card__heart-btn:hover {
+  transform: scale(1.15);
+  background: #ffffff;
+  color: #ef4444;
+}
+
+.explore-tour-card__heart-btn--saved {
+  color: #ef4444 !important;
+  background: #ffffff;
+}
+
+.explore-tour-card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 16px 16px 16px;
+  background: linear-gradient(to top, rgba(7, 22, 38, 0.92) 0%, rgba(7, 22, 38, 0.45) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.explore-tour-card__area {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #38bdf8;
+  margin-bottom: 2px;
+}
+
+.explore-tour-card__title {
+  font-size: 16px;
+  font-weight: 750;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.explore-tour-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #10b981;
+  margin-top: 6px;
+}
+
+@media (max-width: 1100px) {
+  .explore-tours-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .explore-tours-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 

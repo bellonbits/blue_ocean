@@ -71,7 +71,7 @@ export default function Footer() {
           <div className="nature-footer__col nature-footer__col--brand">
             <Link to={localizedPath('/')} className="nature-footer__logo-link" aria-label="Somalia Blue Heaven">
               <img
-                src="/Somalia Blue Heaven Wave Logo.png"
+                src="/Somalia Blue Heaven Wave Logo Blue.png"
                 alt="Somalia Blue Heaven"
                 className="nature-footer__logo-img"
               />

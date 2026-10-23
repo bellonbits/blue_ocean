@@ -73,9 +73,9 @@ export default function Header() {
   const isSomali = language === 'so';
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
-  // Transparent initially over hero, blurred backdrop when scrolled
+  // Blurred deep ocean backdrop on scroll
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -147,11 +147,13 @@ export default function Header() {
   const roleDisplay = user?.role?.replace('_', ' ') || 'Member';
   const dashboardHref = canManageAdmin(user) ? '/admin' : '/dashboard';
 
+  const headerClass = `travel-header ${scrolled ? 'travel-header--scrolled' : 'travel-header--transparent'}`;
+
   return (
     <>
       <header
         ref={headerRef}
-        className={`travel-header ${scrolled ? 'travel-header--scrolled' : 'travel-header--transparent'}`}
+        className={headerClass}
         role="banner"
       >
         <div className="travel-header__inner">
@@ -162,7 +164,7 @@ export default function Header() {
             aria-label="Somalia Blue Heaven Home"
           >
             <img
-              src="/Somalia Blue Heaven Wave Logo.png"
+              src="/Somalia Blue Heaven Wave Logo Blue.png"
               alt="Somalia Blue Heaven"
               className="travel-header__brand-logo"
             />
@@ -268,16 +270,26 @@ export default function Header() {
                 )}
               </div>
             ) : (
-              <button
-                type="button"
-                className="travel-header__circle-btn travel-header__login-btn"
-                onClick={() => openAuthModal('login')}
-                title={t('auth.logIn')}
-                aria-label={t('auth.logIn')}
-                id="header-login-btn"
-              >
-                <LogIn size={15} />
-              </button>
+              <div className="travel-header__auth-group">
+                <button
+                  type="button"
+                  className="travel-header__signup-btn"
+                  onClick={() => openAuthModal('register')}
+                >
+                  {isSomali ? 'Is-diiwaangeli' : 'Sign up'}
+                </button>
+                <button
+                  type="button"
+                  className="travel-header__login-btn"
+                  onClick={() => openAuthModal('login')}
+                  title={t('auth.logIn')}
+                  aria-label={t('auth.logIn')}
+                  id="header-login-btn"
+                >
+                  <LogIn size={14} />
+                  <span>{isSomali ? 'Gal' : 'Log in'}</span>
+                </button>
+              </div>
             )}
 
             {/* Mobile Hamburger Toggle */}
@@ -370,7 +382,7 @@ export default function Header() {
               aria-label="Somalia Blue Heaven Home"
             >
               <img
-                src="/Somalia Blue Heaven Wave Logo.png"
+                src="/Somalia Blue Heaven Wave Logo Blue.png"
                 alt="Somalia Blue Heaven"
                 className="travel-header__brand-logo"
               />

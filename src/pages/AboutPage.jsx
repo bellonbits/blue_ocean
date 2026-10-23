@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getOrganization } from '../data/organization';
+import PageHero from '../components/editorial/PageHero';
 import '../styles/portalDesignSystem.css';
 
 export default function AboutPage() {
@@ -31,6 +32,16 @@ export default function AboutPage() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [featuredIndex, setFeaturedIndex] = useState(0);
+  const [savedDivisions, setSavedDivisions] = useState({});
+
+  const toggleSave = (e, title) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSavedDivisions((prev) => ({
+      ...prev,
+      [title]: !prev[title],
+    }));
+  };
 
   useEffect(() => {
     document.title = isSomali
@@ -229,94 +240,132 @@ export default function AboutPage() {
 
   const currentFeatured = featuredBases[featuredIndex];
 
+  const ABOUT_HERO_SPOTS = [
+    {
+      id: 'education',
+      tag: isSomali ? 'WAXBARASHO' : 'YOUTH & EDUCATION',
+      year: isSomali ? 'MUSTAQBALKA' : 'NEXT GENERATION',
+      title: isSomali ? 'Waxbarashada & Barashada Badda ee Dhallinyarada' : 'Youth Ocean Stewardship & Marine Literacy',
+      subtitle: isSomali ? 'Dhisidda Saynisyahannada Mustaqbalka' : 'Empowering Tomorrow’s Somali Oceanographers',
+      desc: isSomali
+        ? 'Dhiirrigelinta jiilka cusub iyadoo la barayo aqoonta badda, dabaasha badbaadada leh, iyo jacaylka xeebaha dalkooda.'
+        : 'Educating school students across coastal districts in marine ecology, practical swimming, and sovereign ocean guardianship.',
+      link: '/about',
+      image: '/con_youth_education.webp',
+      avatar: '/con_youth_education.webp',
+      author: isSomali ? 'Akadeemiyada Badda' : 'Blue Ocean Youth Academy',
+      authorMeta: isSomali ? 'Waxbarashada Badda ee Soomaaliya' : 'Nationwide Ocean Literacy Initiative',
+    },
+    {
+      id: 'cleanup',
+      tag: isSomali ? 'BULSHADA' : 'STEWARDSHIP',
+      year: isSomali ? 'ILAALIN' : 'COASTAL ACTION',
+      title: isSomali ? 'Hawlgallada Bulshada ee Ilaalinta Xeebaha' : 'Community-Led Marine Conservation Action',
+      subtitle: isSomali ? 'Ilaalinta 3,330 KM oo Xeeb Nool ah' : 'Grassroots Rangers & Living Coastlines',
+      desc: isSomali
+        ? 'Kalluumaysatada deegaanka, dhallinyarada, iyo odayaasha xeebaha oo si wadajir ah u ilaalinaya carwooyinka iyo biyaha badda.'
+        : 'Mobilizing artisanal fishing guilds, coastal rangers, and community elders to protect vital breeding estuaries and beaches.',
+      link: '/conservation',
+      image: '/con_beach_cleanup.webp',
+      avatar: '/con_beach_cleanup.webp',
+      author: isSomali ? 'Iskuxirka Bulshada Xeebaha' : 'Coastal Guardian Network',
+      authorMeta: isSomali ? '18 Degmo oo Xeeb ah' : 'All 18 Maritime Districts • Grassroots Driven',
+    },
+    {
+      id: 'heritage',
+      tag: isSomali ? 'DHAQAN' : 'MARITIME HERITAGE',
+      year: isSomali ? 'HIDDE' : 'LIVING ARCHIVE',
+      title: isSomali ? 'Dhaxalka Qadiimiga ah ee Badda Soomaaliyeed' : 'Centuries of Sovereign Seafaring Heritage',
+      subtitle: isSomali ? 'Doonyaha Shiraaca & Ganacsiga Badda' : 'Ancient Horn of Africa Ocean Trade Routes',
+      desc: isSomali
+        ? 'Soomaaliya waxay leedahay taariikh qani ah oo dhinaca bad-mareennada, farsamada doonyaha, iyo marin-badeedyada caalamka.'
+        : 'Honoring thousands of years of Somali maritime voyages, navigational celestial lore, and traditional dhow craftsmanship.',
+      link: '/explore-the-coast',
+      image: '/exp_dhow_sailing.webp',
+      avatar: '/exp_dhow_sailing.webp',
+      author: isSomali ? 'Kaydka Taariikhda Badda' : 'Somali Seafaring Guild Archive',
+      authorMeta: isSomali ? 'Taariikhda Badweynta Hindiya' : 'Western Indian Ocean Heritage • Mogadishu & Zeila',
+    },
+    {
+      id: 'mission',
+      tag: isSomali ? 'HADAF' : 'OUR MISSION',
+      year: isSomali ? '3,330 KM' : 'CONTINENTAL COAST',
+      title: isSomali ? 'Hadafka Ilaalinta Xeebta ugu Dheer Afrika' : 'Dedicated to Africa’s Longest Marine Horizon',
+      subtitle: isSomali ? 'Somalia Blue Heaven Foundation' : 'Sovereign Marine Stewardship & Blue Economy',
+      desc: isSomali
+        ? 'Ujeedkeenu waa in dunida loo muujiyo quruxda dhabta ah ee xeebaha Soomaaliya, la ilaaliyo noolaha badda, laguna taageero dadka xeebta.'
+        : 'Fostering ecological research, sustainable coastal tourism, and community prosperity across 3,330 km of virgin African shoreline.',
+      link: '/about',
+      image: '/somalia_hero_coast.webp',
+      avatar: '/somalia_hero_coast.webp',
+      author: isSomali ? 'Somalia Blue Heaven' : 'Somalia Blue Heaven Foundation',
+      authorMeta: isSomali ? 'Madaxbannaanida & Ilaalinta Badda' : 'Marine Sovereignty & Conservation',
+    },
+    {
+      id: 'headlands',
+      tag: isSomali ? 'GEESKA' : 'CONTINENTAL EDGE',
+      year: isSomali ? 'XAAFUUN' : 'RAS HAFUN',
+      title: isSomali ? 'Cirifka Bari ee Qaaradda Afrika' : 'Ras Hafun Continental Marine Edge',
+      subtitle: isSomali ? 'Halka Labada Badood ku Kulmaan' : 'Where Ocean Swells Meet Ancient Cliffs',
+      desc: isSomali
+        ? 'Dhul dabiici ah oo gaar ah halkaas oo Badweynta Hindiya iyo Gacanka Cadmeed ay ku kulmaan mowjado awood badan.'
+        : 'Guarding the strategic oceanic crossroad connecting the Arabian Sea with the deep Indian Ocean currents.',
+      link: '/explore-the-coast/hafun',
+      image: '/images/img_01.webp',
+      avatar: '/images/img_01.webp',
+      author: isSomali ? 'Raas Xaafuun' : 'Easternmost Continental Sentinel',
+      authorMeta: isSomali ? 'Cirifka Bari ee Qaaradda Afrika' : 'Africa’s Easternmost Point • 10°25′N 51°16′E',
+    },
+    {
+      id: 'hubs',
+      tag: isSomali ? 'SALDHIGYO' : 'FIELD STATIONS',
+      year: isSomali ? 'ISKU-XIRKA' : 'NETWORK',
+      title: isSomali ? 'Xarumaha Sayniska & Iskaashiga Bulshada' : 'Integrated Coastal Observatories & Hubs',
+      subtitle: isSomali ? 'Laga bilaabo Saylac ilaa Raas Kambooni' : 'From Zeila in the North to Ras Kamboni',
+      desc: isSomali
+        ? 'Isku-xirka saldhigyo cilmiyeed iyo ilaalin oo ka hawlgala dekedaha iyo jasiiradaha dalka oo dhan.'
+        : 'Coordinating decentralized marine stations providing community training, coastal monitoring, and ecotourism logistics.',
+      link: '/contact',
+      image: '/kismayo1.webp',
+      avatar: '/kismayo1.webp',
+      author: isSomali ? 'Xarumaha Gobollada' : 'Decentralized Coast Hubs',
+      authorMeta: isSomali ? 'Saylac ilaa Raas Kambooni' : 'Zeila, Bosaso, Mogadishu & Kismayo',
+    },
+  ];
+
   return (
     <div className="portal-page">
-      {/* 1. Inset Rounded Hero Banner */}
-      <section className="portal-hero" aria-label="About Somalia Blue Heaven Hero">
-        <div className="portal-hero__inner">
-          <img
-            src="/images/image.webp"
-            alt="Pristine Somalia coastal horizon meeting the ocean"
-            className="portal-hero__bg"
-          />
-          <div className="portal-hero__overlay" />
-
-          <div className="portal-hero__content">
-            <div className="portal-hero__badge">
-              <Compass size={14} />
-              <span>{isSomali ? "HAY'ADDA SOMALIA BLUE HEAVEN" : "SOMALIA BLUE HEAVEN"}</span>
-            </div>
-
-            <h1 className="portal-hero__title">
-              {isSomali ? 'Ilaalinta, Barashada & Quruxda Badda Soomaaliya.' : 'Dedicated to Africa’s Longest Living Coastline.'}
-            </h1>
-
-            <p className="portal-hero__subtitle">
-              {isSomali
-                ? 'Waxaan u taagannahay in la sahamiyo, la barto, la ilaaliyo, oo adduunka lala wadaago deegaanka badda Soomaaliya — sababtoo ah xeeb muhiimad leh sida tan way u baahan tahay in la yaqaano.'
-                : 'Exploring, studying, conserving, and sharing Somalia’s 3,330 km marine paradise in sovereign partnership with coastal communities.'}
-            </p>
-
-            {/* Search Pill Widget */}
-            <div className="portal-hero__search-wrap">
-              <form onSubmit={handleSearch} className="portal-hero__search-form">
-                <Search size={18} color="#0ea5e9" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={
-                    isSomali
-                      ? 'Raadi qeybaha sayniska, hadafka, ama saldhigyada...'
-                      : 'Search our mission, science units, or field bases...'
-                  }
-                  className="portal-hero__search-input"
-                  aria-label="Search about organization"
-                />
-                <button type="submit" className="portal-hero__search-btn">
-                  <span>{isSomali ? 'Raadi' : 'Explore'}</span>
-                  <ArrowRight size={14} />
-                </button>
-              </form>
-            </div>
-
-            {/* Quick Filter Badges */}
-            <div className="portal-hero__tags">
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/research'))}
-                className="portal-hero__tag-btn"
-              >
-                {isSomali ? 'Qaybaha Sayniska' : 'Science Units'}
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/conservation'))}
-                className="portal-hero__tag-btn"
-              >
-                {isSomali ? 'Hawlgallada Ilaalinta' : 'Conservation'}
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/communities'))}
-                className="portal-hero__tag-btn"
-              >
-                {isSomali ? 'Bulshooyinka Xeebaha' : 'Communities'}
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/contact'))}
-                className="portal-hero__tag-btn"
-              >
-                {isSomali ? 'Xarumahayaga' : 'Our Stations'}
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
+      <PageHero
+        pageId="about"
+        image="/con_youth_education.webp"
+        titleTop={isSomali ? 'U Taagan' : 'Dedicated To'}
+        titleHighlight={isSomali ? '3,330 KM' : "Africa's Longest"}
+        titleBottom={isSomali ? 'ee Badda Soomaaliya' : 'Marine Coastline'}
+        desc={
+          isSomali
+            ? 'Waxaan u taagannahay in la sahamiyo, la barto, la ilaaliyo, oo adduunka lala wadaago deegaanka badda Soomaaliya iyadoo lala kaashanayo bulshada xeebaha.'
+            : 'Exploring, studying, conserving, and sharing Somalia’s 3,330 km marine paradise in sovereign partnership with coastal communities.'
+        }
+        primaryCta={{
+          label: isSomali ? 'Sheekadayada' : 'Our Mission Story',
+          path: '#founding-story',
+          icon: <ArrowRight size={17} />,
+        }}
+        cutout={{
+          title: isSomali ? 'Baro Ilaaliyayaasha Xeebta' : "Meet The Ocean Guardians",
+          path: '#founding-story',
+          thumbnails: ['/con_beach_cleanup.webp', '/exp_dhow_sailing.webp', '/kismayo1.webp'],
+          info: isSomali
+            ? 'Ilaaliyayaasha deegaanka, akadeemiyada dhallinyarada, iyo iskaashiga kalluumaysatada maxalliga ah.'
+            : 'Grassroots Coastal Rangers, Youth Ocean Academies, And Sovereign Marine Protection Alliances.',
+          rating: '100%',
+          tagline: isSomali ? 'Madaxbannaanida Badda' : 'Community-Managed Coastal Guardians',
+        }}
+      />
 
       {/* 2. Founding Mission & Story (2-Column Card Section) */}
-      <section className="portal-card-section" aria-label="Our Founding Story">
+      <section id="founding-story" className="portal-card-section" aria-label="Our Founding Story">
         <div className="portal-about-grid">
           {/* Left: Narrative + 3 Bullet Points with Circular Green Icons */}
           <div className="portal-about__narrative">
@@ -436,7 +485,7 @@ export default function AboutPage() {
       </section>
 
       {/* 3. Latest Highlights (3-Card Rounded Container) */}
-      <section className="portal-card-section portal-card-section--tint" aria-label="Core Pillars">
+      <section id="core-pillars" className="portal-card-section portal-card-section--tint" aria-label="Core Pillars">
         <div className="portal-section-header">
           <span className="portal-section-tag">
             {isSomali ? 'TIIRARKA GUUSHA' : 'OUR PILLARS'}
@@ -527,7 +576,7 @@ export default function AboutPage() {
       </section>
 
       {/* 5. Divisions & Research Units Directory (6-Card Grid: 2 rows of 3) */}
-      <section className="portal-card-section" aria-label="Divisions and Units">
+      <section id="divisions-units" className="portal-card-section" aria-label="Divisions and Units">
         <div className="portal-section-header">
           <span className="portal-section-tag">
             {isSomali ? 'QAYBAHA HAWLGALKA' : 'OPERATIONAL UNITS'}
@@ -550,9 +599,14 @@ export default function AboutPage() {
                 <button
                   type="button"
                   className="portal-attraction-card__badge-round"
-                  aria-label="Bookmark division"
+                  aria-label={`Bookmark ${div.title}`}
+                  onClick={(e) => toggleSave(e, div.title)}
                 >
-                  <Heart size={16} />
+                  <Heart
+                    size={16}
+                    fill={savedDivisions[div.title] ? '#ef4444' : 'none'}
+                    color={savedDivisions[div.title] ? '#ef4444' : '#64748b'}
+                  />
                 </button>
               </div>
               <div className="portal-attraction-card__content">

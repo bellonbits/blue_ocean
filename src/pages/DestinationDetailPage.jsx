@@ -6,6 +6,7 @@ import { getDestination, listDestinations } from '../lib/contentApi';
 import { destinations as staticDestinations } from '../data/destinations';
 import VideoEmbed from '../components/shared/VideoEmbed';
 import CoverFlowGallery from '../components/gallery/CoverFlowGallery';
+import PageHero from '../components/editorial/PageHero';
 import {
   Compass,
   ArrowLeft,
@@ -734,50 +735,62 @@ export default function DestinationDetailPage() {
   }
 
   const related = allDestinations.filter((d) => d.slug !== destination.slug).slice(0, 3);
+  const galleryItems = getDestinationGalleryItems(destination, isSomali);
 
   return (
     <div className="portal-page">
-      {/* 1. Inset Rounded Hero Banner */}
-      <section className="portal-hero portal-hero--destination" aria-label={`Destination: ${destination.name}`}>
-        <div className="portal-hero__inner">
-          <img
-            src={destination.heroImage || '/images/image.webp'}
-            alt={destination.name}
-            className="portal-hero__bg"
-          />
-          <div className="portal-hero__overlay" />
-
-          <div className="portal-hero__content">
-            <Link to={localizedPath('/explore-the-coast')} className="portal-hero__badge" style={{ textDecoration: 'none' }}>
-              <ArrowLeft size={13} />
-              <span>{isSomali ? 'Ku Noqo Xeebaha' : 'Explore Somalia’s Coast'}</span>
-            </Link>
-
-            <h1 className="portal-hero__title">{destination.name}</h1>
-
-            <p className="portal-hero__subtitle">{destination.description || destination.tagline}</p>
-
-            <div className="portal-hero__tags">
-              <span className="portal-hero__tag-btn portal-hero__tag-btn--active">
-                <MapPin size={13} style={{ marginRight: 6 }} /> {destination.region || 'Puntland'}
-              </span>
-              {destination.coordinates && (
-                <span className="portal-hero__tag-btn">
-                  <Compass size={13} style={{ marginRight: 6 }} /> {formatCoordinates(destination.coordinates)}
-                </span>
-              )}
-              {destination.destinationType && (
-                <span className="portal-hero__tag-btn">
-                  <Anchor size={13} style={{ marginRight: 6 }} /> {destination.destinationType}
-                </span>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. Page Hero: Unified Reference Modern Layout with Single High-Definition Photo & Cutout */}
+      <PageHero
+        pageId={`destination-${destination.slug}`}
+        image={destination.heroImage || (galleryItems[0]?.image) || '/somalia_hero_coast.webp'}
+        titleTop={isSomali ? 'Sahami Xeebta' : 'Explore Coastal'}
+        titleHighlight={destination.name}
+        titleBottom={destination.region ? `• ${destination.region}` : ''}
+        desc={destination.description || destination.tagline || destination.overview}
+        backLink={{
+          label: isSomali ? 'Ku Noqo Xeebaha Soomaaliya' : "Explore Somalia’s Coast",
+          path: '/explore-the-coast',
+        }}
+        primaryCta={{
+          label: isSomali ? 'Faahfaahinta Deegaanka' : 'Explore Haven Details',
+          path: '#destination-overview',
+          icon: <ArrowRight size={17} />,
+        }}
+        cutout={{
+          title: isSomali ? `Kala Soco ${destination.name}` : `Discover ${destination.name}`,
+          path: '#destination-overview',
+          thumbnails: galleryItems.length >= 3
+            ? [galleryItems[0].image, galleryItems[1].image, galleryItems[2].image]
+            : (destination.galleryImages && destination.galleryImages.length >= 3)
+              ? destination.galleryImages.slice(0, 3)
+              : [destination.heroImage || '/somalia_hero_coast.webp', '/kismayo1.webp', '/eyl1.webp'],
+          info: destination.destinationType
+            ? `${destination.destinationType} • ${destination.region || 'Somalia Coast'} • ${destination.coordinates ? formatCoordinates(destination.coordinates) : '3,330 KM Coastline'}`
+            : 'Pristine marine sanctuary, crystal turquoise waters, and living coral barrier reefs.',
+          rating: '5.0',
+          tagline: isSomali ? 'Goob Dalxiis oo Shahaado Haysata' : 'Certified Coastal Destination',
+        }}
+      />
 
       {/* 2. 2-Column About & Interactive Details */}
-      <section className="portal-card-section" aria-label="Destination Overview">
+      <section id="destination-overview" className="portal-card-section" aria-label="Destination Overview">
+        {/* Geographic Metadata Badges */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
+          <span className="portal-hero__tag-btn portal-hero__tag-btn--active" style={{ background: '#0284c7', color: '#ffffff', borderColor: '#0284c7' }}>
+            <MapPin size={13} style={{ marginRight: 6 }} /> {destination.region || 'Somalia Coast'}
+          </span>
+          {destination.coordinates && (
+            <span className="portal-hero__tag-btn" style={{ background: '#f8fafc', color: '#0f172a', borderColor: '#e2e8f0' }}>
+              <Compass size={13} style={{ marginRight: 6, color: '#0284c7' }} /> {formatCoordinates(destination.coordinates)}
+            </span>
+          )}
+          {destination.destinationType && (
+            <span className="portal-hero__tag-btn" style={{ background: '#f8fafc', color: '#0f172a', borderColor: '#e2e8f0' }}>
+              <Anchor size={13} style={{ marginRight: 6, color: '#0284c7' }} /> {destination.destinationType}
+            </span>
+          )}
+        </div>
+
         <div className="portal-about-grid">
           <div className="portal-about__narrative">
             <span className="portal-section-tag">

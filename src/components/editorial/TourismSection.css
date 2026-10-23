@@ -49,7 +49,7 @@
 }
 
 .tourism-section__title {
-  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
   font-size: clamp(2rem, 3.2vw, 3rem);
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -71,13 +71,13 @@
   align-items: center;
   gap: 10px;
   padding: 12px 24px;
-  background: #f1f5f9;
-  border: 1px solid rgba(12, 26, 41, 0.08);
+  background: #ffffff;
+  border: 1px solid rgba(2, 132, 199, 0.25);
   border-radius: 100px;
-  color: #0c1a29;
+  color: #0284c7;
   font-family: var(--eo-font-sans, sans-serif);
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
@@ -127,7 +127,7 @@
   aspect-ratio: 16 / 11;
   border-radius: 20px;
   overflow: hidden;
-  background: #e2e8f0;
+  background: #ffffff;
   box-shadow: 0 4px 16px rgba(12, 26, 41, 0.05);
   transition: box-shadow 0.3s ease;
 }
@@ -152,17 +152,18 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(3, 13, 23, 0.65);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  color: #ffffff;
+  color: #0284c7;
   font-family: var(--eo-font-sans, sans-serif);
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.04em;
   padding: 4px 12px;
   border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   white-space: nowrap;
 }
 
@@ -171,7 +172,7 @@
 }
 
 .tourism-card__title {
-  font-family: var(--eo-font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-family: var(--eo-font-sans, 'Inter', sans-serif);
   font-size: clamp(1.35rem, 1.6vw, 1.6rem);
   font-weight: 700;
   color: #0c1a29;

@@ -9,16 +9,6 @@ export default function EditorialCTA() {
 
   return (
     <section className="editorial-cta" aria-label="Begin Your Expedition">
-      {/* Background Image with Dark Navy Editorial Overlay */}
-      <div className="editorial-cta__bg-wrap">
-        <img
-          src="/images/image.webp"
-          alt="Somali coast horizon"
-          className="editorial-cta__bg"
-          loading="lazy"
-        />
-        <div className="editorial-cta__overlay" />
-      </div>
 
       <div className="editorial-cta__content">
         <div className="editorial-cta__badge">

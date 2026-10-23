@@ -18,7 +18,41 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import CoverFlowGallery from '../components/gallery/CoverFlowGallery';
+import PageHero from '../components/editorial/PageHero';
 import '../styles/portalDesignSystem.css';
+
+export const TOURISM_HERO_SPOTS = [
+  {
+    id: 'somalia-beach-shallows',
+    image: '/somalia_hero_coast.webp',
+    alt: 'Somalia coastal turquoise shallows, white sandbars and traditional sailing',
+  },
+  {
+    id: 'bajuni-islands',
+    image: '/kismayo1.webp',
+    alt: 'Bajuni Coral Archipelago pristine white sandbars and tropical lagoons',
+  },
+  {
+    id: 'aerial-coastal-resort',
+    image: '/somalia_coast.webp',
+    alt: 'Aerial view of Somali turquoise barrier reef shallows and coastal beaches',
+  },
+  {
+    id: 'lido-corniche',
+    image: '/MOGADISHUBEACH LEDE.webp',
+    alt: 'Lido Beach sunny shoreline and vibrant ocean promenade',
+  },
+  {
+    id: 'baraawe-sand-dunes',
+    image: '/barawe1.webp',
+    alt: 'Historic Barawe white sand coastline and azure Indian Ocean',
+  },
+  {
+    id: 'bosaso-coves',
+    image: '/WebsiteImagery_1920x1080_SisterCities_BosasoSomalia-mtime20180108165841_2021-11-01-121110_grsn_91852798b59be8b28fc00edfe4aec23a.webp',
+    alt: 'Bosaso Gulf of Aden turquoise bay and coastal fortress',
+  },
+];
 
 export default function TourismPage() {
   const { language, t } = useLanguage();
@@ -28,6 +62,16 @@ export default function TourismPage() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
+  const [savedHavens, setSavedHavens] = useState({});
+
+  const toggleSave = (e, title) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSavedHavens((prev) => ({
+      ...prev,
+      [title]: !prev[title],
+    }));
+  };
 
   useEffect(() => {
     document.title = isSomali
@@ -251,106 +295,34 @@ export default function TourismPage() {
 
   return (
     <div className="portal-page">
-      {/* 1. Inset Rounded Hero Banner */}
-      <section className="portal-hero" aria-label="Somalia Coastal Tourism Hero">
-        <div className="portal-hero__inner">
-          <img
-            src="/images/image.webp"
-            alt="Somalia's breathtaking 3,330 km coastline"
-            className="portal-hero__bg"
-          />
-          <div className="portal-hero__overlay" />
-
-          <div className="portal-hero__content">
-            <div className="portal-hero__badge">
-              <Compass size={14} />
-              <span>{isSomali ? "3,330 KM XEEB LAGU WAREEGAY" : "SOMALIA'S COASTLINE · 3,330 KM"}</span>
-            </div>
-
-            <h1 className="portal-hero__title">
-              {isSomali ? (
-                <>
-                  Sahami Dalxiiska <br />
-                  <span className="editorial-hero__title-italic">Xeebaha Soomaaliya.</span>
-                </>
-              ) : (
-                <>
-                  Discover Somalia's <br />
-                  <span className="editorial-hero__title-italic">Living Ocean.</span>
-                </>
-              )}
-            </h1>
-
-            <p className="portal-hero__subtitle">
-              {isSomali
-                ? 'La kulan quruxda aan la midka ahayn ee badda Soomaaliya — biyo nadiif ah, hugaanta dhagaxleyda, iyo magaalooyinka taariikhiga ah ee xeebaha.'
-                : 'Experience the pristine coastal paradise, turquoise waters, and living marine sanctuaries along Africa’s longest continental coastline.'}
-            </p>
-
-            {/* Search Pill Widget */}
-            <div className="portal-hero__search-wrap">
-              <form onSubmit={handleSearch} className="portal-hero__search-form">
-                <Search size={18} className="portal-hero__search-icon" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={
-                    isSomali
-                      ? 'Raadi deegaan, jasiirad, ama xeeb...'
-                      : 'Search destinations, islands, or coral reefs...'
-                  }
-                  className="portal-hero__search-input"
-                  aria-label="Search destination"
-                />
-                <button type="submit" className="portal-hero__search-btn">
-                  <span>{isSomali ? 'Raadi' : 'Explore Coast'}</span>
-                  <ArrowRight size={14} />
-                </button>
-              </form>
-            </div>
-
-            {/* Quick Filter Badges */}
-            <div className="portal-hero__tags">
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast'))}
-                className="portal-hero__tag-btn"
-              >
-                {isSomali ? 'Dhammaan Xeebaha' : 'All Coastlines'}
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast/bosaso'))}
-                className="portal-hero__tag-btn"
-              >
-                Boosaaso (Puntland)
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast/kismayo'))}
-                className="portal-hero__tag-btn"
-              >
-                Jasiiradaha Baajuun
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast/hafun'))}
-                className="portal-hero__tag-btn"
-              >
-                Raas Xaafuun
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate(localizedPath('/explore-the-coast/eyl'))}
-                className="portal-hero__tag-btn"
-              >
-                Dooxada Eyl
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
+      <PageHero
+        pageId="tourism"
+        image="/somalia_hero_coast.webp"
+        titleTop={isSomali ? 'Sahami Xeebaha' : 'Discover Pristine'}
+        titleHighlight={isSomali ? 'Dalxiiska' : 'Destinations'}
+        titleBottom={isSomali ? 'ee Soomaaliya' : 'With Every Voyage'}
+        desc={
+          isSomali
+            ? 'Ku raaxayso xeebta ugu dheer Afrika — halkaas oo biyaha turquoise-ka ah ay ku kulmaan ciidda cad, safarrada doonyaha, iyo soo dhoweynta dadka xeebta.'
+            : 'Book authentic coastal holidays along 3,330 KM of virgin barrier reefs, powdery white sand beaches, and warm Somali hospitality.'
+        }
+        primaryCta={{
+          label: isSomali ? 'Sahami Xeebaha' : 'Explore Destinations',
+          path: '#tourism-havens',
+          icon: <ArrowRight size={17} />,
+        }}
+        cutout={{
+          title: isSomali ? 'Kala Soco Dalxiiska Xeebaha' : "Explore Today's Coastal Havens",
+          path: '#top-attractions',
+          thumbnails: ['/kismayo1.webp', '/liido1.webp', '/barawe1.webp'],
+          info: isSomali
+            ? 'Hubi xaaladda cimilada xeebta, doonyaha shiraaca, iyo xarumaha nasashada si aad u hesho safar xusuus mudan.'
+            : 'Check Real-Time Ocean Weather, Certified Guides, And Beach Resorts To Find The Best Option For Your Stay.',
+          rating: '4.9',
+          tagline: isSomali ? 'In ka badan 500+ safar oo guulaystay' : 'Trusted by over 500+ happy travelers!',
+        }}
+      />
 
       {/* 2. About Somalia Blue Heaven (2-Column Card Section) */}
       <section className="portal-card-section" aria-label="About Somalia Blue Heaven Tourism">
@@ -510,18 +482,20 @@ export default function TourismPage() {
       </section>
 
       {/* 4. 3D Cover Flow Gallery (Exact match to reference design on white background) */}
-      <CoverFlowGallery
-        items={featuredHavens}
-        eyebrow={isSomali ? 'SAWIRRADA CAANKA AH' : 'DESTINATION MASTERPIECES'}
-        title={isSomali ? 'Xulashada Sawirrada Xeebaha Soomaaliya' : 'Featured Coastal Havens'}
-        subtitle={isSomali
-          ? 'Ku arag bilicda 3,330 km oo xeebta Soomaaliya ah muraayadda sawir-qaadayaasha caalamiga ah.'
-          : 'Experience 3,330 km of living Somali coastline through our immersive 3D visual collection.'}
-        whiteBackground={true}
-      />
+      <div id="tourism-havens">
+        <CoverFlowGallery
+          items={featuredHavens}
+          eyebrow={isSomali ? 'SAWIRRADA CAANKA AH' : 'DESTINATION MASTERPIECES'}
+          title={isSomali ? 'Xulashada Sawirrada Xeebaha Soomaaliya' : 'Featured Coastal Havens'}
+          subtitle={isSomali
+            ? 'Ku arag bilicda 3,330 km oo xeebta Soomaaliya ah muraayadda sawir-qaadayaasha caalamiga ah.'
+            : 'Experience 3,330 km of living Somali coastline through our immersive 3D visual collection.'}
+          whiteBackground={true}
+        />
+      </div>
 
       {/* 5. Top Attractions (6-Card Grid: 2 rows of 3) */}
-      <section className="portal-card-section" aria-label="Top Coastal Attractions">
+      <section id="top-attractions" className="portal-card-section" aria-label="Top Coastal Attractions">
         <div className="portal-section-header">
           <span className="portal-section-tag">
             {isSomali ? 'DEEGAANNADA CAANKA AH' : 'COASTAL HAVENS'}
@@ -544,9 +518,14 @@ export default function TourismPage() {
                 <button
                   type="button"
                   className="portal-attraction-card__badge-round"
-                  aria-label="Bookmark destination"
+                  aria-label={`Bookmark ${att.title}`}
+                  onClick={(e) => toggleSave(e, att.title)}
                 >
-                  <Heart size={16} />
+                  <Heart
+                    size={16}
+                    fill={savedHavens[att.title] ? '#ef4444' : 'none'}
+                    color={savedHavens[att.title] ? '#ef4444' : '#64748b'}
+                  />
                 </button>
               </div>
               <div className="portal-attraction-card__content">
