@@ -207,7 +207,7 @@
 
 .travel-header__more-dropdown {
   position: absolute;
-  top: calc(100% + 12px);
+  top: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
   width: 320px;
@@ -215,9 +215,20 @@
   border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 12px;
-  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.14);
   z-index: 110;
-  animation: dropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: dropdownFade 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Invisible hover bridge to eliminate gap flickers */
+.travel-header__more-dropdown::after {
+  content: '';
+  position: absolute;
+  top: -14px;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: transparent;
 }
 
 .travel-header__more-dropdown::before {

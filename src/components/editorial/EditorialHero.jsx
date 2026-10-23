@@ -1,10 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { animate } from 'animejs';
 import {
   Search,
   SlidersHorizontal,
   Compass,
   ArrowRight,
+  Sparkles,
+  Waves,
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import './EditorialHero.css';
@@ -62,6 +66,75 @@ export default function EditorialHero() {
     return () => clearInterval(timer);
   }, []);
 
+  // Anime.js continuous fluid ocean & wildlife movements
+  useEffect(() => {
+    let anims = [];
+    try {
+      if (typeof animate === 'function') {
+        // 1. Woodblock wave continuous ocean swell
+        const a1 = animate('.hero-vector-wave', {
+          translateY: [-6, 8],
+          rotate: [-2, 2.5],
+          duration: 3800,
+          alternate: true,
+          loop: true,
+          ease: 'inOutSine',
+        });
+
+        // 2. Breaching whale surfacing & diving
+        const a2 = animate('.hero-vector-whale-breach', {
+          translateY: [8, -10],
+          translateX: [-4, 5],
+          rotate: [-2.5, 2.5],
+          duration: 5200,
+          alternate: true,
+          loop: true,
+          ease: 'inOutQuad',
+        });
+
+        // 3. Soaring seagulls coastal glide
+        const a3 = animate('.hero-vector-seagulls', {
+          translateX: [-14, 14],
+          translateY: [-4, 6],
+          duration: 6800,
+          alternate: true,
+          loop: true,
+          ease: 'inOutSine',
+        });
+
+        // 4. Background coast sun gentle horizon breathing
+        const a4 = animate('.hero-vector-coast-sun', {
+          scale: [1, 1.03],
+          translateY: [-4, 4],
+          duration: 8500,
+          alternate: true,
+          loop: true,
+          ease: 'inOutSine',
+        });
+
+        // 5. Spouting whale gentle bobbing
+        const a5 = animate('.hero-vector-whale-spout', {
+          translateY: [-5, 6],
+          rotate: [-1, 1.5],
+          duration: 4400,
+          alternate: true,
+          loop: true,
+          ease: 'inOutSine',
+        });
+
+        anims = [a1, a2, a3, a4, a5];
+      }
+    } catch (err) {
+      console.warn('Anime.js hero animation init:', err);
+    }
+
+    return () => {
+      anims.forEach((a) => {
+        if (a && typeof a.pause === 'function') a.pause();
+      });
+    };
+  }, []);
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -73,28 +146,88 @@ export default function EditorialHero() {
 
   return (
     <section className="hero-white-canvas" aria-label="Somalia Blue Heaven Marine Tourism">
+      {/* Background Vintage Coastal Engraving Watermarks */}
+      <div className="hero-vectors-backdrop" aria-hidden="true">
+        <img
+          src="/vector/coast_sun.webp"
+          alt=""
+          className="hero-vector-coast-sun"
+          loading="lazy"
+        />
+        <img
+          src="/vector/seagulls_coast.webp"
+          alt=""
+          className="hero-vector-seagulls"
+          loading="lazy"
+        />
+      </div>
+
       <div className="hero-inner-container">
         {/* MAIN HERO GRID: Left Content + Right Signature Torn Paper Cutout */}
         <div className="hero-grid">
           {/* Left: Tourist Hook, Headlines, Search, and CTAs */}
           <div className="hero-content">
-            <span className="hero-subheading">
-              {isSomali ? 'Soo hel oo jeclow' : 'Discover and love'}
-            </span>
+            {/* Breaching Whale Floating Illustrated Feature */}
+            <motion.div
+              className="hero-vector-whale-wrap"
+              initial={{ opacity: 0, scale: 0.85, x: 20 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.9, delay: 0.3 }}
+              whileHover={{ scale: 1.08, rotate: 2 }}
+              title="Somali Waters Humpback & Sperm Whale Sanctuary"
+            >
+              <img
+                src="/vector/breaching_whale.webp"
+                alt="Breaching whale vector illustration"
+                className="hero-vector-whale-breach"
+              />
+              <span className="hero-vector-tag">
+                <Sparkles size={10} />
+                <span>{isSomali ? 'Nibiriga Badda' : 'Whale Sanctuary'}</span>
+              </span>
+            </motion.div>
 
-            <h1 className="hero-main-title">
+            {/* Subheading with Framer Motion */}
+            <motion.span
+              className="hero-subheading"
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {isSomali ? 'Soo hel oo jeclow' : 'Discover and love'}
+            </motion.span>
+
+            {/* Main Headline with Framer Motion */}
+            <motion.h1
+              className="hero-main-title"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+            >
               {isSomali ? 'Somalia Blue Heaven' : 'Somalia Blue Heaven'}
               <span className="hero-dot">.</span>
-            </h1>
+            </motion.h1>
 
-            <p className="hero-desc">
+            {/* Description with Framer Motion */}
+            <motion.p
+              className="hero-desc"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
               {isSomali
                 ? 'Ku raaxayso safarkaaga oo maalin kasta ka dhig mid cajiib ah. Sahami carwooyinka shacaabka, biyaha buluugga ah, dekedaha qadiimiga ah, iyo soo dhoweynta diirran ee dadka xeebta deggan.'
                 : 'Experience Africa’s greatest untouched marine wilderness — crystal turquoise lagoons, virgin coral barrier reefs, ancient maritime spice ports, and legendary coastal warmth along 3,330 km of pristine ocean.'}
-            </p>
+            </motion.p>
 
-            {/* Tourist Search Bar */}
-            <form onSubmit={handleSearchSubmit} className="hero-search-wrap">
+            {/* Tourist Search Bar with Framer Motion */}
+            <motion.form
+              onSubmit={handleSearchSubmit}
+              className="hero-search-wrap"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               <span className="hero-search-icon">
                 <Search size={18} />
               </span>
@@ -115,10 +248,15 @@ export default function EditorialHero() {
               >
                 <SlidersHorizontal size={18} />
               </button>
-            </form>
+            </motion.form>
 
-            {/* Quick Travel Filter Chips */}
-            <div className="hero-travel-chips">
+            {/* Quick Travel Filter Chips with Framer Motion */}
+            <motion.div
+              className="hero-travel-chips"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <Link to={`${localizedPath('/explore-the-coast')}?category=Coral+Reefs`} className="hero-travel-chip">
                 {isSomali ? 'Shacaabka Badda' : 'Coral Barrier Reefs'}
               </Link>
@@ -134,10 +272,15 @@ export default function EditorialHero() {
               <Link to={`${localizedPath('/experiences')}?q=dhow`} className="hero-travel-chip">
                 {isSomali ? 'Doonyaha Dhowka' : 'Dhow Sailing'}
               </Link>
-            </div>
+            </motion.div>
 
-            {/* High-Impact Tourist CTAs (Blue & White) */}
-            <div className="hero-cta-group">
+            {/* High-Impact Tourist CTAs with Framer Motion */}
+            <motion.div
+              className="hero-cta-group"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
               <Link to={localizedPath('/explore-the-coast')} className="hero-btn-primary">
                 <span>{isSomali ? 'Sahmi Xeebaha (3,330 KM)' : 'Explore the Coast (3,330 KM)'}</span>
                 <ArrowRight size={17} />
@@ -147,6 +290,43 @@ export default function EditorialHero() {
                 <Compass size={17} />
                 <span>{isSomali ? 'Khibradaha Dalxiiska' : 'Ocean Experiences'}</span>
               </Link>
+            </motion.div>
+
+            {/* Dynamic Rolling Wave Crest & Spouting Whale Bottom Decorative Row */}
+            <div className="hero-vectors-lower-row">
+              <motion.div
+                className="hero-vector-wave-wrap"
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                whileHover={{ scale: 1.06, rotate: -1.5 }}
+                title="Monsoon Ocean Swells of the Somali Coast"
+              >
+                <img
+                  src="/vector/wave.webp"
+                  alt="Rolling ocean wave vector illustration"
+                  className="hero-vector-wave"
+                />
+                <span className="hero-vector-tag">
+                  <Waves size={10} />
+                  <span>{isSomali ? '3,330 KM Xeeb Nadiif ah' : '3,330 KM Coastline'}</span>
+                </span>
+              </motion.div>
+
+              <motion.div
+                className="hero-vector-spout-wrap"
+                initial={{ opacity: 0, scale: 0.88 }}
+                animate={{ opacity: 0.8, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.7 }}
+                whileHover={{ scale: 1.06, opacity: 1 }}
+                title="Sovereign Marine Sanctuary"
+              >
+                <img
+                  src="/vector/whale.webp"
+                  alt="Twin-spouting whale vector illustration"
+                  className="hero-vector-whale-spout"
+                />
+              </motion.div>
             </div>
           </div>
 

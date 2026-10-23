@@ -99,11 +99,13 @@ export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
+  const [moreLocked, setMoreLocked] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const headerRef = useRef(null);
   const userDropdownRef = useRef(null);
   const moreDropdownRef = useRef(null);
+  const moreTimeoutRef = useRef(null);
   const searchInputRef = useRef(null);
   const { user, isAuthenticated, logout, openAuthModal } = useAuth();
   const { language, setLanguage, t } = useLanguage();
@@ -120,9 +122,11 @@ export default function Header() {
 
   // Close menus on route change
   useEffect(() => {
+    if (moreTimeoutRef.current) clearTimeout(moreTimeoutRef.current);
     setMobileOpen(false);
     setUserDropdownOpen(false);
     setMoreDropdownOpen(false);
+    setMoreLocked(false);
     setSearchOpen(false);
   }, [location.pathname]);
 
@@ -140,13 +144,17 @@ export default function Header() {
         setUserDropdownOpen(false);
       }
       if (moreDropdownRef.current && !moreDropdownRef.current.contains(e.target)) {
+        if (moreTimeoutRef.current) clearTimeout(moreTimeoutRef.current);
         setMoreDropdownOpen(false);
+        setMoreLocked(false);
       }
     };
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
+        if (moreTimeoutRef.current) clearTimeout(moreTimeoutRef.current);
         setUserDropdownOpen(false);
         setMoreDropdownOpen(false);
+        setMoreLocked(false);
         setSearchOpen(false);
       }
     };
@@ -155,6 +163,7 @@ export default function Header() {
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
       document.removeEventListener('keydown', handleKeyDown);
+      if (moreTimeoutRef.current) clearTimeout(moreTimeoutRef.current);
     };
   }, []);
 
@@ -231,8 +240,16 @@ export default function Header() {
               <li
                 className="travel-header__nav-item travel-header__nav-item--more"
                 ref={moreDropdownRef}
-                onMouseEnter={() => setMoreDropdownOpen(true)}
-                onMouseLeave={() => setMoreDropdownOpen(false)}
+                onMouseEnter={() => {
+                  if (moreTimeoutRef.current) clearTimeout(moreTimeoutRef.current);
+                  setMoreDropdownOpen(true);
+                }}
+                onMouseLeave={() => {
+                  if (moreLocked) return;
+                  moreTimeoutRef.current = setTimeout(() => {
+                    setMoreDropdownOpen(false);
+                  }, 280);
+                }}
               >
                 <button
                   type="button"
@@ -241,7 +258,17 @@ export default function Header() {
                       ? 'travel-header__nav-link--active'
                       : ''
                   }`}
-                  onClick={() => setMoreDropdownOpen((prev) => !prev)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (moreTimeoutRef.current) clearTimeout(moreTimeoutRef.current);
+                    if (moreDropdownOpen && moreLocked) {
+                      setMoreDropdownOpen(false);
+                      setMoreLocked(false);
+                    } else {
+                      setMoreDropdownOpen(true);
+                      setMoreLocked(true);
+                    }
+                  }}
                   aria-expanded={moreDropdownOpen}
                   aria-haspopup="true"
                   aria-label="More initiatives and programs"
@@ -256,7 +283,20 @@ export default function Header() {
                 </button>
 
                 {moreDropdownOpen && (
-                  <div className="travel-header__more-dropdown" role="menu">
+                  <div
+                    className="travel-header__more-dropdown"
+                    role="menu"
+                    onMouseEnter={() => {
+                      if (moreTimeoutRef.current) clearTimeout(moreTimeoutRef.current);
+                      setMoreDropdownOpen(true);
+                    }}
+                    onMouseLeave={() => {
+                      if (moreLocked) return;
+                      moreTimeoutRef.current = setTimeout(() => {
+                        setMoreDropdownOpen(false);
+                      }, 280);
+                    }}
+                  >
                     <div className="travel-header__more-header">
                       <span className="travel-header__more-title">
                         {isSomali ? 'Barnaamijyada & Bulshada' : 'Marine Initiatives & Culture'}
@@ -270,7 +310,10 @@ export default function Header() {
                           className={`travel-header__more-item ${
                             currentPath.startsWith(item.path) ? 'travel-header__more-item--active' : ''
                           }`}
-                          onClick={() => setMoreDropdownOpen(false)}
+                          onClick={() => {
+                            setMoreDropdownOpen(false);
+                            setMoreLocked(false);
+                          }}
                           role="menuitem"
                         >
                           <div className="travel-header__more-item-content">
