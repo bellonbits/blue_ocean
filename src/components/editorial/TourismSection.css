@@ -199,6 +199,10 @@
     padding: clamp(40px, 6vw, 60px) 0 clamp(36px, 5vw, 48px);
   }
 
+  .tourism-section__container {
+    padding: 0 clamp(20px, 5.5vw, 28px) !important;
+  }
+
   .tourism-section__header {
     flex-direction: column;
     align-items: flex-start;
@@ -224,13 +228,15 @@
 
   /* Horizontal swipeable luxury deck */
   .tourism-section__grid {
+    --tourism-gutter: clamp(20px, 5.5vw, 28px);
     display: flex !important;
     overflow-x: auto !important;
     scroll-snap-type: x mandatory !important;
+    scroll-padding: 0 var(--tourism-gutter) !important;
     -webkit-overflow-scrolling: touch !important;
     gap: 16px !important;
-    margin: 0 calc(-1 * clamp(16px, 4.5vw, 24px)) !important;
-    padding: 4px clamp(16px, 4.5vw, 24px) 16px clamp(16px, 4.5vw, 24px) !important;
+    margin: 0 calc(-1 * var(--tourism-gutter)) !important;
+    padding: 6px var(--tourism-gutter) 18px var(--tourism-gutter) !important;
     scrollbar-width: none !important;
   }
 
@@ -238,10 +244,20 @@
     display: none !important;
   }
 
+  /* Guaranteed breathing space after the final card at the end of the track */
+  .tourism-section__grid::after {
+    content: '' !important;
+    display: block !important;
+    width: var(--tourism-gutter) !important;
+    min-width: var(--tourism-gutter) !important;
+    flex-shrink: 0 !important;
+    pointer-events: none !important;
+  }
+
   .tourism-card {
-    width: clamp(260px, 78vw, 310px) !important;
-    min-width: clamp(260px, 78vw, 310px) !important;
-    max-width: clamp(260px, 78vw, 310px) !important;
+    width: clamp(255px, 75vw, 305px) !important;
+    min-width: clamp(255px, 75vw, 305px) !important;
+    max-width: clamp(255px, 75vw, 305px) !important;
     flex-shrink: 0 !important;
     scroll-snap-align: start !important;
   }
@@ -317,10 +333,18 @@
 
 /* Small screens (iPhone SE, 7, 8 <= 375px) */
 @media (max-width: 375px) {
+  .tourism-section__container {
+    padding: 0 18px !important;
+  }
+
+  .tourism-section__grid {
+    --tourism-gutter: 18px;
+  }
+
   .tourism-card {
-    width: 250px !important;
-    min-width: 250px !important;
-    max-width: 250px !important;
+    width: 245px !important;
+    min-width: 245px !important;
+    max-width: 245px !important;
   }
 
   .tourism-card__title {

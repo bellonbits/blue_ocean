@@ -2327,6 +2327,16 @@
     display: none !important;
   }
 
+  .editorial-destinations__grid::after,
+  .editorial-mission__grid::after {
+    content: '' !important;
+    display: block !important;
+    width: var(--page-padding) !important;
+    min-width: var(--page-padding) !important;
+    flex-shrink: 0 !important;
+    pointer-events: none !important;
+  }
+
   .editorial-dest-card {
     width: clamp(265px, 78vw, 310px) !important;
     min-width: clamp(265px, 78vw, 310px) !important;
