@@ -322,6 +322,90 @@ export default function ContactPage({ defaultBooking = false }) {
     },
   ];
 
+  const inquiryTypes = [
+    {
+      region: isSomali ? 'Cilmi-baaris' : 'Scientific Research',
+      title: isSomali ? 'Wada-shaqeynta Sayniska Badda' : 'Ocean Science & Data Requests',
+      desc: isSomali
+        ? 'U helitaanka xogta xannaanada shacaabka, heerkulka biyaha, telemetry-ga noolaha badda, ama wada-qorista cilmi-baarista.'
+        : 'Peer-reviewed telemetry datasets, collaborative survey requests, and academic institution partnerships.',
+      image: '/images/img_02.webp',
+      link: '/research',
+    },
+    {
+      region: isSomali ? 'Bulshooyinka' : 'Communities',
+      title: isSomali ? 'Iskaashiga Kalluumeysatada' : 'Artisanal Guild Alliances',
+      desc: isSomali
+        ? 'Taageerada qalabka kalluumaysiga gacanta, farsamada qallajinta cadceedda, iyo barnaamijyada haweenka xeebaha.'
+        : 'Fair-trade handline certification, solar curing infrastructure, and women-led seafood value co-ops.',
+      image: '/images/img_05.webp',
+      link: '/communities',
+    },
+    {
+      region: isSomali ? 'Dalxiiska Anshaxa leh' : 'Ethical Expeditions',
+      title: isSomali ? 'Tilmaamaha Sahaminta Xeebaha' : 'Coastal Travel & Expedition Advisory',
+      desc: isSomali
+        ? 'Hagidda dalxiiska anshaxa leh ee Boosaaso, Raas Xaafuun, Dooxada Eyl, iyo Jasiiradaha Baajuun iyadoo aan dabeecadda la dhibin.'
+        : 'Guidance for respectful coastal travel, cultural dhow sailing charters, and scientific ecotourism.',
+      image: '/images/img_03.webp',
+      link: '/explore-the-coast',
+    },
+    {
+      region: isSomali ? 'Ardayda & Jaamacadaha' : 'Youth & Fellowships',
+      title: isSomali ? 'Tababarka & Deeqaha Waxbarashada' : 'University Attachments & Internships',
+      desc: isSomali
+        ? 'Fursadaha tababarka duurjoogta iyo shaybaarka ee ardayda badda ee dhigata jaamacadaha Soomaaliya.'
+        : 'Practical field attachments for emerging Somali marine scientists, oceanographers, and geographers.',
+      image: '/images/img_01.webp',
+      link: '/about',
+    },
+    {
+      region: isSomali ? 'Warbaahinta' : 'Media & Film',
+      title: isSomali ? 'Diiwaanka Saxaafadda & Filimada' : 'Documentary & Photography Access',
+      desc: isSomali
+        ? 'Caawinta kooxaha filimada badda, saxafiyiinta deegaanka, iyo sawir-qaadayaasha doonaya inay qoraan quruxda xeebta.'
+        : 'Permits, logistical marine craft support, and local guiding for marine documentaries and conservation journalism.',
+      image: '/images/img_12.webp',
+      link: '/news',
+    },
+    {
+      region: isSomali ? 'Ilaalinta Deegaanka' : 'Conservation Action',
+      title: isSomali ? 'Tabarruca & Ilaaliyayaasha Xeebta' : 'Volunteer Beach Guardian Network',
+      desc: isSomali
+        ? 'Ku biirista hawlgallada habeenkii ee badbaadinta ukunta qoolleyda, nadaafadda xeebaha, iyo beeridda mangrove-ka.'
+        : 'Joining seasonal sea turtle night vigils, plastic cleanups, and mangrove planting campaigns.',
+      image: '/images/img_07.webp',
+      link: '/conservation',
+    },
+  ];
+
+  const emergencyHotlines = [
+    {
+      title: isSomali ? 'Khadka Degdegga ah ee Noolaha Badda ee Dhibaataysan' : 'Stranded Marine Wildlife Emergency Hotline',
+      desc: isSomali
+        ? 'Haddii aad aragto diin, libaax-badeed, ama nibir ku xannibmay xeebta ama shabaakadda, isla markiiba la xiriir kooxda badbaadada degdegga ah.'
+        : 'Immediate veterinary response and disentanglement for stranded turtles, dolphins, or whale sharks along the Somali coast.',
+      date: isSomali ? '24/7 Diyaar ah' : '24/7 Rapid Response',
+      location: isSomali ? 'Dhammaan Xeebaha Soomaaliya' : 'All Regional Stations',
+      status: isSomali ? 'Gurmad Toos ah' : 'Emergency Unit',
+      code: 'RESCUE-24',
+      image: '/images/img_02.webp',
+      link: '/contact',
+    },
+    {
+      title: isSomali ? 'Diiwaanka Doonyaha Shisheeye ee Sharci-darrada ah' : 'Illegal Foreign Industrial Trawler Incident Desk',
+      desc: isSomali
+        ? 'Kalluumeysatada maxalliga ahi waxay si toos ah ugu soo diri karaan goobta GPS iyo sawirrada maraakiibta ku xadgudbaya aagga xeebta.'
+        : 'Reporting coordinates and evidence of unauthorized industrial vessels encroaching on artisanal handline grounds.',
+      date: isSomali ? 'Toos & Qarsoodi ah' : 'Confidential Direct Desk',
+      location: isSomali ? 'Xarunta Boosaaso' : 'Surveillance Operations',
+      status: isSomali ? 'Diiwaan Sharci' : 'Incident Log',
+      code: 'IUU-REPORT',
+      image: '/images/image.webp',
+      link: '/conservation',
+    },
+  ];
+
   const currentFeatured = featuredBases[featuredIndex] || featuredBases[0];
 
   const prevFeatured = () => {
