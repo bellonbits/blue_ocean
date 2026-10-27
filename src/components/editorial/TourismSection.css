@@ -1,127 +1,292 @@
 /* =========================================================
-   COASTAL TOURISM SECTION
-   Clean, simple, high-end design matching reference image:
-   - Centered "Most Viewed" title
-   - 3 Clean destination cards (Photo, location line, title, price)
-   - Exactly 3 centered pagination dots
-   - "The Easiest Method" section at bottom
+   SOMALIA BLUE HEAVEN — Modern Coastal Showcase
+   Style matching reference design:
+   1. Brand Social Proof & Statement ("Somalia Blue Heaven means Going Coastal")
+   2. Asymmetric Staggered Showcase ("Not Your Typical Coastal Journey")
+   3. "Pick the Place" Filter Bar & 3 Modern Booking Cards
+   Unified Font: Plus Jakarta Sans
    ========================================================= */
 
-.tourism-section {
+.travel-style-section {
   position: relative;
   background: #ffffff;
   color: #071b2b;
-  padding: clamp(72px, 8.5vh, 92px) 0 clamp(72px, 9vh, 100px);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: clamp(64px, 8vh, 96px) 0 clamp(80px, 10vh, 120px);
   border-bottom: 1px solid rgba(7, 27, 43, 0.06);
 }
 
-.tourism-section__container {
+.travel-style-container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 clamp(20px, 4.5vw, 64px);
 }
 
 /* ---------------------------------------------------------
-   1. CENTERED SECTION HEADER
+   1. TOP EDITORIAL STATEMENT & SOCIAL PROOF BANNER
    --------------------------------------------------------- */
-.tourism-section__centered-header {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto clamp(36px, 5vw, 54px);
+.travel-brand-header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  margin-bottom: clamp(54px, 7vh, 84px);
 }
 
-.tourism-section__header-pill-line {
-  display: flex;
+/* Social Proof Pill */
+.travel-brand-proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.travel-brand-proof__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.travel-brand-proof__icon {
+  color: #008fcb;
+}
+
+.travel-brand-proof__brand {
+  font-weight: 700;
+  color: #071b2b;
+}
+
+.travel-brand-proof__star {
+  color: #f59e0b;
+}
+
+.travel-brand-proof__stat {
+  font-weight: 500;
+  color: #64748b;
+}
+
+.travel-brand-proof__avatars {
+  display: inline-flex;
+  align-items: center;
+}
+
+.travel-brand-proof__avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  border: 2px solid #ffffff;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
+  font-size: 12px;
+  margin-left: -6px;
 }
 
-.tourism-section__accent-dot {
-  width: 24px;
-  height: 3.5px;
-  border-radius: 999px;
+.travel-brand-proof__avatar:first-child {
+  margin-left: 0;
+}
+
+.travel-brand-proof__avatar-count {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #008fcb;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  margin-left: -6px;
+}
+
+/* Giant Modern Heading */
+.travel-editorial-title {
+  font-family: inherit;
+  font-size: clamp(36px, 5.2vw, 68px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: #071b2b;
+  margin: 0 0 24px 0;
+  max-width: 900px;
+}
+
+.travel-editorial-title__highlight {
+  color: #071b2b;
+  position: relative;
+  display: inline-block;
+}
+
+/* Minimalist Compass Tracker Graphic */
+.travel-tracker-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.travel-tracker-line__start {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
   background: #008fcb;
 }
 
-.tourism-section__centered-title {
-  font-family: var(--eo-font-sans, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: clamp(32px, 3.8vw, 46px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #071b2b;
-  line-height: 1.15;
-  margin: 0 0 12px 0;
+.travel-tracker-line__dash {
+  width: clamp(80px, 12vw, 150px);
+  height: 2px;
+  border-top: 2px dashed #94a3b8;
 }
 
-.tourism-section__centered-subtitle {
-  font-family: var(--eo-font-sans, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: clamp(14.5px, 1.1vw, 16px);
-  line-height: 1.6;
-  color: #64748b;
-  margin: 0;
-  max-width: 580px;
+.travel-tracker-line__target {
+  color: #008fcb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ---------------------------------------------------------
-   2. 3-CARD SIMPLE GRID MATCHING REFERENCE
+   2. ASYMMETRIC STAGGERED SHOWCASE ("Not Your Ordinary Haven")
    --------------------------------------------------------- */
-.tourism-section__grid {
+.travel-showcase {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(20px, 2.5vw, 36px);
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 8px;
+  grid-template-columns: 1.1fr 1.9fr;
+  gap: clamp(36px, 5vw, 72px);
+  align-items: center;
+  margin-bottom: clamp(64px, 8vh, 108px);
 }
 
-.tourism-section__grid::-webkit-scrollbar {
-  display: none;
-}
-.tourism-section__grid {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Card: Simple, clean, elegant */
-.tourism-card {
+.travel-showcase__left {
   display: flex;
   flex-direction: column;
-  background: #ffffff;
-  border: 1px solid rgba(7, 27, 43, 0.05);
-  border-radius: 24px;
-  padding: 12px;
-  box-shadow: 0 10px 30px rgba(7, 27, 43, 0.05);
+  align-items: flex-start;
+}
+
+.travel-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #475569;
+  margin-bottom: 18px;
+}
+
+.travel-pill-tag__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #008fcb;
+}
+
+.travel-showcase__title {
+  font-family: inherit;
+  font-size: clamp(28px, 3.6vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.14;
+  color: #071b2b;
+  margin: 0 0 16px 0;
+}
+
+.travel-showcase__subtitle {
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #64748b;
+  max-width: 440px;
+  margin: 0 0 28px 0;
+}
+
+.travel-showcase__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #071b2b;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(7, 27, 43, 0.25);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.travel-showcase__btn:hover {
+  background: #008fcb;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 143, 203, 0.4);
+}
+
+/* Right Column: 3 Staggered Asymmetric Cards */
+.travel-showcase__right {
+  display: flex;
+  flex-direction: column;
+}
+
+.travel-showcase__cards-row {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(14px, 2vw, 24px);
+}
+
+.travel-stagger-card {
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   color: inherit;
-  cursor: pointer;
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.28s ease,
-              border-color 0.2s ease;
-  scroll-snap-align: start;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.tourism-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 40px rgba(7, 27, 43, 0.1);
-  border-color: rgba(0, 143, 203, 0.3);
+.travel-stagger-card:hover {
+  transform: translateY(-6px);
 }
 
-.tourism-card__media {
+.travel-stagger-card__media {
   position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 11;
   overflow: hidden;
-  border-radius: 18px;
   background: #071b2b;
+  box-shadow: 0 16px 36px rgba(7, 27, 43, 0.08);
 }
 
-.tourism-card__img {
+.travel-stagger-card--tall .travel-stagger-card__media {
+  width: clamp(210px, 22vw, 270px);
+  height: clamp(310px, 34vh, 380px);
+  border-radius: 24px;
+}
+
+.travel-stagger-card--medium .travel-stagger-card__media {
+  width: clamp(170px, 18vw, 220px);
+  height: clamp(250px, 28vh, 310px);
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.travel-stagger-card--compact .travel-stagger-card__media {
+  width: clamp(150px, 16vw, 190px);
+  height: clamp(210px, 23vh, 260px);
+  border-radius: 18px;
+  margin-bottom: 24px;
+}
+
+.travel-stagger-card__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -129,245 +294,435 @@
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.tourism-card:hover .tourism-card__img {
+.travel-stagger-card:hover .travel-stagger-card__img {
   transform: scale(1.05);
 }
 
-.tourism-card__content {
-  padding: 14px 6px 6px;
+.travel-stagger-card__chip {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(7, 27, 43, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.travel-stagger-card__meta {
+  padding-top: 10px;
+}
+
+.travel-stagger-card__title {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: #071b2b;
+  margin: 0 0 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.travel-stagger-card__caption {
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #64748b;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Nav Controls (Prev / Next) */
+.travel-showcase__nav-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.travel-showcase__nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.travel-showcase__nav-btn:hover {
+  background: #ffffff;
+  border-color: #008fcb;
+  color: #008fcb;
+  box-shadow: 0 4px 12px rgba(0, 143, 203, 0.15);
+}
+
+/* ---------------------------------------------------------
+   3. "PICK THE PLACE" SECTION
+   --------------------------------------------------------- */
+.travel-pick-section {
+  padding-top: clamp(24px, 4vh, 48px);
+}
+
+.travel-pick-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.travel-pick-header__left {
   display: flex;
   flex-direction: column;
 }
 
-.tourism-card__meta-line {
-  margin-bottom: 4px;
-}
-
-.tourism-card__meta-text {
-  font-family: var(--eo-font-sans, 'Inter', sans-serif);
-  font-size: 11.5px;
-  font-weight: 500;
-  color: #64748b;
-  letter-spacing: 0.01em;
-}
-
-.tourism-card__title {
-  font-family: var(--eo-font-sans, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: clamp(17px, 1.35vw, 20px);
+.travel-pick-title {
+  font-family: inherit;
+  font-size: clamp(34px, 4.4vw, 54px);
   font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
   color: #071b2b;
-  margin: 0 0 6px 0;
-  line-height: 1.25;
-  letter-spacing: -0.015em;
-  transition: color 0.2s ease;
+  margin: 0;
 }
 
-.tourism-card:hover .tourism-card__title {
+.travel-pick-header__right {
+  max-width: 440px;
+}
+
+.travel-pick-subtitle {
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Filter Bar: Clean White Card with Dropdowns */
+.travel-filter-bar {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 16px 48px rgba(7, 27, 43, 0.08);
+  border: 1px solid #e2e8f0;
+  padding: 12px 16px 12px 28px;
+  display: grid;
+  grid-template-columns: 1.2fr auto 1fr auto 1fr auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: clamp(32px, 4vw, 48px);
+}
+
+.travel-filter-bar__item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.travel-filter-bar__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.travel-filter-bar__icon {
+  color: #008fcb;
+  flex-shrink: 0;
+}
+
+.travel-filter-bar__select {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #071b2b;
+  outline: none;
+  cursor: pointer;
+  padding: 2px 20px 2px 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  transition: color 0.2s ease;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.travel-filter-bar__select:hover,
+.travel-filter-bar__select:focus {
   color: #008fcb;
 }
 
-.tourism-card__price-row {
-  margin-top: 2px;
+.travel-filter-bar__divider {
+  width: 1px;
+  height: 38px;
+  background: #e2e8f0;
+  flex-shrink: 0;
 }
 
-.tourism-card__price-val {
-  font-family: var(--eo-font-sans, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: 15px;
-  font-weight: 800;
-  color: #071b2b;
-  letter-spacing: -0.01em;
+.travel-filter-bar__action {
+  flex-shrink: 0;
 }
 
-/* ---------------------------------------------------------
-   3. EXACTLY 3 CENTERED PAGINATION DOTS
-   --------------------------------------------------------- */
-.tourism-section__pagination-dots {
-  display: flex;
+.travel-filter-bar__btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin: 36px auto 0;
-}
-
-.tourism-section__p-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #d7e2eb;
+  background: #071b2b;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 12px 26px;
+  border-radius: 9999px;
   border: none;
   cursor: pointer;
-  padding: 0;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(7, 27, 43, 0.25);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.tourism-section__p-dot:hover {
-  background: #94a3b8;
+.travel-filter-bar__btn:hover {
+  background: #008fcb;
+  transform: translateY(-1.5px);
+  box-shadow: 0 8px 20px rgba(0, 143, 203, 0.4);
 }
 
-.tourism-section__p-dot--active {
-  width: 24px;
+/* 3 Modern Haven Cards with Badges & Open Trip pills */
+.travel-haven-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 2.5vw, 32px);
+}
+
+.travel-place-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(7, 27, 43, 0.04);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s ease,
+              border-color 0.2s ease;
+}
+
+.travel-place-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 48px rgba(7, 27, 43, 0.09);
+  border-color: rgba(0, 143, 203, 0.35);
+}
+
+.travel-place-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.travel-place-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.travel-place-card__name {
+  font-family: inherit;
+  font-size: 16.5px;
+  font-weight: 800;
+  color: #071b2b;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.travel-place-card__location {
+  font-size: 12.5px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.travel-place-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
   border-radius: 9999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.travel-place-card__badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #d97706;
+}
+
+.travel-place-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 18px;
+  overflow: hidden;
   background: #071b2b;
 }
 
-/* ---------------------------------------------------------
-   4. THE EASIEST METHOD SECTION
-   --------------------------------------------------------- */
-.tourism-method {
-  margin-top: clamp(64px, 8.5vh, 96px);
-  padding-top: clamp(48px, 6vh, 72px);
-  border-top: 1px solid #f1f5f9;
-}
-
-.tourism-method__grid {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: clamp(36px, 5vw, 64px);
-  align-items: center;
-}
-
-.tourism-method__media-wrap {
-  position: relative;
-}
-
-.tourism-method__media-card {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3.2;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 0 16px 44px rgba(12, 26, 41, 0.1);
-}
-
-.tourism-method__img {
+.travel-place-card__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.tourism-method__media-badge {
+.travel-place-card:hover .travel-place-card__img {
+  transform: scale(1.05);
+}
+
+.travel-place-card__open-pill {
   position: absolute;
-  bottom: 24px;
-  left: 24px;
-  width: 60px;
-  height: 60px;
-  border-radius: 18px;
+  bottom: 12px;
+  right: 12px;
   background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-.tourism-method__badge-icon {
-  color: #008fcb;
-}
-
-.tourism-method__content {
-  display: flex;
-  flex-direction: column;
-}
-
-.tourism-method__title {
-  font-family: var(--eo-font-sans, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: clamp(28px, 3.4vw, 44px);
-  font-weight: 800;
-  letter-spacing: -0.025em;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: #071b2b;
-  line-height: 1.15;
-  margin: 0 0 14px 0;
-}
-
-.tourism-method__subtitle {
-  font-family: var(--eo-font-sans, 'Inter', sans-serif);
-  font-size: clamp(14.5px, 1.1vw, 16px);
-  line-height: 1.62;
-  color: #64748b;
-  margin: 0 0 28px 0;
-  max-width: 540px;
-}
-
-.tourism-method__cta-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.tourism-method__cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #071b2b;
-  color: #ffffff;
-  font-family: var(--eo-font-sans, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: 14px;
+  font-size: 11.5px;
   font-weight: 700;
-  padding: 12px 26px;
+  padding: 6px 14px;
   border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(7, 27, 43, 0.28);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s ease;
 }
 
-.tourism-method__cta-btn:hover {
+.travel-place-card__open-pill:hover {
   background: #008fcb;
-  transform: translateY(-1.5px);
-  box-shadow: 0 8px 22px rgba(0, 143, 203, 0.4);
   color: #ffffff;
+  border-color: #008fcb;
+  transform: translateY(-1px);
 }
 
 /* ---------------------------------------------------------
-   RESPONSIVE DESIGN (<= 1024px & <= 768px)
+   RESPONSIVE BREAKPOINTS
    --------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .tourism-section__grid {
-    grid-template-columns: repeat(2, 340px);
-    overflow-x: auto;
+@media (max-width: 1120px) {
+  .travel-showcase {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
-  .tourism-method__grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
+  .travel-showcase__cards-row {
+    justify-content: center;
+  }
+
+  .travel-filter-bar {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+
+  .travel-filter-bar__divider {
+    display: none;
+  }
+
+  .travel-filter-bar__action {
+    grid-column: span 2;
+  }
+
+  .travel-filter-bar__btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
-@media (max-width: 768px) {
-  .tourism-section {
-    padding: clamp(64px, 8vw, 84px) 0 clamp(48px, 6vw, 64px);
-  }
-
-  .tourism-section__container {
-    padding: 0 16px !important;
-  }
-
-  .tourism-section__grid {
-    grid-template-columns: repeat(6, 80vw);
-    gap: 16px;
-  }
-
-  .tourism-section__centered-title {
-    font-size: clamp(26px, 7vw, 34px);
-  }
-
-  .tourism-method {
-    margin-top: 48px;
-    padding-top: 36px;
-  }
-
-  .tourism-method__title {
-    font-size: clamp(24px, 6.8vw, 32px);
-  }
-
-  .tourism-method__cta-row {
-    width: 100%;
-  }
-
-  .tourism-method__cta-btn {
-    width: 100%;
+@media (max-width: 860px) {
+  .travel-showcase__cards-row {
+    flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .travel-stagger-card--medium .travel-stagger-card__media,
+  .travel-stagger-card--compact .travel-stagger-card__media {
+    margin-bottom: 0;
+  }
+
+  .travel-haven-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .travel-brand-proof {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .travel-editorial-title {
+    font-size: 32px;
+  }
+
+  .travel-pick-title {
+    font-size: 30px;
+  }
+
+  .travel-showcase__title {
+    font-size: 26px;
+  }
+
+  .travel-stagger-card--tall .travel-stagger-card__media,
+  .travel-stagger-card--medium .travel-stagger-card__media,
+  .travel-stagger-card--compact .travel-stagger-card__media {
+    width: 100%;
+    height: 240px;
+  }
+
+  .travel-filter-bar {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .travel-filter-bar__action {
+    grid-column: span 1;
   }
 }
