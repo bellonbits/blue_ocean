@@ -1,54 +1,78 @@
 import { useRef, useState } from 'react';
-import { ArrowRight, Compass, ChevronLeft, ChevronRight } from 'lucide-react';
+import {
+  ArrowRight,
+  Compass,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 import './TourismSection.css';
 
-
 export const TOURISM_DESTINATIONS = [
   {
-    id: 'bosaso',
-    titleEn: 'Bosaso',
-    titleSo: 'Boosaaso',
-    descEn: 'Where rugged volcanic ridges meet the deep pelagic waters of the Gulf of Aden.',
-    descSo: 'Halka buuraha dhaadheer ay ku dhacaan biyaha qotada dheer ee Gacanka Cadmeed.',
-    image: '/WebsiteImagery_1920x1080_SisterCities_BosasoSomalia-mtime20180108165841_2021-11-01-121110_grsn_91852798b59be8b28fc00edfe4aec23a.webp',
-    path: '/explore-the-coast/bosaso',
-    tagEn: 'Gulf of Aden',
-    tagSo: 'Gacanka Cadmeed',
+    id: 'hafun',
+    titleEn: 'Ras Hafun Peninsula',
+    titleSo: 'Raas Xaafuun',
+    image: '/somalia_hero_coast.webp',
+    path: '/explore-the-coast/hafun',
+    metricsEn: 'Puntland Coast, Indian Ocean • 🤿 32m • 🌡️ 28°C',
+    metricsSo: 'Xeebta Puntland, Badweynta Hindiya • 🤿 32m • 🌡️ 28°C',
+    priceEn: '$ 180,00 / Day',
+    priceSo: '$ 180,00 / Maalin',
   },
   {
     id: 'bajuni',
-    titleEn: 'Bajuni Islands',
+    titleEn: 'Bajuni Coral Archipelago',
     titleSo: 'Jasiiradaha Baajuun',
-    descEn: 'Pristine coral archipelago with turquoise lagoons, white sandbars and mangroves.',
-    descSo: 'Jasiirado carwooyin leh oo biyo nadiif ah, carro cad iyo kaymaha mangroves.',
     image: '/kismayo1.webp',
     path: '/explore-the-coast/kismayo',
-    tagEn: 'Indian Ocean',
-    tagSo: 'Badweynta Hindiya',
-  },
-  {
-    id: 'hafun',
-    titleEn: 'Ras Hafun',
-    titleSo: 'Raas Xaafuun',
-    descEn: "Africa's easternmost horn with dramatic sandstone headlands and ancient trade routes.",
-    descSo: 'Barta bari ee Afrika oo leh buuro dhagaxeed qurux badan iyo waddooyinkii ganacsiga qadiimiga ahaa.',
-    image: '/Somalia,_Puntland,_Bari,_Bargal_(01).webp',
-    path: '/explore-the-coast/hafun',
-    tagEn: 'Puntland Coast',
-    tagSo: 'Xeebta Puntland',
+    metricsEn: 'Jubaland Coast, Coral Lagoons • 🤿 28m • 🌡️ 29°C',
+    metricsSo: 'Xeebta Jubaland, Shacaabka Badda • 🤿 28m • 🌡️ 29°C',
+    priceEn: '$ 220,00 / Day',
+    priceSo: '$ 220,00 / Maalin',
   },
   {
     id: 'eyl',
-    titleEn: 'Eyl Canyon',
-    titleSo: 'Dooxada Eyl',
-    descEn: 'A breathtaking canyon gorge meeting the open Indian Ocean and historic fortifications.',
-    descSo: 'Dooxo mucjiso ah oo badda ku darsanta iyo qalcadihii taariikhiga ahaa.',
+    titleEn: 'Dooxada Eyl Gorge & Falls',
+    titleSo: 'Dooxada Eyl & Dhagaxyada',
     image: '/eyl3.webp',
     path: '/explore-the-coast/eyl',
-    tagEn: 'Nugaal Coast',
-    tagSo: 'Xeebta Nugaal',
+    metricsEn: 'Nugaal Coast, Ocean Canyon • 🤿 30m • 🌡️ 26°C',
+    metricsSo: 'Xeebta Nugaal, Dooxada Badda • 🤿 30m • 🌡️ 26°C',
+    priceEn: '$ 160,00 / Day',
+    priceSo: '$ 160,00 / Maalin',
+  },
+  {
+    id: 'bosaso',
+    titleEn: 'Bosaso Deep Bay & Shelf',
+    titleSo: 'Boosaaso & Gacanka Cadmeed',
+    image: '/WebsiteImagery_1920x1080_SisterCities_BosasoSomalia-mtime20180108165841_2021-11-01-121110_grsn_91852798b59be8b28fc00edfe4aec23a.webp',
+    path: '/explore-the-coast/bosaso',
+    metricsEn: 'Gulf of Aden, Pelagic Waters • 🤿 25m • 🌡️ 27°C',
+    metricsSo: 'Gacanka Cadmeed, Biyo Qoto Dheer • 🤿 25m • 🌡️ 27°C',
+    priceEn: '$ 190,00 / Day',
+    priceSo: '$ 190,00 / Maalin',
+  },
+  {
+    id: 'mogadishu',
+    titleEn: 'Liido Beach & Coral Harbor',
+    titleSo: 'Xeebta Liido & Dekedda Qadiimiga',
+    image: '/MOGADISHUBEACH LEDE.webp',
+    path: '/explore-the-coast/mogadishu',
+    metricsEn: 'Benadir Coast, Oceanfront • 🤿 22m • 🌡️ 28°C',
+    metricsSo: 'Xeebta Banaadir, Biyo Nadiif ah • 🤿 22m • 🌡️ 28°C',
+    priceEn: '$ 140,00 / Day',
+    priceSo: '$ 140,00 / Maalin',
+  },
+  {
+    id: 'zeila',
+    titleEn: 'Zeila Coral Archipelago',
+    titleSo: 'Seylac & Jasiiradaha Saacaddiin',
+    image: '/zeila1.webp',
+    path: '/explore-the-coast/zeila',
+    metricsEn: 'Awdal Coast, Shallow Atolls • 🤿 26m • 🌡️ 29°C',
+    metricsSo: 'Xeebta Awdal, Jasiirado Shacaab • 🤿 26m • 🌡️ 29°C',
+    priceEn: '$ 175,00 / Day',
+    priceSo: '$ 175,00 / Maalin',
   },
 ];
 
@@ -57,66 +81,46 @@ export default function TourismSection() {
   const isSomali = language === 'so';
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
   const gridRef = useRef(null);
-  const [activeIdx, setActiveIdx] = useState(0);
+  const [activePage, setActivePage] = useState(0);
 
-  // Sync active dot on mobile horizontal scroll
+  // 3-dot pagination: Page 0 (first 3), Page 1 (next 3)
+  const scrollToPage = (pageIndex) => {
+    setActivePage(pageIndex);
+    if (!gridRef.current) return;
+    const card = gridRef.current.firstElementChild;
+    if (!card) return;
+    const scrollAmount = pageIndex * (card.offsetWidth + 24) * 3;
+    gridRef.current.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+  };
+
   const handleScroll = () => {
     if (!gridRef.current) return;
-    const scrollLeft = gridRef.current.scrollLeft;
     const card = gridRef.current.firstElementChild;
     if (!card) return;
-    const cardWidth = card.offsetWidth + 16;
-    const newIdx = Math.round(scrollLeft / cardWidth);
-    setActiveIdx(Math.min(Math.max(newIdx, 0), TOURISM_DESTINATIONS.length - 1));
-  };
-
-  const scrollCard = (dir) => {
-    if (!gridRef.current) return;
-    const card = gridRef.current.firstElementChild;
-    if (!card) return;
-    const cardWidth = card.offsetWidth + 16;
-    gridRef.current.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
-  };
-
-  const scrollToCard = (idx) => {
-    if (!gridRef.current) return;
-    const card = gridRef.current.firstElementChild;
-    if (!card) return;
-    const cardWidth = card.offsetWidth + 16;
-    gridRef.current.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
-    setActiveIdx(idx);
+    const pageWidth = (card.offsetWidth + 24) * 3;
+    const page = Math.round(gridRef.current.scrollLeft / (pageWidth || 1));
+    setActivePage(Math.min(Math.max(page, 0), 2));
   };
 
   return (
-    <section id="tourism-section" className="tourism-section" aria-label="Coastal Tourism Destinations">
+    <section id="tourism-section" className="tourism-section" aria-label="Most Viewed Havens">
       <div className="tourism-section__container">
-        {/* Section Header */}
-        <div className="tourism-section__header">
-          <div className="tourism-section__title-group">
-            <span className="tourism-section__eyebrow">
-              <Compass size={14} className="tourism-section__eyebrow-icon" />
-              {isSomali ? 'DALXIISKA XEEBTA' : 'COASTAL TOURISM'}
-            </span>
-            <h2 className="tourism-section__title">
-              {isSomali ? 'Goobaha Dalxiiska ee Xeebta' : 'Featured Coastal Destinations'}
-            </h2>
-            <p className="tourism-section__subtitle">
-              {isSomali
-                ? 'Sahmi goobaha ugu caansan uguna quruxda badan ee ku teedsan 3,330 km oo xeebta Soomaaliya ah.'
-                : "Explore iconic havens, coral atolls, and untouched shores across Somalia's 3,330 km coastline."}
-            </p>
+        {/* Centered Section Header matching reference image */}
+        <div className="tourism-section__centered-header">
+          <div className="tourism-section__header-pill-line">
+            <span className="tourism-section__accent-dot" />
           </div>
-          <Link
-            to={localizedPath('/tourism')}
-            className="tourism-section__view-all"
-            id="tourism-section-view-all-btn"
-          >
-            <span>{isSomali ? 'Dhammaan Dalxiiska' : 'Explore All Destinations'}</span>
-            <ArrowRight size={16} />
-          </Link>
+          <h2 className="tourism-section__centered-title">
+            {isSomali ? 'Goobaha Ugu Badan' : 'Most Viewed'}
+          </h2>
+          <p className="tourism-section__centered-subtitle">
+            {isSomali
+              ? 'Sahmi goobaha fasaxa ee ugu quruxda badan ee ku teedsan xeebta Soomaaliya. Si kalsooni leh u qorshee adigoo helaya hagayaal aqoonsan.'
+              : 'Discover a range of vacation havens worldwide. Book securely and get expert local support for a stress-free journey.'}
+          </p>
         </div>
 
-        {/* 4 Destinations Cards Grid (responsive swipeable deck on mobile) */}
+        {/* 3-Card Simple Responsive Grid matching reference mockup */}
         <div
           className="tourism-section__grid"
           ref={gridRef}
@@ -127,8 +131,9 @@ export default function TourismSection() {
               key={dest.id}
               to={localizedPath(dest.path)}
               className="tourism-card"
-              aria-label={isSomali ? dest.titleSo : dest.titleEn}
+              aria-label={`View ${isSomali ? dest.titleSo : dest.titleEn}`}
             >
+              {/* Media with modern rounded frame matching reference image */}
               <div className="tourism-card__media">
                 <img
                   src={dest.image}
@@ -136,58 +141,95 @@ export default function TourismSection() {
                   className="tourism-card__img"
                   loading="lazy"
                 />
-                <span className="tourism-card__tag">
-                  {isSomali ? dest.tagSo : dest.tagEn}
-                </span>
               </div>
+
+              {/* Card Meta & Typography - Simple & Clean */}
               <div className="tourism-card__content">
+                {/* Location subtitle and specs line */}
+                <div className="tourism-card__meta-line">
+                  <span className="tourism-card__meta-text">
+                    {isSomali ? dest.metricsSo : dest.metricsEn}
+                  </span>
+                </div>
+
+                {/* Bold Destination Title */}
                 <h3 className="tourism-card__title">
                   {isSomali ? dest.titleSo : dest.titleEn}
                 </h3>
-                <p className="tourism-card__desc">
-                  {isSomali ? dest.descSo : dest.descEn}
-                </p>
+
+                {/* Price / Rate Tag */}
+                <div className="tourism-card__price-row">
+                  <span className="tourism-card__price-val">
+                    {isSomali ? dest.priceSo : dest.priceEn}
+                  </span>
+                </div>
               </div>
             </Link>
           ))}
         </div>
 
-        {/* Mobile Interactive Carousel Controller (Arrows + Animated Dots) */}
-        <div className="tourism-section__mobile-nav" aria-label="Destination slides">
-          <button
-            type="button"
-            className="tourism-section__nav-btn"
-            onClick={() => scrollCard(-1)}
-            disabled={activeIdx === 0}
-            aria-label="Previous destination"
-          >
-            <ChevronLeft size={18} />
-          </button>
+        {/* Exactly 3 Centered Pagination Dots matching reference image */}
+        <div className="tourism-section__pagination-dots" aria-label="Haven slides">
+          {[0, 1, 2].map((idx) => (
+            <button
+              key={idx}
+              type="button"
+              className={`tourism-section__p-dot ${activePage === idx ? 'tourism-section__p-dot--active' : ''}`}
+              onClick={() => scrollToPage(idx)}
+              aria-label={`View haven group ${idx + 1}`}
+            />
+          ))}
+        </div>
 
-          <div className="tourism-section__dots">
-            {TOURISM_DESTINATIONS.map((dest, i) => (
-              <button
-                key={dest.id}
-                type="button"
-                className={`tourism-section__dot ${i === activeIdx ? 'tourism-section__dot--active' : ''}`}
-                onClick={() => scrollToCard(i)}
-                aria-label={`Go to ${isSomali ? dest.titleSo : dest.titleEn}`}
-              />
-            ))}
+        {/* ---------------------------------------------------------
+            THE EASIEST METHOD TO FIND AN OCEAN HAVEN
+            (Matching the bottom section of the user's reference mockup)
+            --------------------------------------------------------- */}
+        <div className="tourism-method">
+          <div className="tourism-method__grid">
+            {/* Left Column: Rounded Ocean Photo Card with Floating Badge */}
+            <div className="tourism-method__media-wrap">
+              <div className="tourism-method__media-card">
+                <img
+                  src="/somalia_hero_coast.webp"
+                  alt="Traditional dhow sailing on crystal clear waters"
+                  className="tourism-method__img"
+                  loading="lazy"
+                />
+                <div className="tourism-method__media-badge">
+                  <Compass size={28} className="tourism-method__badge-icon" />
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Title, Description & Search Pill */}
+            <div className="tourism-method__content">
+              <h2 className="tourism-method__title">
+                {isSomali
+                  ? 'Habka Ugu Fudud ee Loo Sahmiyo Badda'
+                  : 'The Easiest Method To Explore Somalia’s Coast'}
+              </h2>
+
+              <p className="tourism-method__subtitle">
+                {isSomali
+                  ? 'Somalia Blue Heaven waa marinkaaga tooska ah ee aad ku sahmin karto biyaha buluugga ah ee Baajuun, dooxada Eyl, iyo qaniimada dabiiciga ah ee badweynta Hindiya iyadoo la helayo badmareenno aqoonsan.'
+                  : 'Somalia Blue Heaven is your go to destination for discovering the pristine waters of Bajuni, dramatic canyons of Eyl, and authentic seafaring hospitality along 3,330 km of virgin coastline.'}
+              </p>
+
+              <div className="tourism-method__cta-row">
+                <Link
+                  to={localizedPath('/contact?booking=true')}
+                  className="tourism-method__cta-btn"
+                  id="tourism-method-book-now"
+                >
+                  <span>{isSomali ? 'Qorshee Safarka' : 'Plan Your Tour'}</span>
+                  <ArrowRight size={15} />
+                </Link>
+              </div>
+            </div>
           </div>
-
-          <button
-            type="button"
-            className="tourism-section__nav-btn"
-            onClick={() => scrollCard(1)}
-            disabled={activeIdx === TOURISM_DESTINATIONS.length - 1}
-            aria-label="Next destination"
-          >
-            <ChevronRight size={18} />
-          </button>
         </div>
       </div>
     </section>
   );
 }
-

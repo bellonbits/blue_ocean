@@ -3,7 +3,6 @@ import { useScrollReveal } from '../lib/hooks';
 import EditorialHero from '../components/editorial/EditorialHero';
 import TourismSection from '../components/editorial/TourismSection';
 import EditorialStatement from '../components/editorial/EditorialStatement';
-import EditorialDestinations from '../components/editorial/EditorialDestinations';
 import EditorialMission from '../components/editorial/EditorialMission';
 import EditorialMarineLife from '../components/editorial/EditorialMarineLife';
 import EditorialExperiences from '../components/editorial/EditorialExperiences';
@@ -24,26 +23,23 @@ export default function Home() {
   return (
     <div className="editorial-home">
       <main id="main-content" aria-label="Somalia Blue Heaven — Marine Tourism, Research & Conservation">
-        {/* 1. Hero: Full-Bleed Cinematic Photography */}
+        {/* 1. Hero: Grand Ocean Showcase & Quick Booking Bar */}
         <EditorialHero />
 
-        {/* 2. Coastal Tourism Section: 4 Featured Destinations matching reference layout */}
+        {/* 2. Coastal Tourism Section: Featured Havens & Islands with Direct Excursion Booking */}
         <TourismSection />
 
-        {/* 3. Introduction: 3,330 KM Coastline Narrative & Key Metrics */}
+        {/* 3. Ocean Activities & Experiences: Snorkeling, Scuba Diving, Dhow Tours, Photography, Marine Safaris */}
+        <EditorialExperiences />
+
+        {/* 4. Introduction: 3,330 KM Coastline Narrative & Key Metrics */}
         <EditorialStatement />
 
-        {/* 4. Purposeful Editorial Destination Cards: Hafun, Mogadishu, Ras Hafun, Kismayo */}
-        <EditorialDestinations />
-
-        {/* 4. Brand Mission & Four Pillars: Tourism, Research, Education, Conservation */}
+        {/* 5. Brand Mission & Four Pillars: Tourism, Research, Education, Conservation */}
         <EditorialMission />
 
-        {/* 5. The Living Ocean: Large Editorial Photography & Marine Megafauna */}
+        {/* 6. The Living Ocean: Large Editorial Photography & Marine Megafauna */}
         <EditorialMarineLife />
-
-        {/* 6. Ocean Experiences: Diving, Dhow Voyages, Coastal Wilderness Trekking */}
-        <EditorialExperiences />
 
         {/* 7. Research & Conservation: Bathymetric Mapping, Anti-IUU & Marine Protected Areas */}
         <EditorialResearch />

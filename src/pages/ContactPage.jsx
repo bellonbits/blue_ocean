@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import {
   Compass,
   Search,
@@ -33,11 +33,18 @@ export default function ContactPage() {
   const { language } = useLanguage();
   const { token } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const isSomali = language === 'so';
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
   const [searchQuery, setSearchQuery] = useState('');
   const [featuredIndex, setFeaturedIndex] = useState(0);
+
+  // Query parameter extraction for direct bookings & inquiries
+  const bookingParam = searchParams.get('booking');
+  const destParam = searchParams.get('destination');
+  const expParam = searchParams.get('experience');
+  const seasonParam = searchParams.get('season');
 
   // Form State
   const [formData, setFormData] = useState({
@@ -45,15 +52,45 @@ export default function ContactPage() {
     email: '',
     phone: '',
     organization: '',
-    subject: 'General Inquiry',
+    subject: bookingParam || expParam ? 'Ocean Experiences' : 'General Inquiry',
     message: '',
   });
   const [formStatus, setFormStatus] = useState('idle'); // idle | submitting | success | error
 
+  // Auto-populate booking details when user clicks "Plan Trip / Book Tour" from Hero or Cards
+  useEffect(() => {
+    if (bookingParam || destParam || expParam) {
+      setFormData((prev) => {
+        const parts = [];
+        if (expParam && expParam !== 'All Experiences') parts.push(`• Activity: ${expParam}`);
+        if (destParam && destParam !== 'All Destinations') parts.push(`• Destination: ${destParam}`);
+        if (seasonParam) parts.push(`• Preferred Season: ${seasonParam}`);
+
+        const prefill = isSomali
+          ? `Waxaan doonayaa inaan qorsheeyo safar dalxiis:\n${parts.length ? parts.join('\n') + '\n' : ''}Fadlan ila soo xiriira si aan u xaqiijino boosaska iyo qorshaha safarka.`
+          : `Hello, I would like to plan an expedition to the Somali coast:\n${parts.length ? parts.join('\n') + '\n' : ''}Please provide availability, custom itinerary options, and booking details.`;
+
+        return {
+          ...prev,
+          subject: 'Ocean Experiences',
+          message: prev.message || prefill,
+        };
+      });
+
+      // Smooth scroll to form
+      setTimeout(() => {
+        const el = document.getElementById('contact-form');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 300);
+    }
+  }, [bookingParam, destParam, expParam, seasonParam, isSomali]);
+
   useEffect(() => {
     document.title = isSomali
-      ? 'Nala Soo Xiriir — Somalia Blue Heaven'
-      : 'Contact Maritime Operations — Somalia Blue Heaven';
+      ? 'Nala Soo Xiriir & Qorshee Safar — Somalia Blue Heaven'
+      : 'Contact & Plan Your Trip — Somalia Blue Heaven';
     window.scrollTo(0, 0);
   }, [isSomali]);
 

@@ -10,7 +10,8 @@ import {
   LayoutDashboard,
   ArrowRight,
   ChevronDown,
-  MapPin
+  MapPin,
+  Compass,
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage, stripLangPrefix } from '../../context/LanguageContext';
@@ -113,12 +114,19 @@ export default function Header() {
   const isSomali = language === 'so';
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
-  // Blurred deep ocean backdrop on scroll
+  const currentPath = stripLangPrefix(location.pathname);
+  const isHomePage = currentPath === '/';
+
+  // Transparent hero header over ocean photograph; clean solid header when scrolled past hero
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      const threshold = isHomePage ? Math.max(360, window.innerHeight * 0.65) : 20;
+      setScrolled(window.scrollY > threshold);
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [isHomePage]);
 
   // Close menus on route change
   useEffect(() => {
@@ -173,7 +181,6 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen, searchOpen]);
 
-  const currentPath = stripLangPrefix(location.pathname);
   const isActive = (path) =>
     path === '/' ? currentPath === '/' : currentPath.startsWith(path);
 
@@ -199,7 +206,8 @@ export default function Header() {
   const roleDisplay = user?.role?.replace('_', ' ') || 'Member';
   const dashboardHref = canManageAdmin(user) ? '/admin' : '/dashboard';
 
-  const headerClass = `travel-header ${scrolled ? 'travel-header--scrolled' : 'travel-header--transparent'}`;
+  const isTransparent = isHomePage && !scrolled;
+  const headerClass = `travel-header ${isTransparent ? 'travel-header--transparent' : 'travel-header--scrolled'}`;
 
   return (
     <>
@@ -216,7 +224,7 @@ export default function Header() {
             aria-label="Somalia Blue Heaven Home"
           >
             <img
-              src="/Somalia Blue Heaven Wave Logo Blue.png"
+              src={isTransparent ? "/Somalia Blue Heaven Wave Logo White.png" : "/Somalia Blue Heaven Wave Logo Blue.png"}
               alt="Somalia Blue Heaven"
               className="travel-header__brand-logo"
             />
@@ -352,6 +360,16 @@ export default function Header() {
                 so
               </span>
             </button>
+
+            {/* Primary Booking & Planning CTA Button */}
+            <Link
+              to={localizedPath('/contact?booking=true')}
+              className="travel-header__book-cta"
+              id="header-book-cta-btn"
+            >
+              <Compass size={14} />
+              <span>{isSomali ? 'Qorshee Safar' : 'Plan Your Trip'}</span>
+            </Link>
 
             {/* Circular Frosted Glass Search Button */}
             <button
@@ -611,6 +629,19 @@ export default function Header() {
                 </button>
               </div>
             )}
+          </div>
+
+          {/* Mobile High-Impact Booking CTA */}
+          <div className="travel-mobile-drawer__booking-banner">
+            <Link
+              to={localizedPath('/contact?booking=true')}
+              className="travel-mobile-drawer__book-btn"
+              onClick={() => setMobileOpen(false)}
+            >
+              <Compass size={17} />
+              <span>{isSomali ? 'Qorshee Safarkaaga Xeebta' : 'Plan Your Coastal Trip'}</span>
+              <ArrowRight size={15} />
+            </Link>
           </div>
 
           <nav className="travel-mobile-drawer__nav">

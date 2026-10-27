@@ -1,48 +1,106 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { animate } from 'animejs';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Search,
-  SlidersHorizontal,
   Compass,
   ArrowRight,
-  Sparkles,
+  MapPin,
   Waves,
+  ShieldCheck,
+  Calendar,
+  Sparkles,
+  Camera,
+  Anchor,
+  Eye,
+  Search,
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import './EditorialHero.css';
 
-// 6 Authentic, High-Definition Somali Coastline Showcase Images
+// 6 Authentic, High-Definition Somali Coastline Showcase Spots
 export const SOMALI_COASTAL_HERO_SPOTS = [
   {
-    id: 'somalia-cliffs-cove',
+    id: 'hafun-cove',
+    title: 'Ras Hafun Peninsula',
+    titleSo: 'Gacan-biyoodka Raas Xaafuun',
+    tabTitle: 'Ras Hafun',
+    location: 'Puntland Coast • Indian Ocean',
+    locationSo: 'Xeebta Puntland • Badweynta Hindiya',
+    badge: "Africa's Easternmost Horn",
+    badgeSo: 'Barta Ugu Bariga fog Afrika',
+    temp: '28°C',
+    visibility: '32m Visibility',
     image: '/somalia_hero_coast.webp',
     alt: 'Somalia coastal cliffs and turquoise azure waters with traditional seafaring dhow',
   },
   {
-    id: 'somalia-coastal-panorama',
-    image: '/somalia_coast.webp',
-    alt: 'Aerial panorama of the 3,330 km Somali coastline and barrier reef shallows',
+    id: 'bajuni-islands',
+    title: 'Bajuni Coral Archipelago',
+    titleSo: 'Jasiiradaha Baajuun',
+    tabTitle: 'Bajuni Islands',
+    location: 'Jubaland Coast • Coral Lagoons',
+    locationSo: 'Xeebta Jubaland • Biyaha Shacaabka',
+    badge: 'Pristine Sandbars & Lagoons',
+    badgeSo: 'Carro Cad & Shacaab Bikro ah',
+    temp: '29°C',
+    visibility: '28m Visibility',
+    image: '/kismayo1.webp',
+    alt: 'Bajuni Archipelago pristine white sandbars and tropical turquoise lagoons',
   },
   {
-    id: 'white-sand-lagoons',
-    image: '/images/img_01.webp',
-    alt: 'Powdery white sand beaches and crystal turquoise lagoon with traditional boats',
-  },
-  {
-    id: 'historic-citadel-bay',
+    id: 'bosaso-gulf',
+    title: 'Bosaso Deep Bay & Fortress',
+    titleSo: 'Gacanka Qotada Dheer ee Boosaaso',
+    tabTitle: 'Bosaso Bay',
+    location: 'Gulf of Aden • Deep Water Shelf',
+    locationSo: 'Gacanka Cadmeed • Biyaha Pelagic-ka',
+    badge: 'Whale Shark Sanctuary',
+    badgeSo: 'Hoyga Libaax-Badeedka',
+    temp: '27°C',
+    visibility: '25m Visibility',
     image: '/WebsiteImagery_1920x1080_SisterCities_BosasoSomalia-mtime20180108165841_2021-11-01-121110_grsn_91852798b59be8b28fc00edfe4aec23a.webp',
     alt: 'Historic coastal maritime tower and fishing haven on the Gulf of Aden',
   },
   {
-    id: 'ocean-surf-canyon',
-    image: '/images/img_07.webp',
-    alt: 'Rolling turquoise Indian Ocean waves crashing on golden shores under coastal mountain peaks',
+    id: 'eyl-canyon',
+    title: 'Dooxada Eyl Gorge & Falls',
+    titleSo: 'Dooxada Eyl & Dhagaxyada Badda',
+    tabTitle: 'Eyl Canyon',
+    location: 'Nugaal Coast • Indian Ocean Gorge',
+    locationSo: 'Xeebta Nugaal • Dooxada Dhagaxeedka',
+    badge: 'Freshwater Springs & Swells',
+    badgeSo: 'Ilaha Biyaha Macaan & Badweynta',
+    temp: '26°C',
+    visibility: '30m Visibility',
+    image: '/eyl3.webp',
+    alt: 'A breathtaking canyon gorge meeting open Indian Ocean swells',
+  },
+  {
+    id: 'liido-promenade',
+    title: 'Liido Beach & Ocean Promenade',
+    titleSo: 'Xeebta Liido ee Muqdisho',
+    tabTitle: 'Liido Beach',
+    location: 'Benadir Coast • Cobalt Swells',
+    locationSo: 'Xeebta Banaadir • Hirarka Buluugga ah',
+    badge: 'Living Maritime Heritage',
+    badgeSo: 'Hidaha Badmareenka Nool',
+    temp: '28°C',
+    visibility: '22m Visibility',
+    image: '/MOGADISHUBEACH LEDE.webp',
+    alt: 'Liido Beach vibrant shoreline and turquoise Indian Ocean',
   },
   {
     id: 'barrier-reef-atoll',
-    image: '/images/img_10.webp',
+    title: '3,330 KM Untouched Coastline',
+    titleSo: '3,330 KM oo Xeeb Bikro ah',
+    tabTitle: 'Coastline Panorama',
+    location: 'Somali Current • Marine Wilderness',
+    locationSo: 'Biyaha Geeska Afrika • Dabiici',
+    badge: "Africa's Longest Coastline",
+    badgeSo: 'Xeebta Ugu Dheer Qaaradda Afrika',
+    temp: '28°C',
+    visibility: '30m+ Visibility',
+    image: '/somalia_coast.webp',
     alt: 'Aerial view of untouched coral barrier atolls and crystal clear marine shallows',
   },
 ];
@@ -54,401 +112,202 @@ export default function EditorialHero() {
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
   const [activeSpotIndex, setActiveSpotIndex] = useState(0);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Quick Booking / Trip Planning State
+  const [bookingDest, setBookingDest] = useState('All Destinations');
+  const [bookingExp, setBookingExp] = useState('All Experiences');
+  const [bookingSeason, setBookingSeason] = useState('Peak Season (Nov–Apr)');
 
   const activeSpot = SOMALI_COASTAL_HERO_SPOTS[activeSpotIndex];
 
-  // Auto-cycle through the coastal spots every 6 seconds
+  // Auto-cycle through the coastal spots every 7.5 seconds unless hovered/interacted
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(() => {
       setActiveSpotIndex((prev) => (prev + 1) % SOMALI_COASTAL_HERO_SPOTS.length);
-    }, 6000);
+    }, 7500);
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
-  // Anime.js continuous fluid ocean & wildlife movements
-  useEffect(() => {
-    let anims = [];
-    try {
-      if (typeof animate === 'function') {
-        // 1. Woodblock wave continuous ocean swell
-        const a1 = animate('.hero-vector-wave', {
-          translateY: [-6, 8],
-          rotate: [-2, 2.5],
-          duration: 3800,
-          alternate: true,
-          loop: true,
-          ease: 'inOutSine',
-        });
-
-        // 2. Breaching whale surfacing & diving
-        const a2 = animate('.hero-vector-whale-breach', {
-          translateY: [8, -10],
-          translateX: [-4, 5],
-          rotate: [-2.5, 2.5],
-          duration: 5200,
-          alternate: true,
-          loop: true,
-          ease: 'inOutQuad',
-        });
-
-        // 3. Soaring seagulls coastal glide
-        const a3 = animate('.hero-vector-seagulls', {
-          translateX: [-14, 14],
-          translateY: [-4, 6],
-          duration: 6800,
-          alternate: true,
-          loop: true,
-          ease: 'inOutSine',
-        });
-
-        // 4. Background coast sun gentle horizon breathing
-        const a4 = animate('.hero-vector-coast-sun', {
-          scale: [1, 1.03],
-          translateY: [-4, 4],
-          duration: 8500,
-          alternate: true,
-          loop: true,
-          ease: 'inOutSine',
-        });
-
-        // 5. Spouting whale gentle bobbing
-        const a5 = animate('.hero-vector-whale-spout', {
-          translateY: [-5, 6],
-          rotate: [-1, 1.5],
-          duration: 4400,
-          alternate: true,
-          loop: true,
-          ease: 'inOutSine',
-        });
-
-        anims = [a1, a2, a3, a4, a5];
-      }
-    } catch (err) {
-      console.warn('Anime.js hero animation init:', err);
-    }
-
-    return () => {
-      anims.forEach((a) => {
-        if (a && typeof a.pause === 'function') a.pause();
-      });
-    };
-  }, []);
-
-  const handleSearchSubmit = (e) => {
+  const handleBookingSubmit = (e) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`${localizedPath('/explore-the-coast')}?q=${encodeURIComponent(searchQuery.trim())}`);
-    } else {
-      navigate(localizedPath('/explore-the-coast'));
-    }
+    const query = new URLSearchParams({
+      booking: 'true',
+      destination: bookingDest,
+      experience: bookingExp,
+      season: bookingSeason,
+    }).toString();
+    navigate(`${localizedPath('/contact')}?${query}`);
   };
 
   return (
-    <section className="hero-white-canvas" aria-label="Somalia Blue Heaven Marine Tourism">
-      {/* Background Vintage Coastal Engraving Watermarks */}
-      <div className="hero-vectors-backdrop" aria-hidden="true">
-        <img
-          src="/vector/coast_sun.webp"
-          alt=""
-          className="hero-vector-coast-sun"
-          loading="lazy"
-        />
-        <img
-          src="/vector/seagulls_coast.webp"
-          alt=""
-          className="hero-vector-seagulls"
-          loading="lazy"
-        />
+    <section
+      className="hero-cinema"
+      aria-label="Somalia Blue Heaven Marine Tourism"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* 1. IMMERSIVE FULL-BLEED BACKGROUND OCEAN CANVAS (NO WHITE CUTS / NO DIVIDING LINES) */}
+      <div className="hero-cinema__bg-container">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={activeSpot.image}
+            src={activeSpot.image}
+            alt={activeSpot.alt}
+            className="hero-cinema__bg-img"
+            initial={{ opacity: 0.35, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0.2, scale: 0.98 }}
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            loading="eager"
+            fetchPriority="high"
+          />
+        </AnimatePresence>
+
+        {/* Sophisticated Luxury Multi-Stop Vignette Gradients for 100% Text Clarity */}
+        <div className="hero-cinema__overlay-scrim" />
+        <div className="hero-cinema__overlay-radial" />
+        <div className="hero-cinema__overlay-bottom" />
       </div>
 
-      <div className="hero-inner-container">
-        {/* MAIN HERO GRID: Left Content + Right Signature Torn Paper Cutout */}
-        <div className="hero-grid">
-          {/* Left: Tourist Hook, Headlines, Search, and CTAs */}
-          <div className="hero-content">
-            {/* Breaching Whale Floating Illustrated Feature */}
-            <motion.div
-              className="hero-vector-whale-wrap"
-              initial={{ opacity: 0, scale: 0.85, x: 20 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.9, delay: 0.3 }}
-              whileHover={{ scale: 1.08, rotate: 2 }}
-              title="Somali Waters Humpback & Sperm Whale Sanctuary"
-            >
-              <img
-                src="/vector/breaching_whale.webp"
-                alt="Breaching whale vector illustration"
-                className="hero-vector-whale-breach"
-              />
-              <span className="hero-vector-tag">
-                <Sparkles size={10} />
-                <span>{isSomali ? 'Nibiriga Badda' : 'Whale Sanctuary'}</span>
-              </span>
-            </motion.div>
-
-            {/* Subheading with Framer Motion */}
-            <motion.span
-              className="hero-subheading"
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              {isSomali ? 'Soo hel oo jeclow' : 'Discover and love'}
-            </motion.span>
-
-            {/* Main Headline with Framer Motion */}
+      {/* 2. MAIN HERO FOREGROUND CONTENT MATCHING REFERENCE MOCKUP */}
+      <div className="hero-cinema__container">
+        <div className="hero-cinema__main-row hero-cinema__main-row--simple">
+          {/* Left Column: Headlines & Search Pill */}
+          <div className="hero-cinema__content">
+            {/* Main Headline matching reference mockup */}
             <motion.h1
-              className="hero-main-title"
+              className="hero-cinema__title"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
+              transition={{ duration: 0.75, delay: 0.15 }}
             >
-              {isSomali ? 'Somalia Blue Heaven' : 'Somalia Blue Heaven'}
-              <span className="hero-dot">.</span>
+              {isSomali ? (
+                <>
+                  Helitaanka Jannada <br />
+                  Baddaada Waa Fududahay<span className="hero-cinema__title-dot">.</span>
+                </>
+              ) : (
+                <>
+                  Finding Your Ocean <br />
+                  Paradise Is Simple<span className="hero-cinema__title-dot">.</span>
+                </>
+              )}
             </motion.h1>
 
-            {/* Description with Framer Motion */}
+            {/* Description */}
             <motion.p
-              className="hero-desc"
+              className="hero-cinema__desc"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              transition={{ duration: 0.75, delay: 0.22 }}
             >
               {isSomali
-                ? 'Ku raaxayso safarkaaga oo maalin kasta ka dhig mid cajiib ah. Sahami carwooyinka shacaabka, biyaha buluugga ah, dekedaha qadiimiga ah, iyo soo dhoweynta diirran ee dadka xeebta deggan.'
-                : 'Experience Africa’s greatest untouched marine wilderness — crystal turquoise lagoons, virgin coral barrier reefs, ancient maritime spice ports, and legendary coastal warmth along 3,330 km of pristine ocean.'}
+                ? 'Somalia Blue Heaven waa goobtaada koowaad ee lagu helo safarka badda ee kugu habboon. Ku raaxayso 3,330 km oo biyo buluug ah iyo shacaab bikro ah.'
+                : 'Somalia Blue Heaven is your go to destination for finding the perfect ocean haven to suit your needs. With 3,330 km of pristine turquoise lagoons and virgin coral reefs across East Africa.'}
             </motion.p>
 
-            {/* Tourist Search Bar with Framer Motion */}
-            <motion.form
-              onSubmit={handleSearchSubmit}
-              className="hero-search-wrap"
-              initial={{ opacity: 0, y: 18 }}
+            {/* Search Pill Button matching reference image */}
+            <motion.div
+              className="hero-cinema__search-prompt-row"
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.65, delay: 0.28 }}
             >
-              <span className="hero-search-icon">
-                <Search size={18} />
-              </span>
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={isSomali ? 'Raadi meelaha, shacaabka, jasiiradaha...' : 'Search places, diving spots, beaches...'}
-                className="hero-search-input"
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('quick-booking-bar');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="hero-cinema__search-prompt-btn"
                 aria-label="Search destinations"
-              />
-              <span className="hero-search-divider" />
+              >
+                <span>{isSomali ? 'Raadi' : 'Search'}</span>
+                <ArrowRight size={15} className="hero-cinema__search-prompt-arrow" />
+              </button>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* 3. INTEGRATED FLOATING QUICK BOOKING / TRIP PLANNING BAR */}
+        <div id="quick-booking-bar" className="hero-cinema__booking-bar-wrap">
+          <form onSubmit={handleBookingSubmit} className="hero-cinema__booking-bar" aria-label="Quick Trip Planning Bar">
+            <div className="hero-cinema__booking-field">
+              <span className="hero-cinema__booking-label">
+                <MapPin size={14} className="hero-cinema__booking-icon" />
+                <span>{isSomali ? 'Goobta Xeebta' : 'Destination'}</span>
+              </span>
+              <select
+                value={bookingDest}
+                onChange={(e) => setBookingDest(e.target.value)}
+                className="hero-cinema__booking-select"
+                aria-label="Select destination"
+              >
+                <option value="All Destinations">{isSomali ? 'Dhammaan Goobaha (10 Regions)' : 'All 10 Coastal Regions'}</option>
+                <option value="Bajuni Islands">{isSomali ? 'Jasiiradaha Baajuun (Jubaland)' : 'Bajuni Coral Atolls (Jubaland)'}</option>
+                <option value="Ras Hafun">{isSomali ? 'Raas Xaafuun (Puntland)' : 'Ras Hafun Peninsula (Puntland)'}</option>
+                <option value="Dooxada Eyl">{isSomali ? 'Dooxada Eyl (Nugaal)' : 'Dooxada Eyl Canyon (Nugaal)'}</option>
+                <option value="Bosaso">{isSomali ? 'Boosaaso (Gacanka Cadmeed)' : 'Bosaso Port & Deep Shelf'}</option>
+                <option value="Mogadishu">{isSomali ? 'Xeebta Liido & Muqdisho' : 'Liido Beach & Mogadishu'}</option>
+                <option value="Zeila">{isSomali ? 'Seylac & Jasiiradaha' : 'Zeila Archipelago & Reefs'}</option>
+              </select>
+            </div>
+
+            <div className="hero-cinema__booking-divider" />
+
+            <div className="hero-cinema__booking-field">
+              <span className="hero-cinema__booking-label">
+                <Compass size={14} className="hero-cinema__booking-icon" />
+                <span>{isSomali ? 'Khibradda Badda' : 'Activity & Experience'}</span>
+              </span>
+              <select
+                value={bookingExp}
+                onChange={(e) => setBookingExp(e.target.value)}
+                className="hero-cinema__booking-select"
+                aria-label="Select experience"
+              >
+                <option value="All Experiences">{isSomali ? 'Dhammaan Khibradaha' : 'All Ocean Activities'}</option>
+                <option value="Coral Reef Snorkeling">{isSomali ? 'Dabaasha Shacaabka (Snorkeling)' : 'Coral Reef & Lagoon Snorkeling'}</option>
+                <option value="Pelagic Scuba Diving">{isSomali ? 'Quusidda Qotada Dheer (Scuba)' : 'Pelagic Coral Wall Scuba Diving'}</option>
+                <option value="Traditional Dhow Sailing">{isSomali ? 'Doonyaha Dhowka ee Dhaqanka' : 'Traditional Dhow Island Sailing'}</option>
+                <option value="Underwater Photography">{isSomali ? 'Sawir-qaadista Biyaha Hoostooda' : 'Underwater & Drone Photography'}</option>
+                <option value="Marine Wildlife Safari">{isSomali ? 'Daawashada Libaax-Badeedka' : 'Whale Shark & Marine Safari'}</option>
+              </select>
+            </div>
+
+            <div className="hero-cinema__booking-divider" />
+
+            <div className="hero-cinema__booking-field">
+              <span className="hero-cinema__booking-label">
+                <Calendar size={14} className="hero-cinema__booking-icon" />
+                <span>{isSomali ? 'Xilliga Safarka' : 'Travel Season'}</span>
+              </span>
+              <select
+                value={bookingSeason}
+                onChange={(e) => setBookingSeason(e.target.value)}
+                className="hero-cinema__booking-select"
+                aria-label="Select season"
+              >
+                <option value="Peak Season (Nov–Apr)">{isSomali ? 'Nof – Abriil (Biyo Deggan)' : 'November – April (Peak Calm Seas)'}</option>
+                <option value="Monsoon Season (May–Oct)">{isSomali ? 'May – Oktoobar (Hirarka Badda)' : 'May – October (Active Swells)'}</option>
+                <option value="Flexible Dates">{isSomali ? 'Waqti Furan' : 'Flexible / Year-Round Travel'}</option>
+              </select>
+            </div>
+
+            <div className="hero-cinema__booking-action">
               <button
                 type="submit"
-                className="hero-search-filter"
-                aria-label="Explore places"
-                title="Search destinations"
+                className="hero-cinema__booking-submit-btn"
+                id="hero-check-availability-btn"
+                aria-label="Search and book destinations"
               >
-                <SlidersHorizontal size={18} />
+                <Search size={16} />
+                <span>{isSomali ? 'Raadi Havens' : 'Search Havens'}</span>
               </button>
-            </motion.form>
-
-            {/* Quick Travel Filter Chips with Framer Motion */}
-            <motion.div
-              className="hero-travel-chips"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <Link to={`${localizedPath('/explore-the-coast')}?category=Coral+Reefs`} className="hero-travel-chip">
-                {isSomali ? 'Shacaabka Badda' : 'Coral Barrier Reefs'}
-              </Link>
-              <Link to={`${localizedPath('/explore-the-coast')}?category=Whale+Sharks`} className="hero-travel-chip">
-                {isSomali ? 'Libaax-Badeed' : 'Whale Shark Safaris'}
-              </Link>
-              <Link to={`${localizedPath('/explore-the-coast')}?q=Bajuni`} className="hero-travel-chip">
-                {isSomali ? 'Jasiirado Bikro ah' : 'Virgin Atolls'}
-              </Link>
-              <Link to={`${localizedPath('/explore-the-coast')}?category=Dunes+%26+Surf`} className="hero-travel-chip">
-                {isSomali ? 'Xeebaha Cad' : 'White Sand Dunes'}
-              </Link>
-              <Link to={`${localizedPath('/experiences')}?q=dhow`} className="hero-travel-chip">
-                {isSomali ? 'Doonyaha Dhowka' : 'Dhow Sailing'}
-              </Link>
-            </motion.div>
-
-            {/* High-Impact Tourist CTAs with Framer Motion */}
-            <motion.div
-              className="hero-cta-group"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <Link to={localizedPath('/explore-the-coast')} className="hero-btn-primary">
-                <span>{isSomali ? 'Sahmi Xeebaha (3,330 KM)' : 'Explore the Coast (3,330 KM)'}</span>
-                <ArrowRight size={17} />
-              </Link>
-
-              <Link to={localizedPath('/experiences')} className="hero-btn-secondary">
-                <Compass size={17} />
-                <span>{isSomali ? 'Khibradaha Dalxiiska' : 'Ocean Experiences'}</span>
-              </Link>
-            </motion.div>
-
-            {/* Dynamic Rolling Wave Crest & Spouting Whale Bottom Decorative Row */}
-            <div className="hero-vectors-lower-row">
-              <motion.div
-                className="hero-vector-wave-wrap"
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                whileHover={{ scale: 1.06, rotate: -1.5 }}
-                title="Monsoon Ocean Swells of the Somali Coast"
-              >
-                <img
-                  src="/vector/wave.webp"
-                  alt="Rolling ocean wave vector illustration"
-                  className="hero-vector-wave"
-                />
-                <span className="hero-vector-tag">
-                  <Waves size={10} />
-                  <span>{isSomali ? '3,330 KM Xeeb Nadiif ah' : '3,330 KM Coastline'}</span>
-                </span>
-              </motion.div>
-
-              <motion.div
-                className="hero-vector-spout-wrap"
-                initial={{ opacity: 0, scale: 0.88 }}
-                animate={{ opacity: 0.8, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.7 }}
-                whileHover={{ scale: 1.06, opacity: 1 }}
-                title="Sovereign Marine Sanctuary"
-              >
-                <img
-                  src="/vector/whale.webp"
-                  alt="Twin-spouting whale vector illustration"
-                  className="hero-vector-whale-spout"
-                />
-              </motion.div>
             </div>
-          </div>
-
-          {/* Right: Signature Torn-Paper Landscape Window matching reference artwork */}
-          <div className="hero-visual-side">
-            <svg
-              className="hero-torn-svg"
-              viewBox="0 0 1000 700"
-              preserveAspectRatio="xMidYMid slice"
-              aria-hidden="true"
-            >
-              <defs>
-                <mask id="heroTornPaperMask">
-                  {/* Black canvas: everything outside is transparent */}
-                  <rect x="0" y="0" width="1000" height="700" fill="#000000" />
-
-                  {/* Main Panoramic Cutout with organic torn paper edge & lobes matching reference */}
-                  <path
-                    d="M 1000 0
-                       L 640 0
-                       C 610 12, 590 32, 560 16
-                       C 535 2, 505 24, 475 10
-                       C 435 0, 395 10, 365 28
-                       C 335 48, 315 88, 292 128
-                       C 275 158, 290 188, 272 218
-                       C 255 242, 236 268, 226 298
-                       C 210 328, 192 352, 178 378
-                       C 166 402, 172 432, 188 452
-                       C 202 472, 222 488, 234 512
-                       C 245 536, 236 562, 250 586
-                       C 260 608, 276 622, 292 638
-                       C 322 654, 348 634, 378 648
-                       C 408 662, 438 644, 468 658
-                       C 498 672, 528 648, 558 666
-                       C 588 680, 618 652, 648 670
-                       C 678 684, 708 656, 738 672
-                       C 768 686, 798 660, 828 674
-                       C 858 688, 888 662, 918 676
-                       C 948 688, 976 666, 1000 674
-                       Z"
-                    fill="#ffffff"
-                  />
-
-                  {/* Torn Slit 1 (Left vertical torn paper slit) */}
-                  <path
-                    d="M 364 135
-                       C 360 195, 369 265, 363 335
-                       C 358 405, 368 475, 362 545
-                       C 358 585, 364 615, 362 635
-                       C 372 635, 377 615, 374 575
-                       C 379 505, 370 435, 375 365
-                       C 380 295, 371 220, 376 150
-                       C 373 138, 368 135, 364 135
-                       Z"
-                    fill="#000000"
-                  />
-
-                  {/* Torn Slit 2 (Middle prominent vertical torn paper slit) */}
-                  <path
-                    d="M 563 25
-                       C 558 95, 568 175, 562 255
-                       C 557 335, 567 415, 561 495
-                       C 556 565, 565 630, 561 662
-                       C 571 662, 577 638, 574 578
-                       C 579 508, 570 428, 575 348
-                       C 580 268, 571 188, 576 108
-                       C 573 58, 568 25, 563 25
-                       Z"
-                    fill="#000000"
-                  />
-
-                  {/* Torn Slit 3 (Right vertical torn paper slit in the water/coast) */}
-                  <path
-                    d="M 792 250
-                       C 788 310, 797 380, 792 450
-                       C 787 520, 796 590, 792 650
-                       C 802 650, 807 628, 804 582
-                       C 809 518, 800 448, 804 378
-                       C 808 312, 800 258, 796 248
-                       C 794 244, 793 248, 792 250
-                       Z"
-                    fill="#000000"
-                  />
-
-                  {/* Top notch tear */}
-                  <path
-                    d="M 472 0
-                       L 476 35
-                       L 482 0
-                       Z"
-                    fill="#000000"
-                  />
-                </mask>
-              </defs>
-
-              {/* High-Resolution Authentic Somali Coastline Photo */}
-              <image
-                key={activeSpot.image}
-                href={activeSpot.image}
-                x="0"
-                y="0"
-                width="1000"
-                height="700"
-                preserveAspectRatio="xMidYMid slice"
-                mask="url(#heroTornPaperMask)"
-                className="hero-torn-image"
-              />
-            </svg>
-
-            {/* Subtle Minimalist Scene Switcher Indicators (No names, purely visual) */}
-            <div className="hero-scene-indicators" aria-label="Somali Coastal Photo Switcher">
-              {SOMALI_COASTAL_HERO_SPOTS.map((spot, idx) => (
-                <button
-                  key={spot.id}
-                  type="button"
-                  onClick={() => setActiveSpotIndex(idx)}
-                  className={`hero-scene-dot ${idx === activeSpotIndex ? 'hero-scene-dot--active' : ''}`}
-                  aria-label={`Photo scene ${idx + 1}`}
-                />
-              ))}
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </section>

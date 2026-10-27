@@ -1,4 +1,4 @@
-import { ArrowRight, Compass, Mail, Anchor } from 'lucide-react';
+import { ArrowRight, Compass, Mail, Calendar, Phone, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 
@@ -9,11 +9,10 @@ export default function EditorialCTA() {
 
   return (
     <section className="editorial-cta" aria-label="Begin Your Expedition">
-
       <div className="editorial-cta__content">
         <div className="editorial-cta__badge">
           <Compass size={14} className="editorial-cta__badge-icon" />
-          <span>{isSomali ? 'SAFARKAAGA BILOW' : 'AN EXPEDITION AWAITS'}</span>
+          <span>{isSomali ? 'SAFARKAAGA BILOW HADDABA' : 'AN EXPEDITION AWAITS'}</span>
         </div>
 
         <h2 className="editorial-cta__title">
@@ -32,26 +31,41 @@ export default function EditorialCTA() {
 
         <p className="editorial-cta__desc">
           {isSomali
-            ? 'Haddii aad doonayso safar cilmi-baaris, quusidda reef-ka aan la taaban, ama taageeridda ilaalinta noolaha badda—safarkaaga Somalia Blue Heaven halkan buu ka bilaabmayaa.'
-            : 'Whether joining a scientific marine survey, diving untouched coral atolls, or partnering on coastal conservation stewardship—your journey with Somalia Blue Heaven begins here.'}
+            ? 'Haddii aad doonayso dabaasha shacaabka bikro ah, quusidda reef-ka, safar doon dhaqameed ah, ama sawir-qaadista xeebaha ugu quruxda badan Afrika — safarkaaga Somalia Blue Heaven halkan buu ka bilaabmayaa.'
+            : 'Whether joining a guided coral snorkeling excursion, diving untouched drop-offs, booking a traditional dhow voyage, or planning a custom coastal media expedition — your journey begins here.'}
         </p>
 
         <div className="editorial-cta__actions">
           <Link
-            to={localizedPath('/explore-the-coast')}
+            to={localizedPath('/contact?booking=true')}
             className="editorial-cta__btn-primary"
+            id="cta-plan-trip-btn"
           >
-            <span>{isSomali ? 'Bilow Safarkaaga' : 'Begin Your Journey'}</span>
+            <Calendar size={18} />
+            <span>{isSomali ? 'Qorshee Safarkaaga (Book Tour)' : 'Plan Your Trip / Book Tour'}</span>
             <ArrowRight size={16} />
           </Link>
 
           <Link
             to={localizedPath('/contact')}
             className="editorial-cta__btn-secondary"
+            id="cta-contact-team-btn"
           >
             <Mail size={16} />
-            <span>{isSomali ? 'La Xiriir Kooxda Safarka' : 'Contact Expedition Team'}</span>
+            <span>{isSomali ? 'La Xiriir Kooxda Safarka' : 'Contact Expedition Desk'}</span>
           </Link>
+        </div>
+
+        {/* Direct Contact & Trust Badges */}
+        <div className="editorial-cta__contact-bar">
+          <a href="tel:+252907790000" className="editorial-cta__contact-pill">
+            <Phone size={14} className="editorial-cta__pill-icon" />
+            <span>+252 90 779 0000 (Direct / WhatsApp)</span>
+          </a>
+          <span className="editorial-cta__contact-pill">
+            <ShieldCheck size={14} className="editorial-cta__pill-icon" />
+            <span>{isSomali ? 'Hagayaal Aqoonsan & Badbaado' : 'Licensed Local Skippers & Guides'}</span>
+          </span>
         </div>
 
         <div className="editorial-cta__footer-note">

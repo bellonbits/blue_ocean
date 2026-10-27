@@ -1,43 +1,135 @@
-import { ArrowRight, Anchor, Compass, Camera, Sparkles } from 'lucide-react';
+import { ArrowRight, Compass, Calendar, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 
-const EXPERIENCES = [
+export const EXPERIENCES = [
+  {
+    slug: 'snorkeling-reefs',
+    titleEn: 'Coral Reef & Lagoon Snorkeling',
+    titleSo: 'Dabaasha Shacaabka & Biyaha Qulqulaya',
+    categoryEn: 'Shallow Waters & Lagoons',
+    categorySo: 'Biyaha Dhow & Shacaabka',
+    durationEn: 'Half-Day / Full-Day',
+    durationSo: 'Maalin Bar / Maalin Buuxda',
+    skillEn: 'All Skill Levels & Families',
+    skillSo: 'Heer Kasta & Qoysaska',
+    image: '/exp_coral_snorkeling.webp',
+    descEn: 'Glide effortlessly through warm, mirror-still turquoise lagoons. Swim alongside gentle green sea turtles, stingrays, and vibrant branching coral gardens in Bajuni and Zeila.',
+    descSo: 'Ku dabaalo biyaha buluugga ah ee gacanka, adigoo la kulmaya qoolleyda badda, shacaabka midabada leh, iyo kalluunka quruxda badan ee jasiiradaha.',
+    highlightsEn: ['25m+ Crystal Water Clarity', 'Sea Turtle Sanctuary Encounter', 'Professional Mask & Fins Provided'],
+    highlightsSo: ['Biyo Nadiif ah oo 25m+ ah', 'Hoyga Qoolleyda Badda', 'Qalabka Dabaasha oo Dhan'],
+  },
   {
     slug: 'scuba-diving',
-    titleEn: 'Pelagic Scuba & Coral Atoll Diving',
-    titleSo: 'Quusidda Qoto-dheer & Sahaminta Reef-ka',
-    categoryEn: 'Underwater Expedition',
-    categorySo: 'Sahaminta Biyaha Hoostooda',
-    durationEn: '4–7 Days',
-    durationSo: '4–7 Maalmood',
-    image: '/images/img_02.webp',
-    descEn: 'Descend into crystal-clear waters along steep continental drop-offs, interacting with manta rays, reef sharks and virgin coral.',
-    descSo: 'U quuso biyaha nadiifka ah ee qotada dheer, la kulan kalluunka waaweyn iyo dhagax-badeedka aan waligood la taaban.',
+    titleEn: 'Pelagic Scuba & Continental Drop-Offs',
+    titleSo: 'Quusidda Qotada Dheer ee Reef-ka',
+    categoryEn: 'Deep Marine Expedition',
+    categorySo: 'Sahaminta Biyaha Qotada Dheer',
+    durationEn: '3–7 Days Expedition',
+    durationSo: '3–7 Maalmood Safar',
+    skillEn: 'Open Water Certified & Advanced',
+    skillSo: 'Kuwa Haysta Shahaadada Quusidda',
+    image: '/exp_scuba_diving.webp',
+    descEn: 'Descend along steep continental shelf drop-offs where the powerful Somali Current brings giant manta rays, schools of trevally, hammerheads, and virgin coral pinnacles.',
+    descSo: 'U quuso buuraha hoose ee badda halka ay ku kulmaan kalluunka waaweyn, manta rays, iyo carwooyinka shacaabka ee aan waligood la taaban.',
+    highlightsEn: ['Pristine Vertical Coral Walls', 'Manta Ray Aggregation Zones', 'PADI Dive Masters & Nitrox'],
+    highlightsSo: ['Buuraha Shacaabka ee Hoose', 'Manta Rays & Noolaha Waaweyn', 'Khubaro Quusid oo Aqoonsan'],
   },
   {
     slug: 'dhow-sailing',
-    titleEn: 'Traditional Dhow & Island Archipelago Voyages',
-    titleSo: 'Safarada Doonyaha Qadiimiga & Jasiiradaha',
-    categoryEn: 'Maritime Heritage',
-    categorySo: 'Hidaha Badmareenka',
-    durationEn: '3–5 Days',
-    durationSo: '3–5 Maalmood',
-    image: '/images/img_05.webp',
-    descEn: 'Sail under lateen sails through mangrove channels and untouched island chains guided by multi-generational Somali navigators.',
-    descSo: 'Ku dhex safar jasiiradaha fog adigoo saaran doon dhaqameed ay hagayaan badmareenno khibrad leh oo maxalli ah.',
+    titleEn: 'Traditional Dhow & Island Boat Tours',
+    titleSo: 'Safarada Doonyaha Dhowka & Jasiiradaha',
+    categoryEn: 'Maritime Heritage & Island Hopping',
+    categorySo: 'Hidaha Badmareenka & Jasiiradaha',
+    durationEn: '1–4 Days Voyages',
+    durationSo: '1–4 Maalmood',
+    skillEn: 'Relaxed / All Travelers',
+    skillSo: 'Qof Kasta & Safarro Deggan',
+    image: '/exp_dhow_sailing.webp',
+    descEn: 'Sail under lateen canvas aboard handcrafted wooden dhows through untouched archipelago chains, secluded white sandbars, and secret mangrove channels with local navigators.',
+    descSo: 'Ku raaxayso safarka doonyaha qadiimiga ah ee shiraaca leh, sahaminta jasiiradaha cidla ah, iyo cuntooyinka badda ee macaan oo lagu dubay xeebta.',
+    highlightsEn: ['Sunset Archipelago Cruises', 'Sandbar Beach Seafood Grills', 'Multi-Generational Somali Skippers'],
+    highlightsSo: ['Safarada Qorrax-dhaca ee Badda', 'Cunto Xeebta ah oo Macaan', 'Badmareenno Khibrad Dheer Leh'],
   },
   {
-    slug: 'coastal-cliff',
+    slug: 'underwater-photography',
+    titleEn: 'Underwater & Drone Coastal Photography',
+    titleSo: 'Sawir-qaadista Biyaha Hoostooda & Cirka',
+    categoryEn: 'Creative Expedition',
+    categorySo: 'Sawir-qaadista Hal-abuurka',
+    durationEn: '2–5 Days Workshop',
+    durationSo: '2–5 Maalmood',
+    skillEn: 'Photographers & Content Creators',
+    skillSo: 'Sawir-qaadayaasha & Abuurayaasha',
+    image: '/exp_coastal_cliff.webp',
+    descEn: 'Capture world-class imagery with pristine 30m+ underwater visibility, dramatic limestone ocean canyons, sea cliffs, and uncrowded coastal vistas bathed in golden equatorial light.',
+    descSo: 'Qaad sawirro heer caalami ah oo biyo nadiif ah, dooxooyinka dhagaxa leh ee badda ku darsanta, iyo muuqaallada dabiiciga ah ee xeebta Soomaaliya.',
+    highlightsEn: ['30m+ Equatorial Water Clarity', 'Drone Permit & Coastal Access', 'Underwater Camera Housing Support'],
+    highlightsSo: ['Biyo Nadiif ah oo 30m+ ah', 'Ogolaanshaha Duulista Diyaaradaha', 'Taageero Farsamo oo Buuxda'],
+  },
+  {
+    slug: 'whale-shark-safari',
+    titleEn: 'Whale Shark & Marine Megafauna Safaris',
+    titleSo: 'Daawashada Libaax-Badeedka & Noolaha Waaweyn',
+    categoryEn: 'Wildlife Encounters',
+    categorySo: 'Daawashada Noolaha Badda',
+    durationEn: '1–3 Days Safaris',
+    durationSo: '1–3 Maalmood',
+    skillEn: 'Swimmers & Snorkelers',
+    skillSo: 'Dabbaasheeysata & Snorkelers',
+    image: '/marine_dolphins.webp',
+    descEn: 'Ethical, non-invasive snorkeling encounters alongside migrating whale sharks, spinner dolphin super-pods, and pilot whales in the Gulf of Aden and Puntland waters.',
+    descSo: 'La kulan libaax-badeedka deggan iyo dolphins-ka ciyaaraya ee biyaha Gacanka Cadmeed iyadoo la dhowrayo badbaadada noolaha iyo deegaanka.',
+    highlightsEn: ['Strict Wildlife Welfare Protocols', 'Marine Biologist Expedition Leader', 'High Sighting Success Rate'],
+    highlightsSo: ['Dhowridda Badbaadada Noolaha', 'Saynisyahan Badda oo Weheliya', 'Fursad Sare oo Aragtida ah'],
+  },
+  {
+    slug: 'coastal-cliff-trek',
     titleEn: 'Canyon Cliffs & Desert Coast Trekking',
-    titleSo: 'Socdaalka Buuraha Xeebta & Dooxooyinka Eyl',
+    titleSo: 'Socdaalka Buuraha Xeebta & Dooxooyinka',
     categoryEn: 'Coastal Wilderness',
     categorySo: 'Dabeecadda Xeebta',
-    durationEn: '2–4 Days',
+    durationEn: '2–4 Days Trek',
     durationSo: '2–4 Maalmood',
+    skillEn: 'Moderate Fitness',
+    skillSo: 'Socod Dhexdhexaad ah',
     image: '/images/img_03.webp',
-    descEn: 'Trek where dramatic limestone canyons meet the crashing Indian Ocean surf, visiting historic forts and natural springs.',
-    descSo: 'Kora buuraha dhagaxa ah ee ku teedsan badda, booqo qalcadihii taariikhiga ahaa iyo ilaha biyaha macaan ee Eyl.',
+    descEn: 'Trek where dramatic limestone canyons meet the crashing Indian Ocean surf. Explore ancient pirate watchtowers, hidden ocean springs, and historic fortresses in Eyl.',
+    descSo: 'Kora buuraha dhagaxa ah ee ku teedsan badda, booqo qalcadihii taariikhiga ahaa iyo ilaha biyaha macaan ee dooxada Eyl ee Nugaal.',
+    highlightsEn: ['Eyl Ocean Canyon Springs', 'Dervish Historic Fortifications', 'Spectacular Cliffside Vistas'],
+    highlightsSo: ['Ilaha Biyaha Macaan ee Eyl', 'Qalcadihii Taariikhiga Ahaa', 'Muuqaallo Buureed oo Ballaaran'],
+  },
+  {
+    slug: 'beach-experiences',
+    titleEn: 'Virgin White Sand Beaches & Coastal Sunsets',
+    titleSo: 'Xeebaha Ciidda Cad & Qorrax Dhaca Badda',
+    categoryEn: 'Beach & Shoreline Leisure',
+    categorySo: 'Nasashada Xeebaha & Ciidda Cad',
+    durationEn: 'Half-Day / Multi-Day Stays',
+    durationSo: 'Maalin Bar / Maalmood Badan',
+    skillEn: 'All Travelers & Families',
+    skillSo: 'Qof Kasta & Qoysaska',
+    image: '/MOGADISHUBEACH LEDE.webp',
+    descEn: 'Unwind along miles of sun-bleached sand, calm shallow lagoons, and authentic beach hospitality across Liido, Kismayo, and Mogadishu’s scenic coastline.',
+    descSo: 'Ku naso xeebaha ciidda cad ee aan ciriiriga lahayn, biyaha diirran ee badda, iyo soo dhawaynta quruxda badan ee Liido iyo Kismaayo.',
+    highlightsEn: ['Pristine Turquoise Bathing Waters', 'Fresh Seafood Beach Grills', 'Safe Guided Coastal Stays'],
+    highlightsSo: ['Biyo Nadiif ah oo Lagu Dabaasho', 'Cunto Badda ah oo Macaan', 'Safarro Nabadgelyo Leh'],
+  },
+  {
+    slug: 'reef-exploration',
+    titleEn: 'Barrier Reef & Shallow Lagoon Safaris',
+    titleSo: 'Sahaminta Shacaabka & Jasiiradaha Baajuun',
+    categoryEn: 'Reef Ecology & Marine Safaris',
+    categorySo: 'Nidaamka Shacaabka & Jasiiradaha',
+    durationEn: '1–3 Days Island Cruises',
+    durationSo: '1–3 Maalmood Safar',
+    skillEn: 'All Swimmers & Explorers',
+    skillSo: 'Dabbaasheeysata & Sahamiyeyaasha',
+    image: '/zeila1.webp',
+    descEn: 'Navigate extensive barrier reef ecosystems in Bajuni and Zeila archipelagos. Discover vibrant brain corals, table corals, and hundreds of tropical reef fish species.',
+    descSo: 'Sahmi beeraha shacaabka ee jasiiradaha Saacaddiin iyo Baajuun, halkaas oo ay ku nool yihiin noocyo badan oo kalluun iyo xayawaanno badeed ah.',
+    highlightsEn: ['Untouched Coral Biodiversity', 'Protected Lagoon Snorkeling', 'Local Conservation Ranger Guides'],
+    highlightsSo: ['Kala Duwanaanshaha Shacaabka', 'Biyo Deggan oo Ammaan ah', 'Hagayaal Ilaalinta Deegaanka'],
   },
 ];
 
@@ -53,33 +145,36 @@ export default function EditorialExperiences() {
         <div className="editorial-exp__header">
           <div className="editorial-exp__title-group">
             <span className="editorial-eyebrow">
-              {isSomali ? 'KHIBRADAHA BADDA' : 'OCEAN EXPERIENCES'}
+              <Compass size={14} className="editorial-eyebrow-icon" />
+              {isSomali ? 'KHIBRADAHA BADDA EE SOOMAALIYA' : 'CURATED OCEAN EXPERIENCES'}
             </span>
             <h2 className="editorial-section-title">
               {isSomali ? (
                 <>Safarro Lagu Sahminayo <span className="editorial-italic">Biyaha Geeska Afrika</span></>
               ) : (
-                <>Curated Expeditions Along the <span className="editorial-italic">Somali Current</span></>
+                <>Snorkeling, Diving & Island Tours Along the <span className="editorial-italic">Somali Current</span></>
               )}
             </h2>
+            <p className="editorial-section-subtitle">
+              {isSomali
+                ? 'Dooro khibradahaaga badda — dabaasha shacaabka bikro ah, quusidda qotada dheer, safarada doonyaha shiraaca, iyo sawir-qaadista xeebaha ugu quruxda badan Afrika.'
+                : "Choose your ocean adventure — virgin coral snorkeling, pelagic wall diving, traditional Swahili dhow sailing, coastal drone photography, and ethical whale shark encounters."}
+            </p>
           </div>
           <Link
             to={localizedPath('/experiences')}
             className="editorial-exp__view-all"
+            id="experiences-view-all-btn"
           >
-            <span>{isSomali ? 'Dhammaan Khibradaha' : 'Explore All Ocean Experiences'}</span>
+            <span>{isSomali ? 'Dhammaan Khibradaha' : 'View All Experiences'}</span>
             <ArrowRight size={15} />
           </Link>
         </div>
 
-        {/* 3 Editorial Experience Cards */}
+        {/* 6 Curated Activity Cards */}
         <div className="editorial-exp__grid">
           {EXPERIENCES.map((exp) => (
-            <Link
-              key={exp.slug}
-              to={localizedPath('/experiences')}
-              className="editorial-exp-card"
-            >
+            <div key={exp.slug} className="editorial-exp-card">
               <div className="editorial-exp-card__media">
                 <img
                   src={exp.image}
@@ -89,6 +184,9 @@ export default function EditorialExperiences() {
                 />
                 <span className="editorial-exp-card__duration">
                   {isSomali ? exp.durationSo : exp.durationEn}
+                </span>
+                <span className="editorial-exp-card__skill">
+                  {isSomali ? exp.skillSo : exp.skillEn}
                 </span>
               </div>
 
@@ -102,12 +200,38 @@ export default function EditorialExperiences() {
                 <p className="editorial-exp-card__desc">
                   {isSomali ? exp.descSo : exp.descEn}
                 </p>
-                <div className="editorial-exp-card__action">
-                  <span>{isSomali ? 'Faahfaahinta Safarka' : 'Expedition Details'}</span>
-                  <ArrowRight size={14} />
+
+                {/* Highlights List */}
+                <div className="editorial-exp-card__highlights-list">
+                  {(isSomali ? exp.highlightsSo : exp.highlightsEn).map((hl, i) => (
+                    <div key={i} className="editorial-exp-card__hl-item">
+                      <CheckCircle2 size={13} className="editorial-exp-card__hl-icon" />
+                      <span>{hl}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Direct Action Buttons: Book / Inquire + Details */}
+                <div className="editorial-exp-card__actions-row">
+                  <Link
+                    to={`${localizedPath('/contact')}?booking=true&experience=${encodeURIComponent(exp.titleEn)}`}
+                    className="editorial-exp-card__btn-book"
+                    aria-label={`Inquire and book ${isSomali ? exp.titleSo : exp.titleEn}`}
+                  >
+                    <Calendar size={13} />
+                    <span>{isSomali ? 'Qorshee / Inquire' : 'Book / Inquire'}</span>
+                  </Link>
+
+                  <Link
+                    to={localizedPath('/experiences')}
+                    className="editorial-exp-card__btn-details"
+                  >
+                    <span>{isSomali ? 'Faahfaahin' : 'Details'}</span>
+                    <ArrowRight size={13} />
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
