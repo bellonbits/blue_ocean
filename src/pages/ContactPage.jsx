@@ -322,7 +322,15 @@ export default function ContactPage({ defaultBooking = false }) {
     },
   ];
 
-  const currentFeatured = featuredBases[featuredIndex];
+  const currentFeatured = featuredBases[featuredIndex] || featuredBases[0];
+
+  const prevFeatured = () => {
+    setFeaturedIndex((prev) => (prev === 0 ? featuredBases.length - 1 : prev - 1));
+  };
+
+  const nextFeatured = () => {
+    setFeaturedIndex((prev) => (prev === featuredBases.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <div className="portal-page">
