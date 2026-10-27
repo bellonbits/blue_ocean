@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   Compass,
   ArrowRight,
@@ -111,24 +111,10 @@ export default function EditorialHero() {
   const isSomali = language === 'so';
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
 
-  const [activeSpotIndex, setActiveSpotIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
   // Quick Booking / Trip Planning State
   const [bookingDest, setBookingDest] = useState('All Destinations');
   const [bookingExp, setBookingExp] = useState('All Experiences');
   const [bookingSeason, setBookingSeason] = useState('Peak Season (Nov–Apr)');
-
-  const activeSpot = SOMALI_COASTAL_HERO_SPOTS[activeSpotIndex];
-
-  // Auto-cycle through the coastal spots every 7.5 seconds unless hovered/interacted
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setActiveSpotIndex((prev) => (prev + 1) % SOMALI_COASTAL_HERO_SPOTS.length);
-    }, 7500);
-    return () => clearInterval(timer);
-  }, [isPaused]);
 
   const handleBookingSubmit = (e) => {
     e.preventDefault();
@@ -145,25 +131,20 @@ export default function EditorialHero() {
     <section
       className="hero-cinema"
       aria-label="Somalia Blue Heaven Marine Tourism"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
     >
       {/* 1. IMMERSIVE FULL-BLEED BACKGROUND OCEAN CANVAS (NO WHITE CUTS / NO DIVIDING LINES) */}
       <div className="hero-cinema__bg-container">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={activeSpot.image}
-            src={activeSpot.image}
-            alt={activeSpot.alt}
-            className="hero-cinema__bg-img"
-            initial={{ opacity: 0.35, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0.2, scale: 0.98 }}
-            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-            loading="eager"
-            fetchPriority="high"
-          />
-        </AnimatePresence>
+        <img
+          src="/image.png"
+          alt={
+            isSomali
+              ? 'Xeebta Soomaaliya ee quruxda badan oo leh doonyo dhaqameed iyo biyo buluug ah'
+              : 'Somalia pristine turquoise lagoon, white sands, and traditional seafaring dhows'
+          }
+          className="hero-cinema__bg-img"
+          loading="eager"
+          fetchPriority="high"
+        />
 
         {/* Sophisticated Luxury Multi-Stop Vignette Gradients for 100% Text Clarity */}
         <div className="hero-cinema__overlay-scrim" />
