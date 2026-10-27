@@ -3,7 +3,7 @@
    Theme: Pure White & Ocean Blue (#ffffff / #0284c7)
    - Background: White (both transparent-top & scrolled states)
    - Brand: Somalia Blue Heaven Blue Logo
-   - Typography: Unified Inter
+   - Typography: Unified Plus Jakarta Sans font
    - Controls: Sleek en-so switch & circular frosted search button
    ========================================================= */
 
@@ -17,6 +17,7 @@
   z-index: 100;
   display: flex;
   align-items: center;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1),

@@ -338,7 +338,7 @@ export default function AboutPage() {
       {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
       <PageHero
         pageId="about"
-        image="/con_youth_education.webp"
+        image="/images/img_01.webp"
         titleTop={isSomali ? 'U Taagan' : 'Dedicated To'}
         titleHighlight={isSomali ? '3,330 KM' : "Africa's Longest"}
         titleBottom={isSomali ? 'ee Badda Soomaaliya' : 'Marine Coastline'}
@@ -355,7 +355,7 @@ export default function AboutPage() {
         cutout={{
           title: isSomali ? 'Baro Ilaaliyayaasha Xeebta' : "Meet The Ocean Guardians",
           path: '#founding-story',
-          thumbnails: ['/con_beach_cleanup.webp', '/exp_dhow_sailing.webp', '/kismayo1.webp'],
+          thumbnails: ['/images/img_02.webp', '/images/img_05.webp', '/images/img_07.webp'],
           info: isSomali
             ? 'Ilaaliyayaasha deegaanka, akadeemiyada dhallinyarada, iyo iskaashiga kalluumaysatada maxalliga ah.'
             : 'Grassroots Coastal Rangers, Youth Ocean Academies, And Sovereign Marine Protection Alliances.',

@@ -12,7 +12,7 @@ export function ThemeProvider({ children }) {
     syncStatusBarWithTheme(false);
     try {
       localStorage.setItem('blue_ocean_theme', 'light');
-    } catch (e) {
+    } catch {
       // ignore
     }
   }, []);

@@ -331,7 +331,7 @@ export default function OceanExperiencesPage() {
       {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
       <PageHero
         pageId="experiences"
-        image="/exp_dhow_sailing.webp"
+        image="/images/img_02.webp"
         titleTop={isSomali ? 'La Noolow' : 'Live Authentic'}
         titleHighlight={isSomali ? 'Khibradaha' : 'Experiences'}
         titleBottom={isSomali ? 'Badda Soomaaliya' : 'With Every Voyage'}
@@ -348,7 +348,7 @@ export default function OceanExperiencesPage() {
         cutout={{
           title: isSomali ? 'Socdaallada Maanta Furan' : "Explore Today's Expeditions",
           path: '#all-experiences',
-          thumbnails: ['/exp_scuba_diving.webp', '/exp_coral_snorkeling.webp', '/exp_coastal_cliff.webp'],
+          thumbnails: ['/images/img_04.webp', '/images/img_01.webp', '/images/img_09.webp'],
           info: isSomali
             ? 'Hagayaal maxalli ah oo shahaado haysta, qalabka quusidda, iyo qorshayaal gaar ah oo loogu talagalay badda.'
             : 'Certified Local Captains, Scuba Instructors, And Ethical Marine Wildlife Guides To Tailor Your Journey.',

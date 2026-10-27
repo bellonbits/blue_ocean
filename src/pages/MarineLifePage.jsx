@@ -334,7 +334,7 @@ export default function MarineLifePage() {
       {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
       <PageHero
         pageId="marine_life"
-        image="/marine_turtles.webp"
+        image="/images/img_10.webp"
         titleTop={isSomali ? 'Baro Noolaha' : 'Encounter Rare'}
         titleHighlight={isSomali ? 'Badda' : 'Marine Life'}
         titleBottom={isSomali ? 'ee Soomaaliya' : 'In Living Seas'}
@@ -351,7 +351,7 @@ export default function MarineLifePage() {
         cutout={{
           title: isSomali ? 'Raadi 1,200+ Nooc oo Noolaha Badda' : "Explore 1,200+ Marine Species",
           path: '#all-species',
-          thumbnails: ['/marine_dolphins.webp', '/marine_sharks.webp', '/marine_coral.webp'],
+          thumbnails: ['/images/img_09.webp', '/images/img_07.webp', '/images/img_01.webp'],
           info: isSomali
             ? 'Kala garo libaax-badeedyada, qoolleyda dabar-go’a ku dhow, iyo shacaabka u adkaysta kulaylka badda.'
             : 'Whale Sharks, Endangered Sea Turtles, Spinner Dolphins, And Thermally Resilient Coral Gardens.',

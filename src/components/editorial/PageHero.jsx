@@ -29,7 +29,7 @@ export default function PageHero({
   };
 
   // Determine the ONE single hero image that explains this page
-  const heroImage = image || (spots && spots[0]?.image) || '/somalia_hero_coast.webp';
+  const heroImage = image || (spots && spots[0]?.image) || '/images/image.png';
 
   // Primary Action Button (supports { label, path } and { text, href })
   const ctaLabel = primaryCta?.label || primaryCta?.text || (isSomali ? 'Sahami Hada' : 'Explore Now');
@@ -52,7 +52,7 @@ export default function PageHero({
     ? [spots[0]?.image, spots[1]?.image, spots[2]?.image]
     : [
         heroImage,
-        '/kismayo1.webp',
+        '/images/img_07.webp',
         '/images/img_01.webp',
       ]);
 
@@ -61,9 +61,9 @@ export default function PageHero({
 
   const defaultFaces = [
     '/images/img_01.webp',
-    '/kismayo1.webp',
-    '/eyl1.webp',
-    '/hafun2.webp',
+    '/images/img_07.webp',
+    '/images/img_11.webp',
+    '/images/img_10.webp',
   ];
 
   const handleNavClick = (e, path) => {

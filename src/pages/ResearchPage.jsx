@@ -338,7 +338,7 @@ export default function ResearchPage() {
       {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
       <PageHero
         pageId="research"
-        image="/somalia_coast.webp"
+        image="/images/img_11.webp"
         titleTop={isSomali ? 'Hormuudka' : 'Pioneering Deep'}
         titleHighlight={isSomali ? 'Sayniska' : 'Marine Science'}
         titleBottom={isSomali ? 'Badda & Telemetry' : '& Ocean Telemetry'}
@@ -355,7 +355,7 @@ export default function ResearchPage() {
         cutout={{
           title: isSomali ? 'Mashaariicda Sayniska ee Socda' : "Active Science Projects",
           path: '#all-projects',
-          thumbnails: ['/research/fig-somalia-physiographic-map.webp', '/research/fig-shallow-water-habitats.webp', '/con_beach_cleanup.webp'],
+          thumbnails: ['/images/img_10.webp', '/images/img_07.webp', '/images/img_09.webp'],
           info: isSomali
             ? 'Xogaha bathymetry-ga, dayax-gacmeedka shacaabka, iyo kormeerka xaaladaha badda ee 18 saldhig.'
             : 'Autonomous Ocean Dataloggers, Bathymetry Surveys, And Spaceborne Habitat Mapping Across 18 Stations.',

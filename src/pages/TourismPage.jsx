@@ -24,32 +24,32 @@ import '../styles/portalDesignSystem.css';
 export const TOURISM_HERO_SPOTS = [
   {
     id: 'somalia-beach-shallows',
-    image: '/somalia_hero_coast.webp',
+    image: '/images/image.png',
     alt: 'Somalia coastal turquoise shallows, white sandbars and traditional sailing',
   },
   {
     id: 'bajuni-islands',
-    image: '/kismayo1.webp',
+    image: '/images/img_01.webp',
     alt: 'Bajuni Coral Archipelago pristine white sandbars and tropical lagoons',
   },
   {
     id: 'aerial-coastal-resort',
-    image: '/somalia_coast.webp',
+    image: '/images/img_07.webp',
     alt: 'Aerial view of Somali turquoise barrier reef shallows and coastal beaches',
   },
   {
     id: 'lido-corniche',
-    image: '/MOGADISHUBEACH LEDE.webp',
+    image: '/images/img_06.webp',
     alt: 'Lido Beach sunny shoreline and vibrant ocean promenade',
   },
   {
     id: 'baraawe-sand-dunes',
-    image: '/barawe1.webp',
+    image: '/images/img_09.webp',
     alt: 'Historic Barawe white sand coastline and azure Indian Ocean',
   },
   {
     id: 'bosaso-coves',
-    image: '/WebsiteImagery_1920x1080_SisterCities_BosasoSomalia-mtime20180108165841_2021-11-01-121110_grsn_91852798b59be8b28fc00edfe4aec23a.webp',
+    image: '/images/img_10.webp',
     alt: 'Bosaso Gulf of Aden turquoise bay and coastal fortress',
   },
 ];
@@ -298,7 +298,7 @@ export default function TourismPage() {
       {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
       <PageHero
         pageId="tourism"
-        image="/somalia_hero_coast.webp"
+        image="/images/image.png"
         titleTop={isSomali ? 'Sahami Xeebaha' : 'Discover Pristine'}
         titleHighlight={isSomali ? 'Dalxiiska' : 'Destinations'}
         titleBottom={isSomali ? 'ee Soomaaliya' : 'With Every Voyage'}
@@ -315,7 +315,7 @@ export default function TourismPage() {
         cutout={{
           title: isSomali ? 'Kala Soco Dalxiiska Xeebaha' : "Explore Today's Coastal Havens",
           path: '#top-attractions',
-          thumbnails: ['/kismayo1.webp', '/liido1.webp', '/barawe1.webp'],
+          thumbnails: ['/images/img_01.webp', '/images/img_06.webp', '/images/img_07.webp'],
           info: isSomali
             ? 'Hubi xaaladda cimilada xeebta, doonyaha shiraaca, iyo xarumaha nasashada si aad u hesho safar xusuus mudan.'
             : 'Check Real-Time Ocean Weather, Certified Guides, And Beach Resorts To Find The Best Option For Your Stay.',

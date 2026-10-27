@@ -13,7 +13,7 @@ const DESTINATIONS = [
     regionSo: 'Xeebta Puntland',
     descEn: 'Dramatic sandstone headlands meeting the deep blue Indian Ocean at the eastern tip of Africa.',
     descSo: 'Buuro dhagaxeed qurux badan oo ku dhaca Badweynta Hindiya barta ugu bariga fog ee Afrika.',
-    image: '/somalia_hero_coast.webp',
+    image: '/images/img_07.webp',
   },
   {
     num: '02',
@@ -24,7 +24,7 @@ const DESTINATIONS = [
     regionSo: 'Xeebta Banaadir',
     descEn: 'Sunlit ocean promenades, ancient coral architecture, and thriving coastal culture.',
     descSo: 'Nolosha xeebta, socodka fiidnimo, hidaha qadiimiga ah iyo dekedda taariikhiga ah.',
-    image: '/MOGADISHUBEACH LEDE.webp',
+    image: '/images/img_06.webp',
   },
   {
     num: '03',
@@ -35,7 +35,7 @@ const DESTINATIONS = [
     regionSo: 'Gacanka Cadmeed',
     descEn: "Where volcanic mountain ridges plunge into pelagic whale shark and dolphin waters.",
     descSo: 'Halka buuraha dhaadheer ay ku dhacaan biyaha qotada dheer ee hoyga libaax-badeedka.',
-    image: '/WebsiteImagery_1920x1080_SisterCities_BosasoSomalia-mtime20180108165841_2021-11-01-121110_grsn_91852798b59be8b28fc00edfe4aec23a.webp',
+    image: '/images/img_10.webp',
   },
   {
     num: '04',
@@ -46,7 +46,7 @@ const DESTINATIONS = [
     regionSo: 'Xeebta Jubaland',
     descEn: 'Turquoise shallows, powdery white sandbars, virgin coral atolls and sea turtle sanctuaries.',
     descSo: 'Biyo buluug ah oo nadiif ah, carro cad, jasiirado carwooyin leh iyo hoyga qoolleyda.',
-    image: '/kismayo1.webp',
+    image: '/images/img_01.webp',
   },
 ];
 

@@ -117,10 +117,10 @@ export default function RajaBentoGrid() {
         {/* Card 3: Social Proof & Research Rating */}
         <div className="bento-card-social">
           <div className="bento-avatars-cluster">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Researcher" className="bento-avatar" />
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Researcher" className="bento-avatar" />
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" alt="Marine Biologist" className="bento-avatar" />
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" alt="Community Leader" className="bento-avatar" />
+            <img src="/images/img_03.webp" alt="Researcher" className="bento-avatar" />
+            <img src="/images/img_04.webp" alt="Researcher" className="bento-avatar" />
+            <img src="/images/img_05.webp" alt="Marine Biologist" className="bento-avatar" />
+            <img src="/images/img_06.webp" alt="Community Leader" className="bento-avatar" />
           </div>
 
           <div>

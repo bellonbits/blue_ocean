@@ -30,7 +30,7 @@ export const SOMALI_COASTAL_HERO_SPOTS = [
     badgeSo: 'Barta Ugu Bariga fog Afrika',
     temp: '28°C',
     visibility: '32m Visibility',
-    image: '/somalia_hero_coast.webp',
+    image: '/images/img_07.webp',
     alt: 'Somalia coastal cliffs and turquoise azure waters with traditional seafaring dhow',
   },
   {
@@ -44,7 +44,7 @@ export const SOMALI_COASTAL_HERO_SPOTS = [
     badgeSo: 'Carro Cad & Shacaab Bikro ah',
     temp: '29°C',
     visibility: '28m Visibility',
-    image: '/kismayo1.webp',
+    image: '/images/img_01.webp',
     alt: 'Bajuni Archipelago pristine white sandbars and tropical turquoise lagoons',
   },
   {
@@ -58,7 +58,7 @@ export const SOMALI_COASTAL_HERO_SPOTS = [
     badgeSo: 'Hoyga Libaax-Badeedka',
     temp: '27°C',
     visibility: '25m Visibility',
-    image: '/WebsiteImagery_1920x1080_SisterCities_BosasoSomalia-mtime20180108165841_2021-11-01-121110_grsn_91852798b59be8b28fc00edfe4aec23a.webp',
+    image: '/images/img_10.webp',
     alt: 'Historic coastal maritime tower and fishing haven on the Gulf of Aden',
   },
   {
@@ -72,7 +72,7 @@ export const SOMALI_COASTAL_HERO_SPOTS = [
     badgeSo: 'Ilaha Biyaha Macaan & Badweynta',
     temp: '26°C',
     visibility: '30m Visibility',
-    image: '/eyl3.webp',
+    image: '/images/img_11.webp',
     alt: 'A breathtaking canyon gorge meeting open Indian Ocean swells',
   },
   {
@@ -86,7 +86,7 @@ export const SOMALI_COASTAL_HERO_SPOTS = [
     badgeSo: 'Hidaha Badmareenka Nool',
     temp: '28°C',
     visibility: '22m Visibility',
-    image: '/MOGADISHUBEACH LEDE.webp',
+    image: '/images/img_06.webp',
     alt: 'Liido Beach vibrant shoreline and turquoise Indian Ocean',
   },
   {
@@ -100,7 +100,7 @@ export const SOMALI_COASTAL_HERO_SPOTS = [
     badgeSo: 'Xeebta Ugu Dheer Qaaradda Afrika',
     temp: '28°C',
     visibility: '30m+ Visibility',
-    image: '/somalia_coast.webp',
+    image: '/images/img_12.webp',
     alt: 'Aerial view of untouched coral barrier atolls and crystal clear marine shallows',
   },
 ];
@@ -135,7 +135,7 @@ export default function EditorialHero() {
       {/* 1. IMMERSIVE FULL-BLEED BACKGROUND OCEAN CANVAS (NO WHITE CUTS / NO DIVIDING LINES) */}
       <div className="hero-cinema__bg-container">
         <img
-          src="/image.png"
+          src="/images/image.png"
           alt={
             isSomali
               ? 'Xeebta Soomaaliya ee quruxda badan oo leh doonyo dhaqameed iyo biyo buluug ah'

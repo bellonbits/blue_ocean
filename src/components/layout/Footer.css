@@ -2,7 +2,7 @@
    SOMALIA BLUE HEAVEN — White Footer Canvas
    Theme: Pure White & Ocean Blue (#ffffff / #0284c7)
    - Background: Pure White with subtle crisp borders
-   - Typography: Unified Inter font
+   - Typography: Unified Plus Jakarta Sans font
    - Elements: Blue social circles, newsletter pill, and blue badges
    ========================================================= */
 
@@ -12,7 +12,7 @@
   color: #475569;
   padding: 68px 0 36px 0;
   border-top: 1px solid #e2e8f0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
   overflow: hidden;
   z-index: 10;
 }
@@ -69,7 +69,7 @@
   color: #64748b;
   margin: 0;
   max-width: 360px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: inherit;
 }
 
 /* Circular Social Buttons (Blue & White) */
@@ -117,7 +117,7 @@
   text-transform: uppercase;
   color: #0f172a;
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: inherit;
 }
 
 .nature-footer__newsletter-form {
@@ -148,7 +148,7 @@
   font-size: 0.88rem;
   min-width: 0;
   padding: 8px 6px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: inherit;
 }
 
 .nature-footer__newsletter-input::placeholder {
@@ -165,7 +165,7 @@
   font-size: 0.84rem;
   font-weight: 700;
   cursor: pointer;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: inherit;
   transition: background-color 0.2s ease, transform 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -185,7 +185,7 @@
 
 /* --- Column Headings & Lists --- */
 .nature-footer__heading {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.02rem;
   font-weight: 700;
   color: #0f172a;
@@ -206,7 +206,7 @@
   color: #475569;
   text-decoration: none;
   font-size: 0.88rem;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: inherit;
   transition: color 0.18s ease, transform 0.18s ease;
   display: inline-block;
   line-height: 1.4;
@@ -233,7 +233,7 @@
   text-decoration: none;
   font-size: 0.88rem;
   line-height: 1.5;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: inherit;
   transition: color 0.18s ease;
 }
 
@@ -266,7 +266,7 @@
   font-size: 0.82rem;
   font-weight: 700;
   text-decoration: none;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: inherit;
   transition: all 0.2s ease;
 }
 
@@ -293,7 +293,7 @@
   color: #64748b;
   margin: 0;
   line-height: 1.5;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: inherit;
 }
 
 .nature-footer__legal-links {
@@ -307,7 +307,7 @@
   color: #64748b;
   text-decoration: none;
   font-size: 0.82rem;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: inherit;
   transition: color 0.18s ease;
 }
 

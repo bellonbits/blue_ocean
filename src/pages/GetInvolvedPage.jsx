@@ -22,7 +22,7 @@ export default function GetInvolvedPage() {
     <main id="main-content" aria-label="Get Involved with Somalia Blue Heaven">
       <PageHero
         pageId="get-involved"
-        image="/exp_scuba_diving.webp"
+        image="/images/img_04.webp"
         titleTop={isSomali ? 'Ka Qayb Qaado' : 'Be Part Of'}
         titleHighlight={isSomali ? 'Ilaalinta Badda' : 'The Ocean Story'}
         titleBottom={isSomali ? 'ee Soomaaliya' : 'Across 3,330 KM'}

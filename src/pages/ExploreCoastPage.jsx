@@ -24,32 +24,32 @@ import '../styles/ExploreCoastEditorial.css';
 export const EXPLORE_COAST_HERO_SPOTS = [
   {
     id: 'eyl-ocean-canyon',
-    image: '/eyl3.webp',
+    image: '/images/img_11.webp',
     alt: 'Dooxada Eyl breathtaking ocean gorge, vertical sea cliffs, and Indian Ocean surge',
   },
   {
     id: 'hafun-sandstone-headlands',
-    image: '/Somalia,_Puntland,_Bari,_Bargal_(01).webp',
+    image: '/images/img_07.webp',
     alt: 'Ras Hafun and Bargaal dramatic sandstone headlands meeting the cobalt ocean',
   },
   {
     id: 'bosaso-shelf-citadel',
-    image: '/WebsiteImagery_1920x1080_SisterCities_BosasoSomalia-mtime20180108165841_2021-11-01-121110_grsn_91852798b59be8b28fc00edfe4aec23a.webp',
+    image: '/images/img_10.webp',
     alt: 'Bosaso deep gulf shelf, historical maritime tower and artisanal dhow harbor',
   },
   {
     id: 'eyl-freshwater-springs',
-    image: '/eyl1.webp',
+    image: '/images/img_03.webp',
     alt: 'Eyl coastal oasis springs flowing through limestone canyons into the ocean',
   },
   {
     id: 'eastern-horn-headland',
-    image: '/hafun2.webp',
+    image: '/images/img_01.webp',
     alt: 'Africa’s easternmost continental headlands and turquoise breakers',
   },
   {
     id: 'ocean-surf-canyons',
-    image: '/images/img_07.webp',
+    image: '/images/img_06.webp',
     alt: 'Rolling azure surf crashing against Somali coastal peaks',
   },
 ];
@@ -61,7 +61,7 @@ const COASTAL_TOURS_LIST = [
     region: 'Puntland Coast',
     category: 'Coastal Cliffs',
     rating: '4.9',
-    image: '/Somalia,_Puntland,_Bari,_Bargal_(01).webp',
+    image: '/images/img_07.webp',
     path: '/explore-the-coast/hafun',
   },
   {
@@ -70,7 +70,7 @@ const COASTAL_TOURS_LIST = [
     region: 'Jubaland Coast',
     category: 'Coral Reefs',
     rating: '5.0',
-    image: '/kismayo1.webp',
+    image: '/images/img_01.webp',
     path: '/explore-the-coast/kismayo',
   },
   {
@@ -79,7 +79,7 @@ const COASTAL_TOURS_LIST = [
     region: 'Gulf of Aden',
     category: 'Whale Sharks',
     rating: '4.9',
-    image: '/WebsiteImagery_1920x1080_SisterCities_BosasoSomalia-mtime20180108165841_2021-11-01-121110_grsn_91852798b59be8b28fc00edfe4aec23a.webp',
+    image: '/images/img_10.webp',
     path: '/explore-the-coast/bosaso',
   },
   {
@@ -88,7 +88,7 @@ const COASTAL_TOURS_LIST = [
     region: 'Nugaal Coast',
     category: 'Ocean Canyon',
     rating: '4.8',
-    image: '/eyl3.webp',
+    image: '/images/img_11.webp',
     path: '/explore-the-coast/eyl',
   },
   {
@@ -97,7 +97,7 @@ const COASTAL_TOURS_LIST = [
     region: 'Benadir Coast',
     category: 'Coastal Cliffs',
     rating: '4.7',
-    image: '/liido1.webp',
+    image: '/images/img_06.webp',
     path: '/explore-the-coast/mogadishu',
   },
   {
@@ -106,7 +106,7 @@ const COASTAL_TOURS_LIST = [
     region: 'Somaliland Coast',
     category: 'Ancient Ports',
     rating: '4.9',
-    image: '/zeila1.webp',
+    image: '/images/img_09.webp',
     path: '/explore-the-coast/zeila',
   },
   {
@@ -115,7 +115,7 @@ const COASTAL_TOURS_LIST = [
     region: 'Galmudug Coast',
     category: 'Dunes & Surf',
     rating: '4.8',
-    image: '/hobyo1.webp',
+    image: '/images/img_12.webp',
     path: '/explore-the-coast/hobyo',
   },
   {
@@ -124,7 +124,7 @@ const COASTAL_TOURS_LIST = [
     region: 'Benadir Shallows',
     category: 'Coral Reefs',
     rating: '5.0',
-    image: '/jazeera1.webp',
+    image: '/images/img_05.webp',
     path: '/explore-the-coast/mogadishu',
   },
 ];
@@ -393,7 +393,7 @@ export default function ExploreCoastPage() {
       {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
       <PageHero
         pageId="explore_coast"
-        image="/eyl3.webp"
+        image="/images/img_11.webp"
         titleTop={isSomali ? 'Sahami 3,330 KM' : 'Explore 3,330 KM'}
         titleHighlight={isSomali ? 'Xeebaha' : 'Coastline'}
         titleBottom={isSomali ? 'ee Geeska Afrika' : 'From Zeila To Kamboni'}
@@ -410,7 +410,7 @@ export default function ExploreCoastPage() {
         cutout={{
           title: isSomali ? 'Kala Soco Deegaannada Xeebta' : "Explore Somalia's Havens",
           path: '#coastline-timeline',
-          thumbnails: ['/eyl1.webp', '/hafun2.webp', '/kismayo2.webp'],
+          thumbnails: ['/images/img_03.webp', '/images/img_01.webp', '/images/img_07.webp'],
           info: isSomali
             ? 'Kala baro 18 degmo oo xeeb ah, marin-badeedyada qadiimiga ah, iyo xogaha GPS-ka ee deegaan walba.'
             : 'Discover 18 Maritime Districts, Historical Ancient Ports, And Natural Sea Gorges Across The Coast.',

@@ -587,7 +587,7 @@ export default function CoastalCommunitiesPage() {
         {/* 4-Image Asymmetrical Mosaic */}
         <div className="portal-diaries-grid">
           <div className="portal-diary-item">
-            <img src="/exp_dhow_sailing.webp" alt="Traditional Somali dhow under sail along the coast" />
+            <img src="/images/img_03.webp" alt="Traditional Somali dhow under sail along the coast" />
           </div>
           <div className="portal-diary-item">
             <img src="/images/img_02.webp" alt="Bosaso harbor artisanal fishing vessels" />

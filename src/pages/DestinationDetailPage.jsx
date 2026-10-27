@@ -742,7 +742,7 @@ export default function DestinationDetailPage() {
       {/* 1. Page Hero: Unified Reference Modern Layout with Single High-Definition Photo & Cutout */}
       <PageHero
         pageId={`destination-${destination.slug}`}
-        image={destination.heroImage || (galleryItems[0]?.image) || '/somalia_hero_coast.webp'}
+        image={destination.heroImage || (galleryItems[0]?.image) || '/images/image.png'}
         titleTop={isSomali ? 'Sahami Xeebta' : 'Explore Coastal'}
         titleHighlight={destination.name}
         titleBottom={destination.region ? `• ${destination.region}` : ''}
@@ -763,7 +763,7 @@ export default function DestinationDetailPage() {
             ? [galleryItems[0].image, galleryItems[1].image, galleryItems[2].image]
             : (destination.galleryImages && destination.galleryImages.length >= 3)
               ? destination.galleryImages.slice(0, 3)
-              : [destination.heroImage || '/somalia_hero_coast.webp', '/kismayo1.webp', '/eyl1.webp'],
+              : [destination.heroImage || '/images/image.png', '/images/img_01.webp', '/images/img_11.webp'],
           info: destination.destinationType
             ? `${destination.destinationType} • ${destination.region || 'Somalia Coast'} • ${destination.coordinates ? formatCoordinates(destination.coordinates) : '3,330 KM Coastline'}`
             : 'Pristine marine sanctuary, crystal turquoise waters, and living coral barrier reefs.',

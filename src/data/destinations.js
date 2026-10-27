@@ -574,10 +574,10 @@ The beaches of Kismayo—stretching unbroken for tens of kilometers with powdery
 Surrounded by crystal-clear turquoise lagoons and protected by a robust outer barrier reef, these islands harbor some of the most intact coral gardens, seagrass meadows, and sea turtle nesting rookeries in all of East Africa.
 
 The indigenous Bajuni seafaring community has lived on these islands for centuries, navigating the complex reef passages in traditional 'ngalawa' outrigger canoes and lateen-rigged dhows. The islands are also one of the last confirmed refuges for the critically endangered dugong in Somali waters.`,
-    heroImage: 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80',
+    heroImage: '/images/img_01.webp',
     gallery: [
-      'https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=800&q=80',
+      '/images/img_01.webp',
+      '/images/img_02.webp',
       '/images/img_11.webp',
     ],
     coordinates: { lat: -0.8500, lng: 42.2000 },
