@@ -225,19 +225,21 @@ export default function EditorialHero() {
                 aria-label="Search destinations"
               >
                 <span>{isSomali ? 'Raadi' : 'Search'}</span>
+                <span className="hero-cinema__search-prompt-line" />
                 <ArrowRight size={15} className="hero-cinema__search-prompt-arrow" />
               </button>
             </motion.div>
           </div>
         </div>
+      </div>
 
-        {/* 3. INTEGRATED FLOATING QUICK BOOKING / TRIP PLANNING BAR */}
-        <div id="quick-booking-bar" className="hero-cinema__booking-bar-wrap">
-          <form onSubmit={handleBookingSubmit} className="hero-cinema__booking-bar" aria-label="Quick Trip Planning Bar">
-            <div className="hero-cinema__booking-field">
-              <span className="hero-cinema__booking-label">
-                <MapPin size={14} className="hero-cinema__booking-icon" />
-                <span>{isSomali ? 'Goobta Xeebta' : 'Destination'}</span>
+      {/* 3. INTEGRATED FLOATING QUICK BOOKING / TRIP PLANNING BAR STRADDLING HERO SEAM */}
+      <div id="quick-booking-bar" className="hero-cinema__booking-bar-wrap">
+        <form onSubmit={handleBookingSubmit} className="hero-cinema__booking-bar" aria-label="Quick Trip Planning Bar">
+          <div className="hero-cinema__booking-field">
+            <span className="hero-cinema__booking-label">
+              <MapPin size={14} className="hero-cinema__booking-icon" />
+              <span>{isSomali ? 'Goobta Xeebta' : 'Destination'}</span>
               </span>
               <select
                 value={bookingDest}
@@ -309,7 +311,6 @@ export default function EditorialHero() {
             </div>
           </form>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }

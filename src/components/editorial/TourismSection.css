@@ -11,7 +11,7 @@
   position: relative;
   background: #ffffff;
   color: #071b2b;
-  padding: clamp(56px, 7vh, 72px) 0 clamp(72px, 9vh, 100px);
+  padding: clamp(72px, 8.5vh, 92px) 0 clamp(72px, 9vh, 100px);
   border-bottom: 1px solid rgba(7, 27, 43, 0.06);
 }
 
