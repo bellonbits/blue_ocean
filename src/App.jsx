@@ -162,6 +162,7 @@ function localizedRoutes() {
     <Route path="about/team" element={<TeamDirectoryPage />} key="about-team" />,
     <Route path="about/team/:slug" element={<TeamMemberProfilePage />} key="about-team-slug" />,
 
+    <Route path="booking" element={<ContactPage defaultBooking={true} />} key="booking" />,
     <Route path="contact" element={<ContactPage />} key="contact" />,
     <Route path="press" element={<PressPage />} key="press" />,
     <Route path="privacy" element={<PrivacyPolicyPage />} key="privacy" />,

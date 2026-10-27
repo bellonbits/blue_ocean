@@ -189,9 +189,9 @@ export default function EditorialHero() {
                 : 'Somalia Blue Heaven is your go to destination for finding the perfect ocean haven to suit your needs. With 3,330 km of pristine turquoise lagoons and virgin coral reefs across East Africa.'}
             </motion.p>
 
-            {/* Search Pill Button matching reference image */}
+            {/* Creative Luminous Ocean Action Button */}
             <motion.div
-              className="hero-cinema__search-prompt-row"
+              className="hero-cinema__action-row"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.28 }}
@@ -202,12 +202,24 @@ export default function EditorialHero() {
                   const el = document.getElementById('quick-booking-bar');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="hero-cinema__search-prompt-btn"
-                aria-label="Search destinations"
+                className="hero-cinema__capsule-btn"
+                id="hero-explore-booking-btn"
+                aria-label="Explore Havens and Plan Trip"
               >
-                <span>{isSomali ? 'Raadi' : 'Search'}</span>
-                <span className="hero-cinema__search-prompt-line" />
-                <ArrowRight size={15} className="hero-cinema__search-prompt-arrow" />
+                <span className="hero-cinema__capsule-icon-wrap">
+                  <Compass size={17} className="hero-cinema__capsule-compass" />
+                </span>
+                <span className="hero-cinema__capsule-text">
+                  <span className="hero-cinema__capsule-title">
+                    {isSomali ? 'Sahmi Havens & Qorshee Safar' : 'Explore Havens & Plan Trip'}
+                  </span>
+                  <span className="hero-cinema__capsule-subtitle">
+                    {isSomali ? '3,330 KM oo Xeeb ah · Hubi Boosaska' : '3,330 KM Coastline · Check Availability'}
+                  </span>
+                </span>
+                <span className="hero-cinema__capsule-arrow-disc">
+                  <ArrowRight size={15} className="hero-cinema__capsule-arrow" />
+                </span>
               </button>
             </motion.div>
           </div>
