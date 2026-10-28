@@ -2,12 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import {
   Compass,
-  Search,
   MapPin,
   Waves,
   ShieldCheck,
-  Users,
-  Anchor,
   ArrowRight,
   Heart,
   ChevronLeft,
@@ -17,10 +14,8 @@ import {
   Camera,
   Mail,
   Phone,
-  Clock,
   Send,
   CheckCircle2,
-  AlertTriangle,
   Radio,
   MessageSquare,
 } from 'lucide-react';
