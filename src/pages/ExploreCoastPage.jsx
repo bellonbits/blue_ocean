@@ -806,6 +806,10 @@ export default function ExploreCoastPage() {
 
                 <div className="explore-dest-card__top">
                   <span className="explore-dest-card__region">{dest.region}</span>
+                  <span className="explore-dest-card__season-badge">
+                    <Sparkles size={11} />
+                    <span>{isSomali ? 'Xilliga: Okb – Abr' : 'Best: Oct – Apr'}</span>
+                  </span>
                 </div>
 
                 <div className="explore-dest-card__content">

@@ -1,10 +1,22 @@
-import { ArrowRight, Compass, Calendar, CheckCircle2 } from 'lucide-react';
+import { useState } from 'react';
+import {
+  ArrowRight,
+  Compass,
+  Calendar,
+  CheckCircle2,
+  Waves,
+  Anchor,
+  Fish,
+  Camera,
+  Sparkles,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
 
 export const EXPERIENCES = [
   {
     slug: 'snorkeling-reefs',
+    filterTag: 'water',
     titleEn: 'Coral Reef & Lagoon Snorkeling',
     titleSo: 'Dabaasha Shacaabka & Biyaha Qulqulaya',
     categoryEn: 'Shallow Waters & Lagoons',
@@ -21,6 +33,7 @@ export const EXPERIENCES = [
   },
   {
     slug: 'scuba-diving',
+    filterTag: 'water',
     titleEn: 'Pelagic Scuba & Continental Drop-Offs',
     titleSo: 'Quusidda Qotada Dheer ee Reef-ka',
     categoryEn: 'Deep Marine Expedition',
@@ -37,6 +50,7 @@ export const EXPERIENCES = [
   },
   {
     slug: 'dhow-sailing',
+    filterTag: 'boat',
     titleEn: 'Traditional Dhow & Island Boat Tours',
     titleSo: 'Safarada Doonyaha Dhowka & Jasiiradaha',
     categoryEn: 'Maritime Heritage & Island Hopping',
@@ -53,6 +67,7 @@ export const EXPERIENCES = [
   },
   {
     slug: 'underwater-photography',
+    filterTag: 'coast',
     titleEn: 'Underwater & Drone Coastal Photography',
     titleSo: 'Sawir-qaadista Biyaha Hoostooda & Cirka',
     categoryEn: 'Creative Expedition',
@@ -69,6 +84,7 @@ export const EXPERIENCES = [
   },
   {
     slug: 'whale-shark-safari',
+    filterTag: 'wildlife',
     titleEn: 'Whale Shark & Marine Megafauna Safaris',
     titleSo: 'Daawashada Libaax-Badeedka & Noolaha Waaweyn',
     categoryEn: 'Wildlife Encounters',
@@ -85,6 +101,7 @@ export const EXPERIENCES = [
   },
   {
     slug: 'coastal-cliff-trek',
+    filterTag: 'coast',
     titleEn: 'Canyon Cliffs & Desert Coast Trekking',
     titleSo: 'Socdaalka Buuraha Xeebta & Dooxooyinka',
     categoryEn: 'Coastal Wilderness',
@@ -101,6 +118,7 @@ export const EXPERIENCES = [
   },
   {
     slug: 'beach-experiences',
+    filterTag: 'coast',
     titleEn: 'Virgin White Sand Beaches & Coastal Sunsets',
     titleSo: 'Xeebaha Ciidda Cad & Qorrax Dhaca Badda',
     categoryEn: 'Beach & Shoreline Leisure',
@@ -117,6 +135,7 @@ export const EXPERIENCES = [
   },
   {
     slug: 'reef-exploration',
+    filterTag: 'water',
     titleEn: 'Barrier Reef & Shallow Lagoon Safaris',
     titleSo: 'Sahaminta Shacaabka & Jasiiradaha Baajuun',
     categoryEn: 'Reef Ecology & Marine Safaris',
@@ -135,8 +154,21 @@ export const EXPERIENCES = [
 
 export default function EditorialExperiences() {
   const { language } = useLanguage();
+  const [activeTab, setActiveTab] = useState('all');
   const isSomali = language === 'so';
   const localizedPath = (path) => `/${language}${path === '/' ? '' : path}`;
+
+  const tabs = [
+    { id: 'all', labelEn: 'All Experiences', labelSo: 'Dhammaan', icon: <Sparkles size={13} /> },
+    { id: 'water', labelEn: 'Diving & Snorkeling', labelSo: 'Quusidda & Shacaabka', icon: <Waves size={13} /> },
+    { id: 'boat', labelEn: 'Dhow & Boat Tours', labelSo: 'Safarada Doonyaha', icon: <Anchor size={13} /> },
+    { id: 'wildlife', labelEn: 'Marine Wildlife', labelSo: 'Noolaha Badda', icon: <Fish size={13} /> },
+    { id: 'coast', labelEn: 'Coast & Photography', labelSo: 'Xeebaha & Sawirrada', icon: <Camera size={13} /> },
+  ];
+
+  const visibleExperiences = activeTab === 'all'
+    ? EXPERIENCES
+    : EXPERIENCES.filter((exp) => exp.filterTag === activeTab);
 
   return (
     <section id="editorial-experiences" className="editorial-exp" aria-label="Curated Ocean Experiences">
@@ -171,9 +203,33 @@ export default function EditorialExperiences() {
           </Link>
         </div>
 
-        {/* 6 Curated Activity Cards */}
+        {/* 1-Click Interactive Activity Tabs */}
+        <div className="editorial-exp__tabs" role="tablist" aria-label="Experience Categories">
+          {tabs.map((tab) => {
+            const count = tab.id === 'all'
+              ? EXPERIENCES.length
+              : EXPERIENCES.filter((e) => e.filterTag === tab.id).length;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActiveTab(tab.id)}
+                className={`editorial-exp__tab ${isActive ? 'editorial-exp__tab--active' : ''}`}
+              >
+                {tab.icon}
+                <span>{isSomali ? tab.labelSo : tab.labelEn}</span>
+                <span className="editorial-exp__tab-count">{count}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Curated Activity Cards */}
         <div className="editorial-exp__grid">
-          {EXPERIENCES.map((exp) => (
+          {visibleExperiences.map((exp) => (
             <div key={exp.slug} className="editorial-exp-card">
               <div className="editorial-exp-card__media">
                 <img

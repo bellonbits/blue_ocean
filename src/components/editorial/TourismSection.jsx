@@ -22,9 +22,11 @@ export const TOURISM_DESTINATIONS = [
     locationSo: 'Xeebta Puntland • Badweynta Hindiya',
     tagEn: 'Ras Hafun',
     tagSo: 'Raas Xaafuun',
-    image: '/images/img_07.webp',
+    image: '/hafun1.webp',
     path: '/explore-the-coast/hafun',
     spotsLeft: 4,
+    seasonEn: 'Best: Nov – Apr',
+    seasonSo: 'Xilliga: Nof – Abr',
     categoryEn: 'Africa’s Easternmost Horn',
     categorySo: 'Barta Ugu Bariga fog Afrika',
     shortDescEn: 'Cultural coastal walk with local seafaring guides',
@@ -41,8 +43,10 @@ export const TOURISM_DESTINATIONS = [
     tagEn: 'Bajuni Islands',
     tagSo: 'Jasiiradaha Baajuun',
     image: '/images/img_01.webp',
-    path: '/explore-the-coast/kismayo',
+    path: '/explore-the-coast/bajuni-islands',
     spotsLeft: 5,
+    seasonEn: 'Best: Nov – Apr',
+    seasonSo: 'Xilliga: Nof – Abr',
     categoryEn: 'Virgin Sandbars & Shallows',
     categorySo: 'Carro Cad & Shacaab Bikro ah',
     shortDescEn: 'Untouched turquoise lagoons & barrier atolls',
@@ -58,9 +62,11 @@ export const TOURISM_DESTINATIONS = [
     locationSo: 'Xeebta Nugaal • Dooxada Dhagaxeedka',
     tagEn: 'Dooxada Eyl',
     tagSo: 'Dooxada Eyl',
-    image: '/images/img_11.webp',
+    image: '/eyl1.webp',
     path: '/explore-the-coast/eyl',
     spotsLeft: 3,
+    seasonEn: 'Best: Oct – Apr',
+    seasonSo: 'Xilliga: Okb – Abr',
     categoryEn: 'Ocean Canyon & Freshwater Springs',
     categorySo: 'Ilaha Biyaha Macaan & Badweynta',
     shortDescEn: 'Freshwater springs meeting open Indian Ocean swells',
@@ -76,9 +82,11 @@ export const TOURISM_DESTINATIONS = [
     locationSo: 'Gacanka Cadmeed • Biyo Qoto Dheer',
     tagEn: 'Bosaso Bay',
     tagSo: 'Boosaaso',
-    image: '/images/img_10.webp',
+    image: '/bosaso_harbor_thumb.webp',
     path: '/explore-the-coast/bosaso',
     spotsLeft: 6,
+    seasonEn: 'Best: Oct – Apr',
+    seasonSo: 'Xilliga: Okb – Abr',
     categoryEn: 'Whale Shark Haven & Fortress',
     categorySo: 'Hoyga Libaax-Badeedka & Dekedda',
     shortDescEn: 'Deep-water pelagic safari & historic maritime haven',
@@ -94,9 +102,11 @@ export const TOURISM_DESTINATIONS = [
     locationSo: 'Xeebta Banaadir • Hirarka Buluugga ah',
     tagEn: 'Liido Beach',
     tagSo: 'Xeebta Liido',
-    image: '/images/img_06.webp',
+    image: '/mogadishu1.webp',
     path: '/explore-the-coast/mogadishu',
     spotsLeft: 8,
+    seasonEn: 'Best: Oct – May',
+    seasonSo: 'Xilliga: Okb – May',
     categoryEn: 'Living Maritime Heritage',
     categorySo: 'Hidaha Badmareenka Nool',
     shortDescEn: 'Sunset dhow sailing along the ancient maritime promenade',
@@ -112,9 +122,11 @@ export const TOURISM_DESTINATIONS = [
     locationSo: 'Xeebta Awdal • Jasiirado Shacaab',
     tagEn: 'Zeila Atolls',
     tagSo: 'Seylac',
-    image: '/images/img_09.webp',
+    image: '/zeila1.webp',
     path: '/explore-the-coast/zeila',
     spotsLeft: 2,
+    seasonEn: 'Best: Nov – Mar',
+    seasonSo: 'Xilliga: Nof – Mar',
     categoryEn: 'Historic Silk Route Archipelago',
     categorySo: 'Jasiiradaha Wadada Xariirta',
     shortDescEn: 'Crystal-clear island shallows & submerged medieval reefs',
@@ -281,6 +293,10 @@ export default function TourismSection() {
                     className="travel-stagger-card__img"
                     loading="lazy"
                   />
+                  <span className="travel-stagger-card__season-chip">
+                    <Sparkles size={10} />
+                    <span>{isSomali ? showcaseItems[0].seasonSo : showcaseItems[0].seasonEn}</span>
+                  </span>
                   <span className="travel-stagger-card__chip">
                     {isSomali ? showcaseItems[0].tagSo : showcaseItems[0].tagEn}
                   </span>
@@ -308,6 +324,10 @@ export default function TourismSection() {
                     className="travel-stagger-card__img"
                     loading="lazy"
                   />
+                  <span className="travel-stagger-card__season-chip">
+                    <Sparkles size={10} />
+                    <span>{isSomali ? showcaseItems[1].seasonSo : showcaseItems[1].seasonEn}</span>
+                  </span>
                   <span className="travel-stagger-card__chip">
                     {isSomali ? showcaseItems[1].tagSo : showcaseItems[1].tagEn}
                   </span>
@@ -335,6 +355,10 @@ export default function TourismSection() {
                     className="travel-stagger-card__img"
                     loading="lazy"
                   />
+                  <span className="travel-stagger-card__season-chip">
+                    <Sparkles size={10} />
+                    <span>{isSomali ? showcaseItems[2].seasonSo : showcaseItems[2].seasonEn}</span>
+                  </span>
                   <span className="travel-stagger-card__chip">
                     {isSomali ? showcaseItems[2].tagSo : showcaseItems[2].tagEn}
                   </span>
@@ -523,7 +547,7 @@ export default function TourismSection() {
                   </span>
                 </div>
 
-                {/* Photo Media with Open Trip Button */}
+                {/* Photo Media with Seasonal Badge and Open Trip Button */}
                 <div className="travel-place-card__media">
                   <img
                     src={dest.image}
@@ -531,6 +555,10 @@ export default function TourismSection() {
                     className="travel-place-card__img"
                     loading="lazy"
                   />
+                  <span className="travel-place-card__season-pill">
+                    <Sparkles size={10} />
+                    <span>{isSomali ? dest.seasonSo : dest.seasonEn}</span>
+                  </span>
                   <Link
                     to={localizedPath(dest.path)}
                     className="travel-place-card__open-pill"

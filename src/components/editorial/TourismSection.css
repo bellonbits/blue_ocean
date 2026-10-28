@@ -298,6 +298,27 @@
   transform: scale(1.05);
 }
 
+.travel-stagger-card__season-chip {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(6, 78, 59, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #a7f3d0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  border: 1px solid rgba(167, 243, 208, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  z-index: 2;
+}
+
 .travel-stagger-card__chip {
   position: absolute;
   bottom: 12px;
@@ -615,6 +636,27 @@
 
 .travel-place-card:hover .travel-place-card__img {
   transform: scale(1.05);
+}
+
+.travel-place-card__season-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(6, 78, 59, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #a7f3d0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(167, 243, 208, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  z-index: 2;
 }
 
 .travel-place-card__open-pill {
