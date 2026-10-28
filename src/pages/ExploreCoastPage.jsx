@@ -207,7 +207,7 @@ export default function ExploreCoastPage() {
         ? 'Barta ugu bariyesa qaaradda Afrika, halkaas oo ay isku galaan Badweynta Hindiya iyo Gacanka Cadmeed oo leh buuro dhaadheer.'
         : "Africa's easternmost continental point, where sheer limestone cliffs plunge into cobalt ocean waters under ancient monsoon skies.",
       link: '/explore-the-coast/hafun',
-      image: '/images/img_01.webp',
+      image: '/hafun1.webp',
     },
     {
       tag: isSomali ? 'DEKEDDA & XEEBAHA' : 'PORT & SANCTUARY',
@@ -216,7 +216,7 @@ export default function ExploreCoastPage() {
         ? 'Dekedda ganacsiga qadiimiga ah oo leh xeebo cad-cad, biyo deggan, iyo marinka socdaalka libaax-badeedka badda.'
         : 'A historic Gulf of Aden trading hub blessed with calm turquoise waters, coastal palm groves, and seasonal whale shark migrations.',
       link: '/explore-the-coast/bosaso',
-      image: '/images/img_02.webp',
+      image: '/bosaso_harbor_thumb.webp',
     },
     {
       tag: isSomali ? 'JASIIRADAHA KOONFURTA' : 'SOUTHERN ATOLLS',
@@ -224,8 +224,8 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Jasiirado qadiimi ah oo leh biyaha ugu nadiifsan, doonyaha dhowka ee dhaqanka, iyo goobaha ukun-dhigashada qoolleyda badda.'
         : 'An untouched constellation of coral atolls, turquoise lagoons, traditional Swahili-Somali dhow vessels, and green turtle hatcheries.',
-      link: '/explore-the-coast/kismayo',
-      image: '/images/img_05.webp',
+      link: '/explore-the-coast/bajuni-islands',
+      image: '/images/img_01.webp',
     },
   ];
 
@@ -236,7 +236,7 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Xeebta caanka ah ee Gacanka Cadmeed oo leh biyo diirran, buuro dhaadheer, iyo kalluumeysi dabiici ah.'
         : 'Where dramatic Karkaar mountains meet calm Gulf waters, rich in marine life and ancient seafaring heritage.',
-      image: '/images/img_02.webp',
+      image: '/bosaso_harbor_thumb.webp',
       link: '/explore-the-coast/bosaso',
     },
     {
@@ -245,8 +245,8 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Jasiirado carwo ah oo ku yaal Badweynta Hindiya, oo leh biyo buluug ah iyo noocyo dhif ah oo shacaab ah.'
         : 'Pristine islands ringed by living barrier reefs, crystal lagoons, and centuries of dhow maritime traditions.',
-      image: '/images/img_05.webp',
-      link: '/explore-the-coast/kismayo',
+      image: '/images/img_01.webp',
+      link: '/explore-the-coast/bajuni-islands',
     },
     {
       region: isSomali ? 'Bari & Xaafuun' : 'Hafun Horn',
@@ -254,7 +254,7 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Dhul taariikhi ah oo Geeska Afrika ku yaal, buuro shacaab ah oo dhererkoodu gaarayo badda gudaheeda.'
         : "Africa's easternmost headland, towering limestone bluffs, wild oceanic swells, and ancient spice trading ruins.",
-      image: '/images/img_01.webp',
+      image: '/hafun1.webp',
       link: '/explore-the-coast/hafun',
     },
     {
@@ -263,7 +263,7 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Dooxo dabiici ah oo webi biyaha macaan iyo baddu isku galaan, qalcadihii Daraawiishta, iyo xeeb deggan.'
         : 'A breathtaking coastal canyon where freshwater streams spill directly into the turquoise Indian Ocean.',
-      image: '/images/img_03.webp',
+      image: '/eyl1.webp',
       link: '/explore-the-coast/eyl',
     },
     {
@@ -272,7 +272,7 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Xeebta ugu caansan dalka oo leh makhaayado badda, qorrax-u-dhaca cajiibka ah, iyo dadweyne farxad leh.'
         : 'Iconic open ocean promenade, warm rolling surf, bustling seaside culture, and golden evening light.',
-      image: '/images/image.webp',
+      image: '/mogadishu1.webp',
       link: '/explore-the-coast/mogadishu',
     },
     {
@@ -281,7 +281,7 @@ export default function ExploreCoastPage() {
       desc: isSomali
         ? 'Jasiiradaha Saacaddiin, biyo gacameed gacale ah, iyo hugaamo badda oo kumanaan sano jirtey.'
         : 'Shallow emerald marine flats, Sa’ad ad-Din island coral sanctuaries, and ancient seafaring trading routes.',
-      image: '/images/img_07.webp',
+      image: '/zeila1.webp',
       link: '/explore-the-coast/zeila',
     },
   ];
@@ -294,7 +294,7 @@ export default function ExploreCoastPage() {
       excerpt: isSomali
         ? 'Buuraha dhaadheer ee Karkaar oo badda ku darsama, biyo mool ah oo ay dhex maraan noocyada waaweyn ee badda.'
         : 'Rugged coastal mountain ranges meeting deep oceanic waters, famous for calm coves and seasonal whale sharks.',
-      image: '/images/img_02.webp',
+      image: '/bosaso_harbor_thumb.webp',
       link: '/explore-the-coast/bosaso',
     },
     {
@@ -304,8 +304,8 @@ export default function ExploreCoastPage() {
       excerpt: isSomali
         ? 'Silsilad jasiirado ah oo leh carwooyinka shacaabka, kaymaha mangrove-ka, iyo xeebaha cad ee aan la taaban.'
         : 'A protected archipelago of coral cays, dense mangrove forests, and crucial green sea turtle nesting grounds.',
-      image: '/images/img_05.webp',
-      link: '/explore-the-coast/kismayo',
+      image: '/kismayo1.webp',
+      link: '/explore-the-coast/bajuni-islands',
     },
     {
       badge: isSomali ? 'BARIGA AFRIKA' : 'EASTERN HORN',
@@ -314,7 +314,7 @@ export default function ExploreCoastPage() {
       excerpt: isSomali
         ? 'Dhul qadiimi ah oo Geeska Afrika ku yaal, qalcado taariikhi ah, iyo buuro dabiici ah oo badda dhexdeeda ah.'
         : 'Ancient maritime crossroads where freshwater springs, deep sea canyons, and historic stone fortresses convene.',
-      image: '/images/img_03.webp',
+      image: '/hafun1.webp',
       link: '/explore-the-coast/hafun',
     },
   ];
@@ -329,7 +329,7 @@ export default function ExploreCoastPage() {
       location: isSomali ? 'Gacanka Cadmeed (11.28° N, 49.18° E)' : 'Gulf of Aden (11.28° N, 49.18° E)',
       status: isSomali ? 'Deggan' : 'Active Port',
       code: 'BS-01',
-      image: '/images/img_02.webp',
+      image: '/bosaso_harbor_thumb.webp',
       link: '/explore-the-coast/bosaso',
     },
     {
@@ -341,8 +341,8 @@ export default function ExploreCoastPage() {
       location: isSomali ? 'Badweynta Hindiya (-0.36° S, 42.54° E)' : 'Indian Ocean (-0.36° S, 42.54° E)',
       status: isSomali ? 'Ilaalin Buuxda' : 'Protected',
       code: 'BJ-04',
-      image: '/images/img_05.webp',
-      link: '/explore-the-coast/kismayo',
+      image: '/images/img_01.webp',
+      link: '/explore-the-coast/bajuni-islands',
     },
     {
       title: isSomali ? 'Dooxada Eyl & Dhagaxyada Badweynta Hindiya' : 'Dooxada Eyl Coastal Gorge & Marine Canyon',
@@ -353,7 +353,7 @@ export default function ExploreCoastPage() {
       location: isSomali ? 'Badweynta Hindiya (7.98° N, 49.82° E)' : 'Indian Ocean (7.98° N, 49.82° E)',
       status: isSomali ? 'Dabiici Ah' : 'Natural Cove',
       code: 'EY-07',
-      image: '/images/img_03.webp',
+      image: '/eyl1.webp',
       link: '/explore-the-coast/eyl',
     },
   ];

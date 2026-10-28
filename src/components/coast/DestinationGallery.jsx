@@ -3,16 +3,14 @@ import CoverFlowGallery from '../gallery/CoverFlowGallery';
 export default function DestinationGallery({ destination }) {
   if (!destination) return null;
 
-  // Collect images for this destination
-  const rawImages = destination.gallery && destination.gallery.length > 0
-    ? destination.gallery
-    : [
-        destination.heroImage,
-        '/bosaso_beach_thumb.webp',
-        '/bosaso_1005_thumb.webp',
-        '/images/img_02.webp',
-        '/bosaso_harbor_thumb.webp',
-      ];
+  // Collect unique authentic images for this destination
+  const rawImages = [
+    destination.heroImage,
+    ...(destination.gallery || []),
+    ...(destination.galleryImages || []),
+  ].filter(Boolean);
+
+  const uniqueImages = Array.from(new Set(rawImages));
 
   // Prepare standard 5 items matching user reference Cover Flow
   const coverFlowItems = [
@@ -25,8 +23,8 @@ export default function DestinationGallery({ destination }) {
       desc:
         destination.description ||
         `Sunlit turquoise waters and rolling surf along the pristine shores of ${destination.name}.`,
-      image: rawImages[1] || rawImages[0] || '/bosaso_1005_thumb.webp',
-      avatar: destination.heroImage || rawImages[0],
+      image: uniqueImages[0] || destination.heroImage,
+      avatar: destination.heroImage || uniqueImages[0],
       author: destination.name,
       authorMeta: `${destination.region || 'Somali Coastline'} • 3,330 KM Sanctuary`,
       link: `/explore-the-coast/${destination.slug || 'bosaso'}`,
@@ -39,8 +37,8 @@ export default function DestinationGallery({ destination }) {
       year: 'COAST',
       desc:
         'Dramatic panoramic vistas overlooking untouched barrier reefs, calm lagoons, and vibrant marine biodiversity.',
-      image: rawImages[2] || rawImages[0] || '/images/image.webp',
-      avatar: destination.heroImage || rawImages[0],
+      image: uniqueImages[1] || uniqueImages[0] || destination.heroImage,
+      avatar: destination.heroImage || uniqueImages[0],
       author: destination.name,
       authorMeta: `${destination.region || 'Somali Coastline'} • Living Coral Atolls`,
       link: `/explore-the-coast/${destination.slug || 'bosaso'}`,
@@ -53,8 +51,8 @@ export default function DestinationGallery({ destination }) {
       year: 'PELAGIC',
       desc:
         'Deep cobalt blue marine channel sheltering rich pelagic fish populations and seasonal whale shark migrations.',
-      image: rawImages[0] || destination.heroImage || '/gallery_center_lake.webp',
-      avatar: destination.heroImage || rawImages[0],
+      image: uniqueImages[2] || uniqueImages[0] || destination.heroImage,
+      avatar: destination.heroImage || uniqueImages[0],
       author: destination.name,
       authorMeta: `${destination.region || 'Somali Coastline'} • Marine Reserve`,
       link: `/explore-the-coast/${destination.slug || 'bosaso'}`,
@@ -67,8 +65,8 @@ export default function DestinationGallery({ destination }) {
       year: 'MARITIME',
       desc:
         'Centuries of Swahili-Somali maritime culture where handcrafted wooden dhows sail across turquoise morning breezes.',
-      image: rawImages[3] || rawImages[1] || '/images/img_02.webp',
-      avatar: destination.heroImage || rawImages[0],
+      image: uniqueImages[3] || uniqueImages[1] || destination.heroImage,
+      avatar: destination.heroImage || uniqueImages[0],
       author: destination.name,
       authorMeta: `${destination.region || 'Somali Coastline'} • Seafaring Haven`,
       link: `/explore-the-coast/${destination.slug || 'bosaso'}`,
@@ -81,8 +79,8 @@ export default function DestinationGallery({ destination }) {
       year: 'HORIZON',
       desc:
         'Where sheer coastal sandstone headlands meet the uninterrupted Indian Ocean and Gulf of Aden horizons.',
-      image: rawImages[4] || rawImages[2] || '/images/img_05.webp',
-      avatar: destination.heroImage || rawImages[0],
+      image: uniqueImages[4] || uniqueImages[2] || destination.heroImage,
+      avatar: destination.heroImage || uniqueImages[0],
       author: destination.name,
       authorMeta: `${destination.region || 'Somali Coastline'} • Headlands`,
       link: `/explore-the-coast/${destination.slug || 'bosaso'}`,

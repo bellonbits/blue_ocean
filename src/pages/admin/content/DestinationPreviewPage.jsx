@@ -41,6 +41,8 @@ export default function DestinationPreviewPage() {
         const bridge = staticDestinations.find((s) => s.slug === adapted.slug) || {};
         setDestination({
           ...adapted,
+          heroImage: bridge.heroImage || adapted.heroImage,
+          gallery: bridge.gallery || adapted.gallery || [],
           marineSpecies: bridge.marineSpecies || [],
           researchProjects: bridge.researchProjects || [],
           experiences: bridge.experiences || [],

@@ -19,11 +19,12 @@ const rawDestinations = [
 Because the continental shelf drops rapidly just off the coast, Bosaso is uniquely situated near deep pelagic waters where powerful nutrient-rich seasonal upwellings nourish immense schools of yellowfin tuna, kingfish, and migrating whale sharks.
 
 Along the shoreline, traditional wooden dhow builders continue heritage crafts that have linked the Horn of Africa to the Arabian Peninsula and Indian subcontinent for millennia. Somalia Blue Heaven's research teams operate coastal monitoring stations here tracking fisheries health and marine mammal migrations along the Aden channel.`,
-    heroImage: '/images/img_02.webp',
+    heroImage: '/bosaso_harbor_thumb.webp',
     gallery: [
-      '/images/img_02.webp',
-      '/bosaso2.webp',
-      '/bosaso3.webp',
+      '/bosaso_1005_thumb.webp',
+      '/bosaso_beach_thumb.webp',
+      '/bosaso_life_thumb.webp',
+      '/WebsiteImagery_1920x1080_SisterCities_BosasoSomalia-mtime20180108165841_2021-11-01-121110_grsn_91852798b59be8b28fc00edfe4aec23a.webp',
     ],
     coordinates: { lat: 11.2842, lng: 49.1813 },
     bestSeason: 'October to April (Calm seas & mild climate)',
@@ -94,11 +95,12 @@ Along the shoreline, traditional wooden dhow builders continue heritage crafts t
 The town is split between Badey (the coastal fishing settlement on the beach) and Daawad (the historic upper town nestled beneath towering cliffs). Stone fortifications built over a century ago overlook a protected bay that has provided shelter to Indian Ocean navigators for generations.
 
 The surrounding waters are celebrated for productive nearshore ecosystems, including rocky sub-tidal reefs that support healthy populations of spiny lobsters, green turtles, and seasonal migrations of humpback whales heading north through the Somali Current.`,
-    heroImage: '/images/img_03.webp',
+    heroImage: '/eyl1.webp',
     gallery: [
-      '/images/img_03.webp',
-      '/images/img_03.webp',
-      '/images/img_03.webp',
+      '/eyl2.webp',
+      '/eyl3.webp',
+      '/eyl/Screenshot 2026-09-02 at 11.57.19.webp',
+      '/eyl/Screenshot 2026-09-02 at 11.57.35.webp',
     ],
     coordinates: { lat: 7.9803, lng: 49.8164 },
     bestSeason: 'November to March',
@@ -155,11 +157,12 @@ The surrounding waters are celebrated for productive nearshore ecosystems, inclu
 Identified by historians as the ancient trading emporium of 'Opone' documented in the 1st-century Periplus of the Erythraean Sea, Hafun has welcomed merchant vessels trading frankincense, spices, and pearls for over two thousand years.
 
 Oceanographically, Hafun is ground zero for the intense Somali Current upwelling during the southwest monsoon, driving cold, nutrient-packed waters from the abyssal ocean to the sunlit surface and sparking one of the most explosive seasonal marine food chains on Earth.`,
-    heroImage: '/images/img_01.webp',
+    heroImage: '/hafun1.webp',
     gallery: [
-      '/images/img_01.webp',
-      '/images/img_01.webp',
-      '/images/img_01.webp',
+      '/hafun2.webp',
+      '/hafun3.webp',
+      '/hafun/Screenshot 2026-09-02 at 12.03.09.webp',
+      '/hafun/Screenshot 2026-09-02 at 12.04.47.webp',
     ],
     coordinates: { lat: 10.4222, lng: 51.2642 },
     bestSeason: 'December to April (Avoid peak summer monsoon)',
@@ -216,11 +219,12 @@ Oceanographically, Hafun is ground zero for the intense Somali Current upwelling
 During the 19th century, Bargaal served as a prominent maritime capital, with fortified stone watchtowers still standing sentinel along the beaches. Today, its waters are pristine and largely untouched by heavy industry, offering crystal-clear visibility and vibrant nearshore rocky reefs.
 
 Somalia Blue Heaven works with local elders and fishing cooperatives in Bargaal to document traditional marine territorial rights and protect juvenile fish nurseries in coastal shallows.`,
-    heroImage: '/images/img_04.webp',
+    heroImage: '/bargaal_main.webp',
     gallery: [
-      '/images/img_04.webp',
       '/bargaal_1.webp',
       '/bargaal_2.webp',
+      '/Bargaal/Screenshot 2026-09-02 at 12.00.30.webp',
+      '/Bargaal/Screenshot 2026-09-02 at 12.01.17.webp',
     ],
     coordinates: { lat: 11.2833, lng: 50.9833 },
     bestSeason: 'November to March',
@@ -269,12 +273,12 @@ Somalia Blue Heaven works with local elders and fishing cooperatives in Bargaal 
 The town possesses a unique microclimate and geothermal coastal springs that bubble up near the tide line. Historically an ancient port known in classical antiquity, Qandala remains an important hub for small-boat artisanal fishermen targeting snapper, grouper, and king mackerel.
 
 The underwater topography features dramatic drop-offs with black coral formations, underwater caves, and deep-water gorgonian sea fans.`,
-    heroImage: '/images/img_04.webp',
+    heroImage: '/qandala_main.webp',
     gallery: [
-      '/images/img_04.webp',
-      '/images/img_04.webp',
-      '/images/img_04.webp',
-      '/images/img_04.webp',
+      '/qandala1.webp',
+      '/qandala2.webp',
+      '/qandala3.webp',
+      '/Qandala/Screenshot 2026-09-02 at 12.08.33.webp',
     ],
     coordinates: { lat: 11.4719, lng: 49.8728 },
     bestSeason: 'October to April',
@@ -321,11 +325,12 @@ The underwater topography features dramatic drop-offs with black coral formation
     fullDescription: `Hurdiya sits along one of the most exposed and least-developed stretches of Puntland's eastern coast, where the seabed drops quickly into cold, nutrient-rich water pushed north by the Somali Current. The town's economy has long been built around artisanal fishing — small crews working hand lines and traps for reef fish, lobster, and pelagic species from open wooden dhows.
 
 Unlike the more sheltered anchorages further south, Hurdiya's coastline is rocky and current-swept, which has kept large-scale development away but made it a productive ground for the fishing families who know its waters. Somalia Blue Heaven is working to document this coastline in more detail — its reef structure, the species that depend on it, and the fishing practices of the community itself — as part of a broader effort to understand and protect Puntland's less-studied eastern shore.`,
-    heroImage: '/images/img_01.webp',
+    heroImage: '/hafun/Screenshot 2026-09-02 at 12.03.44.webp',
     gallery: [
-      '/images/img_01.webp',
-      '/images/img_01.webp',
-      '/images/img_01.webp',
+      '/images/img_07.webp',
+      '/exp_coastal_cliff.webp',
+      '/Somalia,_Puntland,_Bari,_Bargal_(01).webp',
+      '/somalia_coast.webp',
     ],
     coordinates: { lat: 10.53, lng: 51.13 },
     bestSeason: 'November to March',
@@ -383,11 +388,12 @@ Unlike the more sheltered anchorages further south, Hurdiya's coastline is rocky
 Behind the town, the arid Golis mountain range rises sharply from the coastal plain, giving way to a shoreline of pale sand beaches and warm, shallow reef flats that stay calm for much of the year. Traditional fishing communities still work these waters daily for reef fish, shark, and seasonal pelagics.
 
 Somalia Blue Heaven is beginning baseline surveys of Berbera’s nearshore reef flats and lagoon systems, an area of the Gulf of Aden that remains comparatively under-documented despite its long human history.`,
-    heroImage: '/images/img_09.webp',
+    heroImage: '/berbera1.webp',
     gallery: [
-      '/images/img_09.webp',
       '/berbera2.webp',
       '/berbera3.webp',
+      '/Berbera/Screenshot 2026-09-02 at 12.15.37.webp',
+      '/Berbera/Screenshot 2026-09-02 at 12.15.58.webp',
     ],
     coordinates: { lat: 10.4396, lng: 45.0143 },
     bestSeason: 'October to April (Calm seas, avoid summer Khareef winds)',
@@ -444,11 +450,12 @@ Somalia Blue Heaven is beginning baseline surveys of Berbera’s nearshore reef 
 The waters offshore are shallow and calm for much of the year, sheltered by a scatter of low sandy islets, and support seasonal artisanal fishing much as they have for generations.
 
 Somalia Blue Heaven views Zeila as a priority site for documenting how a historic Gulf of Aden port town's marine life and fishing practices have shifted over time, alongside the town's largely unrestored maritime heritage.`,
-    heroImage: '/images/img_09.webp',
+    heroImage: '/zeila1.webp',
     gallery: [
-      '/images/img_09.webp',
-      '/images/img_09.webp',
-      '/images/img_09.webp',
+      '/zeila2.webp',
+      '/zeila3.webp',
+      '/zeila/Screenshot 2026-09-02 at 12.17.24.webp',
+      '/zeila/Screenshot 2026-09-02 at 12.18.19.webp',
     ],
     coordinates: { lat: 11.3572, lng: 43.4808 },
     bestSeason: 'November to March',
@@ -498,12 +505,12 @@ Somalia Blue Heaven views Zeila as a priority site for documenting how a histori
 Located just south of where the fertile Jubba River empties into the Indian Ocean, Kismayo’s coastal waters are fed by nutrient-dense estuarine outflows that nourish immense mangrove forests, productive crustacean habitats, and vital nursery grounds for reef fish.
 
 The beaches of Kismayo—stretching unbroken for tens of kilometers with powdery white sand—represent some of the finest natural coastlines in Eastern Africa. Somalia Blue Heaven conducts regular community beach cleanups, youth ocean education classes, and mangrove reforestation projects here.`,
-    heroImage: '/images/img_05.webp',
+    heroImage: '/kismayo1.webp',
     gallery: [
-      '/images/img_05.webp',
-      '/images/img_05.webp',
-      '/images/img_05.webp',
-      '/images/img_05.webp',
+      '/kismayo2.webp',
+      '/kismayo3.webp',
+      '/kismayo4.webp',
+      '/kismayo/Screenshot 2026-09-02 at 12.21.20.webp',
     ],
     coordinates: { lat: -0.3582, lng: 42.5454 },
     bestSeason: 'July to March (Year-round tropical climate)',
@@ -576,9 +583,10 @@ Surrounded by crystal-clear turquoise lagoons and protected by a robust outer ba
 The indigenous Bajuni seafaring community has lived on these islands for centuries, navigating the complex reef passages in traditional 'ngalawa' outrigger canoes and lateen-rigged dhows. The islands are also one of the last confirmed refuges for the critically endangered dugong in Somali waters.`,
     heroImage: '/images/img_01.webp',
     gallery: [
-      '/images/img_01.webp',
-      '/images/img_02.webp',
+      '/images/img_05.webp',
       '/images/img_11.webp',
+      '/exp_coral_snorkeling.webp',
+      '/exp_dhow_sailing.webp',
     ],
     coordinates: { lat: -0.8500, lng: 42.2000 },
     bestSeason: 'November to April (Optimal underwater visibility)',
@@ -649,11 +657,12 @@ The indigenous Bajuni seafaring community has lived on these islands for centuri
 Because human activity is minimal here, Ras Kamboni’s beaches serve as vital, undisturbed nesting grounds for green and olive ridley sea turtles. The surrounding ocean waters support dense coral reefs that link seamlessly into the Lamu marine conservation corridors across the border.
 
 Somalia Blue Heaven is actively working with regional rangers and community representatives to designate key stretches of Ras Kamboni as protected marine sanctuaries.`,
-    heroImage: '/images/img_10.webp',
+    heroImage: '/kamboni1.webp',
     gallery: [
-      '/images/img_10.webp',
-      '/images/img_10.webp',
-      '/images/img_10.webp',
+      '/kamboni2.webp',
+      '/kamboni3.webp',
+      '/Kamboni/Screenshot 2026-09-02 at 12.25.24.webp',
+      '/Kamboni/Screenshot 2026-09-02 at 12.25.51.webp',
     ],
     coordinates: { lat: -1.6406, lng: 41.5647 },
     bestSeason: 'December to March',
@@ -703,11 +712,12 @@ Somalia Blue Heaven is actively working with regional rangers and community repr
 From the medieval minarets and coral-rag stone buildings of the ancient Hamar Weyne and Shangani districts to the bustling morning landings at the central fish market, ocean culture permeates every corner of the city.
 
 The coastal shelf off Mogadishu supports rich pelagic fisheries including king mackerel, sailfish, and skipjack tuna. Today, Mogadishu’s shoreline is undergoing a vibrant revival, with coastal cafes, watersports enthusiasts, and ocean research institutes taking root.`,
-    heroImage: '/images/img_08.webp',
+    heroImage: '/mogadishu1.webp',
     gallery: [
-      '/images/img_08.webp',
-      '/images/img_08.webp',
-      '/images/img_08.webp',
+      '/mogadishu2.webp',
+      '/mogadishu3.webp',
+      '/mogadishu_beach.webp',
+      '/mogadishu/Screenshot 2026-09-02 at 12.44.48.webp',
     ],
     coordinates: { lat: 2.0469, lng: 45.3182 },
     bestSeason: 'Year-round (Best: October to April)',
@@ -770,12 +780,12 @@ The coastal shelf off Mogadishu supports rich pelagic fisheries including king m
 Every weekend, thousands of families, students, entrepreneurs, and athletes gather on Liido’s expansive shoreline to swim in the warm Indian Ocean surf, play beach football, enjoy fresh seafood at oceanfront cafes, and watch the sun dip below the horizon.
 
 The beach is protected by a series of nearshore sandbanks and submerged coral outcrops that create safe swimming conditions inside the surf zone. Somalia Blue Heaven conducts regular youth ocean literacy campaigns and community beach stewardship events right here.`,
-    heroImage: '/images/img_08.webp',
+    heroImage: '/liido1.webp',
     gallery: [
-      '/images/img_08.webp',
-      '/images/img_08.webp',
-      '/images/img_08.webp',
-      '/images/img_08.webp',
+      '/liido2.webp',
+      '/liido3.webp',
+      '/liido4.webp',
+      '/Liido beach/Screenshot 2026-09-02 at 12.43.32.webp',
     ],
     coordinates: { lat: 2.0538, lng: 45.3689 },
     bestSeason: 'Year-round (Warm ocean temperatures constantly)',
@@ -825,11 +835,12 @@ The beach is protected by a series of nearshore sandbanks and submerged coral ou
 At low tide, calm shallow lagoons form behind the reef crest, providing an exceptional natural nursery for juvenile fish, octopus, and sea anemones. Traditional dhow boats ferry visitors across the tranquil channel to explore the rocky island and its sea caves.
 
 Inland from the beach, extensive traditional solar salt evaporation pans have operated sustainably for decades, producing sea salt through the natural evaporation of Indian Ocean brine.`,
-    heroImage: '/images/img_08.webp',
+    heroImage: '/jazeera1.webp',
     gallery: [
-      '/images/img_08.webp',
-      '/images/img_08.webp',
-      '/images/img_08.webp',
+      '/jazeera2.webp',
+      '/jazeera3.webp',
+      '/Jazeera/Screenshot 2026-09-02 at 12.41.41.webp',
+      '/Jazeera/Screenshot 2026-09-02 at 12.41.54.webp',
     ],
     coordinates: { lat: 1.9547, lng: 45.2289 },
     bestSeason: 'October to May',
@@ -881,9 +892,10 @@ The town’s architecture is renowned for its whitewashed coral-stone buildings 
 Marka’s fishermen operate from open sandy beaches, braving the powerful ocean breakers in agile fiberglass boats to harvest kingfish, tuna, and snappers from the fertile Shabelle coastal banks.`,
     heroImage: '/marka1.webp',
     gallery: [
-      '/marka1.webp',
       '/marka2.webp',
       '/marka3.webp',
+      '/marka/Screenshot 2026-09-02 at 12.33.26.webp',
+      '/marka/Screenshot 2026-09-02 at 12.33.55.webp',
     ],
     coordinates: { lat: 1.7159, lng: 44.7719 },
     bestSeason: 'December to April',
@@ -935,9 +947,10 @@ The town is home to the Bravanese people, who speak Chimwiini (a distinct Swahil
 Barawe is protected by offshore coral reefs and barrier islands that provide calm anchorage for fishing boats. The surrounding marine ecosystems support rich coral gardens, sea turtle foraging areas, and abundant reef fish.`,
     heroImage: '/barawe1.webp',
     gallery: [
-      '/barawe1.webp',
       '/barawe2.webp',
       '/barawe3.webp',
+      '/Baraawe/Screenshot 2026-09-02 at 12.30.28.webp',
+      '/Baraawe/Screenshot 2026-09-02 at 12.30.48.webp',
     ],
     coordinates: { lat: 1.1133, lng: 44.0306 },
     bestSeason: 'December to March',
@@ -985,11 +998,12 @@ Barawe is protected by offshore coral reefs and barrier islands that provide cal
 Founded as an essential freshwater replenishment port for Indian Ocean trading dhows traveling between the Persian Gulf and East Africa, Hobyo later became the capital of the historic Sultanate of Hobyo in the late 19th century.
 
 Oceanographically, Hobyo sits at the epicenter of the Great Whirl and the powerful Somali Current upwelling system. In the summer months, cold, nutrient-rich deep water surges toward the coast, creating one of the highest concentrations of ocean biomass and pelagic fish in the Indian Ocean.`,
-    heroImage: '/images/img_06.webp',
+    heroImage: '/hobyo1.webp',
     gallery: [
-      '/images/img_06.webp',
-      '/images/img_06.webp',
-      '/images/img_06.webp',
+      '/hobyo2.webp',
+      '/hobyo3.webp',
+      '/hobyo/Screenshot 2026-09-02 at 12.38.06.webp',
+      '/hobyo/Screenshot 2026-09-02 at 12.38.40.webp',
     ],
     coordinates: { lat: 5.3503, lng: 48.5269 },
     bestSeason: 'October to April (Milder coastal winds)',
