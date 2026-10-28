@@ -24,7 +24,7 @@ import '../styles/portalDesignSystem.css';
 export const TOURISM_HERO_SPOTS = [
   {
     id: 'somalia-beach-shallows',
-    image: '/images/image.png',
+    image: '/images/image.webp',
     alt: 'Somalia coastal turquoise shallows, white sandbars and traditional sailing',
   },
   {
@@ -298,7 +298,7 @@ export default function TourismPage() {
       {/* 1. Page Hero: Reference Inset Layout with Single Background Image */}
       <PageHero
         pageId="tourism"
-        image="/images/image.png"
+        image="/images/image.webp"
         titleTop={isSomali ? 'Sahami Xeebaha' : 'Discover Pristine'}
         titleHighlight={isSomali ? 'Dalxiiska' : 'Destinations'}
         titleBottom={isSomali ? 'ee Soomaaliya' : 'With Every Voyage'}

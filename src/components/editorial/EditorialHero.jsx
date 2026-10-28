@@ -134,17 +134,29 @@ export default function EditorialHero() {
     >
       {/* 1. IMMERSIVE FULL-BLEED BACKGROUND OCEAN CANVAS (NO WHITE CUTS / NO DIVIDING LINES) */}
       <div className="hero-cinema__bg-container">
-        <img
-          src="/images/image.png"
-          alt={
-            isSomali
-              ? 'Xeebta Soomaaliya ee quruxda badan oo leh doonyo dhaqameed iyo biyo buluug ah'
-              : 'Somalia pristine turquoise lagoon, white sands, and traditional seafaring dhows'
-          }
-          className="hero-cinema__bg-img"
-          loading="eager"
-          fetchPriority="high"
-        />
+        <picture className="hero-cinema__picture">
+          <source
+            media="(max-width: 768px)"
+            srcSet="/images/image-mobile.webp"
+            type="image/webp"
+          />
+          <source
+            srcSet="/images/image.webp"
+            type="image/webp"
+          />
+          <img
+            src="/images/image.webp"
+            alt={
+              isSomali
+                ? 'Xeebta Soomaaliya ee quruxda badan oo leh doonyo dhaqameed iyo biyo buluug ah'
+                : 'Somalia pristine turquoise lagoon, white sands, and traditional seafaring dhows'
+            }
+            className="hero-cinema__bg-img"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </picture>
 
         {/* Sophisticated Luxury Multi-Stop Vignette Gradients for 100% Text Clarity */}
         <div className="hero-cinema__overlay-scrim" />

@@ -22,6 +22,7 @@ import {
   CheckCircle2,
   AlertTriangle,
   Radio,
+  MessageSquare,
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { submitContactMessage } from '../lib/dashboardApi';
@@ -422,7 +423,7 @@ export default function ContactPage({ defaultBooking = false }) {
       {activeTab === 'booking' ? (
         <PageHero
           pageId="booking"
-          image="/images/image.png"
+          image="/images/image.webp"
           titleTop={isSomali ? 'Qorshee Safarkaaga' : 'Plan Your'}
           titleHighlight={isSomali ? 'Jannada Badda' : 'Ocean Experience'}
           titleBottom={isSomali ? '• Xeebaha Soomaaliya' : '• Somalia Blue Heaven'}

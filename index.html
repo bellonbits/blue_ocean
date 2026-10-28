@@ -9,6 +9,30 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Critical LCP Preload: Load Hero Image & Logo Very First -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/image-mobile.webp"
+      type="image/webp"
+      media="(max-width: 768px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/images/image.webp"
+      type="image/webp"
+      media="(min-width: 769px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/Somalia Blue Heaven Wave Logo White.png"
+      type="image/png"
+    />
+
     <!-- SEO -->
     <title>Somalia Blue Heaven — Marine Tourism, Research & Conservation</title>
     <meta name="description" content="Discover Somalia's breathtaking coastline. Explore marine life, join ocean research expeditions, and help protect one of Africa's most remarkable marine environments across Puntland, Jubaland, and the Somali coast." />

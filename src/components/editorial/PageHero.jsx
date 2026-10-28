@@ -29,7 +29,7 @@ export default function PageHero({
   };
 
   // Determine the ONE single hero image that explains this page
-  const heroImage = image || (spots && spots[0]?.image) || '/images/image.png';
+  const heroImage = image || (spots && spots[0]?.image) || '/images/image.webp';
 
   // Primary Action Button (supports { label, path } and { text, href })
   const ctaLabel = primaryCta?.label || primaryCta?.text || (isSomali ? 'Sahami Hada' : 'Explore Now');
@@ -88,6 +88,9 @@ export default function PageHero({
             src={heroImage}
             alt={topText}
             className="modern-hero-bg"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
           />
 
           {/* Directional Gradient Overlay for 100% Left Text Legibility */}
