@@ -428,7 +428,7 @@ export default function ContactPage({ defaultBooking = false }) {
               : 'Discover untouched turquoise atolls, pristine coral reefs, and authentic maritime voyages along Africa’s longest national coastline. Submit your enquiry below and our expedition team will prepare your custom itinerary within 24 hours.'
           }
           primaryCta={{
-            label: isSomali ? 'Codso Safar Hadda' : 'Request a Booking',
+            label: isSomali ? 'Ballanso Safarka Hadda' : 'Book Trip Now',
             path: '#booking-section',
             icon: <ArrowRight size={17} />,
           }}
@@ -834,7 +834,7 @@ export default function ContactPage({ defaultBooking = false }) {
                       <span>
                         {bookingStatus === 'submitting'
                           ? isSomali ? 'Diraya Codsiga...' : 'Transmitting Booking Enquiry...'
-                          : isSomali ? 'Gudbi Codsiga Safarka' : 'Request a Booking'}
+                          : isSomali ? 'Ballanso Safarka Hadda' : 'Book Trip Now'}
                       </span>
                       <ArrowRight size={16} className="booking-submit-btn__arrow" />
                     </button>

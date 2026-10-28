@@ -260,7 +260,7 @@ export default function TourismSection() {
               className="travel-showcase__btn"
               id="travel-showcase-book-btn"
             >
-              <span>{isSomali ? 'Qorshee Safarka' : 'Book a Seat'}</span>
+              <span>{isSomali ? 'Ballanso Safarka Hadda' : 'Book Trip Now'}</span>
               <ArrowRight size={15} />
             </Link>
           </div>

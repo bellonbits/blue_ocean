@@ -368,7 +368,7 @@ export default function Header() {
               id="header-book-cta-btn"
             >
               <Compass size={14} />
-              <span>{isSomali ? 'Qorshee Safar' : 'Plan Your Trip'}</span>
+              <span>{isSomali ? 'Ballanso Safarka Hadda' : 'Book Trip Now'}</span>
             </Link>
 
             {/* Circular Frosted Glass Search Button */}
@@ -639,7 +639,7 @@ export default function Header() {
               onClick={() => setMobileOpen(false)}
             >
               <Compass size={17} />
-              <span>{isSomali ? 'Qorshee Safarkaaga Xeebta' : 'Plan Your Coastal Trip'}</span>
+              <span>{isSomali ? 'Ballanso Safarka Hadda' : 'Book Trip Now'}</span>
               <ArrowRight size={15} />
             </Link>
           </div>

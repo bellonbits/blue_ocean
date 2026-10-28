@@ -42,7 +42,7 @@ export default function EditorialCTA() {
             id="cta-plan-trip-btn"
           >
             <Calendar size={18} />
-            <span>{isSomali ? 'Qorshee Safarkaaga (Book Tour)' : 'Plan Your Trip / Book Tour'}</span>
+            <span>{isSomali ? 'Ballanso Safarka Hadda' : 'Book Trip Now'}</span>
             <ArrowRight size={16} />
           </Link>
 
