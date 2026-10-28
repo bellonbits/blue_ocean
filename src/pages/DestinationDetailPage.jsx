@@ -745,7 +745,7 @@ export default function DestinationDetailPage() {
         image={destination.heroImage || (galleryItems[0]?.image) || '/images/image.webp'}
         titleTop={isSomali ? 'Sahami Xeebta' : 'Explore Coastal'}
         titleHighlight={destination.name}
-        titleBottom={destination.region ? `• ${destination.region}` : ''}
+        titleBottom={destination.region || ''}
         desc={destination.description || destination.tagline || destination.overview}
         backLink={{
           label: isSomali ? 'Ku Noqo Xeebaha Soomaaliya' : "Explore Somalia’s Coast",

@@ -421,7 +421,7 @@ export default function ContactPage({ defaultBooking = false }) {
           image="/images/image.webp"
           titleTop={isSomali ? 'Qorshee Safarkaaga' : 'Plan Your'}
           titleHighlight={isSomali ? 'Jannada Badda' : 'Ocean Experience'}
-          titleBottom={isSomali ? '• Xeebaha Soomaaliya' : '• Somalia Blue Heaven'}
+          titleBottom={isSomali ? 'ee Soomaaliya' : 'in Somalia'}
           desc={
             isSomali
               ? 'Ku raaxayso 3,330 km oo biyo buluug ah, shacaab bikro ah, iyo safarro doon oo dhaqameed. Buuxi faahfaahintaada hoose — kooxdayada dalxiiskuna waxay kuu diyaarindoontaa qorshe buuxa 24 saac gudahood iyada oo aan lacag hore lagaa rabin.'
@@ -449,7 +449,7 @@ export default function ContactPage({ defaultBooking = false }) {
           image="/images/image.webp"
           titleTop={isSomali ? 'Nala Soo Xiriir' : 'Connect with'}
           titleHighlight={isSomali ? 'Hawlgallada Badda' : 'Maritime Operations'}
-          titleBottom={isSomali ? '• Xafiisyada Xeebaha' : '• Coastal Stations'}
+          titleBottom={isSomali ? 'ee Soomaaliya' : 'in Somalia'}
           desc={
             isSomali
               ? 'Xafiisyadayada Boosaaso, Muqdisho, iyo Kismaayo waxay diyaar u yihiin su’aalaha cilmi-baarista, dalxiiska, iyo iskaashiga bulshada.'

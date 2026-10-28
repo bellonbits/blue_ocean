@@ -143,26 +143,8 @@ export default function PageHero({
             </Link>
           </div>
 
-          {/* 3. BOTTOM-RIGHT INSET WHITE SCOOP CUTOUT */}
+          {/* 3. BOTTOM-RIGHT FLOATING INSIGHT BADGE CARD */}
           <div className="modern-hero-cutout">
-            {/* Concave Corner Scoop - Top Right */}
-            <svg
-              className="modern-hero-scoop-top"
-              viewBox="0 0 36 36"
-              aria-hidden="true"
-            >
-              <path d="M0,36 A36,36 0 0,0 36,0 L36,36 Z" fill="#ffffff" />
-            </svg>
-
-            {/* Concave Corner Scoop - Bottom Left */}
-            <svg
-              className="modern-hero-scoop-left"
-              viewBox="0 0 36 36"
-              aria-hidden="true"
-            >
-              <path d="M36,0 A36,36 0 0,0 0,36 L36,36 Z" fill="#ffffff" />
-            </svg>
-
             {/* Row 1: Header Link with Arrow */}
             <Link
               to={cutoutPath}
